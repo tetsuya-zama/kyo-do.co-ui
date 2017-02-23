@@ -10,5 +10,12 @@ $ npm install
 ```bash
 $ webpack
 ```
+###開発サーバの起動
+```bash
+$ npm start
+# http://localhost:8080でデバッグできる
+# ソースを修正すると再ビルドして即反映してくれる
+# 止めるときはctrl+c (macの場合はcommand+c)
+```
 
 
