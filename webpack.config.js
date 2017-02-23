@@ -7,7 +7,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /.js?$/,
+        test: /\.js?/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
@@ -15,5 +15,6 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  devtool: 'source-map'
 }
