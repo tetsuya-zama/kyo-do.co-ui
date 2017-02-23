@@ -22,6 +22,9 @@ $ npm start
 $ npm run esdoc
 # ./docsにドキュメントが生成される
 ```
+#### 公式ページ
 @see https://esdoc.org/
+#### 生成されたドキュメントの公開先
+@see https://tetsuya-zama.github.io/dokoit.tel-ui/
 
 
