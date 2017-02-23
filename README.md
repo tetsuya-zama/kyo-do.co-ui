@@ -20,7 +20,7 @@ $ npm start
 ### ドキュメント生成(esdoc)
 ```bash
 $ npm run esdoc
-# ./esdocにドキュメントが生成される
+# ./docsにドキュメントが生成される
 ```
 @see https://esdoc.org/
 
