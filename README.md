@@ -15,7 +15,7 @@ $ webpack
 $ npm start
 # http://localhost:8080でデバッグできる
 # ソースを修正すると再ビルドして即反映してくれる
-# 止めるときはctrl+c 
+# 止めるときはctrl+c
 ```
 ### ドキュメント生成(esdoc)
 ```bash
@@ -26,5 +26,6 @@ $ npm run esdoc
 @see https://esdoc.org/
 #### 生成されたドキュメントの公開先
 @see https://tetsuya-zama.github.io/kyo-do.co-ui/
-
-
+#### git pushする際の注意
+* git pushする前に必ずnpm run esdocを叩いて、ドキュメントを最新化しましょう
+* 可能であればドキュメントカバレッジ100%であることが望ましいです
