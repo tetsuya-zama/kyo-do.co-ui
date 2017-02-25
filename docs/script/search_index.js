@@ -48,15 +48,45 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "kyo-do.co-ui/src/action/mydestination.js~my_destination_change",
+    "variable/index.html#static-variable-MY_DESTINATION_CHANGE",
+    "<span>MY_DESTINATION_CHANGE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/component/mydestination.js~mydestination",
     "class/src/component/mydestination.js~MyDestination.html",
     "<span>MyDestination</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/mydestination.js</span>",
     "class"
   ],
   [
+    "kyo-do.co-ui/src/saga/mydestination.js~changedestinationsaga",
+    "function/index.html#static-function-changeDestinationSaga",
+    "<span>changeDestinationSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/mydestination.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/store/store.js~configurestore",
     "function/index.html#static-function-configureStore",
     "<span>configureStore</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/store/store.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/module/localstorage.js~existskeyonstorage",
+    "function/index.html#static-function-existsKeyOnStorage",
+    "<span>existsKeyOnStorage</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/localstorage.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/module/localstorage.js~getfromstorage",
+    "function/index.html#static-function-getFromStorage",
+    "<span>getFromStorage</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/localstorage.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/mydestination.js~loaddestinationsaga",
+    "function/index.html#static-function-loadDestinationSaga",
+    "<span>loadDestinationSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/mydestination.js</span>",
     "function"
   ],
   [
@@ -96,9 +126,33 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/action/mydestination.js~mydestinationchange",
+    "function/index.html#static-function-myDestinationChange",
+    "<span>myDestinationChange</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/reducer/mydestination.js~mydestination",
+    "function/index.html#static-function-mydestination",
+    "<span>mydestination</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/mydestination.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/module/localstorage.js~removefromstorage",
+    "function/index.html#static-function-removeFromStorage",
+    "<span>removeFromStorage</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/localstorage.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/saga/root.js~rootsaga",
     "function/index.html#static-function-rootSaga",
     "<span>rootSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/root.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/module/localstorage.js~settostorage",
+    "function/index.html#static-function-setToStorage",
+    "<span>setToStorage</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/localstorage.js</span>",
     "function"
   ],
   [
@@ -438,6 +492,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/action/mydestination.js",
+    "file/src/action/mydestination.js.html",
+    "src/action/mydestination.js",
+    "file"
+  ],
+  [
     "src/component/board.js",
     "file/src/component/board.js.html",
     "src/component/board.js",
@@ -522,6 +582,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/mydestination.js~mydestination#hundlechange",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleChange",
+    "src/component/mydestination.js~MyDestination#hundleChange",
+    "method"
+  ],
+  [
     "src/component/mydestination.js~mydestination#render",
     "class/src/component/mydestination.js~MyDestination.html#instance-method-render",
     "src/component/mydestination.js~MyDestination#render",
@@ -540,9 +606,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/module/localstorage.js",
+    "file/src/module/localstorage.js.html",
+    "src/module/localstorage.js",
+    "file"
+  ],
+  [
     "src/reducer/login.js",
     "file/src/reducer/login.js.html",
     "src/reducer/login.js",
+    "file"
+  ],
+  [
+    "src/reducer/mydestination.js",
+    "file/src/reducer/mydestination.js.html",
+    "src/reducer/mydestination.js",
     "file"
   ],
   [
@@ -555,6 +633,12 @@ window.esdocSearchIndex = [
     "src/saga/login.js",
     "file/src/saga/login.js.html",
     "src/saga/login.js",
+    "file"
+  ],
+  [
+    "src/saga/mydestination.js",
+    "file/src/saga/mydestination.js.html",
+    "src/saga/mydestination.js",
     "file"
   ],
   [

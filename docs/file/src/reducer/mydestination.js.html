@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/component/kyodoco.js | API Document</title>
+  <title data-ice="title">src/reducer/mydestination.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -62,75 +62,24 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/component/kyodoco.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
-import { connect } from &apos;react-redux&apos;
-import Header from &apos;./header&apos;
-import LoginForm from &apos;./loginform&apos;
-import Board from &apos;./board&apos;
-import MyDestination from &apos;./mydestination&apos;
-import {LOGIN_STATUS} from &apos;../const/login&apos;
+<div class="content" data-ice="content"><h1 data-ice="title">src/reducer/mydestination.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {MY_DESTINATION_CHANGE} from &apos;../action/mydestination&apos;
 
 /**
-*&#x30E1;&#x30A4;&#x30F3;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
-* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
+* &#x81EA;&#x5206;&#x306E;&#x884C;&#x304D;&#x5148; reducer
+* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864
+* @param {Object} state &#x5909;&#x66F4;&#x524D;&#x306E;state
+* @param {Object} action dispatch&#x3055;&#x308C;&#x305F;action
+* @return {Object} &#x5909;&#x66F4;&#x5F8C;&#x306E;state
 */
-class Kyodoco extends React.Component{
-  /**
-  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30BF;&#x30AF;&#x30BF;
-  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
-  * @return {undefined}
-  */
-  constructor(props){
-    super(props);
-  }
-
-  /**
-  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
-  * @return {undefined}
-  */
-  render(){
-    //&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x3066;&#x3044;&#x308C;&#x3070;&#x30E1;&#x30A4;&#x30F3;&#x753B;&#x9762;&#x3092;&#x3001;&#x305D;&#x3046;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x3092;&#x63CF;&#x753B;&#x3059;&#x308B;
-    const content =
-      this.props.login.status == LOGIN_STATUS.SUCCESS ?
-      (&lt;div&gt;
-        &lt;MyDestination
-          dispatch={this.props.dispatch}
-          login={this.props.login}
-          mydestination={this.props.mydestination} /&gt;
-        &lt;Board /&gt;
-       &lt;/div&gt;
-      ) :
-      (&lt;LoginForm
-        dispatch={this.props.dispatch}
-        login={this.props.login}/&gt;
-      );
-
-    return(
-      &lt;div&gt;
-      &lt;header&gt;
-        &lt;Header dispatch={this.props.dispatch} login={this.props.login}/&gt;
-      &lt;/header&gt;
-      &lt;hr /&gt;
-      {content}
-      &lt;/div&gt;
-    );
+export default function mydestination(state={inBusiness:false,comment:&quot;&quot;},action){
+  switch(action.type){
+    case(MY_DESTINATION_CHANGE):
+      return action.payload;
+    default:
+      return state;
   }
 }
-/**
-* redux&#x306E;store&#x4E0A;&#x306E;state&#x3092;component&#x306B;&#x63A5;&#x7D9A;&#x3059;&#x308B;&#x95A2;&#x6570;
-* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343
-*/
-function mapStateToProp(state){
-  return state;
-}
-
-/**
-* &#x30E1;&#x30A4;&#x30F3;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x3092;store&#x3068;&#x63A5;&#x7D9A;&#x3057;&#x3066;export&#x3059;&#x308B;
-* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
-* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343
-*/
-export default connect(mapStateToProp)(Kyodoco);
 </code></pre>
 
 </div>

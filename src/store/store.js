@@ -15,7 +15,8 @@ export function configureStore() {
   const store = createStore(
     rootReducer,
     {
-      login:{status:LOGIN_STATUS.NOTYET, user:{}}
+      login:{status:LOGIN_STATUS.NOTYET, user:{}},
+      mydestination:{inBusiness:false,comment:""}
     },
     applyMiddleware(
       sagaMiddleware, logger()

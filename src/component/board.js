@@ -20,6 +20,10 @@ export default class Board extends React.Component{
   */
   render(){
     //TODO 未実装
-    return <div>実装中</div>
+    return (
+      <div>
+      <h3>行き先表</h3>
+      <span>実装中</span>
+      </div>);
   }
 }

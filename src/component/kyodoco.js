@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Header from './header'
 import LoginForm from './loginform'
+import Board from './board'
+import MyDestination from './mydestination'
 import {LOGIN_STATUS} from '../const/login'
 
 /**
@@ -23,10 +25,22 @@ class Kyodoco extends React.Component{
   * @return {undefined}
   */
   render(){
+    //ログインしていればメイン画面を、そうでなければログインフォームを描画する
     const content =
       this.props.login.status == LOGIN_STATUS.SUCCESS ?
-      <div></div> :
-      <LoginForm dispatch={this.props.dispatch} login={this.props.login}/>;
+      (<div>
+        <MyDestination
+          dispatch={this.props.dispatch}
+          login={this.props.login}
+          mydestination={this.props.mydestination} />
+        <Board />
+       </div>
+      ) :
+      (<LoginForm
+        dispatch={this.props.dispatch}
+        login={this.props.login}/>
+      );
+
     return(
       <div>
       <header>

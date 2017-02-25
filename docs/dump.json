@@ -221,8 +221,74 @@
   {
     "__docId__": 9,
     "kind": "file",
+    "name": "src/action/mydestination.js",
+    "content": "\n/**\n* 自分の行き先変更アクション名\n*/\nexport const MY_DESTINATION_CHANGE = \"MY_DESTINATION_CHANGE\";\n\n/**\n* 自分の行き先変更アクションのcreator\n* @param {{inBusiness:boolean,comment:string}} destination 行き先\n* @return {Object} 自分の行き先変更アクション\n*/\nexport function myDestinationChange(destination){\n  return {\n    type:MY_DESTINATION_CHANGE,\n    payload:destination\n  };\n}\n",
+    "static": true,
+    "longname": "src/action/mydestination.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 10,
+    "kind": "variable",
+    "name": "MY_DESTINATION_CHANGE",
+    "memberof": "src/action/mydestination.js",
+    "static": true,
+    "longname": "src/action/mydestination.js~MY_DESTINATION_CHANGE",
+    "access": null,
+    "export": true,
+    "importPath": "kyo-do.co-ui/src/action/mydestination.js",
+    "importStyle": "{MY_DESTINATION_CHANGE}",
+    "description": "自分の行き先変更アクション名",
+    "lineNumber": 5,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 11,
+    "kind": "function",
+    "name": "myDestinationChange",
+    "memberof": "src/action/mydestination.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/action/mydestination.js~myDestinationChange",
+    "access": null,
+    "export": true,
+    "importPath": "kyo-do.co-ui/src/action/mydestination.js",
+    "importStyle": "{myDestinationChange}",
+    "description": "自分の行き先変更アクションのcreator",
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "{inBusiness:boolean,comment:string}"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "destination",
+        "description": "行き先"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "自分の行き先変更アクション"
+    }
+  },
+  {
+    "__docId__": 12,
+    "kind": "file",
     "name": "src/component/board.js",
-    "content": "import React from 'react'\n\n/**\n* 行き先掲示板コンポーネント（実装中）\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class Board extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //TODO 未実装\n    return <div>実装中</div>\n  }\n}\n",
+    "content": "import React from 'react'\n\n/**\n* 行き先掲示板コンポーネント（実装中）\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class Board extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //TODO 未実装\n    return (\n      <div>\n      <h3>行き先表</h3>\n      <span>実装中</span>\n      </div>);\n  }\n}\n",
     "static": true,
     "longname": "src/component/board.js",
     "access": null,
@@ -230,7 +296,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 10,
+    "__docId__": 13,
     "kind": "class",
     "name": "Board",
     "memberof": "src/component/board.js",
@@ -251,7 +317,7 @@
     ]
   },
   {
-    "__docId__": 11,
+    "__docId__": 14,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/component/board.js~Board",
@@ -284,7 +350,7 @@
     }
   },
   {
-    "__docId__": 12,
+    "__docId__": 15,
     "kind": "method",
     "name": "render",
     "memberof": "src/component/board.js~Board",
@@ -306,7 +372,7 @@
     }
   },
   {
-    "__docId__": 13,
+    "__docId__": 16,
     "kind": "file",
     "name": "src/component/header.js",
     "content": "import React from 'react'\nimport {LOGIN_STATUS} from '../const/login'\nimport {logoutRequested} from '../action/login'\n/**\n* Headerコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class Header extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleClick = this.hundleClick.bind(this);\n  }\n  /**\n  * ログアウトボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleClick(){\n      this.props.dispatch(logoutRequested());\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //ログインしていればログアウトボタンを表示する\n    const logoutButton = this.props.login.status == LOGIN_STATUS.SUCCESS ?\n      <button onClick={this.hundleClick}>logout</button> :\n      null\n    return(\n      <div>キョウ-ドコ？&nbsp;{logoutButton}</div>\n    )\n  }\n}\n",
@@ -317,7 +383,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 14,
+    "__docId__": 17,
     "kind": "class",
     "name": "Header",
     "memberof": "src/component/header.js",
@@ -338,7 +404,7 @@
     ]
   },
   {
-    "__docId__": 15,
+    "__docId__": 18,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/component/header.js~Header",
@@ -371,7 +437,7 @@
     }
   },
   {
-    "__docId__": 16,
+    "__docId__": 19,
     "kind": "member",
     "name": "hundleClick",
     "memberof": "src/component/header.js~Header",
@@ -394,7 +460,7 @@
     }
   },
   {
-    "__docId__": 17,
+    "__docId__": 20,
     "kind": "method",
     "name": "hundleClick",
     "memberof": "src/component/header.js~Header",
@@ -416,7 +482,7 @@
     }
   },
   {
-    "__docId__": 18,
+    "__docId__": 21,
     "kind": "method",
     "name": "render",
     "memberof": "src/component/header.js~Header",
@@ -438,10 +504,10 @@
     }
   },
   {
-    "__docId__": 19,
+    "__docId__": 22,
     "kind": "file",
     "name": "src/component/kyodoco.js",
-    "content": "import React from 'react'\nimport { connect } from 'react-redux'\nimport Header from './header'\nimport LoginForm from './loginform'\nimport {LOGIN_STATUS} from '../const/login'\n\n/**\n*メインコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nclass Kyodoco extends React.Component{\n  /**\n  * コンストタクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    const content =\n      this.props.login.status == LOGIN_STATUS.SUCCESS ?\n      <div></div> :\n      <LoginForm dispatch={this.props.dispatch} login={this.props.login}/>;\n    return(\n      <div>\n      <header>\n        <Header dispatch={this.props.dispatch} login={this.props.login}/>\n      </header>\n      <hr />\n      {content}\n      </div>\n    );\n  }\n}\n/**\n* reduxのstore上のstateをcomponentに接続する関数\n* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343\n*/\nfunction mapStateToProp(state){\n  return state;\n}\n\n/**\n* メインコンポーネントをstoreと接続してexportする\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343\n*/\nexport default connect(mapStateToProp)(Kyodoco);\n",
+    "content": "import React from 'react'\nimport { connect } from 'react-redux'\nimport Header from './header'\nimport LoginForm from './loginform'\nimport Board from './board'\nimport MyDestination from './mydestination'\nimport {LOGIN_STATUS} from '../const/login'\n\n/**\n*メインコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nclass Kyodoco extends React.Component{\n  /**\n  * コンストタクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //ログインしていればメイン画面を、そうでなければログインフォームを描画する\n    const content =\n      this.props.login.status == LOGIN_STATUS.SUCCESS ?\n      (<div>\n        <MyDestination\n          dispatch={this.props.dispatch}\n          login={this.props.login}\n          mydestination={this.props.mydestination} />\n        <Board />\n       </div>\n      ) :\n      (<LoginForm\n        dispatch={this.props.dispatch}\n        login={this.props.login}/>\n      );\n\n    return(\n      <div>\n      <header>\n        <Header dispatch={this.props.dispatch} login={this.props.login}/>\n      </header>\n      <hr />\n      {content}\n      </div>\n    );\n  }\n}\n/**\n* reduxのstore上のstateをcomponentに接続する関数\n* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343\n*/\nfunction mapStateToProp(state){\n  return state;\n}\n\n/**\n* メインコンポーネントをstoreと接続してexportする\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343\n*/\nexport default connect(mapStateToProp)(Kyodoco);\n",
     "static": true,
     "longname": "src/component/kyodoco.js",
     "access": null,
@@ -449,7 +515,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 20,
+    "__docId__": 23,
     "kind": "class",
     "name": "Kyodoco",
     "memberof": "src/component/kyodoco.js",
@@ -463,14 +529,14 @@
     "see": [
       "http://qiita.com/nownabe/items/2d8b92d95186c3941de0"
     ],
-    "lineNumber": 11,
+    "lineNumber": 13,
     "interface": false,
     "extends": [
       "react~React.Component"
     ]
   },
   {
-    "__docId__": 21,
+    "__docId__": 24,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/component/kyodoco.js~Kyodoco",
@@ -480,7 +546,7 @@
     "longname": "src/component/kyodoco.js~Kyodoco#constructor",
     "access": null,
     "description": "コンストタクタ",
-    "lineNumber": 17,
+    "lineNumber": 19,
     "params": [
       {
         "nullable": null,
@@ -503,7 +569,7 @@
     }
   },
   {
-    "__docId__": 22,
+    "__docId__": 25,
     "kind": "method",
     "name": "render",
     "memberof": "src/component/kyodoco.js~Kyodoco",
@@ -513,7 +579,7 @@
     "longname": "src/component/kyodoco.js~Kyodoco#render",
     "access": null,
     "description": "描画メソッド",
-    "lineNumber": 25,
+    "lineNumber": 27,
     "params": [],
     "return": {
       "nullable": null,
@@ -525,7 +591,7 @@
     }
   },
   {
-    "__docId__": 23,
+    "__docId__": 26,
     "kind": "function",
     "name": "mapStateToProp",
     "memberof": "src/component/kyodoco.js",
@@ -541,7 +607,7 @@
     "see": [
       "http://qiita.com/kompiro/items/7fe90c4abc92fd32b343"
     ],
-    "lineNumber": 45,
+    "lineNumber": 59,
     "params": [
       {
         "name": "state",
@@ -557,7 +623,7 @@
     }
   },
   {
-    "__docId__": 24,
+    "__docId__": 27,
     "kind": "file",
     "name": "src/component/loginform.js",
     "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {loginRequested} from '../action/login'\nimport {LOGIN_STATUS} from '../const/login'\n\n/**\n* LoginFormコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class LoginForm extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.handleSubmit = this.handleSubmit.bind(this);\n  }\n\n  /**\n  * ログインボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  handleSubmit(){\n    /*\n    *入力されたID/Passを取得して、\n    *それを元にLOGIN_REQUESTED(ログイン要求)アクションを作成してdispatchする\n    */\n    const userid = ReactDOM.findDOMNode(this.refs.userid).value.trim();\n    const password = ReactDOM.findDOMNode(this.refs.password).value.trim();\n    if(userid && password){\n      this.props.dispatch(loginRequested(userid,password));\n    }\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //現在の状態がLOGIN_STATUS.FAILURE(ログイン失敗)であれば失敗メッセージを表示する\n    const message = this.props.login.status == LOGIN_STATUS.FAILURE ?\n      \"IDもしくはパスワードが正しくありません\" :\n      \"\";\n\n    return (\n      <div>\n        <span>id:</span><input type=\"text\" ref=\"userid\"/>\n        <br />\n        <span>pass:</span><input type=\"password\" ref=\"password\"/>\n        <br />\n        <button onClick={this.handleSubmit}>Login</button>\n        <br />\n        <span style={{color:\"red\"}}>{message}</span>\n      </div>\n    );\n  }\n}\n",
@@ -568,7 +634,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 25,
+    "__docId__": 28,
     "kind": "class",
     "name": "LoginForm",
     "memberof": "src/component/loginform.js",
@@ -589,7 +655,7 @@
     ]
   },
   {
-    "__docId__": 26,
+    "__docId__": 29,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/component/loginform.js~LoginForm",
@@ -622,7 +688,7 @@
     }
   },
   {
-    "__docId__": 27,
+    "__docId__": 30,
     "kind": "member",
     "name": "handleSubmit",
     "memberof": "src/component/loginform.js~LoginForm",
@@ -645,7 +711,7 @@
     }
   },
   {
-    "__docId__": 28,
+    "__docId__": 31,
     "kind": "method",
     "name": "handleSubmit",
     "memberof": "src/component/loginform.js~LoginForm",
@@ -667,7 +733,7 @@
     }
   },
   {
-    "__docId__": 29,
+    "__docId__": 32,
     "kind": "method",
     "name": "render",
     "memberof": "src/component/loginform.js~LoginForm",
@@ -689,10 +755,10 @@
     }
   },
   {
-    "__docId__": 30,
+    "__docId__": 33,
     "kind": "file",
     "name": "src/component/mydestination.js",
-    "content": "import React from 'react'\n/**\n* \"自分の行き先\"コンポーネント（実装中）\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class MyDestination extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //TODO 未実装\n    return <div>実装中</div>;\n  }\n}\n",
+    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {myDestinationChange} from '../action/mydestination'\n\n/**\n* \"自分の行き先\"コンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class MyDestination extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleChange = this.hundleChange.bind(this);\n  }\n  /**\n  * 行き先の変更をハンドリングするメソッド\n  * @return undefined\n  */\n  hundleChange(){\n    //入力された出勤・退勤とコメントを両方取得してMY_DESTINATION_CHANGEアクションをdispatchする\n    const inBusiness = ReactDOM.findDOMNode(this.refs.inBusiness).value == 1; // state上はbooleanなのでここで変換\n    const comment = ReactDOM.findDOMNode(this.refs.comment).value;\n\n    this.props.dispatch(myDestinationChange({inBusiness:inBusiness, comment:comment}));\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    const inBusinessValue = this.props.mydestination.inBusiness ? 1 : 0;\n    const commentValue = this.props.mydestination.comment;\n    return (\n      <div>\n      <h3>自分の行き先</h3>\n      <table>\n        <tbody>\n        <tr>\n          <td>{this.props.login.user.userid}</td>\n          <td>\n            <select ref=\"inBusiness\" value={inBusinessValue} onChange={this.hundleChange}>\n             <option value={0}>退勤</option>\n             <option value={1}>出勤</option>\n            </select>\n          </td>\n          <td>\n            <input type=\"text\" ref=\"comment\" value={commentValue} onChange={this.hundleChange}/>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n      </div>);\n  }\n}\n",
     "static": true,
     "longname": "src/component/mydestination.js",
     "access": null,
@@ -700,7 +766,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 31,
+    "__docId__": 34,
     "kind": "class",
     "name": "MyDestination",
     "memberof": "src/component/mydestination.js",
@@ -710,18 +776,18 @@
     "export": true,
     "importPath": "kyo-do.co-ui/src/component/mydestination.js",
     "importStyle": "MyDestination",
-    "description": "\"自分の行き先\"コンポーネント（実装中）",
+    "description": "\"自分の行き先\"コンポーネント",
     "see": [
       "http://qiita.com/nownabe/items/2d8b92d95186c3941de0"
     ],
-    "lineNumber": 6,
+    "lineNumber": 9,
     "interface": false,
     "extends": [
       "react~React.Component"
     ]
   },
   {
-    "__docId__": 32,
+    "__docId__": 35,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/component/mydestination.js~MyDestination",
@@ -731,7 +797,7 @@
     "longname": "src/component/mydestination.js~MyDestination#constructor",
     "access": null,
     "description": "コンストラクタ",
-    "lineNumber": 12,
+    "lineNumber": 15,
     "params": [
       {
         "nullable": null,
@@ -754,7 +820,52 @@
     }
   },
   {
-    "__docId__": 33,
+    "__docId__": 36,
+    "kind": "member",
+    "name": "hundleChange",
+    "memberof": "src/component/mydestination.js~MyDestination",
+    "static": false,
+    "longname": "src/component/mydestination.js~MyDestination#hundleChange",
+    "access": null,
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 37,
+    "kind": "method",
+    "name": "hundleChange",
+    "memberof": "src/component/mydestination.js~MyDestination",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/component/mydestination.js~MyDestination#hundleChange",
+    "access": null,
+    "description": "行き先の変更をハンドリングするメソッド",
+    "lineNumber": 24,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "undefined"
+    }
+  },
+  {
+    "__docId__": 38,
     "kind": "method",
     "name": "render",
     "memberof": "src/component/mydestination.js~MyDestination",
@@ -764,7 +875,7 @@
     "longname": "src/component/mydestination.js~MyDestination#render",
     "access": null,
     "description": "描画メソッド",
-    "lineNumber": 20,
+    "lineNumber": 36,
     "params": [],
     "return": {
       "nullable": null,
@@ -776,7 +887,7 @@
     }
   },
   {
-    "__docId__": 34,
+    "__docId__": 39,
     "kind": "file",
     "name": "src/const/login.js",
     "content": "/**\n* login state内のstatus定義。SUCCESS(成功)、FAILURE(失敗)、NOTYET(未実施)。\n*/\nexport const LOGIN_STATUS={\n  SUCCESS:\"SUCCESS\",\n  FAILURE:\"FAILURE\",\n  NOTYET:\"NOTYET\"\n}\n",
@@ -787,7 +898,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 35,
+    "__docId__": 40,
     "kind": "variable",
     "name": "LOGIN_STATUS",
     "memberof": "src/const/login.js",
@@ -806,7 +917,7 @@
     }
   },
   {
-    "__docId__": 36,
+    "__docId__": 41,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport Kyodoco from './component/kyodoco'\nimport { Provider } from 'react-redux'\nimport {configureStore} from './store/store'\n\nimport \"babel-polyfill\"\n\nconst container = document.getElementById(\"app\");\nconst store = configureStore();\n\nReactDOM.render(\n  <Provider store={store}>\n    <Kyodoco />\n  </Provider>,\n  container\n);\n",
@@ -817,7 +928,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 37,
+    "__docId__": 42,
     "kind": "variable",
     "name": "container",
     "memberof": "src/index.js",
@@ -843,7 +954,7 @@
     }
   },
   {
-    "__docId__": 38,
+    "__docId__": 43,
     "kind": "variable",
     "name": "store",
     "memberof": "src/index.js",
@@ -869,7 +980,198 @@
     }
   },
   {
-    "__docId__": 39,
+    "__docId__": 44,
+    "kind": "file",
+    "name": "src/module/localstorage.js",
+    "content": "/*\n* ローカルストレージのKeyのプレフィックス\n*/\nconst LOCAL_STORAGE_PREFIX = \"kyo-do.co.\";\n\n/**\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {undefined}\n*/\nexport function setToStorage(key,value){\n  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,JSON.stringify(value));\n}\n/**\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n*/\nexport function getFromStorage(key){\n  return JSON.parse(localStorage.getItem(LOCAL_STORAGE_PREFIX + key));\n}\n/**\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {undefined}\n*/\nexport function removeFromStorage(key){\n  localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);\n}\n\n/**\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n*/\nexport function existsKeyOnStorage(key){\n  return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;\n}\n",
+    "static": true,
+    "longname": "src/module/localstorage.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 45,
+    "kind": "variable",
+    "name": "LOCAL_STORAGE_PREFIX",
+    "memberof": "src/module/localstorage.js",
+    "static": true,
+    "longname": "src/module/localstorage.js~LOCAL_STORAGE_PREFIX",
+    "access": null,
+    "export": false,
+    "importPath": "kyo-do.co-ui/src/module/localstorage.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 46,
+    "kind": "function",
+    "name": "setToStorage",
+    "memberof": "src/module/localstorage.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/module/localstorage.js~setToStorage",
+    "access": null,
+    "export": true,
+    "importPath": "kyo-do.co-ui/src/module/localstorage.js",
+    "importStyle": "{setToStorage}",
+    "description": "localStorageへ値をセットする",
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "キー"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "セットするオブジェクト"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "undefined"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 47,
+    "kind": "function",
+    "name": "getFromStorage",
+    "memberof": "src/module/localstorage.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/module/localstorage.js~getFromStorage",
+    "access": null,
+    "export": true,
+    "importPath": "kyo-do.co-ui/src/module/localstorage.js",
+    "importStyle": "{getFromStorage}",
+    "description": "localStorageから値を取得する",
+    "lineNumber": 20,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "キー"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "localStorageに保存されたオブジェクト"
+    }
+  },
+  {
+    "__docId__": 48,
+    "kind": "function",
+    "name": "removeFromStorage",
+    "memberof": "src/module/localstorage.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/module/localstorage.js~removeFromStorage",
+    "access": null,
+    "export": true,
+    "importPath": "kyo-do.co-ui/src/module/localstorage.js",
+    "importStyle": "{removeFromStorage}",
+    "description": "localStorageから値を削除する",
+    "lineNumber": 28,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "キー"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "undefined"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 49,
+    "kind": "function",
+    "name": "existsKeyOnStorage",
+    "memberof": "src/module/localstorage.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/module/localstorage.js~existsKeyOnStorage",
+    "access": null,
+    "export": true,
+    "importPath": "kyo-do.co-ui/src/module/localstorage.js",
+    "importStyle": "{existsKeyOnStorage}",
+    "description": "localStorage上にキーが存在するかを確認する",
+    "lineNumber": 37,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "キー"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "存在すればTrue"
+    }
+  },
+  {
+    "__docId__": 50,
     "kind": "file",
     "name": "src/reducer/login.js",
     "content": "import {LOGIN_STATUS} from '../const/login'\nimport {LOGIN_SUCCESS,LOGIN_FAILURE,LOGIN_REQUESTED,LOGOUT_REQUESTED} from '../action/login'\n\n/**\n* ログイン reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function login(state={status:\"NOTYET\",user:{}}, action){\n  switch(action.type){\n    case LOGIN_SUCCESS:\n      return {status:LOGIN_STATUS.SUCCESS,user:action.payload};\n    case LOGIN_FAILURE:\n      return {status:LOGIN_STATUS.FAILURE,user:{}};\n    case LOGOUT_REQUESTED:\n      return {status:LOGIN_STATUS.NOTYET,user:{}};\n    case LOGIN_REQUESTED:\n      return {status:LOGIN_STATUS.NOTYET,user:{}};\n    default:\n      return state;\n  }\n}\n",
@@ -880,7 +1182,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 40,
+    "__docId__": 51,
     "kind": "function",
     "name": "login",
     "memberof": "src/reducer/login.js",
@@ -929,10 +1231,70 @@
     }
   },
   {
-    "__docId__": 41,
+    "__docId__": 52,
+    "kind": "file",
+    "name": "src/reducer/mydestination.js",
+    "content": "import {MY_DESTINATION_CHANGE} from '../action/mydestination'\n\n/**\n* 自分の行き先 reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function mydestination(state={inBusiness:false,comment:\"\"},action){\n  switch(action.type){\n    case(MY_DESTINATION_CHANGE):\n      return action.payload;\n    default:\n      return state;\n  }\n}\n",
+    "static": true,
+    "longname": "src/reducer/mydestination.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 53,
+    "kind": "function",
+    "name": "mydestination",
+    "memberof": "src/reducer/mydestination.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/reducer/mydestination.js~mydestination",
+    "access": null,
+    "export": true,
+    "importPath": "kyo-do.co-ui/src/reducer/mydestination.js",
+    "importStyle": "mydestination",
+    "description": "自分の行き先 reducer",
+    "see": [
+      "http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864"
+    ],
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "state",
+        "description": "変更前のstate"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "action",
+        "description": "dispatchされたaction"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "変更後のstate"
+    }
+  },
+  {
+    "__docId__": 54,
     "kind": "file",
     "name": "src/reducer/root.js",
-    "content": "import { combineReducers } from 'redux'\nimport login from './login';\n\n/**\n* 各reducerを結合してひとまとめにしてexportする\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\n*/\nexport default combineReducers({\n  login\n})\n",
+    "content": "import { combineReducers } from 'redux'\nimport login from './login';\nimport mydestination from './mydestination'\n\n/**\n* 各reducerを結合してひとまとめにしてexportする\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\n*/\nexport default combineReducers({\n  login,\n  mydestination\n})\n",
     "static": true,
     "longname": "src/reducer/root.js",
     "access": null,
@@ -940,7 +1302,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 42,
+    "__docId__": 55,
     "kind": "file",
     "name": "src/saga/login.js",
     "content": "import {take,put,takeEvery} from 'redux-saga/effects'\nimport {LOGIN_REQUESTED,loginSuccess,loginFailure} from '../action/login'\n/**\n* login要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginSaga(){\n  /*\n  * LOGIN_REQUESTED(ログイン要求)アクションを常に待ち続け、\n  * dispatchされたらloginTaskにactionを渡して実行する\n  */\n  yield takeEvery(LOGIN_REQUESTED,loginTask);\n}\n/**\n* APIに対してID/Passを問い合わせて、\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\n*/\nfunction* loginTask(action){\n  /*\n  * TODO ダミーロジック。実際にはAPIにアクセスしてログイン成否をハンドリングする必要あり。\n  * ここではtest/testのみログイン可能とする。\n  */\n  if(action.payload.id == \"test\" && action.payload.pass == \"test\"){\n    const dummyUserInfo = {userid:\"test\", token:\"dummy\"};\n    //LOGIN_SUCCESSアクションをput(dispatch)\n    yield put(loginSuccess(dummyUserInfo));\n  }else{\n    //LOGIN_FAILUREアクションをput(dispatch)\n    yield put(loginFailure());\n  }\n}\n",
@@ -951,7 +1313,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 43,
+    "__docId__": 56,
     "kind": "function",
     "name": "loginSaga",
     "memberof": "src/saga/login.js",
@@ -971,7 +1333,7 @@
     "params": []
   },
   {
-    "__docId__": 44,
+    "__docId__": 57,
     "kind": "function",
     "name": "loginTask",
     "memberof": "src/saga/login.js",
@@ -999,10 +1361,136 @@
     ]
   },
   {
-    "__docId__": 45,
+    "__docId__": 58,
+    "kind": "file",
+    "name": "src/saga/mydestination.js",
+    "content": "import {take,put,select,takeEvery} from 'redux-saga/effects'\nimport {MY_DESTINATION_CHANGE,myDestinationChange} from '../action/mydestination'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\n\n/**\n* localStorageに行き先を保管する際のKey\n*/\nconst STORAGE_KEY_DESTINATION = \"my_destination.\";\n/**\n* ログインが成功した際にログインユーザーの行き先をロードするSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loadDestinationSaga(){\n    yield takeEvery(LOGIN_SUCCESS,loadDestinationTask);\n}\n\n/**\n* ログインユーザーの行き先をロードするtask\n* @param {object} action LOGIN_SUCCESSアクション\n*/\nfunction* loadDestinationTask(action){\n    const saved = yield existsKeyOnStorage(STORAGE_KEY_DESTINATION + action.payload.userid);\n    if(saved){\n      const savedDestination = yield getFromStorage(STORAGE_KEY_DESTINATION + action.payload.userid);\n      yield put(myDestinationChange(savedDestination));\n    }\n\n    /**\n    * TODO APIを呼び出してサーバ上に保存されている行き先を取得する\n    */\n    /**\n    * XXX\n    * 今のまま素直にajax部分を実装すると、一文字入力するたびにajaxが走ってしまうので\n    * パフォーマンス的によろしくない\n    * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac#%E3%82%AA%E3%83%BC%E3%83%88%E3%82%B3%E3%83%B3%E3%83%97%E3%83%AA%E3%83%BC%E3%83%88\n    * ↑のあたりを参考に遅延実行にした方が良い\n    */\n}\n/**\n* 行き先変更アクションを受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* changeDestinationSaga(){\n  yield takeEvery(MY_DESTINATION_CHANGE,changeDestinationTask);\n}\n\n/**\n* 行き先変更アクションを受け付けた際のTask\n* @param {Object} action MY_DESTINATION_CHANGEアクション\n*/\nfunction* changeDestinationTask(action){\n  const logonUser = yield select(state => state.login.user);\n\n  //とりあえずlocalStorageに保存する\n  setToStorage(STORAGE_KEY_DESTINATION + logonUser.userid, action.payload);\n\n  /**\n  * TODO APIを呼び出してサーバ上に保存\n  */\n}\n",
+    "static": true,
+    "longname": "src/saga/mydestination.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 59,
+    "kind": "variable",
+    "name": "STORAGE_KEY_DESTINATION",
+    "memberof": "src/saga/mydestination.js",
+    "static": true,
+    "longname": "src/saga/mydestination.js~STORAGE_KEY_DESTINATION",
+    "access": null,
+    "export": false,
+    "importPath": "kyo-do.co-ui/src/saga/mydestination.js",
+    "importStyle": null,
+    "description": "localStorageに行き先を保管する際のKey",
+    "lineNumber": 9,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "function",
+    "name": "loadDestinationSaga",
+    "memberof": "src/saga/mydestination.js",
+    "generator": true,
+    "async": false,
+    "static": true,
+    "longname": "src/saga/mydestination.js~loadDestinationSaga",
+    "access": null,
+    "export": true,
+    "importPath": "kyo-do.co-ui/src/saga/mydestination.js",
+    "importStyle": "{loadDestinationSaga}",
+    "description": "ログインが成功した際にログインユーザーの行き先をロードするSaga",
+    "see": [
+      "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
+    ],
+    "lineNumber": 14,
+    "params": []
+  },
+  {
+    "__docId__": 61,
+    "kind": "function",
+    "name": "loadDestinationTask",
+    "memberof": "src/saga/mydestination.js",
+    "generator": true,
+    "async": false,
+    "static": true,
+    "longname": "src/saga/mydestination.js~loadDestinationTask",
+    "access": null,
+    "export": false,
+    "importPath": "kyo-do.co-ui/src/saga/mydestination.js",
+    "importStyle": null,
+    "description": "ログインユーザーの行き先をロードするtask",
+    "lineNumber": 22,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "action",
+        "description": "LOGIN_SUCCESSアクション"
+      }
+    ]
+  },
+  {
+    "__docId__": 62,
+    "kind": "function",
+    "name": "changeDestinationSaga",
+    "memberof": "src/saga/mydestination.js",
+    "generator": true,
+    "async": false,
+    "static": true,
+    "longname": "src/saga/mydestination.js~changeDestinationSaga",
+    "access": null,
+    "export": true,
+    "importPath": "kyo-do.co-ui/src/saga/mydestination.js",
+    "importStyle": "{changeDestinationSaga}",
+    "description": "行き先変更アクションを受け付けるSaga",
+    "see": [
+      "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
+    ],
+    "lineNumber": 44,
+    "params": []
+  },
+  {
+    "__docId__": 63,
+    "kind": "function",
+    "name": "changeDestinationTask",
+    "memberof": "src/saga/mydestination.js",
+    "generator": true,
+    "async": false,
+    "static": true,
+    "longname": "src/saga/mydestination.js~changeDestinationTask",
+    "access": null,
+    "export": false,
+    "importPath": "kyo-do.co-ui/src/saga/mydestination.js",
+    "importStyle": null,
+    "description": "行き先変更アクションを受け付けた際のTask",
+    "lineNumber": 52,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "action",
+        "description": "MY_DESTINATION_CHANGEアクション"
+      }
+    ]
+  },
+  {
+    "__docId__": 64,
     "kind": "file",
     "name": "src/saga/root.js",
-    "content": "import {fork} from 'redux-saga/effects'\nimport {loginSaga} from './login'\n\n/**\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport default function* rootSaga(){\n  yield fork(loginSaga);\n}\n",
+    "content": "import {fork} from 'redux-saga/effects'\nimport {loginSaga} from './login'\nimport {loadDestinationSaga,changeDestinationSaga} from './mydestination'\n\n/**\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport default function* rootSaga(){\n  yield fork(loginSaga);\n  yield fork(loadDestinationSaga);\n  yield fork(changeDestinationSaga);\n}\n",
     "static": true,
     "longname": "src/saga/root.js",
     "access": null,
@@ -1010,7 +1498,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 46,
+    "__docId__": 65,
     "kind": "function",
     "name": "rootSaga",
     "memberof": "src/saga/root.js",
@@ -1026,14 +1514,14 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 8,
+    "lineNumber": 9,
     "params": []
   },
   {
-    "__docId__": 47,
+    "__docId__": 66,
     "kind": "file",
     "name": "src/store/store.js",
-    "content": "import { createStore, applyMiddleware } from 'redux'\nimport createSagaMiddleware from 'redux-saga'\nimport logger from 'redux-logger'\nimport rootReducer from '../reducer/root'\nimport rootSaga from '../saga/root'\nimport {LOGIN_STATUS} from '../const/login'\n\n\n/**\n* reduxのstoreのセットアップ。redux-saga対応。\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function configureStore() {\n  const sagaMiddleware = createSagaMiddleware();\n  const store = createStore(\n    rootReducer,\n    {\n      login:{status:LOGIN_STATUS.NOTYET, user:{}}\n    },\n    applyMiddleware(\n      sagaMiddleware, logger()\n    )\n  );\n  sagaMiddleware.run(rootSaga);\n  return store;\n};\n",
+    "content": "import { createStore, applyMiddleware } from 'redux'\nimport createSagaMiddleware from 'redux-saga'\nimport logger from 'redux-logger'\nimport rootReducer from '../reducer/root'\nimport rootSaga from '../saga/root'\nimport {LOGIN_STATUS} from '../const/login'\n\n\n/**\n* reduxのstoreのセットアップ。redux-saga対応。\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function configureStore() {\n  const sagaMiddleware = createSagaMiddleware();\n  const store = createStore(\n    rootReducer,\n    {\n      login:{status:LOGIN_STATUS.NOTYET, user:{}},\n      mydestination:{inBusiness:false,comment:\"\"}\n    },\n    applyMiddleware(\n      sagaMiddleware, logger()\n    )\n  );\n  sagaMiddleware.run(rootSaga);\n  return store;\n};\n",
     "static": true,
     "longname": "src/store/store.js",
     "access": null,
@@ -1041,7 +1529,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 48,
+    "__docId__": 67,
     "kind": "function",
     "name": "configureStore",
     "memberof": "src/store/store.js",
@@ -1066,7 +1554,7 @@
     }
   },
   {
-    "__docId__": 50,
+    "__docId__": 69,
     "kind": "external",
     "name": "Infinity",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
@@ -1078,7 +1566,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 51,
+    "__docId__": 70,
     "kind": "external",
     "name": "NaN",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
@@ -1090,7 +1578,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 52,
+    "__docId__": 71,
     "kind": "external",
     "name": "undefined",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
@@ -1102,7 +1590,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 53,
+    "__docId__": 72,
     "kind": "external",
     "name": "null",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
@@ -1114,7 +1602,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 54,
+    "__docId__": 73,
     "kind": "external",
     "name": "Object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -1126,7 +1614,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 55,
+    "__docId__": 74,
     "kind": "external",
     "name": "object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -1138,7 +1626,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 56,
+    "__docId__": 75,
     "kind": "external",
     "name": "Function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -1150,7 +1638,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 57,
+    "__docId__": 76,
     "kind": "external",
     "name": "function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -1162,7 +1650,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 58,
+    "__docId__": 77,
     "kind": "external",
     "name": "Boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -1174,7 +1662,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 59,
+    "__docId__": 78,
     "kind": "external",
     "name": "boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -1186,7 +1674,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 60,
+    "__docId__": 79,
     "kind": "external",
     "name": "Symbol",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
@@ -1198,7 +1686,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 61,
+    "__docId__": 80,
     "kind": "external",
     "name": "Error",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
@@ -1210,7 +1698,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 62,
+    "__docId__": 81,
     "kind": "external",
     "name": "EvalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
@@ -1222,7 +1710,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 63,
+    "__docId__": 82,
     "kind": "external",
     "name": "InternalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
@@ -1234,7 +1722,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 64,
+    "__docId__": 83,
     "kind": "external",
     "name": "RangeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
@@ -1246,7 +1734,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 65,
+    "__docId__": 84,
     "kind": "external",
     "name": "ReferenceError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
@@ -1258,7 +1746,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 66,
+    "__docId__": 85,
     "kind": "external",
     "name": "SyntaxError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
@@ -1270,7 +1758,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 67,
+    "__docId__": 86,
     "kind": "external",
     "name": "TypeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
@@ -1282,7 +1770,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 68,
+    "__docId__": 87,
     "kind": "external",
     "name": "URIError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
@@ -1294,7 +1782,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 69,
+    "__docId__": 88,
     "kind": "external",
     "name": "Number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -1306,7 +1794,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 70,
+    "__docId__": 89,
     "kind": "external",
     "name": "number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -1318,7 +1806,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 71,
+    "__docId__": 90,
     "kind": "external",
     "name": "Date",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
@@ -1330,7 +1818,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 72,
+    "__docId__": 91,
     "kind": "external",
     "name": "String",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -1342,7 +1830,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 73,
+    "__docId__": 92,
     "kind": "external",
     "name": "string",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -1354,7 +1842,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 74,
+    "__docId__": 93,
     "kind": "external",
     "name": "RegExp",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
@@ -1366,7 +1854,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 75,
+    "__docId__": 94,
     "kind": "external",
     "name": "Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
@@ -1378,7 +1866,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 76,
+    "__docId__": 95,
     "kind": "external",
     "name": "Int8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
@@ -1390,7 +1878,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 77,
+    "__docId__": 96,
     "kind": "external",
     "name": "Uint8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
@@ -1402,7 +1890,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 78,
+    "__docId__": 97,
     "kind": "external",
     "name": "Uint8ClampedArray",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
@@ -1414,7 +1902,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 79,
+    "__docId__": 98,
     "kind": "external",
     "name": "Int16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
@@ -1426,7 +1914,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 80,
+    "__docId__": 99,
     "kind": "external",
     "name": "Uint16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
@@ -1438,7 +1926,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 81,
+    "__docId__": 100,
     "kind": "external",
     "name": "Int32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
@@ -1450,7 +1938,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 82,
+    "__docId__": 101,
     "kind": "external",
     "name": "Uint32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
@@ -1462,7 +1950,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 83,
+    "__docId__": 102,
     "kind": "external",
     "name": "Float32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
@@ -1474,7 +1962,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 84,
+    "__docId__": 103,
     "kind": "external",
     "name": "Float64Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
@@ -1486,7 +1974,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 85,
+    "__docId__": 104,
     "kind": "external",
     "name": "Map",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
@@ -1498,7 +1986,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 86,
+    "__docId__": 105,
     "kind": "external",
     "name": "Set",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
@@ -1510,7 +1998,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 87,
+    "__docId__": 106,
     "kind": "external",
     "name": "WeakMap",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
@@ -1522,7 +2010,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 88,
+    "__docId__": 107,
     "kind": "external",
     "name": "WeakSet",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
@@ -1534,7 +2022,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 89,
+    "__docId__": 108,
     "kind": "external",
     "name": "ArrayBuffer",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
@@ -1546,7 +2034,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 90,
+    "__docId__": 109,
     "kind": "external",
     "name": "DataView",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
@@ -1558,7 +2046,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 91,
+    "__docId__": 110,
     "kind": "external",
     "name": "JSON",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
@@ -1570,7 +2058,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 92,
+    "__docId__": 111,
     "kind": "external",
     "name": "Promise",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
@@ -1582,7 +2070,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 93,
+    "__docId__": 112,
     "kind": "external",
     "name": "Generator",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
@@ -1594,7 +2082,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 94,
+    "__docId__": 113,
     "kind": "external",
     "name": "GeneratorFunction",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
@@ -1606,7 +2094,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 95,
+    "__docId__": 114,
     "kind": "external",
     "name": "Reflect",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
@@ -1618,7 +2106,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 96,
+    "__docId__": 115,
     "kind": "external",
     "name": "Proxy",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
@@ -1631,7 +2119,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 98,
+    "__docId__": 117,
     "kind": "external",
     "name": "CanvasRenderingContext2D",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
@@ -1643,7 +2131,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 99,
+    "__docId__": 118,
     "kind": "external",
     "name": "DocumentFragment",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
@@ -1655,7 +2143,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 100,
+    "__docId__": 119,
     "kind": "external",
     "name": "Element",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
@@ -1667,7 +2155,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 101,
+    "__docId__": 120,
     "kind": "external",
     "name": "Event",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
@@ -1679,7 +2167,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 102,
+    "__docId__": 121,
     "kind": "external",
     "name": "Node",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
@@ -1691,7 +2179,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 103,
+    "__docId__": 122,
     "kind": "external",
     "name": "NodeList",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
@@ -1703,7 +2191,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 104,
+    "__docId__": 123,
     "kind": "external",
     "name": "XMLHttpRequest",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
@@ -1715,7 +2203,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 105,
+    "__docId__": 124,
     "kind": "external",
     "name": "AudioContext",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",

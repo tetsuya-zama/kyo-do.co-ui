@@ -36,17 +36,26 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginRequested">loginRequested</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSuccess">loginSuccess</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutRequested">logoutRequested</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-myDestinationChange">myDestinationChange</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_FAILURE">LOGIN_FAILURE</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_REQUESTED">LOGIN_REQUESTED</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_SUCCESS">LOGIN_SUCCESS</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGOUT_REQUESTED">LOGOUT_REQUESTED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MY_DESTINATION_CHANGE">MY_DESTINATION_CHANGE</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-existsKeyOnStorage">existsKeyOnStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getFromStorage">getFromStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setToStorage">setToStorage</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reducer</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mydestination">mydestination</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSaga">loginSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeDestinationSaga">changeDestinationSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadDestinationSaga">loadDestinationSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rootSaga">rootSaga</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">store</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
 </ul>
@@ -55,8 +64,11 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/component/mydestination.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
+import ReactDOM from &apos;react-dom&apos;
+import {myDestinationChange} from &apos;../action/mydestination&apos;
+
 /**
-* &quot;&#x81EA;&#x5206;&#x306E;&#x884C;&#x304D;&#x5148;&quot;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#xFF08;&#x5B9F;&#x88C5;&#x4E2D;&#xFF09;
+* &quot;&#x81EA;&#x5206;&#x306E;&#x884C;&#x304D;&#x5148;&quot;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
 * @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
 */
 export default class MyDestination extends React.Component{
@@ -67,6 +79,19 @@ export default class MyDestination extends React.Component{
   */
   constructor(props){
     super(props);
+    //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
+    this.hundleChange = this.hundleChange.bind(this);
+  }
+  /**
+  * &#x884C;&#x304D;&#x5148;&#x306E;&#x5909;&#x66F4;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @return undefined
+  */
+  hundleChange(){
+    //&#x5165;&#x529B;&#x3055;&#x308C;&#x305F;&#x51FA;&#x52E4;&#x30FB;&#x9000;&#x52E4;&#x3068;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x4E21;&#x65B9;&#x53D6;&#x5F97;&#x3057;&#x3066;MY_DESTINATION_CHANGE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;dispatch&#x3059;&#x308B;
+    const inBusiness = ReactDOM.findDOMNode(this.refs.inBusiness).value == 1; // state&#x4E0A;&#x306F;boolean&#x306A;&#x306E;&#x3067;&#x3053;&#x3053;&#x3067;&#x5909;&#x63DB;
+    const comment = ReactDOM.findDOMNode(this.refs.comment).value;
+
+    this.props.dispatch(myDestinationChange({inBusiness:inBusiness, comment:comment}));
   }
 
   /**
@@ -74,8 +99,28 @@ export default class MyDestination extends React.Component{
   * @return {undefined}
   */
   render(){
-    //TODO &#x672A;&#x5B9F;&#x88C5;
-    return &lt;div&gt;&#x5B9F;&#x88C5;&#x4E2D;&lt;/div&gt;;
+    const inBusinessValue = this.props.mydestination.inBusiness ? 1 : 0;
+    const commentValue = this.props.mydestination.comment;
+    return (
+      &lt;div&gt;
+      &lt;h3&gt;&#x81EA;&#x5206;&#x306E;&#x884C;&#x304D;&#x5148;&lt;/h3&gt;
+      &lt;table&gt;
+        &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;{this.props.login.user.userid}&lt;/td&gt;
+          &lt;td&gt;
+            &lt;select ref=&quot;inBusiness&quot; value={inBusinessValue} onChange={this.hundleChange}&gt;
+             &lt;option value={0}&gt;&#x9000;&#x52E4;&lt;/option&gt;
+             &lt;option value={1}&gt;&#x51FA;&#x52E4;&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/td&gt;
+          &lt;td&gt;
+            &lt;input type=&quot;text&quot; ref=&quot;comment&quot; value={commentValue} onChange={this.hundleChange}/&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;/div&gt;);
   }
 }
 </code></pre>

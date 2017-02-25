@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 208,
+  "end": 269,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 11,
+      "line": 13,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 208,
+    "end": 269,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 11,
+        "line": 13,
         "column": 0
       }
     },
@@ -181,20 +181,91 @@
             "raw": "'./login'"
           },
           "value": "./login"
+        }
+      },
+      {
+        "type": "ImportDeclaration",
+        "start": 69,
+        "end": 112,
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 43
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
+            "start": 76,
+            "end": 89,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 7
+              },
+              "end": {
+                "line": 3,
+                "column": 20
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 76,
+              "end": 89,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 7
+                },
+                "end": {
+                  "line": 3,
+                  "column": 20
+                },
+                "identifierName": "mydestination"
+              },
+              "name": "mydestination"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 95,
+          "end": 112,
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 26
+            },
+            "end": {
+              "line": 3,
+              "column": 43
+            }
+          },
+          "extra": {
+            "rawValue": "./mydestination",
+            "raw": "'./mydestination'"
+          },
+          "value": "./mydestination",
+          "leadingComments": null,
+          "trailingComments": null
         },
         "trailingComments": [
           {
             "type": "CommentBlock",
             "value": "*\n* 各reducerを結合してひとまとめにしてexportする\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\n",
-            "start": 70,
-            "end": 163,
+            "start": 114,
+            "end": 207,
             "loc": {
               "start": {
-                "line": 4,
+                "line": 5,
                 "column": 0
               },
               "end": {
-                "line": 7,
+                "line": 8,
                 "column": 2
               }
             }
@@ -203,43 +274,43 @@
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 164,
-        "end": 207,
+        "start": 208,
+        "end": 268,
         "loc": {
           "start": {
-            "line": 8,
+            "line": 9,
             "column": 0
           },
           "end": {
-            "line": 10,
+            "line": 12,
             "column": 2
           }
         },
         "declaration": {
           "type": "CallExpression",
-          "start": 179,
-          "end": 207,
+          "start": 223,
+          "end": 268,
           "loc": {
             "start": {
-              "line": 8,
+              "line": 9,
               "column": 15
             },
             "end": {
-              "line": 10,
+              "line": 12,
               "column": 2
             }
           },
           "callee": {
             "type": "Identifier",
-            "start": 179,
-            "end": 194,
+            "start": 223,
+            "end": 238,
             "loc": {
               "start": {
-                "line": 8,
+                "line": 9,
                 "column": 15
               },
               "end": {
-                "line": 8,
+                "line": 9,
                 "column": 30
               },
               "identifierName": "combineReducers"
@@ -250,30 +321,30 @@
           "arguments": [
             {
               "type": "ObjectExpression",
-              "start": 195,
-              "end": 206,
+              "start": 239,
+              "end": 267,
               "loc": {
                 "start": {
-                  "line": 8,
+                  "line": 9,
                   "column": 31
                 },
                 "end": {
-                  "line": 10,
+                  "line": 12,
                   "column": 1
                 }
               },
               "properties": [
                 {
                   "type": "ObjectProperty",
-                  "start": 199,
-                  "end": 204,
+                  "start": 243,
+                  "end": 248,
                   "loc": {
                     "start": {
-                      "line": 9,
+                      "line": 10,
                       "column": 2
                     },
                     "end": {
-                      "line": 9,
+                      "line": 10,
                       "column": 7
                     }
                   },
@@ -282,15 +353,15 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 199,
-                    "end": 204,
+                    "start": 243,
+                    "end": 248,
                     "loc": {
                       "start": {
-                        "line": 9,
+                        "line": 10,
                         "column": 2
                       },
                       "end": {
-                        "line": 9,
+                        "line": 10,
                         "column": 7
                       },
                       "identifierName": "login"
@@ -299,20 +370,75 @@
                   },
                   "value": {
                     "type": "Identifier",
-                    "start": 199,
-                    "end": 204,
+                    "start": 243,
+                    "end": 248,
                     "loc": {
                       "start": {
-                        "line": 9,
+                        "line": 10,
                         "column": 2
                       },
                       "end": {
-                        "line": 9,
+                        "line": 10,
                         "column": 7
                       },
                       "identifierName": "login"
                     },
                     "name": "login"
+                  },
+                  "extra": {
+                    "shorthand": true
+                  }
+                },
+                {
+                  "type": "ObjectProperty",
+                  "start": 252,
+                  "end": 265,
+                  "loc": {
+                    "start": {
+                      "line": 11,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 11,
+                      "column": 15
+                    }
+                  },
+                  "method": false,
+                  "shorthand": true,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 252,
+                    "end": 265,
+                    "loc": {
+                      "start": {
+                        "line": 11,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 15
+                      },
+                      "identifierName": "mydestination"
+                    },
+                    "name": "mydestination"
+                  },
+                  "value": {
+                    "type": "Identifier",
+                    "start": 252,
+                    "end": 265,
+                    "loc": {
+                      "start": {
+                        "line": 11,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 15
+                      },
+                      "identifierName": "mydestination"
+                    },
+                    "name": "mydestination"
                   },
                   "extra": {
                     "shorthand": true
@@ -325,15 +451,15 @@
             {
               "type": "CommentBlock",
               "value": "*\n* 各reducerを結合してひとまとめにしてexportする\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\n",
-              "start": 70,
-              "end": 163,
+              "start": 114,
+              "end": 207,
               "loc": {
                 "start": {
-                  "line": 4,
+                  "line": 5,
                   "column": 0
                 },
                 "end": {
-                  "line": 7,
+                  "line": 8,
                   "column": 2
                 }
               }
@@ -345,15 +471,15 @@
           {
             "type": "CommentBlock",
             "value": "*\n* 各reducerを結合してひとまとめにしてexportする\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\n",
-            "start": 70,
-            "end": 163,
+            "start": 114,
+            "end": 207,
             "loc": {
               "start": {
-                "line": 4,
+                "line": 5,
                 "column": 0
               },
               "end": {
-                "line": 7,
+                "line": 8,
                 "column": 2
               }
             }
@@ -367,15 +493,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n* 各reducerを結合してひとまとめにしてexportする\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\n",
-      "start": 70,
-      "end": 163,
+      "start": 114,
+      "end": 207,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 5,
           "column": 0
         },
         "end": {
-          "line": 7,
+          "line": 8,
           "column": 2
         }
       }
@@ -673,17 +799,124 @@
       }
     },
     {
-      "type": "CommentBlock",
-      "value": "*\n* 各reducerを結合してひとまとめにしてexportする\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\n",
-      "start": 70,
-      "end": 163,
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 69,
+      "end": 75,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 3,
           "column": 0
         },
         "end": {
-          "line": 7,
+          "line": 3,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "mydestination",
+      "start": 76,
+      "end": 89,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 7
+        },
+        "end": {
+          "line": 3,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 90,
+      "end": 94,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 21
+        },
+        "end": {
+          "line": 3,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./mydestination",
+      "start": 95,
+      "end": 112,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 26
+        },
+        "end": {
+          "line": 3,
+          "column": 43
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n* 各reducerを結合してひとまとめにしてexportする\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\n",
+      "start": 114,
+      "end": 207,
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
           "column": 2
         }
       }
@@ -703,15 +936,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 164,
-      "end": 170,
+      "start": 208,
+      "end": 214,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 8,
+          "line": 9,
           "column": 6
         }
       }
@@ -731,15 +964,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 171,
-      "end": 178,
+      "start": 215,
+      "end": 222,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 9,
           "column": 7
         },
         "end": {
-          "line": 8,
+          "line": 9,
           "column": 14
         }
       }
@@ -757,15 +990,15 @@
         "binop": null
       },
       "value": "combineReducers",
-      "start": 179,
-      "end": 194,
+      "start": 223,
+      "end": 238,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 9,
           "column": 15
         },
         "end": {
-          "line": 8,
+          "line": 9,
           "column": 30
         }
       }
@@ -782,15 +1015,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 194,
-      "end": 195,
+      "start": 238,
+      "end": 239,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 9,
           "column": 30
         },
         "end": {
-          "line": 8,
+          "line": 9,
           "column": 31
         }
       }
@@ -807,15 +1040,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 195,
-      "end": 196,
+      "start": 239,
+      "end": 240,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 9,
           "column": 31
         },
         "end": {
-          "line": 8,
+          "line": 9,
           "column": 32
         }
       }
@@ -833,16 +1066,68 @@
         "binop": null
       },
       "value": "login",
-      "start": 199,
-      "end": 204,
+      "start": 243,
+      "end": 248,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 2
         },
         "end": {
-          "line": 9,
+          "line": 10,
           "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 248,
+      "end": 249,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 7
+        },
+        "end": {
+          "line": 10,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "mydestination",
+      "start": 252,
+      "end": 265,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 15
         }
       }
     },
@@ -858,15 +1143,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 205,
-      "end": 206,
+      "start": 266,
+      "end": 267,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 12,
           "column": 0
         },
         "end": {
-          "line": 10,
+          "line": 12,
           "column": 1
         }
       }
@@ -883,15 +1168,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 206,
-      "end": 207,
+      "start": 267,
+      "end": 268,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 12,
           "column": 1
         },
         "end": {
-          "line": 10,
+          "line": 12,
           "column": 2
         }
       }
@@ -909,15 +1194,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 208,
-      "end": 208,
+      "start": 269,
+      "end": 269,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 13,
           "column": 0
         },
         "end": {
-          "line": 11,
+          "line": 13,
           "column": 0
         }
       }
