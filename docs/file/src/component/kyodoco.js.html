@@ -19,7 +19,7 @@
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
   
-  <a data-ice="repoURL" href="https://github.com/tetsuya-zama/dokoit.tel-ui" class="repo-url-github">Repository</a>
+  <a data-ice="repoURL" href="https://github.com/tetsuya-zama/kyo-do.co-ui" class="repo-url-github">Repository</a>
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -32,18 +32,39 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/kyodoco.js~Kyodoco.html">Kyodoco</a></span></span></li>
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">action</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailure">loginFailure</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginRequested">loginRequested</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSuccess">loginSuccess</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutRequested">logoutRequested</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_FAILURE">LOGIN_FAILURE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_REQUESTED">LOGIN_REQUESTED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_SUCCESS">LOGIN_SUCCESS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGOUT_REQUESTED">LOGOUT_REQUESTED</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reducer</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSaga">loginSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rootSaga">rootSaga</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">store</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/component/kyodoco.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
+import { connect } from &apos;react-redux&apos;
+import Header from &apos;./header&apos;
+import LoginForm from &apos;./loginform&apos;
+import {LOGIN_STATUS} from &apos;../const/login&apos;
+
 /**
 *&#x30E1;&#x30A4;&#x30F3;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
 * @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
 */
-export default class Kyodoco extends React.Component{
+class Kyodoco extends React.Component{
   /**
   * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30BF;&#x30AF;&#x30BF;
   * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
@@ -58,11 +79,35 @@ export default class Kyodoco extends React.Component{
   * @return {undefined}
   */
   render(){
+    const content =
+      this.props.login.status == LOGIN_STATUS.SUCCESS ?
+      &lt;div&gt;&lt;/div&gt; :
+      &lt;LoginForm dispatch={this.props.dispatch} login={this.props.login}/&gt;;
     return(
-      &lt;div&gt;&#x30AD;&#x30E7;&#x30A6;-&#x30C9;&#x30B3;&#xFF1F;&lt;/div&gt;
+      &lt;div&gt;
+      &lt;header&gt;
+        &lt;Header dispatch={this.props.dispatch} login={this.props.login}/&gt;
+      &lt;/header&gt;
+      &lt;hr /&gt;
+      {content}
+      &lt;/div&gt;
     );
   }
 }
+/**
+* redux&#x306E;store&#x4E0A;&#x306E;state&#x3092;component&#x306B;&#x63A5;&#x7D9A;&#x3059;&#x308B;&#x95A2;&#x6570;
+* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343
+*/
+function mapStateToProp(state){
+  return state;
+}
+
+/**
+* &#x30E1;&#x30A4;&#x30F3;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x3092;store&#x3068;&#x63A5;&#x7D9A;&#x3057;&#x3066;export&#x3059;&#x308B;
+* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
+* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343
+*/
+export default connect(mapStateToProp)(Kyodoco);
 </code></pre>
 
 </div>

@@ -1,9 +1,105 @@
 window.esdocSearchIndex = [
   [
-    "dokoit.tel-ui/src/component/kyodoco.js~kyodoco",
-    "class/src/component/kyodoco.js~Kyodoco.html",
-    "<span>Kyodoco</span> <span class=\"search-result-import-path\">dokoit.tel-ui/src/component/kyodoco.js</span>",
+    "kyo-do.co-ui/src/component/board.js~board",
+    "class/src/component/board.js~Board.html",
+    "<span>Board</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/board.js</span>",
     "class"
+  ],
+  [
+    "kyo-do.co-ui/src/component/header.js~header",
+    "class/src/component/header.js~Header.html",
+    "<span>Header</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/header.js</span>",
+    "class"
+  ],
+  [
+    "kyo-do.co-ui/src/action/login.js~login_failure",
+    "variable/index.html#static-variable-LOGIN_FAILURE",
+    "<span>LOGIN_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/login.js~login_requested",
+    "variable/index.html#static-variable-LOGIN_REQUESTED",
+    "<span>LOGIN_REQUESTED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/const/login.js~login_status",
+    "variable/index.html#static-variable-LOGIN_STATUS",
+    "<span>LOGIN_STATUS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/login.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/login.js~login_success",
+    "variable/index.html#static-variable-LOGIN_SUCCESS",
+    "<span>LOGIN_SUCCESS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/login.js~logout_requested",
+    "variable/index.html#static-variable-LOGOUT_REQUESTED",
+    "<span>LOGOUT_REQUESTED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/component/loginform.js~loginform",
+    "class/src/component/loginform.js~LoginForm.html",
+    "<span>LoginForm</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/loginform.js</span>",
+    "class"
+  ],
+  [
+    "kyo-do.co-ui/src/component/mydestination.js~mydestination",
+    "class/src/component/mydestination.js~MyDestination.html",
+    "<span>MyDestination</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/mydestination.js</span>",
+    "class"
+  ],
+  [
+    "kyo-do.co-ui/src/store/store.js~configurestore",
+    "function/index.html#static-function-configureStore",
+    "<span>configureStore</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/store/store.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/reducer/login.js~login",
+    "function/index.html#static-function-login",
+    "<span>login</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/login.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/login.js~loginfailure",
+    "function/index.html#static-function-loginFailure",
+    "<span>loginFailure</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/login.js~loginrequested",
+    "function/index.html#static-function-loginRequested",
+    "<span>loginRequested</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/login.js~loginsaga",
+    "function/index.html#static-function-loginSaga",
+    "<span>loginSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/login.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/login.js~loginsuccess",
+    "function/index.html#static-function-loginSuccess",
+    "<span>loginSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/login.js~logoutrequested",
+    "function/index.html#static-function-logoutRequested",
+    "<span>logoutRequested</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/root.js~rootsaga",
+    "function/index.html#static-function-rootSaga",
+    "<span>rootSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/root.js</span>",
+    "function"
   ],
   [
     "builtinexternal/ecmascriptexternal.js~array",
@@ -336,27 +432,141 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "src/action/login.js",
+    "file/src/action/login.js.html",
+    "src/action/login.js",
+    "file"
+  ],
+  [
+    "src/component/board.js",
+    "file/src/component/board.js.html",
+    "src/component/board.js",
+    "file"
+  ],
+  [
+    "src/component/board.js~board#constructor",
+    "class/src/component/board.js~Board.html#instance-constructor-constructor",
+    "src/component/board.js~Board#constructor",
+    "method"
+  ],
+  [
+    "src/component/board.js~board#render",
+    "class/src/component/board.js~Board.html#instance-method-render",
+    "src/component/board.js~Board#render",
+    "method"
+  ],
+  [
+    "src/component/header.js",
+    "file/src/component/header.js.html",
+    "src/component/header.js",
+    "file"
+  ],
+  [
+    "src/component/header.js~header#constructor",
+    "class/src/component/header.js~Header.html#instance-constructor-constructor",
+    "src/component/header.js~Header#constructor",
+    "method"
+  ],
+  [
+    "src/component/header.js~header#hundleclick",
+    "class/src/component/header.js~Header.html#instance-method-hundleClick",
+    "src/component/header.js~Header#hundleClick",
+    "method"
+  ],
+  [
+    "src/component/header.js~header#render",
+    "class/src/component/header.js~Header.html#instance-method-render",
+    "src/component/header.js~Header#render",
+    "method"
+  ],
+  [
     "src/component/kyodoco.js",
     "file/src/component/kyodoco.js.html",
     "src/component/kyodoco.js",
     "file"
   ],
   [
-    "src/component/kyodoco.js~kyodoco#constructor",
-    "class/src/component/kyodoco.js~Kyodoco.html#instance-constructor-constructor",
-    "src/component/kyodoco.js~Kyodoco#constructor",
+    "src/component/loginform.js",
+    "file/src/component/loginform.js.html",
+    "src/component/loginform.js",
+    "file"
+  ],
+  [
+    "src/component/loginform.js~loginform#constructor",
+    "class/src/component/loginform.js~LoginForm.html#instance-constructor-constructor",
+    "src/component/loginform.js~LoginForm#constructor",
     "method"
   ],
   [
-    "src/component/kyodoco.js~kyodoco#render",
-    "class/src/component/kyodoco.js~Kyodoco.html#instance-method-render",
-    "src/component/kyodoco.js~Kyodoco#render",
+    "src/component/loginform.js~loginform#handlesubmit",
+    "class/src/component/loginform.js~LoginForm.html#instance-method-handleSubmit",
+    "src/component/loginform.js~LoginForm#handleSubmit",
     "method"
+  ],
+  [
+    "src/component/loginform.js~loginform#render",
+    "class/src/component/loginform.js~LoginForm.html#instance-method-render",
+    "src/component/loginform.js~LoginForm#render",
+    "method"
+  ],
+  [
+    "src/component/mydestination.js",
+    "file/src/component/mydestination.js.html",
+    "src/component/mydestination.js",
+    "file"
+  ],
+  [
+    "src/component/mydestination.js~mydestination#constructor",
+    "class/src/component/mydestination.js~MyDestination.html#instance-constructor-constructor",
+    "src/component/mydestination.js~MyDestination#constructor",
+    "method"
+  ],
+  [
+    "src/component/mydestination.js~mydestination#render",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-render",
+    "src/component/mydestination.js~MyDestination#render",
+    "method"
+  ],
+  [
+    "src/const/login.js",
+    "file/src/const/login.js.html",
+    "src/const/login.js",
+    "file"
   ],
   [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",
+    "file"
+  ],
+  [
+    "src/reducer/login.js",
+    "file/src/reducer/login.js.html",
+    "src/reducer/login.js",
+    "file"
+  ],
+  [
+    "src/reducer/root.js",
+    "file/src/reducer/root.js.html",
+    "src/reducer/root.js",
+    "file"
+  ],
+  [
+    "src/saga/login.js",
+    "file/src/saga/login.js.html",
+    "src/saga/login.js",
+    "file"
+  ],
+  [
+    "src/saga/root.js",
+    "file/src/saga/root.js.html",
+    "src/saga/root.js",
+    "file"
+  ],
+  [
+    "src/store/store.js",
+    "file/src/store/store.js.html",
+    "src/store/store.js",
     "file"
   ]
 ]

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/store/store.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -53,31 +53,35 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="-ui-">&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3000;&quot;&#x30AD;&#x30E7;&#x30A6;-&#x30C9;&#x30B3;&#xFF1F;&quot;&#x306E;UI&#x3067;&#x3059;&#x3002;</h1>
-<h2 id="-">&#x74B0;&#x5883;&#x69CB;&#x7BC9;</h2>
-<h3 id="-">&#x521D;&#x671F;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;</h3>
-<pre><code class="lang-bash"><code class="source-code prettyprint">$ git clone https://github.com/tetsuya-zama/kyo-do.co-ui.git
-$ cd kyo-do.co-ui
-$ npm install</code>
+<div class="content" data-ice="content"><h1 data-ice="title">src/store/store.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { createStore, applyMiddleware } from &apos;redux&apos;
+import createSagaMiddleware from &apos;redux-saga&apos;
+import logger from &apos;redux-logger&apos;
+import rootReducer from &apos;../reducer/root&apos;
+import rootSaga from &apos;../saga/root&apos;
+import {LOGIN_STATUS} from &apos;../const/login&apos;
+
+
+/**
+* redux&#x306E;store&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;&#x3002;redux-saga&#x5BFE;&#x5FDC;&#x3002;
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function configureStore() {
+  const sagaMiddleware = createSagaMiddleware();
+  const store = createStore(
+    rootReducer,
+    {
+      login:{status:LOGIN_STATUS.NOTYET, user:{}}
+    },
+    applyMiddleware(
+      sagaMiddleware, logger()
+    )
+  );
+  sagaMiddleware.run(rootSaga);
+  return store;
+};
 </code></pre>
-<h3 id="-">&#x30D3;&#x30EB;&#x30C9;</h3>
-<pre><code class="lang-bash"><code class="source-code prettyprint">$ webpack</code>
-</code></pre>
-<h3 id="-">&#x958B;&#x767A;&#x30B5;&#x30FC;&#x30D0;&#x306E;&#x8D77;&#x52D5;</h3>
-<pre><code class="lang-bash"><code class="source-code prettyprint">$ npm start
-# http://localhost:8080&#x3067;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x3067;&#x304D;&#x308B;
-# &#x30BD;&#x30FC;&#x30B9;&#x3092;&#x4FEE;&#x6B63;&#x3059;&#x308B;&#x3068;&#x518D;&#x30D3;&#x30EB;&#x30C9;&#x3057;&#x3066;&#x5373;&#x53CD;&#x6620;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;
-# &#x6B62;&#x3081;&#x308B;&#x3068;&#x304D;&#x306F;ctrl+c</code>
-</code></pre>
-<h3 id="-esdoc-">&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x751F;&#x6210;(esdoc)</h3>
-<pre><code class="lang-bash"><code class="source-code prettyprint">$ npm run esdoc
-# ./docs&#x306B;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x304C;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;</code>
-</code></pre>
-<h4 id="-">&#x516C;&#x5F0F;&#x30DA;&#x30FC;&#x30B8;</h4>
-<p>@see <a href="https://esdoc.org/">https://esdoc.org/</a></p>
-<h4 id="-">&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x516C;&#x958B;&#x5148;</h4>
-<p>@see <a href="https://tetsuya-zama.github.io/kyo-do.co-ui/">https://tetsuya-zama.github.io/kyo-do.co-ui/</a></p>
-</div>
+
 </div>
 
 <footer class="footer">

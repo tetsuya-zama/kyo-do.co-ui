@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/component/loginform.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -53,31 +53,69 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="-ui-">&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3000;&quot;&#x30AD;&#x30E7;&#x30A6;-&#x30C9;&#x30B3;&#xFF1F;&quot;&#x306E;UI&#x3067;&#x3059;&#x3002;</h1>
-<h2 id="-">&#x74B0;&#x5883;&#x69CB;&#x7BC9;</h2>
-<h3 id="-">&#x521D;&#x671F;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;</h3>
-<pre><code class="lang-bash"><code class="source-code prettyprint">$ git clone https://github.com/tetsuya-zama/kyo-do.co-ui.git
-$ cd kyo-do.co-ui
-$ npm install</code>
+<div class="content" data-ice="content"><h1 data-ice="title">src/component/loginform.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
+import ReactDOM from &apos;react-dom&apos;
+import {loginRequested} from &apos;../action/login&apos;
+import {LOGIN_STATUS} from &apos;../const/login&apos;
+
+/**
+* LoginForm&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
+* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
+*/
+export default class LoginForm extends React.Component{
+  /**
+  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
+  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
+  * @return {undefined}
+  */
+  constructor(props){
+    super(props);
+    //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  /**
+  * &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @return {undefined}
+  */
+  handleSubmit(){
+    /*
+    *&#x5165;&#x529B;&#x3055;&#x308C;&#x305F;ID/Pass&#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x3001;
+    *&#x305D;&#x308C;&#x3092;&#x5143;&#x306B;LOGIN_REQUESTED(&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x8981;&#x6C42;)&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;dispatch&#x3059;&#x308B;
+    */
+    const userid = ReactDOM.findDOMNode(this.refs.userid).value.trim();
+    const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
+    if(userid &amp;&amp; password){
+      this.props.dispatch(loginRequested(userid,password));
+    }
+  }
+
+  /**
+  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @return {undefined}
+  */
+  render(){
+    //&#x73FE;&#x5728;&#x306E;&#x72B6;&#x614B;&#x304C;LOGIN_STATUS.FAILURE(&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x5931;&#x6557;)&#x3067;&#x3042;&#x308C;&#x3070;&#x5931;&#x6557;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;
+    const message = this.props.login.status == LOGIN_STATUS.FAILURE ?
+      &quot;ID&#x3082;&#x3057;&#x304F;&#x306F;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x304C;&#x6B63;&#x3057;&#x304F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&quot; :
+      &quot;&quot;;
+
+    return (
+      &lt;div&gt;
+        &lt;span&gt;id:&lt;/span&gt;&lt;input type=&quot;text&quot; ref=&quot;userid&quot;/&gt;
+        &lt;br /&gt;
+        &lt;span&gt;pass:&lt;/span&gt;&lt;input type=&quot;password&quot; ref=&quot;password&quot;/&gt;
+        &lt;br /&gt;
+        &lt;button onClick={this.handleSubmit}&gt;Login&lt;/button&gt;
+        &lt;br /&gt;
+        &lt;span style={{color:&quot;red&quot;}}&gt;{message}&lt;/span&gt;
+      &lt;/div&gt;
+    );
+  }
+}
 </code></pre>
-<h3 id="-">&#x30D3;&#x30EB;&#x30C9;</h3>
-<pre><code class="lang-bash"><code class="source-code prettyprint">$ webpack</code>
-</code></pre>
-<h3 id="-">&#x958B;&#x767A;&#x30B5;&#x30FC;&#x30D0;&#x306E;&#x8D77;&#x52D5;</h3>
-<pre><code class="lang-bash"><code class="source-code prettyprint">$ npm start
-# http://localhost:8080&#x3067;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x3067;&#x304D;&#x308B;
-# &#x30BD;&#x30FC;&#x30B9;&#x3092;&#x4FEE;&#x6B63;&#x3059;&#x308B;&#x3068;&#x518D;&#x30D3;&#x30EB;&#x30C9;&#x3057;&#x3066;&#x5373;&#x53CD;&#x6620;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;
-# &#x6B62;&#x3081;&#x308B;&#x3068;&#x304D;&#x306F;ctrl+c</code>
-</code></pre>
-<h3 id="-esdoc-">&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x751F;&#x6210;(esdoc)</h3>
-<pre><code class="lang-bash"><code class="source-code prettyprint">$ npm run esdoc
-# ./docs&#x306B;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x304C;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;</code>
-</code></pre>
-<h4 id="-">&#x516C;&#x5F0F;&#x30DA;&#x30FC;&#x30B8;</h4>
-<p>@see <a href="https://esdoc.org/">https://esdoc.org/</a></p>
-<h4 id="-">&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x516C;&#x958B;&#x5148;</h4>
-<p>@see <a href="https://tetsuya-zama.github.io/kyo-do.co-ui/">https://tetsuya-zama.github.io/kyo-do.co-ui/</a></p>
-</div>
+
 </div>
 
 <footer class="footer">
