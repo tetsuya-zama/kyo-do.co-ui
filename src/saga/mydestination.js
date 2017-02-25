@@ -1,4 +1,5 @@
-import {take,put,select,takeEvery} from 'redux-saga/effects'
+import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'
+import {delay} from 'redux-saga'
 import {MY_DESTINATION_CHANGE,myDestinationChange} from '../action/mydestination'
 import {LOGIN_SUCCESS} from '../action/login'
 import {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'
@@ -7,6 +8,11 @@ import {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localsto
 * localStorageに行き先を保管する際のKey
 */
 const STORAGE_KEY_DESTINATION = "my_destination.";
+/**
+* 行き先を入力してからサーバ同期するまでの遅延時間
+*/
+const SYNC_DELAY_MS = 1000;
+
 /**
 * ログインが成功した際にログインユーザーの行き先をロードするSaga
 * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
@@ -29,20 +35,14 @@ function* loadDestinationTask(action){
     /**
     * TODO APIを呼び出してサーバ上に保存されている行き先を取得する
     */
-    /**
-    * XXX
-    * 今のまま素直にajax部分を実装すると、一文字入力するたびにajaxが走ってしまうので
-    * パフォーマンス的によろしくない
-    * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac#%E3%82%AA%E3%83%BC%E3%83%88%E3%82%B3%E3%83%B3%E3%83%97%E3%83%AA%E3%83%BC%E3%83%88
-    * ↑のあたりを参考に遅延実行にした方が良い
-    */
+
 }
 /**
 * 行き先変更アクションを受け付けるSaga
 * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
 */
 export function* changeDestinationSaga(){
-  yield takeEvery(MY_DESTINATION_CHANGE,changeDestinationTask);
+  yield takeLatest(MY_DESTINATION_CHANGE,changeDestinationTask);
 }
 
 /**
@@ -50,6 +50,7 @@ export function* changeDestinationSaga(){
 * @param {Object} action MY_DESTINATION_CHANGEアクション
 */
 function* changeDestinationTask(action){
+  yield call(delay,SYNC_DELAY_MS);
   const logonUser = yield select(state => state.login.user);
 
   //とりあえずlocalStorageに保存する
@@ -58,4 +59,5 @@ function* changeDestinationTask(action){
   /**
   * TODO APIを呼び出してサーバ上に保存
   */
+
 }
