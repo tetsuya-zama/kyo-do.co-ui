@@ -2,8 +2,8 @@
 ## 環境構築
 ### 初期セットアップ
 ```bash
-$ git clone https://github.com/tetsuya-zama/dokoit.tel-ui.git
-$ cd dokoit.tel-ui
+$ git clone https://github.com/tetsuya-zama/kyo-do.co-ui.git
+$ cd kyo-do.co-ui
 $ npm install
 ```
 ### ビルド
@@ -25,6 +25,6 @@ $ npm run esdoc
 #### 公式ページ
 @see https://esdoc.org/
 #### 生成されたドキュメントの公開先
-@see https://tetsuya-zama.github.io/dokoit.tel-ui/
+@see https://tetsuya-zama.github.io/kyo-do.co-ui/
 
 

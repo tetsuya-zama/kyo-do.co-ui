@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Dokoittel from './component/dokoittel';
+import Kyodoco from './component/kyodoco';
 
 const container = document.getElementById("app");
 ReactDOM.render(
-  <Dokoittel />,
+  <Kyodoco />,
   container
 );

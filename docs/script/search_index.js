@@ -1,8 +1,8 @@
 window.esdocSearchIndex = [
   [
-    "dokoit.tel-ui/src/component/dokoittel.js~dokoittel",
-    "class/src/component/dokoittel.js~Dokoittel.html",
-    "<span>Dokoittel</span> <span class=\"search-result-import-path\">dokoit.tel-ui/src/component/dokoittel.js</span>",
+    "dokoit.tel-ui/src/component/kyodoco.js~kyodoco",
+    "class/src/component/kyodoco.js~Kyodoco.html",
+    "<span>Kyodoco</span> <span class=\"search-result-import-path\">dokoit.tel-ui/src/component/kyodoco.js</span>",
     "class"
   ],
   [
@@ -336,21 +336,21 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "src/component/dokoittel.js",
-    "file/src/component/dokoittel.js.html",
-    "src/component/dokoittel.js",
+    "src/component/kyodoco.js",
+    "file/src/component/kyodoco.js.html",
+    "src/component/kyodoco.js",
     "file"
   ],
   [
-    "src/component/dokoittel.js~dokoittel#constructor",
-    "class/src/component/dokoittel.js~Dokoittel.html#instance-constructor-constructor",
-    "src/component/dokoittel.js~Dokoittel#constructor",
+    "src/component/kyodoco.js~kyodoco#constructor",
+    "class/src/component/kyodoco.js~Kyodoco.html#instance-constructor-constructor",
+    "src/component/kyodoco.js~Kyodoco#constructor",
     "method"
   ],
   [
-    "src/component/dokoittel.js~dokoittel#render",
-    "class/src/component/dokoittel.js~Dokoittel.html#instance-method-render",
-    "src/component/dokoittel.js~Dokoittel#render",
+    "src/component/kyodoco.js~kyodoco#render",
+    "class/src/component/kyodoco.js~Kyodoco.html#instance-method-render",
+    "src/component/kyodoco.js~Kyodoco#render",
     "method"
   ],
   [

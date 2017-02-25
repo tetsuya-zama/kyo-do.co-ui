@@ -3,7 +3,7 @@ import React from 'react';
 *メインコンポーネント
 * @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
 */
-export default class Dokoittel extends React.Component{
+export default class Kyodoco extends React.Component{
   /**
   * コンストタクタ
   * @param {Object} props プロパティ
@@ -19,7 +19,7 @@ export default class Dokoittel extends React.Component{
   */
   render(){
     return(
-      <div>ドコイッテル？</div>
+      <div>キョウ-ドコ？</div>
     );
   }
 }

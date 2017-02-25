@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">Index | API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/component/kyodoco.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -37,46 +37,33 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>References</h1>
-<div data-ice="classSummary"><h2 id="class">Class Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Static Public Class Summary</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          <span data-ice="name"><span><a href="class/src/component/kyodoco.js~Kyodoco.html">Kyodoco</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E1;&#x30A4;&#x30F3;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
+<div class="content" data-ice="content"><h1 data-ice="title">src/component/kyodoco.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+/**
+*&#x30E1;&#x30A4;&#x30F3;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
+* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
+*/
+export default class Kyodoco extends React.Component{
+  /**
+  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30BF;&#x30AF;&#x30BF;
+  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
+  * @return {undefined}
+  */
+  constructor(props){
+    super(props);
+  }
 
-
-
-
+  /**
+  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @return {undefined}
+  */
+  render(){
+    return(
+      &lt;div&gt;&#x30AD;&#x30E7;&#x30A6;-&#x30C9;&#x30B3;&#xFF1F;&lt;/div&gt;
+    );
+  }
+}
+</code></pre>
 
 </div>
 
