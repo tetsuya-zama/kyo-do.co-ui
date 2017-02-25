@@ -1,6 +1,7 @@
 import {fork} from 'redux-saga/effects'
 import {loginSaga,logoutSaga,loginFailureSaga,loginFromRememberMeSaga} from './login'
 import {loadDestinationSaga,changeDestinationSaga} from './mydestination'
+import {loadMemberStatusSaga,watchMemberStatusSaga} from './board'
 
 /**
 * Sagaの起点ポイント。ここから各Sagaをforkする
@@ -13,4 +14,6 @@ export default function* rootSaga(){
   yield fork(loginFromRememberMeSaga);
   yield fork(loadDestinationSaga);
   yield fork(changeDestinationSaga);
+  yield fork(loadMemberStatusSaga);
+  yield fork(watchMemberStatusSaga);
 }

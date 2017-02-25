@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 527,
+  "end": 667,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 17,
+      "line": 20,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 527,
+    "end": 667,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 17,
+        "line": 20,
         "column": 0
       }
     },
@@ -479,7 +479,142 @@
             "rawValue": "./mydestination",
             "raw": "'./mydestination'"
           },
-          "value": "./mydestination",
+          "value": "./mydestination"
+        }
+      },
+      {
+        "type": "ImportDeclaration",
+        "start": 200,
+        "end": 266,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 0
+          },
+          "end": {
+            "line": 4,
+            "column": 66
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportSpecifier",
+            "start": 208,
+            "end": 228,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 8
+              },
+              "end": {
+                "line": 4,
+                "column": 28
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 208,
+              "end": 228,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 8
+                },
+                "end": {
+                  "line": 4,
+                  "column": 28
+                },
+                "identifierName": "loadMemberStatusSaga"
+              },
+              "name": "loadMemberStatusSaga"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 208,
+              "end": 228,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 8
+                },
+                "end": {
+                  "line": 4,
+                  "column": 28
+                },
+                "identifierName": "loadMemberStatusSaga"
+              },
+              "name": "loadMemberStatusSaga"
+            }
+          },
+          {
+            "type": "ImportSpecifier",
+            "start": 229,
+            "end": 250,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 29
+              },
+              "end": {
+                "line": 4,
+                "column": 50
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 229,
+              "end": 250,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 29
+                },
+                "end": {
+                  "line": 4,
+                  "column": 50
+                },
+                "identifierName": "watchMemberStatusSaga"
+              },
+              "name": "watchMemberStatusSaga"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 229,
+              "end": 250,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 29
+                },
+                "end": {
+                  "line": 4,
+                  "column": 50
+                },
+                "identifierName": "watchMemberStatusSaga"
+              },
+              "name": "watchMemberStatusSaga"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 257,
+          "end": 266,
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 57
+            },
+            "end": {
+              "line": 4,
+              "column": 66
+            }
+          },
+          "extra": {
+            "rawValue": "./board",
+            "raw": "'./board'"
+          },
+          "value": "./board",
           "leadingComments": null,
           "trailingComments": null
         },
@@ -487,15 +622,15 @@
           {
             "type": "CommentBlock",
             "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
-            "start": 201,
-            "end": 293,
+            "start": 268,
+            "end": 360,
             "loc": {
               "start": {
-                "line": 5,
+                "line": 6,
                 "column": 0
               },
               "end": {
-                "line": 8,
+                "line": 9,
                 "column": 2
               }
             }
@@ -504,43 +639,43 @@
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 294,
-        "end": 526,
+        "start": 361,
+        "end": 666,
         "loc": {
           "start": {
-            "line": 9,
+            "line": 10,
             "column": 0
           },
           "end": {
-            "line": 16,
+            "line": 19,
             "column": 1
           }
         },
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 309,
-          "end": 526,
+          "start": 376,
+          "end": 666,
           "loc": {
             "start": {
-              "line": 9,
+              "line": 10,
               "column": 15
             },
             "end": {
-              "line": 16,
+              "line": 19,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 319,
-            "end": 327,
+            "start": 386,
+            "end": 394,
             "loc": {
               "start": {
-                "line": 9,
+                "line": 10,
                 "column": 25
               },
               "end": {
-                "line": 9,
+                "line": 10,
                 "column": 33
               },
               "identifierName": "rootSaga"
@@ -554,73 +689,73 @@
           "params": [],
           "body": {
             "type": "BlockStatement",
-            "start": 329,
-            "end": 526,
+            "start": 396,
+            "end": 666,
             "loc": {
               "start": {
-                "line": 9,
+                "line": 10,
                 "column": 35
               },
               "end": {
-                "line": 16,
+                "line": 19,
                 "column": 1
               }
             },
             "body": [
               {
                 "type": "ExpressionStatement",
-                "start": 333,
-                "end": 355,
+                "start": 400,
+                "end": 422,
                 "loc": {
                   "start": {
-                    "line": 10,
+                    "line": 11,
                     "column": 2
                   },
                   "end": {
-                    "line": 10,
+                    "line": 11,
                     "column": 24
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 333,
-                  "end": 354,
+                  "start": 400,
+                  "end": 421,
                   "loc": {
                     "start": {
-                      "line": 10,
+                      "line": 11,
                       "column": 2
                     },
                     "end": {
-                      "line": 10,
+                      "line": 11,
                       "column": 23
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 339,
-                    "end": 354,
+                    "start": 406,
+                    "end": 421,
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 11,
                         "column": 8
                       },
                       "end": {
-                        "line": 10,
+                        "line": 11,
                         "column": 23
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 339,
-                      "end": 343,
+                      "start": 406,
+                      "end": 410,
                       "loc": {
                         "start": {
-                          "line": 10,
+                          "line": 11,
                           "column": 8
                         },
                         "end": {
-                          "line": 10,
+                          "line": 11,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -630,15 +765,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 344,
-                        "end": 353,
+                        "start": 411,
+                        "end": 420,
                         "loc": {
                           "start": {
-                            "line": 10,
+                            "line": 11,
                             "column": 13
                           },
                           "end": {
-                            "line": 10,
+                            "line": 11,
                             "column": 22
                           },
                           "identifierName": "loginSaga"
@@ -651,58 +786,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 358,
-                "end": 381,
+                "start": 425,
+                "end": 448,
                 "loc": {
                   "start": {
-                    "line": 11,
+                    "line": 12,
                     "column": 2
                   },
                   "end": {
-                    "line": 11,
+                    "line": 12,
                     "column": 25
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 358,
-                  "end": 380,
+                  "start": 425,
+                  "end": 447,
                   "loc": {
                     "start": {
-                      "line": 11,
+                      "line": 12,
                       "column": 2
                     },
                     "end": {
-                      "line": 11,
+                      "line": 12,
                       "column": 24
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 364,
-                    "end": 380,
+                    "start": 431,
+                    "end": 447,
                     "loc": {
                       "start": {
-                        "line": 11,
+                        "line": 12,
                         "column": 8
                       },
                       "end": {
-                        "line": 11,
+                        "line": 12,
                         "column": 24
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 364,
-                      "end": 368,
+                      "start": 431,
+                      "end": 435,
                       "loc": {
                         "start": {
-                          "line": 11,
+                          "line": 12,
                           "column": 8
                         },
                         "end": {
-                          "line": 11,
+                          "line": 12,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -712,15 +847,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 369,
-                        "end": 379,
+                        "start": 436,
+                        "end": 446,
                         "loc": {
                           "start": {
-                            "line": 11,
+                            "line": 12,
                             "column": 13
                           },
                           "end": {
-                            "line": 11,
+                            "line": 12,
                             "column": 23
                           },
                           "identifierName": "logoutSaga"
@@ -733,58 +868,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 384,
-                "end": 413,
+                "start": 451,
+                "end": 480,
                 "loc": {
                   "start": {
-                    "line": 12,
+                    "line": 13,
                     "column": 2
                   },
                   "end": {
-                    "line": 12,
+                    "line": 13,
                     "column": 31
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 384,
-                  "end": 412,
+                  "start": 451,
+                  "end": 479,
                   "loc": {
                     "start": {
-                      "line": 12,
+                      "line": 13,
                       "column": 2
                     },
                     "end": {
-                      "line": 12,
+                      "line": 13,
                       "column": 30
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 390,
-                    "end": 412,
+                    "start": 457,
+                    "end": 479,
                     "loc": {
                       "start": {
-                        "line": 12,
+                        "line": 13,
                         "column": 8
                       },
                       "end": {
-                        "line": 12,
+                        "line": 13,
                         "column": 30
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 390,
-                      "end": 394,
+                      "start": 457,
+                      "end": 461,
                       "loc": {
                         "start": {
-                          "line": 12,
+                          "line": 13,
                           "column": 8
                         },
                         "end": {
-                          "line": 12,
+                          "line": 13,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -794,15 +929,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 395,
-                        "end": 411,
+                        "start": 462,
+                        "end": 478,
                         "loc": {
                           "start": {
-                            "line": 12,
+                            "line": 13,
                             "column": 13
                           },
                           "end": {
-                            "line": 12,
+                            "line": 13,
                             "column": 29
                           },
                           "identifierName": "loginFailureSaga"
@@ -815,58 +950,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 416,
-                "end": 452,
+                "start": 483,
+                "end": 519,
                 "loc": {
                   "start": {
-                    "line": 13,
+                    "line": 14,
                     "column": 2
                   },
                   "end": {
-                    "line": 13,
+                    "line": 14,
                     "column": 38
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 416,
-                  "end": 451,
+                  "start": 483,
+                  "end": 518,
                   "loc": {
                     "start": {
-                      "line": 13,
+                      "line": 14,
                       "column": 2
                     },
                     "end": {
-                      "line": 13,
+                      "line": 14,
                       "column": 37
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 422,
-                    "end": 451,
+                    "start": 489,
+                    "end": 518,
                     "loc": {
                       "start": {
-                        "line": 13,
+                        "line": 14,
                         "column": 8
                       },
                       "end": {
-                        "line": 13,
+                        "line": 14,
                         "column": 37
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 422,
-                      "end": 426,
+                      "start": 489,
+                      "end": 493,
                       "loc": {
                         "start": {
-                          "line": 13,
+                          "line": 14,
                           "column": 8
                         },
                         "end": {
-                          "line": 13,
+                          "line": 14,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -876,15 +1011,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 427,
-                        "end": 450,
+                        "start": 494,
+                        "end": 517,
                         "loc": {
                           "start": {
-                            "line": 13,
+                            "line": 14,
                             "column": 13
                           },
                           "end": {
-                            "line": 13,
+                            "line": 14,
                             "column": 36
                           },
                           "identifierName": "loginFromRememberMeSaga"
@@ -897,58 +1032,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 455,
-                "end": 487,
+                "start": 522,
+                "end": 554,
                 "loc": {
                   "start": {
-                    "line": 14,
+                    "line": 15,
                     "column": 2
                   },
                   "end": {
-                    "line": 14,
+                    "line": 15,
                     "column": 34
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 455,
-                  "end": 486,
+                  "start": 522,
+                  "end": 553,
                   "loc": {
                     "start": {
-                      "line": 14,
+                      "line": 15,
                       "column": 2
                     },
                     "end": {
-                      "line": 14,
+                      "line": 15,
                       "column": 33
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 461,
-                    "end": 486,
+                    "start": 528,
+                    "end": 553,
                     "loc": {
                       "start": {
-                        "line": 14,
+                        "line": 15,
                         "column": 8
                       },
                       "end": {
-                        "line": 14,
+                        "line": 15,
                         "column": 33
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 461,
-                      "end": 465,
+                      "start": 528,
+                      "end": 532,
                       "loc": {
                         "start": {
-                          "line": 14,
+                          "line": 15,
                           "column": 8
                         },
                         "end": {
-                          "line": 14,
+                          "line": 15,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -958,15 +1093,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 466,
-                        "end": 485,
+                        "start": 533,
+                        "end": 552,
                         "loc": {
                           "start": {
-                            "line": 14,
+                            "line": 15,
                             "column": 13
                           },
                           "end": {
-                            "line": 14,
+                            "line": 15,
                             "column": 32
                           },
                           "identifierName": "loadDestinationSaga"
@@ -979,58 +1114,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 490,
-                "end": 524,
+                "start": 557,
+                "end": 591,
                 "loc": {
                   "start": {
-                    "line": 15,
+                    "line": 16,
                     "column": 2
                   },
                   "end": {
-                    "line": 15,
+                    "line": 16,
                     "column": 36
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 490,
-                  "end": 523,
+                  "start": 557,
+                  "end": 590,
                   "loc": {
                     "start": {
-                      "line": 15,
+                      "line": 16,
                       "column": 2
                     },
                     "end": {
-                      "line": 15,
+                      "line": 16,
                       "column": 35
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 496,
-                    "end": 523,
+                    "start": 563,
+                    "end": 590,
                     "loc": {
                       "start": {
-                        "line": 15,
+                        "line": 16,
                         "column": 8
                       },
                       "end": {
-                        "line": 15,
+                        "line": 16,
                         "column": 35
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 496,
-                      "end": 500,
+                      "start": 563,
+                      "end": 567,
                       "loc": {
                         "start": {
-                          "line": 15,
+                          "line": 16,
                           "column": 8
                         },
                         "end": {
-                          "line": 15,
+                          "line": 16,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1040,20 +1175,184 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 501,
-                        "end": 522,
+                        "start": 568,
+                        "end": 589,
                         "loc": {
                           "start": {
-                            "line": 15,
+                            "line": 16,
                             "column": 13
                           },
                           "end": {
-                            "line": 15,
+                            "line": 16,
                             "column": 34
                           },
                           "identifierName": "changeDestinationSaga"
                         },
                         "name": "changeDestinationSaga"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 594,
+                "end": 627,
+                "loc": {
+                  "start": {
+                    "line": 17,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 17,
+                    "column": 35
+                  }
+                },
+                "expression": {
+                  "type": "YieldExpression",
+                  "start": 594,
+                  "end": 626,
+                  "loc": {
+                    "start": {
+                      "line": 17,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 17,
+                      "column": 34
+                    }
+                  },
+                  "delegate": false,
+                  "argument": {
+                    "type": "CallExpression",
+                    "start": 600,
+                    "end": 626,
+                    "loc": {
+                      "start": {
+                        "line": 17,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 34
+                      }
+                    },
+                    "callee": {
+                      "type": "Identifier",
+                      "start": 600,
+                      "end": 604,
+                      "loc": {
+                        "start": {
+                          "line": 17,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 17,
+                          "column": 12
+                        },
+                        "identifierName": "fork"
+                      },
+                      "name": "fork"
+                    },
+                    "arguments": [
+                      {
+                        "type": "Identifier",
+                        "start": 605,
+                        "end": 625,
+                        "loc": {
+                          "start": {
+                            "line": 17,
+                            "column": 13
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 33
+                          },
+                          "identifierName": "loadMemberStatusSaga"
+                        },
+                        "name": "loadMemberStatusSaga"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 630,
+                "end": 664,
+                "loc": {
+                  "start": {
+                    "line": 18,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 18,
+                    "column": 36
+                  }
+                },
+                "expression": {
+                  "type": "YieldExpression",
+                  "start": 630,
+                  "end": 663,
+                  "loc": {
+                    "start": {
+                      "line": 18,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 18,
+                      "column": 35
+                    }
+                  },
+                  "delegate": false,
+                  "argument": {
+                    "type": "CallExpression",
+                    "start": 636,
+                    "end": 663,
+                    "loc": {
+                      "start": {
+                        "line": 18,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 18,
+                        "column": 35
+                      }
+                    },
+                    "callee": {
+                      "type": "Identifier",
+                      "start": 636,
+                      "end": 640,
+                      "loc": {
+                        "start": {
+                          "line": 18,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 18,
+                          "column": 12
+                        },
+                        "identifierName": "fork"
+                      },
+                      "name": "fork"
+                    },
+                    "arguments": [
+                      {
+                        "type": "Identifier",
+                        "start": 641,
+                        "end": 662,
+                        "loc": {
+                          "start": {
+                            "line": 18,
+                            "column": 13
+                          },
+                          "end": {
+                            "line": 18,
+                            "column": 34
+                          },
+                          "identifierName": "watchMemberStatusSaga"
+                        },
+                        "name": "watchMemberStatusSaga"
                       }
                     ]
                   }
@@ -1066,15 +1365,15 @@
             {
               "type": "CommentBlock",
               "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
-              "start": 201,
-              "end": 293,
+              "start": 268,
+              "end": 360,
               "loc": {
                 "start": {
-                  "line": 5,
+                  "line": 6,
                   "column": 0
                 },
                 "end": {
-                  "line": 8,
+                  "line": 9,
                   "column": 2
                 }
               }
@@ -1086,15 +1385,15 @@
           {
             "type": "CommentBlock",
             "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
-            "start": 201,
-            "end": 293,
+            "start": 268,
+            "end": 360,
             "loc": {
               "start": {
-                "line": 5,
+                "line": 6,
                 "column": 0
               },
               "end": {
-                "line": 8,
+                "line": 9,
                 "column": 2
               }
             }
@@ -1108,15 +1407,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
-      "start": 201,
-      "end": 293,
+      "start": 268,
+      "end": 360,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 6,
           "column": 0
         },
         "end": {
-          "line": 8,
+          "line": 9,
           "column": 2
         }
       }
@@ -1803,17 +2102,226 @@
       }
     },
     {
-      "type": "CommentBlock",
-      "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
-      "start": 201,
-      "end": 293,
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 200,
+      "end": 206,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 4,
           "column": 0
         },
         "end": {
-          "line": 8,
+          "line": 4,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 207,
+      "end": 208,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 7
+        },
+        "end": {
+          "line": 4,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "loadMemberStatusSaga",
+      "start": 208,
+      "end": 228,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 8
+        },
+        "end": {
+          "line": 4,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 228,
+      "end": 229,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 28
+        },
+        "end": {
+          "line": 4,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "watchMemberStatusSaga",
+      "start": 229,
+      "end": 250,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 29
+        },
+        "end": {
+          "line": 4,
+          "column": 50
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 250,
+      "end": 251,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 50
+        },
+        "end": {
+          "line": 4,
+          "column": 51
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 252,
+      "end": 256,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 52
+        },
+        "end": {
+          "line": 4,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./board",
+      "start": 257,
+      "end": 266,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 57
+        },
+        "end": {
+          "line": 4,
+          "column": 66
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
+      "start": 268,
+      "end": 360,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
           "column": 2
         }
       }
@@ -1833,15 +2341,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 294,
-      "end": 300,
+      "start": 361,
+      "end": 367,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 0
         },
         "end": {
-          "line": 9,
+          "line": 10,
           "column": 6
         }
       }
@@ -1861,15 +2369,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 301,
-      "end": 308,
+      "start": 368,
+      "end": 375,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 7
         },
         "end": {
-          "line": 9,
+          "line": 10,
           "column": 14
         }
       }
@@ -1888,15 +2396,15 @@
         "binop": null
       },
       "value": "function",
-      "start": 309,
-      "end": 317,
+      "start": 376,
+      "end": 384,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 15
         },
         "end": {
-          "line": 9,
+          "line": 10,
           "column": 23
         }
       }
@@ -1915,15 +2423,15 @@
         "updateContext": null
       },
       "value": "*",
-      "start": 317,
-      "end": 318,
+      "start": 384,
+      "end": 385,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 23
         },
         "end": {
-          "line": 9,
+          "line": 10,
           "column": 24
         }
       }
@@ -1941,457 +2449,16 @@
         "binop": null
       },
       "value": "rootSaga",
-      "start": 319,
-      "end": 327,
-      "loc": {
-        "start": {
-          "line": 9,
-          "column": 25
-        },
-        "end": {
-          "line": 9,
-          "column": 33
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 327,
-      "end": 328,
-      "loc": {
-        "start": {
-          "line": 9,
-          "column": 33
-        },
-        "end": {
-          "line": 9,
-          "column": 34
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 328,
-      "end": 329,
-      "loc": {
-        "start": {
-          "line": 9,
-          "column": 34
-        },
-        "end": {
-          "line": 9,
-          "column": 35
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "{",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 329,
-      "end": 330,
-      "loc": {
-        "start": {
-          "line": 9,
-          "column": 35
-        },
-        "end": {
-          "line": 9,
-          "column": 36
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "yield",
-        "keyword": "yield",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "yield",
-      "start": 333,
-      "end": 338,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 2
-        },
-        "end": {
-          "line": 10,
-          "column": 7
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "fork",
-      "start": 339,
-      "end": 343,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 8
-        },
-        "end": {
-          "line": 10,
-          "column": 12
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 343,
-      "end": 344,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 12
-        },
-        "end": {
-          "line": 10,
-          "column": 13
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "loginSaga",
-      "start": 344,
-      "end": 353,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 13
-        },
-        "end": {
-          "line": 10,
-          "column": 22
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 353,
-      "end": 354,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 22
-        },
-        "end": {
-          "line": 10,
-          "column": 23
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 354,
-      "end": 355,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 23
-        },
-        "end": {
-          "line": 10,
-          "column": 24
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "yield",
-        "keyword": "yield",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "yield",
-      "start": 358,
-      "end": 363,
-      "loc": {
-        "start": {
-          "line": 11,
-          "column": 2
-        },
-        "end": {
-          "line": 11,
-          "column": 7
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "fork",
-      "start": 364,
-      "end": 368,
-      "loc": {
-        "start": {
-          "line": 11,
-          "column": 8
-        },
-        "end": {
-          "line": 11,
-          "column": 12
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 368,
-      "end": 369,
-      "loc": {
-        "start": {
-          "line": 11,
-          "column": 12
-        },
-        "end": {
-          "line": 11,
-          "column": 13
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "logoutSaga",
-      "start": 369,
-      "end": 379,
-      "loc": {
-        "start": {
-          "line": 11,
-          "column": 13
-        },
-        "end": {
-          "line": 11,
-          "column": 23
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 379,
-      "end": 380,
-      "loc": {
-        "start": {
-          "line": 11,
-          "column": 23
-        },
-        "end": {
-          "line": 11,
-          "column": 24
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 380,
-      "end": 381,
-      "loc": {
-        "start": {
-          "line": 11,
-          "column": 24
-        },
-        "end": {
-          "line": 11,
-          "column": 25
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "yield",
-        "keyword": "yield",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "yield",
-      "start": 384,
-      "end": 389,
-      "loc": {
-        "start": {
-          "line": 12,
-          "column": 2
-        },
-        "end": {
-          "line": 12,
-          "column": 7
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "fork",
-      "start": 390,
+      "start": 386,
       "end": 394,
       "loc": {
         "start": {
-          "line": 12,
-          "column": 8
+          "line": 10,
+          "column": 25
         },
         "end": {
-          "line": 12,
-          "column": 12
+          "line": 10,
+          "column": 33
         }
       }
     },
@@ -2411,6 +2478,291 @@
       "end": 395,
       "loc": {
         "start": {
+          "line": 10,
+          "column": 33
+        },
+        "end": {
+          "line": 10,
+          "column": 34
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 395,
+      "end": 396,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 34
+        },
+        "end": {
+          "line": 10,
+          "column": 35
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 396,
+      "end": 397,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 35
+        },
+        "end": {
+          "line": 10,
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "yield",
+        "keyword": "yield",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "yield",
+      "start": 400,
+      "end": 405,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "fork",
+      "start": 406,
+      "end": 410,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 8
+        },
+        "end": {
+          "line": 11,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 410,
+      "end": 411,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 12
+        },
+        "end": {
+          "line": 11,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "loginSaga",
+      "start": 411,
+      "end": 420,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 13
+        },
+        "end": {
+          "line": 11,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 420,
+      "end": 421,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 22
+        },
+        "end": {
+          "line": 11,
+          "column": 23
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 421,
+      "end": 422,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 23
+        },
+        "end": {
+          "line": 11,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "yield",
+        "keyword": "yield",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "yield",
+      "start": 425,
+      "end": 430,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "fork",
+      "start": 431,
+      "end": 435,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 8
+        },
+        "end": {
+          "line": 12,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 435,
+      "end": 436,
+      "loc": {
+        "start": {
           "line": 12,
           "column": 12
         },
@@ -2432,9 +2784,9 @@
         "postfix": false,
         "binop": null
       },
-      "value": "loginFailureSaga",
-      "start": 395,
-      "end": 411,
+      "value": "logoutSaga",
+      "start": 436,
+      "end": 446,
       "loc": {
         "start": {
           "line": 12,
@@ -2442,6 +2794,162 @@
         },
         "end": {
           "line": 12,
+          "column": 23
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 446,
+      "end": 447,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 23
+        },
+        "end": {
+          "line": 12,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 447,
+      "end": 448,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 24
+        },
+        "end": {
+          "line": 12,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "yield",
+        "keyword": "yield",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "yield",
+      "start": 451,
+      "end": 456,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 13,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "fork",
+      "start": 457,
+      "end": 461,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 8
+        },
+        "end": {
+          "line": 13,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 461,
+      "end": 462,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 12
+        },
+        "end": {
+          "line": 13,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "loginFailureSaga",
+      "start": 462,
+      "end": 478,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 13
+        },
+        "end": {
+          "line": 13,
           "column": 29
         }
       }
@@ -2458,15 +2966,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 411,
-      "end": 412,
+      "start": 478,
+      "end": 479,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 13,
           "column": 29
         },
         "end": {
-          "line": 12,
+          "line": 13,
           "column": 30
         }
       }
@@ -2484,15 +2992,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 412,
-      "end": 413,
+      "start": 479,
+      "end": 480,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 13,
           "column": 30
         },
         "end": {
-          "line": 12,
+          "line": 13,
           "column": 31
         }
       }
@@ -2512,15 +3020,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 416,
-      "end": 421,
+      "start": 483,
+      "end": 488,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 2
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 7
         }
       }
@@ -2538,15 +3046,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 422,
-      "end": 426,
+      "start": 489,
+      "end": 493,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 8
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 12
         }
       }
@@ -2563,15 +3071,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 426,
-      "end": 427,
+      "start": 493,
+      "end": 494,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 12
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 13
         }
       }
@@ -2589,15 +3097,15 @@
         "binop": null
       },
       "value": "loginFromRememberMeSaga",
-      "start": 427,
-      "end": 450,
+      "start": 494,
+      "end": 517,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 13
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 36
         }
       }
@@ -2614,15 +3122,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 450,
-      "end": 451,
+      "start": 517,
+      "end": 518,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 36
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 37
         }
       }
@@ -2640,15 +3148,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 451,
-      "end": 452,
+      "start": 518,
+      "end": 519,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 37
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 38
         }
       }
@@ -2668,15 +3176,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 455,
-      "end": 460,
+      "start": 522,
+      "end": 527,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 2
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 7
         }
       }
@@ -2694,15 +3202,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 461,
-      "end": 465,
+      "start": 528,
+      "end": 532,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 8
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 12
         }
       }
@@ -2719,15 +3227,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 465,
-      "end": 466,
+      "start": 532,
+      "end": 533,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 12
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 13
         }
       }
@@ -2745,15 +3253,15 @@
         "binop": null
       },
       "value": "loadDestinationSaga",
-      "start": 466,
-      "end": 485,
+      "start": 533,
+      "end": 552,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 13
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 32
         }
       }
@@ -2770,15 +3278,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 485,
-      "end": 486,
+      "start": 552,
+      "end": 553,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 32
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 33
         }
       }
@@ -2796,15 +3304,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 486,
-      "end": 487,
+      "start": 553,
+      "end": 554,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 33
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 34
         }
       }
@@ -2824,15 +3332,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 490,
-      "end": 495,
+      "start": 557,
+      "end": 562,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 2
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 7
         }
       }
@@ -2850,15 +3358,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 496,
-      "end": 500,
+      "start": 563,
+      "end": 567,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 8
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 12
         }
       }
@@ -2875,15 +3383,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 500,
-      "end": 501,
+      "start": 567,
+      "end": 568,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 12
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 13
         }
       }
@@ -2901,15 +3409,15 @@
         "binop": null
       },
       "value": "changeDestinationSaga",
-      "start": 501,
-      "end": 522,
+      "start": 568,
+      "end": 589,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 13
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 34
         }
       }
@@ -2926,15 +3434,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 522,
-      "end": 523,
+      "start": 589,
+      "end": 590,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 34
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 35
         }
       }
@@ -2952,15 +3460,327 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 523,
-      "end": 524,
+      "start": 590,
+      "end": 591,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 35
         },
         "end": {
-          "line": 15,
+          "line": 16,
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "yield",
+        "keyword": "yield",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "yield",
+      "start": 594,
+      "end": 599,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 2
+        },
+        "end": {
+          "line": 17,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "fork",
+      "start": 600,
+      "end": 604,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 8
+        },
+        "end": {
+          "line": 17,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 604,
+      "end": 605,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 12
+        },
+        "end": {
+          "line": 17,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "loadMemberStatusSaga",
+      "start": 605,
+      "end": 625,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 13
+        },
+        "end": {
+          "line": 17,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 625,
+      "end": 626,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 33
+        },
+        "end": {
+          "line": 17,
+          "column": 34
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 626,
+      "end": 627,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 34
+        },
+        "end": {
+          "line": 17,
+          "column": 35
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "yield",
+        "keyword": "yield",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "yield",
+      "start": 630,
+      "end": 635,
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 2
+        },
+        "end": {
+          "line": 18,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "fork",
+      "start": 636,
+      "end": 640,
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 8
+        },
+        "end": {
+          "line": 18,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 640,
+      "end": 641,
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 12
+        },
+        "end": {
+          "line": 18,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "watchMemberStatusSaga",
+      "start": 641,
+      "end": 662,
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 13
+        },
+        "end": {
+          "line": 18,
+          "column": 34
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 662,
+      "end": 663,
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 34
+        },
+        "end": {
+          "line": 18,
+          "column": 35
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 663,
+      "end": 664,
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 35
+        },
+        "end": {
+          "line": 18,
           "column": 36
         }
       }
@@ -2977,15 +3797,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 525,
-      "end": 526,
+      "start": 665,
+      "end": 666,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 19,
           "column": 0
         },
         "end": {
-          "line": 16,
+          "line": 19,
           "column": 1
         }
       }
@@ -3003,15 +3823,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 527,
-      "end": 527,
+      "start": 667,
+      "end": 667,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 20,
           "column": 0
         },
         "end": {
-          "line": 17,
+          "line": 20,
           "column": 0
         }
       }

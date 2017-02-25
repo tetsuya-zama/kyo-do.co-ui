@@ -60,6 +60,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "kyo-do.co-ui/src/action/board.js~update_member_status",
+    "variable/index.html#static-variable-UPDATE_MEMBER_STATUS",
+    "<span>UPDATE_MEMBER_STATUS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/board.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/module/base64.js~base64decode",
     "function/index.html#static-function-base64Decode",
     "<span>base64Decode</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/base64.js</span>",
@@ -69,6 +75,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/module/base64.js~base64encode",
     "function/index.html#static-function-base64Encode",
     "<span>base64Encode</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/base64.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/reducer/board.js~board",
+    "function/index.html#static-function-board",
+    "<span>board</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/board.js</span>",
     "function"
   ],
   [
@@ -99,6 +111,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/saga/mydestination.js~loaddestinationsaga",
     "function/index.html#static-function-loadDestinationSaga",
     "<span>loadDestinationSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/mydestination.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/board.js~loadmemberstatussaga",
+    "function/index.html#static-function-loadMemberStatusSaga",
+    "<span>loadMemberStatusSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/board.js</span>",
     "function"
   ],
   [
@@ -183,6 +201,18 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/module/localstorage.js~settostorage",
     "function/index.html#static-function-setToStorage",
     "<span>setToStorage</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/localstorage.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/board.js~updatememberstatus",
+    "function/index.html#static-function-updateMemberStatus",
+    "<span>updateMemberStatus</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/board.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/board.js~watchmemberstatussaga",
+    "function/index.html#static-function-watchMemberStatusSaga",
+    "<span>watchMemberStatusSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/board.js</span>",
     "function"
   ],
   [
@@ -516,6 +546,12 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "src/action/board.js",
+    "file/src/action/board.js.html",
+    "src/action/board.js",
+    "file"
+  ],
+  [
     "src/action/login.js",
     "file/src/action/login.js.html",
     "src/action/login.js",
@@ -648,6 +684,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/reducer/board.js",
+    "file/src/reducer/board.js.html",
+    "src/reducer/board.js",
+    "file"
+  ],
+  [
     "src/reducer/login.js",
     "file/src/reducer/login.js.html",
     "src/reducer/login.js",
@@ -663,6 +705,12 @@ window.esdocSearchIndex = [
     "src/reducer/root.js",
     "file/src/reducer/root.js.html",
     "src/reducer/root.js",
+    "file"
+  ],
+  [
+    "src/saga/board.js",
+    "file/src/saga/board.js.html",
+    "src/saga/board.js",
     "file"
   ],
   [

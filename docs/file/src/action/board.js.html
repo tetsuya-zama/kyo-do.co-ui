@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/reducer/root.js | API Document</title>
+  <title data-ice="title">src/action/board.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -72,21 +72,23 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/reducer/root.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { combineReducers } from &apos;redux&apos;
-import login from &apos;./login&apos;;
-import mydestination from &apos;./mydestination&apos;
-import board from &apos;./board&apos;
+<div class="content" data-ice="content"><h1 data-ice="title">src/action/board.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+* &#x30C1;&#x30FC;&#x30E0;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x72B6;&#x6CC1;&#x3092;&#x66F4;&#x65B0;&#x3059;&#x308B;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const UPDATE_MEMBER_STATUS = &apos;UPDATE_MEMBER_STATUS&apos;;
 
 /**
-* &#x5404;reducer&#x3092;&#x7D50;&#x5408;&#x3057;&#x3066;&#x3072;&#x3068;&#x307E;&#x3068;&#x3081;&#x306B;&#x3057;&#x3066;export&#x3059;&#x308B;
-* @see http://qiita.com/kuy/items/59c6d7029a10972cba78
+* &#x30C1;&#x30FC;&#x30E0;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x72B6;&#x6CC1;&#x3092;&#x66F4;&#x65B0;&#x3059;&#x308B;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @param {Object} memberStatus &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;
+* @return {Object} UPDATE_MEMBER_STATUS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
-export default combineReducers({
-  login,
-  mydestination,
-  board
-})
+export function updateMemberStatus(memberStatus){
+  return {
+    type:UPDATE_MEMBER_STATUS,
+    payload:memberStatus
+  }
+}
 </code></pre>
 
 </div>

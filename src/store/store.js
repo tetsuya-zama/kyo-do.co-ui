@@ -16,7 +16,8 @@ export function configureStore() {
     rootReducer,
     {
       login:{status:LOGIN_STATUS.NOTYET, user:{}},
-      mydestination:{inBusiness:false,comment:""}
+      mydestination:{inBusiness:false,comment:""},
+      board:{memberStatus:{}}
     },
     applyMiddleware(
       sagaMiddleware, logger()

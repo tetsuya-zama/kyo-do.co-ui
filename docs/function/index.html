@@ -32,11 +32,13 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">action</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailure">loginFailure</a></span></span></li>
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">action</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateMemberStatus">updateMemberStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailure">loginFailure</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginRequested">loginRequested</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSuccess">loginSuccess</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutRequested">logoutRequested</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-myDestinationChange">myDestinationChange</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPDATE_MEMBER_STATUS">UPDATE_MEMBER_STATUS</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_FAILURE">LOGIN_FAILURE</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_REQUESTED">LOGIN_REQUESTED</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_SUCCESS">LOGIN_SUCCESS</a></span></span></li>
@@ -53,9 +55,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getFromStorage">getFromStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setToStorage">setToStorage</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reducer</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reducer</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-board">board</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mydestination">mydestination</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFromRememberMeSaga">loginFromRememberMeSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSaga">loginSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutSaga">logoutSaga</a></span></span></li>
@@ -120,6 +125,34 @@
         
         
         <div data-ice="description"><p>base64&#x30A8;&#x30F3;&#x30B3;&#x30FC;&#x30C9;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="function/index.html#static-function-board">board</a></span></span><span data-ice="signature">(state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F; reducer</p>
 </div>
       </div>
     </td>
@@ -260,6 +293,34 @@
         
         
         <div data-ice="description"><p>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x304C;&#x6210;&#x529F;&#x3057;&#x305F;&#x969B;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x884C;&#x304D;&#x5148;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Saga</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          <span data-ice="generator">*</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span><span data-ice="signature">()</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x306B;&#x6210;&#x529F;&#x3057;&#x305F;&#x969B;&#x306B;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Saga</p>
 </div>
       </div>
     </td>
@@ -661,6 +722,62 @@
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="function/index.html#static-function-updateMemberStatus">updateMemberStatus</a></span></span><span data-ice="signature">(memberStatus: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30C1;&#x30FC;&#x30E0;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x72B6;&#x6CC1;&#x3092;&#x66F4;&#x65B0;&#x3059;&#x308B;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          <span data-ice="generator">*</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span><span data-ice="signature">()</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;&#x5B9A;&#x671F;&#x7684;&#x306B;&#x78BA;&#x8A8D;&#x3059;&#x308B;Saga</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -812,6 +929,87 @@
   
 
   <div data-ice="see"><h4>See:</h4><ul><li><span><a href="http://qiita.com/weal/items/1a2af81138cd8f49937d">http://qiita.com/weal/items/1a2af81138cd8f49937d</a></span></li></ul></div>
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-board">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">board</span><span data-ice="signature">(state: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/reducer/board.js.html#lineNumber10">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import board from &apos;<span><a href="file/src/reducer/board.js.html#lineNumber10">kyo-do.co-ui/src/reducer/board.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F; reducer</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">state</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x5909;&#x66F4;&#x524D;&#x306E;state</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">action</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>dispatch&#x3055;&#x308C;&#x305F;action</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>&#x5909;&#x66F4;&#x5F8C;&#x306E;state</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864">http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864</a></span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -1074,14 +1272,58 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/mydestination.js.html#lineNumber14">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/mydestination.js.html#lineNumber20">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loadDestinationSaga} from &apos;<span><a href="file/src/saga/mydestination.js.html#lineNumber14">kyo-do.co-ui/src/saga/mydestination.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loadDestinationSaga} from &apos;<span><a href="file/src/saga/mydestination.js.html#lineNumber20">kyo-do.co-ui/src/saga/mydestination.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x304C;&#x6210;&#x529F;&#x3057;&#x305F;&#x969B;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x884C;&#x304D;&#x5148;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Saga</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="http://qiita.com/kuy/items/716affc808ebb3e1e8ac">http://qiita.com/kuy/items/716affc808ebb3e1e8ac</a></span></li></ul></div>
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-loadMemberStatusSaga">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="generator">*</span>
+    <span data-ice="name">loadMemberStatusSaga</span><span data-ice="signature">()</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/saga/board.js.html#lineNumber16">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loadMemberStatusSaga} from &apos;<span><a href="file/src/saga/board.js.html#lineNumber16">kyo-do.co-ui/src/saga/board.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x306B;&#x6210;&#x529F;&#x3057;&#x305F;&#x969B;&#x306B;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Saga</p>
 </div>
 
   
@@ -1873,11 +2115,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/root.js.html#lineNumber9">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/root.js.html#lineNumber10">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import rootSaga from &apos;<span><a href="file/src/saga/root.js.html#lineNumber9">kyo-do.co-ui/src/saga/root.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import rootSaga from &apos;<span><a href="file/src/saga/root.js.html#lineNumber10">kyo-do.co-ui/src/saga/root.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Saga&#x306E;&#x8D77;&#x70B9;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3002;&#x3053;&#x3053;&#x304B;&#x3089;&#x5404;Saga&#x3092;fork&#x3059;&#x308B;</p>
@@ -1983,6 +2225,124 @@
   
 
   
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-updateMemberStatus">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">updateMemberStatus</span><span data-ice="signature">(memberStatus: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/action/board.js.html#lineNumber11">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {updateMemberStatus} from &apos;<span><a href="file/src/action/board.js.html#lineNumber11">kyo-do.co-ui/src/action/board.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>&#x30C1;&#x30FC;&#x30E0;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x72B6;&#x6CC1;&#x3092;&#x66F4;&#x65B0;&#x3059;&#x308B;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">memberStatus</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>UPDATE_MEMBER_STATUS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-watchMemberStatusSaga">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="generator">*</span>
+    <span data-ice="name">watchMemberStatusSaga</span><span data-ice="signature">()</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/saga/board.js.html#lineNumber34">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {watchMemberStatusSaga} from &apos;<span><a href="file/src/saga/board.js.html#lineNumber34">kyo-do.co-ui/src/saga/board.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;&#x5B9A;&#x671F;&#x7684;&#x306B;&#x78BA;&#x8A8D;&#x3059;&#x308B;Saga</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="http://qiita.com/kuy/items/716affc808ebb3e1e8ac">http://qiita.com/kuy/items/716affc808ebb3e1e8ac</a></span></li></ul></div>
   
 </div>
 </div>

@@ -33,7 +33,9 @@ class Kyodoco extends React.Component{
           dispatch={this.props.dispatch}
           login={this.props.login}
           mydestination={this.props.mydestination} />
-        <Board />
+        <Board
+          memberStatus={this.props.board.memberStatus}
+        />
        </div>
       ) :
       (<LoginForm

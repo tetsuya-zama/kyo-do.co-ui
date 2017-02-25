@@ -1,7 +1,7 @@
 import React from 'react'
 
 /**
-* 行き先掲示板コンポーネント（実装中）
+* 行き先掲示板コンポーネント
 * @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
 */
 export default class Board extends React.Component{
@@ -19,11 +19,71 @@ export default class Board extends React.Component{
   * @return {undefined}
   */
   render(){
-    //TODO 未実装
+    //チームの数だけTeamBoardコンポーネントを作成する
+    const teamBoards = this.props.memberStatus.map(team => <TeamBoard key={team.teamId} team={team}/>);
     return (
       <div>
-      <h3>行き先表</h3>
-      <span>実装中</span>
+      <h3>行き先掲示板</h3>
+      {teamBoards}
       </div>);
+  }
+}
+/**
+* チーム別行き先掲示板コンポーネント
+* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
+*/
+class TeamBoard extends React.Component{
+  /**
+  * コンストラクタ
+  * @param {Object} props プロパティ
+  * @return {undefined}
+  */
+  constructor(props){
+    super(props);
+  }
+  /**
+  * 描画メソッド
+  * @return {undefined}
+  */
+  render(){
+    //メンバーの数だけMemberRowコンポーネント作成する
+    const memberRows = this.props.team.members.map((member,idx) => <MemberRow key={idx} member={member}/>);
+    return (
+      <div>
+        <h4>{this.props.team.name}</h4>
+        <table>
+        <tbody>
+        {memberRows}
+        </tbody>
+        </table>
+      </div>
+    );
+  }
+}
+/**
+* 描画メソッド
+* @return {undefined}
+*/
+class MemberRow extends React.Component{
+  /**
+  * コンストラクタ
+  * @param {Object} props プロパティ
+  * @return {undefined}
+  */
+  constructor(props){
+    super(props);
+  }
+  /**
+  * 描画メソッド
+  * @return {undefined}
+  */
+  render(){
+    return (
+      <tr>
+        <td>{this.props.member.name}</td>
+        <td>{this.props.member.inBusiness ? "出勤" : "退勤"}</td>
+        <td>{this.props.member.comment}</td>
+      </tr>
+    );
   }
 }

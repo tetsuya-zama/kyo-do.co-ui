@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/reducer/root.js | API Document</title>
+  <title data-ice="title">src/reducer/board.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -72,21 +72,24 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/reducer/root.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { combineReducers } from &apos;redux&apos;
-import login from &apos;./login&apos;;
-import mydestination from &apos;./mydestination&apos;
-import board from &apos;./board&apos;
+<div class="content" data-ice="content"><h1 data-ice="title">src/reducer/board.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {UPDATE_MEMBER_STATUS} from &apos;../action/board&apos;
 
 /**
-* &#x5404;reducer&#x3092;&#x7D50;&#x5408;&#x3057;&#x3066;&#x3072;&#x3068;&#x307E;&#x3068;&#x3081;&#x306B;&#x3057;&#x3066;export&#x3059;&#x308B;
-* @see http://qiita.com/kuy/items/59c6d7029a10972cba78
+* &#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F; reducer
+* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864
+* @param {Object} state &#x5909;&#x66F4;&#x524D;&#x306E;state
+* @param {Object} action dispatch&#x3055;&#x308C;&#x305F;action
+* @return {Object} &#x5909;&#x66F4;&#x5F8C;&#x306E;state
 */
-export default combineReducers({
-  login,
-  mydestination,
-  board
-})
+export default function board(state={memberStatus:{}},action){
+  switch(action.type){
+    case(UPDATE_MEMBER_STATUS):
+      return Object.assign({},state,{memberStatus:action.payload});
+    default:
+      return state;
+  }
+}
 </code></pre>
 
 </div>
