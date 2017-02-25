@@ -47,10 +47,18 @@ export default class LoginForm extends React.Component{
 
     return (
       <div>
-        <span>id:</span><input type="text" ref="userid"/>
-        <br />
-        <span>pass:</span><input type="password" ref="password"/>
-        <br />
+        <table>
+          <tbody>
+            <tr>
+              <td>id</td>
+              <td><input type="text" ref="userid"/></td>
+            </tr>
+            <tr>
+              <td>pass</td>
+              <td><input type="password" ref="password"/></td>
+            </tr>
+          </tbody>
+        </table>
         <button onClick={this.handleSubmit}>Login</button>
         <br />
         <span style={{color:"red"}}>{message}</span>
