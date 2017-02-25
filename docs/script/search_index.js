@@ -60,6 +60,18 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "kyo-do.co-ui/src/module/base64.js~base64decode",
+    "function/index.html#static-function-base64Decode",
+    "<span>base64Decode</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/base64.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/module/base64.js~base64encode",
+    "function/index.html#static-function-base64Encode",
+    "<span>base64Encode</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/base64.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/saga/mydestination.js~changedestinationsaga",
     "function/index.html#static-function-changeDestinationSaga",
     "<span>changeDestinationSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/mydestination.js</span>",
@@ -102,6 +114,18 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/login.js~loginfailuresaga",
+    "function/index.html#static-function-loginFailureSaga",
+    "<span>loginFailureSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/login.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/login.js~loginfromremembermesaga",
+    "function/index.html#static-function-loginFromRememberMeSaga",
+    "<span>loginFromRememberMeSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/login.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/login.js~loginrequested",
     "function/index.html#static-function-loginRequested",
     "<span>loginRequested</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
@@ -123,6 +147,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/login.js~logoutrequested",
     "function/index.html#static-function-logoutRequested",
     "<span>logoutRequested</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/login.js~logoutsaga",
+    "function/index.html#static-function-logoutSaga",
+    "<span>logoutSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/login.js</span>",
     "function"
   ],
   [
@@ -603,6 +633,12 @@ window.esdocSearchIndex = [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",
+    "file"
+  ],
+  [
+    "src/module/base64.js",
+    "file/src/module/base64.js.html",
+    "src/module/base64.js",
     "file"
   ],
   [

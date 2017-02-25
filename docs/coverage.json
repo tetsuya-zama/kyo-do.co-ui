@@ -1,7 +1,7 @@
 {
   "coverage": "100%",
-  "expectCount": 37,
-  "actualCount": 37,
+  "expectCount": 42,
+  "actualCount": 42,
   "files": {
     "src/component/board.js": {
       "expectCount": 3,
@@ -38,6 +38,11 @@
       "actualCount": 4,
       "undocumentLines": []
     },
+    "src/module/base64.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
     "src/saga/mydestination.js": {
       "expectCount": 2,
       "actualCount": 2,
@@ -59,8 +64,8 @@
       "undocumentLines": []
     },
     "src/saga/login.js": {
-      "expectCount": 1,
-      "actualCount": 1,
+      "expectCount": 4,
+      "actualCount": 4,
       "undocumentLines": []
     },
     "src/reducer/mydestination.js": {

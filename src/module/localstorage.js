@@ -1,3 +1,5 @@
+import {base64Encode,base64Decode} from './base64'
+
 /*
 * ローカルストレージのKeyのプレフィックス
 */
@@ -10,7 +12,7 @@ const LOCAL_STORAGE_PREFIX = "kyo-do.co.";
 * @return {undefined}
 */
 export function setToStorage(key,value){
-  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,JSON.stringify(value));
+  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));
 }
 /**
 * localStorageから値を取得する
@@ -18,7 +20,7 @@ export function setToStorage(key,value){
 * @return {Object} localStorageに保存されたオブジェクト
 */
 export function getFromStorage(key){
-  return JSON.parse(localStorage.getItem(LOCAL_STORAGE_PREFIX + key));
+  return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));
 }
 /**
 * localStorageから値を削除する

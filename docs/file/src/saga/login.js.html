@@ -47,13 +47,18 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-existsKeyOnStorage">existsKeyOnStorage</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-existsKeyOnStorage">existsKeyOnStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getFromStorage">getFromStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setToStorage">setToStorage</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reducer</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mydestination">mydestination</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSaga">loginSaga</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFromRememberMeSaga">loginFromRememberMeSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSaga">loginSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutSaga">logoutSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeDestinationSaga">changeDestinationSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadDestinationSaga">loadDestinationSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rootSaga">rootSaga</a></span></span></li>
@@ -64,7 +69,14 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/saga/login.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {take,put,takeEvery} from &apos;redux-saga/effects&apos;
-import {LOGIN_REQUESTED,loginSuccess,loginFailure} from &apos;../action/login&apos;
+import {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from &apos;../action/login&apos;
+import {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from &apos;../module/localstorage&apos;
+
+/**
+* rememberme&#x60C5;&#x5831;&#xFF08;&#x5165;&#x529B;&#x3055;&#x308C;&#x305F;ID/Pass&#xFF09;&#x3092;localStorage&#x306B;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x969B;&#x306E;key
+*/
+const REMEMBER_ME_STORAGE_KEY = &quot;rememberme&quot;;
+
 /**
 * login&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
 * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
@@ -86,6 +98,10 @@ function* loginTask(action){
   * TODO &#x30C0;&#x30DF;&#x30FC;&#x30ED;&#x30B8;&#x30C3;&#x30AF;&#x3002;&#x5B9F;&#x969B;&#x306B;&#x306F;API&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x3066;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x6210;&#x5426;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x3042;&#x308A;&#x3002;
   * &#x3053;&#x3053;&#x3067;&#x306F;test/test&#x306E;&#x307F;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x53EF;&#x80FD;&#x3068;&#x3059;&#x308B;&#x3002;
   */
+
+  //rememberme
+  setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
+
   if(action.payload.id == &quot;test&quot; &amp;&amp; action.payload.pass == &quot;test&quot;){
     const dummyUserInfo = {userid:&quot;test&quot;, token:&quot;dummy&quot;};
     //LOGIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)
@@ -93,6 +109,40 @@ function* loginTask(action){
   }else{
     //LOGIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)
     yield put(loginFailure());
+  }
+}
+/**
+* logout&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* logoutSaga(){
+  yield takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask);
+}
+
+/**
+* &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x306B;&#x5931;&#x6557;&#x3057;&#x305F;&#x3068;&#x304D;&#x306E;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x3092;&#x884C;&#x3046;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* loginFailureSaga(){
+  yield takeEvery(LOGIN_FAILURE,cleanRememberMeTask);
+}
+/**
+* localStorage&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;rememberme&#x60C5;&#x5831;&#x3092;&#x30AF;&#x30EA;&#x30A2;&#x3059;&#x308B;Task
+*/
+function* cleanRememberMeTask(){
+  yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);
+}
+
+/**
+* localStorage&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;ID/Pass&#x304B;&#x3089;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3059;&#x308B;Saga
+* &#x30A2;&#x30D7;&#x30EA;&#x3092;&#x8D77;&#x52D5;&#x3057;&#x3066;(&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x3066;)1&#x56DE;&#x3060;&#x3051;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* loginFromRememberMeSaga(){
+  const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);
+  if(remembermeSaved){
+    const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);
+    yield put(loginRequested(rememberme.id,rememberme.pass));
   }
 }
 </code></pre>
