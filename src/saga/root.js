@@ -1,5 +1,6 @@
 import {fork} from 'redux-saga/effects'
 import {loginSaga,logoutSaga,loginFailureSaga,loginFromRememberMeSaga} from './login'
+import {signupSaga} from './signup'
 import {loadDestinationSaga,changeDestinationSaga} from './mydestination'
 import {loadMemberStatusSaga,watchMemberStatusSaga} from './board'
 
@@ -9,6 +10,7 @@ import {loadMemberStatusSaga,watchMemberStatusSaga} from './board'
 */
 export default function* rootSaga(){
   yield fork(loginSaga);
+  yield fork(signupSaga);
   yield fork(logoutSaga);
   yield fork(loginFailureSaga);
   yield fork(loginFromRememberMeSaga);

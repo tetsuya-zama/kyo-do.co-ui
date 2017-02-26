@@ -2,6 +2,10 @@ import {take,put,takeEvery} from 'redux-saga/effects'
 import {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'
 import {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'
 
+//MOCK用
+//TODO 実装終わったら消す
+import {MOCK_MEMBER_REPO_KEY} from '../const/signup'
+
 /**
 * rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey
 */
@@ -24,21 +28,36 @@ export function* loginSaga(){
 * @param {object} action LOGIN_REQUESTED(ログイン要求)アクション
 */
 function* loginTask(action){
-  /*
-  * TODO ダミーロジック。実際にはAPIにアクセスしてログイン成否をハンドリングする必要あり。
-  * ここではtest/testのみログイン可能とする。
-  */
-
   //rememberme
   setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
 
-  if(action.payload.id == "test" && action.payload.pass == "test"){
-    const dummyUserInfo = {userid:"test", token:"dummy"};
-    //LOGIN_SUCCESSアクションをput(dispatch)
-    yield put(loginSuccess(dummyUserInfo));
-  }else{
+  /*
+  * TODO ダミーロジック。実際にはAPIにアクセスしてログイン成否をハンドリングする必要あり。
+  * ここではMockに登録されたユーザーでログイン可能とする
+  */
+  const mockRepo = yield getFromStorage(MOCK_MEMBER_REPO_KEY);
+  if(!mockRepo){
+    //ユーザーが１人もいない
     //LOGIN_FAILUREアクションをput(dispatch)
     yield put(loginFailure());
+  }else{
+    const targetUserArray = mockRepo.filter(u => u.id == action.payload.id);
+    if(targetUserArray.length == 0){
+      //IDに紐づくユーザーがいない
+      //LOGIN_FAILUREアクションをput(dispatch)
+      yield put(loginFailure());
+    }else{
+      const targetUser = targetUserArray[0];
+      if(targetUser.password == action.payload.pass){
+        //ログイン成功
+        //LOGIN_SUCCESSアクションをput(dispatch)
+        yield put(loginSuccess({userid:targetUser.id,token:"dummy"}));
+      }else{
+        //パスワードが一致しない
+        //LOGIN_FAILUREアクションをput(dispatch)
+        yield put(loginFailure());
+      }
+    }
   }
 }
 /**

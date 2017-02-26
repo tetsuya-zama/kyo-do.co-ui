@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/component/board.js | API Document</title>
+  <title data-ice="title">src/saga/signup.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -83,94 +83,78 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/component/board.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
+<div class="content" data-ice="content"><h1 data-ice="title">src/saga/signup.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {put,call,takeEvery} from &apos;redux-saga/effects&apos;
+import {SIGNUP_REQUIRED,signupSucceess,signupFailure} from &apos;../action/signup&apos;
+import {SIGNUP_FAILURE_REASONS} from &apos;../const/signup&apos;
+import {loginRequested} from &apos;../action/login&apos;
+
+//MOCK&#x7528;
+//TODO &#x5B9F;&#x88C5;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x6D88;&#x3059;
+import {setToStorage,getFromStorage,existsKeyOnStorage} from &apos;../module/localstorage&apos;
+import {MOCK_MEMBER_REPO_KEY} from &apos;../const/signup&apos;
 
 /**
-* &#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
-* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
+* &#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
 */
-export default class Board extends React.Component{
-  /**
-  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
-  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
-  * @return {undefined}
-  */
-  constructor(props){
-    super(props);
-  }
+export function* signupSaga(){
+    yield takeEvery(SIGNUP_REQUIRED,signupTask);
+}
 
-  /**
-  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
-  * @return {undefined}
-  */
-  render(){
-    //&#x30C1;&#x30FC;&#x30E0;&#x306E;&#x6570;&#x3060;&#x3051;TeamBoard&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;
-    const teamBoards = this.props.memberStatus.map(team =&gt; &lt;TeamBoard key={team.teamId} team={team}/&gt;);
-    return (
-      &lt;div&gt;
-      &lt;h3&gt;&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&lt;/h3&gt;
-      {teamBoards}
-      &lt;/div&gt;);
+/**
+* &#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x8981;&#x6C42;&#x3092;&#x51E6;&#x7406;&#x3059;&#x308B;&#x30BF;&#x30B9;&#x30AF;
+* @param {Object} action SIGNUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+function* signupTask(action){
+
+  //MOCK
+  //&#x672C;&#x6765;&#x306F;API&#x3092;&#x53E9;&#x3044;&#x3066;&#x78BA;&#x8A8D;&#x3059;&#x308B;
+  //TODO &#x672C;&#x5B9F;&#x88C5;
+  const idDuplicated = isIDDuplicate(action.payload.id);
+  if(idDuplicated){
+    yield put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED]));
+  }else{
+    try{
+      //MOCK
+      //&#x672C;&#x6765;&#x306F;API&#x3092;&#x53E9;&#x3044;&#x3066;&#x767B;&#x9332;&#x3059;&#x308B;
+      //TODO &#x672C;&#x5B9F;&#x88C5;
+      yield registerUser(action.payload);
+      yield put(signupSucceess());
+      yield put(loginRequested(action.payload.id,action.payload.password));
+    }catch(e){
+      yield put(SIGNUP_FAILURE[SIGNUP_FAILURE_REASONS.SERVER_ERROR]);
+    }
+  }
+}
+
+//&#x4EE5;&#x4E0B;&#x306E;&#x95A2;&#x6570;&#x306F;MOCK&#x7528;
+//TODO &#x5B9F;&#x88C5;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x6D88;&#x3059;
+
+/**
+* ID&#x304C;&#x91CD;&#x8907;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x78BA;&#x8A8D;&#x3059;&#x308B;
+* @param {string} id &#x78BA;&#x8A8D;&#x3059;&#x308B;ID
+* @return {boolean} &#x91CD;&#x8907;&#x3057;&#x3066;&#x3044;&#x308C;&#x3070;True
+*/
+function isIDDuplicate(id){
+  if(!existsKeyOnStorage(MOCK_MEMBER_REPO_KEY)){
+    return false;
+  }else{
+    const repo = getFromStorage(MOCK_MEMBER_REPO_KEY);
+    return repo.filter(m =&gt; m.id == id).length &gt; 0;
   }
 }
 /**
-* &#x30C1;&#x30FC;&#x30E0;&#x5225;&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
-* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
-*/
-class TeamBoard extends React.Component{
-  /**
-  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
-  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
-  * @return {undefined}
-  */
-  constructor(props){
-    super(props);
-  }
-  /**
-  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
-  * @return {undefined}
-  */
-  render(){
-    //&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x6570;&#x3060;&#x3051;MemberRow&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x4F5C;&#x6210;&#x3059;&#x308B;
-    const memberRows = this.props.team.members.map((member,idx) =&gt; &lt;MemberRow key={idx} member={member}/&gt;);
-    return (
-      &lt;div&gt;
-        &lt;h4&gt;{this.props.team.name}&lt;/h4&gt;
-        &lt;table&gt;
-        &lt;tbody&gt;
-        {memberRows}
-        &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-/**
-* &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+* &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3092;MOCK&#x30EC;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x306B;&#x767B;&#x9332;&#x3059;&#x308B;
+* @param {{id:string,password:string,name:string}} userinfo &#x767B;&#x9332;&#x3092;&#x8981;&#x6C42;&#x3059;&#x308B;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;
 * @return {undefined}
 */
-class MemberRow extends React.Component{
-  /**
-  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
-  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
-  * @return {undefined}
-  */
-  constructor(props){
-    super(props);
-  }
-  /**
-  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
-  * @return {undefined}
-  */
-  render(){
-    return (
-      &lt;tr&gt;
-        &lt;td&gt;{this.props.member.name}&lt;/td&gt;
-        &lt;td&gt;{this.props.member.inBusiness ? &quot;&#x51FA;&#x52E4;&quot; : &quot;&#x9000;&#x52E4;&quot;}&lt;/td&gt;
-        &lt;td&gt;{this.props.member.comment}&lt;/td&gt;
-      &lt;/tr&gt;
-    );
+function registerUser(userinfo){
+  if(!existsKeyOnStorage(MOCK_MEMBER_REPO_KEY)){
+    setToStorage(MOCK_MEMBER_REPO_KEY,[userinfo]);
+  }else{
+    const repo = getFromStorage(MOCK_MEMBER_REPO_KEY);
+    setToStorage(MOCK_MEMBER_REPO_KEY, repo.concat([userinfo]));
   }
 }
 </code></pre>

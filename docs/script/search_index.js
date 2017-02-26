@@ -48,6 +48,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "kyo-do.co-ui/src/const/signup.js~mock_member_repo_key",
+    "variable/index.html#static-variable-MOCK_MEMBER_REPO_KEY",
+    "<span>MOCK_MEMBER_REPO_KEY</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/signup.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/action/mydestination.js~my_destination_change",
     "variable/index.html#static-variable-MY_DESTINATION_CHANGE",
     "<span>MY_DESTINATION_CHANGE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
@@ -57,6 +63,36 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/component/mydestination.js~mydestination",
     "class/src/component/mydestination.js~MyDestination.html",
     "<span>MyDestination</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/mydestination.js</span>",
+    "class"
+  ],
+  [
+    "kyo-do.co-ui/src/action/signup.js~signup_failure",
+    "variable/index.html#static-variable-SIGNUP_FAILURE",
+    "<span>SIGNUP_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/signup.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/const/signup.js~signup_failure_reasons",
+    "variable/index.html#static-variable-SIGNUP_FAILURE_REASONS",
+    "<span>SIGNUP_FAILURE_REASONS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/signup.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/signup.js~signup_required",
+    "variable/index.html#static-variable-SIGNUP_REQUIRED",
+    "<span>SIGNUP_REQUIRED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/signup.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/signup.js~signup_success",
+    "variable/index.html#static-variable-SIGNUP_SUCCESS",
+    "<span>SIGNUP_SUCCESS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/signup.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/component/signupform.js~signupform",
+    "class/src/component/signupform.js~SignUpForm.html",
+    "<span>SignUpForm</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/signupform.js</span>",
     "class"
   ],
   [
@@ -201,6 +237,36 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/module/localstorage.js~settostorage",
     "function/index.html#static-function-setToStorage",
     "<span>setToStorage</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/localstorage.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/reducer/signup.js~signup",
+    "function/index.html#static-function-signup",
+    "<span>signup</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/signup.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/signup.js~signupfailure",
+    "function/index.html#static-function-signupFailure",
+    "<span>signupFailure</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/signup.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/signup.js~signuprequired",
+    "function/index.html#static-function-signupRequired",
+    "<span>signupRequired</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/signup.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/signup.js~signupsaga",
+    "function/index.html#static-function-signupSaga",
+    "<span>signupSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/signup.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/signup.js~signupsucceess",
+    "function/index.html#static-function-signupSucceess",
+    "<span>signupSucceess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/signup.js</span>",
     "function"
   ],
   [
@@ -564,6 +630,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/action/signup.js",
+    "file/src/action/signup.js.html",
+    "src/action/signup.js",
+    "file"
+  ],
+  [
     "src/component/board.js",
     "file/src/component/board.js.html",
     "src/component/board.js",
@@ -624,9 +696,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/loginform.js~loginform#handlesubmit",
-    "class/src/component/loginform.js~LoginForm.html#instance-method-handleSubmit",
-    "src/component/loginform.js~LoginForm#handleSubmit",
+    "src/component/loginform.js~loginform#hundlesubmit",
+    "class/src/component/loginform.js~LoginForm.html#instance-method-hundleSubmit",
+    "src/component/loginform.js~LoginForm#hundleSubmit",
     "method"
   ],
   [
@@ -660,9 +732,45 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/signupform.js",
+    "file/src/component/signupform.js.html",
+    "src/component/signupform.js",
+    "file"
+  ],
+  [
+    "src/component/signupform.js~signupform#constructor",
+    "class/src/component/signupform.js~SignUpForm.html#instance-constructor-constructor",
+    "src/component/signupform.js~SignUpForm#constructor",
+    "method"
+  ],
+  [
+    "src/component/signupform.js~signupform#hundlesubmit",
+    "class/src/component/signupform.js~SignUpForm.html#instance-method-hundleSubmit",
+    "src/component/signupform.js~SignUpForm#hundleSubmit",
+    "method"
+  ],
+  [
+    "src/component/signupform.js~signupform#render",
+    "class/src/component/signupform.js~SignUpForm.html#instance-method-render",
+    "src/component/signupform.js~SignUpForm#render",
+    "method"
+  ],
+  [
+    "src/component/signupform.js~signupform#validate",
+    "class/src/component/signupform.js~SignUpForm.html#instance-method-validate",
+    "src/component/signupform.js~SignUpForm#validate",
+    "method"
+  ],
+  [
     "src/const/login.js",
     "file/src/const/login.js.html",
     "src/const/login.js",
+    "file"
+  ],
+  [
+    "src/const/signup.js",
+    "file/src/const/signup.js.html",
+    "src/const/signup.js",
     "file"
   ],
   [
@@ -708,6 +816,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/reducer/signup.js",
+    "file/src/reducer/signup.js.html",
+    "src/reducer/signup.js",
+    "file"
+  ],
+  [
     "src/saga/board.js",
     "file/src/saga/board.js.html",
     "src/saga/board.js",
@@ -729,6 +843,12 @@ window.esdocSearchIndex = [
     "src/saga/root.js",
     "file/src/saga/root.js.html",
     "src/saga/root.js",
+    "file"
+  ],
+  [
+    "src/saga/signup.js",
+    "file/src/saga/signup.js.html",
+    "src/saga/signup.js",
     "file"
   ],
   [

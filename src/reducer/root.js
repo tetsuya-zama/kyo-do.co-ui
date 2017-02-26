@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import login from './login';
 import mydestination from './mydestination'
 import board from './board'
+import signup from './signup'
 
 /**
 * 各reducerを結合してひとまとめにしてexportする
@@ -10,5 +11,6 @@ import board from './board'
 export default combineReducers({
   login,
   mydestination,
-  board
+  board,
+  signup
 })

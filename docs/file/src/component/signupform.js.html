@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/component/board.js | API Document</title>
+  <title data-ice="title">src/component/signupform.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -83,94 +83,158 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/component/board.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">src/component/signupform.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
-
+import ReactDOM from &apos;react-dom&apos;
+import {signupFailure,signupRequired} from &apos;../action/signup&apos;
+import {SIGNUP_FAILURE_REASONS} from &apos;../const/signup&apos;
 /**
-* &#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
+* &#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;Component
 * @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
 */
-export default class Board extends React.Component{
+export default class SignUpForm extends React.Component{
   /**
   * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
-  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
+  * @param {Object} props
   * @return {undefined}
   */
   constructor(props){
     super(props);
+    //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
+    this.hundleSubmit = this.hundleSubmit.bind(this);
+    this.validate = this.validate.bind(this);
   }
+  /**
+  * Sign Up&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @return {undefined}
+  */
+  hundleSubmit(){
+    const id = ReactDOM.findDOMNode(this.refs.id).value;
+    const pass = ReactDOM.findDOMNode(this.refs.pass).value;
+    const pass_confirm = ReactDOM.findDOMNode(this.refs.pass_confirm).value;
+    const name = ReactDOM.findDOMNode(this.refs.name).value;
 
+    //&#x5165;&#x529B;&#x5024;&#x306E;&#x753B;&#x9762;&#x30B5;&#x30A4;&#x30C9;&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;
+    const forminfo = {id:id,pass:pass,pass_confirm:pass_confirm,name:name};
+    const validationErrors = this.validate(forminfo);
+
+
+    if(validationErrors.length &gt; 0){
+      //&#x753B;&#x9762;&#x30B5;&#x30A4;&#x30C9;&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x901A;&#x3089;&#x306A;&#x3044;&#x306E;&#x3067;&#x5931;&#x6557;
+      this.props.dispatch(signupFailure(validationErrors));
+    }else{
+      //&#x753B;&#x9762;&#x30B5;&#x30A4;&#x30C9;&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x901A;&#x3063;&#x305F;&#x306E;&#x3067;&#x3001;&#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x8981;&#x6C42;&#x3059;&#x308B;
+      this.props.dispatch(signupRequired({id:id,password:pass,name:name}));
+    }
+
+  }
+  /**
+  * &#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;
+  * @param {{id:string,pass:string,pass_confirm:string,name:string}} forminfo &#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30C7;&#x30FC;&#x30BF;
+  * @return {array} SIGNUP_FAILURE_REASONS&#x306E;&#x914D;&#x5217;
+  */
+  validate(forminfo){
+    const errors = [];
+
+    if(!forminfo.id || forminfo.id.trim().length == 0){
+      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_ID);
+    }
+    if(!forminfo.pass || forminfo.pass.trim().length == 0){
+      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD);
+    }
+    if(!forminfo.name || forminfo.name.trim().length == 0){
+      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_NAME);
+    }
+    if(forminfo.pass !== forminfo.pass_confirm){
+      errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);
+    }
+    return errors;
+
+  }
   /**
   * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
   */
   render(){
-    //&#x30C1;&#x30FC;&#x30E0;&#x306E;&#x6570;&#x3060;&#x3051;TeamBoard&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;
-    const teamBoards = this.props.memberStatus.map(team =&gt; &lt;TeamBoard key={team.teamId} team={team}/&gt;);
+    const failure_reason = this.props.signup.failure_reason;
+    const emptyIdMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_ID) &gt;= 0 ?
+      &quot;ID&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot; : &quot;&quot;;
+    const emptyPassMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD) &gt;= 0 ?
+      &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot; : &quot;&quot;;
+    const emptyNameMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_NAME) &gt;= 0 ?
+      &quot;&#x540D;&#x524D;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot; : &quot;&quot;;
+    const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) &gt;= 0 ?
+      &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3068;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#xFF08;&#x78BA;&#x8A8D;&#xFF09;&#x304C;&#x4E00;&#x81F4;&#x3057;&#x307E;&#x305B;&#x3093;&quot; : &quot;&quot;;
+    const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) &gt;= 0 ?
+      &quot;&#x3054;&#x6307;&#x5B9A;&#x306E;ID&#x306F;&#x3059;&#x3067;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&quot; : &quot;&quot;;
+    const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) &gt;= 0 ?
+      &quot;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x307E;&#x3057;&#x305F;&quot; : &quot;&quot;;
+
     return (
       &lt;div&gt;
-      &lt;h3&gt;&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&lt;/h3&gt;
-      {teamBoards}
-      &lt;/div&gt;);
-  }
-}
-/**
-* &#x30C1;&#x30FC;&#x30E0;&#x5225;&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
-* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
-*/
-class TeamBoard extends React.Component{
-  /**
-  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
-  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
-  * @return {undefined}
-  */
-  constructor(props){
-    super(props);
-  }
-  /**
-  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
-  * @return {undefined}
-  */
-  render(){
-    //&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x6570;&#x3060;&#x3051;MemberRow&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x4F5C;&#x6210;&#x3059;&#x308B;
-    const memberRows = this.props.team.members.map((member,idx) =&gt; &lt;MemberRow key={idx} member={member}/&gt;);
-    return (
-      &lt;div&gt;
-        &lt;h4&gt;{this.props.team.name}&lt;/h4&gt;
+        &lt;h4&gt;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;&lt;/h4&gt;
         &lt;table&gt;
-        &lt;tbody&gt;
-        {memberRows}
-        &lt;/tbody&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                &#x30E6;&#x30FC;&#x30B6;&#x30FC;ID
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;input type=&quot;text&quot; ref=&quot;id&quot;/&gt;
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;span style={{color:&quot;red&quot;}}&gt;
+                  {emptyIdMessage}{idDuplicatedMessage}
+                &lt;/span&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                &#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;input type=&quot;password&quot; ref=&quot;pass&quot;/&gt;
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;span style={{color:&quot;red&quot;}}&gt;
+                  {emptyPassMessage}
+                &lt;/span&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                &#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;(&#x78BA;&#x8A8D;)
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;input type=&quot;password&quot; ref=&quot;pass_confirm&quot;/&gt;
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;span style={{color:&quot;red&quot;}}&gt;
+                  {invalidConfirmMessage}
+                &lt;/span&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                &#x8868;&#x793A;&#x540D;
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;input type=&quot;text&quot; ref=&quot;name&quot;/&gt;
+              &lt;/td&gt;
+              &lt;td&gt;
+                &lt;span style={{color:&quot;red&quot;}}&gt;
+                  {emptyNameMessage}
+                &lt;/span&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
         &lt;/table&gt;
+        &lt;button onClick={this.hundleSubmit}&gt;Sign Up&lt;/button&gt;
+        &lt;span style={{color:&quot;red&quot;}}&gt;
+          {serverErrorMessage}
+        &lt;/span&gt;
       &lt;/div&gt;
-    );
-  }
-}
-/**
-* &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
-* @return {undefined}
-*/
-class MemberRow extends React.Component{
-  /**
-  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
-  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
-  * @return {undefined}
-  */
-  constructor(props){
-    super(props);
-  }
-  /**
-  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
-  * @return {undefined}
-  */
-  render(){
-    return (
-      &lt;tr&gt;
-        &lt;td&gt;{this.props.member.name}&lt;/td&gt;
-        &lt;td&gt;{this.props.member.inBusiness ? &quot;&#x51FA;&#x52E4;&quot; : &quot;&#x9000;&#x52E4;&quot;}&lt;/td&gt;
-        &lt;td&gt;{this.props.member.comment}&lt;/td&gt;
-      &lt;/tr&gt;
-    );
+    )
   }
 }
 </code></pre>

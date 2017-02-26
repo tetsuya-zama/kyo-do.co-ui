@@ -2,9 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Header from './header'
 import LoginForm from './loginform'
+import SignUpForm from './signupform'
 import Board from './board'
 import MyDestination from './mydestination'
 import {LOGIN_STATUS} from '../const/login'
+
 
 /**
 *メインコンポーネント
@@ -38,9 +40,15 @@ class Kyodoco extends React.Component{
         />
        </div>
       ) :
-      (<LoginForm
-        dispatch={this.props.dispatch}
-        login={this.props.login}/>
+      (
+        <div>
+          <LoginForm
+          dispatch={this.props.dispatch}
+          login={this.props.login}/>
+          <SignUpForm
+          dispatch={this.props.dispatch}
+          signup={this.props.signup}/>
+        </div>
       );
 
     return(
