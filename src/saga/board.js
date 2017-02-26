@@ -20,7 +20,7 @@ export function* loadMemberStatusSaga(){
 }
 
 /**
-* ログインに成功した際にメンバー状況をロードするTask
+* メンバー状況をロードするTask
 */
 function* loadMemberStatusTask(){
   //TODO ダミー実装。本来はAPIから取得
