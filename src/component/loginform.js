@@ -16,14 +16,14 @@ export default class LoginForm extends React.Component{
   constructor(props){
     super(props);
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.hundleSubmit = this.hundleSubmit.bind(this);
   }
 
   /**
   * ログインボタンのクリックをハンドリングするメソッド
   * @return {undefined}
   */
-  handleSubmit(){
+  hundleSubmit(){
     /*
     *入力されたID/Passを取得して、
     *それを元にLOGIN_REQUESTED(ログイン要求)アクションを作成してdispatchする
@@ -47,6 +47,7 @@ export default class LoginForm extends React.Component{
 
     return (
       <div>
+        <h4>ログイン</h4>
         <table>
           <tbody>
             <tr>
@@ -59,7 +60,7 @@ export default class LoginForm extends React.Component{
             </tr>
           </tbody>
         </table>
-        <button onClick={this.handleSubmit}>Login</button>
+        <button onClick={this.hundleSubmit}>Login</button>
         <br />
         <span style={{color:"red"}}>{message}</span>
       </div>
