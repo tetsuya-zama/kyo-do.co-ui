@@ -2139,7 +2139,7 @@
     "__docId__": 89,
     "kind": "file",
     "name": "src/saga/board.js",
-    "content": "import {take,put,select,takeEvery,call} from 'redux-saga/effects'\nimport {delay} from 'redux-saga'\nimport {updateMemberStatus} from '../action/board'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {LOGIN_STATUS} from '../const/login'\n\n/**\n* メンバー状況をpollingする間隔(ms)\n*/\nconst STATUS_POLLING_DURATION_MS= 15000;\n\n/**\n* ログインに成功した際にメンバー状況をロードするSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loadMemberStatusSaga(){\n  yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);\n}\n\n/**\n* ログインに成功した際にメンバー状況をロードするTask\n* @param {Object} action LOGIN_SUCCESSアクション\n*/\nfunction* loadMemberStatusTask(action){\n  //TODO ダミー実装。本来はAPIから取得\n  const memberStatus = yield getMemberStatusMock();\n  yield put(updateMemberStatus(memberStatus));\n}\n\n/**\n* メンバー状況を定期的に確認するSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* watchMemberStatusSaga(){\n  while(true){\n    const loginStatus = yield select(state => state.login.status);\n    if(loginStatus == LOGIN_STATUS.SUCCESS){\n      //TODO ダミー実装。本来はAPIから取得\n      const memberStatus = yield getMemberStatusMock();\n      yield put(updateMemberStatus(memberStatus));\n    }\n    yield call(delay,STATUS_POLLING_DURATION_MS);\n  }\n}\n\n/**\n* Mockデータの中からランダムでメンバー状況を返す\n* TODO 本実装完了したら削除\n* @return {Object} メンバー状況\n*/\nfunction getMemberStatusMock(){\n  const mockDataSet = [\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":true, \"comment\":\"\"}\n      ]}\n    ],\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"会議中\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":true, \"comment\":\"\"}\n      ]}\n    ],\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"会議中\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":false, \"comment\":\"\"}\n      ]}\n    ],\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":false,\"comment\":\"\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":false, \"comment\":\"\"}\n      ]}\n    ]\n  ];\n\n  return mockDataSet[Math.floor(Math.random() * mockDataSet.length)]\n}\n",
+    "content": "import {take,put,select,takeEvery,call} from 'redux-saga/effects'\nimport {delay} from 'redux-saga'\nimport {updateMemberStatus} from '../action/board'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {LOGIN_STATUS} from '../const/login'\nimport {MY_DESTINATION_CHANGE} from '../action/mydestination'\n\n/**\n* メンバー状況をpollingする間隔(ms)\n*/\nconst STATUS_POLLING_DURATION_MS= 15000;\n\n/**\n* メンバー状況をロードするSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loadMemberStatusSaga(){\n  yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);\n  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);\n}\n\n/**\n* ログインに成功した際にメンバー状況をロードするTask\n*/\nfunction* loadMemberStatusTask(){\n  //TODO ダミー実装。本来はAPIから取得\n  const memberStatus = yield getMemberStatusMock();\n  yield put(updateMemberStatus(memberStatus));\n}\n\n/**\n* メンバー状況を定期的に確認するSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* watchMemberStatusSaga(){\n  while(true){\n    const loginStatus = yield select(state => state.login.status);\n    if(loginStatus == LOGIN_STATUS.SUCCESS){\n      //TODO ダミー実装。本来はAPIから取得\n      const memberStatus = yield getMemberStatusMock();\n      yield put(updateMemberStatus(memberStatus));\n    }\n    yield call(delay,STATUS_POLLING_DURATION_MS);\n  }\n}\n\n/**\n* Mockデータの中からランダムでメンバー状況を返す\n* TODO 本実装完了したら削除\n* @return {Object} メンバー状況\n*/\nfunction getMemberStatusMock(){\n  const mockDataSet = [\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":true, \"comment\":\"\"}\n      ]}\n    ],\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"会議中\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":true, \"comment\":\"\"}\n      ]}\n    ],\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"会議中\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":false, \"comment\":\"\"}\n      ]}\n    ],\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":false,\"comment\":\"\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":false, \"comment\":\"\"}\n      ]}\n    ]\n  ];\n\n  return mockDataSet[Math.floor(Math.random() * mockDataSet.length)]\n}\n",
     "static": true,
     "longname": "src/saga/board.js",
     "access": null,
@@ -2158,7 +2158,7 @@
     "importPath": "kyo-do.co-ui/src/saga/board.js",
     "importStyle": null,
     "description": "メンバー状況をpollingする間隔(ms)",
-    "lineNumber": 10,
+    "lineNumber": 11,
     "type": {
       "types": [
         "number"
@@ -2178,11 +2178,11 @@
     "export": true,
     "importPath": "kyo-do.co-ui/src/saga/board.js",
     "importStyle": "{loadMemberStatusSaga}",
-    "description": "ログインに成功した際にメンバー状況をロードするSaga",
+    "description": "メンバー状況をロードするSaga",
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 16,
+    "lineNumber": 17,
     "params": []
   },
   {
@@ -2199,19 +2199,8 @@
     "importPath": "kyo-do.co-ui/src/saga/board.js",
     "importStyle": null,
     "description": "ログインに成功した際にメンバー状況をロードするTask",
-    "lineNumber": 24,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "action",
-        "description": "LOGIN_SUCCESSアクション"
-      }
-    ]
+    "lineNumber": 25,
+    "params": []
   },
   {
     "__docId__": 93,
@@ -2230,7 +2219,7 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 34,
+    "lineNumber": 35,
     "params": []
   },
   {
@@ -2247,7 +2236,7 @@
     "importPath": "kyo-do.co-ui/src/saga/board.js",
     "importStyle": null,
     "description": "Mockデータの中からランダムでメンバー状況を返す\nTODO 本実装完了したら削除",
-    "lineNumber": 51,
+    "lineNumber": 52,
     "params": [],
     "return": {
       "nullable": null,

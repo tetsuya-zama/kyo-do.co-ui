@@ -89,6 +89,7 @@ import {delay} from &apos;redux-saga&apos;
 import {updateMemberStatus} from &apos;../action/board&apos;
 import {LOGIN_SUCCESS} from &apos;../action/login&apos;
 import {LOGIN_STATUS} from &apos;../const/login&apos;
+import {MY_DESTINATION_CHANGE} from &apos;../action/mydestination&apos;
 
 /**
 * &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;polling&#x3059;&#x308B;&#x9593;&#x9694;(ms)
@@ -96,18 +97,18 @@ import {LOGIN_STATUS} from &apos;../const/login&apos;
 const STATUS_POLLING_DURATION_MS= 15000;
 
 /**
-* &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x306B;&#x6210;&#x529F;&#x3057;&#x305F;&#x969B;&#x306B;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Saga
+* &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Saga
 * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
 */
 export function* loadMemberStatusSaga(){
   yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);
+  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);
 }
 
 /**
 * &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x306B;&#x6210;&#x529F;&#x3057;&#x305F;&#x969B;&#x306B;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Task
-* @param {Object} action LOGIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
-function* loadMemberStatusTask(action){
+function* loadMemberStatusTask(){
   //TODO &#x30C0;&#x30DF;&#x30FC;&#x5B9F;&#x88C5;&#x3002;&#x672C;&#x6765;&#x306F;API&#x304B;&#x3089;&#x53D6;&#x5F97;
   const memberStatus = yield getMemberStatusMock();
   yield put(updateMemberStatus(memberStatus));

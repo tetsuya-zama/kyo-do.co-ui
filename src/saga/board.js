@@ -3,6 +3,7 @@ import {delay} from 'redux-saga'
 import {updateMemberStatus} from '../action/board'
 import {LOGIN_SUCCESS} from '../action/login'
 import {LOGIN_STATUS} from '../const/login'
+import {MY_DESTINATION_CHANGE} from '../action/mydestination'
 
 /**
 * メンバー状況をpollingする間隔(ms)
@@ -10,18 +11,18 @@ import {LOGIN_STATUS} from '../const/login'
 const STATUS_POLLING_DURATION_MS= 15000;
 
 /**
-* ログインに成功した際にメンバー状況をロードするSaga
+* メンバー状況をロードするSaga
 * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
 */
 export function* loadMemberStatusSaga(){
   yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);
+  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);
 }
 
 /**
 * ログインに成功した際にメンバー状況をロードするTask
-* @param {Object} action LOGIN_SUCCESSアクション
 */
-function* loadMemberStatusTask(action){
+function* loadMemberStatusTask(){
   //TODO ダミー実装。本来はAPIから取得
   const memberStatus = yield getMemberStatusMock();
   yield put(updateMemberStatus(memberStatus));
