@@ -24,7 +24,9 @@ export function* loadMemberStatusSaga(){
 */
 function* loadMemberStatusTask(){
   //TODO ダミー実装。本来はAPIから取得
-  const memberStatus = yield getMemberStatusMock();
+  const me = yield select(state => state.login.user);
+  const mydestination = yield select(state => state.mydestination);
+  const memberStatus = yield getMemberStatusMock(me,mydestination);
   yield put(updateMemberStatus(memberStatus));
 }
 
@@ -37,7 +39,9 @@ export function* watchMemberStatusSaga(){
     const loginStatus = yield select(state => state.login.status);
     if(loginStatus == LOGIN_STATUS.SUCCESS){
       //TODO ダミー実装。本来はAPIから取得
-      const memberStatus = yield getMemberStatusMock();
+      const me = yield select(state => state.login.user);
+      const mydestination = yield select(state => state.mydestination);
+      const memberStatus = yield getMemberStatusMock(me,mydestination);
       yield put(updateMemberStatus(memberStatus));
     }
     yield call(delay,STATUS_POLLING_DURATION_MS);
@@ -47,9 +51,11 @@ export function* watchMemberStatusSaga(){
 /**
 * Mockデータの中からランダムでメンバー状況を返す
 * TODO 本実装完了したら削除
+* @param {Object} me 自分のユーザー情報
+* @param {Object} mydestination 自分の行き先
 * @return {Object} メンバー状況
 */
-function getMemberStatusMock(){
+function getMemberStatusMock(me,mydestination){
   const mockDataSet = [
     [
       {"teamId":"ta","name":"チームA","members":[
@@ -93,5 +99,18 @@ function getMemberStatusMock(){
     ]
   ];
 
-  return mockDataSet[Math.floor(Math.random() * mockDataSet.length)]
+  const mock = mockDataSet[Math.floor(Math.random() * mockDataSet.length)];
+  return mock.map(
+    team => Object.assign(
+      {},
+      team,
+      {members: team.members.concat(
+        {
+          "name":me.name,
+          "inBusiness":mydestination.inBusiness,
+          "comment":mydestination.comment
+        })
+      }
+    )
+  );
 }

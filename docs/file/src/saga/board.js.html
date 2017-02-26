@@ -110,7 +110,9 @@ export function* loadMemberStatusSaga(){
 */
 function* loadMemberStatusTask(){
   //TODO &#x30C0;&#x30DF;&#x30FC;&#x5B9F;&#x88C5;&#x3002;&#x672C;&#x6765;&#x306F;API&#x304B;&#x3089;&#x53D6;&#x5F97;
-  const memberStatus = yield getMemberStatusMock();
+  const me = yield select(state =&gt; state.login.user);
+  const mydestination = yield select(state =&gt; state.mydestination);
+  const memberStatus = yield getMemberStatusMock(me,mydestination);
   yield put(updateMemberStatus(memberStatus));
 }
 
@@ -123,7 +125,9 @@ export function* watchMemberStatusSaga(){
     const loginStatus = yield select(state =&gt; state.login.status);
     if(loginStatus == LOGIN_STATUS.SUCCESS){
       //TODO &#x30C0;&#x30DF;&#x30FC;&#x5B9F;&#x88C5;&#x3002;&#x672C;&#x6765;&#x306F;API&#x304B;&#x3089;&#x53D6;&#x5F97;
-      const memberStatus = yield getMemberStatusMock();
+      const me = yield select(state =&gt; state.login.user);
+      const mydestination = yield select(state =&gt; state.mydestination);
+      const memberStatus = yield getMemberStatusMock(me,mydestination);
       yield put(updateMemberStatus(memberStatus));
     }
     yield call(delay,STATUS_POLLING_DURATION_MS);
@@ -133,9 +137,11 @@ export function* watchMemberStatusSaga(){
 /**
 * Mock&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x4E2D;&#x304B;&#x3089;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x3067;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;&#x8FD4;&#x3059;
 * TODO &#x672C;&#x5B9F;&#x88C5;&#x5B8C;&#x4E86;&#x3057;&#x305F;&#x3089;&#x524A;&#x9664;
+* @param {Object} me &#x81EA;&#x5206;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;
+* @param {Object} mydestination &#x81EA;&#x5206;&#x306E;&#x884C;&#x304D;&#x5148;
 * @return {Object} &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;
 */
-function getMemberStatusMock(){
+function getMemberStatusMock(me,mydestination){
   const mockDataSet = [
     [
       {&quot;teamId&quot;:&quot;ta&quot;,&quot;name&quot;:&quot;&#x30C1;&#x30FC;&#x30E0;A&quot;,&quot;members&quot;:[
@@ -179,7 +185,20 @@ function getMemberStatusMock(){
     ]
   ];
 
-  return mockDataSet[Math.floor(Math.random() * mockDataSet.length)]
+  const mock = mockDataSet[Math.floor(Math.random() * mockDataSet.length)];
+  return mock.map(
+    team =&gt; Object.assign(
+      {},
+      team,
+      {members: team.members.concat(
+        {
+          &quot;name&quot;:me.name,
+          &quot;inBusiness&quot;:mydestination.inBusiness,
+          &quot;comment&quot;:mydestination.comment
+        })
+      }
+    )
+  );
 }
 </code></pre>
 
