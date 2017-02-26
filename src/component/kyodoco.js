@@ -14,7 +14,7 @@ import {LOGIN_STATUS} from '../const/login'
 */
 class Kyodoco extends React.Component{
   /**
-  * コンストタクタ
+  * コンストラクタ
   * @param {Object} props プロパティ
   * @return {undefined}
   */
