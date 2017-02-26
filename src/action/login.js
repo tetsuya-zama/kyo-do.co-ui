@@ -26,7 +26,7 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 
 /**
 * ログイン成功アクションのcreator
-* @param {{userid:string,token:string}} userinfo 成功したユーザー情報
+* @param {{userid:string,name:string,token:string}} userinfo 成功したユーザー情報
 * @return {Object} ログイン成功アクション
 */
 export function loginSuccess(userinfo){

@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 1041,
+  "end": 1053,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 1041,
+    "end": 1053,
     "loc": {
       "start": {
         "line": 1,
@@ -717,9 +717,9 @@
           "trailingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
+              "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,name:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
               "start": 394,
-              "end": 513,
+              "end": 525,
               "loc": {
                 "start": {
                   "line": 27,
@@ -754,9 +754,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
+            "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,name:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
             "start": 394,
-            "end": 513,
+            "end": 525,
             "loc": {
               "start": {
                 "line": 27,
@@ -772,8 +772,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 514,
-        "end": 616,
+        "start": 526,
+        "end": 628,
         "loc": {
           "start": {
             "line": 32,
@@ -788,8 +788,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 521,
-          "end": 616,
+          "start": 533,
+          "end": 628,
           "loc": {
             "start": {
               "line": 32,
@@ -802,8 +802,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 530,
-            "end": 542,
+            "start": 542,
+            "end": 554,
             "loc": {
               "start": {
                 "line": 32,
@@ -824,8 +824,8 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 543,
-              "end": 551,
+              "start": 555,
+              "end": 563,
               "loc": {
                 "start": {
                   "line": 32,
@@ -842,8 +842,8 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 552,
-            "end": 616,
+            "start": 564,
+            "end": 628,
             "loc": {
               "start": {
                 "line": 32,
@@ -857,8 +857,8 @@
             "body": [
               {
                 "type": "ReturnStatement",
-                "start": 556,
-                "end": 614,
+                "start": 568,
+                "end": 626,
                 "loc": {
                   "start": {
                     "line": 33,
@@ -871,8 +871,8 @@
                 },
                 "argument": {
                   "type": "ObjectExpression",
-                  "start": 563,
-                  "end": 613,
+                  "start": 575,
+                  "end": 625,
                   "loc": {
                     "start": {
                       "line": 33,
@@ -886,8 +886,8 @@
                   "properties": [
                     {
                       "type": "ObjectProperty",
-                      "start": 569,
-                      "end": 587,
+                      "start": 581,
+                      "end": 599,
                       "loc": {
                         "start": {
                           "line": 34,
@@ -903,8 +903,8 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 569,
-                        "end": 573,
+                        "start": 581,
+                        "end": 585,
                         "loc": {
                           "start": {
                             "line": 34,
@@ -920,8 +920,8 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 574,
-                        "end": 587,
+                        "start": 586,
+                        "end": 599,
                         "loc": {
                           "start": {
                             "line": 34,
@@ -938,8 +938,8 @@
                     },
                     {
                       "type": "ObjectProperty",
-                      "start": 593,
-                      "end": 609,
+                      "start": 605,
+                      "end": 621,
                       "loc": {
                         "start": {
                           "line": 35,
@@ -955,8 +955,8 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 593,
-                        "end": 600,
+                        "start": 605,
+                        "end": 612,
                         "loc": {
                           "start": {
                             "line": 35,
@@ -972,8 +972,8 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 601,
-                        "end": 609,
+                        "start": 613,
+                        "end": 621,
                         "loc": {
                           "start": {
                             "line": 35,
@@ -998,9 +998,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
+              "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,name:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
               "start": 394,
-              "end": 513,
+              "end": 525,
               "loc": {
                 "start": {
                   "line": 27,
@@ -1017,8 +1017,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n* ログイン失敗アクション名\n",
-              "start": 618,
-              "end": 639,
+              "start": 630,
+              "end": 651,
               "loc": {
                 "start": {
                   "line": 39,
@@ -1035,9 +1035,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
+            "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,name:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
             "start": 394,
-            "end": 513,
+            "end": 525,
             "loc": {
               "start": {
                 "line": 27,
@@ -1054,8 +1054,8 @@
           {
             "type": "CommentBlock",
             "value": "*\n* ログイン失敗アクション名\n",
-            "start": 618,
-            "end": 639,
+            "start": 630,
+            "end": 651,
             "loc": {
               "start": {
                 "line": 39,
@@ -1071,8 +1071,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 640,
-        "end": 685,
+        "start": 652,
+        "end": 697,
         "loc": {
           "start": {
             "line": 42,
@@ -1087,8 +1087,8 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 647,
-          "end": 685,
+          "start": 659,
+          "end": 697,
           "loc": {
             "start": {
               "line": 42,
@@ -1102,8 +1102,8 @@
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 653,
-              "end": 684,
+              "start": 665,
+              "end": 696,
               "loc": {
                 "start": {
                   "line": 42,
@@ -1116,8 +1116,8 @@
               },
               "id": {
                 "type": "Identifier",
-                "start": 653,
-                "end": 666,
+                "start": 665,
+                "end": 678,
                 "loc": {
                   "start": {
                     "line": 42,
@@ -1134,8 +1134,8 @@
               },
               "init": {
                 "type": "StringLiteral",
-                "start": 669,
-                "end": 684,
+                "start": 681,
+                "end": 696,
                 "loc": {
                   "start": {
                     "line": 42,
@@ -1160,8 +1160,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n* ログイン失敗アクション名\n",
-              "start": 618,
-              "end": 639,
+              "start": 630,
+              "end": 651,
               "loc": {
                 "start": {
                   "line": 39,
@@ -1178,8 +1178,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n* ログイン失敗アクションのcreator\n* @return {Object} ログイン失敗アクション\n",
-              "start": 687,
-              "end": 746,
+              "start": 699,
+              "end": 758,
               "loc": {
                 "start": {
                   "line": 44,
@@ -1197,8 +1197,8 @@
           {
             "type": "CommentBlock",
             "value": "*\n* ログイン失敗アクション名\n",
-            "start": 618,
-            "end": 639,
+            "start": 630,
+            "end": 651,
             "loc": {
               "start": {
                 "line": 39,
@@ -1215,8 +1215,8 @@
           {
             "type": "CommentBlock",
             "value": "*\n* ログイン失敗アクションのcreator\n* @return {Object} ログイン失敗アクション\n",
-            "start": 687,
-            "end": 746,
+            "start": 699,
+            "end": 758,
             "loc": {
               "start": {
                 "line": 44,
@@ -1232,8 +1232,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 747,
-        "end": 820,
+        "start": 759,
+        "end": 832,
         "loc": {
           "start": {
             "line": 48,
@@ -1248,8 +1248,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 754,
-          "end": 820,
+          "start": 766,
+          "end": 832,
           "loc": {
             "start": {
               "line": 48,
@@ -1262,8 +1262,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 763,
-            "end": 775,
+            "start": 775,
+            "end": 787,
             "loc": {
               "start": {
                 "line": 48,
@@ -1284,8 +1284,8 @@
           "params": [],
           "body": {
             "type": "BlockStatement",
-            "start": 777,
-            "end": 820,
+            "start": 789,
+            "end": 832,
             "loc": {
               "start": {
                 "line": 48,
@@ -1299,8 +1299,8 @@
             "body": [
               {
                 "type": "ReturnStatement",
-                "start": 781,
-                "end": 818,
+                "start": 793,
+                "end": 830,
                 "loc": {
                   "start": {
                     "line": 49,
@@ -1313,8 +1313,8 @@
                 },
                 "argument": {
                   "type": "ObjectExpression",
-                  "start": 788,
-                  "end": 817,
+                  "start": 800,
+                  "end": 829,
                   "loc": {
                     "start": {
                       "line": 49,
@@ -1328,8 +1328,8 @@
                   "properties": [
                     {
                       "type": "ObjectProperty",
-                      "start": 794,
-                      "end": 813,
+                      "start": 806,
+                      "end": 825,
                       "loc": {
                         "start": {
                           "line": 50,
@@ -1345,8 +1345,8 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 794,
-                        "end": 798,
+                        "start": 806,
+                        "end": 810,
                         "loc": {
                           "start": {
                             "line": 50,
@@ -1362,8 +1362,8 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 800,
-                        "end": 813,
+                        "start": 812,
+                        "end": 825,
                         "loc": {
                           "start": {
                             "line": 50,
@@ -1389,8 +1389,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n* ログイン失敗アクションのcreator\n* @return {Object} ログイン失敗アクション\n",
-              "start": 687,
-              "end": 746,
+              "start": 699,
+              "end": 758,
               "loc": {
                 "start": {
                   "line": 44,
@@ -1407,8 +1407,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n* ログアウト要求アクション名\n",
-              "start": 822,
-              "end": 844,
+              "start": 834,
+              "end": 856,
               "loc": {
                 "start": {
                   "line": 54,
@@ -1426,8 +1426,8 @@
           {
             "type": "CommentBlock",
             "value": "*\n* ログイン失敗アクションのcreator\n* @return {Object} ログイン失敗アクション\n",
-            "start": 687,
-            "end": 746,
+            "start": 699,
+            "end": 758,
             "loc": {
               "start": {
                 "line": 44,
@@ -1444,8 +1444,8 @@
           {
             "type": "CommentBlock",
             "value": "*\n* ログアウト要求アクション名\n",
-            "start": 822,
-            "end": 844,
+            "start": 834,
+            "end": 856,
             "loc": {
               "start": {
                 "line": 54,
@@ -1461,8 +1461,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 845,
-        "end": 896,
+        "start": 857,
+        "end": 908,
         "loc": {
           "start": {
             "line": 57,
@@ -1477,8 +1477,8 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 852,
-          "end": 896,
+          "start": 864,
+          "end": 908,
           "loc": {
             "start": {
               "line": 57,
@@ -1492,8 +1492,8 @@
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 858,
-              "end": 895,
+              "start": 870,
+              "end": 907,
               "loc": {
                 "start": {
                   "line": 57,
@@ -1506,8 +1506,8 @@
               },
               "id": {
                 "type": "Identifier",
-                "start": 858,
-                "end": 874,
+                "start": 870,
+                "end": 886,
                 "loc": {
                   "start": {
                     "line": 57,
@@ -1524,8 +1524,8 @@
               },
               "init": {
                 "type": "StringLiteral",
-                "start": 877,
-                "end": 895,
+                "start": 889,
+                "end": 907,
                 "loc": {
                   "start": {
                     "line": 57,
@@ -1550,8 +1550,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n* ログアウト要求アクション名\n",
-              "start": 822,
-              "end": 844,
+              "start": 834,
+              "end": 856,
               "loc": {
                 "start": {
                   "line": 54,
@@ -1568,8 +1568,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n* ログアウト要求アクションのcreator\n* @return {Object} ログアウト要求アクション\n",
-              "start": 898,
-              "end": 959,
+              "start": 910,
+              "end": 971,
               "loc": {
                 "start": {
                   "line": 59,
@@ -1587,8 +1587,8 @@
           {
             "type": "CommentBlock",
             "value": "*\n* ログアウト要求アクション名\n",
-            "start": 822,
-            "end": 844,
+            "start": 834,
+            "end": 856,
             "loc": {
               "start": {
                 "line": 54,
@@ -1605,8 +1605,8 @@
           {
             "type": "CommentBlock",
             "value": "*\n* ログアウト要求アクションのcreator\n* @return {Object} ログアウト要求アクション\n",
-            "start": 898,
-            "end": 959,
+            "start": 910,
+            "end": 971,
             "loc": {
               "start": {
                 "line": 59,
@@ -1622,8 +1622,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 960,
-        "end": 1040,
+        "start": 972,
+        "end": 1052,
         "loc": {
           "start": {
             "line": 63,
@@ -1638,8 +1638,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 967,
-          "end": 1040,
+          "start": 979,
+          "end": 1052,
           "loc": {
             "start": {
               "line": 63,
@@ -1652,8 +1652,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 976,
-            "end": 991,
+            "start": 988,
+            "end": 1003,
             "loc": {
               "start": {
                 "line": 63,
@@ -1674,8 +1674,8 @@
           "params": [],
           "body": {
             "type": "BlockStatement",
-            "start": 993,
-            "end": 1040,
+            "start": 1005,
+            "end": 1052,
             "loc": {
               "start": {
                 "line": 63,
@@ -1689,8 +1689,8 @@
             "body": [
               {
                 "type": "ReturnStatement",
-                "start": 997,
-                "end": 1038,
+                "start": 1009,
+                "end": 1050,
                 "loc": {
                   "start": {
                     "line": 64,
@@ -1703,8 +1703,8 @@
                 },
                 "argument": {
                   "type": "ObjectExpression",
-                  "start": 1004,
-                  "end": 1037,
+                  "start": 1016,
+                  "end": 1049,
                   "loc": {
                     "start": {
                       "line": 64,
@@ -1718,8 +1718,8 @@
                   "properties": [
                     {
                       "type": "ObjectProperty",
-                      "start": 1010,
-                      "end": 1033,
+                      "start": 1022,
+                      "end": 1045,
                       "loc": {
                         "start": {
                           "line": 65,
@@ -1735,8 +1735,8 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 1010,
-                        "end": 1014,
+                        "start": 1022,
+                        "end": 1026,
                         "loc": {
                           "start": {
                             "line": 65,
@@ -1752,8 +1752,8 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 1017,
-                        "end": 1033,
+                        "start": 1029,
+                        "end": 1045,
                         "loc": {
                           "start": {
                             "line": 65,
@@ -1778,8 +1778,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n* ログアウト要求アクションのcreator\n* @return {Object} ログアウト要求アクション\n",
-              "start": 898,
-              "end": 959,
+              "start": 910,
+              "end": 971,
               "loc": {
                 "start": {
                   "line": 59,
@@ -1798,8 +1798,8 @@
           {
             "type": "CommentBlock",
             "value": "*\n* ログアウト要求アクションのcreator\n* @return {Object} ログアウト要求アクション\n",
-            "start": 898,
-            "end": 959,
+            "start": 910,
+            "end": 971,
             "loc": {
               "start": {
                 "line": 59,
@@ -1867,9 +1867,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
+      "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,name:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
       "start": 394,
-      "end": 513,
+      "end": 525,
       "loc": {
         "start": {
           "line": 27,
@@ -1884,8 +1884,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n* ログイン失敗アクション名\n",
-      "start": 618,
-      "end": 639,
+      "start": 630,
+      "end": 651,
       "loc": {
         "start": {
           "line": 39,
@@ -1900,8 +1900,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n* ログイン失敗アクションのcreator\n* @return {Object} ログイン失敗アクション\n",
-      "start": 687,
-      "end": 746,
+      "start": 699,
+      "end": 758,
       "loc": {
         "start": {
           "line": 44,
@@ -1916,8 +1916,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n* ログアウト要求アクション名\n",
-      "start": 822,
-      "end": 844,
+      "start": 834,
+      "end": 856,
       "loc": {
         "start": {
           "line": 54,
@@ -1932,8 +1932,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n* ログアウト要求アクションのcreator\n* @return {Object} ログアウト要求アクション\n",
-      "start": 898,
-      "end": 959,
+      "start": 910,
+      "end": 971,
       "loc": {
         "start": {
           "line": 59,
@@ -3072,9 +3072,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
+      "value": "*\n* ログイン成功アクションのcreator\n* @param {{userid:string,name:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n",
       "start": 394,
-      "end": 513,
+      "end": 525,
       "loc": {
         "start": {
           "line": 27,
@@ -3101,8 +3101,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 514,
-      "end": 520,
+      "start": 526,
+      "end": 532,
       "loc": {
         "start": {
           "line": 32,
@@ -3128,8 +3128,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 521,
-      "end": 529,
+      "start": 533,
+      "end": 541,
       "loc": {
         "start": {
           "line": 32,
@@ -3154,8 +3154,8 @@
         "binop": null
       },
       "value": "loginSuccess",
-      "start": 530,
-      "end": 542,
+      "start": 542,
+      "end": 554,
       "loc": {
         "start": {
           "line": 32,
@@ -3179,8 +3179,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 542,
-      "end": 543,
+      "start": 554,
+      "end": 555,
       "loc": {
         "start": {
           "line": 32,
@@ -3205,8 +3205,8 @@
         "binop": null
       },
       "value": "userinfo",
-      "start": 543,
-      "end": 551,
+      "start": 555,
+      "end": 563,
       "loc": {
         "start": {
           "line": 32,
@@ -3230,8 +3230,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 551,
-      "end": 552,
+      "start": 563,
+      "end": 564,
       "loc": {
         "start": {
           "line": 32,
@@ -3255,8 +3255,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 552,
-      "end": 553,
+      "start": 564,
+      "end": 565,
       "loc": {
         "start": {
           "line": 32,
@@ -3283,8 +3283,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 556,
-      "end": 562,
+      "start": 568,
+      "end": 574,
       "loc": {
         "start": {
           "line": 33,
@@ -3308,8 +3308,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 563,
-      "end": 564,
+      "start": 575,
+      "end": 576,
       "loc": {
         "start": {
           "line": 33,
@@ -3334,8 +3334,8 @@
         "binop": null
       },
       "value": "type",
-      "start": 569,
-      "end": 573,
+      "start": 581,
+      "end": 585,
       "loc": {
         "start": {
           "line": 34,
@@ -3360,8 +3360,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 573,
-      "end": 574,
+      "start": 585,
+      "end": 586,
       "loc": {
         "start": {
           "line": 34,
@@ -3386,8 +3386,8 @@
         "binop": null
       },
       "value": "LOGIN_SUCCESS",
-      "start": 574,
-      "end": 587,
+      "start": 586,
+      "end": 599,
       "loc": {
         "start": {
           "line": 34,
@@ -3412,8 +3412,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 587,
-      "end": 588,
+      "start": 599,
+      "end": 600,
       "loc": {
         "start": {
           "line": 34,
@@ -3438,8 +3438,8 @@
         "binop": null
       },
       "value": "payload",
-      "start": 593,
-      "end": 600,
+      "start": 605,
+      "end": 612,
       "loc": {
         "start": {
           "line": 35,
@@ -3464,8 +3464,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 600,
-      "end": 601,
+      "start": 612,
+      "end": 613,
       "loc": {
         "start": {
           "line": 35,
@@ -3490,8 +3490,8 @@
         "binop": null
       },
       "value": "userinfo",
-      "start": 601,
-      "end": 609,
+      "start": 613,
+      "end": 621,
       "loc": {
         "start": {
           "line": 35,
@@ -3515,8 +3515,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 612,
-      "end": 613,
+      "start": 624,
+      "end": 625,
       "loc": {
         "start": {
           "line": 36,
@@ -3541,8 +3541,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 613,
-      "end": 614,
+      "start": 625,
+      "end": 626,
       "loc": {
         "start": {
           "line": 36,
@@ -3566,8 +3566,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 615,
-      "end": 616,
+      "start": 627,
+      "end": 628,
       "loc": {
         "start": {
           "line": 37,
@@ -3582,8 +3582,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n* ログイン失敗アクション名\n",
-      "start": 618,
-      "end": 639,
+      "start": 630,
+      "end": 651,
       "loc": {
         "start": {
           "line": 39,
@@ -3610,8 +3610,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 640,
-      "end": 646,
+      "start": 652,
+      "end": 658,
       "loc": {
         "start": {
           "line": 42,
@@ -3638,8 +3638,8 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 647,
-      "end": 652,
+      "start": 659,
+      "end": 664,
       "loc": {
         "start": {
           "line": 42,
@@ -3664,8 +3664,8 @@
         "binop": null
       },
       "value": "LOGIN_FAILURE",
-      "start": 653,
-      "end": 666,
+      "start": 665,
+      "end": 678,
       "loc": {
         "start": {
           "line": 42,
@@ -3691,8 +3691,8 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 667,
-      "end": 668,
+      "start": 679,
+      "end": 680,
       "loc": {
         "start": {
           "line": 42,
@@ -3718,8 +3718,8 @@
         "updateContext": null
       },
       "value": "LOGIN_FAILURE",
-      "start": 669,
-      "end": 684,
+      "start": 681,
+      "end": 696,
       "loc": {
         "start": {
           "line": 42,
@@ -3744,8 +3744,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 684,
-      "end": 685,
+      "start": 696,
+      "end": 697,
       "loc": {
         "start": {
           "line": 42,
@@ -3760,8 +3760,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n* ログイン失敗アクションのcreator\n* @return {Object} ログイン失敗アクション\n",
-      "start": 687,
-      "end": 746,
+      "start": 699,
+      "end": 758,
       "loc": {
         "start": {
           "line": 44,
@@ -3788,8 +3788,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 747,
-      "end": 753,
+      "start": 759,
+      "end": 765,
       "loc": {
         "start": {
           "line": 48,
@@ -3815,8 +3815,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 754,
-      "end": 762,
+      "start": 766,
+      "end": 774,
       "loc": {
         "start": {
           "line": 48,
@@ -3841,8 +3841,8 @@
         "binop": null
       },
       "value": "loginFailure",
-      "start": 763,
-      "end": 775,
+      "start": 775,
+      "end": 787,
       "loc": {
         "start": {
           "line": 48,
@@ -3866,8 +3866,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 775,
-      "end": 776,
+      "start": 787,
+      "end": 788,
       "loc": {
         "start": {
           "line": 48,
@@ -3891,8 +3891,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 776,
-      "end": 777,
+      "start": 788,
+      "end": 789,
       "loc": {
         "start": {
           "line": 48,
@@ -3916,8 +3916,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 777,
-      "end": 778,
+      "start": 789,
+      "end": 790,
       "loc": {
         "start": {
           "line": 48,
@@ -3944,8 +3944,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 781,
-      "end": 787,
+      "start": 793,
+      "end": 799,
       "loc": {
         "start": {
           "line": 49,
@@ -3969,8 +3969,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 788,
-      "end": 789,
+      "start": 800,
+      "end": 801,
       "loc": {
         "start": {
           "line": 49,
@@ -3995,8 +3995,8 @@
         "binop": null
       },
       "value": "type",
-      "start": 794,
-      "end": 798,
+      "start": 806,
+      "end": 810,
       "loc": {
         "start": {
           "line": 50,
@@ -4021,8 +4021,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 798,
-      "end": 799,
+      "start": 810,
+      "end": 811,
       "loc": {
         "start": {
           "line": 50,
@@ -4047,8 +4047,8 @@
         "binop": null
       },
       "value": "LOGIN_FAILURE",
-      "start": 800,
-      "end": 813,
+      "start": 812,
+      "end": 825,
       "loc": {
         "start": {
           "line": 50,
@@ -4072,8 +4072,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 816,
-      "end": 817,
+      "start": 828,
+      "end": 829,
       "loc": {
         "start": {
           "line": 51,
@@ -4098,8 +4098,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 817,
-      "end": 818,
+      "start": 829,
+      "end": 830,
       "loc": {
         "start": {
           "line": 51,
@@ -4123,8 +4123,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 819,
-      "end": 820,
+      "start": 831,
+      "end": 832,
       "loc": {
         "start": {
           "line": 52,
@@ -4139,8 +4139,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n* ログアウト要求アクション名\n",
-      "start": 822,
-      "end": 844,
+      "start": 834,
+      "end": 856,
       "loc": {
         "start": {
           "line": 54,
@@ -4167,8 +4167,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 845,
-      "end": 851,
+      "start": 857,
+      "end": 863,
       "loc": {
         "start": {
           "line": 57,
@@ -4195,8 +4195,8 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 852,
-      "end": 857,
+      "start": 864,
+      "end": 869,
       "loc": {
         "start": {
           "line": 57,
@@ -4221,8 +4221,8 @@
         "binop": null
       },
       "value": "LOGOUT_REQUESTED",
-      "start": 858,
-      "end": 874,
+      "start": 870,
+      "end": 886,
       "loc": {
         "start": {
           "line": 57,
@@ -4248,8 +4248,8 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 875,
-      "end": 876,
+      "start": 887,
+      "end": 888,
       "loc": {
         "start": {
           "line": 57,
@@ -4275,8 +4275,8 @@
         "updateContext": null
       },
       "value": "LOGOUT_REQUESTED",
-      "start": 877,
-      "end": 895,
+      "start": 889,
+      "end": 907,
       "loc": {
         "start": {
           "line": 57,
@@ -4301,8 +4301,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 895,
-      "end": 896,
+      "start": 907,
+      "end": 908,
       "loc": {
         "start": {
           "line": 57,
@@ -4317,8 +4317,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n* ログアウト要求アクションのcreator\n* @return {Object} ログアウト要求アクション\n",
-      "start": 898,
-      "end": 959,
+      "start": 910,
+      "end": 971,
       "loc": {
         "start": {
           "line": 59,
@@ -4345,8 +4345,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 960,
-      "end": 966,
+      "start": 972,
+      "end": 978,
       "loc": {
         "start": {
           "line": 63,
@@ -4372,8 +4372,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 967,
-      "end": 975,
+      "start": 979,
+      "end": 987,
       "loc": {
         "start": {
           "line": 63,
@@ -4398,8 +4398,8 @@
         "binop": null
       },
       "value": "logoutRequested",
-      "start": 976,
-      "end": 991,
+      "start": 988,
+      "end": 1003,
       "loc": {
         "start": {
           "line": 63,
@@ -4423,8 +4423,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 991,
-      "end": 992,
+      "start": 1003,
+      "end": 1004,
       "loc": {
         "start": {
           "line": 63,
@@ -4448,8 +4448,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 992,
-      "end": 993,
+      "start": 1004,
+      "end": 1005,
       "loc": {
         "start": {
           "line": 63,
@@ -4473,8 +4473,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 993,
-      "end": 994,
+      "start": 1005,
+      "end": 1006,
       "loc": {
         "start": {
           "line": 63,
@@ -4501,8 +4501,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 997,
-      "end": 1003,
+      "start": 1009,
+      "end": 1015,
       "loc": {
         "start": {
           "line": 64,
@@ -4526,8 +4526,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1004,
-      "end": 1005,
+      "start": 1016,
+      "end": 1017,
       "loc": {
         "start": {
           "line": 64,
@@ -4552,8 +4552,8 @@
         "binop": null
       },
       "value": "type",
-      "start": 1010,
-      "end": 1014,
+      "start": 1022,
+      "end": 1026,
       "loc": {
         "start": {
           "line": 65,
@@ -4578,8 +4578,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1015,
-      "end": 1016,
+      "start": 1027,
+      "end": 1028,
       "loc": {
         "start": {
           "line": 65,
@@ -4604,8 +4604,8 @@
         "binop": null
       },
       "value": "LOGOUT_REQUESTED",
-      "start": 1017,
-      "end": 1033,
+      "start": 1029,
+      "end": 1045,
       "loc": {
         "start": {
           "line": 65,
@@ -4629,8 +4629,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1036,
-      "end": 1037,
+      "start": 1048,
+      "end": 1049,
       "loc": {
         "start": {
           "line": 66,
@@ -4655,8 +4655,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1037,
-      "end": 1038,
+      "start": 1049,
+      "end": 1050,
       "loc": {
         "start": {
           "line": 66,
@@ -4680,8 +4680,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1039,
-      "end": 1040,
+      "start": 1051,
+      "end": 1052,
       "loc": {
         "start": {
           "line": 67,
@@ -4706,8 +4706,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1041,
-      "end": 1041,
+      "start": 1053,
+      "end": 1053,
       "loc": {
         "start": {
           "line": 68,

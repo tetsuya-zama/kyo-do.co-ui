@@ -42,7 +42,7 @@ export default class MyDestination extends React.Component{
       <table>
         <tbody>
         <tr>
-          <td>{this.props.login.user.userid}</td>
+          <td>{this.props.login.user.name}</td>
           <td>
             <select ref="inBusiness" value={inBusinessValue} onChange={this.hundleChange}>
              <option value={0}>退勤</option>

@@ -137,7 +137,7 @@ function* loginTask(action){
       if(targetUser.password == action.payload.pass){
         //&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x6210;&#x529F;
         //LOGIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)
-        yield put(loginSuccess({userid:targetUser.id,token:&quot;dummy&quot;}));
+        yield put(loginSuccess({userid:targetUser.id,name:targetUser.name,token:&quot;dummy&quot;}));
       }else{
         //&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x304C;&#x4E00;&#x81F4;&#x3057;&#x306A;&#x3044;
         //LOGIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)

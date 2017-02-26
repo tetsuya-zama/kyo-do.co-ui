@@ -51,7 +51,7 @@ function* loginTask(action){
       if(targetUser.password == action.payload.pass){
         //ログイン成功
         //LOGIN_SUCCESSアクションをput(dispatch)
-        yield put(loginSuccess({userid:targetUser.id,token:"dummy"}));
+        yield put(loginSuccess({userid:targetUser.id,name:targetUser.name,token:"dummy"}));
       }else{
         //パスワードが一致しない
         //LOGIN_FAILUREアクションをput(dispatch)
