@@ -7,7 +7,7 @@ import {UPDATE_MEMBER_STATUS} from '../action/board'
 * @param {Object} action dispatchされたaction
 * @return {Object} 変更後のstate
 */
-export default function board(state={memberStatus:{}},action){
+export default function board(state={memberStatus:[]},action){
   switch(action.type){
     case(UPDATE_MEMBER_STATUS):
       return Object.assign({},state,{memberStatus:action.payload});

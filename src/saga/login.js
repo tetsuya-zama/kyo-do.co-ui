@@ -1,6 +1,7 @@
-import {take,put,takeEvery} from 'redux-saga/effects'
+import {take,put,call,takeEvery} from 'redux-saga/effects'
 import {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'
 import {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'
+import axios from "axios";
 
 //MOCK用
 //TODO 実装終わったら消す
@@ -31,33 +32,17 @@ function* loginTask(action){
   //rememberme
   setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
 
-  /*
-  * TODO ダミーロジック。実際にはAPIにアクセスしてログイン成否をハンドリングする必要あり。
-  * ここではMockに登録されたユーザーでログイン可能とする
-  */
-  const mockRepo = yield getFromStorage(MOCK_MEMBER_REPO_KEY);
-  if(!mockRepo){
-    //ユーザーが１人もいない
-    //LOGIN_FAILUREアクションをput(dispatch)
+  //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない
+  try{
+    const result = yield call(axios.post,"https://api.kyo-do.co/auth",{
+      userid:action.payload.id,
+      password:action.payload.pass
+    });
+
+    const token = result.data.token;
+    yield put(loginSuccess({userid:action.payload.id,name:action.payload.id,token:token}));
+  }catch(e){
     yield put(loginFailure());
-  }else{
-    const targetUserArray = mockRepo.filter(u => u.id == action.payload.id);
-    if(targetUserArray.length == 0){
-      //IDに紐づくユーザーがいない
-      //LOGIN_FAILUREアクションをput(dispatch)
-      yield put(loginFailure());
-    }else{
-      const targetUser = targetUserArray[0];
-      if(targetUser.password == action.payload.pass){
-        //ログイン成功
-        //LOGIN_SUCCESSアクションをput(dispatch)
-        yield put(loginSuccess({userid:targetUser.id,name:targetUser.name,token:"dummy"}));
-      }else{
-        //パスワードが一致しない
-        //LOGIN_FAILUREアクションをput(dispatch)
-        yield put(loginFailure());
-      }
-    }
   }
 }
 /**
