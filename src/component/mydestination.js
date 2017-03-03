@@ -16,7 +16,6 @@ export default class MyDestination extends React.Component{
   */
   constructor(props){
     super(props);
-    console.log(props.mydestination.inBusiness);
     this.state = {
       currentInBusiness:!props.mydestination.inBusiness,
       currentComment:props.mydestination.comment
