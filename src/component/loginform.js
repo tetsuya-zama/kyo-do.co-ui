@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {loginRequested} from '../action/login'
 import {LOGIN_STATUS} from '../const/login'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
 
 /**
 * LoginFormコンポーネント
@@ -15,8 +17,11 @@ export default class LoginForm extends React.Component{
   */
   constructor(props){
     super(props);
+    this.state = {current_id_text:"",current_pass_text:""};
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.hundleSubmit = this.hundleSubmit.bind(this);
+    this.hundleIDChange = this.hundleIDChange.bind(this);
+    this.hundlePassChange = this.hundlePassChange.bind(this);
   }
 
   /**
@@ -28,11 +33,19 @@ export default class LoginForm extends React.Component{
     *入力されたID/Passを取得して、
     *それを元にLOGIN_REQUESTED(ログイン要求)アクションを作成してdispatchする
     */
-    const userid = ReactDOM.findDOMNode(this.refs.userid).value.trim();
-    const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
+    const userid = this.state.current_id_text.trim();
+    const password = this.state.current_pass_text.trim();
     if(userid && password){
       this.props.dispatch(loginRequested(userid,password));
     }
+  }
+
+  hundleIDChange(event,newValue){
+    this.setState({current_id_text:newValue});
+  }
+
+  hundlePassChange(event,newValue){
+    this.setState({current_pass_text:newValue});
   }
 
   /**
@@ -48,19 +61,25 @@ export default class LoginForm extends React.Component{
     return (
       <div>
         <h4>ログイン</h4>
-        <table>
-          <tbody>
-            <tr>
-              <td>id</td>
-              <td><input type="text" ref="userid"/></td>
-            </tr>
-            <tr>
-              <td>pass</td>
-              <td><input type="password" ref="password"/></td>
-            </tr>
-          </tbody>
-        </table>
-        <button onClick={this.hundleSubmit}>Login</button>
+        <TextField
+        hintText="User ID"
+        floatingLabelText="User ID"
+        value={this.state.current_id_text}
+        ref="userid"
+        onChange={this.hundleIDChange}
+        />
+        <br />
+        <TextField
+          hintText="Password"
+          floatingLabelText="Password"
+          type="password"
+          value={this.state.current_pass_text}
+          ref="password"
+          onChange={this.hundlePassChange}
+          />
+        <br />
+        <br />
+        <RaisedButton onClick={this.hundleSubmit} label="Login"/>
         <br />
         <span style={{color:"red"}}>{message}</span>
       </div>
