@@ -16,23 +16,11 @@ export default class MyDestination extends React.Component{
   */
   constructor(props){
     super(props);
-    this.state = {
-      currentInBusiness:!props.mydestination.inBusiness,
-      currentComment:props.mydestination.comment
-    };
 
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
-    this.hundleChange = this.hundleChange.bind(this);
     this.hundleClear = this.hundleClear.bind(this);
     this.hundleToggle = this.hundleToggle.bind(this);
     this.hundleTextChange = this.hundleTextChange.bind(this);
-  }
-  /**
-  * 行き先の変更をハンドリングするメソッド
-  * @return undefined
-  */
-  hundleChange(){
-    this.props.dispatch(myDestinationChange({inBusiness:!this.state.currentInBusiness, comment:this.state.currentComment}));
   }
 
   hundleClear(){
@@ -41,13 +29,11 @@ export default class MyDestination extends React.Component{
   }
 
   hundleToggle(event,isInputChecked){
-    this.setState({currentInBusiness : isInputChecked});
-    this.hundleChange();
+    this.props.dispatch(myDestinationChange({inBusiness:isInputChecked, comment:this.props.mydestination.comment}));
   }
 
   hundleTextChange(event,newValue){
-    this.setState({currentComment:newValue});
-    this.hundleChange();
+    this.props.dispatch(myDestinationChange({inBusiness:this.props.mydestination.inBusiness, comment:newValue}));
   }
 
   /**
@@ -55,8 +41,6 @@ export default class MyDestination extends React.Component{
   * @return {undefined}
   */
   render(){
-    const inBusinessValue = this.props.mydestination.inBusiness ? 1 : 0;
-    const commentValue = this.props.mydestination.comment;
     return (
       <div>
       <h3>自分の行き先</h3>
@@ -65,10 +49,10 @@ export default class MyDestination extends React.Component{
         <tr>
           <td>{this.props.login.user.name}</td>
           <td>
-            <Toggle label="出勤" toggled={this.state.currentInBusiness} onToggle={this.hundleToggle} />
+            <Toggle label="出勤" toggled={this.props.mydestination.inBusiness} onToggle={this.hundleToggle} />
           </td>
           <td>
-            <TextField hintText="コメント" value={this.state.currentComment} onChange={this.hundleTextChange}/>
+            <TextField hintText="コメント" value={this.props.mydestination.comment} onChange={this.hundleTextChange}/>
           </td>
           <td>
             <button onClick={this.hundleClear}>Clear</button>
