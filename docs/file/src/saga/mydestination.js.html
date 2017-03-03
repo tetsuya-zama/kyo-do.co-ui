@@ -92,6 +92,7 @@ import {delay} from &apos;redux-saga&apos;
 import {MY_DESTINATION_CHANGE,myDestinationChange} from &apos;../action/mydestination&apos;
 import {LOGIN_SUCCESS} from &apos;../action/login&apos;
 import {setToStorage,getFromStorage,existsKeyOnStorage} from &apos;../module/localstorage&apos;
+import axios from &apos;axios&apos;;
 
 /**
 * localStorage&#x306B;&#x884C;&#x304D;&#x5148;&#x3092;&#x4FDD;&#x7BA1;&#x3059;&#x308B;&#x969B;&#x306E;Key
@@ -100,7 +101,7 @@ const STORAGE_KEY_DESTINATION = &quot;my_destination.&quot;;
 /**
 * &#x884C;&#x304D;&#x5148;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304B;&#x3089;&#x30B5;&#x30FC;&#x30D0;&#x540C;&#x671F;&#x3059;&#x308B;&#x307E;&#x3067;&#x306E;&#x9045;&#x5EF6;&#x6642;&#x9593;
 */
-const SYNC_DELAY_MS = 1000;
+const SYNC_DELAY_MS = 15000;
 
 /**
 * &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x304C;&#x6210;&#x529F;&#x3057;&#x305F;&#x969B;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x884C;&#x304D;&#x5148;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Saga
@@ -115,16 +116,20 @@ export function* loadDestinationSaga(){
 * @param {object} action LOGIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
 function* loadDestinationTask(action){
-    const saved = yield existsKeyOnStorage(STORAGE_KEY_DESTINATION + action.payload.userid);
-    if(saved){
-      const savedDestination = yield getFromStorage(STORAGE_KEY_DESTINATION + action.payload.userid);
-      yield put(myDestinationChange(savedDestination));
+    const token = yield select(state =&gt; state.login.user.token);
+
+    try{
+      const savedDestination = yield call(axios,{
+        method:&quot;GET&quot;,
+        url:&quot;https://api.kyo-do.co/status&quot;,
+        headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}
+      });
+
+      yield put(myDestinationChange(savedDestination.data));
+    }catch(e){
+      console.log(e);
+      //TODO &#x66F4;&#x65B0;&#x306B;&#x5931;&#x6557;&#x3057;&#x305F;&#x30A8;&#x30E9;&#x30FC;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x6295;&#x3052;&#x308B;
     }
-
-    /**
-    * TODO API&#x3092;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3066;&#x30B5;&#x30FC;&#x30D0;&#x4E0A;&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x884C;&#x304D;&#x5148;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;
-    */
-
 }
 /**
 * &#x884C;&#x304D;&#x5148;&#x5909;&#x66F4;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
@@ -139,16 +144,24 @@ export function* changeDestinationSaga(){
 * @param {Object} action MY_DESTINATION_CHANGE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
 function* changeDestinationTask(action){
-  yield call(delay,SYNC_DELAY_MS);
-  const logonUser = yield select(state =&gt; state.login.user);
-
-  //&#x3068;&#x308A;&#x3042;&#x3048;&#x305A;localStorage&#x306B;&#x4FDD;&#x5B58;&#x3059;&#x308B;
-  setToStorage(STORAGE_KEY_DESTINATION + logonUser.userid, action.payload);
-
   /**
   * TODO API&#x3092;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3066;&#x30B5;&#x30FC;&#x30D0;&#x4E0A;&#x306B;&#x4FDD;&#x5B58;
   */
+  yield call(delay,SYNC_DELAY_MS);
+  console.log(&quot;action&quot;);
+  console.log(action);
+  const token = yield select(state =&gt; state.login.user.token);
+  try{
 
+    yield call(axios.put,
+      &quot;https://api.kyo-do.co/status&quot;,
+      action.payload,
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}}
+    );
+  }catch(e){
+    //TODO &#x66F4;&#x65B0;&#x304C;&#x5931;&#x6557;&#x3057;&#x305F;&#x65E8;&#x3092;&#x30A8;&#x30E9;&#x30FC;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x6295;&#x3052;&#x308B;
+    console.log(e);
+  }
 }
 </code></pre>
 
