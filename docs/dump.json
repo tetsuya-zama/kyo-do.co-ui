@@ -833,7 +833,7 @@
     "__docId__": 35,
     "kind": "file",
     "name": "src/component/header.js",
-    "content": "import React from 'react'\nimport {LOGIN_STATUS} from '../const/login'\nimport {logoutRequested} from '../action/login'\nimport RaisedButton from 'material-ui/RaisedButton';\n\n/**\n* Headerコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class Header extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleClick = this.hundleClick.bind(this);\n  }\n  /**\n  * ログアウトボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleClick(){\n      this.props.dispatch(logoutRequested());\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //ログインしていればログアウトボタンを表示する\n    const logoutButton = this.props.login.status == LOGIN_STATUS.SUCCESS ?\n      <RaisedButton label=\"logout\" secondary={true} onClick={this.hundleClick} />:\n      null\n    return(\n      <div><img src={\"./img/logo.png\"} />&nbsp;{logoutButton}</div>\n    )\n  }\n}\n",
+    "content": "import React from 'react'\nimport {LOGIN_STATUS} from '../const/login'\nimport {logoutRequested} from '../action/login'\nimport Avatar from 'material-ui/Avatar';\nimport Chip from 'material-ui/Chip';\nimport RaisedButton from 'material-ui/RaisedButton';\nimport {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';\n\n/**\n* Headerコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class Header extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleClick = this.hundleClick.bind(this);\n  }\n  /**\n  * ログアウトボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleClick(){\n      this.props.dispatch(logoutRequested());\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    // ツールバーの表示\n    const toolbar = this.props.login.status == LOGIN_STATUS.SUCCESS ?\n      <Toolbar>\n        <ToolbarGroup>\n          <Chip><Avatar>{this.props.login.user.name.charAt(0).toUpperCase()}</Avatar>{this.props.login.user.name}</Chip>\n          <ToolbarSeparator />\n          <RaisedButton label=\"logout\" secondary={true} onClick={this.hundleClick} />\n        </ToolbarGroup>\n      </Toolbar>:\n      null\n\n    return (\n      <div><img src={\"./img/logo.png\"} />&nbsp;<br />{toolbar}</div>\n    )\n  }\n}\n",
     "static": true,
     "longname": "src/component/header.js",
     "access": null,
@@ -855,7 +855,7 @@
     "see": [
       "http://qiita.com/nownabe/items/2d8b92d95186c3941de0"
     ],
-    "lineNumber": 10,
+    "lineNumber": 13,
     "interface": false,
     "extends": [
       "react~React.Component"
@@ -872,7 +872,7 @@
     "longname": "src/component/header.js~Header#constructor",
     "access": null,
     "description": "コンストラクタ",
-    "lineNumber": 16,
+    "lineNumber": 19,
     "params": [
       {
         "nullable": null,
@@ -903,7 +903,7 @@
     "longname": "src/component/header.js~Header#hundleClick",
     "access": null,
     "description": null,
-    "lineNumber": 19,
+    "lineNumber": 22,
     "undocument": true,
     "unknown": [
       {
@@ -928,7 +928,7 @@
     "longname": "src/component/header.js~Header#hundleClick",
     "access": null,
     "description": "ログアウトボタンのクリックをハンドリングするメソッド",
-    "lineNumber": 25,
+    "lineNumber": 28,
     "params": [],
     "return": {
       "nullable": null,
@@ -950,7 +950,7 @@
     "longname": "src/component/header.js~Header#render",
     "access": null,
     "description": "描画メソッド",
-    "lineNumber": 33,
+    "lineNumber": 36,
     "params": [],
     "return": {
       "nullable": null,
