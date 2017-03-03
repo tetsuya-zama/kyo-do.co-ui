@@ -50,6 +50,7 @@ export default class SignUpForm extends React.Component{
 
   }
 
+  // handle郡
   hundleIDChange(event,newValue){
     this.setState({id_text:newValue});
   }

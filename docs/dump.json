@@ -1415,7 +1415,7 @@
     "__docId__": 60,
     "kind": "file",
     "name": "src/component/signupform.js",
-    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {signupFailure,signupRequired} from '../action/signup'\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\nimport TextField from 'material-ui/TextField'\nimport RaisedButton from 'material-ui/RaisedButton'\n/**\n* サインアップフォームのComponent\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class SignUpForm extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    this.state = {id_text:\"\",pass_text:\"\",confirm_pass_text:\"\",name_text:\"\"};\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleSubmit = this.hundleSubmit.bind(this);\n    this.validate = this.validate.bind(this);\n    this.hundleIDChange = this.hundleIDChange.bind(this);\n    this.hundlePassChange = this.hundlePassChange.bind(this);\n    this.hundleConfirmPasswordChange = this.hundleConfirmPasswordChange.bind(this);\n    this.hundleNameChange = this.hundleNameChange.bind(this);\n  }\n  /**\n  * Sign Upボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleSubmit(){\n    const id = this.state.id_text.trim();\n    const pass = this.state.pass_text.trim();\n    const pass_confirm = this.state.confirm_pass_text.trim();\n    const name = this.state.name_text.trim();\n\n    //入力値の画面サイドバリデーション\n    const forminfo = {id:id,pass:pass,pass_confirm:pass_confirm,name:name};\n    const validationErrors = this.validate(forminfo);\n\n\n    if(validationErrors.length > 0){\n      //画面サイドバリデーションが通らないので失敗\n      this.props.dispatch(signupFailure(validationErrors));\n    }else{\n      //画面サイドバリデーションが通ったので、サインアップ要求する\n      this.props.dispatch(signupRequired({id:id,password:pass,name:name}));\n    }\n\n  }\n\n  hundleIDChange(event,newValue){\n    this.setState({id_text:newValue});\n  }\n\n  hundlePassChange(event,newValue){\n    this.setState({pass_text:newValue});\n  }\n\n  hundleConfirmPasswordChange(event,newValue){\n    this.setState({confirm_pass_text:newValue});\n  }\n\n  hundleNameChange(event,newValue){\n    this.setState({name_text:newValue});\n  }\n\n  /**\n  * フォームデータのバリデーション\n  * @param {{id:string,pass:string,pass_confirm:string,name:string}} forminfo フォームデータ\n  * @return {array} SIGNUP_FAILURE_REASONSの配列\n  */\n  validate(forminfo){\n    const errors = [];\n\n    if(!forminfo.id || forminfo.id.trim().length == 0){\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_ID);\n    }\n    if(!forminfo.pass || forminfo.pass.trim().length == 0){\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD);\n    }\n    if(!forminfo.name || forminfo.name.trim().length == 0){\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_NAME);\n    }\n    if(forminfo.pass !== forminfo.pass_confirm){\n      errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);\n    }\n    return errors;\n\n  }\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    const failure_reason = this.props.signup.failure_reason;\n    const emptyIdMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_ID) >= 0 ?\n      \"IDを入力してください\" : \"\";\n    const emptyPassMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD) >= 0 ?\n      \"パスワードを入力してください\" : \"\";\n    const emptyNameMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_NAME) >= 0 ?\n      \"名前を入力してください\" : \"\";\n    const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) >= 0 ?\n      \"パスワードとパスワード（確認）が一致しません\" : \"\";\n    const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) >= 0 ?\n      \"ご指定のIDはすでに使われています\" : \"\";\n    const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) >= 0 ?\n      \"サーバーエラーが発生しました\" : \"\";\n\n    return (\n      <div>\n        <h4>ユーザー登録</h4>\n        <TextField\n        hintText=\"User ID\"\n        floatingLabelText=\"User ID\"\n        value={this.state.id_text}\n        ref=\"id\"\n        onChange={this.hundleIDChange}\n        />\n        <br />\n        <span style={{color:\"red\"}}>\n          {emptyIdMessage}{idDuplicatedMessage}\n        </span>\n        <br />\n        <TextField\n        hintText=\"Password\"\n        floatingLabelText=\"Password\"\n        value={this.state.pass_text}\n        ref=\"pass\"\n        type=\"password\"\n        onChange={this.hundlePassChange}\n        />\n        <br />\n        <span style={{color:\"red\"}}>\n          {emptyPassMessage}\n        </span>\n        <br />\n        <TextField\n        hintText=\"Password(Confirm)\"\n        floatingLabelText=\"Password(Confirm)\"\n        value={this.state.confirm_pass_text}\n        ref=\"pass_confirm\"\n        type=\"password\"\n        onChange={this.hundleConfirmPasswordChange}\n        />\n        <br />\n        <span style={{color:\"red\"}}>\n          {invalidConfirmMessage}\n        </span>\n        <br />\n        <TextField\n        hintText=\"表示名\"\n        floatingLabelText=\"表示名\"\n        value={this.state.name_text}\n        ref=\"name\"\n        onChange={this.hundleNameChange}\n        />\n        <br />\n        <span style={{color:\"red\"}}>\n          {emptyNameMessage}\n        </span>\n        <br />\n        <br />\n        <RaisedButton onClick={this.hundleSubmit} label=\"Sign Up\"/>\n      </div>\n    )\n  }\n}\n",
+    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {signupFailure,signupRequired} from '../action/signup'\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\nimport TextField from 'material-ui/TextField'\nimport RaisedButton from 'material-ui/RaisedButton'\n/**\n* サインアップフォームのComponent\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class SignUpForm extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    this.state = {id_text:\"\",pass_text:\"\",confirm_pass_text:\"\",name_text:\"\"};\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleSubmit = this.hundleSubmit.bind(this);\n    this.validate = this.validate.bind(this);\n    this.hundleIDChange = this.hundleIDChange.bind(this);\n    this.hundlePassChange = this.hundlePassChange.bind(this);\n    this.hundleConfirmPasswordChange = this.hundleConfirmPasswordChange.bind(this);\n    this.hundleNameChange = this.hundleNameChange.bind(this);\n  }\n  /**\n  * Sign Upボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleSubmit(){\n    const id = this.state.id_text.trim();\n    const pass = this.state.pass_text.trim();\n    const pass_confirm = this.state.confirm_pass_text.trim();\n    const name = this.state.name_text.trim();\n\n    //入力値の画面サイドバリデーション\n    const forminfo = {id:id,pass:pass,pass_confirm:pass_confirm,name:name};\n    const validationErrors = this.validate(forminfo);\n\n\n    if(validationErrors.length > 0){\n      //画面サイドバリデーションが通らないので失敗\n      this.props.dispatch(signupFailure(validationErrors));\n    }else{\n      //画面サイドバリデーションが通ったので、サインアップ要求する\n      this.props.dispatch(signupRequired({id:id,password:pass,name:name}));\n    }\n\n  }\n\n  // handle郡\n  hundleIDChange(event,newValue){\n    this.setState({id_text:newValue});\n  }\n\n  hundlePassChange(event,newValue){\n    this.setState({pass_text:newValue});\n  }\n\n  hundleConfirmPasswordChange(event,newValue){\n    this.setState({confirm_pass_text:newValue});\n  }\n\n  hundleNameChange(event,newValue){\n    this.setState({name_text:newValue});\n  }\n\n  /**\n  * フォームデータのバリデーション\n  * @param {{id:string,pass:string,pass_confirm:string,name:string}} forminfo フォームデータ\n  * @return {array} SIGNUP_FAILURE_REASONSの配列\n  */\n  validate(forminfo){\n    const errors = [];\n\n    if(!forminfo.id || forminfo.id.trim().length == 0){\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_ID);\n    }\n    if(!forminfo.pass || forminfo.pass.trim().length == 0){\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD);\n    }\n    if(!forminfo.name || forminfo.name.trim().length == 0){\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_NAME);\n    }\n    if(forminfo.pass !== forminfo.pass_confirm){\n      errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);\n    }\n    return errors;\n\n  }\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    const failure_reason = this.props.signup.failure_reason;\n    const emptyIdMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_ID) >= 0 ?\n      \"IDを入力してください\" : \"\";\n    const emptyPassMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD) >= 0 ?\n      \"パスワードを入力してください\" : \"\";\n    const emptyNameMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_NAME) >= 0 ?\n      \"名前を入力してください\" : \"\";\n    const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) >= 0 ?\n      \"パスワードとパスワード（確認）が一致しません\" : \"\";\n    const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) >= 0 ?\n      \"ご指定のIDはすでに使われています\" : \"\";\n    const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) >= 0 ?\n      \"サーバーエラーが発生しました\" : \"\";\n\n    return (\n      <div>\n        <h4>ユーザー登録</h4>\n        <TextField\n        hintText=\"User ID\"\n        floatingLabelText=\"User ID\"\n        value={this.state.id_text}\n        ref=\"id\"\n        onChange={this.hundleIDChange}\n        />\n        <br />\n        <span style={{color:\"red\"}}>\n          {emptyIdMessage}{idDuplicatedMessage}\n        </span>\n        <br />\n        <TextField\n        hintText=\"Password\"\n        floatingLabelText=\"Password\"\n        value={this.state.pass_text}\n        ref=\"pass\"\n        type=\"password\"\n        onChange={this.hundlePassChange}\n        />\n        <br />\n        <span style={{color:\"red\"}}>\n          {emptyPassMessage}\n        </span>\n        <br />\n        <TextField\n        hintText=\"Password(Confirm)\"\n        floatingLabelText=\"Password(Confirm)\"\n        value={this.state.confirm_pass_text}\n        ref=\"pass_confirm\"\n        type=\"password\"\n        onChange={this.hundleConfirmPasswordChange}\n        />\n        <br />\n        <span style={{color:\"red\"}}>\n          {invalidConfirmMessage}\n        </span>\n        <br />\n        <TextField\n        hintText=\"表示名\"\n        floatingLabelText=\"表示名\"\n        value={this.state.name_text}\n        ref=\"name\"\n        onChange={this.hundleNameChange}\n        />\n        <br />\n        <span style={{color:\"red\"}}>\n          {emptyNameMessage}\n        </span>\n        <br />\n        <br />\n        <RaisedButton onClick={this.hundleSubmit} label=\"Sign Up\"/>\n      </div>\n    )\n  }\n}\n",
     "static": true,
     "longname": "src/component/signupform.js",
     "access": null,
@@ -1670,7 +1670,7 @@
     "longname": "src/component/signupform.js~SignUpForm#hundleIDChange",
     "access": null,
     "description": null,
-    "lineNumber": 53,
+    "lineNumber": 54,
     "undocument": true,
     "unknown": [
       {
@@ -1704,7 +1704,7 @@
     "longname": "src/component/signupform.js~SignUpForm#hundlePassChange",
     "access": null,
     "description": null,
-    "lineNumber": 57,
+    "lineNumber": 58,
     "undocument": true,
     "unknown": [
       {
@@ -1738,7 +1738,7 @@
     "longname": "src/component/signupform.js~SignUpForm#hundleConfirmPasswordChange",
     "access": null,
     "description": null,
-    "lineNumber": 61,
+    "lineNumber": 62,
     "undocument": true,
     "unknown": [
       {
@@ -1772,7 +1772,7 @@
     "longname": "src/component/signupform.js~SignUpForm#hundleNameChange",
     "access": null,
     "description": null,
-    "lineNumber": 65,
+    "lineNumber": 66,
     "undocument": true,
     "unknown": [
       {
@@ -1806,7 +1806,7 @@
     "longname": "src/component/signupform.js~SignUpForm#validate",
     "access": null,
     "description": "フォームデータのバリデーション",
-    "lineNumber": 74,
+    "lineNumber": 75,
     "params": [
       {
         "nullable": null,
@@ -1839,7 +1839,7 @@
     "longname": "src/component/signupform.js~SignUpForm#render",
     "access": null,
     "description": "描画メソッド",
-    "lineNumber": 96,
+    "lineNumber": 97,
     "params": [],
     "return": {
       "nullable": null,
