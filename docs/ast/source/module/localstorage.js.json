@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 971,
+  "end": 1012,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 971,
+    "end": 1012,
     "loc": {
       "start": {
         "line": 1,
@@ -167,9 +167,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "\n* ローカルストレージのKeyのプレフィックス\n",
-            "start": 52,
-            "end": 81,
+            "value": "\r\n* ローカルストレージのKeyのプレフィックス\r\n",
+            "start": 54,
+            "end": 85,
             "loc": {
               "start": {
                 "line": 3,
@@ -185,8 +185,8 @@
       },
       {
         "type": "VariableDeclaration",
-        "start": 82,
-        "end": 124,
+        "start": 87,
+        "end": 129,
         "loc": {
           "start": {
             "line": 6,
@@ -200,8 +200,8 @@
         "declarations": [
           {
             "type": "VariableDeclarator",
-            "start": 88,
-            "end": 123,
+            "start": 93,
+            "end": 128,
             "loc": {
               "start": {
                 "line": 6,
@@ -214,8 +214,8 @@
             },
             "id": {
               "type": "Identifier",
-              "start": 88,
-              "end": 108,
+              "start": 93,
+              "end": 113,
               "loc": {
                 "start": {
                   "line": 6,
@@ -232,8 +232,8 @@
             },
             "init": {
               "type": "StringLiteral",
-              "start": 111,
-              "end": 123,
+              "start": 116,
+              "end": 128,
               "loc": {
                 "start": {
                   "line": 6,
@@ -257,9 +257,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "\n* ローカルストレージのKeyのプレフィックス\n",
-            "start": 52,
-            "end": 81,
+            "value": "\r\n* ローカルストレージのKeyのプレフィックス\r\n",
+            "start": 54,
+            "end": 85,
             "loc": {
               "start": {
                 "line": 3,
@@ -275,9 +275,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {undefined}\n",
-            "start": 126,
-            "end": 238,
+            "value": "*\r\n* localStorageへ値をセットする\r\n* @param {string} key キー\r\n* @param {Object} value セットするオブジェクト\r\n* @return {undefined}\r\n",
+            "start": 133,
+            "end": 250,
             "loc": {
               "start": {
                 "line": 8,
@@ -293,8 +293,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 239,
-        "end": 369,
+        "start": 252,
+        "end": 384,
         "loc": {
           "start": {
             "line": 14,
@@ -309,8 +309,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 246,
-          "end": 369,
+          "start": 259,
+          "end": 384,
           "loc": {
             "start": {
               "line": 14,
@@ -323,8 +323,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 255,
-            "end": 267,
+            "start": 268,
+            "end": 280,
             "loc": {
               "start": {
                 "line": 14,
@@ -345,8 +345,8 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 268,
-              "end": 271,
+              "start": 281,
+              "end": 284,
               "loc": {
                 "start": {
                   "line": 14,
@@ -362,8 +362,8 @@
             },
             {
               "type": "Identifier",
-              "start": 272,
-              "end": 277,
+              "start": 285,
+              "end": 290,
               "loc": {
                 "start": {
                   "line": 14,
@@ -380,8 +380,8 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 278,
-            "end": 369,
+            "start": 291,
+            "end": 384,
             "loc": {
               "start": {
                 "line": 14,
@@ -395,8 +395,8 @@
             "body": [
               {
                 "type": "ExpressionStatement",
-                "start": 282,
-                "end": 367,
+                "start": 296,
+                "end": 381,
                 "loc": {
                   "start": {
                     "line": 15,
@@ -409,8 +409,8 @@
                 },
                 "expression": {
                   "type": "CallExpression",
-                  "start": 282,
-                  "end": 366,
+                  "start": 296,
+                  "end": 380,
                   "loc": {
                     "start": {
                       "line": 15,
@@ -423,8 +423,8 @@
                   },
                   "callee": {
                     "type": "MemberExpression",
-                    "start": 282,
-                    "end": 302,
+                    "start": 296,
+                    "end": 316,
                     "loc": {
                       "start": {
                         "line": 15,
@@ -437,8 +437,8 @@
                     },
                     "object": {
                       "type": "Identifier",
-                      "start": 282,
-                      "end": 294,
+                      "start": 296,
+                      "end": 308,
                       "loc": {
                         "start": {
                           "line": 15,
@@ -454,8 +454,8 @@
                     },
                     "property": {
                       "type": "Identifier",
-                      "start": 295,
-                      "end": 302,
+                      "start": 309,
+                      "end": 316,
                       "loc": {
                         "start": {
                           "line": 15,
@@ -474,8 +474,8 @@
                   "arguments": [
                     {
                       "type": "BinaryExpression",
-                      "start": 303,
-                      "end": 329,
+                      "start": 317,
+                      "end": 343,
                       "loc": {
                         "start": {
                           "line": 15,
@@ -488,8 +488,8 @@
                       },
                       "left": {
                         "type": "Identifier",
-                        "start": 303,
-                        "end": 323,
+                        "start": 317,
+                        "end": 337,
                         "loc": {
                           "start": {
                             "line": 15,
@@ -506,8 +506,8 @@
                       "operator": "+",
                       "right": {
                         "type": "Identifier",
-                        "start": 326,
-                        "end": 329,
+                        "start": 340,
+                        "end": 343,
                         "loc": {
                           "start": {
                             "line": 15,
@@ -524,8 +524,8 @@
                     },
                     {
                       "type": "CallExpression",
-                      "start": 330,
-                      "end": 365,
+                      "start": 344,
+                      "end": 379,
                       "loc": {
                         "start": {
                           "line": 15,
@@ -538,8 +538,8 @@
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 330,
-                        "end": 342,
+                        "start": 344,
+                        "end": 356,
                         "loc": {
                           "start": {
                             "line": 15,
@@ -556,8 +556,8 @@
                       "arguments": [
                         {
                           "type": "CallExpression",
-                          "start": 343,
-                          "end": 364,
+                          "start": 357,
+                          "end": 378,
                           "loc": {
                             "start": {
                               "line": 15,
@@ -570,8 +570,8 @@
                           },
                           "callee": {
                             "type": "MemberExpression",
-                            "start": 343,
-                            "end": 357,
+                            "start": 357,
+                            "end": 371,
                             "loc": {
                               "start": {
                                 "line": 15,
@@ -584,8 +584,8 @@
                             },
                             "object": {
                               "type": "Identifier",
-                              "start": 343,
-                              "end": 347,
+                              "start": 357,
+                              "end": 361,
                               "loc": {
                                 "start": {
                                   "line": 15,
@@ -601,8 +601,8 @@
                             },
                             "property": {
                               "type": "Identifier",
-                              "start": 348,
-                              "end": 357,
+                              "start": 362,
+                              "end": 371,
                               "loc": {
                                 "start": {
                                   "line": 15,
@@ -621,8 +621,8 @@
                           "arguments": [
                             {
                               "type": "Identifier",
-                              "start": 358,
-                              "end": 363,
+                              "start": 372,
+                              "end": 377,
                               "loc": {
                                 "start": {
                                   "line": 15,
@@ -650,9 +650,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {undefined}\n",
-              "start": 126,
-              "end": 238,
+              "value": "*\r\n* localStorageへ値をセットする\r\n* @param {string} key キー\r\n* @param {Object} value セットするオブジェクト\r\n* @return {undefined}\r\n",
+              "start": 133,
+              "end": 250,
               "loc": {
                 "start": {
                   "line": 8,
@@ -668,9 +668,9 @@
           "trailingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n",
-              "start": 370,
-              "end": 468,
+              "value": "*\r\n* localStorageから値を取得する\r\n* @param {string} key キー\r\n* @return {Object} localStorageに保存されたオブジェクト\r\n",
+              "start": 386,
+              "end": 488,
               "loc": {
                 "start": {
                   "line": 17,
@@ -687,9 +687,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {undefined}\n",
-            "start": 126,
-            "end": 238,
+            "value": "*\r\n* localStorageへ値をセットする\r\n* @param {string} key キー\r\n* @param {Object} value セットするオブジェクト\r\n* @return {undefined}\r\n",
+            "start": 133,
+            "end": 250,
             "loc": {
               "start": {
                 "line": 8,
@@ -705,9 +705,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n",
-            "start": 370,
-            "end": 468,
+            "value": "*\r\n* localStorageから値を取得する\r\n* @param {string} key キー\r\n* @return {Object} localStorageに保存されたオブジェクト\r\n",
+            "start": 386,
+            "end": 488,
             "loc": {
               "start": {
                 "line": 17,
@@ -723,8 +723,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 469,
-        "end": 592,
+        "start": 490,
+        "end": 615,
         "loc": {
           "start": {
             "line": 22,
@@ -739,8 +739,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 476,
-          "end": 592,
+          "start": 497,
+          "end": 615,
           "loc": {
             "start": {
               "line": 22,
@@ -753,8 +753,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 485,
-            "end": 499,
+            "start": 506,
+            "end": 520,
             "loc": {
               "start": {
                 "line": 22,
@@ -775,8 +775,8 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 500,
-              "end": 503,
+              "start": 521,
+              "end": 524,
               "loc": {
                 "start": {
                   "line": 22,
@@ -793,8 +793,8 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 504,
-            "end": 592,
+            "start": 525,
+            "end": 615,
             "loc": {
               "start": {
                 "line": 22,
@@ -808,8 +808,8 @@
             "body": [
               {
                 "type": "ReturnStatement",
-                "start": 508,
-                "end": 590,
+                "start": 530,
+                "end": 612,
                 "loc": {
                   "start": {
                     "line": 23,
@@ -822,8 +822,8 @@
                 },
                 "argument": {
                   "type": "CallExpression",
-                  "start": 515,
-                  "end": 589,
+                  "start": 537,
+                  "end": 611,
                   "loc": {
                     "start": {
                       "line": 23,
@@ -836,8 +836,8 @@
                   },
                   "callee": {
                     "type": "MemberExpression",
-                    "start": 515,
-                    "end": 525,
+                    "start": 537,
+                    "end": 547,
                     "loc": {
                       "start": {
                         "line": 23,
@@ -850,8 +850,8 @@
                     },
                     "object": {
                       "type": "Identifier",
-                      "start": 515,
-                      "end": 519,
+                      "start": 537,
+                      "end": 541,
                       "loc": {
                         "start": {
                           "line": 23,
@@ -867,8 +867,8 @@
                     },
                     "property": {
                       "type": "Identifier",
-                      "start": 520,
-                      "end": 525,
+                      "start": 542,
+                      "end": 547,
                       "loc": {
                         "start": {
                           "line": 23,
@@ -887,8 +887,8 @@
                   "arguments": [
                     {
                       "type": "CallExpression",
-                      "start": 526,
-                      "end": 588,
+                      "start": 548,
+                      "end": 610,
                       "loc": {
                         "start": {
                           "line": 23,
@@ -901,8 +901,8 @@
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 526,
-                        "end": 538,
+                        "start": 548,
+                        "end": 560,
                         "loc": {
                           "start": {
                             "line": 23,
@@ -919,8 +919,8 @@
                       "arguments": [
                         {
                           "type": "CallExpression",
-                          "start": 539,
-                          "end": 587,
+                          "start": 561,
+                          "end": 609,
                           "loc": {
                             "start": {
                               "line": 23,
@@ -933,8 +933,8 @@
                           },
                           "callee": {
                             "type": "MemberExpression",
-                            "start": 539,
-                            "end": 559,
+                            "start": 561,
+                            "end": 581,
                             "loc": {
                               "start": {
                                 "line": 23,
@@ -947,8 +947,8 @@
                             },
                             "object": {
                               "type": "Identifier",
-                              "start": 539,
-                              "end": 551,
+                              "start": 561,
+                              "end": 573,
                               "loc": {
                                 "start": {
                                   "line": 23,
@@ -964,8 +964,8 @@
                             },
                             "property": {
                               "type": "Identifier",
-                              "start": 552,
-                              "end": 559,
+                              "start": 574,
+                              "end": 581,
                               "loc": {
                                 "start": {
                                   "line": 23,
@@ -984,8 +984,8 @@
                           "arguments": [
                             {
                               "type": "BinaryExpression",
-                              "start": 560,
-                              "end": 586,
+                              "start": 582,
+                              "end": 608,
                               "loc": {
                                 "start": {
                                   "line": 23,
@@ -998,8 +998,8 @@
                               },
                               "left": {
                                 "type": "Identifier",
-                                "start": 560,
-                                "end": 580,
+                                "start": 582,
+                                "end": 602,
                                 "loc": {
                                   "start": {
                                     "line": 23,
@@ -1016,8 +1016,8 @@
                               "operator": "+",
                               "right": {
                                 "type": "Identifier",
-                                "start": 583,
-                                "end": 586,
+                                "start": 605,
+                                "end": 608,
                                 "loc": {
                                   "start": {
                                     "line": 23,
@@ -1046,9 +1046,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n",
-              "start": 370,
-              "end": 468,
+              "value": "*\r\n* localStorageから値を取得する\r\n* @param {string} key キー\r\n* @return {Object} localStorageに保存されたオブジェクト\r\n",
+              "start": 386,
+              "end": 488,
               "loc": {
                 "start": {
                   "line": 17,
@@ -1064,9 +1064,9 @@
           "trailingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {undefined}\n",
-              "start": 593,
-              "end": 669,
+              "value": "*\r\n* localStorageから値を削除する\r\n* @param {string} key キー\r\n* @return {undefined}\r\n",
+              "start": 617,
+              "end": 697,
               "loc": {
                 "start": {
                   "line": 25,
@@ -1083,9 +1083,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n",
-            "start": 370,
-            "end": 468,
+            "value": "*\r\n* localStorageから値を取得する\r\n* @param {string} key キー\r\n* @return {Object} localStorageに保存されたオブジェクト\r\n",
+            "start": 386,
+            "end": 488,
             "loc": {
               "start": {
                 "line": 17,
@@ -1101,9 +1101,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {undefined}\n",
-            "start": 593,
-            "end": 669,
+            "value": "*\r\n* localStorageから値を削除する\r\n* @param {string} key キー\r\n* @return {undefined}\r\n",
+            "start": 617,
+            "end": 697,
             "loc": {
               "start": {
                 "line": 25,
@@ -1119,8 +1119,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 670,
-        "end": 766,
+        "start": 699,
+        "end": 797,
         "loc": {
           "start": {
             "line": 30,
@@ -1135,8 +1135,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 677,
-          "end": 766,
+          "start": 706,
+          "end": 797,
           "loc": {
             "start": {
               "line": 30,
@@ -1149,8 +1149,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 686,
-            "end": 703,
+            "start": 715,
+            "end": 732,
             "loc": {
               "start": {
                 "line": 30,
@@ -1171,8 +1171,8 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 704,
-              "end": 707,
+              "start": 733,
+              "end": 736,
               "loc": {
                 "start": {
                   "line": 30,
@@ -1189,8 +1189,8 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 708,
-            "end": 766,
+            "start": 737,
+            "end": 797,
             "loc": {
               "start": {
                 "line": 30,
@@ -1204,8 +1204,8 @@
             "body": [
               {
                 "type": "ExpressionStatement",
-                "start": 712,
-                "end": 764,
+                "start": 742,
+                "end": 794,
                 "loc": {
                   "start": {
                     "line": 31,
@@ -1218,8 +1218,8 @@
                 },
                 "expression": {
                   "type": "CallExpression",
-                  "start": 712,
-                  "end": 763,
+                  "start": 742,
+                  "end": 793,
                   "loc": {
                     "start": {
                       "line": 31,
@@ -1232,8 +1232,8 @@
                   },
                   "callee": {
                     "type": "MemberExpression",
-                    "start": 712,
-                    "end": 735,
+                    "start": 742,
+                    "end": 765,
                     "loc": {
                       "start": {
                         "line": 31,
@@ -1246,8 +1246,8 @@
                     },
                     "object": {
                       "type": "Identifier",
-                      "start": 712,
-                      "end": 724,
+                      "start": 742,
+                      "end": 754,
                       "loc": {
                         "start": {
                           "line": 31,
@@ -1263,8 +1263,8 @@
                     },
                     "property": {
                       "type": "Identifier",
-                      "start": 725,
-                      "end": 735,
+                      "start": 755,
+                      "end": 765,
                       "loc": {
                         "start": {
                           "line": 31,
@@ -1283,8 +1283,8 @@
                   "arguments": [
                     {
                       "type": "BinaryExpression",
-                      "start": 736,
-                      "end": 762,
+                      "start": 766,
+                      "end": 792,
                       "loc": {
                         "start": {
                           "line": 31,
@@ -1297,8 +1297,8 @@
                       },
                       "left": {
                         "type": "Identifier",
-                        "start": 736,
-                        "end": 756,
+                        "start": 766,
+                        "end": 786,
                         "loc": {
                           "start": {
                             "line": 31,
@@ -1315,8 +1315,8 @@
                       "operator": "+",
                       "right": {
                         "type": "Identifier",
-                        "start": 759,
-                        "end": 762,
+                        "start": 789,
+                        "end": 792,
                         "loc": {
                           "start": {
                             "line": 31,
@@ -1341,9 +1341,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {undefined}\n",
-              "start": 593,
-              "end": 669,
+              "value": "*\r\n* localStorageから値を削除する\r\n* @param {string} key キー\r\n* @return {undefined}\r\n",
+              "start": 617,
+              "end": 697,
               "loc": {
                 "start": {
                   "line": 25,
@@ -1359,9 +1359,9 @@
           "trailingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n",
-              "start": 768,
-              "end": 859,
+              "value": "*\r\n* localStorage上にキーが存在するかを確認する\r\n* @param {string} key キー\r\n* @return {boolean} 存在すればTrue\r\n",
+              "start": 801,
+              "end": 896,
               "loc": {
                 "start": {
                   "line": 34,
@@ -1378,9 +1378,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {undefined}\n",
-            "start": 593,
-            "end": 669,
+            "value": "*\r\n* localStorageから値を削除する\r\n* @param {string} key キー\r\n* @return {undefined}\r\n",
+            "start": 617,
+            "end": 697,
             "loc": {
               "start": {
                 "line": 25,
@@ -1396,9 +1396,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n",
-            "start": 768,
-            "end": 859,
+            "value": "*\r\n* localStorage上にキーが存在するかを確認する\r\n* @param {string} key キー\r\n* @return {boolean} 存在すればTrue\r\n",
+            "start": 801,
+            "end": 896,
             "loc": {
               "start": {
                 "line": 34,
@@ -1414,8 +1414,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 860,
-        "end": 970,
+        "start": 898,
+        "end": 1010,
         "loc": {
           "start": {
             "line": 39,
@@ -1430,8 +1430,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 867,
-          "end": 970,
+          "start": 905,
+          "end": 1010,
           "loc": {
             "start": {
               "line": 39,
@@ -1444,8 +1444,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 876,
-            "end": 894,
+            "start": 914,
+            "end": 932,
             "loc": {
               "start": {
                 "line": 39,
@@ -1466,8 +1466,8 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 895,
-              "end": 898,
+              "start": 933,
+              "end": 936,
               "loc": {
                 "start": {
                   "line": 39,
@@ -1484,8 +1484,8 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 899,
-            "end": 970,
+            "start": 937,
+            "end": 1010,
             "loc": {
               "start": {
                 "line": 39,
@@ -1499,8 +1499,8 @@
             "body": [
               {
                 "type": "ReturnStatement",
-                "start": 903,
-                "end": 968,
+                "start": 942,
+                "end": 1007,
                 "loc": {
                   "start": {
                     "line": 40,
@@ -1513,8 +1513,8 @@
                 },
                 "argument": {
                   "type": "BinaryExpression",
-                  "start": 910,
-                  "end": 967,
+                  "start": 949,
+                  "end": 1006,
                   "loc": {
                     "start": {
                       "line": 40,
@@ -1527,8 +1527,8 @@
                   },
                   "left": {
                     "type": "CallExpression",
-                    "start": 910,
-                    "end": 958,
+                    "start": 949,
+                    "end": 997,
                     "loc": {
                       "start": {
                         "line": 40,
@@ -1541,8 +1541,8 @@
                     },
                     "callee": {
                       "type": "MemberExpression",
-                      "start": 910,
-                      "end": 930,
+                      "start": 949,
+                      "end": 969,
                       "loc": {
                         "start": {
                           "line": 40,
@@ -1555,8 +1555,8 @@
                       },
                       "object": {
                         "type": "Identifier",
-                        "start": 910,
-                        "end": 922,
+                        "start": 949,
+                        "end": 961,
                         "loc": {
                           "start": {
                             "line": 40,
@@ -1572,8 +1572,8 @@
                       },
                       "property": {
                         "type": "Identifier",
-                        "start": 923,
-                        "end": 930,
+                        "start": 962,
+                        "end": 969,
                         "loc": {
                           "start": {
                             "line": 40,
@@ -1592,8 +1592,8 @@
                     "arguments": [
                       {
                         "type": "BinaryExpression",
-                        "start": 931,
-                        "end": 957,
+                        "start": 970,
+                        "end": 996,
                         "loc": {
                           "start": {
                             "line": 40,
@@ -1606,8 +1606,8 @@
                         },
                         "left": {
                           "type": "Identifier",
-                          "start": 931,
-                          "end": 951,
+                          "start": 970,
+                          "end": 990,
                           "loc": {
                             "start": {
                               "line": 40,
@@ -1624,8 +1624,8 @@
                         "operator": "+",
                         "right": {
                           "type": "Identifier",
-                          "start": 954,
-                          "end": 957,
+                          "start": 993,
+                          "end": 996,
                           "loc": {
                             "start": {
                               "line": 40,
@@ -1645,8 +1645,8 @@
                   "operator": "!==",
                   "right": {
                     "type": "NullLiteral",
-                    "start": 963,
-                    "end": 967,
+                    "start": 1002,
+                    "end": 1006,
                     "loc": {
                       "start": {
                         "line": 40,
@@ -1666,9 +1666,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n",
-              "start": 768,
-              "end": 859,
+              "value": "*\r\n* localStorage上にキーが存在するかを確認する\r\n* @param {string} key キー\r\n* @return {boolean} 存在すればTrue\r\n",
+              "start": 801,
+              "end": 896,
               "loc": {
                 "start": {
                   "line": 34,
@@ -1686,9 +1686,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n",
-            "start": 768,
-            "end": 859,
+            "value": "*\r\n* localStorage上にキーが存在するかを確認する\r\n* @param {string} key キー\r\n* @return {boolean} 存在すればTrue\r\n",
+            "start": 801,
+            "end": 896,
             "loc": {
               "start": {
                 "line": 34,
@@ -1708,9 +1708,9 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "\n* ローカルストレージのKeyのプレフィックス\n",
-      "start": 52,
-      "end": 81,
+      "value": "\r\n* ローカルストレージのKeyのプレフィックス\r\n",
+      "start": 54,
+      "end": 85,
       "loc": {
         "start": {
           "line": 3,
@@ -1724,9 +1724,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {undefined}\n",
-      "start": 126,
-      "end": 238,
+      "value": "*\r\n* localStorageへ値をセットする\r\n* @param {string} key キー\r\n* @param {Object} value セットするオブジェクト\r\n* @return {undefined}\r\n",
+      "start": 133,
+      "end": 250,
       "loc": {
         "start": {
           "line": 8,
@@ -1740,9 +1740,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n",
-      "start": 370,
-      "end": 468,
+      "value": "*\r\n* localStorageから値を取得する\r\n* @param {string} key キー\r\n* @return {Object} localStorageに保存されたオブジェクト\r\n",
+      "start": 386,
+      "end": 488,
       "loc": {
         "start": {
           "line": 17,
@@ -1756,9 +1756,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {undefined}\n",
-      "start": 593,
-      "end": 669,
+      "value": "*\r\n* localStorageから値を削除する\r\n* @param {string} key キー\r\n* @return {undefined}\r\n",
+      "start": 617,
+      "end": 697,
       "loc": {
         "start": {
           "line": 25,
@@ -1772,9 +1772,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n",
-      "start": 768,
-      "end": 859,
+      "value": "*\r\n* localStorage上にキーが存在するかを確認する\r\n* @param {string} key キー\r\n* @return {boolean} 存在すればTrue\r\n",
+      "start": 801,
+      "end": 896,
       "loc": {
         "start": {
           "line": 34,
@@ -1999,9 +1999,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "\n* ローカルストレージのKeyのプレフィックス\n",
-      "start": 52,
-      "end": 81,
+      "value": "\r\n* ローカルストレージのKeyのプレフィックス\r\n",
+      "start": 54,
+      "end": 85,
       "loc": {
         "start": {
           "line": 3,
@@ -2028,8 +2028,8 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 82,
-      "end": 87,
+      "start": 87,
+      "end": 92,
       "loc": {
         "start": {
           "line": 6,
@@ -2054,8 +2054,8 @@
         "binop": null
       },
       "value": "LOCAL_STORAGE_PREFIX",
-      "start": 88,
-      "end": 108,
+      "start": 93,
+      "end": 113,
       "loc": {
         "start": {
           "line": 6,
@@ -2081,8 +2081,8 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 109,
-      "end": 110,
+      "start": 114,
+      "end": 115,
       "loc": {
         "start": {
           "line": 6,
@@ -2108,8 +2108,8 @@
         "updateContext": null
       },
       "value": "kyo-do.co.",
-      "start": 111,
-      "end": 123,
+      "start": 116,
+      "end": 128,
       "loc": {
         "start": {
           "line": 6,
@@ -2134,8 +2134,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 123,
-      "end": 124,
+      "start": 128,
+      "end": 129,
       "loc": {
         "start": {
           "line": 6,
@@ -2149,9 +2149,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {undefined}\n",
-      "start": 126,
-      "end": 238,
+      "value": "*\r\n* localStorageへ値をセットする\r\n* @param {string} key キー\r\n* @param {Object} value セットするオブジェクト\r\n* @return {undefined}\r\n",
+      "start": 133,
+      "end": 250,
       "loc": {
         "start": {
           "line": 8,
@@ -2178,8 +2178,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 239,
-      "end": 245,
+      "start": 252,
+      "end": 258,
       "loc": {
         "start": {
           "line": 14,
@@ -2205,8 +2205,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 246,
-      "end": 254,
+      "start": 259,
+      "end": 267,
       "loc": {
         "start": {
           "line": 14,
@@ -2231,8 +2231,8 @@
         "binop": null
       },
       "value": "setToStorage",
-      "start": 255,
-      "end": 267,
+      "start": 268,
+      "end": 280,
       "loc": {
         "start": {
           "line": 14,
@@ -2256,8 +2256,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 267,
-      "end": 268,
+      "start": 280,
+      "end": 281,
       "loc": {
         "start": {
           "line": 14,
@@ -2282,8 +2282,8 @@
         "binop": null
       },
       "value": "key",
-      "start": 268,
-      "end": 271,
+      "start": 281,
+      "end": 284,
       "loc": {
         "start": {
           "line": 14,
@@ -2308,8 +2308,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 271,
-      "end": 272,
+      "start": 284,
+      "end": 285,
       "loc": {
         "start": {
           "line": 14,
@@ -2334,8 +2334,8 @@
         "binop": null
       },
       "value": "value",
-      "start": 272,
-      "end": 277,
+      "start": 285,
+      "end": 290,
       "loc": {
         "start": {
           "line": 14,
@@ -2359,8 +2359,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 277,
-      "end": 278,
+      "start": 290,
+      "end": 291,
       "loc": {
         "start": {
           "line": 14,
@@ -2384,8 +2384,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 278,
-      "end": 279,
+      "start": 291,
+      "end": 292,
       "loc": {
         "start": {
           "line": 14,
@@ -2410,8 +2410,8 @@
         "binop": null
       },
       "value": "localStorage",
-      "start": 282,
-      "end": 294,
+      "start": 296,
+      "end": 308,
       "loc": {
         "start": {
           "line": 15,
@@ -2436,8 +2436,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 294,
-      "end": 295,
+      "start": 308,
+      "end": 309,
       "loc": {
         "start": {
           "line": 15,
@@ -2462,8 +2462,8 @@
         "binop": null
       },
       "value": "setItem",
-      "start": 295,
-      "end": 302,
+      "start": 309,
+      "end": 316,
       "loc": {
         "start": {
           "line": 15,
@@ -2487,8 +2487,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 302,
-      "end": 303,
+      "start": 316,
+      "end": 317,
       "loc": {
         "start": {
           "line": 15,
@@ -2513,8 +2513,8 @@
         "binop": null
       },
       "value": "LOCAL_STORAGE_PREFIX",
-      "start": 303,
-      "end": 323,
+      "start": 317,
+      "end": 337,
       "loc": {
         "start": {
           "line": 15,
@@ -2540,8 +2540,8 @@
         "updateContext": null
       },
       "value": "+",
-      "start": 324,
-      "end": 325,
+      "start": 338,
+      "end": 339,
       "loc": {
         "start": {
           "line": 15,
@@ -2566,8 +2566,8 @@
         "binop": null
       },
       "value": "key",
-      "start": 326,
-      "end": 329,
+      "start": 340,
+      "end": 343,
       "loc": {
         "start": {
           "line": 15,
@@ -2592,8 +2592,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 329,
-      "end": 330,
+      "start": 343,
+      "end": 344,
       "loc": {
         "start": {
           "line": 15,
@@ -2618,8 +2618,8 @@
         "binop": null
       },
       "value": "base64Encode",
-      "start": 330,
-      "end": 342,
+      "start": 344,
+      "end": 356,
       "loc": {
         "start": {
           "line": 15,
@@ -2643,8 +2643,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 342,
-      "end": 343,
+      "start": 356,
+      "end": 357,
       "loc": {
         "start": {
           "line": 15,
@@ -2669,8 +2669,8 @@
         "binop": null
       },
       "value": "JSON",
-      "start": 343,
-      "end": 347,
+      "start": 357,
+      "end": 361,
       "loc": {
         "start": {
           "line": 15,
@@ -2695,8 +2695,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 347,
-      "end": 348,
+      "start": 361,
+      "end": 362,
       "loc": {
         "start": {
           "line": 15,
@@ -2721,8 +2721,8 @@
         "binop": null
       },
       "value": "stringify",
-      "start": 348,
-      "end": 357,
+      "start": 362,
+      "end": 371,
       "loc": {
         "start": {
           "line": 15,
@@ -2746,8 +2746,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 357,
-      "end": 358,
+      "start": 371,
+      "end": 372,
       "loc": {
         "start": {
           "line": 15,
@@ -2772,8 +2772,8 @@
         "binop": null
       },
       "value": "value",
-      "start": 358,
-      "end": 363,
+      "start": 372,
+      "end": 377,
       "loc": {
         "start": {
           "line": 15,
@@ -2797,8 +2797,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 363,
-      "end": 364,
+      "start": 377,
+      "end": 378,
       "loc": {
         "start": {
           "line": 15,
@@ -2822,8 +2822,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 364,
-      "end": 365,
+      "start": 378,
+      "end": 379,
       "loc": {
         "start": {
           "line": 15,
@@ -2847,8 +2847,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 365,
-      "end": 366,
+      "start": 379,
+      "end": 380,
       "loc": {
         "start": {
           "line": 15,
@@ -2873,8 +2873,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 366,
-      "end": 367,
+      "start": 380,
+      "end": 381,
       "loc": {
         "start": {
           "line": 15,
@@ -2898,8 +2898,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 368,
-      "end": 369,
+      "start": 383,
+      "end": 384,
       "loc": {
         "start": {
           "line": 16,
@@ -2913,9 +2913,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n",
-      "start": 370,
-      "end": 468,
+      "value": "*\r\n* localStorageから値を取得する\r\n* @param {string} key キー\r\n* @return {Object} localStorageに保存されたオブジェクト\r\n",
+      "start": 386,
+      "end": 488,
       "loc": {
         "start": {
           "line": 17,
@@ -2942,8 +2942,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 469,
-      "end": 475,
+      "start": 490,
+      "end": 496,
       "loc": {
         "start": {
           "line": 22,
@@ -2969,8 +2969,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 476,
-      "end": 484,
+      "start": 497,
+      "end": 505,
       "loc": {
         "start": {
           "line": 22,
@@ -2995,8 +2995,8 @@
         "binop": null
       },
       "value": "getFromStorage",
-      "start": 485,
-      "end": 499,
+      "start": 506,
+      "end": 520,
       "loc": {
         "start": {
           "line": 22,
@@ -3020,8 +3020,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 499,
-      "end": 500,
+      "start": 520,
+      "end": 521,
       "loc": {
         "start": {
           "line": 22,
@@ -3046,8 +3046,8 @@
         "binop": null
       },
       "value": "key",
-      "start": 500,
-      "end": 503,
+      "start": 521,
+      "end": 524,
       "loc": {
         "start": {
           "line": 22,
@@ -3071,8 +3071,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 503,
-      "end": 504,
+      "start": 524,
+      "end": 525,
       "loc": {
         "start": {
           "line": 22,
@@ -3096,8 +3096,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 504,
-      "end": 505,
+      "start": 525,
+      "end": 526,
       "loc": {
         "start": {
           "line": 22,
@@ -3124,8 +3124,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 508,
-      "end": 514,
+      "start": 530,
+      "end": 536,
       "loc": {
         "start": {
           "line": 23,
@@ -3150,8 +3150,8 @@
         "binop": null
       },
       "value": "JSON",
-      "start": 515,
-      "end": 519,
+      "start": 537,
+      "end": 541,
       "loc": {
         "start": {
           "line": 23,
@@ -3176,8 +3176,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 519,
-      "end": 520,
+      "start": 541,
+      "end": 542,
       "loc": {
         "start": {
           "line": 23,
@@ -3202,8 +3202,8 @@
         "binop": null
       },
       "value": "parse",
-      "start": 520,
-      "end": 525,
+      "start": 542,
+      "end": 547,
       "loc": {
         "start": {
           "line": 23,
@@ -3227,8 +3227,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 525,
-      "end": 526,
+      "start": 547,
+      "end": 548,
       "loc": {
         "start": {
           "line": 23,
@@ -3253,8 +3253,8 @@
         "binop": null
       },
       "value": "base64Decode",
-      "start": 526,
-      "end": 538,
+      "start": 548,
+      "end": 560,
       "loc": {
         "start": {
           "line": 23,
@@ -3278,8 +3278,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 538,
-      "end": 539,
+      "start": 560,
+      "end": 561,
       "loc": {
         "start": {
           "line": 23,
@@ -3304,8 +3304,8 @@
         "binop": null
       },
       "value": "localStorage",
-      "start": 539,
-      "end": 551,
+      "start": 561,
+      "end": 573,
       "loc": {
         "start": {
           "line": 23,
@@ -3330,8 +3330,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 551,
-      "end": 552,
+      "start": 573,
+      "end": 574,
       "loc": {
         "start": {
           "line": 23,
@@ -3356,8 +3356,8 @@
         "binop": null
       },
       "value": "getItem",
-      "start": 552,
-      "end": 559,
+      "start": 574,
+      "end": 581,
       "loc": {
         "start": {
           "line": 23,
@@ -3381,8 +3381,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 559,
-      "end": 560,
+      "start": 581,
+      "end": 582,
       "loc": {
         "start": {
           "line": 23,
@@ -3407,8 +3407,8 @@
         "binop": null
       },
       "value": "LOCAL_STORAGE_PREFIX",
-      "start": 560,
-      "end": 580,
+      "start": 582,
+      "end": 602,
       "loc": {
         "start": {
           "line": 23,
@@ -3434,8 +3434,8 @@
         "updateContext": null
       },
       "value": "+",
-      "start": 581,
-      "end": 582,
+      "start": 603,
+      "end": 604,
       "loc": {
         "start": {
           "line": 23,
@@ -3460,8 +3460,8 @@
         "binop": null
       },
       "value": "key",
-      "start": 583,
-      "end": 586,
+      "start": 605,
+      "end": 608,
       "loc": {
         "start": {
           "line": 23,
@@ -3485,8 +3485,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 586,
-      "end": 587,
+      "start": 608,
+      "end": 609,
       "loc": {
         "start": {
           "line": 23,
@@ -3510,8 +3510,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 587,
-      "end": 588,
+      "start": 609,
+      "end": 610,
       "loc": {
         "start": {
           "line": 23,
@@ -3535,8 +3535,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 588,
-      "end": 589,
+      "start": 610,
+      "end": 611,
       "loc": {
         "start": {
           "line": 23,
@@ -3561,8 +3561,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 589,
-      "end": 590,
+      "start": 611,
+      "end": 612,
       "loc": {
         "start": {
           "line": 23,
@@ -3586,8 +3586,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 591,
-      "end": 592,
+      "start": 614,
+      "end": 615,
       "loc": {
         "start": {
           "line": 24,
@@ -3601,9 +3601,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {undefined}\n",
-      "start": 593,
-      "end": 669,
+      "value": "*\r\n* localStorageから値を削除する\r\n* @param {string} key キー\r\n* @return {undefined}\r\n",
+      "start": 617,
+      "end": 697,
       "loc": {
         "start": {
           "line": 25,
@@ -3630,8 +3630,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 670,
-      "end": 676,
+      "start": 699,
+      "end": 705,
       "loc": {
         "start": {
           "line": 30,
@@ -3657,8 +3657,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 677,
-      "end": 685,
+      "start": 706,
+      "end": 714,
       "loc": {
         "start": {
           "line": 30,
@@ -3683,8 +3683,8 @@
         "binop": null
       },
       "value": "removeFromStorage",
-      "start": 686,
-      "end": 703,
+      "start": 715,
+      "end": 732,
       "loc": {
         "start": {
           "line": 30,
@@ -3708,8 +3708,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 703,
-      "end": 704,
+      "start": 732,
+      "end": 733,
       "loc": {
         "start": {
           "line": 30,
@@ -3734,8 +3734,8 @@
         "binop": null
       },
       "value": "key",
-      "start": 704,
-      "end": 707,
+      "start": 733,
+      "end": 736,
       "loc": {
         "start": {
           "line": 30,
@@ -3759,8 +3759,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 707,
-      "end": 708,
+      "start": 736,
+      "end": 737,
       "loc": {
         "start": {
           "line": 30,
@@ -3784,8 +3784,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 708,
-      "end": 709,
+      "start": 737,
+      "end": 738,
       "loc": {
         "start": {
           "line": 30,
@@ -3810,8 +3810,8 @@
         "binop": null
       },
       "value": "localStorage",
-      "start": 712,
-      "end": 724,
+      "start": 742,
+      "end": 754,
       "loc": {
         "start": {
           "line": 31,
@@ -3836,8 +3836,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 724,
-      "end": 725,
+      "start": 754,
+      "end": 755,
       "loc": {
         "start": {
           "line": 31,
@@ -3862,8 +3862,8 @@
         "binop": null
       },
       "value": "removeItem",
-      "start": 725,
-      "end": 735,
+      "start": 755,
+      "end": 765,
       "loc": {
         "start": {
           "line": 31,
@@ -3887,8 +3887,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 735,
-      "end": 736,
+      "start": 765,
+      "end": 766,
       "loc": {
         "start": {
           "line": 31,
@@ -3913,8 +3913,8 @@
         "binop": null
       },
       "value": "LOCAL_STORAGE_PREFIX",
-      "start": 736,
-      "end": 756,
+      "start": 766,
+      "end": 786,
       "loc": {
         "start": {
           "line": 31,
@@ -3940,8 +3940,8 @@
         "updateContext": null
       },
       "value": "+",
-      "start": 757,
-      "end": 758,
+      "start": 787,
+      "end": 788,
       "loc": {
         "start": {
           "line": 31,
@@ -3966,8 +3966,8 @@
         "binop": null
       },
       "value": "key",
-      "start": 759,
-      "end": 762,
+      "start": 789,
+      "end": 792,
       "loc": {
         "start": {
           "line": 31,
@@ -3991,8 +3991,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 762,
-      "end": 763,
+      "start": 792,
+      "end": 793,
       "loc": {
         "start": {
           "line": 31,
@@ -4017,8 +4017,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 763,
-      "end": 764,
+      "start": 793,
+      "end": 794,
       "loc": {
         "start": {
           "line": 31,
@@ -4042,8 +4042,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 765,
-      "end": 766,
+      "start": 796,
+      "end": 797,
       "loc": {
         "start": {
           "line": 32,
@@ -4057,9 +4057,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n",
-      "start": 768,
-      "end": 859,
+      "value": "*\r\n* localStorage上にキーが存在するかを確認する\r\n* @param {string} key キー\r\n* @return {boolean} 存在すればTrue\r\n",
+      "start": 801,
+      "end": 896,
       "loc": {
         "start": {
           "line": 34,
@@ -4086,8 +4086,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 860,
-      "end": 866,
+      "start": 898,
+      "end": 904,
       "loc": {
         "start": {
           "line": 39,
@@ -4113,8 +4113,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 867,
-      "end": 875,
+      "start": 905,
+      "end": 913,
       "loc": {
         "start": {
           "line": 39,
@@ -4139,8 +4139,8 @@
         "binop": null
       },
       "value": "existsKeyOnStorage",
-      "start": 876,
-      "end": 894,
+      "start": 914,
+      "end": 932,
       "loc": {
         "start": {
           "line": 39,
@@ -4164,8 +4164,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 894,
-      "end": 895,
+      "start": 932,
+      "end": 933,
       "loc": {
         "start": {
           "line": 39,
@@ -4190,8 +4190,8 @@
         "binop": null
       },
       "value": "key",
-      "start": 895,
-      "end": 898,
+      "start": 933,
+      "end": 936,
       "loc": {
         "start": {
           "line": 39,
@@ -4215,8 +4215,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 898,
-      "end": 899,
+      "start": 936,
+      "end": 937,
       "loc": {
         "start": {
           "line": 39,
@@ -4240,8 +4240,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 899,
-      "end": 900,
+      "start": 937,
+      "end": 938,
       "loc": {
         "start": {
           "line": 39,
@@ -4268,8 +4268,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 903,
-      "end": 909,
+      "start": 942,
+      "end": 948,
       "loc": {
         "start": {
           "line": 40,
@@ -4294,8 +4294,8 @@
         "binop": null
       },
       "value": "localStorage",
-      "start": 910,
-      "end": 922,
+      "start": 949,
+      "end": 961,
       "loc": {
         "start": {
           "line": 40,
@@ -4320,8 +4320,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 922,
-      "end": 923,
+      "start": 961,
+      "end": 962,
       "loc": {
         "start": {
           "line": 40,
@@ -4346,8 +4346,8 @@
         "binop": null
       },
       "value": "getItem",
-      "start": 923,
-      "end": 930,
+      "start": 962,
+      "end": 969,
       "loc": {
         "start": {
           "line": 40,
@@ -4371,8 +4371,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 930,
-      "end": 931,
+      "start": 969,
+      "end": 970,
       "loc": {
         "start": {
           "line": 40,
@@ -4397,8 +4397,8 @@
         "binop": null
       },
       "value": "LOCAL_STORAGE_PREFIX",
-      "start": 931,
-      "end": 951,
+      "start": 970,
+      "end": 990,
       "loc": {
         "start": {
           "line": 40,
@@ -4424,8 +4424,8 @@
         "updateContext": null
       },
       "value": "+",
-      "start": 952,
-      "end": 953,
+      "start": 991,
+      "end": 992,
       "loc": {
         "start": {
           "line": 40,
@@ -4450,8 +4450,8 @@
         "binop": null
       },
       "value": "key",
-      "start": 954,
-      "end": 957,
+      "start": 993,
+      "end": 996,
       "loc": {
         "start": {
           "line": 40,
@@ -4475,8 +4475,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 957,
-      "end": 958,
+      "start": 996,
+      "end": 997,
       "loc": {
         "start": {
           "line": 40,
@@ -4502,8 +4502,8 @@
         "updateContext": null
       },
       "value": "!==",
-      "start": 959,
-      "end": 962,
+      "start": 998,
+      "end": 1001,
       "loc": {
         "start": {
           "line": 40,
@@ -4530,8 +4530,8 @@
         "updateContext": null
       },
       "value": "null",
-      "start": 963,
-      "end": 967,
+      "start": 1002,
+      "end": 1006,
       "loc": {
         "start": {
           "line": 40,
@@ -4556,8 +4556,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 967,
-      "end": 968,
+      "start": 1006,
+      "end": 1007,
       "loc": {
         "start": {
           "line": 40,
@@ -4581,8 +4581,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 969,
-      "end": 970,
+      "start": 1009,
+      "end": 1010,
       "loc": {
         "start": {
           "line": 41,
@@ -4607,8 +4607,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 971,
-      "end": 971,
+      "start": 1012,
+      "end": 1012,
       "loc": {
         "start": {
           "line": 42,
