@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {signupFailure,signupRequired} from '../action/signup'
 import {SIGNUP_FAILURE_REASONS} from '../const/signup'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
 /**
 * サインアップフォームのComponent
 * @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
@@ -14,19 +16,24 @@ export default class SignUpForm extends React.Component{
   */
   constructor(props){
     super(props);
+    this.state = {id_text:"",pass_text:"",confirm_pass_text:"",name_text:""};
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.hundleSubmit = this.hundleSubmit.bind(this);
     this.validate = this.validate.bind(this);
+    this.hundleIDChange = this.hundleIDChange.bind(this);
+    this.hundlePassChange = this.hundlePassChange.bind(this);
+    this.hundleConfirmPasswordChange = this.hundleConfirmPasswordChange.bind(this);
+    this.hundleNameChange = this.hundleNameChange.bind(this);
   }
   /**
   * Sign Upボタンのクリックをハンドリングするメソッド
   * @return {undefined}
   */
   hundleSubmit(){
-    const id = ReactDOM.findDOMNode(this.refs.id).value;
-    const pass = ReactDOM.findDOMNode(this.refs.pass).value;
-    const pass_confirm = ReactDOM.findDOMNode(this.refs.pass_confirm).value;
-    const name = ReactDOM.findDOMNode(this.refs.name).value;
+    const id = this.state.id_text.trim();
+    const pass = this.state.pass_text.trim();
+    const pass_confirm = this.state.confirm_pass_text.trim();
+    const name = this.state.name_text.trim();
 
     //入力値の画面サイドバリデーション
     const forminfo = {id:id,pass:pass,pass_confirm:pass_confirm,name:name};
@@ -42,6 +49,24 @@ export default class SignUpForm extends React.Component{
     }
 
   }
+
+  // handle郡
+  hundleIDChange(event,newValue){
+    this.setState({id_text:newValue});
+  }
+
+  hundlePassChange(event,newValue){
+    this.setState({pass_text:newValue});
+  }
+
+  hundleConfirmPasswordChange(event,newValue){
+    this.setState({confirm_pass_text:newValue});
+  }
+
+  hundleNameChange(event,newValue){
+    this.setState({name_text:newValue});
+  }
+
   /**
   * フォームデータのバリデーション
   * @param {{id:string,pass:string,pass_confirm:string,name:string}} forminfo フォームデータ
@@ -87,66 +112,58 @@ export default class SignUpForm extends React.Component{
     return (
       <div>
         <h4>ユーザー登録</h4>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                ユーザーID
-              </td>
-              <td>
-                <input type="text" ref="id"/>
-              </td>
-              <td>
-                <span style={{color:"red"}}>
-                  {emptyIdMessage}{idDuplicatedMessage}
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                パスワード
-              </td>
-              <td>
-                <input type="password" ref="pass"/>
-              </td>
-              <td>
-                <span style={{color:"red"}}>
-                  {emptyPassMessage}
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                パスワード(確認)
-              </td>
-              <td>
-                <input type="password" ref="pass_confirm"/>
-              </td>
-              <td>
-                <span style={{color:"red"}}>
-                  {invalidConfirmMessage}
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                表示名
-              </td>
-              <td>
-                <input type="text" ref="name"/>
-              </td>
-              <td>
-                <span style={{color:"red"}}>
-                  {emptyNameMessage}
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <button onClick={this.hundleSubmit}>Sign Up</button>
+        <TextField
+        hintText="User ID"
+        floatingLabelText="User ID"
+        value={this.state.id_text}
+        ref="id"
+        onChange={this.hundleIDChange}
+        />
+        <br />
         <span style={{color:"red"}}>
-          {serverErrorMessage}
+          {emptyIdMessage}{idDuplicatedMessage}
         </span>
+        <br />
+        <TextField
+        hintText="Password"
+        floatingLabelText="Password"
+        value={this.state.pass_text}
+        ref="pass"
+        type="password"
+        onChange={this.hundlePassChange}
+        />
+        <br />
+        <span style={{color:"red"}}>
+          {emptyPassMessage}
+        </span>
+        <br />
+        <TextField
+        hintText="Password(Confirm)"
+        floatingLabelText="Password(Confirm)"
+        value={this.state.confirm_pass_text}
+        ref="pass_confirm"
+        type="password"
+        onChange={this.hundleConfirmPasswordChange}
+        />
+        <br />
+        <span style={{color:"red"}}>
+          {invalidConfirmMessage}
+        </span>
+        <br />
+        <TextField
+        hintText="表示名"
+        floatingLabelText="表示名"
+        value={this.state.name_text}
+        ref="name"
+        onChange={this.hundleNameChange}
+        />
+        <br />
+        <span style={{color:"red"}}>
+          {emptyNameMessage}
+        </span>
+        <br />
+        <br />
+        <RaisedButton onClick={this.hundleSubmit} label="Sign Up"/>
       </div>
     )
   }

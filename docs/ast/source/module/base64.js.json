@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 467,
+  "end": 448,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 467,
+    "end": 448,
     "loc": {
       "start": {
         "line": 1,
@@ -30,8 +30,8 @@
     "body": [
       {
         "type": "ExportNamedDeclaration",
-        "start": 145,
-        "end": 233,
+        "start": 139,
+        "end": 225,
         "loc": {
           "start": {
             "line": 7,
@@ -46,8 +46,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 152,
-          "end": 233,
+          "start": 146,
+          "end": 225,
           "loc": {
             "start": {
               "line": 7,
@@ -60,8 +60,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 161,
-            "end": 173,
+            "start": 155,
+            "end": 167,
             "loc": {
               "start": {
                 "line": 7,
@@ -82,8 +82,8 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 174,
-              "end": 177,
+              "start": 168,
+              "end": 171,
               "loc": {
                 "start": {
                   "line": 7,
@@ -100,8 +100,8 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 178,
-            "end": 233,
+            "start": 172,
+            "end": 225,
             "loc": {
               "start": {
                 "line": 7,
@@ -115,8 +115,8 @@
             "body": [
               {
                 "type": "ReturnStatement",
-                "start": 183,
-                "end": 230,
+                "start": 176,
+                "end": 223,
                 "loc": {
                   "start": {
                     "line": 8,
@@ -129,8 +129,8 @@
                 },
                 "argument": {
                   "type": "CallExpression",
-                  "start": 190,
-                  "end": 229,
+                  "start": 183,
+                  "end": 222,
                   "loc": {
                     "start": {
                       "line": 8,
@@ -143,8 +143,8 @@
                   },
                   "callee": {
                     "type": "Identifier",
-                    "start": 190,
-                    "end": 194,
+                    "start": 183,
+                    "end": 187,
                     "loc": {
                       "start": {
                         "line": 8,
@@ -161,8 +161,8 @@
                   "arguments": [
                     {
                       "type": "CallExpression",
-                      "start": 195,
-                      "end": 228,
+                      "start": 188,
+                      "end": 221,
                       "loc": {
                         "start": {
                           "line": 8,
@@ -175,8 +175,8 @@
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 195,
-                        "end": 203,
+                        "start": 188,
+                        "end": 196,
                         "loc": {
                           "start": {
                             "line": 8,
@@ -193,8 +193,8 @@
                       "arguments": [
                         {
                           "type": "CallExpression",
-                          "start": 204,
-                          "end": 227,
+                          "start": 197,
+                          "end": 220,
                           "loc": {
                             "start": {
                               "line": 8,
@@ -207,8 +207,8 @@
                           },
                           "callee": {
                             "type": "Identifier",
-                            "start": 204,
-                            "end": 222,
+                            "start": 197,
+                            "end": 215,
                             "loc": {
                               "start": {
                                 "line": 8,
@@ -225,8 +225,8 @@
                           "arguments": [
                             {
                               "type": "Identifier",
-                              "start": 223,
-                              "end": 226,
+                              "start": 216,
+                              "end": 219,
                               "loc": {
                                 "start": {
                                   "line": 8,
@@ -254,9 +254,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\r\n* base64エンコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str エンコード対象文字列\r\n* @return {string} エンコード後文字列\r\n",
+              "value": "*\n* base64エンコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str エンコード対象文字列\n* @return {string} エンコード後文字列\n",
               "start": 0,
-              "end": 143,
+              "end": 138,
               "loc": {
                 "start": {
                   "line": 1,
@@ -272,9 +272,9 @@
           "trailingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\r\n* base64デコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str デコード対象文字列\r\n* @return {string} デコード後文字列\r\n",
-              "start": 237,
-              "end": 377,
+              "value": "*\n* base64デコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str デコード対象文字列\n* @return {string} デコード後文字列\n",
+              "start": 227,
+              "end": 362,
               "loc": {
                 "start": {
                   "line": 11,
@@ -291,9 +291,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\r\n* base64エンコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str エンコード対象文字列\r\n* @return {string} エンコード後文字列\r\n",
+            "value": "*\n* base64エンコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str エンコード対象文字列\n* @return {string} エンコード後文字列\n",
             "start": 0,
-            "end": 143,
+            "end": 138,
             "loc": {
               "start": {
                 "line": 1,
@@ -309,9 +309,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\r\n* base64デコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str デコード対象文字列\r\n* @return {string} デコード後文字列\r\n",
-            "start": 237,
-            "end": 377,
+            "value": "*\n* base64デコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str デコード対象文字列\n* @return {string} デコード後文字列\n",
+            "start": 227,
+            "end": 362,
             "loc": {
               "start": {
                 "line": 11,
@@ -327,8 +327,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 379,
-        "end": 465,
+        "start": 363,
+        "end": 447,
         "loc": {
           "start": {
             "line": 17,
@@ -343,8 +343,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 386,
-          "end": 465,
+          "start": 370,
+          "end": 447,
           "loc": {
             "start": {
               "line": 17,
@@ -357,8 +357,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 395,
-            "end": 407,
+            "start": 379,
+            "end": 391,
             "loc": {
               "start": {
                 "line": 17,
@@ -379,8 +379,8 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 408,
-              "end": 411,
+              "start": 392,
+              "end": 395,
               "loc": {
                 "start": {
                   "line": 17,
@@ -397,8 +397,8 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 412,
-            "end": 465,
+            "start": 396,
+            "end": 447,
             "loc": {
               "start": {
                 "line": 17,
@@ -412,8 +412,8 @@
             "body": [
               {
                 "type": "ReturnStatement",
-                "start": 417,
-                "end": 462,
+                "start": 400,
+                "end": 445,
                 "loc": {
                   "start": {
                     "line": 18,
@@ -426,8 +426,8 @@
                 },
                 "argument": {
                   "type": "CallExpression",
-                  "start": 424,
-                  "end": 461,
+                  "start": 407,
+                  "end": 444,
                   "loc": {
                     "start": {
                       "line": 18,
@@ -440,8 +440,8 @@
                   },
                   "callee": {
                     "type": "Identifier",
-                    "start": 424,
-                    "end": 442,
+                    "start": 407,
+                    "end": 425,
                     "loc": {
                       "start": {
                         "line": 18,
@@ -458,8 +458,8 @@
                   "arguments": [
                     {
                       "type": "CallExpression",
-                      "start": 443,
-                      "end": 460,
+                      "start": 426,
+                      "end": 443,
                       "loc": {
                         "start": {
                           "line": 18,
@@ -472,8 +472,8 @@
                       },
                       "callee": {
                         "type": "Identifier",
-                        "start": 443,
-                        "end": 449,
+                        "start": 426,
+                        "end": 432,
                         "loc": {
                           "start": {
                             "line": 18,
@@ -490,8 +490,8 @@
                       "arguments": [
                         {
                           "type": "CallExpression",
-                          "start": 450,
-                          "end": 459,
+                          "start": 433,
+                          "end": 442,
                           "loc": {
                             "start": {
                               "line": 18,
@@ -504,8 +504,8 @@
                           },
                           "callee": {
                             "type": "Identifier",
-                            "start": 450,
-                            "end": 454,
+                            "start": 433,
+                            "end": 437,
                             "loc": {
                               "start": {
                                 "line": 18,
@@ -522,8 +522,8 @@
                           "arguments": [
                             {
                               "type": "Identifier",
-                              "start": 455,
-                              "end": 458,
+                              "start": 438,
+                              "end": 441,
                               "loc": {
                                 "start": {
                                   "line": 18,
@@ -550,9 +550,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\r\n* base64デコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str デコード対象文字列\r\n* @return {string} デコード後文字列\r\n",
-              "start": 237,
-              "end": 377,
+              "value": "*\n* base64デコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str デコード対象文字列\n* @return {string} デコード後文字列\n",
+              "start": 227,
+              "end": 362,
               "loc": {
                 "start": {
                   "line": 11,
@@ -570,9 +570,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\r\n* base64デコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str デコード対象文字列\r\n* @return {string} デコード後文字列\r\n",
-            "start": 237,
-            "end": 377,
+            "value": "*\n* base64デコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str デコード対象文字列\n* @return {string} デコード後文字列\n",
+            "start": 227,
+            "end": 362,
             "loc": {
               "start": {
                 "line": 11,
@@ -592,9 +592,9 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "*\r\n* base64エンコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str エンコード対象文字列\r\n* @return {string} エンコード後文字列\r\n",
+      "value": "*\n* base64エンコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str エンコード対象文字列\n* @return {string} エンコード後文字列\n",
       "start": 0,
-      "end": 143,
+      "end": 138,
       "loc": {
         "start": {
           "line": 1,
@@ -608,9 +608,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n* base64デコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str デコード対象文字列\r\n* @return {string} デコード後文字列\r\n",
-      "start": 237,
-      "end": 377,
+      "value": "*\n* base64デコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str デコード対象文字列\n* @return {string} デコード後文字列\n",
+      "start": 227,
+      "end": 362,
       "loc": {
         "start": {
           "line": 11,
@@ -626,9 +626,9 @@
   "tokens": [
     {
       "type": "CommentBlock",
-      "value": "*\r\n* base64エンコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str エンコード対象文字列\r\n* @return {string} エンコード後文字列\r\n",
+      "value": "*\n* base64エンコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str エンコード対象文字列\n* @return {string} エンコード後文字列\n",
       "start": 0,
-      "end": 143,
+      "end": 138,
       "loc": {
         "start": {
           "line": 1,
@@ -655,8 +655,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 145,
-      "end": 151,
+      "start": 139,
+      "end": 145,
       "loc": {
         "start": {
           "line": 7,
@@ -682,8 +682,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 152,
-      "end": 160,
+      "start": 146,
+      "end": 154,
       "loc": {
         "start": {
           "line": 7,
@@ -708,8 +708,8 @@
         "binop": null
       },
       "value": "base64Encode",
-      "start": 161,
-      "end": 173,
+      "start": 155,
+      "end": 167,
       "loc": {
         "start": {
           "line": 7,
@@ -733,8 +733,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 173,
-      "end": 174,
+      "start": 167,
+      "end": 168,
       "loc": {
         "start": {
           "line": 7,
@@ -759,8 +759,8 @@
         "binop": null
       },
       "value": "str",
-      "start": 174,
-      "end": 177,
+      "start": 168,
+      "end": 171,
       "loc": {
         "start": {
           "line": 7,
@@ -784,8 +784,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 177,
-      "end": 178,
+      "start": 171,
+      "end": 172,
       "loc": {
         "start": {
           "line": 7,
@@ -809,8 +809,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 178,
-      "end": 179,
+      "start": 172,
+      "end": 173,
       "loc": {
         "start": {
           "line": 7,
@@ -837,8 +837,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 183,
-      "end": 189,
+      "start": 176,
+      "end": 182,
       "loc": {
         "start": {
           "line": 8,
@@ -863,8 +863,8 @@
         "binop": null
       },
       "value": "btoa",
-      "start": 190,
-      "end": 194,
+      "start": 183,
+      "end": 187,
       "loc": {
         "start": {
           "line": 8,
@@ -888,8 +888,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 194,
-      "end": 195,
+      "start": 187,
+      "end": 188,
       "loc": {
         "start": {
           "line": 8,
@@ -914,8 +914,8 @@
         "binop": null
       },
       "value": "unescape",
-      "start": 195,
-      "end": 203,
+      "start": 188,
+      "end": 196,
       "loc": {
         "start": {
           "line": 8,
@@ -939,8 +939,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 203,
-      "end": 204,
+      "start": 196,
+      "end": 197,
       "loc": {
         "start": {
           "line": 8,
@@ -965,8 +965,8 @@
         "binop": null
       },
       "value": "encodeURIComponent",
-      "start": 204,
-      "end": 222,
+      "start": 197,
+      "end": 215,
       "loc": {
         "start": {
           "line": 8,
@@ -990,8 +990,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 222,
-      "end": 223,
+      "start": 215,
+      "end": 216,
       "loc": {
         "start": {
           "line": 8,
@@ -1016,8 +1016,8 @@
         "binop": null
       },
       "value": "str",
-      "start": 223,
-      "end": 226,
+      "start": 216,
+      "end": 219,
       "loc": {
         "start": {
           "line": 8,
@@ -1041,8 +1041,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 226,
-      "end": 227,
+      "start": 219,
+      "end": 220,
       "loc": {
         "start": {
           "line": 8,
@@ -1066,8 +1066,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 227,
-      "end": 228,
+      "start": 220,
+      "end": 221,
       "loc": {
         "start": {
           "line": 8,
@@ -1091,8 +1091,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 228,
-      "end": 229,
+      "start": 221,
+      "end": 222,
       "loc": {
         "start": {
           "line": 8,
@@ -1117,8 +1117,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 229,
-      "end": 230,
+      "start": 222,
+      "end": 223,
       "loc": {
         "start": {
           "line": 8,
@@ -1142,8 +1142,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 232,
-      "end": 233,
+      "start": 224,
+      "end": 225,
       "loc": {
         "start": {
           "line": 9,
@@ -1157,9 +1157,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n* base64デコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str デコード対象文字列\r\n* @return {string} デコード後文字列\r\n",
-      "start": 237,
-      "end": 377,
+      "value": "*\n* base64デコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str デコード対象文字列\n* @return {string} デコード後文字列\n",
+      "start": 227,
+      "end": 362,
       "loc": {
         "start": {
           "line": 11,
@@ -1186,8 +1186,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 379,
-      "end": 385,
+      "start": 363,
+      "end": 369,
       "loc": {
         "start": {
           "line": 17,
@@ -1213,8 +1213,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 386,
-      "end": 394,
+      "start": 370,
+      "end": 378,
       "loc": {
         "start": {
           "line": 17,
@@ -1239,8 +1239,8 @@
         "binop": null
       },
       "value": "base64Decode",
-      "start": 395,
-      "end": 407,
+      "start": 379,
+      "end": 391,
       "loc": {
         "start": {
           "line": 17,
@@ -1264,8 +1264,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 407,
-      "end": 408,
+      "start": 391,
+      "end": 392,
       "loc": {
         "start": {
           "line": 17,
@@ -1290,8 +1290,8 @@
         "binop": null
       },
       "value": "str",
-      "start": 408,
-      "end": 411,
+      "start": 392,
+      "end": 395,
       "loc": {
         "start": {
           "line": 17,
@@ -1315,8 +1315,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 411,
-      "end": 412,
+      "start": 395,
+      "end": 396,
       "loc": {
         "start": {
           "line": 17,
@@ -1340,8 +1340,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 412,
-      "end": 413,
+      "start": 396,
+      "end": 397,
       "loc": {
         "start": {
           "line": 17,
@@ -1368,8 +1368,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 417,
-      "end": 423,
+      "start": 400,
+      "end": 406,
       "loc": {
         "start": {
           "line": 18,
@@ -1394,8 +1394,8 @@
         "binop": null
       },
       "value": "decodeURIComponent",
-      "start": 424,
-      "end": 442,
+      "start": 407,
+      "end": 425,
       "loc": {
         "start": {
           "line": 18,
@@ -1419,8 +1419,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 442,
-      "end": 443,
+      "start": 425,
+      "end": 426,
       "loc": {
         "start": {
           "line": 18,
@@ -1445,8 +1445,8 @@
         "binop": null
       },
       "value": "escape",
-      "start": 443,
-      "end": 449,
+      "start": 426,
+      "end": 432,
       "loc": {
         "start": {
           "line": 18,
@@ -1470,8 +1470,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 449,
-      "end": 450,
+      "start": 432,
+      "end": 433,
       "loc": {
         "start": {
           "line": 18,
@@ -1496,8 +1496,8 @@
         "binop": null
       },
       "value": "atob",
-      "start": 450,
-      "end": 454,
+      "start": 433,
+      "end": 437,
       "loc": {
         "start": {
           "line": 18,
@@ -1521,8 +1521,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 454,
-      "end": 455,
+      "start": 437,
+      "end": 438,
       "loc": {
         "start": {
           "line": 18,
@@ -1547,8 +1547,8 @@
         "binop": null
       },
       "value": "str",
-      "start": 455,
-      "end": 458,
+      "start": 438,
+      "end": 441,
       "loc": {
         "start": {
           "line": 18,
@@ -1572,8 +1572,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 458,
-      "end": 459,
+      "start": 441,
+      "end": 442,
       "loc": {
         "start": {
           "line": 18,
@@ -1597,8 +1597,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 459,
-      "end": 460,
+      "start": 442,
+      "end": 443,
       "loc": {
         "start": {
           "line": 18,
@@ -1622,8 +1622,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 460,
-      "end": 461,
+      "start": 443,
+      "end": 444,
       "loc": {
         "start": {
           "line": 18,
@@ -1648,8 +1648,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 461,
-      "end": 462,
+      "start": 444,
+      "end": 445,
       "loc": {
         "start": {
           "line": 18,
@@ -1673,8 +1673,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 464,
-      "end": 465,
+      "start": 446,
+      "end": 447,
       "loc": {
         "start": {
           "line": 19,
@@ -1699,8 +1699,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 467,
-      "end": 467,
+      "start": 448,
+      "end": 448,
       "loc": {
         "start": {
           "line": 20,

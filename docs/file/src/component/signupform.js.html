@@ -88,6 +88,8 @@
 import ReactDOM from &apos;react-dom&apos;
 import {signupFailure,signupRequired} from &apos;../action/signup&apos;
 import {SIGNUP_FAILURE_REASONS} from &apos;../const/signup&apos;
+import TextField from &apos;material-ui/TextField&apos;
+import RaisedButton from &apos;material-ui/RaisedButton&apos;
 /**
 * &#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x306E;Component
 * @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
@@ -100,19 +102,24 @@ export default class SignUpForm extends React.Component{
   */
   constructor(props){
     super(props);
+    this.state = {id_text:&quot;&quot;,pass_text:&quot;&quot;,confirm_pass_text:&quot;&quot;,name_text:&quot;&quot;};
     //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
     this.hundleSubmit = this.hundleSubmit.bind(this);
     this.validate = this.validate.bind(this);
+    this.hundleIDChange = this.hundleIDChange.bind(this);
+    this.hundlePassChange = this.hundlePassChange.bind(this);
+    this.hundleConfirmPasswordChange = this.hundleConfirmPasswordChange.bind(this);
+    this.hundleNameChange = this.hundleNameChange.bind(this);
   }
   /**
   * Sign Up&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
   */
   hundleSubmit(){
-    const id = ReactDOM.findDOMNode(this.refs.id).value;
-    const pass = ReactDOM.findDOMNode(this.refs.pass).value;
-    const pass_confirm = ReactDOM.findDOMNode(this.refs.pass_confirm).value;
-    const name = ReactDOM.findDOMNode(this.refs.name).value;
+    const id = this.state.id_text.trim();
+    const pass = this.state.pass_text.trim();
+    const pass_confirm = this.state.confirm_pass_text.trim();
+    const name = this.state.name_text.trim();
 
     //&#x5165;&#x529B;&#x5024;&#x306E;&#x753B;&#x9762;&#x30B5;&#x30A4;&#x30C9;&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;
     const forminfo = {id:id,pass:pass,pass_confirm:pass_confirm,name:name};
@@ -128,6 +135,24 @@ export default class SignUpForm extends React.Component{
     }
 
   }
+
+  // handle&#x90E1;
+  hundleIDChange(event,newValue){
+    this.setState({id_text:newValue});
+  }
+
+  hundlePassChange(event,newValue){
+    this.setState({pass_text:newValue});
+  }
+
+  hundleConfirmPasswordChange(event,newValue){
+    this.setState({confirm_pass_text:newValue});
+  }
+
+  hundleNameChange(event,newValue){
+    this.setState({name_text:newValue});
+  }
+
   /**
   * &#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;
   * @param {{id:string,pass:string,pass_confirm:string,name:string}} forminfo &#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30C7;&#x30FC;&#x30BF;
@@ -173,66 +198,58 @@ export default class SignUpForm extends React.Component{
     return (
       &lt;div&gt;
         &lt;h4&gt;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;&lt;/h4&gt;
-        &lt;table&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;
-                &#x30E6;&#x30FC;&#x30B6;&#x30FC;ID
-              &lt;/td&gt;
-              &lt;td&gt;
-                &lt;input type=&quot;text&quot; ref=&quot;id&quot;/&gt;
-              &lt;/td&gt;
-              &lt;td&gt;
-                &lt;span style={{color:&quot;red&quot;}}&gt;
-                  {emptyIdMessage}{idDuplicatedMessage}
-                &lt;/span&gt;
-              &lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;
-                &#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;
-              &lt;/td&gt;
-              &lt;td&gt;
-                &lt;input type=&quot;password&quot; ref=&quot;pass&quot;/&gt;
-              &lt;/td&gt;
-              &lt;td&gt;
-                &lt;span style={{color:&quot;red&quot;}}&gt;
-                  {emptyPassMessage}
-                &lt;/span&gt;
-              &lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;
-                &#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;(&#x78BA;&#x8A8D;)
-              &lt;/td&gt;
-              &lt;td&gt;
-                &lt;input type=&quot;password&quot; ref=&quot;pass_confirm&quot;/&gt;
-              &lt;/td&gt;
-              &lt;td&gt;
-                &lt;span style={{color:&quot;red&quot;}}&gt;
-                  {invalidConfirmMessage}
-                &lt;/span&gt;
-              &lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;
-                &#x8868;&#x793A;&#x540D;
-              &lt;/td&gt;
-              &lt;td&gt;
-                &lt;input type=&quot;text&quot; ref=&quot;name&quot;/&gt;
-              &lt;/td&gt;
-              &lt;td&gt;
-                &lt;span style={{color:&quot;red&quot;}}&gt;
-                  {emptyNameMessage}
-                &lt;/span&gt;
-              &lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-        &lt;button onClick={this.hundleSubmit}&gt;Sign Up&lt;/button&gt;
+        &lt;TextField
+        hintText=&quot;User ID&quot;
+        floatingLabelText=&quot;User ID&quot;
+        value={this.state.id_text}
+        ref=&quot;id&quot;
+        onChange={this.hundleIDChange}
+        /&gt;
+        &lt;br /&gt;
         &lt;span style={{color:&quot;red&quot;}}&gt;
-          {serverErrorMessage}
+          {emptyIdMessage}{idDuplicatedMessage}
         &lt;/span&gt;
+        &lt;br /&gt;
+        &lt;TextField
+        hintText=&quot;Password&quot;
+        floatingLabelText=&quot;Password&quot;
+        value={this.state.pass_text}
+        ref=&quot;pass&quot;
+        type=&quot;password&quot;
+        onChange={this.hundlePassChange}
+        /&gt;
+        &lt;br /&gt;
+        &lt;span style={{color:&quot;red&quot;}}&gt;
+          {emptyPassMessage}
+        &lt;/span&gt;
+        &lt;br /&gt;
+        &lt;TextField
+        hintText=&quot;Password(Confirm)&quot;
+        floatingLabelText=&quot;Password(Confirm)&quot;
+        value={this.state.confirm_pass_text}
+        ref=&quot;pass_confirm&quot;
+        type=&quot;password&quot;
+        onChange={this.hundleConfirmPasswordChange}
+        /&gt;
+        &lt;br /&gt;
+        &lt;span style={{color:&quot;red&quot;}}&gt;
+          {invalidConfirmMessage}
+        &lt;/span&gt;
+        &lt;br /&gt;
+        &lt;TextField
+        hintText=&quot;&#x8868;&#x793A;&#x540D;&quot;
+        floatingLabelText=&quot;&#x8868;&#x793A;&#x540D;&quot;
+        value={this.state.name_text}
+        ref=&quot;name&quot;
+        onChange={this.hundleNameChange}
+        /&gt;
+        &lt;br /&gt;
+        &lt;span style={{color:&quot;red&quot;}}&gt;
+          {emptyNameMessage}
+        &lt;/span&gt;
+        &lt;br /&gt;
+        &lt;br /&gt;
+        &lt;RaisedButton onClick={this.hundleSubmit} label=&quot;Sign Up&quot;/&gt;
       &lt;/div&gt;
     )
   }

@@ -88,6 +88,8 @@
 import ReactDOM from &apos;react-dom&apos;
 import {loginRequested} from &apos;../action/login&apos;
 import {LOGIN_STATUS} from &apos;../const/login&apos;
+import TextField from &apos;material-ui/TextField&apos;
+import RaisedButton from &apos;material-ui/RaisedButton&apos;
 
 /**
 * LoginForm&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
@@ -101,8 +103,11 @@ export default class LoginForm extends React.Component{
   */
   constructor(props){
     super(props);
+    this.state = {current_id_text:&quot;&quot;,current_pass_text:&quot;&quot;};
     //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
     this.hundleSubmit = this.hundleSubmit.bind(this);
+    this.hundleIDChange = this.hundleIDChange.bind(this);
+    this.hundlePassChange = this.hundlePassChange.bind(this);
   }
 
   /**
@@ -114,11 +119,19 @@ export default class LoginForm extends React.Component{
     *&#x5165;&#x529B;&#x3055;&#x308C;&#x305F;ID/Pass&#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x3001;
     *&#x305D;&#x308C;&#x3092;&#x5143;&#x306B;LOGIN_REQUESTED(&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x8981;&#x6C42;)&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;dispatch&#x3059;&#x308B;
     */
-    const userid = ReactDOM.findDOMNode(this.refs.userid).value.trim();
-    const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
+    const userid = this.state.current_id_text.trim();
+    const password = this.state.current_pass_text.trim();
     if(userid &amp;&amp; password){
       this.props.dispatch(loginRequested(userid,password));
     }
+  }
+
+  hundleIDChange(event,newValue){
+    this.setState({current_id_text:newValue});
+  }
+
+  hundlePassChange(event,newValue){
+    this.setState({current_pass_text:newValue});
   }
 
   /**
@@ -134,19 +147,25 @@ export default class LoginForm extends React.Component{
     return (
       &lt;div&gt;
         &lt;h4&gt;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&lt;/h4&gt;
-        &lt;table&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;id&lt;/td&gt;
-              &lt;td&gt;&lt;input type=&quot;text&quot; ref=&quot;userid&quot;/&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-              &lt;td&gt;pass&lt;/td&gt;
-              &lt;td&gt;&lt;input type=&quot;password&quot; ref=&quot;password&quot;/&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-        &lt;button onClick={this.hundleSubmit}&gt;Login&lt;/button&gt;
+        &lt;TextField
+        hintText=&quot;User ID&quot;
+        floatingLabelText=&quot;User ID&quot;
+        value={this.state.current_id_text}
+        ref=&quot;userid&quot;
+        onChange={this.hundleIDChange}
+        /&gt;
+        &lt;br /&gt;
+        &lt;TextField
+          hintText=&quot;Password&quot;
+          floatingLabelText=&quot;Password&quot;
+          type=&quot;password&quot;
+          value={this.state.current_pass_text}
+          ref=&quot;password&quot;
+          onChange={this.hundlePassChange}
+          /&gt;
+        &lt;br /&gt;
+        &lt;br /&gt;
+        &lt;RaisedButton onClick={this.hundleSubmit} label=&quot;Login&quot;/&gt;
         &lt;br /&gt;
         &lt;span style={{color:&quot;red&quot;}}&gt;{message}&lt;/span&gt;
       &lt;/div&gt;
