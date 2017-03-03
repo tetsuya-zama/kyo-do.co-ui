@@ -90,6 +90,13 @@ import Kyodoco from &apos;./component/kyodoco&apos;
 import { Provider } from &apos;react-redux&apos;
 import {configureStore} from &apos;./store/store&apos;
 
+import injectTapEventPlugin from &apos;react-tap-event-plugin&apos;
+import MuiThemeProvider from &apos;material-ui/styles/MuiThemeProvider&apos;
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
 import &quot;babel-polyfill&quot;
 
 const container = document.getElementById(&quot;app&quot;);
@@ -97,7 +104,9 @@ const store = configureStore();
 
 ReactDOM.render(
   &lt;Provider store={store}&gt;
-    &lt;Kyodoco /&gt;
+    &lt;MuiThemeProvider&gt;
+      &lt;Kyodoco /&gt;
+    &lt;/MuiThemeProvider&gt;
   &lt;/Provider&gt;,
   container
 );

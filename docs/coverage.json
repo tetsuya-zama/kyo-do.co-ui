@@ -1,6 +1,6 @@
 {
-  "coverage": "100%",
-  "expectCount": 62,
+  "coverage": "88.57%",
+  "expectCount": 70,
   "actualCount": 62,
   "files": {
     "src/component/board.js": {
@@ -24,9 +24,13 @@
       "undocumentLines": []
     },
     "src/component/loginform.js": {
-      "expectCount": 4,
+      "expectCount": 7,
       "actualCount": 4,
-      "undocumentLines": []
+      "undocumentLines": [
+        43,
+        47,
+        20
+      ]
     },
     "src/const/signup.js": {
       "expectCount": 2,
@@ -49,9 +53,15 @@
       "undocumentLines": []
     },
     "src/component/signupform.js": {
-      "expectCount": 5,
+      "expectCount": 10,
       "actualCount": 5,
-      "undocumentLines": []
+      "undocumentLines": [
+        61,
+        53,
+        65,
+        57,
+        19
+      ]
     },
     "src/action/board.js": {
       "expectCount": 2,
