@@ -3,7 +3,7 @@
     "__docId__": 0,
     "kind": "file",
     "name": "src/action/board.js",
-    "content": "/**\n* チームメンバーの状況を更新するアクション名\n*/\nexport const UPDATE_MEMBER_STATUS = 'UPDATE_MEMBER_STATUS';\n\n/**\n* チームメンバーの状況を更新するアクションのcreator\n* @param {Object} memberStatus メンバー状況\n* @return {Object} UPDATE_MEMBER_STATUSアクション\n*/\nexport function updateMemberStatus(memberStatus){\n  return {\n    type:UPDATE_MEMBER_STATUS,\n    payload:memberStatus\n  }\n}\n",
+    "content": "/**\r\n* チームメンバーの状況を更新するアクション名\r\n*/\r\nexport const UPDATE_MEMBER_STATUS = 'UPDATE_MEMBER_STATUS';\r\n\r\n/**\r\n* チームメンバーの状況を更新するアクションのcreator\r\n* @param {Object} memberStatus メンバー状況\r\n* @return {Object} UPDATE_MEMBER_STATUSアクション\r\n*/\r\nexport function updateMemberStatus(memberStatus){\r\n  return {\r\n    type:UPDATE_MEMBER_STATUS,\r\n    payload:memberStatus\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/action/board.js",
     "access": null,
@@ -69,7 +69,7 @@
     "__docId__": 3,
     "kind": "file",
     "name": "src/action/login.js",
-    "content": "/**\n* ログイン要求アクション名\n*/\nexport const LOGIN_REQUESTED = \"LOGIN_REQUESTED\";\n\n/**\n* ログイン要求アクションのcreator\n* @param {string} id ユーザーID\n* @param {string} pass パスワード\n* @return {Object} ログイン要求アクション\n*/\nexport function loginRequested(id,pass){\n  return {\n    type:LOGIN_REQUESTED,\n    payload:{\n      id:id,\n      pass:pass\n    }\n  };\n}\n\n/**\n* ログイン成功アクション名\n*/\nexport const LOGIN_SUCCESS = \"LOGIN_SUCCESS\";\n\n/**\n* ログイン成功アクションのcreator\n* @param {{userid:string,name:string,token:string}} userinfo 成功したユーザー情報\n* @return {Object} ログイン成功アクション\n*/\nexport function loginSuccess(userinfo){\n  return {\n    type:LOGIN_SUCCESS,\n    payload:userinfo\n  };\n}\n\n/**\n* ログイン失敗アクション名\n*/\nexport const LOGIN_FAILURE = \"LOGIN_FAILURE\";\n\n/**\n* ログイン失敗アクションのcreator\n* @return {Object} ログイン失敗アクション\n*/\nexport function loginFailure(){\n  return {\n    type: LOGIN_FAILURE\n  };\n}\n\n/**\n* ログアウト要求アクション名\n*/\nexport const LOGOUT_REQUESTED = \"LOGOUT_REQUESTED\";\n\n/**\n* ログアウト要求アクションのcreator\n* @return {Object} ログアウト要求アクション\n*/\nexport function logoutRequested(){\n  return {\n    type : LOGOUT_REQUESTED\n  };\n}\n",
+    "content": "/**\r\n* ログイン要求アクション名\r\n*/\r\nexport const LOGIN_REQUESTED = \"LOGIN_REQUESTED\";\r\n\r\n/**\r\n* ログイン要求アクションのcreator\r\n* @param {string} id ユーザーID\r\n* @param {string} pass パスワード\r\n* @return {Object} ログイン要求アクション\r\n*/\r\nexport function loginRequested(id,pass){\r\n  return {\r\n    type:LOGIN_REQUESTED,\r\n    payload:{\r\n      id:id,\r\n      pass:pass\r\n    }\r\n  };\r\n}\r\n\r\n/**\r\n* ログイン成功アクション名\r\n*/\r\nexport const LOGIN_SUCCESS = \"LOGIN_SUCCESS\";\r\n\r\n/**\r\n* ログイン成功アクションのcreator\r\n* @param {{userid:string,name:string,token:string}} userinfo 成功したユーザー情報\r\n* @return {Object} ログイン成功アクション\r\n*/\r\nexport function loginSuccess(userinfo){\r\n  return {\r\n    type:LOGIN_SUCCESS,\r\n    payload:userinfo\r\n  };\r\n}\r\n\r\n/**\r\n* ログイン失敗アクション名\r\n*/\r\nexport const LOGIN_FAILURE = \"LOGIN_FAILURE\";\r\n\r\n/**\r\n* ログイン失敗アクションのcreator\r\n* @return {Object} ログイン失敗アクション\r\n*/\r\nexport function loginFailure(){\r\n  return {\r\n    type: LOGIN_FAILURE\r\n  };\r\n}\r\n\r\n/**\r\n* ログアウト要求アクション名\r\n*/\r\nexport const LOGOUT_REQUESTED = \"LOGOUT_REQUESTED\";\r\n\r\n/**\r\n* ログアウト要求アクションのcreator\r\n* @return {Object} ログアウト要求アクション\r\n*/\r\nexport function logoutRequested(){\r\n  return {\r\n    type : LOGOUT_REQUESTED\r\n  };\r\n}\r\n",
     "static": true,
     "longname": "src/action/login.js",
     "access": null,
@@ -288,7 +288,7 @@
     "__docId__": 12,
     "kind": "file",
     "name": "src/action/mydestination.js",
-    "content": "\n/**\n* 自分の行き先変更アクション名\n*/\nexport const MY_DESTINATION_CHANGE = \"MY_DESTINATION_CHANGE\";\n\n/**\n* 自分の行き先変更アクションのcreator\n* @param {{inBusiness:boolean,comment:string}} destination 行き先\n* @return {Object} 自分の行き先変更アクション\n*/\nexport function myDestinationChange(destination){\n  return {\n    type:MY_DESTINATION_CHANGE,\n    payload:destination\n  };\n}\n",
+    "content": "\r\n/**\r\n* 自分の行き先変更アクション名\r\n*/\r\nexport const MY_DESTINATION_CHANGE = \"MY_DESTINATION_CHANGE\";\r\n\r\n/**\r\n* 自分の行き先変更アクションのcreator\r\n* @param {{inBusiness:boolean,comment:string}} destination 行き先\r\n* @return {Object} 自分の行き先変更アクション\r\n*/\r\nexport function myDestinationChange(destination){\r\n  return {\r\n    type:MY_DESTINATION_CHANGE,\r\n    payload:destination\r\n  };\r\n}\r\n",
     "static": true,
     "longname": "src/action/mydestination.js",
     "access": null,
@@ -354,7 +354,7 @@
     "__docId__": 15,
     "kind": "file",
     "name": "src/action/signup.js",
-    "content": "/**\n*サインアップ要求アクション名\n*/\nexport const SIGNUP_REQUIRED = \"SIGNUP_REQUIRED\";\n\n/**\n* サインアップ要求アクションのcreator\n* @param {{id:string,password:string,name:string}} userinfo 登録を要求するユーザー情報\n* @return {Object} SIGNUP_REQUIREDアクション\n*/\nexport function signupRequired(userinfo){\n  return {\n    type:SIGNUP_REQUIRED,\n    payload:userinfo\n  }\n}\n/**\n* サインアップ成功アクション名\n*/\nexport const SIGNUP_SUCCESS = \"SIGNUP_SUCCESS\";\n/**\n* サインアップ成功アクションのcreator\n* @return {Object} SIGNUP_SUCCESSアクション\n*/\nexport function signupSucceess(){\n  return {\n    type:SIGNUP_SUCCESS\n  };\n}\n\n/**\n* サインアップ失敗アクション名\n*/\nexport const SIGNUP_FAILURE = \"SIGNUP_FAILURE\";\n\n/**\n* サインアップ失敗アクションのcreator\n* @param {array} reasons 失敗理由の配列\n* @return {Object} SIGNUP_FAILUREアクション\n*/\nexport function signupFailure(reasons){\n  return {\n    type:SIGNUP_FAILURE,\n    payload:reasons\n  }\n}\n",
+    "content": "/**\r\n*サインアップ要求アクション名\r\n*/\r\nexport const SIGNUP_REQUIRED = \"SIGNUP_REQUIRED\";\r\n\r\n/**\r\n* サインアップ要求アクションのcreator\r\n* @param {{id:string,password:string,name:string}} userinfo 登録を要求するユーザー情報\r\n* @return {Object} SIGNUP_REQUIREDアクション\r\n*/\r\nexport function signupRequired(userinfo){\r\n  return {\r\n    type:SIGNUP_REQUIRED,\r\n    payload:userinfo\r\n  }\r\n}\r\n/**\r\n* サインアップ成功アクション名\r\n*/\r\nexport const SIGNUP_SUCCESS = \"SIGNUP_SUCCESS\";\r\n/**\r\n* サインアップ成功アクションのcreator\r\n* @return {Object} SIGNUP_SUCCESSアクション\r\n*/\r\nexport function signupSucceess(){\r\n  return {\r\n    type:SIGNUP_SUCCESS\r\n  };\r\n}\r\n\r\n/**\r\n* サインアップ失敗アクション名\r\n*/\r\nexport const SIGNUP_FAILURE = \"SIGNUP_FAILURE\";\r\n\r\n/**\r\n* サインアップ失敗アクションのcreator\r\n* @param {array} reasons 失敗理由の配列\r\n* @return {Object} SIGNUP_FAILUREアクション\r\n*/\r\nexport function signupFailure(reasons){\r\n  return {\r\n    type:SIGNUP_FAILURE,\r\n    payload:reasons\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/action/signup.js",
     "access": null,
@@ -519,7 +519,7 @@
     "__docId__": 22,
     "kind": "file",
     "name": "src/component/board.js",
-    "content": "import React from 'react'\n\n/**\n* 行き先掲示板コンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class Board extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //チームの数だけTeamBoardコンポーネントを作成する\n    const teamBoards = this.props.memberStatus.map(team => <TeamBoard key={team.teamId} team={team}/>);\n    return (\n      <div>\n      <h3>行き先掲示板</h3>\n      {teamBoards}\n      </div>);\n  }\n}\n/**\n* チーム別行き先掲示板コンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nclass TeamBoard extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n  }\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //メンバーの数だけMemberRowコンポーネント作成する\n    const memberRows = this.props.team.members.map((member,idx) => <MemberRow key={idx} member={member}/>);\n    return (\n      <div>\n        <h4>{this.props.team.name}</h4>\n        <table>\n        <tbody>\n        {memberRows}\n        </tbody>\n        </table>\n      </div>\n    );\n  }\n}\n/**\n* 描画メソッド\n* @return {undefined}\n*/\nclass MemberRow extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n  }\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    return (\n      <tr>\n        <td>{this.props.member.name}</td>\n        <td>{this.props.member.inBusiness ? \"出勤\" : \"退勤\"}</td>\n        <td>{this.props.member.comment}</td>\n      </tr>\n    );\n  }\n}\n",
+    "content": "import React from 'react'\r\n\r\n/**\r\n* 行き先掲示板コンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class Board extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n  }\r\n\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    //チームの数だけTeamBoardコンポーネントを作成する\r\n    const teamBoards = this.props.memberStatus.map(team => <TeamBoard key={team.teamId} team={team}/>);\r\n    return (\r\n      <div>\r\n      <h3>行き先掲示板</h3>\r\n      {teamBoards}\r\n      </div>);\r\n  }\r\n}\r\n/**\r\n* チーム別行き先掲示板コンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nclass TeamBoard extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n  }\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    //メンバーの数だけMemberRowコンポーネント作成する\r\n    const memberRows = this.props.team.members.map((member,idx) => <MemberRow key={idx} member={member}/>);\r\n    return (\r\n      <div>\r\n        <h4>{this.props.team.name}</h4>\r\n        <table>\r\n        <tbody>\r\n        {memberRows}\r\n        </tbody>\r\n        </table>\r\n      </div>\r\n    );\r\n  }\r\n}\r\n/**\r\n* 描画メソッド\r\n* @return {undefined}\r\n*/\r\nclass MemberRow extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n  }\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    return (\r\n      <tr>\r\n        <td>{this.props.member.name}</td>\r\n        <td>{this.props.member.inBusiness ? \"出勤\" : \"退勤\"}</td>\r\n        <td>{this.props.member.comment}</td>\r\n      </tr>\r\n    );\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/component/board.js",
     "access": null,
@@ -763,7 +763,7 @@
     "__docId__": 32,
     "kind": "file",
     "name": "src/component/header.js",
-    "content": "import React from 'react'\nimport {LOGIN_STATUS} from '../const/login'\nimport {logoutRequested} from '../action/login'\n/**\n* Headerコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class Header extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleClick = this.hundleClick.bind(this);\n  }\n  /**\n  * ログアウトボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleClick(){\n      this.props.dispatch(logoutRequested());\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //ログインしていればログアウトボタンを表示する\n    const logoutButton = this.props.login.status == LOGIN_STATUS.SUCCESS ?\n      <button onClick={this.hundleClick}>logout</button> :\n      null\n    return(\n      <div>キョウ-ドコ？&nbsp;{logoutButton}</div>\n    )\n  }\n}\n",
+    "content": "import React from 'react'\r\nimport {LOGIN_STATUS} from '../const/login'\r\nimport {logoutRequested} from '../action/login'\r\n/**\r\n* Headerコンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class Header extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\r\n    this.hundleClick = this.hundleClick.bind(this);\r\n  }\r\n  /**\r\n  * ログアウトボタンのクリックをハンドリングするメソッド\r\n  * @return {undefined}\r\n  */\r\n  hundleClick(){\r\n      this.props.dispatch(logoutRequested());\r\n  }\r\n\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    //ログインしていればログアウトボタンを表示する\r\n    const logoutButton = this.props.login.status == LOGIN_STATUS.SUCCESS ?\r\n      <button onClick={this.hundleClick}>logout</button> :\r\n      null\r\n    return(\r\n      <div>キョウ-ドコ？&nbsp;{logoutButton}</div>\r\n    )\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/component/header.js",
     "access": null,
@@ -895,7 +895,7 @@
     "__docId__": 38,
     "kind": "file",
     "name": "src/component/kyodoco.js",
-    "content": "import React from 'react'\nimport { connect } from 'react-redux'\nimport Header from './header'\nimport LoginForm from './loginform'\nimport SignUpForm from './signupform'\nimport Board from './board'\nimport MyDestination from './mydestination'\nimport {LOGIN_STATUS} from '../const/login'\n\n\n/**\n*メインコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nclass Kyodoco extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //ログインしていればメイン画面を、そうでなければログインフォームを描画する\n    const content =\n      this.props.login.status == LOGIN_STATUS.SUCCESS ?\n      (<div>\n        <MyDestination\n          dispatch={this.props.dispatch}\n          login={this.props.login}\n          mydestination={this.props.mydestination} />\n        <Board\n          memberStatus={this.props.board.memberStatus}\n        />\n       </div>\n      ) :\n      (\n        <div>\n          <LoginForm\n          dispatch={this.props.dispatch}\n          login={this.props.login}/>\n          <SignUpForm\n          dispatch={this.props.dispatch}\n          signup={this.props.signup}/>\n        </div>\n      );\n\n    return(\n      <div>\n      <header>\n        <Header dispatch={this.props.dispatch} login={this.props.login}/>\n      </header>\n      <hr />\n      {content}\n      </div>\n    );\n  }\n}\n/**\n* reduxのstore上のstateをcomponentに接続する関数\n* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343\n*/\nfunction mapStateToProp(state){\n  return state;\n}\n\n/**\n* メインコンポーネントをstoreと接続してexportする\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343\n*/\nexport default connect(mapStateToProp)(Kyodoco);\n",
+    "content": "import React from 'react'\r\nimport { connect } from 'react-redux'\r\nimport Header from './header'\r\nimport LoginForm from './loginform'\r\nimport SignUpForm from './signupform'\r\nimport Board from './board'\r\nimport MyDestination from './mydestination'\r\nimport {LOGIN_STATUS} from '../const/login'\r\n\r\n\r\n/**\r\n*メインコンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nclass Kyodoco extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n  }\r\n\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    //ログインしていればメイン画面を、そうでなければログインフォームを描画する\r\n    const content =\r\n      this.props.login.status == LOGIN_STATUS.SUCCESS ?\r\n      (<div>\r\n        <MyDestination\r\n          dispatch={this.props.dispatch}\r\n          login={this.props.login}\r\n          mydestination={this.props.mydestination} />\r\n        <Board\r\n          memberStatus={this.props.board.memberStatus}\r\n        />\r\n       </div>\r\n      ) :\r\n      (\r\n        <div>\r\n          <LoginForm\r\n          dispatch={this.props.dispatch}\r\n          login={this.props.login}/>\r\n          <SignUpForm\r\n          dispatch={this.props.dispatch}\r\n          signup={this.props.signup}/>\r\n        </div>\r\n      );\r\n\r\n    return(\r\n      <div>\r\n      <header>\r\n        <Header dispatch={this.props.dispatch} login={this.props.login}/>\r\n      </header>\r\n      <hr />\r\n      {content}\r\n      </div>\r\n    );\r\n  }\r\n}\r\n/**\r\n* reduxのstore上のstateをcomponentに接続する関数\r\n* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343\r\n*/\r\nfunction mapStateToProp(state){\r\n  return state;\r\n}\r\n\r\n/**\r\n* メインコンポーネントをstoreと接続してexportする\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n* @see http://qiita.com/kompiro/items/7fe90c4abc92fd32b343\r\n*/\r\nexport default connect(mapStateToProp)(Kyodoco);\r\n",
     "static": true,
     "longname": "src/component/kyodoco.js",
     "access": null,
@@ -1014,7 +1014,7 @@
     "__docId__": 43,
     "kind": "file",
     "name": "src/component/loginform.js",
-    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {loginRequested} from '../action/login'\nimport {LOGIN_STATUS} from '../const/login'\n\n/**\n* LoginFormコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class LoginForm extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleSubmit = this.hundleSubmit.bind(this);\n  }\n\n  /**\n  * ログインボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleSubmit(){\n    /*\n    *入力されたID/Passを取得して、\n    *それを元にLOGIN_REQUESTED(ログイン要求)アクションを作成してdispatchする\n    */\n    const userid = ReactDOM.findDOMNode(this.refs.userid).value.trim();\n    const password = ReactDOM.findDOMNode(this.refs.password).value.trim();\n    if(userid && password){\n      this.props.dispatch(loginRequested(userid,password));\n    }\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //現在の状態がLOGIN_STATUS.FAILURE(ログイン失敗)であれば失敗メッセージを表示する\n    const message = this.props.login.status == LOGIN_STATUS.FAILURE ?\n      \"IDもしくはパスワードが正しくありません\" :\n      \"\";\n\n    return (\n      <div>\n        <h4>ログイン</h4>\n        <table>\n          <tbody>\n            <tr>\n              <td>id</td>\n              <td><input type=\"text\" ref=\"userid\"/></td>\n            </tr>\n            <tr>\n              <td>pass</td>\n              <td><input type=\"password\" ref=\"password\"/></td>\n            </tr>\n          </tbody>\n        </table>\n        <button onClick={this.hundleSubmit}>Login</button>\n        <br />\n        <span style={{color:\"red\"}}>{message}</span>\n      </div>\n    );\n  }\n}\n",
+    "content": "import React from 'react'\r\nimport ReactDOM from 'react-dom'\r\nimport {loginRequested} from '../action/login'\r\nimport {LOGIN_STATUS} from '../const/login'\r\n\r\n/**\r\n* LoginFormコンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class LoginForm extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\r\n    this.hundleSubmit = this.hundleSubmit.bind(this);\r\n  }\r\n\r\n  /**\r\n  * ログインボタンのクリックをハンドリングするメソッド\r\n  * @return {undefined}\r\n  */\r\n  hundleSubmit(){\r\n    /*\r\n    *入力されたID/Passを取得して、\r\n    *それを元にLOGIN_REQUESTED(ログイン要求)アクションを作成してdispatchする\r\n    */\r\n    const userid = ReactDOM.findDOMNode(this.refs.userid).value.trim();\r\n    const password = ReactDOM.findDOMNode(this.refs.password).value.trim();\r\n    if(userid && password){\r\n      this.props.dispatch(loginRequested(userid,password));\r\n    }\r\n  }\r\n\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    //現在の状態がLOGIN_STATUS.FAILURE(ログイン失敗)であれば失敗メッセージを表示する\r\n    const message = this.props.login.status == LOGIN_STATUS.FAILURE ?\r\n      \"IDもしくはパスワードが正しくありません\" :\r\n      \"\";\r\n\r\n    return (\r\n      <div>\r\n        <h4>ログイン</h4>\r\n        <table>\r\n          <tbody>\r\n            <tr>\r\n              <td>id</td>\r\n              <td><input type=\"text\" ref=\"userid\"/></td>\r\n            </tr>\r\n            <tr>\r\n              <td>pass</td>\r\n              <td><input type=\"password\" ref=\"password\"/></td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n        <button onClick={this.hundleSubmit}>Login</button>\r\n        <br />\r\n        <span style={{color:\"red\"}}>{message}</span>\r\n      </div>\r\n    );\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/component/loginform.js",
     "access": null,
@@ -1146,7 +1146,7 @@
     "__docId__": 49,
     "kind": "file",
     "name": "src/component/mydestination.js",
-    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {myDestinationChange} from '../action/mydestination'\n\n/**\n* \"自分の行き先\"コンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class MyDestination extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleChange = this.hundleChange.bind(this);\n  }\n  /**\n  * 行き先の変更をハンドリングするメソッド\n  * @return undefined\n  */\n  hundleChange(){\n    //入力された出勤・退勤とコメントを両方取得してMY_DESTINATION_CHANGEアクションをdispatchする\n    const inBusiness = ReactDOM.findDOMNode(this.refs.inBusiness).value == 1; // state上はbooleanなのでここで変換\n    const comment = ReactDOM.findDOMNode(this.refs.comment).value;\n\n    this.props.dispatch(myDestinationChange({inBusiness:inBusiness, comment:comment}));\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    const inBusinessValue = this.props.mydestination.inBusiness ? 1 : 0;\n    const commentValue = this.props.mydestination.comment;\n    return (\n      <div>\n      <h3>自分の行き先</h3>\n      <table>\n        <tbody>\n        <tr>\n          <td>{this.props.login.user.name}</td>\n          <td>\n            <select ref=\"inBusiness\" value={inBusinessValue} onChange={this.hundleChange}>\n             <option value={0}>退勤</option>\n             <option value={1}>出勤</option>\n            </select>\n          </td>\n          <td>\n            <input type=\"text\" ref=\"comment\" value={commentValue} onChange={this.hundleChange}/>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n      </div>);\n  }\n}\n",
+    "content": "import React from 'react'\r\nimport ReactDOM from 'react-dom'\r\nimport {myDestinationChange} from '../action/mydestination'\r\n\r\n/**\r\n* \"自分の行き先\"コンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class MyDestination extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\r\n    this.hundleChange = this.hundleChange.bind(this);\r\n  }\r\n  /**\r\n  * 行き先の変更をハンドリングするメソッド\r\n  * @return undefined\r\n  */\r\n  hundleChange(){\r\n    //入力された出勤・退勤とコメントを両方取得してMY_DESTINATION_CHANGEアクションをdispatchする\r\n    const inBusiness = ReactDOM.findDOMNode(this.refs.inBusiness).value == 1; // state上はbooleanなのでここで変換\r\n    const comment = ReactDOM.findDOMNode(this.refs.comment).value;\r\n\r\n    this.props.dispatch(myDestinationChange({inBusiness:inBusiness, comment:comment}));\r\n  }\r\n\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    const inBusinessValue = this.props.mydestination.inBusiness ? 1 : 0;\r\n    const commentValue = this.props.mydestination.comment;\r\n    return (\r\n      <div>\r\n      <h3>自分の行き先</h3>\r\n      <table>\r\n        <tbody>\r\n        <tr>\r\n          <td>{this.props.login.user.name}</td>\r\n          <td>\r\n            <select ref=\"inBusiness\" value={inBusinessValue} onChange={this.hundleChange}>\r\n             <option value={0}>退勤</option>\r\n             <option value={1}>出勤</option>\r\n            </select>\r\n          </td>\r\n          <td>\r\n            <input type=\"text\" ref=\"comment\" value={commentValue} onChange={this.hundleChange}/>\r\n          </td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n      </div>);\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/component/mydestination.js",
     "access": null,
@@ -1278,7 +1278,7 @@
     "__docId__": 55,
     "kind": "file",
     "name": "src/component/signupform.js",
-    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {signupFailure,signupRequired} from '../action/signup'\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\n/**\n* サインアップフォームのComponent\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class SignUpForm extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleSubmit = this.hundleSubmit.bind(this);\n    this.validate = this.validate.bind(this);\n  }\n  /**\n  * Sign Upボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleSubmit(){\n    const id = ReactDOM.findDOMNode(this.refs.id).value;\n    const pass = ReactDOM.findDOMNode(this.refs.pass).value;\n    const pass_confirm = ReactDOM.findDOMNode(this.refs.pass_confirm).value;\n    const name = ReactDOM.findDOMNode(this.refs.name).value;\n\n    //入力値の画面サイドバリデーション\n    const forminfo = {id:id,pass:pass,pass_confirm:pass_confirm,name:name};\n    const validationErrors = this.validate(forminfo);\n\n\n    if(validationErrors.length > 0){\n      //画面サイドバリデーションが通らないので失敗\n      this.props.dispatch(signupFailure(validationErrors));\n    }else{\n      //画面サイドバリデーションが通ったので、サインアップ要求する\n      this.props.dispatch(signupRequired({id:id,password:pass,name:name}));\n    }\n\n  }\n  /**\n  * フォームデータのバリデーション\n  * @param {{id:string,pass:string,pass_confirm:string,name:string}} forminfo フォームデータ\n  * @return {array} SIGNUP_FAILURE_REASONSの配列\n  */\n  validate(forminfo){\n    const errors = [];\n\n    if(!forminfo.id || forminfo.id.trim().length == 0){\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_ID);\n    }\n    if(!forminfo.pass || forminfo.pass.trim().length == 0){\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD);\n    }\n    if(!forminfo.name || forminfo.name.trim().length == 0){\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_NAME);\n    }\n    if(forminfo.pass !== forminfo.pass_confirm){\n      errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);\n    }\n    return errors;\n\n  }\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    const failure_reason = this.props.signup.failure_reason;\n    const emptyIdMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_ID) >= 0 ?\n      \"IDを入力してください\" : \"\";\n    const emptyPassMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD) >= 0 ?\n      \"パスワードを入力してください\" : \"\";\n    const emptyNameMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_NAME) >= 0 ?\n      \"名前を入力してください\" : \"\";\n    const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) >= 0 ?\n      \"パスワードとパスワード（確認）が一致しません\" : \"\";\n    const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) >= 0 ?\n      \"ご指定のIDはすでに使われています\" : \"\";\n    const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) >= 0 ?\n      \"サーバーエラーが発生しました\" : \"\";\n\n    return (\n      <div>\n        <h4>ユーザー登録</h4>\n        <table>\n          <tbody>\n            <tr>\n              <td>\n                ユーザーID\n              </td>\n              <td>\n                <input type=\"text\" ref=\"id\"/>\n              </td>\n              <td>\n                <span style={{color:\"red\"}}>\n                  {emptyIdMessage}{idDuplicatedMessage}\n                </span>\n              </td>\n            </tr>\n            <tr>\n              <td>\n                パスワード\n              </td>\n              <td>\n                <input type=\"password\" ref=\"pass\"/>\n              </td>\n              <td>\n                <span style={{color:\"red\"}}>\n                  {emptyPassMessage}\n                </span>\n              </td>\n            </tr>\n            <tr>\n              <td>\n                パスワード(確認)\n              </td>\n              <td>\n                <input type=\"password\" ref=\"pass_confirm\"/>\n              </td>\n              <td>\n                <span style={{color:\"red\"}}>\n                  {invalidConfirmMessage}\n                </span>\n              </td>\n            </tr>\n            <tr>\n              <td>\n                表示名\n              </td>\n              <td>\n                <input type=\"text\" ref=\"name\"/>\n              </td>\n              <td>\n                <span style={{color:\"red\"}}>\n                  {emptyNameMessage}\n                </span>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <button onClick={this.hundleSubmit}>Sign Up</button>\n        <span style={{color:\"red\"}}>\n          {serverErrorMessage}\n        </span>\n      </div>\n    )\n  }\n}\n",
+    "content": "import React from 'react'\r\nimport ReactDOM from 'react-dom'\r\nimport {signupFailure,signupRequired} from '../action/signup'\r\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\r\n/**\r\n* サインアップフォームのComponent\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class SignUpForm extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\r\n    this.hundleSubmit = this.hundleSubmit.bind(this);\r\n    this.validate = this.validate.bind(this);\r\n  }\r\n  /**\r\n  * Sign Upボタンのクリックをハンドリングするメソッド\r\n  * @return {undefined}\r\n  */\r\n  hundleSubmit(){\r\n    const id = ReactDOM.findDOMNode(this.refs.id).value;\r\n    const pass = ReactDOM.findDOMNode(this.refs.pass).value;\r\n    const pass_confirm = ReactDOM.findDOMNode(this.refs.pass_confirm).value;\r\n    const name = ReactDOM.findDOMNode(this.refs.name).value;\r\n\r\n    //入力値の画面サイドバリデーション\r\n    const forminfo = {id:id,pass:pass,pass_confirm:pass_confirm,name:name};\r\n    const validationErrors = this.validate(forminfo);\r\n\r\n\r\n    if(validationErrors.length > 0){\r\n      //画面サイドバリデーションが通らないので失敗\r\n      this.props.dispatch(signupFailure(validationErrors));\r\n    }else{\r\n      //画面サイドバリデーションが通ったので、サインアップ要求する\r\n      this.props.dispatch(signupRequired({id:id,password:pass,name:name}));\r\n    }\r\n\r\n  }\r\n  /**\r\n  * フォームデータのバリデーション\r\n  * @param {{id:string,pass:string,pass_confirm:string,name:string}} forminfo フォームデータ\r\n  * @return {array} SIGNUP_FAILURE_REASONSの配列\r\n  */\r\n  validate(forminfo){\r\n    const errors = [];\r\n\r\n    if(!forminfo.id || forminfo.id.trim().length == 0){\r\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_ID);\r\n    }\r\n    if(!forminfo.pass || forminfo.pass.trim().length == 0){\r\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD);\r\n    }\r\n    if(!forminfo.name || forminfo.name.trim().length == 0){\r\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_NAME);\r\n    }\r\n    if(forminfo.pass !== forminfo.pass_confirm){\r\n      errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);\r\n    }\r\n    return errors;\r\n\r\n  }\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    const failure_reason = this.props.signup.failure_reason;\r\n    const emptyIdMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_ID) >= 0 ?\r\n      \"IDを入力してください\" : \"\";\r\n    const emptyPassMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD) >= 0 ?\r\n      \"パスワードを入力してください\" : \"\";\r\n    const emptyNameMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_NAME) >= 0 ?\r\n      \"名前を入力してください\" : \"\";\r\n    const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) >= 0 ?\r\n      \"パスワードとパスワード（確認）が一致しません\" : \"\";\r\n    const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) >= 0 ?\r\n      \"ご指定のIDはすでに使われています\" : \"\";\r\n    const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) >= 0 ?\r\n      \"サーバーエラーが発生しました\" : \"\";\r\n\r\n    return (\r\n      <div>\r\n        <h4>ユーザー登録</h4>\r\n        <table>\r\n          <tbody>\r\n            <tr>\r\n              <td>\r\n                ユーザーID\r\n              </td>\r\n              <td>\r\n                <input type=\"text\" ref=\"id\"/>\r\n              </td>\r\n              <td>\r\n                <span style={{color:\"red\"}}>\r\n                  {emptyIdMessage}{idDuplicatedMessage}\r\n                </span>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                パスワード\r\n              </td>\r\n              <td>\r\n                <input type=\"password\" ref=\"pass\"/>\r\n              </td>\r\n              <td>\r\n                <span style={{color:\"red\"}}>\r\n                  {emptyPassMessage}\r\n                </span>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                パスワード(確認)\r\n              </td>\r\n              <td>\r\n                <input type=\"password\" ref=\"pass_confirm\"/>\r\n              </td>\r\n              <td>\r\n                <span style={{color:\"red\"}}>\r\n                  {invalidConfirmMessage}\r\n                </span>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                表示名\r\n              </td>\r\n              <td>\r\n                <input type=\"text\" ref=\"name\"/>\r\n              </td>\r\n              <td>\r\n                <span style={{color:\"red\"}}>\r\n                  {emptyNameMessage}\r\n                </span>\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n        <button onClick={this.hundleSubmit}>Sign Up</button>\r\n        <span style={{color:\"red\"}}>\r\n          {serverErrorMessage}\r\n        </span>\r\n      </div>\r\n    )\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/component/signupform.js",
     "access": null,
@@ -1466,7 +1466,7 @@
     "__docId__": 63,
     "kind": "file",
     "name": "src/const/login.js",
-    "content": "/**\n* login state内のstatus定義。SUCCESS(成功)、FAILURE(失敗)、NOTYET(未実施)。\n*/\nexport const LOGIN_STATUS={\n  SUCCESS:\"SUCCESS\",\n  FAILURE:\"FAILURE\",\n  NOTYET:\"NOTYET\"\n}\n",
+    "content": "/**\r\n* login state内のstatus定義。SUCCESS(成功)、FAILURE(失敗)、NOTYET(未実施)。\r\n*/\r\nexport const LOGIN_STATUS={\r\n  SUCCESS:\"SUCCESS\",\r\n  FAILURE:\"FAILURE\",\r\n  NOTYET:\"NOTYET\"\r\n}\r\n",
     "static": true,
     "longname": "src/const/login.js",
     "access": null,
@@ -1496,7 +1496,7 @@
     "__docId__": 65,
     "kind": "file",
     "name": "src/const/signup.js",
-    "content": "/**\n* サインアップ失敗理由\n*/\nexport const SIGNUP_FAILURE_REASONS = {\n  ID_DUPLICATED : \"ID_DUPLICATED\", //ID重複\n  SERVER_ERROR : \"SERVER_ERROR\", //サーバーエラー\n  INVALID_CONFIRM : \"INVALID_CONFIRM\", //パスワード確認用不一致\n  EMPTY_ID : \"EMPTY_ID\", //IDが空,\n  EMPTY_PASSWORD:\"EMPTY_PASSWORD\", //パスワードが空\n  EMPTY_NAME : \"EMPTY_NAME\" //表示名が空\n}\n\n//MOCK用\n//TODO 実装終わったら消す\n/**\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\n*/\nexport const MOCK_MEMBER_REPO_KEY = \"mock_member_repo\";\n",
+    "content": "/**\r\n* サインアップ失敗理由\r\n*/\r\nexport const SIGNUP_FAILURE_REASONS = {\r\n  ID_DUPLICATED : \"ID_DUPLICATED\", //ID重複\r\n  SERVER_ERROR : \"SERVER_ERROR\", //サーバーエラー\r\n  INVALID_CONFIRM : \"INVALID_CONFIRM\", //パスワード確認用不一致\r\n  EMPTY_ID : \"EMPTY_ID\", //IDが空,\r\n  EMPTY_PASSWORD:\"EMPTY_PASSWORD\", //パスワードが空\r\n  EMPTY_NAME : \"EMPTY_NAME\" //表示名が空\r\n}\r\n\r\n//MOCK用\r\n//TODO 実装終わったら消す\r\n/**\r\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\r\n*/\r\nexport const MOCK_MEMBER_REPO_KEY = \"mock_member_repo\";\r\n",
     "static": true,
     "longname": "src/const/signup.js",
     "access": null,
@@ -1545,7 +1545,7 @@
     "__docId__": 68,
     "kind": "file",
     "name": "src/index.js",
-    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport Kyodoco from './component/kyodoco'\nimport { Provider } from 'react-redux'\nimport {configureStore} from './store/store'\n\nimport \"babel-polyfill\"\n\nconst container = document.getElementById(\"app\");\nconst store = configureStore();\n\nReactDOM.render(\n  <Provider store={store}>\n    <Kyodoco />\n  </Provider>,\n  container\n);\n",
+    "content": "import React from 'react'\r\nimport ReactDOM from 'react-dom'\r\nimport Kyodoco from './component/kyodoco'\r\nimport { Provider } from 'react-redux'\r\nimport {configureStore} from './store/store'\r\n\r\nimport \"babel-polyfill\"\r\n\r\nconst container = document.getElementById(\"app\");\r\nconst store = configureStore();\r\n\r\nReactDOM.render(\r\n  <Provider store={store}>\r\n    <Kyodoco />\r\n  </Provider>,\r\n  container\r\n);\r\n",
     "static": true,
     "longname": "src/index.js",
     "access": null,
@@ -1608,7 +1608,7 @@
     "__docId__": 71,
     "kind": "file",
     "name": "src/module/base64.js",
-    "content": "/**\n* base64エンコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str エンコード対象文字列\n* @return {string} エンコード後文字列\n*/\nexport function base64Encode(str){\n  return btoa(unescape(encodeURIComponent(str)));\n}\n\n/**\n* base64デコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str デコード対象文字列\n* @return {string} デコード後文字列\n*/\nexport function base64Decode(str){\n  return decodeURIComponent(escape(atob(str)));\n}\n",
+    "content": "/**\r\n* base64エンコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str エンコード対象文字列\r\n* @return {string} エンコード後文字列\r\n*/\r\nexport function base64Encode(str){\r\n  return btoa(unescape(encodeURIComponent(str)));\r\n}\r\n\r\n/**\r\n* base64デコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str デコード対象文字列\r\n* @return {string} デコード後文字列\r\n*/\r\nexport function base64Decode(str){\r\n  return decodeURIComponent(escape(atob(str)));\r\n}\r\n",
     "static": true,
     "longname": "src/module/base64.js",
     "access": null,
@@ -1697,7 +1697,7 @@
     "__docId__": 74,
     "kind": "file",
     "name": "src/module/localstorage.js",
-    "content": "import {base64Encode,base64Decode} from './base64'\n\n/*\n* ローカルストレージのKeyのプレフィックス\n*/\nconst LOCAL_STORAGE_PREFIX = \"kyo-do.co.\";\n\n/**\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {undefined}\n*/\nexport function setToStorage(key,value){\n  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));\n}\n/**\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n*/\nexport function getFromStorage(key){\n  return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));\n}\n/**\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {undefined}\n*/\nexport function removeFromStorage(key){\n  localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);\n}\n\n/**\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n*/\nexport function existsKeyOnStorage(key){\n  return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;\n}\n",
+    "content": "import {base64Encode,base64Decode} from './base64'\r\n\r\n/*\r\n* ローカルストレージのKeyのプレフィックス\r\n*/\r\nconst LOCAL_STORAGE_PREFIX = \"kyo-do.co.\";\r\n\r\n/**\r\n* localStorageへ値をセットする\r\n* @param {string} key キー\r\n* @param {Object} value セットするオブジェクト\r\n* @return {undefined}\r\n*/\r\nexport function setToStorage(key,value){\r\n  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));\r\n}\r\n/**\r\n* localStorageから値を取得する\r\n* @param {string} key キー\r\n* @return {Object} localStorageに保存されたオブジェクト\r\n*/\r\nexport function getFromStorage(key){\r\n  return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));\r\n}\r\n/**\r\n* localStorageから値を削除する\r\n* @param {string} key キー\r\n* @return {undefined}\r\n*/\r\nexport function removeFromStorage(key){\r\n  localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);\r\n}\r\n\r\n/**\r\n* localStorage上にキーが存在するかを確認する\r\n* @param {string} key キー\r\n* @return {boolean} 存在すればTrue\r\n*/\r\nexport function existsKeyOnStorage(key){\r\n  return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;\r\n}\r\n",
     "static": true,
     "longname": "src/module/localstorage.js",
     "access": null,
@@ -1888,7 +1888,7 @@
     "__docId__": 80,
     "kind": "file",
     "name": "src/reducer/board.js",
-    "content": "import {UPDATE_MEMBER_STATUS} from '../action/board'\n\n/**\n* 行き先掲示板 reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function board(state={memberStatus:{}},action){\n  switch(action.type){\n    case(UPDATE_MEMBER_STATUS):\n      return Object.assign({},state,{memberStatus:action.payload});\n    default:\n      return state;\n  }\n}\n",
+    "content": "import {UPDATE_MEMBER_STATUS} from '../action/board'\r\n\r\n/**\r\n* 行き先掲示板 reducer\r\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\r\n* @param {Object} state 変更前のstate\r\n* @param {Object} action dispatchされたaction\r\n* @return {Object} 変更後のstate\r\n*/\r\nexport default function board(state={memberStatus:[]},action){\r\n  switch(action.type){\r\n    case(UPDATE_MEMBER_STATUS):\r\n      return Object.assign({},state,{memberStatus:action.payload});\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/reducer/board.js",
     "access": null,
@@ -1948,7 +1948,7 @@
     "__docId__": 82,
     "kind": "file",
     "name": "src/reducer/login.js",
-    "content": "import {LOGIN_STATUS} from '../const/login'\nimport {LOGIN_SUCCESS,LOGIN_FAILURE,LOGIN_REQUESTED,LOGOUT_REQUESTED} from '../action/login'\n\n/**\n* ログイン reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function login(state={status:\"NOTYET\",user:{}}, action){\n  switch(action.type){\n    case LOGIN_SUCCESS:\n      return {status:LOGIN_STATUS.SUCCESS,user:action.payload};\n    case LOGIN_FAILURE:\n      return {status:LOGIN_STATUS.FAILURE,user:{}};\n    case LOGOUT_REQUESTED:\n      return {status:LOGIN_STATUS.NOTYET,user:{}};\n    case LOGIN_REQUESTED:\n      return {status:LOGIN_STATUS.NOTYET,user:{}};\n    default:\n      return state;\n  }\n}\n",
+    "content": "import {LOGIN_STATUS} from '../const/login'\r\nimport {LOGIN_SUCCESS,LOGIN_FAILURE,LOGIN_REQUESTED,LOGOUT_REQUESTED} from '../action/login'\r\n\r\n/**\r\n* ログイン reducer\r\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\r\n* @param {Object} state 変更前のstate\r\n* @param {Object} action dispatchされたaction\r\n* @return {Object} 変更後のstate\r\n*/\r\nexport default function login(state={status:\"NOTYET\",user:{}}, action){\r\n  switch(action.type){\r\n    case LOGIN_SUCCESS:\r\n      return {status:LOGIN_STATUS.SUCCESS,user:action.payload};\r\n    case LOGIN_FAILURE:\r\n      return {status:LOGIN_STATUS.FAILURE,user:{}};\r\n    case LOGOUT_REQUESTED:\r\n      return {status:LOGIN_STATUS.NOTYET,user:{}};\r\n    case LOGIN_REQUESTED:\r\n      return {status:LOGIN_STATUS.NOTYET,user:{}};\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/reducer/login.js",
     "access": null,
@@ -2008,7 +2008,7 @@
     "__docId__": 84,
     "kind": "file",
     "name": "src/reducer/mydestination.js",
-    "content": "import {MY_DESTINATION_CHANGE} from '../action/mydestination'\n\n/**\n* 自分の行き先 reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function mydestination(state={inBusiness:false,comment:\"\"},action){\n  switch(action.type){\n    case(MY_DESTINATION_CHANGE):\n      return action.payload;\n    default:\n      return state;\n  }\n}\n",
+    "content": "import {MY_DESTINATION_CHANGE} from '../action/mydestination'\r\n\r\n/**\r\n* 自分の行き先 reducer\r\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\r\n* @param {Object} state 変更前のstate\r\n* @param {Object} action dispatchされたaction\r\n* @return {Object} 変更後のstate\r\n*/\r\nexport default function mydestination(state={inBusiness:false,comment:\"\"},action){\r\n  switch(action.type){\r\n    case(MY_DESTINATION_CHANGE):\r\n      return action.payload;\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/reducer/mydestination.js",
     "access": null,
@@ -2068,7 +2068,7 @@
     "__docId__": 86,
     "kind": "file",
     "name": "src/reducer/root.js",
-    "content": "import { combineReducers } from 'redux'\nimport login from './login';\nimport mydestination from './mydestination'\nimport board from './board'\nimport signup from './signup'\n\n/**\n* 各reducerを結合してひとまとめにしてexportする\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\n*/\nexport default combineReducers({\n  login,\n  mydestination,\n  board,\n  signup\n})\n",
+    "content": "import { combineReducers } from 'redux'\r\nimport login from './login';\r\nimport mydestination from './mydestination'\r\nimport board from './board'\r\nimport signup from './signup'\r\n\r\n/**\r\n* 各reducerを結合してひとまとめにしてexportする\r\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\r\n*/\r\nexport default combineReducers({\r\n  login,\r\n  mydestination,\r\n  board,\r\n  signup\r\n})\r\n",
     "static": true,
     "longname": "src/reducer/root.js",
     "access": null,
@@ -2079,7 +2079,7 @@
     "__docId__": 87,
     "kind": "file",
     "name": "src/reducer/signup.js",
-    "content": "import {SIGNUP_SUCCESS,SIGNUP_FAILURE} from '../action/signup'\n\n/**\n* サインアップ reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function signup(state={failure_reason:[]},action){\n  switch(action.type){\n    case(SIGNUP_SUCCESS):\n      return {failure_reason:[]};\n    case(SIGNUP_FAILURE):\n      return {failure_reason:action.payload};\n    default:\n      return state;\n  }\n}\n",
+    "content": "import {SIGNUP_SUCCESS,SIGNUP_FAILURE} from '../action/signup'\r\n\r\n/**\r\n* サインアップ reducer\r\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\r\n* @param {Object} state 変更前のstate\r\n* @param {Object} action dispatchされたaction\r\n* @return {Object} 変更後のstate\r\n*/\r\nexport default function signup(state={failure_reason:[]},action){\r\n  switch(action.type){\r\n    case(SIGNUP_SUCCESS):\r\n      return {failure_reason:[]};\r\n    case(SIGNUP_FAILURE):\r\n      return {failure_reason:action.payload};\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/reducer/signup.js",
     "access": null,
@@ -2139,7 +2139,7 @@
     "__docId__": 89,
     "kind": "file",
     "name": "src/saga/board.js",
-    "content": "import {take,put,select,takeEvery,call} from 'redux-saga/effects'\nimport {delay} from 'redux-saga'\nimport {updateMemberStatus} from '../action/board'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {LOGIN_STATUS} from '../const/login'\nimport {MY_DESTINATION_CHANGE} from '../action/mydestination'\n\n/**\n* メンバー状況をpollingする間隔(ms)\n*/\nconst STATUS_POLLING_DURATION_MS= 15000;\n\n/**\n* メンバー状況をロードするSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loadMemberStatusSaga(){\n  yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);\n  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);\n}\n\n/**\n* メンバー状況をロードするTask\n*/\nfunction* loadMemberStatusTask(){\n  //TODO ダミー実装。本来はAPIから取得\n  const me = yield select(state => state.login.user);\n  const mydestination = yield select(state => state.mydestination);\n  const memberStatus = yield getMemberStatusMock(me,mydestination);\n  yield put(updateMemberStatus(memberStatus));\n}\n\n/**\n* メンバー状況を定期的に確認するSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* watchMemberStatusSaga(){\n  while(true){\n    const loginStatus = yield select(state => state.login.status);\n    if(loginStatus == LOGIN_STATUS.SUCCESS){\n      //TODO ダミー実装。本来はAPIから取得\n      const me = yield select(state => state.login.user);\n      const mydestination = yield select(state => state.mydestination);\n      const memberStatus = yield getMemberStatusMock(me,mydestination);\n      yield put(updateMemberStatus(memberStatus));\n    }\n    yield call(delay,STATUS_POLLING_DURATION_MS);\n  }\n}\n\n/**\n* Mockデータの中からランダムでメンバー状況を返す\n* TODO 本実装完了したら削除\n* @param {Object} me 自分のユーザー情報\n* @param {Object} mydestination 自分の行き先\n* @return {Object} メンバー状況\n*/\nfunction getMemberStatusMock(me,mydestination){\n  const mockDataSet = [\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":true, \"comment\":\"\"}\n      ]}\n    ],\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"会議中\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":true, \"comment\":\"\"}\n      ]}\n    ],\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"会議中\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":false, \"comment\":\"\"}\n      ]}\n    ],\n    [\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\n        {\"name\":\"テストA\",\"inBusiness\":false,\"comment\":\"\"},\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\n      ]},\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\n        {\"name\":\"テストD\",\"inBusiness\":false, \"comment\":\"\"}\n      ]}\n    ]\n  ];\n\n  const mock = mockDataSet[Math.floor(Math.random() * mockDataSet.length)];\n  return mock.map(\n    team => Object.assign(\n      {},\n      team,\n      {members: team.members.concat(\n        {\n          \"name\":me.name,\n          \"inBusiness\":mydestination.inBusiness,\n          \"comment\":mydestination.comment\n        })\n      }\n    )\n  );\n}\n",
+    "content": "import {take,put,select,takeEvery,call} from 'redux-saga/effects'\r\nimport {delay} from 'redux-saga'\r\nimport {updateMemberStatus} from '../action/board'\r\nimport {LOGIN_SUCCESS} from '../action/login'\r\nimport {LOGIN_STATUS} from '../const/login'\r\nimport {MY_DESTINATION_CHANGE} from '../action/mydestination'\r\n\r\n/**\r\n* メンバー状況をpollingする間隔(ms)\r\n*/\r\nconst STATUS_POLLING_DURATION_MS= 15000;\r\n\r\n/**\r\n* メンバー状況をロードするSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loadMemberStatusSaga(){\r\n  yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);\r\n  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);\r\n}\r\n\r\n/**\r\n* メンバー状況をロードするTask\r\n*/\r\nfunction* loadMemberStatusTask(){\r\n  //TODO ダミー実装。本来はAPIから取得\r\n  const me = yield select(state => state.login.user);\r\n  const mydestination = yield select(state => state.mydestination);\r\n  const memberStatus = yield getMemberStatusMock(me,mydestination);\r\n  yield put(updateMemberStatus(memberStatus));\r\n}\r\n\r\n/**\r\n* メンバー状況を定期的に確認するSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* watchMemberStatusSaga(){\r\n  while(true){\r\n    const loginStatus = yield select(state => state.login.status);\r\n    if(loginStatus == LOGIN_STATUS.SUCCESS){\r\n      //TODO ダミー実装。本来はAPIから取得\r\n      const me = yield select(state => state.login.user);\r\n      const mydestination = yield select(state => state.mydestination);\r\n      const memberStatus = yield getMemberStatusMock(me,mydestination);\r\n      yield put(updateMemberStatus(memberStatus));\r\n    }\r\n    yield call(delay,STATUS_POLLING_DURATION_MS);\r\n  }\r\n}\r\n\r\n/**\r\n* Mockデータの中からランダムでメンバー状況を返す\r\n* TODO 本実装完了したら削除\r\n* @param {Object} me 自分のユーザー情報\r\n* @param {Object} mydestination 自分の行き先\r\n* @return {Object} メンバー状況\r\n*/\r\nfunction getMemberStatusMock(me,mydestination){\r\n  const mockDataSet = [\r\n    [\r\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\r\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"\"},\r\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\r\n      ]},\r\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\r\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\r\n        {\"name\":\"テストD\",\"inBusiness\":true, \"comment\":\"\"}\r\n      ]}\r\n    ],\r\n    [\r\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\r\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"会議中\"},\r\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\r\n      ]},\r\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\r\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\r\n        {\"name\":\"テストD\",\"inBusiness\":true, \"comment\":\"\"}\r\n      ]}\r\n    ],\r\n    [\r\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\r\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"会議中\"},\r\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\r\n      ]},\r\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\r\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\r\n        {\"name\":\"テストD\",\"inBusiness\":false, \"comment\":\"\"}\r\n      ]}\r\n    ],\r\n    [\r\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\r\n        {\"name\":\"テストA\",\"inBusiness\":false,\"comment\":\"\"},\r\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\r\n      ]},\r\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\r\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\r\n        {\"name\":\"テストD\",\"inBusiness\":false, \"comment\":\"\"}\r\n      ]}\r\n    ]\r\n  ];\r\n\r\n  const mock = mockDataSet[Math.floor(Math.random() * mockDataSet.length)];\r\n  return mock.map(\r\n    team => Object.assign(\r\n      {},\r\n      team,\r\n      {members: team.members.concat(\r\n        {\r\n          \"name\":me.name,\r\n          \"inBusiness\":mydestination.inBusiness,\r\n          \"comment\":mydestination.comment\r\n        })\r\n      }\r\n    )\r\n  );\r\n}\r\n",
     "static": true,
     "longname": "src/saga/board.js",
     "access": null,
@@ -2272,7 +2272,7 @@
     "__docId__": 95,
     "kind": "file",
     "name": "src/saga/login.js",
-    "content": "import {take,put,takeEvery} from 'redux-saga/effects'\nimport {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'\nimport {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'\n\n//MOCK用\n//TODO 実装終わったら消す\nimport {MOCK_MEMBER_REPO_KEY} from '../const/signup'\n\n/**\n* rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey\n*/\nconst REMEMBER_ME_STORAGE_KEY = \"rememberme\";\n\n/**\n* login要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginSaga(){\n  /*\n  * LOGIN_REQUESTED(ログイン要求)アクションを常に待ち続け、\n  * dispatchされたらloginTaskにactionを渡して実行する\n  */\n  yield takeEvery(LOGIN_REQUESTED,loginTask);\n}\n/**\n* APIに対してID/Passを問い合わせて、\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\n*/\nfunction* loginTask(action){\n  //rememberme\n  setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});\n\n  /*\n  * TODO ダミーロジック。実際にはAPIにアクセスしてログイン成否をハンドリングする必要あり。\n  * ここではMockに登録されたユーザーでログイン可能とする\n  */\n  const mockRepo = yield getFromStorage(MOCK_MEMBER_REPO_KEY);\n  if(!mockRepo){\n    //ユーザーが１人もいない\n    //LOGIN_FAILUREアクションをput(dispatch)\n    yield put(loginFailure());\n  }else{\n    const targetUserArray = mockRepo.filter(u => u.id == action.payload.id);\n    if(targetUserArray.length == 0){\n      //IDに紐づくユーザーがいない\n      //LOGIN_FAILUREアクションをput(dispatch)\n      yield put(loginFailure());\n    }else{\n      const targetUser = targetUserArray[0];\n      if(targetUser.password == action.payload.pass){\n        //ログイン成功\n        //LOGIN_SUCCESSアクションをput(dispatch)\n        yield put(loginSuccess({userid:targetUser.id,name:targetUser.name,token:\"dummy\"}));\n      }else{\n        //パスワードが一致しない\n        //LOGIN_FAILUREアクションをput(dispatch)\n        yield put(loginFailure());\n      }\n    }\n  }\n}\n/**\n* logout要求を受けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* logoutSaga(){\n  yield takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask);\n}\n\n/**\n* ログインに失敗したときのクリーンアップを行うSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFailureSaga(){\n  yield takeEvery(LOGIN_FAILURE,cleanRememberMeTask);\n}\n/**\n* localStorageに保存されているrememberme情報をクリアするTask\n*/\nfunction* cleanRememberMeTask(){\n  yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);\n}\n\n/**\n* localStorageに保存されているID/PassからログインするSaga\n* アプリを起動して(ブラウザアクセスして)1回だけ実行される\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFromRememberMeSaga(){\n  const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);\n  if(remembermeSaved){\n    const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);\n    yield put(loginRequested(rememberme.id,rememberme.pass));\n  }\n}\n",
+    "content": "import {take,put,call,takeEvery} from 'redux-saga/effects'\r\nimport {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'\r\nimport {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'\r\nimport axios from \"axios\";\r\n\r\n//MOCK用\r\n//TODO 実装終わったら消す\r\nimport {MOCK_MEMBER_REPO_KEY} from '../const/signup'\r\n\r\n/**\r\n* rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey\r\n*/\r\nconst REMEMBER_ME_STORAGE_KEY = \"rememberme\";\r\n\r\n/**\r\n* login要求を受け付けるSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loginSaga(){\r\n  /*\r\n  * LOGIN_REQUESTED(ログイン要求)アクションを常に待ち続け、\r\n  * dispatchされたらloginTaskにactionを渡して実行する\r\n  */\r\n  yield takeEvery(LOGIN_REQUESTED,loginTask);\r\n}\r\n/**\r\n* APIに対してID/Passを問い合わせて、\r\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\r\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\r\n*/\r\nfunction* loginTask(action){\r\n  //rememberme\r\n  setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});\r\n\r\n  //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない\r\n  try{\r\n    const result = yield call(axios.post,\"https://api.kyo-do.co/auth\",{\r\n      userid:action.payload.id,\r\n      password:action.payload.pass\r\n    });\r\n\r\n    const token = result.data.token;\r\n    yield put(loginSuccess({userid:action.payload.id,name:action.payload.id,token:token}));\r\n  }catch(e){\r\n    yield put(loginFailure());\r\n  }\r\n}\r\n/**\r\n* logout要求を受けるSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* logoutSaga(){\r\n  yield takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask);\r\n}\r\n\r\n/**\r\n* ログインに失敗したときのクリーンアップを行うSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loginFailureSaga(){\r\n  yield takeEvery(LOGIN_FAILURE,cleanRememberMeTask);\r\n}\r\n/**\r\n* localStorageに保存されているrememberme情報をクリアするTask\r\n*/\r\nfunction* cleanRememberMeTask(){\r\n  yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);\r\n}\r\n\r\n/**\r\n* localStorageに保存されているID/PassからログインするSaga\r\n* アプリを起動して(ブラウザアクセスして)1回だけ実行される\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loginFromRememberMeSaga(){\r\n  const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);\r\n  if(remembermeSaved){\r\n    const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);\r\n    yield put(loginRequested(rememberme.id,rememberme.pass));\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/saga/login.js",
     "access": null,
@@ -2291,7 +2291,7 @@
     "importPath": "kyo-do.co-ui/src/saga/login.js",
     "importStyle": null,
     "description": "rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey",
-    "lineNumber": 12,
+    "lineNumber": 13,
     "type": {
       "types": [
         "string"
@@ -2315,7 +2315,7 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 18,
+    "lineNumber": 19,
     "params": []
   },
   {
@@ -2332,7 +2332,7 @@
     "importPath": "kyo-do.co-ui/src/saga/login.js",
     "importStyle": null,
     "description": "APIに対してID/Passを問い合わせて、\n成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する",
-    "lineNumber": 30,
+    "lineNumber": 31,
     "params": [
       {
         "nullable": null,
@@ -2363,7 +2363,7 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 67,
+    "lineNumber": 52,
     "params": []
   },
   {
@@ -2383,7 +2383,7 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 75,
+    "lineNumber": 60,
     "params": []
   },
   {
@@ -2400,7 +2400,7 @@
     "importPath": "kyo-do.co-ui/src/saga/login.js",
     "importStyle": null,
     "description": "localStorageに保存されているrememberme情報をクリアするTask",
-    "lineNumber": 81,
+    "lineNumber": 66,
     "params": []
   },
   {
@@ -2420,14 +2420,14 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 90,
+    "lineNumber": 75,
     "params": []
   },
   {
     "__docId__": 103,
     "kind": "file",
     "name": "src/saga/mydestination.js",
-    "content": "import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'\nimport {delay} from 'redux-saga'\nimport {MY_DESTINATION_CHANGE,myDestinationChange} from '../action/mydestination'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\n\n/**\n* localStorageに行き先を保管する際のKey\n*/\nconst STORAGE_KEY_DESTINATION = \"my_destination.\";\n/**\n* 行き先を入力してからサーバ同期するまでの遅延時間\n*/\nconst SYNC_DELAY_MS = 1000;\n\n/**\n* ログインが成功した際にログインユーザーの行き先をロードするSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loadDestinationSaga(){\n    yield takeEvery(LOGIN_SUCCESS,loadDestinationTask);\n}\n\n/**\n* ログインユーザーの行き先をロードするtask\n* @param {object} action LOGIN_SUCCESSアクション\n*/\nfunction* loadDestinationTask(action){\n    const saved = yield existsKeyOnStorage(STORAGE_KEY_DESTINATION + action.payload.userid);\n    if(saved){\n      const savedDestination = yield getFromStorage(STORAGE_KEY_DESTINATION + action.payload.userid);\n      yield put(myDestinationChange(savedDestination));\n    }\n\n    /**\n    * TODO APIを呼び出してサーバ上に保存されている行き先を取得する\n    */\n\n}\n/**\n* 行き先変更アクションを受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* changeDestinationSaga(){\n  yield takeLatest(MY_DESTINATION_CHANGE,changeDestinationTask);\n}\n\n/**\n* 行き先変更アクションを受け付けた際のTask\n* @param {Object} action MY_DESTINATION_CHANGEアクション\n*/\nfunction* changeDestinationTask(action){\n  yield call(delay,SYNC_DELAY_MS);\n  const logonUser = yield select(state => state.login.user);\n\n  //とりあえずlocalStorageに保存する\n  setToStorage(STORAGE_KEY_DESTINATION + logonUser.userid, action.payload);\n\n  /**\n  * TODO APIを呼び出してサーバ上に保存\n  */\n\n}\n",
+    "content": "import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'\r\nimport {delay} from 'redux-saga'\r\nimport {MY_DESTINATION_CHANGE,myDestinationChange} from '../action/mydestination'\r\nimport {LOGIN_SUCCESS} from '../action/login'\r\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\r\n\r\n/**\r\n* localStorageに行き先を保管する際のKey\r\n*/\r\nconst STORAGE_KEY_DESTINATION = \"my_destination.\";\r\n/**\r\n* 行き先を入力してからサーバ同期するまでの遅延時間\r\n*/\r\nconst SYNC_DELAY_MS = 1000;\r\n\r\n/**\r\n* ログインが成功した際にログインユーザーの行き先をロードするSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loadDestinationSaga(){\r\n    yield takeEvery(LOGIN_SUCCESS,loadDestinationTask);\r\n}\r\n\r\n/**\r\n* ログインユーザーの行き先をロードするtask\r\n* @param {object} action LOGIN_SUCCESSアクション\r\n*/\r\nfunction* loadDestinationTask(action){\r\n    const saved = yield existsKeyOnStorage(STORAGE_KEY_DESTINATION + action.payload.userid);\r\n    if(saved){\r\n      const savedDestination = yield getFromStorage(STORAGE_KEY_DESTINATION + action.payload.userid);\r\n      yield put(myDestinationChange(savedDestination));\r\n    }\r\n\r\n    /**\r\n    * TODO APIを呼び出してサーバ上に保存されている行き先を取得する\r\n    */\r\n\r\n}\r\n/**\r\n* 行き先変更アクションを受け付けるSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* changeDestinationSaga(){\r\n  yield takeLatest(MY_DESTINATION_CHANGE,changeDestinationTask);\r\n}\r\n\r\n/**\r\n* 行き先変更アクションを受け付けた際のTask\r\n* @param {Object} action MY_DESTINATION_CHANGEアクション\r\n*/\r\nfunction* changeDestinationTask(action){\r\n  yield call(delay,SYNC_DELAY_MS);\r\n  const logonUser = yield select(state => state.login.user);\r\n\r\n  //とりあえずlocalStorageに保存する\r\n  setToStorage(STORAGE_KEY_DESTINATION + logonUser.userid, action.payload);\r\n\r\n  /**\r\n  * TODO APIを呼び出してサーバ上に保存\r\n  */\r\n\r\n}\r\n",
     "static": true,
     "longname": "src/saga/mydestination.js",
     "access": null,
@@ -2572,7 +2572,7 @@
     "__docId__": 110,
     "kind": "file",
     "name": "src/saga/root.js",
-    "content": "import {fork} from 'redux-saga/effects'\nimport {loginSaga,logoutSaga,loginFailureSaga,loginFromRememberMeSaga} from './login'\nimport {signupSaga} from './signup'\nimport {loadDestinationSaga,changeDestinationSaga} from './mydestination'\nimport {loadMemberStatusSaga,watchMemberStatusSaga} from './board'\n\n/**\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport default function* rootSaga(){\n  yield fork(loginSaga);\n  yield fork(signupSaga);\n  yield fork(logoutSaga);\n  yield fork(loginFailureSaga);\n  yield fork(loginFromRememberMeSaga);\n  yield fork(loadDestinationSaga);\n  yield fork(changeDestinationSaga);\n  yield fork(loadMemberStatusSaga);\n  yield fork(watchMemberStatusSaga);\n}\n",
+    "content": "import {fork} from 'redux-saga/effects'\r\nimport {loginSaga,logoutSaga,loginFailureSaga,loginFromRememberMeSaga} from './login'\r\nimport {signupSaga} from './signup'\r\nimport {loadDestinationSaga,changeDestinationSaga} from './mydestination'\r\nimport {loadMemberStatusSaga,watchMemberStatusSaga} from './board'\r\n\r\n/**\r\n* Sagaの起点ポイント。ここから各Sagaをforkする\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport default function* rootSaga(){\r\n  yield fork(loginSaga);\r\n  yield fork(signupSaga);\r\n  yield fork(logoutSaga);\r\n  yield fork(loginFailureSaga);\r\n  yield fork(loginFromRememberMeSaga);\r\n  yield fork(loadDestinationSaga);\r\n  yield fork(changeDestinationSaga);\r\n  yield fork(loadMemberStatusSaga);\r\n  yield fork(watchMemberStatusSaga);\r\n}\r\n",
     "static": true,
     "longname": "src/saga/root.js",
     "access": null,
@@ -2603,7 +2603,7 @@
     "__docId__": 112,
     "kind": "file",
     "name": "src/saga/signup.js",
-    "content": "import {put,call,takeEvery} from 'redux-saga/effects'\nimport {SIGNUP_REQUIRED,signupSucceess,signupFailure} from '../action/signup'\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\nimport {loginRequested} from '../action/login'\n\n//MOCK用\n//TODO 実装終わったら消す\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport {MOCK_MEMBER_REPO_KEY} from '../const/signup'\n\n/**\n* サインアップ要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* signupSaga(){\n    yield takeEvery(SIGNUP_REQUIRED,signupTask);\n}\n\n/**\n* サインアップ要求を処理するタスク\n* @param {Object} action SIGNUP_REQUIREDアクション\n*/\nfunction* signupTask(action){\n\n  //MOCK\n  //本来はAPIを叩いて確認する\n  //TODO 本実装\n  const idDuplicated = isIDDuplicate(action.payload.id);\n  if(idDuplicated){\n    yield put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED]));\n  }else{\n    try{\n      //MOCK\n      //本来はAPIを叩いて登録する\n      //TODO 本実装\n      yield registerUser(action.payload);\n      yield put(signupSucceess());\n      yield put(loginRequested(action.payload.id,action.payload.password));\n    }catch(e){\n      yield put(SIGNUP_FAILURE[SIGNUP_FAILURE_REASONS.SERVER_ERROR]);\n    }\n  }\n}\n\n//以下の関数はMOCK用\n//TODO 実装終わったら消す\n\n/**\n* IDが重複しているかどうか確認する\n* @param {string} id 確認するID\n* @return {boolean} 重複していればTrue\n*/\nfunction isIDDuplicate(id){\n  if(!existsKeyOnStorage(MOCK_MEMBER_REPO_KEY)){\n    return false;\n  }else{\n    const repo = getFromStorage(MOCK_MEMBER_REPO_KEY);\n    return repo.filter(m => m.id == id).length > 0;\n  }\n}\n/**\n* ユーザーをMOCKレポジトリに登録する\n* @param {{id:string,password:string,name:string}} userinfo 登録を要求するユーザー情報\n* @return {undefined}\n*/\nfunction registerUser(userinfo){\n  if(!existsKeyOnStorage(MOCK_MEMBER_REPO_KEY)){\n    setToStorage(MOCK_MEMBER_REPO_KEY,[userinfo]);\n  }else{\n    const repo = getFromStorage(MOCK_MEMBER_REPO_KEY);\n    setToStorage(MOCK_MEMBER_REPO_KEY, repo.concat([userinfo]));\n  }\n}\n",
+    "content": "import {put,call,takeEvery} from 'redux-saga/effects'\r\nimport {SIGNUP_REQUIRED,signupSucceess,signupFailure} from '../action/signup'\r\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\r\nimport {loginRequested} from '../action/login'\r\nimport axios from \"axios\";\r\n\r\n//MOCK用\r\n//TODO 実装終わったら消す\r\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\r\nimport {MOCK_MEMBER_REPO_KEY} from '../const/signup'\r\n\r\n/**\r\n* サインアップ要求を受け付けるSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* signupSaga(){\r\n    yield takeEvery(SIGNUP_REQUIRED,signupTask);\r\n}\r\n\r\n/**\r\n* サインアップ要求を処理するタスク\r\n* @param {Object} action SIGNUP_REQUIREDアクション\r\n*/\r\nfunction* signupTask(action){\r\n  try{\r\n    const result = yield call(axios.post,\"https://api.kyo-do.co/user\",{\r\n      userid:action.payload.id,\r\n      password:action.payload.password,\r\n      name:action.payload.name});\r\n\r\n    yield put(signupSucceess());\r\n    yield put(loginRequested(action.payload.id,action.payload.password));\r\n  }catch(e){\r\n    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい\r\n    yield put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED]));\r\n  }\r\n}\r\n",
     "static": true,
     "longname": "src/saga/signup.js",
     "access": null,
@@ -2627,7 +2627,7 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 15,
+    "lineNumber": 16,
     "params": []
   },
   {
@@ -2644,7 +2644,7 @@
     "importPath": "kyo-do.co-ui/src/saga/signup.js",
     "importStyle": null,
     "description": "サインアップ要求を処理するタスク",
-    "lineNumber": 23,
+    "lineNumber": 24,
     "params": [
       {
         "nullable": null,
@@ -2660,81 +2660,9 @@
   },
   {
     "__docId__": 115,
-    "kind": "function",
-    "name": "isIDDuplicate",
-    "memberof": "src/saga/signup.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/saga/signup.js~isIDDuplicate",
-    "access": null,
-    "export": false,
-    "importPath": "kyo-do.co-ui/src/saga/signup.js",
-    "importStyle": null,
-    "description": "IDが重複しているかどうか確認する",
-    "lineNumber": 53,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "string"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "id",
-        "description": "確認するID"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "boolean"
-      ],
-      "spread": false,
-      "description": "重複していればTrue"
-    }
-  },
-  {
-    "__docId__": 116,
-    "kind": "function",
-    "name": "registerUser",
-    "memberof": "src/saga/signup.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/saga/signup.js~registerUser",
-    "access": null,
-    "export": false,
-    "importPath": "kyo-do.co-ui/src/saga/signup.js",
-    "importStyle": null,
-    "description": "ユーザーをMOCKレポジトリに登録する",
-    "lineNumber": 66,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "{id:string,password:string,name:string}"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "userinfo",
-        "description": "登録を要求するユーザー情報"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "undefined"
-      ],
-      "spread": false,
-      "description": ""
-    }
-  },
-  {
-    "__docId__": 117,
     "kind": "file",
     "name": "src/store/store.js",
-    "content": "import { createStore, applyMiddleware } from 'redux'\nimport createSagaMiddleware from 'redux-saga'\nimport logger from 'redux-logger'\nimport rootReducer from '../reducer/root'\nimport rootSaga from '../saga/root'\nimport {LOGIN_STATUS} from '../const/login'\n\n\n/**\n* reduxのstoreのセットアップ。redux-saga対応。\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function configureStore() {\n  const sagaMiddleware = createSagaMiddleware();\n  const store = createStore(\n    rootReducer,\n    {\n      login:{status:LOGIN_STATUS.NOTYET, user:{}},\n      mydestination:{inBusiness:false,comment:\"\"},\n      board:{memberStatus:{}}\n    },\n    applyMiddleware(\n      sagaMiddleware, logger()\n    )\n  );\n  sagaMiddleware.run(rootSaga);\n  return store;\n};\n",
+    "content": "import { createStore, applyMiddleware } from 'redux'\r\nimport createSagaMiddleware from 'redux-saga'\r\nimport logger from 'redux-logger'\r\nimport rootReducer from '../reducer/root'\r\nimport rootSaga from '../saga/root'\r\nimport {LOGIN_STATUS} from '../const/login'\r\n\r\n\r\n/**\r\n* reduxのstoreのセットアップ。redux-saga対応。\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function configureStore() {\r\n  const sagaMiddleware = createSagaMiddleware();\r\n  const store = createStore(\r\n    rootReducer,\r\n    {\r\n      login:{status:LOGIN_STATUS.NOTYET, user:{}},\r\n      mydestination:{inBusiness:false,comment:\"\"},\r\n      board:{memberStatus:[]}\r\n    },\r\n    applyMiddleware(\r\n      sagaMiddleware, logger()\r\n    )\r\n  );\r\n  sagaMiddleware.run(rootSaga);\r\n  return store;\r\n};\r\n",
     "static": true,
     "longname": "src/store/store.js",
     "access": null,
@@ -2742,7 +2670,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 118,
+    "__docId__": 116,
     "kind": "function",
     "name": "configureStore",
     "memberof": "src/store/store.js",
@@ -2767,7 +2695,7 @@
     }
   },
   {
-    "__docId__": 120,
+    "__docId__": 118,
     "kind": "external",
     "name": "Infinity",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
@@ -2779,7 +2707,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 121,
+    "__docId__": 119,
     "kind": "external",
     "name": "NaN",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
@@ -2791,7 +2719,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 122,
+    "__docId__": 120,
     "kind": "external",
     "name": "undefined",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
@@ -2803,7 +2731,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 123,
+    "__docId__": 121,
     "kind": "external",
     "name": "null",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
@@ -2815,7 +2743,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 124,
+    "__docId__": 122,
     "kind": "external",
     "name": "Object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -2827,7 +2755,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 125,
+    "__docId__": 123,
     "kind": "external",
     "name": "object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -2839,7 +2767,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 126,
+    "__docId__": 124,
     "kind": "external",
     "name": "Function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -2851,7 +2779,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 127,
+    "__docId__": 125,
     "kind": "external",
     "name": "function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -2863,7 +2791,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 128,
+    "__docId__": 126,
     "kind": "external",
     "name": "Boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -2875,7 +2803,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 129,
+    "__docId__": 127,
     "kind": "external",
     "name": "boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -2887,7 +2815,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 130,
+    "__docId__": 128,
     "kind": "external",
     "name": "Symbol",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
@@ -2899,7 +2827,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 131,
+    "__docId__": 129,
     "kind": "external",
     "name": "Error",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
@@ -2911,7 +2839,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 132,
+    "__docId__": 130,
     "kind": "external",
     "name": "EvalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
@@ -2923,7 +2851,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 133,
+    "__docId__": 131,
     "kind": "external",
     "name": "InternalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
@@ -2935,7 +2863,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 134,
+    "__docId__": 132,
     "kind": "external",
     "name": "RangeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
@@ -2947,7 +2875,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 135,
+    "__docId__": 133,
     "kind": "external",
     "name": "ReferenceError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
@@ -2959,7 +2887,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 136,
+    "__docId__": 134,
     "kind": "external",
     "name": "SyntaxError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
@@ -2971,7 +2899,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 137,
+    "__docId__": 135,
     "kind": "external",
     "name": "TypeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
@@ -2983,7 +2911,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 138,
+    "__docId__": 136,
     "kind": "external",
     "name": "URIError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
@@ -2995,7 +2923,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 139,
+    "__docId__": 137,
     "kind": "external",
     "name": "Number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -3007,7 +2935,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 140,
+    "__docId__": 138,
     "kind": "external",
     "name": "number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -3019,7 +2947,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 141,
+    "__docId__": 139,
     "kind": "external",
     "name": "Date",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
@@ -3031,7 +2959,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 142,
+    "__docId__": 140,
     "kind": "external",
     "name": "String",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -3043,7 +2971,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 143,
+    "__docId__": 141,
     "kind": "external",
     "name": "string",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -3055,7 +2983,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 144,
+    "__docId__": 142,
     "kind": "external",
     "name": "RegExp",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
@@ -3067,7 +2995,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 145,
+    "__docId__": 143,
     "kind": "external",
     "name": "Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
@@ -3079,7 +3007,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 146,
+    "__docId__": 144,
     "kind": "external",
     "name": "Int8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
@@ -3091,7 +3019,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 147,
+    "__docId__": 145,
     "kind": "external",
     "name": "Uint8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
@@ -3103,7 +3031,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 148,
+    "__docId__": 146,
     "kind": "external",
     "name": "Uint8ClampedArray",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
@@ -3115,7 +3043,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 149,
+    "__docId__": 147,
     "kind": "external",
     "name": "Int16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
@@ -3127,7 +3055,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 150,
+    "__docId__": 148,
     "kind": "external",
     "name": "Uint16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
@@ -3139,7 +3067,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 151,
+    "__docId__": 149,
     "kind": "external",
     "name": "Int32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
@@ -3151,7 +3079,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 152,
+    "__docId__": 150,
     "kind": "external",
     "name": "Uint32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
@@ -3163,7 +3091,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 153,
+    "__docId__": 151,
     "kind": "external",
     "name": "Float32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
@@ -3175,7 +3103,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 154,
+    "__docId__": 152,
     "kind": "external",
     "name": "Float64Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
@@ -3187,7 +3115,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 155,
+    "__docId__": 153,
     "kind": "external",
     "name": "Map",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
@@ -3199,7 +3127,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 156,
+    "__docId__": 154,
     "kind": "external",
     "name": "Set",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
@@ -3211,7 +3139,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 157,
+    "__docId__": 155,
     "kind": "external",
     "name": "WeakMap",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
@@ -3223,7 +3151,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 158,
+    "__docId__": 156,
     "kind": "external",
     "name": "WeakSet",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
@@ -3235,7 +3163,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 159,
+    "__docId__": 157,
     "kind": "external",
     "name": "ArrayBuffer",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
@@ -3247,7 +3175,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 160,
+    "__docId__": 158,
     "kind": "external",
     "name": "DataView",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
@@ -3259,7 +3187,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 161,
+    "__docId__": 159,
     "kind": "external",
     "name": "JSON",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
@@ -3271,7 +3199,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 162,
+    "__docId__": 160,
     "kind": "external",
     "name": "Promise",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
@@ -3283,7 +3211,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 163,
+    "__docId__": 161,
     "kind": "external",
     "name": "Generator",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
@@ -3295,7 +3223,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 164,
+    "__docId__": 162,
     "kind": "external",
     "name": "GeneratorFunction",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
@@ -3307,7 +3235,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 165,
+    "__docId__": 163,
     "kind": "external",
     "name": "Reflect",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
@@ -3319,7 +3247,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 166,
+    "__docId__": 164,
     "kind": "external",
     "name": "Proxy",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
@@ -3332,7 +3260,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 168,
+    "__docId__": 166,
     "kind": "external",
     "name": "CanvasRenderingContext2D",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
@@ -3344,7 +3272,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 169,
+    "__docId__": 167,
     "kind": "external",
     "name": "DocumentFragment",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
@@ -3356,7 +3284,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 170,
+    "__docId__": 168,
     "kind": "external",
     "name": "Element",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
@@ -3368,7 +3296,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 171,
+    "__docId__": 169,
     "kind": "external",
     "name": "Event",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
@@ -3380,7 +3308,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 172,
+    "__docId__": 170,
     "kind": "external",
     "name": "Node",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
@@ -3392,7 +3320,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 173,
+    "__docId__": 171,
     "kind": "external",
     "name": "NodeList",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
@@ -3404,7 +3332,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 174,
+    "__docId__": 172,
     "kind": "external",
     "name": "XMLHttpRequest",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
@@ -3416,7 +3344,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 175,
+    "__docId__": 173,
     "kind": "external",
     "name": "AudioContext",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",

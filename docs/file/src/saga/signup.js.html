@@ -88,6 +88,7 @@
 import {SIGNUP_REQUIRED,signupSucceess,signupFailure} from &apos;../action/signup&apos;
 import {SIGNUP_FAILURE_REASONS} from &apos;../const/signup&apos;
 import {loginRequested} from &apos;../action/login&apos;
+import axios from &quot;axios&quot;;
 
 //MOCK&#x7528;
 //TODO &#x5B9F;&#x88C5;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x6D88;&#x3059;
@@ -107,54 +108,17 @@ export function* signupSaga(){
 * @param {Object} action SIGNUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
 function* signupTask(action){
+  try{
+    const result = yield call(axios.post,&quot;https://api.kyo-do.co/user&quot;,{
+      userid:action.payload.id,
+      password:action.payload.password,
+      name:action.payload.name});
 
-  //MOCK
-  //&#x672C;&#x6765;&#x306F;API&#x3092;&#x53E9;&#x3044;&#x3066;&#x78BA;&#x8A8D;&#x3059;&#x308B;
-  //TODO &#x672C;&#x5B9F;&#x88C5;
-  const idDuplicated = isIDDuplicate(action.payload.id);
-  if(idDuplicated){
+    yield put(signupSucceess());
+    yield put(loginRequested(action.payload.id,action.payload.password));
+  }catch(e){
+    //XXX&#x3000;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x8D77;&#x304D;&#x308C;&#x3070;ID&#x91CD;&#x8907;&#x3068;&#x5224;&#x65AD;&#x3057;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;&#x30B5;&#x30FC;&#x30D0;&#x30A8;&#x30E9;&#x30FC;&#x3068;&#x533A;&#x5225;&#x3057;&#x305F;&#x3044;
     yield put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED]));
-  }else{
-    try{
-      //MOCK
-      //&#x672C;&#x6765;&#x306F;API&#x3092;&#x53E9;&#x3044;&#x3066;&#x767B;&#x9332;&#x3059;&#x308B;
-      //TODO &#x672C;&#x5B9F;&#x88C5;
-      yield registerUser(action.payload);
-      yield put(signupSucceess());
-      yield put(loginRequested(action.payload.id,action.payload.password));
-    }catch(e){
-      yield put(SIGNUP_FAILURE[SIGNUP_FAILURE_REASONS.SERVER_ERROR]);
-    }
-  }
-}
-
-//&#x4EE5;&#x4E0B;&#x306E;&#x95A2;&#x6570;&#x306F;MOCK&#x7528;
-//TODO &#x5B9F;&#x88C5;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x6D88;&#x3059;
-
-/**
-* ID&#x304C;&#x91CD;&#x8907;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x78BA;&#x8A8D;&#x3059;&#x308B;
-* @param {string} id &#x78BA;&#x8A8D;&#x3059;&#x308B;ID
-* @return {boolean} &#x91CD;&#x8907;&#x3057;&#x3066;&#x3044;&#x308C;&#x3070;True
-*/
-function isIDDuplicate(id){
-  if(!existsKeyOnStorage(MOCK_MEMBER_REPO_KEY)){
-    return false;
-  }else{
-    const repo = getFromStorage(MOCK_MEMBER_REPO_KEY);
-    return repo.filter(m =&gt; m.id == id).length &gt; 0;
-  }
-}
-/**
-* &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3092;MOCK&#x30EC;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x306B;&#x767B;&#x9332;&#x3059;&#x308B;
-* @param {{id:string,password:string,name:string}} userinfo &#x767B;&#x9332;&#x3092;&#x8981;&#x6C42;&#x3059;&#x308B;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;
-* @return {undefined}
-*/
-function registerUser(userinfo){
-  if(!existsKeyOnStorage(MOCK_MEMBER_REPO_KEY)){
-    setToStorage(MOCK_MEMBER_REPO_KEY,[userinfo]);
-  }else{
-    const repo = getFromStorage(MOCK_MEMBER_REPO_KEY);
-    setToStorage(MOCK_MEMBER_REPO_KEY, repo.concat([userinfo]));
   }
 }
 </code></pre>

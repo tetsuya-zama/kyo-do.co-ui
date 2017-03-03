@@ -93,7 +93,7 @@
 * @param {Object} action dispatch&#x3055;&#x308C;&#x305F;action
 * @return {Object} &#x5909;&#x66F4;&#x5F8C;&#x306E;state
 */
-export default function board(state={memberStatus:{}},action){
+export default function board(state={memberStatus:[]},action){
   switch(action.type){
     case(UPDATE_MEMBER_STATUS):
       return Object.assign({},state,{memberStatus:action.payload});

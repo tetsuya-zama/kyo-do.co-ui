@@ -84,9 +84,10 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/saga/login.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {take,put,takeEvery} from &apos;redux-saga/effects&apos;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {take,put,call,takeEvery} from &apos;redux-saga/effects&apos;
 import {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from &apos;../action/login&apos;
 import {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from &apos;../module/localstorage&apos;
+import axios from &quot;axios&quot;;
 
 //MOCK&#x7528;
 //TODO &#x5B9F;&#x88C5;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x6D88;&#x3059;
@@ -117,33 +118,17 @@ function* loginTask(action){
   //rememberme
   setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
 
-  /*
-  * TODO &#x30C0;&#x30DF;&#x30FC;&#x30ED;&#x30B8;&#x30C3;&#x30AF;&#x3002;&#x5B9F;&#x969B;&#x306B;&#x306F;API&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x3066;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x6210;&#x5426;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x3042;&#x308A;&#x3002;
-  * &#x3053;&#x3053;&#x3067;&#x306F;Mock&#x306B;&#x767B;&#x9332;&#x3055;&#x308C;&#x305F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3067;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x53EF;&#x80FD;&#x3068;&#x3059;&#x308B;
-  */
-  const mockRepo = yield getFromStorage(MOCK_MEMBER_REPO_KEY);
-  if(!mockRepo){
-    //&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#xFF11;&#x4EBA;&#x3082;&#x3044;&#x306A;&#x3044;
-    //LOGIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)
+  //XXX &#x73FE;&#x5728;&#x306E;&#x5B9F;&#x88C5;&#x3067;&#x306F;&#x30B5;&#x30FC;&#x30D0;&#x30A8;&#x30E9;&#x30FC;&#x306A;&#x306E;&#x304B;ID/Pass&#x304C;&#x9593;&#x9055;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x5224;&#x65AD;&#x304C;&#x3064;&#x304B;&#x306A;&#x3044;
+  try{
+    const result = yield call(axios.post,&quot;https://api.kyo-do.co/auth&quot;,{
+      userid:action.payload.id,
+      password:action.payload.pass
+    });
+
+    const token = result.data.token;
+    yield put(loginSuccess({userid:action.payload.id,name:action.payload.id,token:token}));
+  }catch(e){
     yield put(loginFailure());
-  }else{
-    const targetUserArray = mockRepo.filter(u =&gt; u.id == action.payload.id);
-    if(targetUserArray.length == 0){
-      //ID&#x306B;&#x7D10;&#x3065;&#x304F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x3044;&#x306A;&#x3044;
-      //LOGIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)
-      yield put(loginFailure());
-    }else{
-      const targetUser = targetUserArray[0];
-      if(targetUser.password == action.payload.pass){
-        //&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x6210;&#x529F;
-        //LOGIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)
-        yield put(loginSuccess({userid:targetUser.id,name:targetUser.name,token:&quot;dummy&quot;}));
-      }else{
-        //&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x304C;&#x4E00;&#x81F4;&#x3057;&#x306A;&#x3044;
-        //LOGIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)
-        yield put(loginFailure());
-      }
-    }
   }
 }
 /**
