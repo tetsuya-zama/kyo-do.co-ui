@@ -33,8 +33,8 @@ export default class Header extends React.Component{
     const logoutButton = this.props.login.status == LOGIN_STATUS.SUCCESS ?
       <button onClick={this.hundleClick}>logout</button> :
       null
-    return(
-      <div>キョウ-ドコ？&nbsp;{logoutButton}</div>
+    return (
+      <div>キョウ-ドコ？&nbsp;{this.props.login.user.name}&nbsp;{logoutButton}</div>
     )
   }
 }
