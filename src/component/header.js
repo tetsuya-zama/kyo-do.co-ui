@@ -3,6 +3,7 @@ import {LOGIN_STATUS} from '../const/login'
 import {logoutRequested} from '../action/login'
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
+import RaisedButton from 'material-ui/RaisedButton';
 
 /**
 * Headerコンポーネント
@@ -34,7 +35,7 @@ export default class Header extends React.Component{
   render(){
     //ログインしていればログアウトボタンを表示する
     const logoutButton = this.props.login.status == LOGIN_STATUS.SUCCESS ?
-      <button onClick={this.hundleClick}>logout</button> :
+      <RaisedButton label="logout" secondary={true} onClick={this.hundleClick} />:
       null
     // アバターの表示
     const chip = this.props.login.status == LOGIN_STATUS.SUCCESS ?
@@ -42,7 +43,7 @@ export default class Header extends React.Component{
       null
 
     return (
-      <div>キョウ-ドコ？&nbsp;{chip}&nbsp;{logoutButton}</div>
+      <div><img src={"./img/logo.png"} />&nbsp;{chip}&nbsp;{logoutButton}</div>
     )
   }
 }

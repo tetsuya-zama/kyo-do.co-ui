@@ -833,7 +833,7 @@
     "__docId__": 35,
     "kind": "file",
     "name": "src/component/header.js",
-    "content": "import React from 'react'\nimport {LOGIN_STATUS} from '../const/login'\nimport {logoutRequested} from '../action/login'\n/**\n* Headerコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class Header extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleClick = this.hundleClick.bind(this);\n  }\n  /**\n  * ログアウトボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleClick(){\n      this.props.dispatch(logoutRequested());\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //ログインしていればログアウトボタンを表示する\n    const logoutButton = this.props.login.status == LOGIN_STATUS.SUCCESS ?\n      <button onClick={this.hundleClick}>logout</button> :\n      null\n    return(\n      <div>キョウ-ドコ？&nbsp;{logoutButton}</div>\n    )\n  }\n}\n",
+    "content": "import React from 'react'\nimport {LOGIN_STATUS} from '../const/login'\nimport {logoutRequested} from '../action/login'\nimport RaisedButton from 'material-ui/RaisedButton';\n\n/**\n* Headerコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class Header extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleClick = this.hundleClick.bind(this);\n  }\n  /**\n  * ログアウトボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleClick(){\n      this.props.dispatch(logoutRequested());\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //ログインしていればログアウトボタンを表示する\n    const logoutButton = this.props.login.status == LOGIN_STATUS.SUCCESS ?\n      <RaisedButton label=\"logout\" secondary={true} onClick={this.hundleClick} />:\n      null\n    return(\n      <div><img src={\"./img/logo.png\"} />&nbsp;{logoutButton}</div>\n    )\n  }\n}\n",
     "static": true,
     "longname": "src/component/header.js",
     "access": null,
@@ -855,7 +855,7 @@
     "see": [
       "http://qiita.com/nownabe/items/2d8b92d95186c3941de0"
     ],
-    "lineNumber": 8,
+    "lineNumber": 10,
     "interface": false,
     "extends": [
       "react~React.Component"
@@ -872,7 +872,7 @@
     "longname": "src/component/header.js~Header#constructor",
     "access": null,
     "description": "コンストラクタ",
-    "lineNumber": 14,
+    "lineNumber": 16,
     "params": [
       {
         "nullable": null,
@@ -903,7 +903,7 @@
     "longname": "src/component/header.js~Header#hundleClick",
     "access": null,
     "description": null,
-    "lineNumber": 17,
+    "lineNumber": 19,
     "undocument": true,
     "unknown": [
       {
@@ -928,7 +928,7 @@
     "longname": "src/component/header.js~Header#hundleClick",
     "access": null,
     "description": "ログアウトボタンのクリックをハンドリングするメソッド",
-    "lineNumber": 23,
+    "lineNumber": 25,
     "params": [],
     "return": {
       "nullable": null,
@@ -950,7 +950,7 @@
     "longname": "src/component/header.js~Header#render",
     "access": null,
     "description": "描画メソッド",
-    "lineNumber": 31,
+    "lineNumber": 33,
     "params": [],
     "return": {
       "nullable": null,
@@ -1353,7 +1353,7 @@
     "__docId__": 57,
     "kind": "file",
     "name": "src/component/mydestination.js",
-    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {myDestinationChange,myDestinationClear} from '../action/mydestination'\nimport Toggle from 'material-ui/Toggle'\nimport TextField from 'material-ui/TextField'\n\n/**\n* \"自分の行き先\"コンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class MyDestination extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    console.log(props.mydestination.inBusiness);\n    this.state = {\n      currentInBusiness:!props.mydestination.inBusiness,\n      currentComment:props.mydestination.comment\n    };\n\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleChange = this.hundleChange.bind(this);\n    this.hundleClear = this.hundleClear.bind(this);\n    this.hundleToggle = this.hundleToggle.bind(this);\n    this.hundleTextChange = this.hundleTextChange.bind(this);\n  }\n  /**\n  * 行き先の変更をハンドリングするメソッド\n  * @return undefined\n  */\n  hundleChange(){\n    this.props.dispatch(myDestinationChange({inBusiness:!this.state.currentInBusiness, comment:this.state.currentComment}));\n  }\n\n  hundleClear(){\n    const action = myDestinationClear();\n    this.props.dispatch(action);\n  }\n\n  hundleToggle(event,isInputChecked){\n    this.setState({currentInBusiness : isInputChecked});\n    this.hundleChange();\n  }\n\n  hundleTextChange(event,newValue){\n    this.setState({currentComment:newValue});\n    this.hundleChange();\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    const inBusinessValue = this.props.mydestination.inBusiness ? 1 : 0;\n    const commentValue = this.props.mydestination.comment;\n    return (\n      <div>\n      <h3>自分の行き先</h3>\n      <table>\n        <tbody>\n        <tr>\n          <td>{this.props.login.user.name}</td>\n          <td>\n            <Toggle label=\"出勤\" toggled={this.state.currentInBusiness} onToggle={this.hundleToggle} />\n          </td>\n          <td>\n            <TextField hintText=\"コメント\" value={this.state.currentComment} onChange={this.hundleTextChange}/>\n          </td>\n          <td>\n            <button onClick={this.hundleClear}>Clear</button>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n      </div>);\n  }\n}\n",
+    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {myDestinationChange,myDestinationClear} from '../action/mydestination'\nimport Toggle from 'material-ui/Toggle'\nimport TextField from 'material-ui/TextField'\n\n/**\n* \"自分の行き先\"コンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class MyDestination extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    this.state = {\n      currentInBusiness:!props.mydestination.inBusiness,\n      currentComment:props.mydestination.comment\n    };\n\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleChange = this.hundleChange.bind(this);\n    this.hundleClear = this.hundleClear.bind(this);\n    this.hundleToggle = this.hundleToggle.bind(this);\n    this.hundleTextChange = this.hundleTextChange.bind(this);\n  }\n  /**\n  * 行き先の変更をハンドリングするメソッド\n  * @return undefined\n  */\n  hundleChange(){\n    this.props.dispatch(myDestinationChange({inBusiness:!this.state.currentInBusiness, comment:this.state.currentComment}));\n  }\n\n  hundleClear(){\n    const action = myDestinationClear();\n    this.props.dispatch(action);\n  }\n\n  hundleToggle(event,isInputChecked){\n    this.setState({currentInBusiness : isInputChecked});\n    this.hundleChange();\n  }\n\n  hundleTextChange(event,newValue){\n    this.setState({currentComment:newValue});\n    this.hundleChange();\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    const inBusinessValue = this.props.mydestination.inBusiness ? 1 : 0;\n    const commentValue = this.props.mydestination.comment;\n    return (\n      <div>\n      <h3>自分の行き先</h3>\n      <table>\n        <tbody>\n        <tr>\n          <td>{this.props.login.user.name}</td>\n          <td>\n            <Toggle label=\"出勤\" toggled={this.state.currentInBusiness} onToggle={this.hundleToggle} />\n          </td>\n          <td>\n            <TextField hintText=\"コメント\" value={this.state.currentComment} onChange={this.hundleTextChange}/>\n          </td>\n          <td>\n            <button onClick={this.hundleClear}>Clear</button>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n      </div>);\n  }\n}\n",
     "static": true,
     "longname": "src/component/mydestination.js",
     "access": null,
@@ -1423,7 +1423,7 @@
     "longname": "src/component/mydestination.js~MyDestination#state",
     "access": null,
     "description": null,
-    "lineNumber": 20,
+    "lineNumber": 19,
     "undocument": true,
     "unknown": [
       {
@@ -1446,7 +1446,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleChange",
     "access": null,
     "description": null,
-    "lineNumber": 26,
+    "lineNumber": 25,
     "undocument": true,
     "unknown": [
       {
@@ -1469,7 +1469,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleClear",
     "access": null,
     "description": null,
-    "lineNumber": 27,
+    "lineNumber": 26,
     "undocument": true,
     "unknown": [
       {
@@ -1492,7 +1492,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleToggle",
     "access": null,
     "description": null,
-    "lineNumber": 28,
+    "lineNumber": 27,
     "undocument": true,
     "unknown": [
       {
@@ -1515,7 +1515,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleTextChange",
     "access": null,
     "description": null,
-    "lineNumber": 29,
+    "lineNumber": 28,
     "undocument": true,
     "unknown": [
       {
@@ -1540,7 +1540,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleChange",
     "access": null,
     "description": "行き先の変更をハンドリングするメソッド",
-    "lineNumber": 35,
+    "lineNumber": 34,
     "params": [],
     "return": {
       "nullable": null,
@@ -1562,7 +1562,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleClear",
     "access": null,
     "description": null,
-    "lineNumber": 39,
+    "lineNumber": 38,
     "undocument": true,
     "unknown": [
       {
@@ -1583,7 +1583,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleToggle",
     "access": null,
     "description": null,
-    "lineNumber": 44,
+    "lineNumber": 43,
     "undocument": true,
     "unknown": [
       {
@@ -1617,7 +1617,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleTextChange",
     "access": null,
     "description": null,
-    "lineNumber": 49,
+    "lineNumber": 48,
     "undocument": true,
     "unknown": [
       {
@@ -1651,7 +1651,7 @@
     "longname": "src/component/mydestination.js~MyDestination#render",
     "access": null,
     "description": "描画メソッド",
-    "lineNumber": 58,
+    "lineNumber": 57,
     "params": [],
     "return": {
       "nullable": null,

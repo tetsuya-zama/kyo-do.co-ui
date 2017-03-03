@@ -90,6 +90,8 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
 import {LOGIN_STATUS} from &apos;../const/login&apos;
 import {logoutRequested} from &apos;../action/login&apos;
+import RaisedButton from &apos;material-ui/RaisedButton&apos;;
+
 /**
 * Header&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
 * @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
@@ -120,10 +122,10 @@ export default class Header extends React.Component{
   render(){
     //&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x3066;&#x3044;&#x308C;&#x3070;&#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;
     const logoutButton = this.props.login.status == LOGIN_STATUS.SUCCESS ?
-      &lt;button onClick={this.hundleClick}&gt;logout&lt;/button&gt; :
+      &lt;RaisedButton label=&quot;logout&quot; secondary={true} onClick={this.hundleClick} /&gt;:
       null
     return(
-      &lt;div&gt;&#x30AD;&#x30E7;&#x30A6;-&#x30C9;&#x30B3;&#xFF1F;&amp;nbsp;{logoutButton}&lt;/div&gt;
+      &lt;div&gt;&lt;img src={&quot;./img/logo.png&quot;} /&gt;&amp;nbsp;{logoutButton}&lt;/div&gt;
     )
   }
 }
