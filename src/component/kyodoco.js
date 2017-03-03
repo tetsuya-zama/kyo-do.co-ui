@@ -6,6 +6,7 @@ import SignUpForm from './signupform'
 import Board from './board'
 import MyDestination from './mydestination'
 import {LOGIN_STATUS} from '../const/login'
+import Paper from 'material-ui/Paper';
 
 
 /**
@@ -27,6 +28,13 @@ class Kyodoco extends React.Component{
   * @return {undefined}
   */
   render(){
+    const style = {
+      margin: 10,
+      padding: 10,
+      textAlign: 'center',
+      display: 'inline-block',
+    };
+
     //ログインしていればメイン画面を、そうでなければログインフォームを描画する
     const content =
       this.props.login.status == LOGIN_STATUS.SUCCESS ?
@@ -42,12 +50,17 @@ class Kyodoco extends React.Component{
       ) :
       (
         <div>
-          <LoginForm
-          dispatch={this.props.dispatch}
-          login={this.props.login}/>
-          <SignUpForm
-          dispatch={this.props.dispatch}
-          signup={this.props.signup}/>
+          <Paper style={style} zDepth={2}>
+            <LoginForm
+            dispatch={this.props.dispatch}
+            login={this.props.login}/>
+          </Paper>
+          <br />
+          <Paper style={style} zDepth={2}>
+            <SignUpForm
+            dispatch={this.props.dispatch}
+            signup={this.props.signup}/>
+          </Paper>
         </div>
       );
 
