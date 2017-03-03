@@ -12,7 +12,7 @@ const STORAGE_KEY_DESTINATION = "my_destination.";
 /**
 * 行き先を入力してからサーバ同期するまでの遅延時間
 */
-const SYNC_DELAY_MS = 15000;
+const SYNC_DELAY_MS = 1000;
 
 /**
 * ログインが成功した際にログインユーザーの行き先をロードするSaga
@@ -59,14 +59,12 @@ function* changeDestinationTask(action){
   * TODO APIを呼び出してサーバ上に保存
   */
   yield call(delay,SYNC_DELAY_MS);
-  console.log("action");
-  console.log(action);
   const token = yield select(state => state.login.user.token);
   try{
 
     yield call(axios.put,
       "https://api.kyo-do.co/status",
-      action.payload,
+      {inBusiness:action.payload.inBusiness,comment:action.payload.comment},
       {headers:{"Authorization":"Bearer " + token}}
     );
   }catch(e){
