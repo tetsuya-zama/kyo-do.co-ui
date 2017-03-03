@@ -90,7 +90,10 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
 import {LOGIN_STATUS} from &apos;../const/login&apos;
 import {logoutRequested} from &apos;../action/login&apos;
+import Avatar from &apos;material-ui/Avatar&apos;;
+import Chip from &apos;material-ui/Chip&apos;;
 import RaisedButton from &apos;material-ui/RaisedButton&apos;;
+import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from &apos;material-ui/Toolbar&apos;;
 
 /**
 * Header&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
@@ -120,12 +123,19 @@ export default class Header extends React.Component{
   * @return {undefined}
   */
   render(){
-    //&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x3066;&#x3044;&#x308C;&#x3070;&#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;
-    const logoutButton = this.props.login.status == LOGIN_STATUS.SUCCESS ?
-      &lt;RaisedButton label=&quot;logout&quot; secondary={true} onClick={this.hundleClick} /&gt;:
+    // &#x30C4;&#x30FC;&#x30EB;&#x30D0;&#x30FC;&#x306E;&#x8868;&#x793A;
+    const toolbar = this.props.login.status == LOGIN_STATUS.SUCCESS ?
+      &lt;Toolbar&gt;
+        &lt;ToolbarGroup&gt;
+          &lt;Chip&gt;&lt;Avatar&gt;{this.props.login.user.name.charAt(0).toUpperCase()}&lt;/Avatar&gt;{this.props.login.user.name}&lt;/Chip&gt;
+          &lt;ToolbarSeparator /&gt;
+          &lt;RaisedButton label=&quot;logout&quot; secondary={true} onClick={this.hundleClick} /&gt;
+        &lt;/ToolbarGroup&gt;
+      &lt;/Toolbar&gt;:
       null
-    return(
-      &lt;div&gt;&lt;img src={&quot;./img/logo.png&quot;} /&gt;&amp;nbsp;{logoutButton}&lt;/div&gt;
+
+    return (
+      &lt;div&gt;&lt;img src={&quot;./img/logo.png&quot;} /&gt;&amp;nbsp;&lt;br /&gt;{toolbar}&lt;/div&gt;
     )
   }
 }
