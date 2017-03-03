@@ -95,6 +95,7 @@ import SignUpForm from &apos;./signupform&apos;
 import Board from &apos;./board&apos;
 import MyDestination from &apos;./mydestination&apos;
 import {LOGIN_STATUS} from &apos;../const/login&apos;
+import Paper from &apos;material-ui/Paper&apos;;
 
 
 /**
@@ -116,6 +117,13 @@ class Kyodoco extends React.Component{
   * @return {undefined}
   */
   render(){
+    const style = {
+      margin: 10,
+      padding: 10,
+      textAlign: &apos;center&apos;,
+      display: &apos;inline-block&apos;,
+    };
+
     //&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x3066;&#x3044;&#x308C;&#x3070;&#x30E1;&#x30A4;&#x30F3;&#x753B;&#x9762;&#x3092;&#x3001;&#x305D;&#x3046;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x3092;&#x63CF;&#x753B;&#x3059;&#x308B;
     const content =
       this.props.login.status == LOGIN_STATUS.SUCCESS ?
@@ -131,12 +139,17 @@ class Kyodoco extends React.Component{
       ) :
       (
         &lt;div&gt;
-          &lt;LoginForm
-          dispatch={this.props.dispatch}
-          login={this.props.login}/&gt;
-          &lt;SignUpForm
-          dispatch={this.props.dispatch}
-          signup={this.props.signup}/&gt;
+          &lt;Paper style={style} zDepth={2}&gt;
+            &lt;LoginForm
+            dispatch={this.props.dispatch}
+            login={this.props.login}/&gt;
+          &lt;/Paper&gt;
+          &lt;br /&gt;
+          &lt;Paper style={style} zDepth={2}&gt;
+            &lt;SignUpForm
+            dispatch={this.props.dispatch}
+            signup={this.props.signup}/&gt;
+          &lt;/Paper&gt;
         &lt;/div&gt;
       );
 
