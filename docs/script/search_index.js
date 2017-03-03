@@ -6,6 +6,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "kyo-do.co-ui/src/action/board.js~clear_my_destination",
+    "variable/index.html#static-variable-CLEAR_MY_DESTINATION",
+    "<span>CLEAR_MY_DESTINATION</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/board.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/component/header.js~header",
     "class/src/component/header.js~Header.html",
     "<span>Header</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/header.js</span>",
@@ -57,6 +63,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/mydestination.js~my_destination_change",
     "variable/index.html#static-variable-MY_DESTINATION_CHANGE",
     "<span>MY_DESTINATION_CHANGE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/mydestination.js~my_destination_clear",
+    "variable/index.html#static-variable-MY_DESTINATION_CLEAR",
+    "<span>MY_DESTINATION_CLEAR</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
     "variable"
   ],
   [
@@ -213,6 +225,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/mydestination.js~mydestinationchange",
     "function/index.html#static-function-myDestinationChange",
     "<span>myDestinationChange</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/mydestination.js~mydestinationclear",
+    "function/index.html#static-function-myDestinationClear",
+    "<span>myDestinationClear</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
     "function"
   ],
   [
@@ -744,10 +762,34 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/mydestination.js~mydestination#hundleclear",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleClear",
+    "src/component/mydestination.js~MyDestination#hundleClear",
+    "method"
+  ],
+  [
+    "src/component/mydestination.js~mydestination#hundletextchange",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleTextChange",
+    "src/component/mydestination.js~MyDestination#hundleTextChange",
+    "method"
+  ],
+  [
+    "src/component/mydestination.js~mydestination#hundletoggle",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleToggle",
+    "src/component/mydestination.js~MyDestination#hundleToggle",
+    "method"
+  ],
+  [
     "src/component/mydestination.js~mydestination#render",
     "class/src/component/mydestination.js~MyDestination.html#instance-method-render",
     "src/component/mydestination.js~MyDestination#render",
     "method"
+  ],
+  [
+    "src/component/mydestination.js~mydestination#state",
+    "class/src/component/mydestination.js~MyDestination.html#instance-member-state",
+    "src/component/mydestination.js~MyDestination#state",
+    "member"
   ],
   [
     "src/component/signupform.js",

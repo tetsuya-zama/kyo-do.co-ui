@@ -14,3 +14,5 @@ export function updateMemberStatus(memberStatus){
     payload:memberStatus
   }
 }
+
+export const CLEAR_MY_DESTINATION='CLEAR_MY_DESTINATION';

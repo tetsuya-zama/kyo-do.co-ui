@@ -1,12 +1,19 @@
 {
-  "coverage": "88.57%",
-  "expectCount": 70,
-  "actualCount": 62,
+  "coverage": "83.11%",
+  "expectCount": 77,
+  "actualCount": 64,
   "files": {
     "src/component/board.js": {
       "expectCount": 3,
       "actualCount": 3,
       "undocumentLines": []
+    },
+    "src/action/board.js": {
+      "expectCount": 3,
+      "actualCount": 2,
+      "undocumentLines": [
+        18
+      ]
     },
     "src/component/header.js": {
       "expectCount": 4,
@@ -38,14 +45,19 @@
       "undocumentLines": []
     },
     "src/action/mydestination.js": {
-      "expectCount": 2,
-      "actualCount": 2,
-      "undocumentLines": []
-    },
-    "src/component/mydestination.js": {
       "expectCount": 4,
       "actualCount": 4,
       "undocumentLines": []
+    },
+    "src/component/mydestination.js": {
+      "expectCount": 8,
+      "actualCount": 4,
+      "undocumentLines": [
+        39,
+        49,
+        44,
+        20
+      ]
     },
     "src/action/signup.js": {
       "expectCount": 6,
@@ -62,11 +74,6 @@
         58,
         19
       ]
-    },
-    "src/action/board.js": {
-      "expectCount": 2,
-      "actualCount": 2,
-      "undocumentLines": []
     },
     "src/module/base64.js": {
       "expectCount": 2,

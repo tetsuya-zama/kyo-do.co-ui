@@ -1,4 +1,4 @@
-import {MY_DESTINATION_CHANGE} from '../action/mydestination'
+import {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'
 
 /**
 * 自分の行き先 reducer
@@ -11,6 +11,8 @@ export default function mydestination(state={inBusiness:false,comment:""},action
   switch(action.type){
     case(MY_DESTINATION_CHANGE):
       return action.payload;
+    case(MY_DESTINATION_CLEAR):
+      return {inBusiness:false,comment:""};
     default:
       return state;
   }

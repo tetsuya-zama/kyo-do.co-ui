@@ -3,7 +3,7 @@ import {delay} from 'redux-saga'
 import {updateMemberStatus} from '../action/board'
 import {LOGIN_SUCCESS} from '../action/login'
 import {LOGIN_STATUS} from '../const/login'
-import {MY_DESTINATION_CHANGE} from '../action/mydestination'
+import {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'
 
 /**
 * メンバー状況をpollingする間隔(ms)
@@ -17,6 +17,7 @@ const STATUS_POLLING_DURATION_MS= 15000;
 export function* loadMemberStatusSaga(){
   yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);
   yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);
+  yield takeEvery(MY_DESTINATION_CLEAR,loadMemberStatusTask);
 }
 
 /**

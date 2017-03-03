@@ -15,3 +15,18 @@ export function myDestinationChange(destination){
     payload:destination
   };
 }
+
+/**
+* 自分の行き先クリアアクション名
+*/
+export const MY_DESTINATION_CLEAR = "MY_DESTINATION_CLEAR";
+
+/**
+* 自分の行き先クリアアクションのcreator
+* @return {Object} 自分の行き先クリアアクション
+*/
+export function myDestinationClear(){
+  return {
+    type:MY_DESTINATION_CLEAR
+  };
+}
