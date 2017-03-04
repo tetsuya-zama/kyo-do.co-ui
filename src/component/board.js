@@ -1,6 +1,8 @@
 import React from 'react'
+import ReactDOM from 'react-dom';
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
+import TextField from 'material-ui/TextField';
 
 /**
 * 行き先掲示板コンポーネント
@@ -14,19 +16,45 @@ export default class Board extends React.Component{
   */
   constructor(props){
     super(props);
+    this.state = {
+      current_filter_text:""
+    }
+    this.hundleFilterChange = this.hundleFilterChange.bind(this);
   }
+
 
   /**
   * 描画メソッド
   * @return {undefined}
   */
+
+  hundleFilterChange(event,newValue){
+//    const line = this.props.memberStatus;
+//    const line = this.props.memberStatus.filter((name) => (
+//      name.toLowerCase().indexOf(newValue) >= 0
+//    ));
+//
+    this.setState({current_filter_text : newValue});
+  }
+
   render(){
     //チームの数だけTeamBoardコンポーネントを作成する
     //const teamBoards = this.props.memberStatus.map(team => <TeamBoard key={team.teamId} team={team}/>);
-    const memberRows = this.props.memberStatus.map((member,idx) => <MemberRow key={idx} member={member}/>);
+    //const memberRows = this.state.filterdMemberStatus.map((member,idx) => <MemberRow key={idx} member={member}/>);
+
+    const filterMemberRows = this.props.memberStatus.filter((member) => (
+      member.name.toLowerCase().indexOf(this.state.current_filter_text) >= 0
+    ));
+
+    const memberRows = filterMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
     return (
       <div>
       <h3>行き先掲示板</h3>
+      <TextField
+        hintText="Filter"
+        value={this.state.current_filter_text}
+        onChange={this.hundleFilterChange}
+        />
       {memberRows}
       </div>);
   }
@@ -50,7 +78,7 @@ class TeamBoard extends React.Component{
   */
   render(){
     //メンバーの数だけMemberRowコンポーネント作成する
-    const memberRows = this.props.team.members.map((member,idx) => <MemberRow key={idx} member={member}/>);
+//    const memberRows = this.props.team.members.map((member,idx) => <MemberRow key={idx} member={member}/>);
     return (
       <div>
         <h4>{this.props.team.name}</h4>
