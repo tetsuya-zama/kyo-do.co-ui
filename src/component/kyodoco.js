@@ -42,7 +42,9 @@ class Kyodoco extends React.Component{
         <MyDestination
           dispatch={this.props.dispatch}
           login={this.props.login}
-          mydestination={this.props.mydestination} />
+          mydestination={this.props.mydestination}
+          suggestion={this.props.suggestion}
+        />
         <Board
           memberStatus={this.props.board.memberStatus}
         />

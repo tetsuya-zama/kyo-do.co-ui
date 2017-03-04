@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import {myDestinationChange,myDestinationClear} from '../action/mydestination'
 import Toggle from 'material-ui/Toggle'
 import TextField from 'material-ui/TextField'
+import AutoComplete from 'material-ui/AutoComplete';
 
 /**
 * "自分の行き先"コンポーネント
@@ -20,7 +21,7 @@ export default class MyDestination extends React.Component{
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.hundleClear = this.hundleClear.bind(this);
     this.hundleToggle = this.hundleToggle.bind(this);
-    this.hundleTextChange = this.hundleTextChange.bind(this);
+    this.hundleUpdateInput = this.hundleUpdateInput.bind(this);
     this.hundleContactChange = this.hundleContactChange.bind(this);
   }
 
@@ -35,10 +36,8 @@ export default class MyDestination extends React.Component{
     }));
   }
 
-  hundleTextChange(event,newValue){
-    this.props.dispatch(myDestinationChange({
-        inBusiness:this.props.mydestination.inBusiness, comment:newValue, contact:this.props.mydestination.contact
-    }));
+  hundleUpdateInput(newValue) {
+    this.props.dispatch(myDestinationChange({inBusiness:this.props.mydestination.inBusiness, comment:newValue}));
   }
 
   hundleContactChange(event,newValue){
@@ -63,7 +62,15 @@ export default class MyDestination extends React.Component{
             <Toggle label="出勤" toggled={this.props.mydestination.inBusiness} onToggle={this.hundleToggle} />
           </td>
           <td>
-            <TextField hintText="コメント" value={this.props.mydestination.comment} onChange={this.hundleTextChange}/>
+            <AutoComplete
+              hintText="コメント"
+              filter={AutoComplete.fuzzyFilter}
+              dataSource={this.props.suggestion.length > 0 ? this.props.suggestion : ["EAST 8F", "EAST 3F", "宝町", "NRI 13F", "NRI 12F"]}
+              maxSearchResults={10}
+              openOnFocus={true}
+              onUpdateInput={this.hundleUpdateInput}
+              value={this.props.mydestination.comment}
+            /> 
           </td>
           <td>
             <button onClick={this.hundleClear}>Clear</button>

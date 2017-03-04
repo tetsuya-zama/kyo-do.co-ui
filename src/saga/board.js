@@ -5,6 +5,7 @@ import {LOGIN_SUCCESS} from '../action/login'
 import {LOGIN_STATUS} from '../const/login'
 import {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'
 import axios from "axios";
+import {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from '../action/suggestion'
 
 /**
 * メンバー状況をpollingする間隔(ms)
@@ -19,6 +20,8 @@ export function* loadMemberStatusSaga(){
   yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);
   yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);
   yield takeEvery(MY_DESTINATION_CLEAR,loadMemberStatusTask);
+  yield takeEvery(SUGGESTION_CHANGE,loadMemberStatusTask);
+  yield takeEvery(SUGGESTION_CLEAR,loadMemberStatusTask);
 }
 
 /**
