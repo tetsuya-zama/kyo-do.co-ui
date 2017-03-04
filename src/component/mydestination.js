@@ -4,6 +4,7 @@ import {myDestinationChange,myDestinationClear} from '../action/mydestination'
 import Toggle from 'material-ui/Toggle'
 import TextField from 'material-ui/TextField'
 import AutoComplete from 'material-ui/AutoComplete';
+import RaisedButton from 'material-ui/RaisedButton';
 
 /**
 * "自分の行き先"コンポーネント
@@ -70,10 +71,10 @@ export default class MyDestination extends React.Component{
               openOnFocus={true}
               onUpdateInput={this.hundleUpdateInput}
               value={this.props.mydestination.comment}
-            /> 
+            />
           </td>
           <td>
-            <button onClick={this.hundleClear}>Clear</button>
+            <RaisedButton label="Clear" secondary={true} onClick={this.hundleClear} />
           </td>
         </tr>
         <tr>
