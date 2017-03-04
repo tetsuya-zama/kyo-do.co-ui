@@ -117,7 +117,9 @@ export default class SignUpForm extends React.Component{
 
     return (
       <div>
-        <h4>ユーザー登録 T</h4>
+        <h4>ユーザー登録</h4>
+        <h7>初めての方はこちらから登録下さい</h7>
+        <br />
         <TextField
         hintText="User ID"
         floatingLabelText="User ID"
