@@ -1,4 +1,6 @@
 import React from 'react'
+import {List, ListItem} from 'material-ui/List';
+import Avatar from 'material-ui/Avatar';
 
 /**
 * 行き先掲示板コンポーネント
@@ -77,14 +79,22 @@ class MemberRow extends React.Component{
   /**
   * 描画メソッド
   * @return {undefined}
+  {this.props.member.name}
+  <td>{this.props.member.name}</td>
+  <td>{this.props.member.inBusiness ? "出勤" : "退勤"}</td>
+  <td>{this.props.member.comment}</td>
+
   */
   render(){
     return (
-      <tr>
-        <td>{this.props.member.name}</td>
-        <td>{this.props.member.inBusiness ? "出勤" : "退勤"}</td>
-        <td>{this.props.member.comment}</td>
-      </tr>
+
+        <List>
+          <ListItem
+            primaryText={this.props.member.name}
+            secondaryText={this.props.member.comment}
+            leftAvatar={<Avatar>{this.props.member.name.charAt(0).toUpperCase()}</Avatar>}
+          />
+        </List>
     );
   }
 }
