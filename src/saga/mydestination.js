@@ -64,7 +64,7 @@ function* changeDestinationTask(action){
 
     yield call(axios.put,
       "https://api.kyo-do.co/status",
-      {inBusiness:action.payload.inBusiness,comment:action.payload.comment},
+      {inBusiness:action.payload.inBusiness,comment:action.payload.comment,contact:action.payload.contact},
       {headers:{"Authorization":"Bearer " + token}}
     );
   }catch(e){
