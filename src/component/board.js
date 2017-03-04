@@ -95,11 +95,11 @@ class MemberRow extends React.Component{
   render(){
       //const memberRows = this.props.memberStatus.map((member,idx) => <MemberRow key={idx} member={member}/>);
     return (
-        <List>
-          <ListItem
-            primaryText={this.props.member.name + "：" + this.props.member.contact}
-            secondaryText={this.props.member.comment}
-            rightAvatar={<Avatar backgroundColor={this.props.member.inBusiness ? red600 : grey400} > {this.props.member.inBusiness ? "出" : "退"}</Avatar>} />
+      <List>
+        <ListItem
+          primaryText={this.props.member.name + "：" + this.props.member.contact}
+          secondaryText={this.props.member.comment}
+          leftAvatar={<Avatar backgroundColor={this.props.member.inBusiness ? red600 : grey400} > {this.props.member.inBusiness ? "出" : "退"}</Avatar>} />
       </List>
     );
   }
