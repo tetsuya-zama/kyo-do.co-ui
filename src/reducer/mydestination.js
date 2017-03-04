@@ -7,12 +7,12 @@ import {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestinatio
 * @param {Object} action dispatchされたaction
 * @return {Object} 変更後のstate
 */
-export default function mydestination(state={inBusiness:false,comment:""},action){
+export default function mydestination(state={inBusiness:false,comment:"",contact:""},action){
   switch(action.type){
     case(MY_DESTINATION_CHANGE):
       return action.payload;
     case(MY_DESTINATION_CLEAR):
-      return {inBusiness:false,comment:""};
+      return {inBusiness:false,comment:"",contact:""};
     default:
       return state;
   }

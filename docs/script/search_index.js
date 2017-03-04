@@ -762,6 +762,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/mydestination.js~mydestination#hundlecontactchange",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleContactChange",
+    "src/component/mydestination.js~MyDestination#hundleContactChange",
+    "method"
+  ],
+  [
     "src/component/mydestination.js~mydestination#hundletextchange",
     "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleTextChange",
     "src/component/mydestination.js~MyDestination#hundleTextChange",

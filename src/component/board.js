@@ -1,11 +1,6 @@
 import React from 'react'
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
-import {
-  red600,
-  grey400
-} from 'material-ui/styles/colors';
-
 
 /**
 * 行き先掲示板コンポーネント
@@ -91,13 +86,13 @@ class MemberRow extends React.Component{
   leftAvatar={<Avatar>{this.props.member.name.charAt(0).toUpperCase()}</Avatar>}
   */
   render(){
-
+      //const memberRows = this.props.memberStatus.map((member,idx) => <MemberRow key={idx} member={member}/>);
     return (
         <List>
           <ListItem
-            primaryText={this.props.member.name}
+            primaryText={this.props.member.name + "：" + this.props.member.contact}
             secondaryText={this.props.member.comment}
-            rightAvatar={<Avatar backgroundColor={this.props.member.inBusiness ? red600 : grey400} > {this.props.member.inBusiness ? "出" : "退"}</Avatar>}
+            rightAvatar={<Avatar>{this.props.member.inBusiness ? "出" : "退"}</Avatar>}
           />
         </List>
     );

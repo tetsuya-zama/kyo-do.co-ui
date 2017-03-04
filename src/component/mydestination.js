@@ -21,6 +21,7 @@ export default class MyDestination extends React.Component{
     this.hundleClear = this.hundleClear.bind(this);
     this.hundleToggle = this.hundleToggle.bind(this);
     this.hundleTextChange = this.hundleTextChange.bind(this);
+    this.hundleContactChange = this.hundleContactChange.bind(this);
   }
 
   hundleClear(){
@@ -29,11 +30,21 @@ export default class MyDestination extends React.Component{
   }
 
   hundleToggle(event,isInputChecked){
-    this.props.dispatch(myDestinationChange({inBusiness:isInputChecked, comment:this.props.mydestination.comment}));
+    this.props.dispatch(myDestinationChange({
+        inBusiness:isInputChecked, comment:this.props.mydestination.comment, contact:this.props.mydestination.contact
+    }));
   }
 
   hundleTextChange(event,newValue){
-    this.props.dispatch(myDestinationChange({inBusiness:this.props.mydestination.inBusiness, comment:newValue}));
+    this.props.dispatch(myDestinationChange({
+        inBusiness:this.props.mydestination.inBusiness, comment:newValue, contact:this.props.mydestination.contact
+    }));
+  }
+
+  hundleContactChange(event,newValue){
+    this.props.dispatch(myDestinationChange({
+        inBusiness:this.props.mydestination.inBusiness, comment:this.props.mydestination.comment, contact:newValue
+    }));
   }
 
   /**
@@ -57,6 +68,14 @@ export default class MyDestination extends React.Component{
           <td>
             <button onClick={this.hundleClear}>Clear</button>
           </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>
+            <TextField hintText="連絡先" value={this.props.mydestination.contact} onChange={this.hundleContactChange}/>
+          </td>
+          <td></td>
         </tr>
         </tbody>
       </table>
