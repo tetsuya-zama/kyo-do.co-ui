@@ -1,9 +1,39 @@
 window.esdocSearchIndex = [
   [
+    "kyo-do.co-ui/src/action/accountboard.js~account_info_modal_close",
+    "variable/index.html#static-variable-ACCOUNT_INFO_MODAL_CLOSE",
+    "<span>ACCOUNT_INFO_MODAL_CLOSE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/accountboard.js~account_info_modal_open",
+    "variable/index.html#static-variable-ACCOUNT_INFO_MODAL_OPEN",
+    "<span>ACCOUNT_INFO_MODAL_OPEN</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/component/accountboard.js~accountboard",
+    "class/src/component/accountboard.js~AccountBoard.html",
+    "<span>AccountBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/accountboard.js</span>",
+    "class"
+  ],
+  [
     "kyo-do.co-ui/src/component/board.js~board",
     "class/src/component/board.js~Board.html",
     "<span>Board</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/board.js</span>",
     "class"
+  ],
+  [
+    "kyo-do.co-ui/src/action/accountboard.js~change_account_info",
+    "variable/index.html#static-variable-CHANGE_ACCOUNT_INFO",
+    "<span>CHANGE_ACCOUNT_INFO</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/accountboard.js~change_account_info_field",
+    "variable/index.html#static-variable-CHANGE_ACCOUNT_INFO_FIELD",
+    "<span>CHANGE_ACCOUNT_INFO_FIELD</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
+    "variable"
   ],
   [
     "kyo-do.co-ui/src/action/board.js~clear_my_destination",
@@ -114,6 +144,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/reducer/accountboard.js~accountboard",
+    "function/index.html#static-function-accountboard",
+    "<span>accountboard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/accountboard.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/module/base64.js~base64decode",
     "function/index.html#static-function-base64Decode",
     "<span>base64Decode</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/base64.js</span>",
@@ -132,9 +168,33 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/action/accountboard.js~changeaccountinfo",
+    "function/index.html#static-function-changeAccountInfo",
+    "<span>changeAccountInfo</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/accountboard.js~changeaccountinfofield",
+    "function/index.html#static-function-changeAccountInfoField",
+    "<span>changeAccountInfoField</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/accountboard.js~changeaccountinfosaga",
+    "function/index.html#static-function-changeAccountInfoSaga",
+    "<span>changeAccountInfoSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/accountboard.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/saga/mydestination.js~changedestinationsaga",
     "function/index.html#static-function-changeDestinationSaga",
     "<span>changeDestinationSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/mydestination.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/accountboard.js~closeccountinfomodal",
+    "function/index.html#static-function-closeccountInfoModal",
+    "<span>closeccountInfoModal</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
     "function"
   ],
   [
@@ -237,6 +297,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/reducer/mydestination.js~mydestination",
     "function/index.html#static-function-mydestination",
     "<span>mydestination</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/mydestination.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/accountboard.js~openaccountinfomodal",
+    "function/index.html#static-function-openAccountInfoModal",
+    "<span>openAccountInfoModal</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
     "function"
   ],
   [
@@ -630,6 +696,12 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "src/action/accountboard.js",
+    "file/src/action/accountboard.js.html",
+    "src/action/accountboard.js",
+    "file"
+  ],
+  [
     "src/action/board.js",
     "file/src/action/board.js.html",
     "src/action/board.js",
@@ -652,6 +724,54 @@ window.esdocSearchIndex = [
     "file/src/action/signup.js.html",
     "src/action/signup.js",
     "file"
+  ],
+  [
+    "src/component/accountboard.js",
+    "file/src/component/accountboard.js.html",
+    "src/component/accountboard.js",
+    "file"
+  ],
+  [
+    "src/component/accountboard.js~accountboard#constructor",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-constructor-constructor",
+    "src/component/accountboard.js~AccountBoard#constructor",
+    "method"
+  ],
+  [
+    "src/component/accountboard.js~accountboard#handleclose",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-method-handleClose",
+    "src/component/accountboard.js~AccountBoard#handleClose",
+    "method"
+  ],
+  [
+    "src/component/accountboard.js~accountboard#hundleclick",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-method-hundleClick",
+    "src/component/accountboard.js~AccountBoard#hundleClick",
+    "method"
+  ],
+  [
+    "src/component/accountboard.js~accountboard#hundlenamechange",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-method-hundleNameChange",
+    "src/component/accountboard.js~AccountBoard#hundleNameChange",
+    "method"
+  ],
+  [
+    "src/component/accountboard.js~accountboard#hundlepasschange",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-method-hundlePassChange",
+    "src/component/accountboard.js~AccountBoard#hundlePassChange",
+    "method"
+  ],
+  [
+    "src/component/accountboard.js~accountboard#render",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-method-render",
+    "src/component/accountboard.js~AccountBoard#render",
+    "method"
+  ],
+  [
+    "src/component/accountboard.js~accountboard#state",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-member-state",
+    "src/component/accountboard.js~AccountBoard#state",
+    "member"
   ],
   [
     "src/component/board.js",
@@ -684,6 +804,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/header.js~header#handleclose",
+    "class/src/component/header.js~Header.html#instance-method-handleClose",
+    "src/component/header.js~Header#handleClose",
+    "method"
+  ],
+  [
+    "src/component/header.js~header#handleopen",
+    "class/src/component/header.js~Header.html#instance-method-handleOpen",
+    "src/component/header.js~Header#handleOpen",
+    "method"
+  ],
+  [
     "src/component/header.js~header#hundleclick",
     "class/src/component/header.js~Header.html#instance-method-hundleClick",
     "src/component/header.js~Header#hundleClick",
@@ -694,6 +826,12 @@ window.esdocSearchIndex = [
     "class/src/component/header.js~Header.html#instance-method-render",
     "src/component/header.js~Header#render",
     "method"
+  ],
+  [
+    "src/component/header.js~header#state",
+    "class/src/component/header.js~Header.html#instance-member-state",
+    "src/component/header.js~Header#state",
+    "member"
   ],
   [
     "src/component/kyodoco.js",
@@ -876,6 +1014,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/reducer/accountboard.js",
+    "file/src/reducer/accountboard.js.html",
+    "src/reducer/accountboard.js",
+    "file"
+  ],
+  [
     "src/reducer/board.js",
     "file/src/reducer/board.js.html",
     "src/reducer/board.js",
@@ -903,6 +1047,12 @@ window.esdocSearchIndex = [
     "src/reducer/signup.js",
     "file/src/reducer/signup.js.html",
     "src/reducer/signup.js",
+    "file"
+  ],
+  [
+    "src/saga/accountboard.js",
+    "file/src/saga/accountboard.js.html",
+    "src/saga/accountboard.js",
     "file"
   ],
   [
