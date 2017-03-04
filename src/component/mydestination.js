@@ -21,7 +21,6 @@ export default class MyDestination extends React.Component{
     this.hundleClear = this.hundleClear.bind(this);
     this.hundleToggle = this.hundleToggle.bind(this);
     this.hundleTextChange = this.hundleTextChange.bind(this);
-    this.hundleContactChange = this.hundleContactChange.bind(this);
   }
 
   hundleClear(){
@@ -35,10 +34,6 @@ export default class MyDestination extends React.Component{
 
   hundleTextChange(event,newValue){
     this.props.dispatch(myDestinationChange({inBusiness:this.props.mydestination.inBusiness, comment:newValue}));
-  }
-
-  hundleContactChange(event,newValue){
-    this.props.dispatch(myDestinationChange({contact:newValue}));
   }
 
   /**

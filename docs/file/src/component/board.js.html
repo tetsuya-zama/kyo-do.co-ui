@@ -109,11 +109,12 @@ export default class Board extends React.Component{
   */
   render(){
     //&#x30C1;&#x30FC;&#x30E0;&#x306E;&#x6570;&#x3060;&#x3051;TeamBoard&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;
-    const teamBoards = this.props.memberStatus.map(team =&gt; &lt;TeamBoard key={team.teamId} team={team}/&gt;);
+    //const teamBoards = this.props.memberStatus.map(team =&gt; &lt;TeamBoard key={team.teamId} team={team}/&gt;);
+    const memberRows = this.props.memberStatus.map((member,idx) =&gt; &lt;MemberRow key={idx} member={member}/&gt;);
     return (
       &lt;div&gt;
       &lt;h3&gt;&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&lt;/h3&gt;
-      {teamBoards}
+      {memberRows}
       &lt;/div&gt;);
   }
 }
