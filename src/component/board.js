@@ -1,6 +1,4 @@
 import React from 'react'
-import {List, ListItem} from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
 
 /**
 * 行き先掲示板コンポーネント
@@ -28,8 +26,10 @@ export default class Board extends React.Component{
 
     return (
       <div>
-      <h3>行き先掲示板</h3>
-      <p>{date}</p>
+      <tr>
+      <td><h3>行き先掲示板</h3></td>
+      <td><h3>{date}</h3></td>
+      </tr>
       {memberRows}
       </div>);
   }
@@ -82,22 +82,14 @@ class MemberRow extends React.Component{
   /**
   * 描画メソッド
   * @return {undefined}
-  {this.props.member.name}
-  <td>{this.props.member.name}</td>
-  <td>{this.props.member.inBusiness ? "出勤" : "退勤"}</td>
-  <td>{this.props.member.comment}</td>
-  leftAvatar={<Avatar>{this.props.member.name.charAt(0).toUpperCase()}</Avatar>}
   */
   render(){
-      //const memberRows = this.props.memberStatus.map((member,idx) => <MemberRow key={idx} member={member}/>);
     return (
-        <List>
-          <ListItem
-            primaryText={this.props.member.name + "：" + this.props.member.contact}
-            secondaryText={this.props.member.comment}
-            rightAvatar={<Avatar>{this.props.member.inBusiness ? "出" : "退"}</Avatar>}
-          />
-        </List>
+      <tr>
+        <td>{this.props.member.name}</td>
+        <td>{this.props.member.inBusiness ? "出勤" : "退勤"}</td>
+        <td>{this.props.member.comment}</td>
+      </tr>
     );
   }
 }
