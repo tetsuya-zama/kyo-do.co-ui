@@ -92,8 +92,9 @@ class MemberRow extends React.Component{
           <ListItem
             primaryText={this.props.member.name}
             secondaryText={this.props.member.comment}
-            rightAvatar={<Avatar backgroundColor={this.props.member.inBusiness ? red600 : grey400} > {this.props.member.inBusiness ? "出" : "退"}</Avatar>} />
-      </List>
+            rightAvatar={<Avatar>{this.props.member.inBusiness ? "出" : "退"}</Avatar>}
+          />
+        </List>
     );
   }
 }
