@@ -22,11 +22,14 @@ export default class Board extends React.Component{
   */
   render(){
     //チームの数だけTeamBoardコンポーネントを作成する
-    //const teamBoards = this.props.memberStatus.map(team => <TeamBoard key={team.teamId} team={team}/>);
     const memberRows = this.props.memberStatus.map((member,idx) => <MemberRow key={idx} member={member}/>);
+
+    const date = new Date().toLocaleDateString('ja-JP');
+
     return (
       <div>
       <h3>行き先掲示板</h3>
+      <p>{date}</p>
       {memberRows}
       </div>);
   }
