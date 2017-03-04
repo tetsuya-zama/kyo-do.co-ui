@@ -50,7 +50,7 @@ export default class SignUpForm extends React.Component{
 
   }
 
-  
+
   hundleIDChange(event,newValue){
     this.setState({id_text:newValue});
   }
@@ -74,6 +74,7 @@ export default class SignUpForm extends React.Component{
   */
   validate(forminfo){
     const errors = [];
+    const match_pattern = /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,}$/i;
 
     if(!forminfo.id || forminfo.id.trim().length == 0){
       errors.push(SIGNUP_FAILURE_REASONS.EMPTY_ID);
@@ -86,6 +87,9 @@ export default class SignUpForm extends React.Component{
     }
     if(forminfo.pass !== forminfo.pass_confirm){
       errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);
+    }
+    if(!forminfo.pass.match(match_pattern)){
+      errors.push(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD);
     }
     return errors;
 
@@ -104,6 +108,8 @@ export default class SignUpForm extends React.Component{
       "名前を入力してください" : "";
     const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) >= 0 ?
       "パスワードとパスワード（確認）が一致しません" : "";
+    const policyPasswordMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD) >= 0 ?
+      "パスワードポリシーの要件を満たしていません(8文字以上，半角英数字を1文字以上含む)" : "";
     const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) >= 0 ?
       "ご指定のIDはすでに使われています" : "";
     const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) >= 0 ?
@@ -111,7 +117,7 @@ export default class SignUpForm extends React.Component{
 
     return (
       <div>
-        <h4>ユーザー登録</h4>
+        <h4>ユーザー登録 T</h4>
         <TextField
         hintText="User ID"
         floatingLabelText="User ID"
@@ -134,7 +140,7 @@ export default class SignUpForm extends React.Component{
         />
         <br />
         <span style={{color:"red"}}>
-          {emptyPassMessage}
+          {emptyPassMessage}{policyPasswordMessage}
         </span>
         <br />
         <TextField

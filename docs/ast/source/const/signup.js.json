@@ -1,28 +1,36 @@
 {
   "type": "File",
   "start": 0,
+<<<<<<< HEAD
   "end": 460,
+=======
+  "end": 523,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 19,
+      "line": 20,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
+<<<<<<< HEAD
     "end": 460,
+=======
+    "end": 523,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 19,
+        "line": 20,
         "column": 0
       }
     },
@@ -31,14 +39,18 @@
       {
         "type": "ExportNamedDeclaration",
         "start": 23,
+<<<<<<< HEAD
         "end": 323,
+=======
+        "end": 386,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
         "loc": {
           "start": {
             "line": 4,
             "column": 0
           },
           "end": {
-            "line": 11,
+            "line": 12,
             "column": 1
           }
         },
@@ -47,14 +59,18 @@
         "declaration": {
           "type": "VariableDeclaration",
           "start": 30,
+<<<<<<< HEAD
           "end": 323,
+=======
+          "end": 386,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
           "loc": {
             "start": {
               "line": 4,
               "column": 7
             },
             "end": {
-              "line": 11,
+              "line": 12,
               "column": 1
             }
           },
@@ -62,14 +78,18 @@
             {
               "type": "VariableDeclarator",
               "start": 36,
+<<<<<<< HEAD
               "end": 323,
+=======
+              "end": 386,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
               "loc": {
                 "start": {
                   "line": 4,
                   "column": 13
                 },
                 "end": {
-                  "line": 11,
+                  "line": 12,
                   "column": 1
                 }
               },
@@ -94,14 +114,18 @@
               "init": {
                 "type": "ObjectExpression",
                 "start": 61,
+<<<<<<< HEAD
                 "end": 323,
+=======
+                "end": 386,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
                 "loc": {
                   "start": {
                     "line": 4,
                     "column": 38
                   },
                   "end": {
-                    "line": 11,
+                    "line": 12,
                     "column": 1
                   }
                 },
@@ -510,9 +534,7 @@
                         "rawValue": "EMPTY_NAME",
                         "raw": "\"EMPTY_NAME\""
                       },
-                      "value": "EMPTY_NAME",
-                      "leadingComments": null,
-                      "trailingComments": null
+                      "value": "EMPTY_NAME"
                     },
                     "leadingComments": [
                       {
@@ -531,21 +553,102 @@
                           }
                         }
                       }
+                    ]
+                  },
+                  {
+                    "type": "ObjectProperty",
+                    "start": 325,
+                    "end": 360,
+                    "loc": {
+                      "start": {
+                        "line": 11,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 37
+                      }
+                    },
+                    "method": false,
+                    "shorthand": false,
+                    "computed": false,
+                    "key": {
+                      "type": "Identifier",
+                      "start": 325,
+                      "end": 340,
+                      "loc": {
+                        "start": {
+                          "line": 11,
+                          "column": 2
+                        },
+                        "end": {
+                          "line": 11,
+                          "column": 17
+                        },
+                        "identifierName": "POLICY_PASSWORD"
+                      },
+                      "name": "POLICY_PASSWORD",
+                      "leadingComments": null
+                    },
+                    "value": {
+                      "type": "StringLiteral",
+                      "start": 343,
+                      "end": 360,
+                      "loc": {
+                        "start": {
+                          "line": 11,
+                          "column": 20
+                        },
+                        "end": {
+                          "line": 11,
+                          "column": 37
+                        }
+                      },
+                      "extra": {
+                        "rawValue": "POLICY_PASSWORD",
+                        "raw": "\"POLICY_PASSWORD\""
+                      },
+                      "value": "POLICY_PASSWORD",
+                      "leadingComments": null,
+                      "trailingComments": null
+                    },
+                    "leadingComments": [
+                      {
+                        "type": "CommentLine",
+                        "value": "表示名が空",
+<<<<<<< HEAD
+                        "start": 313,
+                        "end": 320,
+=======
+                        "start": 314,
+                        "end": 321,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
+                        "loc": {
+                          "start": {
+                            "line": 10,
+                            "column": 29
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 36
+                          }
+                        }
+                      }
                     ],
                     "trailingComments": [
                       {
                         "type": "CommentLine",
-                        "value": "表示名が空",
-                        "start": 313,
-                        "end": 320,
+                        "value": "パスワードポリシーの要件を満たしていない",
+                        "start": 361,
+                        "end": 383,
                         "loc": {
                           "start": {
-                            "line": 10,
-                            "column": 28
+                            "line": 11,
+                            "column": 38
                           },
                           "end": {
-                            "line": 10,
-                            "column": 35
+                            "line": 11,
+                            "column": 60
                           }
                         }
                       }
@@ -581,15 +684,20 @@
             {
               "type": "CommentLine",
               "value": "MOCK用",
+<<<<<<< HEAD
               "start": 327,
               "end": 334,
+=======
+              "start": 390,
+              "end": 397,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
               "loc": {
                 "start": {
-                  "line": 13,
+                  "line": 14,
                   "column": 0
                 },
                 "end": {
-                  "line": 13,
+                  "line": 14,
                   "column": 7
                 }
               }
@@ -597,15 +705,20 @@
             {
               "type": "CommentLine",
               "value": "TODO 実装終わったら消す",
+<<<<<<< HEAD
               "start": 336,
               "end": 352,
+=======
+              "start": 399,
+              "end": 415,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
               "loc": {
                 "start": {
-                  "line": 14,
+                  "line": 15,
                   "column": 0
                 },
                 "end": {
-                  "line": 14,
+                  "line": 15,
                   "column": 16
                 }
               }
@@ -613,15 +726,20 @@
             {
               "type": "CommentBlock",
               "value": "*\r\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\r\n",
+<<<<<<< HEAD
               "start": 354,
               "end": 401,
+=======
+              "start": 417,
+              "end": 464,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
               "loc": {
                 "start": {
-                  "line": 15,
+                  "line": 16,
                   "column": 0
                 },
                 "end": {
-                  "line": 17,
+                  "line": 18,
                   "column": 2
                 }
               }
@@ -650,15 +768,20 @@
           {
             "type": "CommentLine",
             "value": "MOCK用",
+<<<<<<< HEAD
             "start": 327,
             "end": 334,
+=======
+            "start": 390,
+            "end": 397,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
             "loc": {
               "start": {
-                "line": 13,
+                "line": 14,
                 "column": 0
               },
               "end": {
-                "line": 13,
+                "line": 14,
                 "column": 7
               }
             }
@@ -666,15 +789,20 @@
           {
             "type": "CommentLine",
             "value": "TODO 実装終わったら消す",
+<<<<<<< HEAD
             "start": 336,
             "end": 352,
+=======
+            "start": 399,
+            "end": 415,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
             "loc": {
               "start": {
-                "line": 14,
+                "line": 15,
                 "column": 0
               },
               "end": {
-                "line": 14,
+                "line": 15,
                 "column": 16
               }
             }
@@ -682,15 +810,20 @@
           {
             "type": "CommentBlock",
             "value": "*\r\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\r\n",
+<<<<<<< HEAD
             "start": 354,
             "end": 401,
+=======
+            "start": 417,
+            "end": 464,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
             "loc": {
               "start": {
-                "line": 15,
+                "line": 16,
                 "column": 0
               },
               "end": {
-                "line": 17,
+                "line": 18,
                 "column": 2
               }
             }
@@ -699,15 +832,20 @@
       },
       {
         "type": "ExportNamedDeclaration",
+<<<<<<< HEAD
         "start": 403,
         "end": 458,
+=======
+        "start": 466,
+        "end": 521,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
         "loc": {
           "start": {
-            "line": 18,
+            "line": 19,
             "column": 0
           },
           "end": {
-            "line": 18,
+            "line": 19,
             "column": 55
           }
         },
@@ -715,44 +853,59 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
+<<<<<<< HEAD
           "start": 410,
           "end": 458,
+=======
+          "start": 473,
+          "end": 521,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
           "loc": {
             "start": {
-              "line": 18,
+              "line": 19,
               "column": 7
             },
             "end": {
-              "line": 18,
+              "line": 19,
               "column": 55
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
+<<<<<<< HEAD
               "start": 416,
               "end": 457,
+=======
+              "start": 479,
+              "end": 520,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
               "loc": {
                 "start": {
-                  "line": 18,
+                  "line": 19,
                   "column": 13
                 },
                 "end": {
-                  "line": 18,
+                  "line": 19,
                   "column": 54
                 }
               },
               "id": {
                 "type": "Identifier",
+<<<<<<< HEAD
                 "start": 416,
                 "end": 436,
+=======
+                "start": 479,
+                "end": 499,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
                 "loc": {
                   "start": {
-                    "line": 18,
+                    "line": 19,
                     "column": 13
                   },
                   "end": {
-                    "line": 18,
+                    "line": 19,
                     "column": 33
                   },
                   "identifierName": "MOCK_MEMBER_REPO_KEY"
@@ -762,15 +915,20 @@
               },
               "init": {
                 "type": "StringLiteral",
+<<<<<<< HEAD
                 "start": 439,
                 "end": 457,
+=======
+                "start": 502,
+                "end": 520,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
                 "loc": {
                   "start": {
-                    "line": 18,
+                    "line": 19,
                     "column": 36
                   },
                   "end": {
-                    "line": 18,
+                    "line": 19,
                     "column": 54
                   }
                 },
@@ -788,15 +946,20 @@
             {
               "type": "CommentLine",
               "value": "MOCK用",
+<<<<<<< HEAD
               "start": 327,
               "end": 334,
+=======
+              "start": 390,
+              "end": 397,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
               "loc": {
                 "start": {
-                  "line": 13,
+                  "line": 14,
                   "column": 0
                 },
                 "end": {
-                  "line": 13,
+                  "line": 14,
                   "column": 7
                 }
               }
@@ -804,15 +967,20 @@
             {
               "type": "CommentLine",
               "value": "TODO 実装終わったら消す",
+<<<<<<< HEAD
               "start": 336,
               "end": 352,
+=======
+              "start": 399,
+              "end": 415,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
               "loc": {
                 "start": {
-                  "line": 14,
+                  "line": 15,
                   "column": 0
                 },
                 "end": {
-                  "line": 14,
+                  "line": 15,
                   "column": 16
                 }
               }
@@ -820,15 +988,20 @@
             {
               "type": "CommentBlock",
               "value": "*\r\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\r\n",
+<<<<<<< HEAD
               "start": 354,
               "end": 401,
+=======
+              "start": 417,
+              "end": 464,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
               "loc": {
                 "start": {
-                  "line": 15,
+                  "line": 16,
                   "column": 0
                 },
                 "end": {
-                  "line": 17,
+                  "line": 18,
                   "column": 2
                 }
               }
@@ -840,15 +1013,20 @@
           {
             "type": "CommentLine",
             "value": "MOCK用",
+<<<<<<< HEAD
             "start": 327,
             "end": 334,
+=======
+            "start": 390,
+            "end": 397,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
             "loc": {
               "start": {
-                "line": 13,
+                "line": 14,
                 "column": 0
               },
               "end": {
-                "line": 13,
+                "line": 14,
                 "column": 7
               }
             }
@@ -856,15 +1034,20 @@
           {
             "type": "CommentLine",
             "value": "TODO 実装終わったら消す",
+<<<<<<< HEAD
             "start": 336,
             "end": 352,
+=======
+            "start": 399,
+            "end": 415,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
             "loc": {
               "start": {
-                "line": 14,
+                "line": 15,
                 "column": 0
               },
               "end": {
-                "line": 14,
+                "line": 15,
                 "column": 16
               }
             }
@@ -872,15 +1055,20 @@
           {
             "type": "CommentBlock",
             "value": "*\r\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\r\n",
+<<<<<<< HEAD
             "start": 354,
             "end": 401,
+=======
+            "start": 417,
+            "end": 464,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
             "loc": {
               "start": {
-                "line": 15,
+                "line": 16,
                 "column": 0
               },
               "end": {
-                "line": 17,
+                "line": 18,
                 "column": 2
               }
             }
@@ -990,31 +1178,57 @@
     {
       "type": "CommentLine",
       "value": "表示名が空",
+<<<<<<< HEAD
       "start": 313,
       "end": 320,
+=======
+      "start": 314,
+      "end": 321,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
           "line": 10,
-          "column": 28
+          "column": 29
         },
         "end": {
           "line": 10,
-          "column": 35
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "パスワードポリシーの要件を満たしていない",
+      "start": 361,
+      "end": 383,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 38
+        },
+        "end": {
+          "line": 11,
+          "column": 60
         }
       }
     },
     {
       "type": "CommentLine",
       "value": "MOCK用",
+<<<<<<< HEAD
       "start": 327,
       "end": 334,
+=======
+      "start": 390,
+      "end": 397,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 0
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 7
         }
       }
@@ -1022,15 +1236,20 @@
     {
       "type": "CommentLine",
       "value": "TODO 実装終わったら消す",
+<<<<<<< HEAD
       "start": 336,
       "end": 352,
+=======
+      "start": 399,
+      "end": 415,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 16
         }
       }
@@ -1038,15 +1257,20 @@
     {
       "type": "CommentBlock",
       "value": "*\r\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\r\n",
+<<<<<<< HEAD
       "start": 354,
       "end": 401,
+=======
+      "start": 417,
+      "end": 464,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 2
         }
       }
@@ -1888,18 +2112,144 @@
       }
     },
     {
-      "type": "CommentLine",
-      "value": "表示名が空",
-      "start": 313,
-      "end": 320,
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 312,
+      "end": 313,
       "loc": {
         "start": {
           "line": 10,
-          "column": 28
+          "column": 27
         },
         "end": {
           "line": 10,
-          "column": 35
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "表示名が空",
+<<<<<<< HEAD
+      "start": 313,
+      "end": 320,
+=======
+      "start": 314,
+      "end": 321,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 29
+        },
+        "end": {
+          "line": 10,
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "POLICY_PASSWORD",
+      "start": 325,
+      "end": 340,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 17
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ":",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 341,
+      "end": 342,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 18
+        },
+        "end": {
+          "line": 11,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "POLICY_PASSWORD",
+      "start": 343,
+      "end": 360,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 20
+        },
+        "end": {
+          "line": 11,
+          "column": 37
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "パスワードポリシーの要件を満たしていない",
+      "start": 361,
+      "end": 383,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 38
+        },
+        "end": {
+          "line": 11,
+          "column": 60
         }
       }
     },
@@ -1915,15 +2265,20 @@
         "postfix": false,
         "binop": null
       },
+<<<<<<< HEAD
       "start": 322,
       "end": 323,
+=======
+      "start": 385,
+      "end": 386,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 11,
+          "line": 12,
           "column": 0
         },
         "end": {
-          "line": 11,
+          "line": 12,
           "column": 1
         }
       }
@@ -1931,15 +2286,20 @@
     {
       "type": "CommentLine",
       "value": "MOCK用",
+<<<<<<< HEAD
       "start": 327,
       "end": 334,
+=======
+      "start": 390,
+      "end": 397,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 0
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 7
         }
       }
@@ -1947,15 +2307,20 @@
     {
       "type": "CommentLine",
       "value": "TODO 実装終わったら消す",
+<<<<<<< HEAD
       "start": 336,
       "end": 352,
+=======
+      "start": 399,
+      "end": 415,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 16
         }
       }
@@ -1963,15 +2328,20 @@
     {
       "type": "CommentBlock",
       "value": "*\r\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\r\n",
+<<<<<<< HEAD
       "start": 354,
       "end": 401,
+=======
+      "start": 417,
+      "end": 464,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 2
         }
       }
@@ -1991,15 +2361,20 @@
         "updateContext": null
       },
       "value": "export",
+<<<<<<< HEAD
       "start": 403,
       "end": 409,
+=======
+      "start": 466,
+      "end": 472,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 0
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 6
         }
       }
@@ -2019,15 +2394,20 @@
         "updateContext": null
       },
       "value": "const",
+<<<<<<< HEAD
       "start": 410,
       "end": 415,
+=======
+      "start": 473,
+      "end": 478,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 7
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 12
         }
       }
@@ -2045,15 +2425,20 @@
         "binop": null
       },
       "value": "MOCK_MEMBER_REPO_KEY",
+<<<<<<< HEAD
       "start": 416,
       "end": 436,
+=======
+      "start": 479,
+      "end": 499,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 13
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 33
         }
       }
@@ -2072,15 +2457,20 @@
         "updateContext": null
       },
       "value": "=",
+<<<<<<< HEAD
       "start": 437,
       "end": 438,
+=======
+      "start": 500,
+      "end": 501,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 34
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 35
         }
       }
@@ -2099,15 +2489,20 @@
         "updateContext": null
       },
       "value": "mock_member_repo",
+<<<<<<< HEAD
       "start": 439,
       "end": 457,
+=======
+      "start": 502,
+      "end": 520,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 36
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 54
         }
       }
@@ -2125,15 +2520,20 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 457,
       "end": 458,
+=======
+      "start": 520,
+      "end": 521,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 54
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 55
         }
       }
@@ -2151,15 +2551,20 @@
         "binop": null,
         "updateContext": null
       },
+<<<<<<< HEAD
       "start": 460,
       "end": 460,
+=======
+      "start": 523,
+      "end": 523,
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 0
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 0
         }
       }

@@ -64,7 +64,10 @@ function* getMemberStatus(me,mydestination){
       url:"https://api.kyo-do.co/status/all",
       headers: { "Authorization": "Bearer " + token}
     });
-    return result.data;
+
+    // 自分の情報を先頭に表示する
+    const memberStatus = result.data.filter(function(value, index, array){ return value.userid != me.userid });
+    return result.data.filter(function(value, index, array){ return value.userid == me.userid }).concat(memberStatus);
   }catch(e){
     //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい
   }
