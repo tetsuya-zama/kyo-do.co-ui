@@ -1,6 +1,10 @@
 import React from 'react'
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
+import {
+  red600,
+  grey400
+} from 'material-ui/styles/colors';
 
 /**
 * 行き先掲示板コンポーネント
