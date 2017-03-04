@@ -101,7 +101,7 @@ const STORAGE_KEY_DESTINATION = &quot;my_destination.&quot;;
 /**
 * &#x884C;&#x304D;&#x5148;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304B;&#x3089;&#x30B5;&#x30FC;&#x30D0;&#x540C;&#x671F;&#x3059;&#x308B;&#x307E;&#x3067;&#x306E;&#x9045;&#x5EF6;&#x6642;&#x9593;
 */
-const SYNC_DELAY_MS = 15000;
+const SYNC_DELAY_MS = 1000;
 
 /**
 * &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x304C;&#x6210;&#x529F;&#x3057;&#x305F;&#x969B;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x884C;&#x304D;&#x5148;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Saga
@@ -148,14 +148,12 @@ function* changeDestinationTask(action){
   * TODO API&#x3092;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3066;&#x30B5;&#x30FC;&#x30D0;&#x4E0A;&#x306B;&#x4FDD;&#x5B58;
   */
   yield call(delay,SYNC_DELAY_MS);
-  console.log(&quot;action&quot;);
-  console.log(action);
   const token = yield select(state =&gt; state.login.user.token);
   try{
 
     yield call(axios.put,
       &quot;https://api.kyo-do.co/status&quot;,
-      action.payload,
+      {inBusiness:action.payload.inBusiness,comment:action.payload.comment},
       {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}}
     );
   }catch(e){
