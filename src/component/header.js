@@ -15,6 +15,25 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import Dialog from 'material-ui/Dialog';
 import AccountBoard from './accountboard';
 import {openAccountInfoModal} from '../action/accountboard'
+import {
+  indigo400,
+  pink300,
+  pink50
+} from 'material-ui/styles/colors';
+const styles = {
+  toolbar: {
+    backgroundColor: indigo400
+  },
+  moreItem: {
+    right: 0
+  },
+  avatar: {
+    backgroundColor: pink300
+  },
+  chip: {
+    backgroundColor: pink50
+  },
+};
 
 /**
 * Headerコンポーネント
@@ -78,14 +97,14 @@ export default class Header extends React.Component{
     ];
     // ツールバーの表示
     const toolbar = this.props.login.status == LOGIN_STATUS.SUCCESS ?
-      <Toolbar>
-        <ToolbarGroup>
-          <Chip><Avatar>{this.props.login.user.name.charAt(0).toUpperCase()}</Avatar>{this.props.login.user.name}</Chip>
+      <Toolbar style={styles.toolbar}>
+        <ToolbarGroup lastChild={false} style={styles.moreItem}>
+          <Chip style={styles.chip}><Avatar style={styles.avatar}>{this.props.login.user.name.charAt(0).toUpperCase()}</Avatar>{this.props.login.user.name}</Chip>
           <ToolbarSeparator />
           <IconMenu
             iconButtonElement={
               <IconButton touch={true}>
-                <NavigationExpandMoreIcon />
+                <NavigationExpandMoreIcon color="white" />
               </IconButton>
             }
           >
@@ -94,7 +113,7 @@ export default class Header extends React.Component{
           </IconMenu>
         </ToolbarGroup>
         <AccountBoard dispatch={this.props.dispatch} accountboard={this.props.accountboard} />
-      </Toolbar>:
+      </Toolbar> :
       null
 
     return (
