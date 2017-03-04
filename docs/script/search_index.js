@@ -756,12 +756,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/mydestination.js~mydestination#hundlechange",
-    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleChange",
-    "src/component/mydestination.js~MyDestination#hundleChange",
-    "method"
-  ],
-  [
     "src/component/mydestination.js~mydestination#hundleclear",
     "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleClear",
     "src/component/mydestination.js~MyDestination#hundleClear",
@@ -784,12 +778,6 @@ window.esdocSearchIndex = [
     "class/src/component/mydestination.js~MyDestination.html#instance-method-render",
     "src/component/mydestination.js~MyDestination#render",
     "method"
-  ],
-  [
-    "src/component/mydestination.js~mydestination#state",
-    "class/src/component/mydestination.js~MyDestination.html#instance-member-state",
-    "src/component/mydestination.js~MyDestination#state",
-    "member"
   ],
   [
     "src/component/signupform.js",
