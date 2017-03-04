@@ -17,7 +17,8 @@ export function configureStore() {
     {
       login:{status:LOGIN_STATUS.NOTYET, user:{}},
       mydestination:{inBusiness:false,comment:""},
-      board:{memberStatus:[]}
+      board:{memberStatus:[]},
+      accountboard:{open:false, nextuser:{}}
     },
     applyMiddleware(
       sagaMiddleware, logger()

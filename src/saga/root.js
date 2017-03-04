@@ -3,6 +3,7 @@ import {loginSaga,logoutSaga,loginFailureSaga,loginFromRememberMeSaga} from './l
 import {signupSaga} from './signup'
 import {loadDestinationSaga,changeDestinationSaga} from './mydestination'
 import {loadMemberStatusSaga,watchMemberStatusSaga} from './board'
+import {changeAccountInfoSaga} from './accountboard'
 
 /**
 * Sagaの起点ポイント。ここから各Sagaをforkする
@@ -17,5 +18,5 @@ export default function* rootSaga(){
   yield fork(loadDestinationSaga);
   yield fork(changeDestinationSaga);
   yield fork(loadMemberStatusSaga);
-  yield fork(watchMemberStatusSaga);
+  yield fork(changeAccountInfoSaga);
 }
