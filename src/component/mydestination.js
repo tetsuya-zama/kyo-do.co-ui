@@ -38,7 +38,9 @@ export default class MyDestination extends React.Component{
   }
 
   hundleUpdateInput(newValue) {
-    this.props.dispatch(myDestinationChange({inBusiness:this.props.mydestination.inBusiness, comment:newValue}));
+    this.props.dispatch(myDestinationChange({
+        inBusiness:this.props.mydestination.inBusiness, comment:newValue, contact:this.props.mydestination.contact
+    }));
   }
 
   hundleContactChange(event,newValue){
