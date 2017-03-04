@@ -83,16 +83,16 @@ class MemberRow extends React.Component{
   <td>{this.props.member.name}</td>
   <td>{this.props.member.inBusiness ? "出勤" : "退勤"}</td>
   <td>{this.props.member.comment}</td>
-
+  leftAvatar={<Avatar>{this.props.member.name.charAt(0).toUpperCase()}</Avatar>}
   */
   render(){
-    return (
 
+    return (
         <List>
           <ListItem
             primaryText={this.props.member.name}
             secondaryText={this.props.member.comment}
-            leftAvatar={<Avatar>{this.props.member.name.charAt(0).toUpperCase()}</Avatar>}
+            rightAvatar={<Avatar>{this.props.member.inBusiness ? "出" : "退"}</Avatar>}
           />
         </List>
     );
