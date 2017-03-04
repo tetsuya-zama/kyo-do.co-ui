@@ -1,4 +1,6 @@
 import React from 'react'
+import {List, ListItem} from 'material-ui/List';
+import Avatar from 'material-ui/Avatar';
 
 /**
 * 行き先掲示板コンポーネント
@@ -20,11 +22,12 @@ export default class Board extends React.Component{
   */
   render(){
     //チームの数だけTeamBoardコンポーネントを作成する
-    const teamBoards = this.props.memberStatus.map(team => <TeamBoard key={team.teamId} team={team}/>);
+    //const teamBoards = this.props.memberStatus.map(team => <TeamBoard key={team.teamId} team={team}/>);
+    const memberRows = this.props.memberStatus.map((member,idx) => <MemberRow key={idx} member={member}/>);
     return (
       <div>
       <h3>行き先掲示板</h3>
-      {teamBoards}
+      {memberRows}
       </div>);
   }
 }
@@ -76,14 +79,22 @@ class MemberRow extends React.Component{
   /**
   * 描画メソッド
   * @return {undefined}
+  {this.props.member.name}
+  <td>{this.props.member.name}</td>
+  <td>{this.props.member.inBusiness ? "出勤" : "退勤"}</td>
+  <td>{this.props.member.comment}</td>
+  leftAvatar={<Avatar>{this.props.member.name.charAt(0).toUpperCase()}</Avatar>}
   */
   render(){
+
     return (
-      <tr>
-        <td>{this.props.member.name}</td>
-        <td>{this.props.member.inBusiness ? "出勤" : "退勤"}</td>
-        <td>{this.props.member.comment}</td>
-      </tr>
+        <List>
+          <ListItem
+            primaryText={this.props.member.name}
+            secondaryText={this.props.member.comment}
+            rightAvatar={<Avatar>{this.props.member.inBusiness ? "出" : "退"}</Avatar>}
+          />
+        </List>
     );
   }
 }

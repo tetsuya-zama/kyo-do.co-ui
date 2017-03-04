@@ -4,6 +4,7 @@ import {updateMemberStatus} from '../action/board'
 import {LOGIN_SUCCESS} from '../action/login'
 import {LOGIN_STATUS} from '../const/login'
 import {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'
+import axios from "axios";
 
 /**
 * メンバー状況をpollingする間隔(ms)
@@ -27,7 +28,7 @@ function* loadMemberStatusTask(){
   //TODO ダミー実装。本来はAPIから取得
   const me = yield select(state => state.login.user);
   const mydestination = yield select(state => state.mydestination);
-  const memberStatus = yield getMemberStatusMock(me,mydestination);
+  const memberStatus = yield getMemberStatus(me,mydestination);
   yield put(updateMemberStatus(memberStatus));
 }
 
@@ -42,7 +43,7 @@ export function* watchMemberStatusSaga(){
       //TODO ダミー実装。本来はAPIから取得
       const me = yield select(state => state.login.user);
       const mydestination = yield select(state => state.mydestination);
-      const memberStatus = yield getMemberStatusMock(me,mydestination);
+      const memberStatus = yield getMemberStatus(me,mydestination);
       yield put(updateMemberStatus(memberStatus));
     }
     yield call(delay,STATUS_POLLING_DURATION_MS);
@@ -50,68 +51,25 @@ export function* watchMemberStatusSaga(){
 }
 
 /**
-* Mockデータの中からランダムでメンバー状況を返す
-* TODO 本実装完了したら削除
+* メンバーの状況を返す
 * @param {Object} me 自分のユーザー情報
 * @param {Object} mydestination 自分の行き先
 * @return {Object} メンバー状況
 */
-function getMemberStatusMock(me,mydestination){
-  const mockDataSet = [
-    [
-      {"teamId":"ta","name":"チームA","members":[
-        {"name":"テストA","inBusiness":true,"comment":""},
-        {"name":"テストB","inBusiness":false, "comment":"明日客先直行　午後戻り"}
-      ]},
-      {"teamId":"tb","name":"チームB","members":[
-        {"name":"テストC","inBusiness":true,"comment":"客先NR"},
-        {"name":"テストD","inBusiness":true, "comment":""}
-      ]}
-    ],
-    [
-      {"teamId":"ta","name":"チームA","members":[
-        {"name":"テストA","inBusiness":true,"comment":"会議中"},
-        {"name":"テストB","inBusiness":false, "comment":"明日客先直行　午後戻り"}
-      ]},
-      {"teamId":"tb","name":"チームB","members":[
-        {"name":"テストC","inBusiness":true,"comment":"客先NR"},
-        {"name":"テストD","inBusiness":true, "comment":""}
-      ]}
-    ],
-    [
-      {"teamId":"ta","name":"チームA","members":[
-        {"name":"テストA","inBusiness":true,"comment":"会議中"},
-        {"name":"テストB","inBusiness":false, "comment":"明日客先直行　午後戻り"}
-      ]},
-      {"teamId":"tb","name":"チームB","members":[
-        {"name":"テストC","inBusiness":true,"comment":"客先NR"},
-        {"name":"テストD","inBusiness":false, "comment":""}
-      ]}
-    ],
-    [
-      {"teamId":"ta","name":"チームA","members":[
-        {"name":"テストA","inBusiness":false,"comment":""},
-        {"name":"テストB","inBusiness":false, "comment":"明日客先直行　午後戻り"}
-      ]},
-      {"teamId":"tb","name":"チームB","members":[
-        {"name":"テストC","inBusiness":true,"comment":"客先NR"},
-        {"name":"テストD","inBusiness":false, "comment":""}
-      ]}
-    ]
-  ];
+function* getMemberStatus(me,mydestination){
+  const token = yield select(state => state.login.user.token);
+  try{
+    const result = yield call(axios,{
+      method:"GET",
+      url:"https://api.kyo-do.co/status/all",
+      headers: { "Authorization": "Bearer " + token}
+    });
 
-  const mock = mockDataSet[Math.floor(Math.random() * mockDataSet.length)];
-  return mock.map(
-    team => Object.assign(
-      {},
-      team,
-      {members: team.members.concat(
-        {
-          "name":me.name,
-          "inBusiness":mydestination.inBusiness,
-          "comment":mydestination.comment
-        })
-      }
-    )
-  );
+    // 自分の情報を先頭に表示する
+    const memberStatus = result.data.filter(function(value, index, array){ return value.userid != me.userid });
+    return result.data.filter(function(value, index, array){ return value.userid == me.userid }).concat(memberStatus);
+  }catch(e){
+    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい
+  }
+
 }
