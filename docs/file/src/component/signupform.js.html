@@ -139,7 +139,7 @@ export default class SignUpForm extends React.Component{
 
   }
 
-  
+
   hundleIDChange(event,newValue){
     this.setState({id_text:newValue});
   }
@@ -163,6 +163,7 @@ export default class SignUpForm extends React.Component{
   */
   validate(forminfo){
     const errors = [];
+    const match_pattern = /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,}$/i;
 
     if(!forminfo.id || forminfo.id.trim().length == 0){
       errors.push(SIGNUP_FAILURE_REASONS.EMPTY_ID);
@@ -175,6 +176,9 @@ export default class SignUpForm extends React.Component{
     }
     if(forminfo.pass !== forminfo.pass_confirm){
       errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);
+    }
+    if(!forminfo.pass.match(match_pattern)){
+      errors.push(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD);
     }
     return errors;
 
@@ -193,6 +197,8 @@ export default class SignUpForm extends React.Component{
       &quot;&#x540D;&#x524D;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot; : &quot;&quot;;
     const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) &gt;= 0 ?
       &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3068;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#xFF08;&#x78BA;&#x8A8D;&#xFF09;&#x304C;&#x4E00;&#x81F4;&#x3057;&#x307E;&#x305B;&#x3093;&quot; : &quot;&quot;;
+    const policyPasswordMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD) &gt;= 0 ?
+      &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x30DD;&#x30EA;&#x30B7;&#x30FC;&#x306E;&#x8981;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;(8&#x6587;&#x5B57;&#x4EE5;&#x4E0A;&#xFF0C;&#x534A;&#x89D2;&#x82F1;&#x6570;&#x5B57;&#x3092;1&#x6587;&#x5B57;&#x4EE5;&#x4E0A;&#x542B;&#x3080;)&quot; : &quot;&quot;;
     const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) &gt;= 0 ?
       &quot;&#x3054;&#x6307;&#x5B9A;&#x306E;ID&#x306F;&#x3059;&#x3067;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&quot; : &quot;&quot;;
     const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) &gt;= 0 ?
@@ -200,7 +206,7 @@ export default class SignUpForm extends React.Component{
 
     return (
       &lt;div&gt;
-        &lt;h4&gt;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;&lt;/h4&gt;
+        &lt;h4&gt;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332; T&lt;/h4&gt;
         &lt;TextField
         hintText=&quot;User ID&quot;
         floatingLabelText=&quot;User ID&quot;
@@ -223,7 +229,7 @@ export default class SignUpForm extends React.Component{
         /&gt;
         &lt;br /&gt;
         &lt;span style={{color:&quot;red&quot;}}&gt;
-          {emptyPassMessage}
+          {emptyPassMessage}{policyPasswordMessage}
         &lt;/span&gt;
         &lt;br /&gt;
         &lt;TextField
