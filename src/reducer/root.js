@@ -3,6 +3,7 @@ import login from './login';
 import mydestination from './mydestination'
 import board from './board'
 import signup from './signup'
+import accountboard from './accountboard'
 
 /**
 * 各reducerを結合してひとまとめにしてexportする
@@ -12,5 +13,6 @@ export default combineReducers({
   login,
   mydestination,
   board,
-  signup
+  signup,
+  accountboard
 })
