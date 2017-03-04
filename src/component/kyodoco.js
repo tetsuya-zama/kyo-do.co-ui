@@ -71,6 +71,8 @@ class Kyodoco extends React.Component{
       </header>
       <hr />
       {content}
+      <hr />
+      copyright NST i-lab All Rights Reserved.
       </div>
     );
   }
