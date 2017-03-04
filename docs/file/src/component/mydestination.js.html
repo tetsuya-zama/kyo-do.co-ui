@@ -110,6 +110,7 @@ export default class MyDestination extends React.Component{
     this.hundleClear = this.hundleClear.bind(this);
     this.hundleToggle = this.hundleToggle.bind(this);
     this.hundleTextChange = this.hundleTextChange.bind(this);
+    this.hundleContactChange = this.hundleContactChange.bind(this);
   }
 
   hundleClear(){
@@ -123,6 +124,10 @@ export default class MyDestination extends React.Component{
 
   hundleTextChange(event,newValue){
     this.props.dispatch(myDestinationChange({inBusiness:this.props.mydestination.inBusiness, comment:newValue}));
+  }
+
+  hundleContactChange(event,newValue){
+    this.props.dispatch(myDestinationChange({contact:newValue}));
   }
 
   /**
@@ -146,6 +151,14 @@ export default class MyDestination extends React.Component{
           &lt;td&gt;
             &lt;button onClick={this.hundleClear}&gt;Clear&lt;/button&gt;
           &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;
+            &lt;TextField hintText=&quot;&#x9023;&#x7D61;&#x5148;&quot; /&gt;
+          &lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;/tbody&gt;
       &lt;/table&gt;

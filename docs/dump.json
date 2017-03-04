@@ -589,7 +589,11 @@
     "__docId__": 25,
     "kind": "file",
     "name": "src/component/board.js",
+<<<<<<< HEAD
+    "content": "import React from 'react'\r\n\r\n/**\r\n* 行き先掲示板コンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class Board extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n  }\r\n\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    //チームの数だけTeamBoardコンポーネントを作成する\r\n    //const teamBoards = this.props.memberStatus.map(team => <TeamBoard key={team.teamId} team={team}/>);\r\n    const memberRows = this.props.memberStatus.map((member,idx) => <MemberRow key={idx} member={member}/>);\r\n    return (\r\n      <div>\r\n      <h3>行き先掲示板</h3>\r\n      {memberRows}\r\n      </div>);\r\n  }\r\n}\r\n/**\r\n* チーム別行き先掲示板コンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nclass TeamBoard extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n  }\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    //メンバーの数だけMemberRowコンポーネント作成する\r\n    const memberRows = this.props.team.members.map((member,idx) => <MemberRow key={idx} member={member}/>);\r\n    return (\r\n      <div>\r\n        <h4>{this.props.team.name}</h4>\r\n        <table>\r\n        <tbody>\r\n        {memberRows}\r\n        </tbody>\r\n        </table>\r\n      </div>\r\n    );\r\n  }\r\n}\r\n/**\r\n* 描画メソッド\r\n* @return {undefined}\r\n*/\r\nclass MemberRow extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n  }\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    return (\r\n      <tr>\r\n        <td>{this.props.member.name}</td>\r\n        <td>{this.props.member.inBusiness ? \"出勤\" : \"退勤\"}</td>\r\n        <td>{this.props.member.comment}</td>\r\n      </tr>\r\n    );\r\n  }\r\n}\r\n",
+=======
     "content": "import React from 'react'\r\n\r\n/**\r\n* 行き先掲示板コンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class Board extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n  }\r\n\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    //チームの数だけTeamBoardコンポーネントを作成する\r\n    const teamBoards = this.props.memberStatus.map(team => <TeamBoard key={team.teamId} team={team}/>);\r\n    return (\r\n      <div>\r\n      <h3>行き先掲示板</h3>\r\n      {teamBoards}\r\n      </div>);\r\n  }\r\n}\r\n/**\r\n* チーム別行き先掲示板コンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nclass TeamBoard extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n  }\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    //メンバーの数だけMemberRowコンポーネント作成する\r\n    const memberRows = this.props.team.members.map((member,idx) => <MemberRow key={idx} member={member}/>);\r\n    return (\r\n      <div>\r\n        <h4>{this.props.team.name}</h4>\r\n        <table>\r\n        <tbody>\r\n        {memberRows}\r\n        </tbody>\r\n        </table>\r\n      </div>\r\n    );\r\n  }\r\n}\r\n/**\r\n* 描画メソッド\r\n* @return {undefined}\r\n*/\r\nclass MemberRow extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props プロパティ\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n  }\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    return (\r\n      <tr>\r\n        <td>{this.props.member.name}</td>\r\n        <td>{this.props.member.inBusiness ? \"出勤\" : \"退勤\"}</td>\r\n        <td>{this.props.member.comment}</td>\r\n      </tr>\r\n    );\r\n  }\r\n}\r\n",
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
     "static": true,
     "longname": "src/component/board.js",
     "access": null,
@@ -687,7 +691,7 @@
     "see": [
       "http://qiita.com/nownabe/items/2d8b92d95186c3941de0"
     ],
-    "lineNumber": 35,
+    "lineNumber": 36,
     "interface": false,
     "extends": [
       "react~React.Component"
@@ -704,7 +708,7 @@
     "longname": "src/component/board.js~TeamBoard#constructor",
     "access": null,
     "description": "コンストラクタ",
-    "lineNumber": 41,
+    "lineNumber": 42,
     "params": [
       {
         "nullable": null,
@@ -737,7 +741,7 @@
     "longname": "src/component/board.js~TeamBoard#render",
     "access": null,
     "description": "描画メソッド",
-    "lineNumber": 48,
+    "lineNumber": 49,
     "params": [],
     "return": {
       "nullable": null,
@@ -760,7 +764,7 @@
     "importPath": "kyo-do.co-ui/src/component/board.js",
     "importStyle": null,
     "description": "描画メソッド",
-    "lineNumber": 67,
+    "lineNumber": 68,
     "return": {
       "nullable": null,
       "types": [
@@ -785,7 +789,7 @@
     "longname": "src/component/board.js~MemberRow#constructor",
     "access": null,
     "description": "コンストラクタ",
-    "lineNumber": 73,
+    "lineNumber": 74,
     "params": [
       {
         "nullable": null,
@@ -818,7 +822,7 @@
     "longname": "src/component/board.js~MemberRow#render",
     "access": null,
     "description": "描画メソッド",
-    "lineNumber": 80,
+    "lineNumber": 81,
     "params": [],
     "return": {
       "nullable": null,
@@ -1353,7 +1357,11 @@
     "__docId__": 57,
     "kind": "file",
     "name": "src/component/mydestination.js",
+<<<<<<< HEAD
+    "content": "import React from 'react'\r\nimport ReactDOM from 'react-dom'\r\nimport {myDestinationChange,myDestinationClear} from '../action/mydestination'\r\nimport Toggle from 'material-ui/Toggle'\r\nimport TextField from 'material-ui/TextField'\r\n\r\n/**\r\n* \"自分の行き先\"コンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class MyDestination extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n\r\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\r\n    this.hundleClear = this.hundleClear.bind(this);\r\n    this.hundleToggle = this.hundleToggle.bind(this);\r\n    this.hundleTextChange = this.hundleTextChange.bind(this);\r\n    this.hundleContactChange = this.hundleContactChange.bind(this);\r\n  }\r\n\r\n  hundleClear(){\r\n    const action = myDestinationClear();\r\n    this.props.dispatch(action);\r\n  }\r\n\r\n  hundleToggle(event,isInputChecked){\r\n    this.props.dispatch(myDestinationChange({inBusiness:isInputChecked, comment:this.props.mydestination.comment}));\r\n  }\r\n\r\n  hundleTextChange(event,newValue){\r\n    this.props.dispatch(myDestinationChange({inBusiness:this.props.mydestination.inBusiness, comment:newValue}));\r\n  }\r\n\r\n  hundleContactChange(event,newValue){\r\n    this.props.dispatch(myDestinationChange({contact:newValue}));\r\n  }\r\n\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    return (\r\n      <div>\r\n      <h3>自分の行き先</h3>\r\n      <table>\r\n        <tbody>\r\n        <tr>\r\n          <td>{this.props.login.user.name}</td>\r\n          <td>\r\n            <Toggle label=\"出勤\" toggled={this.props.mydestination.inBusiness} onToggle={this.hundleToggle} />\r\n          </td>\r\n          <td>\r\n            <TextField hintText=\"コメント\" value={this.props.mydestination.comment} onChange={this.hundleTextChange}/>\r\n          </td>\r\n          <td>\r\n            <button onClick={this.hundleClear}>Clear</button>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td></td>\r\n          <td></td>\r\n          <td>\r\n            <TextField hintText=\"連絡先\" />\r\n          </td>\r\n          <td></td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n      </div>);\r\n  }\r\n}\r\n",
+=======
     "content": "import React from 'react'\r\nimport ReactDOM from 'react-dom'\r\nimport {myDestinationChange,myDestinationClear} from '../action/mydestination'\r\nimport Toggle from 'material-ui/Toggle'\r\nimport TextField from 'material-ui/TextField'\r\n\r\n/**\r\n* \"自分の行き先\"コンポーネント\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class MyDestination extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n\r\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\r\n    this.hundleClear = this.hundleClear.bind(this);\r\n    this.hundleToggle = this.hundleToggle.bind(this);\r\n    this.hundleTextChange = this.hundleTextChange.bind(this);\r\n  }\r\n\r\n  hundleClear(){\r\n    const action = myDestinationClear();\r\n    this.props.dispatch(action);\r\n  }\r\n\r\n  hundleToggle(event,isInputChecked){\r\n    this.props.dispatch(myDestinationChange({inBusiness:isInputChecked, comment:this.props.mydestination.comment}));\r\n  }\r\n\r\n  hundleTextChange(event,newValue){\r\n    this.props.dispatch(myDestinationChange({inBusiness:this.props.mydestination.inBusiness, comment:newValue}));\r\n  }\r\n\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    return (\r\n      <div>\r\n      <h3>自分の行き先</h3>\r\n      <table>\r\n        <tbody>\r\n        <tr>\r\n          <td>{this.props.login.user.name}</td>\r\n          <td>\r\n            <Toggle label=\"出勤\" toggled={this.props.mydestination.inBusiness} onToggle={this.hundleToggle} />\r\n          </td>\r\n          <td>\r\n            <TextField hintText=\"コメント\" value={this.props.mydestination.comment} onChange={this.hundleTextChange}/>\r\n          </td>\r\n          <td>\r\n            <button onClick={this.hundleClear}>Clear</button>\r\n          </td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n      </div>);\r\n  }\r\n}\r\n",
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
     "static": true,
     "longname": "src/component/mydestination.js",
     "access": null,
@@ -1485,6 +1493,29 @@
   },
   {
     "__docId__": 63,
+    "kind": "member",
+    "name": "hundleContactChange",
+    "memberof": "src/component/mydestination.js~MyDestination",
+    "static": false,
+    "longname": "src/component/mydestination.js~MyDestination#hundleContactChange",
+    "access": null,
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
     "kind": "method",
     "name": "hundleClear",
     "memberof": "src/component/mydestination.js~MyDestination",
@@ -1494,7 +1525,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleClear",
     "access": null,
     "description": null,
-    "lineNumber": 26,
+    "lineNumber": 27,
     "undocument": true,
     "unknown": [
       {
@@ -1505,7 +1536,7 @@
     "params": []
   },
   {
-    "__docId__": 64,
+    "__docId__": 65,
     "kind": "method",
     "name": "hundleToggle",
     "memberof": "src/component/mydestination.js~MyDestination",
@@ -1515,7 +1546,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleToggle",
     "access": null,
     "description": null,
-    "lineNumber": 31,
+    "lineNumber": 32,
     "undocument": true,
     "unknown": [
       {
@@ -1539,7 +1570,7 @@
     ]
   },
   {
-    "__docId__": 65,
+    "__docId__": 66,
     "kind": "method",
     "name": "hundleTextChange",
     "memberof": "src/component/mydestination.js~MyDestination",
@@ -1549,7 +1580,7 @@
     "longname": "src/component/mydestination.js~MyDestination#hundleTextChange",
     "access": null,
     "description": null,
-    "lineNumber": 35,
+    "lineNumber": 36,
     "undocument": true,
     "unknown": [
       {
@@ -1573,7 +1604,41 @@
     ]
   },
   {
-    "__docId__": 66,
+    "__docId__": 67,
+    "kind": "method",
+    "name": "hundleContactChange",
+    "memberof": "src/component/mydestination.js~MyDestination",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/component/mydestination.js~MyDestination#hundleContactChange",
+    "access": null,
+    "description": null,
+    "lineNumber": 40,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "newValue",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 68,
     "kind": "method",
     "name": "render",
     "memberof": "src/component/mydestination.js~MyDestination",
@@ -1583,7 +1648,7 @@
     "longname": "src/component/mydestination.js~MyDestination#render",
     "access": null,
     "description": "描画メソッド",
-    "lineNumber": 43,
+    "lineNumber": 48,
     "params": [],
     "return": {
       "nullable": null,
@@ -1595,10 +1660,14 @@
     }
   },
   {
-    "__docId__": 67,
+    "__docId__": 69,
     "kind": "file",
     "name": "src/component/signupform.js",
+<<<<<<< HEAD
+    "content": "import React from 'react'\r\nimport ReactDOM from 'react-dom'\r\nimport {signupFailure,signupRequired} from '../action/signup'\r\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\r\nimport TextField from 'material-ui/TextField'\r\nimport RaisedButton from 'material-ui/RaisedButton'\r\n/**\r\n* サインアップフォームのComponent\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class SignUpForm extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n    this.state = {id_text:\"\",pass_text:\"\",confirm_pass_text:\"\",name_text:\"\"};\r\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\r\n    this.hundleSubmit = this.hundleSubmit.bind(this);\r\n    this.validate = this.validate.bind(this);\r\n    this.hundleIDChange = this.hundleIDChange.bind(this);\r\n    this.hundlePassChange = this.hundlePassChange.bind(this);\r\n    this.hundleConfirmPasswordChange = this.hundleConfirmPasswordChange.bind(this);\r\n    this.hundleNameChange = this.hundleNameChange.bind(this);\r\n  }\r\n  /**\r\n  * Sign Upボタンのクリックをハンドリングするメソッド\r\n  * @return {undefined}\r\n  */\r\n  hundleSubmit(){\r\n    const id = this.state.id_text.trim();\r\n    const pass = this.state.pass_text.trim();\r\n    const pass_confirm = this.state.confirm_pass_text.trim();\r\n    const name = this.state.name_text.trim();\r\n\r\n    //入力値の画面サイドバリデーション\r\n    const forminfo = {id:id,pass:pass,pass_confirm:pass_confirm,name:name};\r\n    const validationErrors = this.validate(forminfo);\r\n\r\n\r\n    if(validationErrors.length > 0){\r\n      //画面サイドバリデーションが通らないので失敗\r\n      this.props.dispatch(signupFailure(validationErrors));\r\n    }else{\r\n      //画面サイドバリデーションが通ったので、サインアップ要求する\r\n      this.props.dispatch(signupRequired({id:id,password:pass,name:name}));\r\n    }\r\n\r\n  }\r\n\r\n  \r\n  hundleIDChange(event,newValue){\r\n    this.setState({id_text:newValue});\r\n  }\r\n\r\n  hundlePassChange(event,newValue){\r\n    this.setState({pass_text:newValue});\r\n  }\r\n\r\n  hundleConfirmPasswordChange(event,newValue){\r\n    this.setState({confirm_pass_text:newValue});\r\n  }\r\n\r\n  hundleNameChange(event,newValue){\r\n    this.setState({name_text:newValue});\r\n  }\r\n\r\n  /**\r\n  * フォームデータのバリデーション\r\n  * @param {{id:string,pass:string,pass_confirm:string,name:string}} forminfo フォームデータ\r\n  * @return {array} SIGNUP_FAILURE_REASONSの配列\r\n  */\r\n  validate(forminfo){\r\n    const errors = [];\r\n\r\n    if(!forminfo.id || forminfo.id.trim().length == 0){\r\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_ID);\r\n    }\r\n    if(!forminfo.pass || forminfo.pass.trim().length == 0){\r\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD);\r\n    }\r\n    if(!forminfo.name || forminfo.name.trim().length == 0){\r\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_NAME);\r\n    }\r\n    if(forminfo.pass !== forminfo.pass_confirm){\r\n      errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);\r\n    }\r\n    return errors;\r\n\r\n  }\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    const failure_reason = this.props.signup.failure_reason;\r\n    const emptyIdMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_ID) >= 0 ?\r\n      \"IDを入力してください\" : \"\";\r\n    const emptyPassMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD) >= 0 ?\r\n      \"パスワードを入力してください\" : \"\";\r\n    const emptyNameMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_NAME) >= 0 ?\r\n      \"名前を入力してください\" : \"\";\r\n    const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) >= 0 ?\r\n      \"パスワードとパスワード（確認）が一致しません\" : \"\";\r\n    const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) >= 0 ?\r\n      \"ご指定のIDはすでに使われています\" : \"\";\r\n    const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) >= 0 ?\r\n      \"サーバーエラーが発生しました\" : \"\";\r\n\r\n    return (\r\n      <div>\r\n        <h4>ユーザー登録</h4>\r\n        <TextField\r\n        hintText=\"User ID\"\r\n        floatingLabelText=\"User ID\"\r\n        value={this.state.id_text}\r\n        ref=\"id\"\r\n        onChange={this.hundleIDChange}\r\n        />\r\n        <br />\r\n        <span style={{color:\"red\"}}>\r\n          {emptyIdMessage}{idDuplicatedMessage}\r\n        </span>\r\n        <br />\r\n        <TextField\r\n        hintText=\"Password\"\r\n        floatingLabelText=\"Password\"\r\n        value={this.state.pass_text}\r\n        ref=\"pass\"\r\n        type=\"password\"\r\n        onChange={this.hundlePassChange}\r\n        />\r\n        <br />\r\n        <span style={{color:\"red\"}}>\r\n          {emptyPassMessage}\r\n        </span>\r\n        <br />\r\n        <TextField\r\n        hintText=\"Password(Confirm)\"\r\n        floatingLabelText=\"Password(Confirm)\"\r\n        value={this.state.confirm_pass_text}\r\n        ref=\"pass_confirm\"\r\n        type=\"password\"\r\n        onChange={this.hundleConfirmPasswordChange}\r\n        />\r\n        <br />\r\n        <span style={{color:\"red\"}}>\r\n          {invalidConfirmMessage}\r\n        </span>\r\n        <br />\r\n        <TextField\r\n        hintText=\"表示名\"\r\n        floatingLabelText=\"表示名\"\r\n        value={this.state.name_text}\r\n        ref=\"name\"\r\n        onChange={this.hundleNameChange}\r\n        />\r\n        <br />\r\n        <span style={{color:\"red\"}}>\r\n          {emptyNameMessage}\r\n        </span>\r\n        <br />\r\n        <br />\r\n        <RaisedButton onClick={this.hundleSubmit} label=\"Sign Up\"/>\r\n      </div>\r\n    )\r\n  }\r\n}\r\n",
+=======
     "content": "import React from 'react'\r\nimport ReactDOM from 'react-dom'\r\nimport {signupFailure,signupRequired} from '../action/signup'\r\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\r\nimport TextField from 'material-ui/TextField'\r\nimport RaisedButton from 'material-ui/RaisedButton'\r\n/**\r\n* サインアップフォームのComponent\r\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\r\n*/\r\nexport default class SignUpForm extends React.Component{\r\n  /**\r\n  * コンストラクタ\r\n  * @param {Object} props\r\n  * @return {undefined}\r\n  */\r\n  constructor(props){\r\n    super(props);\r\n    this.state = {id_text:\"\",pass_text:\"\",confirm_pass_text:\"\",name_text:\"\"};\r\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\r\n    this.hundleSubmit = this.hundleSubmit.bind(this);\r\n    this.validate = this.validate.bind(this);\r\n    this.hundleIDChange = this.hundleIDChange.bind(this);\r\n    this.hundlePassChange = this.hundlePassChange.bind(this);\r\n    this.hundleConfirmPasswordChange = this.hundleConfirmPasswordChange.bind(this);\r\n    this.hundleNameChange = this.hundleNameChange.bind(this);\r\n  }\r\n  /**\r\n  * Sign Upボタンのクリックをハンドリングするメソッド\r\n  * @return {undefined}\r\n  */\r\n  hundleSubmit(){\r\n    const id = this.state.id_text.trim();\r\n    const pass = this.state.pass_text.trim();\r\n    const pass_confirm = this.state.confirm_pass_text.trim();\r\n    const name = this.state.name_text.trim();\r\n\r\n    //入力値の画面サイドバリデーション\r\n    const forminfo = {id:id,pass:pass,pass_confirm:pass_confirm,name:name};\r\n    const validationErrors = this.validate(forminfo);\r\n\r\n\r\n    if(validationErrors.length > 0){\r\n      //画面サイドバリデーションが通らないので失敗\r\n      this.props.dispatch(signupFailure(validationErrors));\r\n    }else{\r\n      //画面サイドバリデーションが通ったので、サインアップ要求する\r\n      this.props.dispatch(signupRequired({id:id,password:pass,name:name}));\r\n    }\r\n\r\n  }\r\n\r\n\r\n  hundleIDChange(event,newValue){\r\n    this.setState({id_text:newValue});\r\n  }\r\n\r\n  hundlePassChange(event,newValue){\r\n    this.setState({pass_text:newValue});\r\n  }\r\n\r\n  hundleConfirmPasswordChange(event,newValue){\r\n    this.setState({confirm_pass_text:newValue});\r\n  }\r\n\r\n  hundleNameChange(event,newValue){\r\n    this.setState({name_text:newValue});\r\n  }\r\n\r\n  /**\r\n  * フォームデータのバリデーション\r\n  * @param {{id:string,pass:string,pass_confirm:string,name:string}} forminfo フォームデータ\r\n  * @return {array} SIGNUP_FAILURE_REASONSの配列\r\n  */\r\n  validate(forminfo){\r\n    const errors = [];\r\n    const match_pattern = /^(?=.*?[a-z])(?=.*?\\d)[a-z\\d]{8,}$/i;\r\n\r\n    if(!forminfo.id || forminfo.id.trim().length == 0){\r\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_ID);\r\n    }\r\n    if(!forminfo.pass || forminfo.pass.trim().length == 0){\r\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD);\r\n    }\r\n    if(!forminfo.name || forminfo.name.trim().length == 0){\r\n      errors.push(SIGNUP_FAILURE_REASONS.EMPTY_NAME);\r\n    }\r\n    if(forminfo.pass !== forminfo.pass_confirm){\r\n      errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);\r\n    }\r\n    if(!forminfo.pass.match(match_pattern)){\r\n      errors.push(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD);\r\n    }\r\n    return errors;\r\n\r\n  }\r\n  /**\r\n  * 描画メソッド\r\n  * @return {undefined}\r\n  */\r\n  render(){\r\n    const failure_reason = this.props.signup.failure_reason;\r\n    const emptyIdMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_ID) >= 0 ?\r\n      \"IDを入力してください\" : \"\";\r\n    const emptyPassMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD) >= 0 ?\r\n      \"パスワードを入力してください\" : \"\";\r\n    const emptyNameMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_NAME) >= 0 ?\r\n      \"名前を入力してください\" : \"\";\r\n    const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) >= 0 ?\r\n      \"パスワードとパスワード（確認）が一致しません\" : \"\";\r\n    const policyPasswordMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD) >= 0 ?\r\n      \"パスワードポリシーの要件を満たしていません(8文字以上，半角英数字を1文字以上含む)\" : \"\";\r\n    const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) >= 0 ?\r\n      \"ご指定のIDはすでに使われています\" : \"\";\r\n    const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) >= 0 ?\r\n      \"サーバーエラーが発生しました\" : \"\";\r\n\r\n    return (\r\n      <div>\r\n        <h4>ユーザー登録 T</h4>\r\n        <TextField\r\n        hintText=\"User ID\"\r\n        floatingLabelText=\"User ID\"\r\n        value={this.state.id_text}\r\n        ref=\"id\"\r\n        onChange={this.hundleIDChange}\r\n        />\r\n        <br />\r\n        <span style={{color:\"red\"}}>\r\n          {emptyIdMessage}{idDuplicatedMessage}\r\n        </span>\r\n        <br />\r\n        <TextField\r\n        hintText=\"Password\"\r\n        floatingLabelText=\"Password\"\r\n        value={this.state.pass_text}\r\n        ref=\"pass\"\r\n        type=\"password\"\r\n        onChange={this.hundlePassChange}\r\n        />\r\n        <br />\r\n        <span style={{color:\"red\"}}>\r\n          {emptyPassMessage}{policyPasswordMessage}\r\n        </span>\r\n        <br />\r\n        <TextField\r\n        hintText=\"Password(Confirm)\"\r\n        floatingLabelText=\"Password(Confirm)\"\r\n        value={this.state.confirm_pass_text}\r\n        ref=\"pass_confirm\"\r\n        type=\"password\"\r\n        onChange={this.hundleConfirmPasswordChange}\r\n        />\r\n        <br />\r\n        <span style={{color:\"red\"}}>\r\n          {invalidConfirmMessage}\r\n        </span>\r\n        <br />\r\n        <TextField\r\n        hintText=\"表示名\"\r\n        floatingLabelText=\"表示名\"\r\n        value={this.state.name_text}\r\n        ref=\"name\"\r\n        onChange={this.hundleNameChange}\r\n        />\r\n        <br />\r\n        <span style={{color:\"red\"}}>\r\n          {emptyNameMessage}\r\n        </span>\r\n        <br />\r\n        <br />\r\n        <RaisedButton onClick={this.hundleSubmit} label=\"Sign Up\"/>\r\n      </div>\r\n    )\r\n  }\r\n}\r\n",
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
     "static": true,
     "longname": "src/component/signupform.js",
     "access": null,
@@ -1606,7 +1675,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 68,
+    "__docId__": 70,
     "kind": "class",
     "name": "SignUpForm",
     "memberof": "src/component/signupform.js",
@@ -1627,7 +1696,7 @@
     ]
   },
   {
-    "__docId__": 69,
+    "__docId__": 71,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1660,7 +1729,7 @@
     }
   },
   {
-    "__docId__": 70,
+    "__docId__": 72,
     "kind": "member",
     "name": "state",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1683,7 +1752,7 @@
     }
   },
   {
-    "__docId__": 71,
+    "__docId__": 73,
     "kind": "member",
     "name": "hundleSubmit",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1706,7 +1775,7 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 74,
     "kind": "member",
     "name": "validate",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1729,7 +1798,7 @@
     }
   },
   {
-    "__docId__": 73,
+    "__docId__": 75,
     "kind": "member",
     "name": "hundleIDChange",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1752,7 +1821,7 @@
     }
   },
   {
-    "__docId__": 74,
+    "__docId__": 76,
     "kind": "member",
     "name": "hundlePassChange",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1775,7 +1844,7 @@
     }
   },
   {
-    "__docId__": 75,
+    "__docId__": 77,
     "kind": "member",
     "name": "hundleConfirmPasswordChange",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1798,7 +1867,7 @@
     }
   },
   {
-    "__docId__": 76,
+    "__docId__": 78,
     "kind": "member",
     "name": "hundleNameChange",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1821,7 +1890,7 @@
     }
   },
   {
-    "__docId__": 77,
+    "__docId__": 79,
     "kind": "method",
     "name": "hundleSubmit",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1843,7 +1912,7 @@
     }
   },
   {
-    "__docId__": 78,
+    "__docId__": 80,
     "kind": "method",
     "name": "hundleIDChange",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1877,7 +1946,7 @@
     ]
   },
   {
-    "__docId__": 79,
+    "__docId__": 81,
     "kind": "method",
     "name": "hundlePassChange",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1911,7 +1980,7 @@
     ]
   },
   {
-    "__docId__": 80,
+    "__docId__": 82,
     "kind": "method",
     "name": "hundleConfirmPasswordChange",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1945,7 +2014,7 @@
     ]
   },
   {
-    "__docId__": 81,
+    "__docId__": 83,
     "kind": "method",
     "name": "hundleNameChange",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -1979,7 +2048,7 @@
     ]
   },
   {
-    "__docId__": 82,
+    "__docId__": 84,
     "kind": "method",
     "name": "validate",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -2012,7 +2081,7 @@
     }
   },
   {
-    "__docId__": 83,
+    "__docId__": 85,
     "kind": "method",
     "name": "render",
     "memberof": "src/component/signupform.js~SignUpForm",
@@ -2034,7 +2103,7 @@
     }
   },
   {
-    "__docId__": 84,
+    "__docId__": 86,
     "kind": "file",
     "name": "src/const/login.js",
     "content": "/**\r\n* login state内のstatus定義。SUCCESS(成功)、FAILURE(失敗)、NOTYET(未実施)。\r\n*/\r\nexport const LOGIN_STATUS={\r\n  SUCCESS:\"SUCCESS\",\r\n  FAILURE:\"FAILURE\",\r\n  NOTYET:\"NOTYET\"\r\n}\r\n",
@@ -2045,7 +2114,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 85,
+    "__docId__": 87,
     "kind": "variable",
     "name": "LOGIN_STATUS",
     "memberof": "src/const/login.js",
@@ -2064,10 +2133,14 @@
     }
   },
   {
-    "__docId__": 86,
+    "__docId__": 88,
     "kind": "file",
     "name": "src/const/signup.js",
+<<<<<<< HEAD
+    "content": "/**\r\n* サインアップ失敗理由\r\n*/\r\nexport const SIGNUP_FAILURE_REASONS = {\r\n  ID_DUPLICATED : \"ID_DUPLICATED\", //ID重複\r\n  SERVER_ERROR : \"SERVER_ERROR\", //サーバーエラー\r\n  INVALID_CONFIRM : \"INVALID_CONFIRM\", //パスワード確認用不一致\r\n  EMPTY_ID : \"EMPTY_ID\", //IDが空,\r\n  EMPTY_PASSWORD:\"EMPTY_PASSWORD\", //パスワードが空\r\n  EMPTY_NAME : \"EMPTY_NAME\" //表示名が空\r\n}\r\n\r\n//MOCK用\r\n//TODO 実装終わったら消す\r\n/**\r\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\r\n*/\r\nexport const MOCK_MEMBER_REPO_KEY = \"mock_member_repo\";\r\n",
+=======
     "content": "/**\r\n* サインアップ失敗理由\r\n*/\r\nexport const SIGNUP_FAILURE_REASONS = {\r\n  ID_DUPLICATED : \"ID_DUPLICATED\", //ID重複\r\n  SERVER_ERROR : \"SERVER_ERROR\", //サーバーエラー\r\n  INVALID_CONFIRM : \"INVALID_CONFIRM\", //パスワード確認用不一致\r\n  EMPTY_ID : \"EMPTY_ID\", //IDが空,\r\n  EMPTY_PASSWORD:\"EMPTY_PASSWORD\", //パスワードが空\r\n  EMPTY_NAME : \"EMPTY_NAME\", //表示名が空\r\n  POLICY_PASSWORD : \"POLICY_PASSWORD\" //パスワードポリシーの要件を満たしていない\r\n}\r\n\r\n//MOCK用\r\n//TODO 実装終わったら消す\r\n/**\r\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\r\n*/\r\nexport const MOCK_MEMBER_REPO_KEY = \"mock_member_repo\";\r\n",
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
     "static": true,
     "longname": "src/const/signup.js",
     "access": null,
@@ -2075,7 +2148,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 87,
+    "__docId__": 89,
     "kind": "variable",
     "name": "SIGNUP_FAILURE_REASONS",
     "memberof": "src/const/signup.js",
@@ -2094,7 +2167,7 @@
     }
   },
   {
-    "__docId__": 88,
+    "__docId__": 90,
     "kind": "variable",
     "name": "MOCK_MEMBER_REPO_KEY",
     "memberof": "src/const/signup.js",
@@ -2113,7 +2186,7 @@
     }
   },
   {
-    "__docId__": 89,
+    "__docId__": 91,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react'\r\nimport ReactDOM from 'react-dom'\r\nimport Kyodoco from './component/kyodoco'\r\nimport { Provider } from 'react-redux'\r\nimport {configureStore} from './store/store'\r\n\r\nimport injectTapEventPlugin from 'react-tap-event-plugin'\r\nimport MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'\r\n\r\n// Needed for onTouchTap\r\n// http://stackoverflow.com/a/34015469/988941\r\ninjectTapEventPlugin();\r\n\r\nimport \"babel-polyfill\"\r\n\r\nconst container = document.getElementById(\"app\");\r\nconst store = configureStore();\r\n\r\nReactDOM.render(\r\n  <Provider store={store}>\r\n    <MuiThemeProvider>\r\n      <Kyodoco />\r\n    </MuiThemeProvider>\r\n  </Provider>,\r\n  container\r\n);\r\n",
@@ -2124,7 +2197,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 90,
+    "__docId__": 92,
     "kind": "variable",
     "name": "container",
     "memberof": "src/index.js",
@@ -2150,7 +2223,7 @@
     }
   },
   {
-    "__docId__": 91,
+    "__docId__": 93,
     "kind": "variable",
     "name": "store",
     "memberof": "src/index.js",
@@ -2176,7 +2249,7 @@
     }
   },
   {
-    "__docId__": 92,
+    "__docId__": 94,
     "kind": "file",
     "name": "src/module/base64.js",
     "content": "/**\r\n* base64エンコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str エンコード対象文字列\r\n* @return {string} エンコード後文字列\r\n*/\r\nexport function base64Encode(str){\r\n  return btoa(unescape(encodeURIComponent(str)));\r\n}\r\n\r\n/**\r\n* base64デコード\r\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\r\n* @param {string} str デコード対象文字列\r\n* @return {string} デコード後文字列\r\n*/\r\nexport function base64Decode(str){\r\n  return decodeURIComponent(escape(atob(str)));\r\n}\r\n",
@@ -2187,7 +2260,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 93,
+    "__docId__": 95,
     "kind": "function",
     "name": "base64Encode",
     "memberof": "src/module/base64.js",
@@ -2226,7 +2299,7 @@
     }
   },
   {
-    "__docId__": 94,
+    "__docId__": 96,
     "kind": "function",
     "name": "base64Decode",
     "memberof": "src/module/base64.js",
@@ -2265,7 +2338,7 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 97,
     "kind": "file",
     "name": "src/module/localstorage.js",
     "content": "import {base64Encode,base64Decode} from './base64'\r\n\r\n/*\r\n* ローカルストレージのKeyのプレフィックス\r\n*/\r\nconst LOCAL_STORAGE_PREFIX = \"kyo-do.co.\";\r\n\r\n/**\r\n* localStorageへ値をセットする\r\n* @param {string} key キー\r\n* @param {Object} value セットするオブジェクト\r\n* @return {undefined}\r\n*/\r\nexport function setToStorage(key,value){\r\n  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));\r\n}\r\n/**\r\n* localStorageから値を取得する\r\n* @param {string} key キー\r\n* @return {Object} localStorageに保存されたオブジェクト\r\n*/\r\nexport function getFromStorage(key){\r\n  return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));\r\n}\r\n/**\r\n* localStorageから値を削除する\r\n* @param {string} key キー\r\n* @return {undefined}\r\n*/\r\nexport function removeFromStorage(key){\r\n  localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);\r\n}\r\n\r\n/**\r\n* localStorage上にキーが存在するかを確認する\r\n* @param {string} key キー\r\n* @return {boolean} 存在すればTrue\r\n*/\r\nexport function existsKeyOnStorage(key){\r\n  return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;\r\n}\r\n",
@@ -2276,7 +2349,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 96,
+    "__docId__": 98,
     "kind": "variable",
     "name": "LOCAL_STORAGE_PREFIX",
     "memberof": "src/module/localstorage.js",
@@ -2302,7 +2375,7 @@
     }
   },
   {
-    "__docId__": 97,
+    "__docId__": 99,
     "kind": "function",
     "name": "setToStorage",
     "memberof": "src/module/localstorage.js",
@@ -2348,7 +2421,7 @@
     }
   },
   {
-    "__docId__": 98,
+    "__docId__": 100,
     "kind": "function",
     "name": "getFromStorage",
     "memberof": "src/module/localstorage.js",
@@ -2384,7 +2457,7 @@
     }
   },
   {
-    "__docId__": 99,
+    "__docId__": 101,
     "kind": "function",
     "name": "removeFromStorage",
     "memberof": "src/module/localstorage.js",
@@ -2420,7 +2493,7 @@
     }
   },
   {
-    "__docId__": 100,
+    "__docId__": 102,
     "kind": "function",
     "name": "existsKeyOnStorage",
     "memberof": "src/module/localstorage.js",
@@ -2456,7 +2529,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 103,
     "kind": "file",
     "name": "src/reducer/board.js",
     "content": "import {UPDATE_MEMBER_STATUS} from '../action/board'\r\n\r\n/**\r\n* 行き先掲示板 reducer\r\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\r\n* @param {Object} state 変更前のstate\r\n* @param {Object} action dispatchされたaction\r\n* @return {Object} 変更後のstate\r\n*/\r\nexport default function board(state={memberStatus:[]},action){\r\n  switch(action.type){\r\n    case(UPDATE_MEMBER_STATUS):\r\n      return Object.assign({},state,{memberStatus:action.payload});\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n",
@@ -2467,7 +2540,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 102,
+    "__docId__": 104,
     "kind": "function",
     "name": "board",
     "memberof": "src/reducer/board.js",
@@ -2516,7 +2589,7 @@
     }
   },
   {
-    "__docId__": 103,
+    "__docId__": 105,
     "kind": "file",
     "name": "src/reducer/login.js",
     "content": "import {LOGIN_STATUS} from '../const/login'\r\nimport {LOGIN_SUCCESS,LOGIN_FAILURE,LOGIN_REQUESTED,LOGOUT_REQUESTED} from '../action/login'\r\n\r\n/**\r\n* ログイン reducer\r\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\r\n* @param {Object} state 変更前のstate\r\n* @param {Object} action dispatchされたaction\r\n* @return {Object} 変更後のstate\r\n*/\r\nexport default function login(state={status:\"NOTYET\",user:{}}, action){\r\n  switch(action.type){\r\n    case LOGIN_SUCCESS:\r\n      return {status:LOGIN_STATUS.SUCCESS,user:action.payload};\r\n    case LOGIN_FAILURE:\r\n      return {status:LOGIN_STATUS.FAILURE,user:{}};\r\n    case LOGOUT_REQUESTED:\r\n      return {status:LOGIN_STATUS.NOTYET,user:{}};\r\n    case LOGIN_REQUESTED:\r\n      return {status:LOGIN_STATUS.NOTYET,user:{}};\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n",
@@ -2527,7 +2600,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 104,
+    "__docId__": 106,
     "kind": "function",
     "name": "login",
     "memberof": "src/reducer/login.js",
@@ -2576,7 +2649,7 @@
     }
   },
   {
-    "__docId__": 105,
+    "__docId__": 107,
     "kind": "file",
     "name": "src/reducer/mydestination.js",
     "content": "import {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'\r\n\r\n/**\r\n* 自分の行き先 reducer\r\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\r\n* @param {Object} state 変更前のstate\r\n* @param {Object} action dispatchされたaction\r\n* @return {Object} 変更後のstate\r\n*/\r\nexport default function mydestination(state={inBusiness:false,comment:\"\"},action){\r\n  switch(action.type){\r\n    case(MY_DESTINATION_CHANGE):\r\n      return action.payload;\r\n    case(MY_DESTINATION_CLEAR):\r\n      return {inBusiness:false,comment:\"\"};\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n",
@@ -2587,7 +2660,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 106,
+    "__docId__": 108,
     "kind": "function",
     "name": "mydestination",
     "memberof": "src/reducer/mydestination.js",
@@ -2636,7 +2709,7 @@
     }
   },
   {
-    "__docId__": 107,
+    "__docId__": 109,
     "kind": "file",
     "name": "src/reducer/root.js",
     "content": "import { combineReducers } from 'redux'\r\nimport login from './login';\r\nimport mydestination from './mydestination'\r\nimport board from './board'\r\nimport signup from './signup'\r\n\r\n/**\r\n* 各reducerを結合してひとまとめにしてexportする\r\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\r\n*/\r\nexport default combineReducers({\r\n  login,\r\n  mydestination,\r\n  board,\r\n  signup\r\n})\r\n",
@@ -2647,7 +2720,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 108,
+    "__docId__": 110,
     "kind": "file",
     "name": "src/reducer/signup.js",
     "content": "import {SIGNUP_SUCCESS,SIGNUP_FAILURE} from '../action/signup'\r\n\r\n/**\r\n* サインアップ reducer\r\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\r\n* @param {Object} state 変更前のstate\r\n* @param {Object} action dispatchされたaction\r\n* @return {Object} 変更後のstate\r\n*/\r\nexport default function signup(state={failure_reason:[]},action){\r\n  switch(action.type){\r\n    case(SIGNUP_SUCCESS):\r\n      return {failure_reason:[]};\r\n    case(SIGNUP_FAILURE):\r\n      return {failure_reason:action.payload};\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n",
@@ -2658,7 +2731,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 109,
+    "__docId__": 111,
     "kind": "function",
     "name": "signup",
     "memberof": "src/reducer/signup.js",
@@ -2707,10 +2780,14 @@
     }
   },
   {
-    "__docId__": 110,
+    "__docId__": 112,
     "kind": "file",
     "name": "src/saga/board.js",
+<<<<<<< HEAD
+    "content": "import {take,put,select,takeEvery,call} from 'redux-saga/effects'\r\nimport {delay} from 'redux-saga'\r\nimport {updateMemberStatus} from '../action/board'\r\nimport {LOGIN_SUCCESS} from '../action/login'\r\nimport {LOGIN_STATUS} from '../const/login'\r\nimport {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'\r\nimport axios from \"axios\";\r\n\r\n/**\r\n* メンバー状況をpollingする間隔(ms)\r\n*/\r\nconst STATUS_POLLING_DURATION_MS= 15000;\r\n\r\n/**\r\n* メンバー状況をロードするSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loadMemberStatusSaga(){\r\n  yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);\r\n  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);\r\n  yield takeEvery(MY_DESTINATION_CLEAR,loadMemberStatusTask);\r\n}\r\n\r\n/**\r\n* メンバー状況をロードするTask\r\n*/\r\nfunction* loadMemberStatusTask(){\r\n  //TODO ダミー実装。本来はAPIから取得\r\n  const me = yield select(state => state.login.user);\r\n  const mydestination = yield select(state => state.mydestination);\r\n  const memberStatus = yield getMemberStatus(me,mydestination);\r\n  yield put(updateMemberStatus(memberStatus));\r\n}\r\n\r\n/**\r\n* メンバー状況を定期的に確認するSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* watchMemberStatusSaga(){\r\n  while(true){\r\n    const loginStatus = yield select(state => state.login.status);\r\n    if(loginStatus == LOGIN_STATUS.SUCCESS){\r\n      //TODO ダミー実装。本来はAPIから取得\r\n      const me = yield select(state => state.login.user);\r\n      const mydestination = yield select(state => state.mydestination);\r\n      const memberStatus = yield getMemberStatus(me,mydestination);\r\n      yield put(updateMemberStatus(memberStatus));\r\n    }\r\n    yield call(delay,STATUS_POLLING_DURATION_MS);\r\n  }\r\n}\r\n\r\n/**\r\n* メンバーの状況を返す\r\n* @param {Object} me 自分のユーザー情報\r\n* @param {Object} mydestination 自分の行き先\r\n* @return {Object} メンバー状況\r\n*/\r\nfunction* getMemberStatus(me,mydestination){\r\n  const token = yield select(state => state.login.user.token);\r\n  try{\r\n    const result = yield call(axios,{\r\n      method:\"GET\",\r\n      url:\"https://api.kyo-do.co/status/all\",\r\n      headers: { \"Authorization\": \"Bearer \" + token}\r\n    });\r\n    return result.data;\r\n  }catch(e){\r\n    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい\r\n  }\r\n\r\n}\r\n",
+=======
     "content": "import {take,put,select,takeEvery,call} from 'redux-saga/effects'\r\nimport {delay} from 'redux-saga'\r\nimport {updateMemberStatus} from '../action/board'\r\nimport {LOGIN_SUCCESS} from '../action/login'\r\nimport {LOGIN_STATUS} from '../const/login'\r\nimport {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'\r\n\r\n/**\r\n* メンバー状況をpollingする間隔(ms)\r\n*/\r\nconst STATUS_POLLING_DURATION_MS= 15000;\r\n\r\n/**\r\n* メンバー状況をロードするSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loadMemberStatusSaga(){\r\n  yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);\r\n  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);\r\n  yield takeEvery(MY_DESTINATION_CLEAR,loadMemberStatusTask);\r\n}\r\n\r\n/**\r\n* メンバー状況をロードするTask\r\n*/\r\nfunction* loadMemberStatusTask(){\r\n  //TODO ダミー実装。本来はAPIから取得\r\n  const me = yield select(state => state.login.user);\r\n  const mydestination = yield select(state => state.mydestination);\r\n  const memberStatus = yield getMemberStatusMock(me,mydestination);\r\n  yield put(updateMemberStatus(memberStatus));\r\n}\r\n\r\n/**\r\n* メンバー状況を定期的に確認するSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* watchMemberStatusSaga(){\r\n  while(true){\r\n    const loginStatus = yield select(state => state.login.status);\r\n    if(loginStatus == LOGIN_STATUS.SUCCESS){\r\n      //TODO ダミー実装。本来はAPIから取得\r\n      const me = yield select(state => state.login.user);\r\n      const mydestination = yield select(state => state.mydestination);\r\n      const memberStatus = yield getMemberStatusMock(me,mydestination);\r\n      yield put(updateMemberStatus(memberStatus));\r\n    }\r\n    yield call(delay,STATUS_POLLING_DURATION_MS);\r\n  }\r\n}\r\n\r\n/**\r\n* Mockデータの中からランダムでメンバー状況を返す\r\n* TODO 本実装完了したら削除\r\n* @param {Object} me 自分のユーザー情報\r\n* @param {Object} mydestination 自分の行き先\r\n* @return {Object} メンバー状況\r\n*/\r\nfunction getMemberStatusMock(me,mydestination){\r\n  const mockDataSet = [\r\n    [\r\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\r\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"\"},\r\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\r\n      ]},\r\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\r\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\r\n        {\"name\":\"テストD\",\"inBusiness\":true, \"comment\":\"\"}\r\n      ]}\r\n    ],\r\n    [\r\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\r\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"会議中\"},\r\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\r\n      ]},\r\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\r\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\r\n        {\"name\":\"テストD\",\"inBusiness\":true, \"comment\":\"\"}\r\n      ]}\r\n    ],\r\n    [\r\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\r\n        {\"name\":\"テストA\",\"inBusiness\":true,\"comment\":\"会議中\"},\r\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\r\n      ]},\r\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\r\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\r\n        {\"name\":\"テストD\",\"inBusiness\":false, \"comment\":\"\"}\r\n      ]}\r\n    ],\r\n    [\r\n      {\"teamId\":\"ta\",\"name\":\"チームA\",\"members\":[\r\n        {\"name\":\"テストA\",\"inBusiness\":false,\"comment\":\"\"},\r\n        {\"name\":\"テストB\",\"inBusiness\":false, \"comment\":\"明日客先直行　午後戻り\"}\r\n      ]},\r\n      {\"teamId\":\"tb\",\"name\":\"チームB\",\"members\":[\r\n        {\"name\":\"テストC\",\"inBusiness\":true,\"comment\":\"客先NR\"},\r\n        {\"name\":\"テストD\",\"inBusiness\":false, \"comment\":\"\"}\r\n      ]}\r\n    ]\r\n  ];\r\n\r\n  const mock = mockDataSet[Math.floor(Math.random() * mockDataSet.length)];\r\n  return mock.map(\r\n    team => Object.assign(\r\n      {},\r\n      team,\r\n      {members: team.members.concat(\r\n        {\r\n          \"name\":me.name,\r\n          \"inBusiness\":mydestination.inBusiness,\r\n          \"comment\":mydestination.comment\r\n        })\r\n      }\r\n    )\r\n  );\r\n}\r\n",
+>>>>>>> c9514906c8041c840f6a6b7e549648f122b9891f
     "static": true,
     "longname": "src/saga/board.js",
     "access": null,
@@ -2718,7 +2795,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 111,
+    "__docId__": 113,
     "kind": "variable",
     "name": "STATUS_POLLING_DURATION_MS",
     "memberof": "src/saga/board.js",
@@ -2729,7 +2806,7 @@
     "importPath": "kyo-do.co-ui/src/saga/board.js",
     "importStyle": null,
     "description": "メンバー状況をpollingする間隔(ms)",
-    "lineNumber": 11,
+    "lineNumber": 12,
     "type": {
       "types": [
         "number"
@@ -2737,7 +2814,7 @@
     }
   },
   {
-    "__docId__": 112,
+    "__docId__": 114,
     "kind": "function",
     "name": "loadMemberStatusSaga",
     "memberof": "src/saga/board.js",
@@ -2753,11 +2830,11 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 17,
+    "lineNumber": 18,
     "params": []
   },
   {
-    "__docId__": 113,
+    "__docId__": 115,
     "kind": "function",
     "name": "loadMemberStatusTask",
     "memberof": "src/saga/board.js",
@@ -2770,11 +2847,11 @@
     "importPath": "kyo-do.co-ui/src/saga/board.js",
     "importStyle": null,
     "description": "メンバー状況をロードするTask",
-    "lineNumber": 26,
+    "lineNumber": 27,
     "params": []
   },
   {
-    "__docId__": 114,
+    "__docId__": 116,
     "kind": "function",
     "name": "watchMemberStatusSaga",
     "memberof": "src/saga/board.js",
@@ -2790,23 +2867,23 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 38,
+    "lineNumber": 39,
     "params": []
   },
   {
-    "__docId__": 115,
+    "__docId__": 117,
     "kind": "function",
-    "name": "getMemberStatusMock",
+    "name": "getMemberStatus",
     "memberof": "src/saga/board.js",
-    "generator": false,
+    "generator": true,
     "async": false,
     "static": true,
-    "longname": "src/saga/board.js~getMemberStatusMock",
+    "longname": "src/saga/board.js~getMemberStatus",
     "access": null,
     "export": false,
     "importPath": "kyo-do.co-ui/src/saga/board.js",
     "importStyle": null,
-    "description": "Mockデータの中からランダムでメンバー状況を返す\nTODO 本実装完了したら削除",
+    "description": "メンバーの状況を返す",
     "lineNumber": 59,
     "params": [
       {
@@ -2840,7 +2917,7 @@
     }
   },
   {
-    "__docId__": 116,
+    "__docId__": 118,
     "kind": "file",
     "name": "src/saga/login.js",
     "content": "import {take,put,call,takeEvery} from 'redux-saga/effects'\r\nimport {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'\r\nimport {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'\r\nimport axios from \"axios\";\r\n\r\n//MOCK用\r\n//TODO 実装終わったら消す\r\nimport {MOCK_MEMBER_REPO_KEY} from '../const/signup'\r\n\r\n/**\r\n* rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey\r\n*/\r\nconst REMEMBER_ME_STORAGE_KEY = \"rememberme\";\r\n\r\n/**\r\n* login要求を受け付けるSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loginSaga(){\r\n  /*\r\n  * LOGIN_REQUESTED(ログイン要求)アクションを常に待ち続け、\r\n  * dispatchされたらloginTaskにactionを渡して実行する\r\n  */\r\n  yield takeEvery(LOGIN_REQUESTED,loginTask);\r\n}\r\n/**\r\n* APIに対してID/Passを問い合わせて、\r\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\r\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\r\n*/\r\nfunction* loginTask(action){\r\n  //rememberme\r\n  setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});\r\n\r\n  //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない\r\n  try{\r\n    const result = yield call(axios.post,\"https://api.kyo-do.co/auth\",{\r\n      userid:action.payload.id,\r\n      password:action.payload.pass\r\n    });\r\n\r\n    const token = result.data.token;\r\n    yield put(loginSuccess({userid:action.payload.id,name:action.payload.id,token:token}));\r\n  }catch(e){\r\n    yield put(loginFailure());\r\n  }\r\n}\r\n/**\r\n* logout要求を受けるSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* logoutSaga(){\r\n  yield takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask);\r\n}\r\n\r\n/**\r\n* ログインに失敗したときのクリーンアップを行うSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loginFailureSaga(){\r\n  yield takeEvery(LOGIN_FAILURE,cleanRememberMeTask);\r\n}\r\n/**\r\n* localStorageに保存されているrememberme情報をクリアするTask\r\n*/\r\nfunction* cleanRememberMeTask(){\r\n  yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);\r\n}\r\n\r\n/**\r\n* localStorageに保存されているID/PassからログインするSaga\r\n* アプリを起動して(ブラウザアクセスして)1回だけ実行される\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loginFromRememberMeSaga(){\r\n  const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);\r\n  if(remembermeSaved){\r\n    const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);\r\n    yield put(loginRequested(rememberme.id,rememberme.pass));\r\n  }\r\n}\r\n",
@@ -2851,7 +2928,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 117,
+    "__docId__": 119,
     "kind": "variable",
     "name": "REMEMBER_ME_STORAGE_KEY",
     "memberof": "src/saga/login.js",
@@ -2870,7 +2947,7 @@
     }
   },
   {
-    "__docId__": 118,
+    "__docId__": 120,
     "kind": "function",
     "name": "loginSaga",
     "memberof": "src/saga/login.js",
@@ -2890,7 +2967,7 @@
     "params": []
   },
   {
-    "__docId__": 119,
+    "__docId__": 121,
     "kind": "function",
     "name": "loginTask",
     "memberof": "src/saga/login.js",
@@ -2918,7 +2995,7 @@
     ]
   },
   {
-    "__docId__": 120,
+    "__docId__": 122,
     "kind": "function",
     "name": "logoutSaga",
     "memberof": "src/saga/login.js",
@@ -2938,7 +3015,7 @@
     "params": []
   },
   {
-    "__docId__": 121,
+    "__docId__": 123,
     "kind": "function",
     "name": "loginFailureSaga",
     "memberof": "src/saga/login.js",
@@ -2958,7 +3035,7 @@
     "params": []
   },
   {
-    "__docId__": 122,
+    "__docId__": 124,
     "kind": "function",
     "name": "cleanRememberMeTask",
     "memberof": "src/saga/login.js",
@@ -2975,7 +3052,7 @@
     "params": []
   },
   {
-    "__docId__": 123,
+    "__docId__": 125,
     "kind": "function",
     "name": "loginFromRememberMeSaga",
     "memberof": "src/saga/login.js",
@@ -2995,7 +3072,7 @@
     "params": []
   },
   {
-    "__docId__": 124,
+    "__docId__": 126,
     "kind": "file",
     "name": "src/saga/mydestination.js",
     "content": "import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'\r\nimport {delay} from 'redux-saga'\r\nimport {MY_DESTINATION_CHANGE,myDestinationChange} from '../action/mydestination'\r\nimport {LOGIN_SUCCESS} from '../action/login'\r\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\r\nimport axios from 'axios';\r\n\r\n/**\r\n* localStorageに行き先を保管する際のKey\r\n*/\r\nconst STORAGE_KEY_DESTINATION = \"my_destination.\";\r\n/**\r\n* 行き先を入力してからサーバ同期するまでの遅延時間\r\n*/\r\nconst SYNC_DELAY_MS = 1000;\r\n\r\n/**\r\n* ログインが成功した際にログインユーザーの行き先をロードするSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* loadDestinationSaga(){\r\n    yield takeEvery(LOGIN_SUCCESS,loadDestinationTask);\r\n}\r\n\r\n/**\r\n* ログインユーザーの行き先をロードするtask\r\n* @param {object} action LOGIN_SUCCESSアクション\r\n*/\r\nfunction* loadDestinationTask(action){\r\n    const token = yield select(state => state.login.user.token);\r\n\r\n    try{\r\n      const savedDestination = yield call(axios,{\r\n        method:\"GET\",\r\n        url:\"https://api.kyo-do.co/status\",\r\n        headers:{\"Authorization\":\"Bearer \" + token}\r\n      });\r\n\r\n      yield put(myDestinationChange(savedDestination.data));\r\n    }catch(e){\r\n      console.log(e);\r\n      //TODO 更新に失敗したエラーアクションを投げる\r\n    }\r\n}\r\n/**\r\n* 行き先変更アクションを受け付けるSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* changeDestinationSaga(){\r\n  yield takeLatest(MY_DESTINATION_CHANGE,changeDestinationTask);\r\n}\r\n\r\n/**\r\n* 行き先変更アクションを受け付けた際のTask\r\n* @param {Object} action MY_DESTINATION_CHANGEアクション\r\n*/\r\nfunction* changeDestinationTask(action){\r\n  /**\r\n  * TODO APIを呼び出してサーバ上に保存\r\n  */\r\n  yield call(delay,SYNC_DELAY_MS);\r\n  const token = yield select(state => state.login.user.token);\r\n  try{\r\n\r\n    yield call(axios.put,\r\n      \"https://api.kyo-do.co/status\",\r\n      {inBusiness:action.payload.inBusiness,comment:action.payload.comment},\r\n      {headers:{\"Authorization\":\"Bearer \" + token}}\r\n    );\r\n  }catch(e){\r\n    //TODO 更新が失敗した旨をエラーアクションに投げる\r\n    console.log(e);\r\n  }\r\n}\r\n",
@@ -3006,7 +3083,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 125,
+    "__docId__": 127,
     "kind": "variable",
     "name": "STORAGE_KEY_DESTINATION",
     "memberof": "src/saga/mydestination.js",
@@ -3025,7 +3102,7 @@
     }
   },
   {
-    "__docId__": 126,
+    "__docId__": 128,
     "kind": "variable",
     "name": "SYNC_DELAY_MS",
     "memberof": "src/saga/mydestination.js",
@@ -3044,7 +3121,7 @@
     }
   },
   {
-    "__docId__": 127,
+    "__docId__": 129,
     "kind": "function",
     "name": "loadDestinationSaga",
     "memberof": "src/saga/mydestination.js",
@@ -3064,7 +3141,7 @@
     "params": []
   },
   {
-    "__docId__": 128,
+    "__docId__": 130,
     "kind": "function",
     "name": "loadDestinationTask",
     "memberof": "src/saga/mydestination.js",
@@ -3092,7 +3169,7 @@
     ]
   },
   {
-    "__docId__": 129,
+    "__docId__": 131,
     "kind": "function",
     "name": "changeDestinationSaga",
     "memberof": "src/saga/mydestination.js",
@@ -3112,7 +3189,7 @@
     "params": []
   },
   {
-    "__docId__": 130,
+    "__docId__": 132,
     "kind": "function",
     "name": "changeDestinationTask",
     "memberof": "src/saga/mydestination.js",
@@ -3140,7 +3217,7 @@
     ]
   },
   {
-    "__docId__": 131,
+    "__docId__": 133,
     "kind": "file",
     "name": "src/saga/root.js",
     "content": "import {fork} from 'redux-saga/effects'\r\nimport {loginSaga,logoutSaga,loginFailureSaga,loginFromRememberMeSaga} from './login'\r\nimport {signupSaga} from './signup'\r\nimport {loadDestinationSaga,changeDestinationSaga} from './mydestination'\r\nimport {loadMemberStatusSaga,watchMemberStatusSaga} from './board'\r\n\r\n/**\r\n* Sagaの起点ポイント。ここから各Sagaをforkする\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport default function* rootSaga(){\r\n  yield fork(loginSaga);\r\n  yield fork(signupSaga);\r\n  yield fork(logoutSaga);\r\n  yield fork(loginFailureSaga);\r\n  yield fork(loginFromRememberMeSaga);\r\n  yield fork(loadDestinationSaga);\r\n  yield fork(changeDestinationSaga);\r\n  yield fork(loadMemberStatusSaga);\r\n  yield fork(watchMemberStatusSaga);\r\n}\r\n",
@@ -3151,7 +3228,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 132,
+    "__docId__": 134,
     "kind": "function",
     "name": "rootSaga",
     "memberof": "src/saga/root.js",
@@ -3171,7 +3248,7 @@
     "params": []
   },
   {
-    "__docId__": 133,
+    "__docId__": 135,
     "kind": "file",
     "name": "src/saga/signup.js",
     "content": "import {put,call,takeEvery} from 'redux-saga/effects'\r\nimport {SIGNUP_REQUIRED,signupSucceess,signupFailure} from '../action/signup'\r\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\r\nimport {loginRequested} from '../action/login'\r\nimport axios from \"axios\";\r\n\r\n//MOCK用\r\n//TODO 実装終わったら消す\r\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\r\nimport {MOCK_MEMBER_REPO_KEY} from '../const/signup'\r\n\r\n/**\r\n* サインアップ要求を受け付けるSaga\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function* signupSaga(){\r\n    yield takeEvery(SIGNUP_REQUIRED,signupTask);\r\n}\r\n\r\n/**\r\n* サインアップ要求を処理するタスク\r\n* @param {Object} action SIGNUP_REQUIREDアクション\r\n*/\r\nfunction* signupTask(action){\r\n  try{\r\n    const result = yield call(axios.post,\"https://api.kyo-do.co/user\",{\r\n      userid:action.payload.id,\r\n      password:action.payload.password,\r\n      name:action.payload.name});\r\n\r\n    yield put(signupSucceess());\r\n    yield put(loginRequested(action.payload.id,action.payload.password));\r\n  }catch(e){\r\n    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい\r\n    yield put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED]));\r\n  }\r\n}\r\n",
@@ -3182,7 +3259,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 134,
+    "__docId__": 136,
     "kind": "function",
     "name": "signupSaga",
     "memberof": "src/saga/signup.js",
@@ -3202,7 +3279,7 @@
     "params": []
   },
   {
-    "__docId__": 135,
+    "__docId__": 137,
     "kind": "function",
     "name": "signupTask",
     "memberof": "src/saga/signup.js",
@@ -3230,7 +3307,7 @@
     ]
   },
   {
-    "__docId__": 136,
+    "__docId__": 138,
     "kind": "file",
     "name": "src/store/store.js",
     "content": "import { createStore, applyMiddleware } from 'redux'\r\nimport createSagaMiddleware from 'redux-saga'\r\nimport logger from 'redux-logger'\r\nimport rootReducer from '../reducer/root'\r\nimport rootSaga from '../saga/root'\r\nimport {LOGIN_STATUS} from '../const/login'\r\n\r\n\r\n/**\r\n* reduxのstoreのセットアップ。redux-saga対応。\r\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\r\n*/\r\nexport function configureStore() {\r\n  const sagaMiddleware = createSagaMiddleware();\r\n  const store = createStore(\r\n    rootReducer,\r\n    {\r\n      login:{status:LOGIN_STATUS.NOTYET, user:{}},\r\n      mydestination:{inBusiness:false,comment:\"\"},\r\n      board:{memberStatus:[]}\r\n    },\r\n    applyMiddleware(\r\n      sagaMiddleware, logger()\r\n    )\r\n  );\r\n  sagaMiddleware.run(rootSaga);\r\n  return store;\r\n};\r\n",
@@ -3241,7 +3318,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 137,
+    "__docId__": 139,
     "kind": "function",
     "name": "configureStore",
     "memberof": "src/store/store.js",
@@ -3266,7 +3343,7 @@
     }
   },
   {
-    "__docId__": 139,
+    "__docId__": 141,
     "kind": "external",
     "name": "Infinity",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
@@ -3278,7 +3355,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 140,
+    "__docId__": 142,
     "kind": "external",
     "name": "NaN",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
@@ -3290,7 +3367,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 141,
+    "__docId__": 143,
     "kind": "external",
     "name": "undefined",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
@@ -3302,7 +3379,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 142,
+    "__docId__": 144,
     "kind": "external",
     "name": "null",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
@@ -3314,7 +3391,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 143,
+    "__docId__": 145,
     "kind": "external",
     "name": "Object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -3326,7 +3403,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 144,
+    "__docId__": 146,
     "kind": "external",
     "name": "object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -3338,7 +3415,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 145,
+    "__docId__": 147,
     "kind": "external",
     "name": "Function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -3350,7 +3427,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 146,
+    "__docId__": 148,
     "kind": "external",
     "name": "function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -3362,7 +3439,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 147,
+    "__docId__": 149,
     "kind": "external",
     "name": "Boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -3374,7 +3451,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 148,
+    "__docId__": 150,
     "kind": "external",
     "name": "boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -3386,7 +3463,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 149,
+    "__docId__": 151,
     "kind": "external",
     "name": "Symbol",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
@@ -3398,7 +3475,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 150,
+    "__docId__": 152,
     "kind": "external",
     "name": "Error",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
@@ -3410,7 +3487,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 151,
+    "__docId__": 153,
     "kind": "external",
     "name": "EvalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
@@ -3422,7 +3499,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 152,
+    "__docId__": 154,
     "kind": "external",
     "name": "InternalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
@@ -3434,7 +3511,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 153,
+    "__docId__": 155,
     "kind": "external",
     "name": "RangeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
@@ -3446,7 +3523,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 154,
+    "__docId__": 156,
     "kind": "external",
     "name": "ReferenceError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
@@ -3458,7 +3535,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 155,
+    "__docId__": 157,
     "kind": "external",
     "name": "SyntaxError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
@@ -3470,7 +3547,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 156,
+    "__docId__": 158,
     "kind": "external",
     "name": "TypeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
@@ -3482,7 +3559,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 157,
+    "__docId__": 159,
     "kind": "external",
     "name": "URIError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
@@ -3494,7 +3571,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 158,
+    "__docId__": 160,
     "kind": "external",
     "name": "Number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -3506,7 +3583,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 159,
+    "__docId__": 161,
     "kind": "external",
     "name": "number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -3518,7 +3595,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 160,
+    "__docId__": 162,
     "kind": "external",
     "name": "Date",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
@@ -3530,7 +3607,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 161,
+    "__docId__": 163,
     "kind": "external",
     "name": "String",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -3542,7 +3619,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 162,
+    "__docId__": 164,
     "kind": "external",
     "name": "string",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -3554,7 +3631,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 163,
+    "__docId__": 165,
     "kind": "external",
     "name": "RegExp",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
@@ -3566,7 +3643,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 164,
+    "__docId__": 166,
     "kind": "external",
     "name": "Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
@@ -3578,7 +3655,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 165,
+    "__docId__": 167,
     "kind": "external",
     "name": "Int8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
@@ -3590,7 +3667,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 166,
+    "__docId__": 168,
     "kind": "external",
     "name": "Uint8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
@@ -3602,7 +3679,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 167,
+    "__docId__": 169,
     "kind": "external",
     "name": "Uint8ClampedArray",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
@@ -3614,7 +3691,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 168,
+    "__docId__": 170,
     "kind": "external",
     "name": "Int16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
@@ -3626,7 +3703,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 169,
+    "__docId__": 171,
     "kind": "external",
     "name": "Uint16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
@@ -3638,7 +3715,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 170,
+    "__docId__": 172,
     "kind": "external",
     "name": "Int32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
@@ -3650,7 +3727,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 171,
+    "__docId__": 173,
     "kind": "external",
     "name": "Uint32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
@@ -3662,7 +3739,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 172,
+    "__docId__": 174,
     "kind": "external",
     "name": "Float32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
@@ -3674,7 +3751,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 173,
+    "__docId__": 175,
     "kind": "external",
     "name": "Float64Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
@@ -3686,7 +3763,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 174,
+    "__docId__": 176,
     "kind": "external",
     "name": "Map",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
@@ -3698,7 +3775,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 175,
+    "__docId__": 177,
     "kind": "external",
     "name": "Set",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
@@ -3710,7 +3787,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 176,
+    "__docId__": 178,
     "kind": "external",
     "name": "WeakMap",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
@@ -3722,7 +3799,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 177,
+    "__docId__": 179,
     "kind": "external",
     "name": "WeakSet",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
@@ -3734,7 +3811,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 178,
+    "__docId__": 180,
     "kind": "external",
     "name": "ArrayBuffer",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
@@ -3746,7 +3823,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 179,
+    "__docId__": 181,
     "kind": "external",
     "name": "DataView",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
@@ -3758,7 +3835,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 180,
+    "__docId__": 182,
     "kind": "external",
     "name": "JSON",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
@@ -3770,7 +3847,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 181,
+    "__docId__": 183,
     "kind": "external",
     "name": "Promise",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
@@ -3782,7 +3859,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 182,
+    "__docId__": 184,
     "kind": "external",
     "name": "Generator",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
@@ -3794,7 +3871,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 183,
+    "__docId__": 185,
     "kind": "external",
     "name": "GeneratorFunction",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
@@ -3806,7 +3883,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 184,
+    "__docId__": 186,
     "kind": "external",
     "name": "Reflect",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
@@ -3818,7 +3895,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 185,
+    "__docId__": 187,
     "kind": "external",
     "name": "Proxy",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
@@ -3831,7 +3908,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 187,
+    "__docId__": 189,
     "kind": "external",
     "name": "CanvasRenderingContext2D",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
@@ -3843,7 +3920,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 188,
+    "__docId__": 190,
     "kind": "external",
     "name": "DocumentFragment",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
@@ -3855,7 +3932,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 189,
+    "__docId__": 191,
     "kind": "external",
     "name": "Element",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
@@ -3867,7 +3944,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 190,
+    "__docId__": 192,
     "kind": "external",
     "name": "Event",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
@@ -3879,7 +3956,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 191,
+    "__docId__": 193,
     "kind": "external",
     "name": "Node",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
@@ -3891,7 +3968,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 192,
+    "__docId__": 194,
     "kind": "external",
     "name": "NodeList",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
@@ -3903,7 +3980,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 193,
+    "__docId__": 195,
     "kind": "external",
     "name": "XMLHttpRequest",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
@@ -3915,7 +3992,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 194,
+    "__docId__": 196,
     "kind": "external",
     "name": "AudioContext",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",

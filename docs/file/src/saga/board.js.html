@@ -93,6 +93,7 @@ import {updateMemberStatus} from &apos;../action/board&apos;
 import {LOGIN_SUCCESS} from &apos;../action/login&apos;
 import {LOGIN_STATUS} from &apos;../const/login&apos;
 import {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from &apos;../action/mydestination&apos;
+import axios from &quot;axios&quot;;
 
 /**
 * &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;polling&#x3059;&#x308B;&#x9593;&#x9694;(ms)
@@ -116,7 +117,7 @@ function* loadMemberStatusTask(){
   //TODO &#x30C0;&#x30DF;&#x30FC;&#x5B9F;&#x88C5;&#x3002;&#x672C;&#x6765;&#x306F;API&#x304B;&#x3089;&#x53D6;&#x5F97;
   const me = yield select(state =&gt; state.login.user);
   const mydestination = yield select(state =&gt; state.mydestination);
-  const memberStatus = yield getMemberStatusMock(me,mydestination);
+  const memberStatus = yield getMemberStatus(me,mydestination);
   yield put(updateMemberStatus(memberStatus));
 }
 
@@ -131,7 +132,7 @@ export function* watchMemberStatusSaga(){
       //TODO &#x30C0;&#x30DF;&#x30FC;&#x5B9F;&#x88C5;&#x3002;&#x672C;&#x6765;&#x306F;API&#x304B;&#x3089;&#x53D6;&#x5F97;
       const me = yield select(state =&gt; state.login.user);
       const mydestination = yield select(state =&gt; state.mydestination);
-      const memberStatus = yield getMemberStatusMock(me,mydestination);
+      const memberStatus = yield getMemberStatus(me,mydestination);
       yield put(updateMemberStatus(memberStatus));
     }
     yield call(delay,STATUS_POLLING_DURATION_MS);
@@ -139,70 +140,24 @@ export function* watchMemberStatusSaga(){
 }
 
 /**
-* Mock&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x4E2D;&#x304B;&#x3089;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x3067;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;&#x8FD4;&#x3059;
-* TODO &#x672C;&#x5B9F;&#x88C5;&#x5B8C;&#x4E86;&#x3057;&#x305F;&#x3089;&#x524A;&#x9664;
+* &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x72B6;&#x6CC1;&#x3092;&#x8FD4;&#x3059;
 * @param {Object} me &#x81EA;&#x5206;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;
 * @param {Object} mydestination &#x81EA;&#x5206;&#x306E;&#x884C;&#x304D;&#x5148;
 * @return {Object} &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;
 */
-function getMemberStatusMock(me,mydestination){
-  const mockDataSet = [
-    [
-      {&quot;teamId&quot;:&quot;ta&quot;,&quot;name&quot;:&quot;&#x30C1;&#x30FC;&#x30E0;A&quot;,&quot;members&quot;:[
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;A&quot;,&quot;inBusiness&quot;:true,&quot;comment&quot;:&quot;&quot;},
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;B&quot;,&quot;inBusiness&quot;:false, &quot;comment&quot;:&quot;&#x660E;&#x65E5;&#x5BA2;&#x5148;&#x76F4;&#x884C;&#x3000;&#x5348;&#x5F8C;&#x623B;&#x308A;&quot;}
-      ]},
-      {&quot;teamId&quot;:&quot;tb&quot;,&quot;name&quot;:&quot;&#x30C1;&#x30FC;&#x30E0;B&quot;,&quot;members&quot;:[
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;C&quot;,&quot;inBusiness&quot;:true,&quot;comment&quot;:&quot;&#x5BA2;&#x5148;NR&quot;},
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;D&quot;,&quot;inBusiness&quot;:true, &quot;comment&quot;:&quot;&quot;}
-      ]}
-    ],
-    [
-      {&quot;teamId&quot;:&quot;ta&quot;,&quot;name&quot;:&quot;&#x30C1;&#x30FC;&#x30E0;A&quot;,&quot;members&quot;:[
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;A&quot;,&quot;inBusiness&quot;:true,&quot;comment&quot;:&quot;&#x4F1A;&#x8B70;&#x4E2D;&quot;},
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;B&quot;,&quot;inBusiness&quot;:false, &quot;comment&quot;:&quot;&#x660E;&#x65E5;&#x5BA2;&#x5148;&#x76F4;&#x884C;&#x3000;&#x5348;&#x5F8C;&#x623B;&#x308A;&quot;}
-      ]},
-      {&quot;teamId&quot;:&quot;tb&quot;,&quot;name&quot;:&quot;&#x30C1;&#x30FC;&#x30E0;B&quot;,&quot;members&quot;:[
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;C&quot;,&quot;inBusiness&quot;:true,&quot;comment&quot;:&quot;&#x5BA2;&#x5148;NR&quot;},
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;D&quot;,&quot;inBusiness&quot;:true, &quot;comment&quot;:&quot;&quot;}
-      ]}
-    ],
-    [
-      {&quot;teamId&quot;:&quot;ta&quot;,&quot;name&quot;:&quot;&#x30C1;&#x30FC;&#x30E0;A&quot;,&quot;members&quot;:[
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;A&quot;,&quot;inBusiness&quot;:true,&quot;comment&quot;:&quot;&#x4F1A;&#x8B70;&#x4E2D;&quot;},
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;B&quot;,&quot;inBusiness&quot;:false, &quot;comment&quot;:&quot;&#x660E;&#x65E5;&#x5BA2;&#x5148;&#x76F4;&#x884C;&#x3000;&#x5348;&#x5F8C;&#x623B;&#x308A;&quot;}
-      ]},
-      {&quot;teamId&quot;:&quot;tb&quot;,&quot;name&quot;:&quot;&#x30C1;&#x30FC;&#x30E0;B&quot;,&quot;members&quot;:[
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;C&quot;,&quot;inBusiness&quot;:true,&quot;comment&quot;:&quot;&#x5BA2;&#x5148;NR&quot;},
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;D&quot;,&quot;inBusiness&quot;:false, &quot;comment&quot;:&quot;&quot;}
-      ]}
-    ],
-    [
-      {&quot;teamId&quot;:&quot;ta&quot;,&quot;name&quot;:&quot;&#x30C1;&#x30FC;&#x30E0;A&quot;,&quot;members&quot;:[
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;A&quot;,&quot;inBusiness&quot;:false,&quot;comment&quot;:&quot;&quot;},
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;B&quot;,&quot;inBusiness&quot;:false, &quot;comment&quot;:&quot;&#x660E;&#x65E5;&#x5BA2;&#x5148;&#x76F4;&#x884C;&#x3000;&#x5348;&#x5F8C;&#x623B;&#x308A;&quot;}
-      ]},
-      {&quot;teamId&quot;:&quot;tb&quot;,&quot;name&quot;:&quot;&#x30C1;&#x30FC;&#x30E0;B&quot;,&quot;members&quot;:[
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;C&quot;,&quot;inBusiness&quot;:true,&quot;comment&quot;:&quot;&#x5BA2;&#x5148;NR&quot;},
-        {&quot;name&quot;:&quot;&#x30C6;&#x30B9;&#x30C8;D&quot;,&quot;inBusiness&quot;:false, &quot;comment&quot;:&quot;&quot;}
-      ]}
-    ]
-  ];
+function* getMemberStatus(me,mydestination){
+  const token = yield select(state =&gt; state.login.user.token);
+  try{
+    const result = yield call(axios,{
+      method:&quot;GET&quot;,
+      url:&quot;https://api.kyo-do.co/status/all&quot;,
+      headers: { &quot;Authorization&quot;: &quot;Bearer &quot; + token}
+    });
+    return result.data;
+  }catch(e){
+    //XXX&#x3000;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x8D77;&#x304D;&#x308C;&#x3070;ID&#x91CD;&#x8907;&#x3068;&#x5224;&#x65AD;&#x3057;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;&#x30B5;&#x30FC;&#x30D0;&#x30A8;&#x30E9;&#x30FC;&#x3068;&#x533A;&#x5225;&#x3057;&#x305F;&#x3044;
+  }
 
-  const mock = mockDataSet[Math.floor(Math.random() * mockDataSet.length)];
-  return mock.map(
-    team =&gt; Object.assign(
-      {},
-      team,
-      {members: team.members.concat(
-        {
-          &quot;name&quot;:me.name,
-          &quot;inBusiness&quot;:mydestination.inBusiness,
-          &quot;comment&quot;:mydestination.comment
-        })
-      }
-    )
-  );
 }
 </code></pre>
 
