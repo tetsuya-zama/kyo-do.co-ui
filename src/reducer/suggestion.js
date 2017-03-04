@@ -1,4 +1,4 @@
-import {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'
+import {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from '../action/suggestion'
 
 /**
 * 自分の行き先 reducer
@@ -7,12 +7,12 @@ import {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestinatio
 * @param {Object} action dispatchされたaction
 * @return {Object} 変更後のstate
 */
-export default function mydestination(state={inBusiness:false,comment:"",contact:""},action){
+export default function suggestion(state={suggests:["EAST 8F", "EAST 3F", "宝町", "NRI 13F", "NRI 12F"]},action){
   switch(action.type){
-    case(MY_DESTINATION_CHANGE):
+    case(SUGGESTION_CHANGE):
       return action.payload;
-    case(MY_DESTINATION_CLEAR):
-      return {inBusiness:false,comment:"",contact:""};
+    case(SUGGESTION_CLEAR):
+      return {suggests:[]};
     default:
       return state;
   }

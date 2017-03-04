@@ -40,7 +40,14 @@ function* loginTask(action){
     });
 
     const token = result.data.token;
-    yield put(loginSuccess({userid:action.payload.id,name:action.payload.id,token:token}));
+
+    const resule_user = yield call(axios,{
+      method:"GET",
+      url:"https://api.kyo-do.co/user",
+      headers:{"Authorization":"Bearer " + token}
+    });
+
+    yield put(loginSuccess({userid:action.payload.id,name:resule_user.data.name,token:token}));
   }catch(e){
     yield put(loginFailure());
   }

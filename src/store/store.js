@@ -18,7 +18,8 @@ export function configureStore() {
       login:{status:LOGIN_STATUS.NOTYET, user:{}},
       mydestination:{inBusiness:false,comment:""},
       board:{memberStatus:[]},
-      accountboard:{open:false, nextuser:{}}
+      accountboard:{open:false, nextuser:{}},
+      suggestion:{suggests:[]},
     },
     applyMiddleware(
       sagaMiddleware, logger()
@@ -26,4 +27,4 @@ export function configureStore() {
   );
   sagaMiddleware.run(rootSaga);
   return store;
-};
+}

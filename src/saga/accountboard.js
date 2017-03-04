@@ -44,7 +44,7 @@ function* changeAccountInfoTask(action){
     });
     const name = (result.data.name)?
       result.data.name:
-      yield select(state => state.login.user.token);
+      yield select(state => state.login.user.name);
     const id = yield select(state => state.login.user.userid);
 
     yield put(loginSuccess({userid:id,name:name,token:token}));

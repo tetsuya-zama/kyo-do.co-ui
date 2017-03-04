@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import TextField from 'material-ui/TextField';
+import {
+  red600,
+  grey400
+} from 'material-ui/styles/colors';
 
 /**
 * 行き先掲示板コンポーネント
@@ -47,9 +51,12 @@ export default class Board extends React.Component{
     ));
 
     const memberRows = filterMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
+    const date = new Date().toLocaleDateString('ja-JP');
+
     return (
       <div>
       <h3>行き先掲示板</h3>
+      <p>{date}</p>
       <TextField
         hintText="Filter"
         value={this.state.current_filter_text}
@@ -114,15 +121,14 @@ class MemberRow extends React.Component{
   leftAvatar={<Avatar>{this.props.member.name.charAt(0).toUpperCase()}</Avatar>}
   */
   render(){
-
+      //const memberRows = this.props.memberStatus.map((member,idx) => <MemberRow key={idx} member={member}/>);
     return (
-        <List>
-          <ListItem
-            primaryText={this.props.member.name}
-            secondaryText={this.props.member.comment}
-            rightAvatar={<Avatar>{this.props.member.inBusiness ? "出" : "退"}</Avatar>}
-          />
-        </List>
+      <List>
+        <ListItem
+          primaryText={this.props.member.name + "：" + this.props.member.contact}
+            secondaryText={"最終更新日:" + this.props.member.lastUpdate.substr(0,16)+" "+(this.props.member.comment == null ? "" : this.props.member.comment)}
+          leftAvatar={<Avatar backgroundColor={this.props.member.inBusiness ? red600 : grey400} > {this.props.member.inBusiness ? "出" : "退"}</Avatar>} />
+      </List>
     );
   }
 }
