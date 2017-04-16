@@ -132,6 +132,18 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/action/suggestion.js~suggestion_change",
+    "variable/index.html#static-variable-SUGGESTION_CHANGE",
+    "<span>SUGGESTION_CHANGE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/suggestion.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/suggestion.js~suggestion_clear",
+    "variable/index.html#static-variable-SUGGESTION_CLEAR",
+    "<span>SUGGESTION_CLEAR</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/suggestion.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/component/signupform.js~signupform",
     "class/src/component/signupform.js~SignUpForm.html",
     "<span>SignUpForm</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/signupform.js</span>",
@@ -192,6 +204,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/suggestion.js~changesuggestionsaga",
+    "function/index.html#static-function-changeSuggestionSaga",
+    "<span>changeSuggestionSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/suggestion.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/accountboard.js~closeccountinfomodal",
     "function/index.html#static-function-closeccountInfoModal",
     "<span>closeccountInfoModal</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
@@ -225,6 +243,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/saga/board.js~loadmemberstatussaga",
     "function/index.html#static-function-loadMemberStatusSaga",
     "<span>loadMemberStatusSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/board.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/suggestion.js~loadsuggestionsaga",
+    "function/index.html#static-function-loadSuggestionSaga",
+    "<span>loadSuggestionSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/suggestion.js</span>",
     "function"
   ],
   [
@@ -351,6 +375,24 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/signup.js~signupsucceess",
     "function/index.html#static-function-signupSucceess",
     "<span>signupSucceess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/signup.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/reducer/suggestion.js~suggestion",
+    "function/index.html#static-function-suggestion",
+    "<span>suggestion</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/suggestion.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/suggestion.js~suggestionchange",
+    "function/index.html#static-function-suggestionChange",
+    "<span>suggestionChange</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/suggestion.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/suggestion.js~suggestionclear",
+    "function/index.html#static-function-suggestionClear",
+    "<span>suggestionClear</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/suggestion.js</span>",
     "function"
   ],
   [
@@ -696,6 +738,18 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "loginrequested src/action/login.js~loginrequested,loginrequested",
+    "test-file/test/action/login.test.js.html#lineNumber6",
+    "loginRequested action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/login.test.js.html#lineNumber7",
+    "loginRequested action creator creates LOGIN_REQUESTED action with id and password which user input",
+    "test"
+  ],
+  [
     "src/action/accountboard.js",
     "file/src/action/accountboard.js.html",
     "src/action/accountboard.js",
@@ -723,6 +777,12 @@ window.esdocSearchIndex = [
     "src/action/signup.js",
     "file/src/action/signup.js.html",
     "src/action/signup.js",
+    "file"
+  ],
+  [
+    "src/action/suggestion.js",
+    "file/src/action/suggestion.js.html",
+    "src/action/suggestion.js",
     "file"
   ],
   [
@@ -786,10 +846,22 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/board.js~board#hundlefilterchange",
+    "class/src/component/board.js~Board.html#instance-method-hundleFilterChange",
+    "src/component/board.js~Board#hundleFilterChange",
+    "method"
+  ],
+  [
     "src/component/board.js~board#render",
     "class/src/component/board.js~Board.html#instance-method-render",
     "src/component/board.js~Board#render",
     "method"
+  ],
+  [
+    "src/component/board.js~board#state",
+    "class/src/component/board.js~Board.html#instance-member-state",
+    "src/component/board.js~Board#state",
+    "member"
   ],
   [
     "src/component/header.js",
@@ -906,15 +978,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/mydestination.js~mydestination#hundletextchange",
-    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleTextChange",
-    "src/component/mydestination.js~MyDestination#hundleTextChange",
-    "method"
-  ],
-  [
     "src/component/mydestination.js~mydestination#hundletoggle",
     "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleToggle",
     "src/component/mydestination.js~MyDestination#hundleToggle",
+    "method"
+  ],
+  [
+    "src/component/mydestination.js~mydestination#hundleupdateinput",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleUpdateInput",
+    "src/component/mydestination.js~MyDestination#hundleUpdateInput",
     "method"
   ],
   [
@@ -1050,6 +1122,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/reducer/suggestion.js",
+    "file/src/reducer/suggestion.js.html",
+    "src/reducer/suggestion.js",
+    "file"
+  ],
+  [
     "src/saga/accountboard.js",
     "file/src/saga/accountboard.js.html",
     "src/saga/accountboard.js",
@@ -1086,9 +1164,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/saga/suggestion.js",
+    "file/src/saga/suggestion.js.html",
+    "src/saga/suggestion.js",
+    "file"
+  ],
+  [
     "src/store/store.js",
     "file/src/store/store.js.html",
     "src/store/store.js",
     "file"
+  ],
+  [
+    "test/action/login.test.js",
+    "test-file/test/action/login.test.js.html",
+    "test/action/login.test.js",
+    "testFile"
   ]
 ]

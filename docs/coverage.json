@@ -1,7 +1,7 @@
 {
-  "coverage": "82.47%",
-  "expectCount": 97,
-  "actualCount": 80,
+  "coverage": "82.07%",
+  "expectCount": 106,
+  "actualCount": 87,
   "files": {
     "src/action/accountboard.js": {
       "expectCount": 8,
@@ -18,9 +18,12 @@
       ]
     },
     "src/component/board.js": {
-      "expectCount": 3,
+      "expectCount": 5,
       "actualCount": 3,
-      "undocumentLines": []
+      "undocumentLines": [
+        44,
+        23
+      ]
     },
     "src/action/board.js": {
       "expectCount": 3,
@@ -69,15 +72,20 @@
       "expectCount": 7,
       "actualCount": 3,
       "undocumentLines": [
-        28,
-        45,
-        39,
-        33
+        29,
+        46,
+        34,
+        40
       ]
     },
     "src/action/signup.js": {
       "expectCount": 6,
       "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/action/suggestion.js": {
+      "expectCount": 4,
+      "actualCount": 4,
       "undocumentLines": []
     },
     "src/component/signupform.js": {
@@ -112,6 +120,11 @@
       "undocumentLines": []
     },
     "src/saga/mydestination.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/saga/suggestion.js": {
       "expectCount": 2,
       "actualCount": 2,
       "undocumentLines": []
@@ -157,6 +170,11 @@
       "undocumentLines": []
     },
     "src/saga/signup.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/reducer/suggestion.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []

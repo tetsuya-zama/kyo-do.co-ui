@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 625,
+  "end": 593,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 625,
+    "end": 593,
     "loc": {
       "start": {
         "line": 1,
@@ -30,8 +30,8 @@
     "body": [
       {
         "type": "ExportNamedDeclaration",
-        "start": 29,
-        "end": 90,
+        "start": 25,
+        "end": 86,
         "loc": {
           "start": {
             "line": 5,
@@ -46,8 +46,8 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 36,
-          "end": 90,
+          "start": 32,
+          "end": 86,
           "loc": {
             "start": {
               "line": 5,
@@ -61,8 +61,8 @@
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 42,
-              "end": 89,
+              "start": 38,
+              "end": 85,
               "loc": {
                 "start": {
                   "line": 5,
@@ -75,8 +75,8 @@
               },
               "id": {
                 "type": "Identifier",
-                "start": 42,
-                "end": 63,
+                "start": 38,
+                "end": 59,
                 "loc": {
                   "start": {
                     "line": 5,
@@ -93,8 +93,8 @@
               },
               "init": {
                 "type": "StringLiteral",
-                "start": 66,
-                "end": 89,
+                "start": 62,
+                "end": 85,
                 "loc": {
                   "start": {
                     "line": 5,
@@ -118,9 +118,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\r\n* 自分の行き先変更アクション名\r\n",
-              "start": 2,
-              "end": 27,
+              "value": "*\n* 自分の行き先変更アクション名\n",
+              "start": 1,
+              "end": 24,
               "loc": {
                 "start": {
                   "line": 2,
@@ -136,9 +136,9 @@
           "trailingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\r\n* 自分の行き先変更アクションのcreator\r\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\r\n* @return {Object} 自分の行き先変更アクション\r\n",
-              "start": 94,
-              "end": 239,
+              "value": "*\n* 自分の行き先変更アクションのcreator\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\n* @return {Object} 自分の行き先変更アクション\n",
+              "start": 88,
+              "end": 229,
               "loc": {
                 "start": {
                   "line": 7,
@@ -155,9 +155,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\r\n* 自分の行き先変更アクション名\r\n",
-            "start": 2,
-            "end": 27,
+            "value": "*\n* 自分の行き先変更アクション名\n",
+            "start": 1,
+            "end": 24,
             "loc": {
               "start": {
                 "line": 2,
@@ -173,9 +173,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\r\n* 自分の行き先変更アクションのcreator\r\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\r\n* @return {Object} 自分の行き先変更アクション\r\n",
-            "start": 94,
-            "end": 239,
+            "value": "*\n* 自分の行き先変更アクションのcreator\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\n* @return {Object} 自分の行き先変更アクション\n",
+            "start": 88,
+            "end": 229,
             "loc": {
               "start": {
                 "line": 7,
@@ -191,8 +191,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 241,
-        "end": 369,
+        "start": 230,
+        "end": 353,
         "loc": {
           "start": {
             "line": 12,
@@ -207,8 +207,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 248,
-          "end": 369,
+          "start": 237,
+          "end": 353,
           "loc": {
             "start": {
               "line": 12,
@@ -221,8 +221,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 257,
-            "end": 276,
+            "start": 246,
+            "end": 265,
             "loc": {
               "start": {
                 "line": 12,
@@ -243,8 +243,8 @@
           "params": [
             {
               "type": "Identifier",
-              "start": 277,
-              "end": 288,
+              "start": 266,
+              "end": 277,
               "loc": {
                 "start": {
                   "line": 12,
@@ -261,8 +261,8 @@
           ],
           "body": {
             "type": "BlockStatement",
-            "start": 289,
-            "end": 369,
+            "start": 278,
+            "end": 353,
             "loc": {
               "start": {
                 "line": 12,
@@ -276,8 +276,8 @@
             "body": [
               {
                 "type": "ReturnStatement",
-                "start": 294,
-                "end": 366,
+                "start": 282,
+                "end": 351,
                 "loc": {
                   "start": {
                     "line": 13,
@@ -290,8 +290,8 @@
                 },
                 "argument": {
                   "type": "ObjectExpression",
-                  "start": 301,
-                  "end": 365,
+                  "start": 289,
+                  "end": 350,
                   "loc": {
                     "start": {
                       "line": 13,
@@ -305,8 +305,8 @@
                   "properties": [
                     {
                       "type": "ObjectProperty",
-                      "start": 308,
-                      "end": 334,
+                      "start": 295,
+                      "end": 321,
                       "loc": {
                         "start": {
                           "line": 14,
@@ -322,8 +322,8 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 308,
-                        "end": 312,
+                        "start": 295,
+                        "end": 299,
                         "loc": {
                           "start": {
                             "line": 14,
@@ -339,8 +339,8 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 313,
-                        "end": 334,
+                        "start": 300,
+                        "end": 321,
                         "loc": {
                           "start": {
                             "line": 14,
@@ -357,8 +357,8 @@
                     },
                     {
                       "type": "ObjectProperty",
-                      "start": 341,
-                      "end": 360,
+                      "start": 327,
+                      "end": 346,
                       "loc": {
                         "start": {
                           "line": 15,
@@ -374,8 +374,8 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 341,
-                        "end": 348,
+                        "start": 327,
+                        "end": 334,
                         "loc": {
                           "start": {
                             "line": 15,
@@ -391,8 +391,8 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 349,
-                        "end": 360,
+                        "start": 335,
+                        "end": 346,
                         "loc": {
                           "start": {
                             "line": 15,
@@ -417,9 +417,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\r\n* 自分の行き先変更アクションのcreator\r\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\r\n* @return {Object} 自分の行き先変更アクション\r\n",
-              "start": 94,
-              "end": 239,
+              "value": "*\n* 自分の行き先変更アクションのcreator\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\n* @return {Object} 自分の行き先変更アクション\n",
+              "start": 88,
+              "end": 229,
               "loc": {
                 "start": {
                   "line": 7,
@@ -435,9 +435,9 @@
           "trailingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\r\n* 自分の行き先クリアアクション名\r\n",
-              "start": 373,
-              "end": 399,
+              "value": "*\n* 自分の行き先クリアアクション名\n",
+              "start": 355,
+              "end": 379,
               "loc": {
                 "start": {
                   "line": 19,
@@ -454,9 +454,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\r\n* 自分の行き先変更アクションのcreator\r\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\r\n* @return {Object} 自分の行き先変更アクション\r\n",
-            "start": 94,
-            "end": 239,
+            "value": "*\n* 自分の行き先変更アクションのcreator\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\n* @return {Object} 自分の行き先変更アクション\n",
+            "start": 88,
+            "end": 229,
             "loc": {
               "start": {
                 "line": 7,
@@ -472,9 +472,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\r\n* 自分の行き先クリアアクション名\r\n",
-            "start": 373,
-            "end": 399,
+            "value": "*\n* 自分の行き先クリアアクション名\n",
+            "start": 355,
+            "end": 379,
             "loc": {
               "start": {
                 "line": 19,
@@ -490,8 +490,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 401,
-        "end": 460,
+        "start": 380,
+        "end": 439,
         "loc": {
           "start": {
             "line": 22,
@@ -506,8 +506,8 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 408,
-          "end": 460,
+          "start": 387,
+          "end": 439,
           "loc": {
             "start": {
               "line": 22,
@@ -521,8 +521,8 @@
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 414,
-              "end": 459,
+              "start": 393,
+              "end": 438,
               "loc": {
                 "start": {
                   "line": 22,
@@ -535,8 +535,8 @@
               },
               "id": {
                 "type": "Identifier",
-                "start": 414,
-                "end": 434,
+                "start": 393,
+                "end": 413,
                 "loc": {
                   "start": {
                     "line": 22,
@@ -553,8 +553,8 @@
               },
               "init": {
                 "type": "StringLiteral",
-                "start": 437,
-                "end": 459,
+                "start": 416,
+                "end": 438,
                 "loc": {
                   "start": {
                     "line": 22,
@@ -578,9 +578,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\r\n* 自分の行き先クリアアクション名\r\n",
-              "start": 373,
-              "end": 399,
+              "value": "*\n* 自分の行き先クリアアクション名\n",
+              "start": 355,
+              "end": 379,
               "loc": {
                 "start": {
                   "line": 19,
@@ -596,9 +596,9 @@
           "trailingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\r\n* 自分の行き先クリアアクションのcreator\r\n* @return {Object} 自分の行き先クリアアクション\r\n",
-              "start": 464,
-              "end": 532,
+              "value": "*\n* 自分の行き先クリアアクションのcreator\n* @return {Object} 自分の行き先クリアアクション\n",
+              "start": 441,
+              "end": 506,
               "loc": {
                 "start": {
                   "line": 24,
@@ -615,9 +615,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\r\n* 自分の行き先クリアアクション名\r\n",
-            "start": 373,
-            "end": 399,
+            "value": "*\n* 自分の行き先クリアアクション名\n",
+            "start": 355,
+            "end": 379,
             "loc": {
               "start": {
                 "line": 19,
@@ -633,9 +633,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\r\n* 自分の行き先クリアアクションのcreator\r\n* @return {Object} 自分の行き先クリアアクション\r\n",
-            "start": 464,
-            "end": 532,
+            "value": "*\n* 自分の行き先クリアアクションのcreator\n* @return {Object} 自分の行き先クリアアクション\n",
+            "start": 441,
+            "end": 506,
             "loc": {
               "start": {
                 "line": 24,
@@ -651,8 +651,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 534,
-        "end": 623,
+        "start": 507,
+        "end": 592,
         "loc": {
           "start": {
             "line": 28,
@@ -667,8 +667,8 @@
         "source": null,
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 541,
-          "end": 623,
+          "start": 514,
+          "end": 592,
           "loc": {
             "start": {
               "line": 28,
@@ -681,8 +681,8 @@
           },
           "id": {
             "type": "Identifier",
-            "start": 550,
-            "end": 568,
+            "start": 523,
+            "end": 541,
             "loc": {
               "start": {
                 "line": 28,
@@ -703,8 +703,8 @@
           "params": [],
           "body": {
             "type": "BlockStatement",
-            "start": 570,
-            "end": 623,
+            "start": 543,
+            "end": 592,
             "loc": {
               "start": {
                 "line": 28,
@@ -718,8 +718,8 @@
             "body": [
               {
                 "type": "ReturnStatement",
-                "start": 575,
-                "end": 620,
+                "start": 547,
+                "end": 590,
                 "loc": {
                   "start": {
                     "line": 29,
@@ -732,8 +732,8 @@
                 },
                 "argument": {
                   "type": "ObjectExpression",
-                  "start": 582,
-                  "end": 619,
+                  "start": 554,
+                  "end": 589,
                   "loc": {
                     "start": {
                       "line": 29,
@@ -747,8 +747,8 @@
                   "properties": [
                     {
                       "type": "ObjectProperty",
-                      "start": 589,
-                      "end": 614,
+                      "start": 560,
+                      "end": 585,
                       "loc": {
                         "start": {
                           "line": 30,
@@ -764,8 +764,8 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 589,
-                        "end": 593,
+                        "start": 560,
+                        "end": 564,
                         "loc": {
                           "start": {
                             "line": 30,
@@ -781,8 +781,8 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 594,
-                        "end": 614,
+                        "start": 565,
+                        "end": 585,
                         "loc": {
                           "start": {
                             "line": 30,
@@ -806,9 +806,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\r\n* 自分の行き先クリアアクションのcreator\r\n* @return {Object} 自分の行き先クリアアクション\r\n",
-              "start": 464,
-              "end": 532,
+              "value": "*\n* 自分の行き先クリアアクションのcreator\n* @return {Object} 自分の行き先クリアアクション\n",
+              "start": 441,
+              "end": 506,
               "loc": {
                 "start": {
                   "line": 24,
@@ -826,9 +826,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\r\n* 自分の行き先クリアアクションのcreator\r\n* @return {Object} 自分の行き先クリアアクション\r\n",
-            "start": 464,
-            "end": 532,
+            "value": "*\n* 自分の行き先クリアアクションのcreator\n* @return {Object} 自分の行き先クリアアクション\n",
+            "start": 441,
+            "end": 506,
             "loc": {
               "start": {
                 "line": 24,
@@ -848,9 +848,9 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "*\r\n* 自分の行き先変更アクション名\r\n",
-      "start": 2,
-      "end": 27,
+      "value": "*\n* 自分の行き先変更アクション名\n",
+      "start": 1,
+      "end": 24,
       "loc": {
         "start": {
           "line": 2,
@@ -864,9 +864,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n* 自分の行き先変更アクションのcreator\r\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\r\n* @return {Object} 自分の行き先変更アクション\r\n",
-      "start": 94,
-      "end": 239,
+      "value": "*\n* 自分の行き先変更アクションのcreator\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\n* @return {Object} 自分の行き先変更アクション\n",
+      "start": 88,
+      "end": 229,
       "loc": {
         "start": {
           "line": 7,
@@ -880,9 +880,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n* 自分の行き先クリアアクション名\r\n",
-      "start": 373,
-      "end": 399,
+      "value": "*\n* 自分の行き先クリアアクション名\n",
+      "start": 355,
+      "end": 379,
       "loc": {
         "start": {
           "line": 19,
@@ -896,9 +896,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n* 自分の行き先クリアアクションのcreator\r\n* @return {Object} 自分の行き先クリアアクション\r\n",
-      "start": 464,
-      "end": 532,
+      "value": "*\n* 自分の行き先クリアアクションのcreator\n* @return {Object} 自分の行き先クリアアクション\n",
+      "start": 441,
+      "end": 506,
       "loc": {
         "start": {
           "line": 24,
@@ -914,9 +914,9 @@
   "tokens": [
     {
       "type": "CommentBlock",
-      "value": "*\r\n* 自分の行き先変更アクション名\r\n",
-      "start": 2,
-      "end": 27,
+      "value": "*\n* 自分の行き先変更アクション名\n",
+      "start": 1,
+      "end": 24,
       "loc": {
         "start": {
           "line": 2,
@@ -943,8 +943,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 29,
-      "end": 35,
+      "start": 25,
+      "end": 31,
       "loc": {
         "start": {
           "line": 5,
@@ -971,8 +971,8 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 36,
-      "end": 41,
+      "start": 32,
+      "end": 37,
       "loc": {
         "start": {
           "line": 5,
@@ -997,8 +997,8 @@
         "binop": null
       },
       "value": "MY_DESTINATION_CHANGE",
-      "start": 42,
-      "end": 63,
+      "start": 38,
+      "end": 59,
       "loc": {
         "start": {
           "line": 5,
@@ -1024,8 +1024,8 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 64,
-      "end": 65,
+      "start": 60,
+      "end": 61,
       "loc": {
         "start": {
           "line": 5,
@@ -1051,8 +1051,8 @@
         "updateContext": null
       },
       "value": "MY_DESTINATION_CHANGE",
-      "start": 66,
-      "end": 89,
+      "start": 62,
+      "end": 85,
       "loc": {
         "start": {
           "line": 5,
@@ -1077,8 +1077,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 89,
-      "end": 90,
+      "start": 85,
+      "end": 86,
       "loc": {
         "start": {
           "line": 5,
@@ -1092,9 +1092,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n* 自分の行き先変更アクションのcreator\r\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\r\n* @return {Object} 自分の行き先変更アクション\r\n",
-      "start": 94,
-      "end": 239,
+      "value": "*\n* 自分の行き先変更アクションのcreator\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\n* @return {Object} 自分の行き先変更アクション\n",
+      "start": 88,
+      "end": 229,
       "loc": {
         "start": {
           "line": 7,
@@ -1121,8 +1121,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 241,
-      "end": 247,
+      "start": 230,
+      "end": 236,
       "loc": {
         "start": {
           "line": 12,
@@ -1148,8 +1148,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 248,
-      "end": 256,
+      "start": 237,
+      "end": 245,
       "loc": {
         "start": {
           "line": 12,
@@ -1174,8 +1174,8 @@
         "binop": null
       },
       "value": "myDestinationChange",
-      "start": 257,
-      "end": 276,
+      "start": 246,
+      "end": 265,
       "loc": {
         "start": {
           "line": 12,
@@ -1199,8 +1199,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 276,
-      "end": 277,
+      "start": 265,
+      "end": 266,
       "loc": {
         "start": {
           "line": 12,
@@ -1225,8 +1225,8 @@
         "binop": null
       },
       "value": "destination",
-      "start": 277,
-      "end": 288,
+      "start": 266,
+      "end": 277,
       "loc": {
         "start": {
           "line": 12,
@@ -1250,8 +1250,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 288,
-      "end": 289,
+      "start": 277,
+      "end": 278,
       "loc": {
         "start": {
           "line": 12,
@@ -1275,8 +1275,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 289,
-      "end": 290,
+      "start": 278,
+      "end": 279,
       "loc": {
         "start": {
           "line": 12,
@@ -1303,8 +1303,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 294,
-      "end": 300,
+      "start": 282,
+      "end": 288,
       "loc": {
         "start": {
           "line": 13,
@@ -1328,8 +1328,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 301,
-      "end": 302,
+      "start": 289,
+      "end": 290,
       "loc": {
         "start": {
           "line": 13,
@@ -1354,8 +1354,8 @@
         "binop": null
       },
       "value": "type",
-      "start": 308,
-      "end": 312,
+      "start": 295,
+      "end": 299,
       "loc": {
         "start": {
           "line": 14,
@@ -1380,8 +1380,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 312,
-      "end": 313,
+      "start": 299,
+      "end": 300,
       "loc": {
         "start": {
           "line": 14,
@@ -1406,8 +1406,8 @@
         "binop": null
       },
       "value": "MY_DESTINATION_CHANGE",
-      "start": 313,
-      "end": 334,
+      "start": 300,
+      "end": 321,
       "loc": {
         "start": {
           "line": 14,
@@ -1432,8 +1432,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 334,
-      "end": 335,
+      "start": 321,
+      "end": 322,
       "loc": {
         "start": {
           "line": 14,
@@ -1458,8 +1458,8 @@
         "binop": null
       },
       "value": "payload",
-      "start": 341,
-      "end": 348,
+      "start": 327,
+      "end": 334,
       "loc": {
         "start": {
           "line": 15,
@@ -1484,8 +1484,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 348,
-      "end": 349,
+      "start": 334,
+      "end": 335,
       "loc": {
         "start": {
           "line": 15,
@@ -1510,8 +1510,8 @@
         "binop": null
       },
       "value": "destination",
-      "start": 349,
-      "end": 360,
+      "start": 335,
+      "end": 346,
       "loc": {
         "start": {
           "line": 15,
@@ -1535,8 +1535,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 364,
-      "end": 365,
+      "start": 349,
+      "end": 350,
       "loc": {
         "start": {
           "line": 16,
@@ -1561,8 +1561,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 365,
-      "end": 366,
+      "start": 350,
+      "end": 351,
       "loc": {
         "start": {
           "line": 16,
@@ -1586,8 +1586,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 368,
-      "end": 369,
+      "start": 352,
+      "end": 353,
       "loc": {
         "start": {
           "line": 17,
@@ -1601,9 +1601,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n* 自分の行き先クリアアクション名\r\n",
-      "start": 373,
-      "end": 399,
+      "value": "*\n* 自分の行き先クリアアクション名\n",
+      "start": 355,
+      "end": 379,
       "loc": {
         "start": {
           "line": 19,
@@ -1630,8 +1630,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 401,
-      "end": 407,
+      "start": 380,
+      "end": 386,
       "loc": {
         "start": {
           "line": 22,
@@ -1658,8 +1658,8 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 408,
-      "end": 413,
+      "start": 387,
+      "end": 392,
       "loc": {
         "start": {
           "line": 22,
@@ -1684,8 +1684,8 @@
         "binop": null
       },
       "value": "MY_DESTINATION_CLEAR",
-      "start": 414,
-      "end": 434,
+      "start": 393,
+      "end": 413,
       "loc": {
         "start": {
           "line": 22,
@@ -1711,8 +1711,8 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 435,
-      "end": 436,
+      "start": 414,
+      "end": 415,
       "loc": {
         "start": {
           "line": 22,
@@ -1738,8 +1738,8 @@
         "updateContext": null
       },
       "value": "MY_DESTINATION_CLEAR",
-      "start": 437,
-      "end": 459,
+      "start": 416,
+      "end": 438,
       "loc": {
         "start": {
           "line": 22,
@@ -1764,8 +1764,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 459,
-      "end": 460,
+      "start": 438,
+      "end": 439,
       "loc": {
         "start": {
           "line": 22,
@@ -1779,9 +1779,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n* 自分の行き先クリアアクションのcreator\r\n* @return {Object} 自分の行き先クリアアクション\r\n",
-      "start": 464,
-      "end": 532,
+      "value": "*\n* 自分の行き先クリアアクションのcreator\n* @return {Object} 自分の行き先クリアアクション\n",
+      "start": 441,
+      "end": 506,
       "loc": {
         "start": {
           "line": 24,
@@ -1808,8 +1808,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 534,
-      "end": 540,
+      "start": 507,
+      "end": 513,
       "loc": {
         "start": {
           "line": 28,
@@ -1835,8 +1835,8 @@
         "binop": null
       },
       "value": "function",
-      "start": 541,
-      "end": 549,
+      "start": 514,
+      "end": 522,
       "loc": {
         "start": {
           "line": 28,
@@ -1861,8 +1861,8 @@
         "binop": null
       },
       "value": "myDestinationClear",
-      "start": 550,
-      "end": 568,
+      "start": 523,
+      "end": 541,
       "loc": {
         "start": {
           "line": 28,
@@ -1886,8 +1886,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 568,
-      "end": 569,
+      "start": 541,
+      "end": 542,
       "loc": {
         "start": {
           "line": 28,
@@ -1911,8 +1911,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 569,
-      "end": 570,
+      "start": 542,
+      "end": 543,
       "loc": {
         "start": {
           "line": 28,
@@ -1936,8 +1936,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 570,
-      "end": 571,
+      "start": 543,
+      "end": 544,
       "loc": {
         "start": {
           "line": 28,
@@ -1964,8 +1964,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 575,
-      "end": 581,
+      "start": 547,
+      "end": 553,
       "loc": {
         "start": {
           "line": 29,
@@ -1989,8 +1989,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 582,
-      "end": 583,
+      "start": 554,
+      "end": 555,
       "loc": {
         "start": {
           "line": 29,
@@ -2015,8 +2015,8 @@
         "binop": null
       },
       "value": "type",
-      "start": 589,
-      "end": 593,
+      "start": 560,
+      "end": 564,
       "loc": {
         "start": {
           "line": 30,
@@ -2041,8 +2041,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 593,
-      "end": 594,
+      "start": 564,
+      "end": 565,
       "loc": {
         "start": {
           "line": 30,
@@ -2067,8 +2067,8 @@
         "binop": null
       },
       "value": "MY_DESTINATION_CLEAR",
-      "start": 594,
-      "end": 614,
+      "start": 565,
+      "end": 585,
       "loc": {
         "start": {
           "line": 30,
@@ -2092,8 +2092,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 618,
-      "end": 619,
+      "start": 588,
+      "end": 589,
       "loc": {
         "start": {
           "line": 31,
@@ -2118,8 +2118,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 619,
-      "end": 620,
+      "start": 589,
+      "end": 590,
       "loc": {
         "start": {
           "line": 31,
@@ -2143,8 +2143,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 622,
-      "end": 623,
+      "start": 591,
+      "end": 592,
       "loc": {
         "start": {
           "line": 32,
@@ -2169,8 +2169,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 625,
-      "end": 625,
+      "start": 593,
+      "end": 593,
       "loc": {
         "start": {
           "line": 33,
