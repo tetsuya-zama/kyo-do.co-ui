@@ -745,7 +745,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/action/login.test.js.html#lineNumber7",
+    "test-file/test/action/login.test.js.html#lineNumber8",
     "loginRequested action creator creates LOGIN_REQUESTED action with id and password which user input",
     "test"
   ],

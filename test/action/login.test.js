@@ -4,6 +4,7 @@ import {loginRequested,loginSuccess,loginFailure,logoutRequested} from "../../sr
 
 /**@test {loginRequested}*/
 describe("loginRequested action creator",()=>{
+  //ユーザーが入力したID,Passを使ってLOGIN_REQUESTEDアクションを生成する
   it("creates LOGIN_REQUESTED action with id and password which user input",()=>{
     const testId = "test_id";
     const testPass = "test_pass";

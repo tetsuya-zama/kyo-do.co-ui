@@ -6,7 +6,7 @@ export const SUGGESTION_CHANGE = "SUGGESTION_CHANGE";
 
 /**
 * 自分の行き先変更アクションのcreator
-* @param {{inBusiness:boolean,comment:string}} destination 行き先
+* @param {{inBusiness:boolean,comment:string}} suggests 行き先
 * @return {Object} 自分の行き先変更アクション
 */
 export function suggestionChange(suggests){
