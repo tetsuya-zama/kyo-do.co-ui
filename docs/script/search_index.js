@@ -738,6 +738,42 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "login src/reducer/login.js~login,login",
+    "test-file/test/reducer/login.test.js.html#lineNumber8",
+    "login reducer",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/login.test.js.html#lineNumber23",
+    "login reducer changes 'status' state to LOGIN_STATUS.FAILURE and changes 'user' state to empty object if LOGIN_FAILURE action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/login.test.js.html#lineNumber43",
+    "login reducer changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/login.test.js.html#lineNumber33",
+    "login reducer changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGOUT_REQUESTED action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/login.test.js.html#lineNumber10",
+    "login reducer changes 'status' state to LOGIN_STATUS.SUCCESS and changes 'user' state to payload of action if LOGIN_SUCCESS action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/login.test.js.html#lineNumber53",
+    "login reducer doesn't change any state if any other action is passed",
+    "test"
+  ],
+  [
     "loginfailure src/action/login.js~loginfailure,loginfailure",
     "test-file/test/action/login.test.js.html#lineNumber34",
     "loginFailure action creator",
@@ -1215,6 +1251,12 @@ window.esdocSearchIndex = [
     "test/action/login.test.js",
     "test-file/test/action/login.test.js.html",
     "test/action/login.test.js",
+    "testFile"
+  ],
+  [
+    "test/reducer/login.test.js",
+    "test-file/test/reducer/login.test.js.html",
+    "test/reducer/login.test.js",
     "testFile"
   ]
 ]

@@ -5312,5 +5312,103 @@
     "access": null,
     "description": "creates LOGOUT_REQUESTED action with no arguments",
     "lineNumber": 45
+  },
+  {
+    "__docId__": 256,
+    "kind": "testFile",
+    "name": "test/reducer/login.test.js",
+    "content": "const assert = require(\"assert\");\nimport {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from \"../../src/action/login\";\nimport {LOGIN_STATUS} from \"../../src/const/login\"\nimport login from \"../../src/reducer/login\"\n\nconst dummyUserData = {userid:\"mike\",name:\"Mike\",token:\"dummy\"};\n/**@test {login}*/\ndescribe(\"login reducer\",()=>{\n  //LOGIN_SUCCESSアクションが渡された場合、'status'をLOGIN_STATUS.SUCCESSに変更し、'user'をactionのpayloadに変更する\n  it(\"changes 'status' state to LOGIN_STATUS.SUCCESS and changes 'user' state to payload of action if LOGIN_SUCCESS action is passed\",()=>{\n    const action = {\n      type:LOGIN_SUCCESS,\n      payload:dummyUserData\n    };\n\n    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.SUCCESS);\n    assert(result.user === action.payload);\n  });\n  //LOGIN_FAILUREアクションが渡された場合、'status'をLOGIN_STATUS.FAILUREに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.FAILURE and changes 'user' state to empty object if LOGIN_FAILURE action is passed\",()=>{\n    const action = {type:LOGIN_FAILURE};\n\n    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.FAILURE);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //LOGOUT_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGOUT_REQUESTED action is passed\",()=>{\n    const action = {type:LOGOUT_REQUESTED};\n\n    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.NOTYET);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //LOGIN_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action\",()=>{\n    const action = {type:LOGIN_REQUESTED};\n\n    const initialState = {status:LOGIN_STATUS.FAILURE,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.NOTYET);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //その他のアクションが渡された場合はstateを変更しない\n  it(\"doesn't change any state if any other action is passed\",()=>{\n    const action = {type:\"OTHER_ACTION\"};\n\n    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};\n\n    const result = login(initialState,action);\n    assert(result.status === initialState.status);\n    assert(result.user === initialState.user);\n  });\n});\n",
+    "static": true,
+    "longname": "test/reducer/login.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 257,
+    "kind": "testDescribe",
+    "name": "describe8",
+    "testId": 8,
+    "memberof": "test/reducer/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/reducer/login.test.js~describe8",
+    "access": null,
+    "description": "login reducer",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{login}"
+      }
+    ],
+    "testTargets": [
+      "login"
+    ]
+  },
+  {
+    "__docId__": 258,
+    "kind": "testIt",
+    "name": "it9",
+    "testId": 9,
+    "memberof": "test/reducer/login.test.js~describe8",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/reducer/login.test.js~describe8.it9",
+    "access": null,
+    "description": "changes 'status' state to LOGIN_STATUS.SUCCESS and changes 'user' state to payload of action if LOGIN_SUCCESS action is passed",
+    "lineNumber": 10
+  },
+  {
+    "__docId__": 259,
+    "kind": "testIt",
+    "name": "it10",
+    "testId": 10,
+    "memberof": "test/reducer/login.test.js~describe8",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/reducer/login.test.js~describe8.it10",
+    "access": null,
+    "description": "changes 'status' state to LOGIN_STATUS.FAILURE and changes 'user' state to empty object if LOGIN_FAILURE action is passed",
+    "lineNumber": 23
+  },
+  {
+    "__docId__": 260,
+    "kind": "testIt",
+    "name": "it11",
+    "testId": 11,
+    "memberof": "test/reducer/login.test.js~describe8",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/reducer/login.test.js~describe8.it11",
+    "access": null,
+    "description": "changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGOUT_REQUESTED action is passed",
+    "lineNumber": 33
+  },
+  {
+    "__docId__": 261,
+    "kind": "testIt",
+    "name": "it12",
+    "testId": 12,
+    "memberof": "test/reducer/login.test.js~describe8",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/reducer/login.test.js~describe8.it12",
+    "access": null,
+    "description": "changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action",
+    "lineNumber": 43
+  },
+  {
+    "__docId__": 262,
+    "kind": "testIt",
+    "name": "it13",
+    "testId": 13,
+    "memberof": "test/reducer/login.test.js~describe8",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/reducer/login.test.js~describe8.it13",
+    "access": null,
+    "description": "doesn't change any state if any other action is passed",
+    "lineNumber": 53
   }
 ]
