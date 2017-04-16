@@ -108,6 +108,8 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {LOGIN_STATUS} from &apos;../const/login&apos;
 import {LOGIN_SUCCESS,LOGIN_FAILURE,LOGIN_REQUESTED,LOGOUT_REQUESTED} from &apos;../action/login&apos;
 
+const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};
+
 /**
 * &#x30ED;&#x30B0;&#x30A4;&#x30F3; reducer
 * @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864
@@ -115,16 +117,16 @@ import {LOGIN_SUCCESS,LOGIN_FAILURE,LOGIN_REQUESTED,LOGOUT_REQUESTED} from &apos
 * @param {Object} action dispatch&#x3055;&#x308C;&#x305F;action
 * @return {Object} &#x5909;&#x66F4;&#x5F8C;&#x306E;state
 */
-export default function login(state={status:&quot;NOTYET&quot;,user:{}}, action){
+export default function login(state=initialState, action){
   switch(action.type){
     case LOGIN_SUCCESS:
       return {status:LOGIN_STATUS.SUCCESS,user:action.payload};
     case LOGIN_FAILURE:
       return {status:LOGIN_STATUS.FAILURE,user:{}};
     case LOGOUT_REQUESTED:
-      return {status:LOGIN_STATUS.NOTYET,user:{}};
+      return initialState;
     case LOGIN_REQUESTED:
-      return {status:LOGIN_STATUS.NOTYET,user:{}};
+      return initialState;
     default:
       return state;
   }
