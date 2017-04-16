@@ -738,6 +738,18 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "loginfailure src/action/login.js~loginfailure,loginfailure",
+    "test-file/test/action/login.test.js.html#lineNumber34",
+    "loginFailure action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/login.test.js.html#lineNumber36",
+    "loginFailure action creator creates LOGIN_FAILURE action with no arguments",
+    "test"
+  ],
+  [
     "loginrequested src/action/login.js~loginrequested,loginrequested",
     "test-file/test/action/login.test.js.html#lineNumber6",
     "loginRequested action creator",
@@ -747,6 +759,30 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/login.test.js.html#lineNumber8",
     "loginRequested action creator creates LOGIN_REQUESTED action with id and password which user input",
+    "test"
+  ],
+  [
+    "loginsuccess src/action/login.js~loginsuccess,loginsuccess",
+    "test-file/test/action/login.test.js.html#lineNumber20",
+    "loginSuccess action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/login.test.js.html#lineNumber22",
+    "loginSuccess action creator creates LOGIN_SUCCESS action with user data of logon user.",
+    "test"
+  ],
+  [
+    "logoutrequested src/action/login.js~logoutrequested,logoutrequested",
+    "test-file/test/action/login.test.js.html#lineNumber43",
+    "logoutRequested action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/login.test.js.html#lineNumber45",
+    "logoutRequested action creator creates LOGOUT_REQUESTED action with no arguments",
     "test"
   ],
   [

@@ -5166,7 +5166,7 @@
     "__docId__": 247,
     "kind": "testFile",
     "name": "test/action/login.test.js",
-    "content": "const assert = require(\"assert\");\nimport {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from \"../../src/action/login\";\nimport {loginRequested,loginSuccess,loginFailure,logoutRequested} from \"../../src/action/login\";\n\n/**@test {loginRequested}*/\ndescribe(\"loginRequested action creator\",()=>{\n  //ユーザーが入力したID,Passを使ってLOGIN_REQUESTEDアクションを生成する\n  it(\"creates LOGIN_REQUESTED action with id and password which user input\",()=>{\n    const testId = \"test_id\";\n    const testPass = \"test_pass\";\n\n    const result = loginRequested(testId,testPass);\n    assert(result.type === LOGIN_REQUESTED);\n    assert(result.payload.id === testId);\n    assert(result.payload.pass === testPass);\n  });\n});\n",
+    "content": "const assert = require(\"assert\");\nimport {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from \"../../src/action/login\";\nimport {loginRequested,loginSuccess,loginFailure,logoutRequested} from \"../../src/action/login\";\n\n/**@test {loginRequested}*/\ndescribe(\"loginRequested action creator\",()=>{\n  //ユーザーが入力したID,Passを使ってLOGIN_REQUESTEDアクションを生成する\n  it(\"creates LOGIN_REQUESTED action with id and password which user input\",()=>{\n    const testId = \"test_id\";\n    const testPass = \"test_pass\";\n\n    const result = loginRequested(testId,testPass);\n    assert(result.type === LOGIN_REQUESTED);\n    assert(result.payload.id === testId);\n    assert(result.payload.pass === testPass);\n  });\n});\n\n/**@test {loginSuccess}*/\ndescribe(\"loginSuccess action creator\",()=>{\n  //ログインしたユーザーの情報を使ってLOGIN_SUCCESSアクションを生成する\n  it(\"creates LOGIN_SUCCESS action with user data of logon user.\",()=>{\n    const userinfo = {\"name\":\"Mike\",\"userid\":\"mike\",\"token\":\"dummy\"};\n\n    const result = loginSuccess(userinfo);\n    assert(result.type === LOGIN_SUCCESS);\n    assert(result.payload.name === userinfo.name);\n    assert(result.payload.userid === userinfo.userid);\n    assert(result.payload.token === userinfo.token);\n  });\n});\n\n/**@test {loginFailure}*/\ndescribe(\"loginFailure action creator\",()=>{\n  //引数を取らずにLOGIN_FAILUREアクションを生成する\n  it(\"creates LOGIN_FAILURE action with no arguments\",()=>{\n    const result = loginFailure();\n    assert(result.type === LOGIN_FAILURE);\n  });\n});\n\n/**@test {logoutRequested}*/\ndescribe(\"logoutRequested action creator\",()=>{\n  //引数を取らずにLOGOUT_REQUESTEDアクションを生成する\n  it(\"creates LOGOUT_REQUESTED action with no arguments\",()=>{\n    const result = logoutRequested();\n    assert(result.type === LOGOUT_REQUESTED);\n  });\n});\n",
     "static": true,
     "longname": "test/action/login.test.js",
     "access": null,
@@ -5207,5 +5207,110 @@
     "access": null,
     "description": "creates LOGIN_REQUESTED action with id and password which user input",
     "lineNumber": 8
+  },
+  {
+    "__docId__": 250,
+    "kind": "testDescribe",
+    "name": "describe2",
+    "testId": 2,
+    "memberof": "test/action/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/action/login.test.js~describe2",
+    "access": null,
+    "description": "loginSuccess action creator",
+    "lineNumber": 20,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{loginSuccess}"
+      }
+    ],
+    "testTargets": [
+      "loginSuccess"
+    ]
+  },
+  {
+    "__docId__": 251,
+    "kind": "testIt",
+    "name": "it3",
+    "testId": 3,
+    "memberof": "test/action/login.test.js~describe2",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/action/login.test.js~describe2.it3",
+    "access": null,
+    "description": "creates LOGIN_SUCCESS action with user data of logon user.",
+    "lineNumber": 22
+  },
+  {
+    "__docId__": 252,
+    "kind": "testDescribe",
+    "name": "describe4",
+    "testId": 4,
+    "memberof": "test/action/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/action/login.test.js~describe4",
+    "access": null,
+    "description": "loginFailure action creator",
+    "lineNumber": 34,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{loginFailure}"
+      }
+    ],
+    "testTargets": [
+      "loginFailure"
+    ]
+  },
+  {
+    "__docId__": 253,
+    "kind": "testIt",
+    "name": "it5",
+    "testId": 5,
+    "memberof": "test/action/login.test.js~describe4",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/action/login.test.js~describe4.it5",
+    "access": null,
+    "description": "creates LOGIN_FAILURE action with no arguments",
+    "lineNumber": 36
+  },
+  {
+    "__docId__": 254,
+    "kind": "testDescribe",
+    "name": "describe6",
+    "testId": 6,
+    "memberof": "test/action/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/action/login.test.js~describe6",
+    "access": null,
+    "description": "logoutRequested action creator",
+    "lineNumber": 43,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{logoutRequested}"
+      }
+    ],
+    "testTargets": [
+      "logoutRequested"
+    ]
+  },
+  {
+    "__docId__": 255,
+    "kind": "testIt",
+    "name": "it7",
+    "testId": 7,
+    "memberof": "test/action/login.test.js~describe6",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/action/login.test.js~describe6.it7",
+    "access": null,
+    "description": "creates LOGOUT_REQUESTED action with no arguments",
+    "lineNumber": 45
   }
 ]

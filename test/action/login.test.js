@@ -15,3 +15,35 @@ describe("loginRequested action creator",()=>{
     assert(result.payload.pass === testPass);
   });
 });
+
+/**@test {loginSuccess}*/
+describe("loginSuccess action creator",()=>{
+  //ログインしたユーザーの情報を使ってLOGIN_SUCCESSアクションを生成する
+  it("creates LOGIN_SUCCESS action with user data of logon user.",()=>{
+    const userinfo = {"name":"Mike","userid":"mike","token":"dummy"};
+
+    const result = loginSuccess(userinfo);
+    assert(result.type === LOGIN_SUCCESS);
+    assert(result.payload.name === userinfo.name);
+    assert(result.payload.userid === userinfo.userid);
+    assert(result.payload.token === userinfo.token);
+  });
+});
+
+/**@test {loginFailure}*/
+describe("loginFailure action creator",()=>{
+  //引数を取らずにLOGIN_FAILUREアクションを生成する
+  it("creates LOGIN_FAILURE action with no arguments",()=>{
+    const result = loginFailure();
+    assert(result.type === LOGIN_FAILURE);
+  });
+});
+
+/**@test {logoutRequested}*/
+describe("logoutRequested action creator",()=>{
+  //引数を取らずにLOGOUT_REQUESTEDアクションを生成する
+  it("creates LOGOUT_REQUESTED action with no arguments",()=>{
+    const result = logoutRequested();
+    assert(result.type === LOGOUT_REQUESTED);
+  });
+});
