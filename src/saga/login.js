@@ -90,9 +90,13 @@ export function* cleanRememberMeTask(){
 * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
 */
 export function* loginFromRememberMeSaga(){
-  const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);
-  if(remembermeSaved){
-    const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);
-    yield put(loginRequested(rememberme.id,rememberme.pass));
+  try{
+    const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);
+    if(remembermeSaved){
+      const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);
+      yield put(loginRequested(rememberme.id,rememberme.pass));
+    }
+  }catch(e){
+    //localStorageにアクセスできない場合は何もしない
   }
 }
