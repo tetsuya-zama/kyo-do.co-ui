@@ -89,9 +89,11 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoSaga">changeAccountInfoSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cleanRememberMeTask">cleanRememberMeTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFromRememberMeSaga">loginFromRememberMeSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSaga">loginSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginTask">loginTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutSaga">logoutSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeDestinationSaga">changeDestinationSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadDestinationSaga">loadDestinationSaga</a></span></span></li>
@@ -549,6 +551,34 @@
       <div>
         <p>
           
+          <span data-ice="generator">*</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-cleanRememberMeTask">cleanRememberMeTask</a></span></span><span data-ice="signature">()</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>localStorage&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;rememberme&#x60C5;&#x5831;&#x3092;&#x30AF;&#x30EA;&#x30A2;&#x3059;&#x308B;Task</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
           
           <span data-ice="name"><span><a href="function/index.html#static-function-closeccountInfoModal">closeccountInfoModal</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
         </p>
@@ -942,6 +972,35 @@
       <div>
         <p>
           
+          <span data-ice="generator">*</span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-loginTask">loginTask</a></span></span><span data-ice="signature">(action: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>API&#x306B;&#x5BFE;&#x3057;&#x3066;ID/Pass&#x3092;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;&#x3066;&#x3001;
+&#x6210;&#x529F;&#x3059;&#x308C;&#x3070;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;&#x3092;&#x5143;&#x306B;LOGIN_SUCCESS(&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x6210;&#x529F;)&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)&#x3059;&#x308B;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
           
           <span data-ice="name"><span><a href="function/index.html#static-function-logoutRequested">logoutRequested</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
         </p>
@@ -1111,7 +1170,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>int</span></span>
         </p>
       </div>
       <div>
@@ -1167,7 +1226,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-setToStorage">setToStorage</a></span></span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-setToStorage">setToStorage</a></span></span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>int</span></span>
         </p>
       </div>
       <div>

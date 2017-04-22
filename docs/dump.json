@@ -3167,7 +3167,7 @@
     "__docId__": 132,
     "kind": "file",
     "name": "src/module/localstorage.js",
-    "content": "import {base64Encode,base64Decode} from './base64'\n\n/*\n* ローカルストレージのKeyのプレフィックス\n*/\nconst LOCAL_STORAGE_PREFIX = \"kyo-do.co.\";\n\n/**\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {undefined}\n*/\nexport function setToStorage(key,value){\n  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));\n}\n/**\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n*/\nexport function getFromStorage(key){\n  return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));\n}\n/**\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {undefined}\n*/\nexport function removeFromStorage(key){\n  localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);\n}\n\n/**\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n*/\nexport function existsKeyOnStorage(key){\n  return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;\n}\n",
+    "content": "import {base64Encode,base64Decode} from './base64'\n\n/*\n* ローカルストレージのKeyのプレフィックス\n*/\nconst LOCAL_STORAGE_PREFIX = \"kyo-do.co.\";\n\n/**\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {int} 成功すれば0\n*/\nexport function setToStorage(key,value){\n  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));\n  return 0;\n}\n/**\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n*/\nexport function getFromStorage(key){\n  return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));\n}\n/**\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {int} 成功すれば0\n*/\nexport function removeFromStorage(key){\n  localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);\n  return 0;\n}\n\n/**\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n*/\nexport function existsKeyOnStorage(key){\n  return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;\n}\n",
     "static": true,
     "longname": "src/module/localstorage.js",
     "access": null,
@@ -3240,10 +3240,10 @@
     "return": {
       "nullable": null,
       "types": [
-        "undefined"
+        "int"
       ],
       "spread": false,
-      "description": ""
+      "description": "成功すれば0"
     }
   },
   {
@@ -3260,7 +3260,7 @@
     "importPath": "kyo-do.co-ui/src/module/localstorage.js",
     "importStyle": "{getFromStorage}",
     "description": "localStorageから値を取得する",
-    "lineNumber": 22,
+    "lineNumber": 23,
     "params": [
       {
         "nullable": null,
@@ -3296,7 +3296,7 @@
     "importPath": "kyo-do.co-ui/src/module/localstorage.js",
     "importStyle": "{removeFromStorage}",
     "description": "localStorageから値を削除する",
-    "lineNumber": 30,
+    "lineNumber": 31,
     "params": [
       {
         "nullable": null,
@@ -3312,10 +3312,10 @@
     "return": {
       "nullable": null,
       "types": [
-        "undefined"
+        "int"
       ],
       "spread": false,
-      "description": ""
+      "description": "成功すれば0"
     }
   },
   {
@@ -3332,7 +3332,7 @@
     "importPath": "kyo-do.co-ui/src/module/localstorage.js",
     "importStyle": "{existsKeyOnStorage}",
     "description": "localStorage上にキーが存在するかを確認する",
-    "lineNumber": 39,
+    "lineNumber": 41,
     "params": [
       {
         "nullable": null,
@@ -3947,7 +3947,7 @@
     "__docId__": 161,
     "kind": "file",
     "name": "src/saga/login.js",
-    "content": "import {take,put,call,takeEvery} from 'redux-saga/effects'\nimport {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'\nimport {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport axios from \"axios\";\n\n//MOCK用\n//TODO 実装終わったら消す\nimport {MOCK_MEMBER_REPO_KEY} from '../const/signup'\n\n/**\n* rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey\n*/\nconst REMEMBER_ME_STORAGE_KEY = \"rememberme\";\n\n/**\n* login要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginSaga(){\n  /*\n  * LOGIN_REQUESTED(ログイン要求)アクションを常に待ち続け、\n  * dispatchされたらloginTaskにactionを渡して実行する\n  */\n  yield takeEvery(LOGIN_REQUESTED,loginTask);\n}\n/**\n* APIに対してID/Passを問い合わせて、\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\n*/\nfunction* loginTask(action){\n  //rememberme\n  setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});\n\n  //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない\n  try{\n    const result = yield call(axios.post,\"https://api.kyo-do.co/auth\",{\n      userid:action.payload.id,\n      password:action.payload.pass\n    });\n\n    const token = result.data.token;\n\n    const resule_user = yield call(axios,{\n      method:\"GET\",\n      url:\"https://api.kyo-do.co/user\",\n      headers:{\"Authorization\":\"Bearer \" + token}\n    });\n\n    yield put(loginSuccess({userid:action.payload.id,name:resule_user.data.name,token:token}));\n  }catch(e){\n    yield put(loginFailure());\n  }\n}\n/**\n* logout要求を受けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* logoutSaga(){\n  yield takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask);\n}\n\n/**\n* ログインに失敗したときのクリーンアップを行うSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFailureSaga(){\n  yield takeEvery(LOGIN_FAILURE,cleanRememberMeTask);\n}\n/**\n* localStorageに保存されているrememberme情報をクリアするTask\n*/\nfunction* cleanRememberMeTask(){\n  yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);\n}\n\n/**\n* localStorageに保存されているID/PassからログインするSaga\n* アプリを起動して(ブラウザアクセスして)1回だけ実行される\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFromRememberMeSaga(){\n  const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);\n  if(remembermeSaved){\n    const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);\n    yield put(loginRequested(rememberme.id,rememberme.pass));\n  }\n}\n",
+    "content": "import {take,put,call,takeEvery} from 'redux-saga/effects'\nimport {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'\nimport {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport axios from \"axios\";\n\n//MOCK用\n//TODO 実装終わったら消す\nimport {MOCK_MEMBER_REPO_KEY} from '../const/signup'\n\n/**\n* rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey\n*/\nconst REMEMBER_ME_STORAGE_KEY = \"rememberme\";\n\n/**\n* login要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginSaga(){\n  /*\n  * LOGIN_REQUESTED(ログイン要求)アクションを常に待ち続け、\n  * dispatchされたらloginTaskにactionを渡して実行する\n  */\n  yield takeEvery(LOGIN_REQUESTED,loginTask);\n}\n/**\n* APIに対してID/Passを問い合わせて、\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\n*/\nexport function* loginTask(action){\n  //rememberme\n  yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});\n\n  //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない\n  try{\n    const result = yield call(axios.post,\"https://api.kyo-do.co/auth\",{\n      userid:action.payload.id,\n      password:action.payload.pass\n    });\n\n    const token = result.data.token;\n\n    const resule_user = yield call(axios,{\n      method:\"GET\",\n      url:\"https://api.kyo-do.co/user\",\n      headers:{\"Authorization\":\"Bearer \" + token}\n    });\n\n    yield put(loginSuccess({userid:action.payload.id,name:resule_user.data.name,token:token}));\n  }catch(e){\n    yield put(loginFailure());\n  }\n}\n/**\n* logout要求を受けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* logoutSaga(){\n  yield takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask);\n}\n\n/**\n* ログインに失敗したときのクリーンアップを行うSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFailureSaga(){\n  yield takeEvery(LOGIN_FAILURE,cleanRememberMeTask);\n}\n/**\n* localStorageに保存されているrememberme情報をクリアするTask\n*/\nexport function* cleanRememberMeTask(){\n  yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);\n}\n\n/**\n* localStorageに保存されているID/PassからログインするSaga\n* アプリを起動して(ブラウザアクセスして)1回だけ実行される\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFromRememberMeSaga(){\n  const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);\n  if(remembermeSaved){\n    const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);\n    yield put(loginRequested(rememberme.id,rememberme.pass));\n  }\n}\n",
     "static": true,
     "longname": "src/saga/login.js",
     "access": null,
@@ -4003,9 +4003,9 @@
     "static": true,
     "longname": "src/saga/login.js~loginTask",
     "access": null,
-    "export": false,
+    "export": true,
     "importPath": "kyo-do.co-ui/src/saga/login.js",
-    "importStyle": null,
+    "importStyle": "{loginTask}",
     "description": "APIに対してID/Passを問い合わせて、\n成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する",
     "lineNumber": 31,
     "params": [
@@ -4071,9 +4071,9 @@
     "static": true,
     "longname": "src/saga/login.js~cleanRememberMeTask",
     "access": null,
-    "export": false,
+    "export": true,
     "importPath": "kyo-do.co-ui/src/saga/login.js",
-    "importStyle": null,
+    "importStyle": "{cleanRememberMeTask}",
     "description": "localStorageに保存されているrememberme情報をクリアするTask",
     "lineNumber": 73,
     "params": []

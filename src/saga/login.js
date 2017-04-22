@@ -28,9 +28,9 @@ export function* loginSaga(){
 * 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する
 * @param {object} action LOGIN_REQUESTED(ログイン要求)アクション
 */
-function* loginTask(action){
+export function* loginTask(action){
   //rememberme
-  setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
+  yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
 
   //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない
   try{
@@ -70,7 +70,7 @@ export function* loginFailureSaga(){
 /**
 * localStorageに保存されているrememberme情報をクリアするTask
 */
-function* cleanRememberMeTask(){
+export function* cleanRememberMeTask(){
   yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);
 }
 

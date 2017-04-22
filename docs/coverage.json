@@ -1,7 +1,7 @@
 {
-  "coverage": "82.07%",
-  "expectCount": 106,
-  "actualCount": 87,
+  "coverage": "82.4%",
+  "expectCount": 108,
+  "actualCount": 89,
   "files": {
     "src/action/accountboard.js": {
       "expectCount": 8,
@@ -129,6 +129,11 @@
       "actualCount": 2,
       "undocumentLines": []
     },
+    "src/saga/login.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
     "src/store/store.js": {
       "expectCount": 1,
       "actualCount": 1,
@@ -147,11 +152,6 @@
     "src/reducer/login.js": {
       "expectCount": 1,
       "actualCount": 1,
-      "undocumentLines": []
-    },
-    "src/saga/login.js": {
-      "expectCount": 4,
-      "actualCount": 4,
       "undocumentLines": []
     },
     "src/reducer/mydestination.js": {

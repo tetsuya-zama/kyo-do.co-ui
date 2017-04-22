@@ -89,9 +89,11 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoSaga">changeAccountInfoSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cleanRememberMeTask">cleanRememberMeTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFromRememberMeSaga">loginFromRememberMeSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSaga">loginSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginTask">loginTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutSaga">logoutSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeDestinationSaga">changeDestinationSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadDestinationSaga">loadDestinationSaga</a></span></span></li>
@@ -135,9 +137,9 @@ export function* loginSaga(){
 * &#x6210;&#x529F;&#x3059;&#x308C;&#x3070;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;&#x3092;&#x5143;&#x306B;LOGIN_SUCCESS(&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x6210;&#x529F;)&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)&#x3059;&#x308B;
 * @param {object} action LOGIN_REQUESTED(&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x8981;&#x6C42;)&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
-function* loginTask(action){
+export function* loginTask(action){
   //rememberme
-  setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
+  yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
 
   //XXX &#x73FE;&#x5728;&#x306E;&#x5B9F;&#x88C5;&#x3067;&#x306F;&#x30B5;&#x30FC;&#x30D0;&#x30A8;&#x30E9;&#x30FC;&#x306A;&#x306E;&#x304B;ID/Pass&#x304C;&#x9593;&#x9055;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x5224;&#x65AD;&#x304C;&#x3064;&#x304B;&#x306A;&#x3044;
   try{
@@ -177,7 +179,7 @@ export function* loginFailureSaga(){
 /**
 * localStorage&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;rememberme&#x60C5;&#x5831;&#x3092;&#x30AF;&#x30EA;&#x30A2;&#x3059;&#x308B;Task
 */
-function* cleanRememberMeTask(){
+export function* cleanRememberMeTask(){
   yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);
 }
 

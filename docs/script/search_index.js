@@ -210,6 +210,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/login.js~cleanremembermetask",
+    "function/index.html#static-function-cleanRememberMeTask",
+    "<span>cleanRememberMeTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/login.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/accountboard.js~closeccountinfomodal",
     "function/index.html#static-function-closeccountInfoModal",
     "<span>closeccountInfoModal</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
@@ -291,6 +297,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/login.js~loginsuccess",
     "function/index.html#static-function-loginSuccess",
     "<span>loginSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/login.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/login.js~logintask",
+    "function/index.html#static-function-loginTask",
+    "<span>loginTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/login.js</span>",
     "function"
   ],
   [
