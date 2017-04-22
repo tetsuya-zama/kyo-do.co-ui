@@ -30,7 +30,12 @@ export function* loginSaga(){
 */
 export function* loginTask(action){
   //rememberme
-  yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
+  try{
+    yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
+  }catch(e){
+    //localStorageにアクセスできない場合は何もしない
+  }
+
 
   //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない
   try{
@@ -71,7 +76,12 @@ export function* loginFailureSaga(){
 * localStorageに保存されているrememberme情報をクリアするTask
 */
 export function* cleanRememberMeTask(){
-  yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);
+  try{
+    yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);
+  }catch(e){
+    //localStorageにアクセスできない場合は何もしない
+  }
+
 }
 
 /**
