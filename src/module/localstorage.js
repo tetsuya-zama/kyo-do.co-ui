@@ -9,11 +9,15 @@ const LOCAL_STORAGE_PREFIX = "kyo-do.co.";
 * localStorageへ値をセットする
 * @param {string} key キー
 * @param {Object} value セットするオブジェクト
-* @return {int} 成功すれば0
+* @return {boolean} 成功すればtrue
 */
 export function setToStorage(key,value){
-  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));
-  return 0;
+  try{
+    localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));
+    return true;
+  }catch(e){
+    return false;
+  }
 }
 /**
 * localStorageから値を取得する
@@ -21,16 +25,24 @@ export function setToStorage(key,value){
 * @return {Object} localStorageに保存されたオブジェクト
 */
 export function getFromStorage(key){
-  return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));
+  try{
+    return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));
+  }catch(e){
+    return undefined;
+  }
 }
 /**
 * localStorageから値を削除する
 * @param {string} key キー
-* @return {int} 成功すれば0
+* @return {boolean} 成功すればtrue
 */
 export function removeFromStorage(key){
-  localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);
-  return 0;
+  try{
+    localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);
+    return true;
+  }catch(e){
+    return false;
+  }
 }
 
 /**
@@ -39,5 +51,9 @@ export function removeFromStorage(key){
 * @return {boolean} 存在すればTrue
 */
 export function existsKeyOnStorage(key){
-  return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;
+  try{
+    return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;
+  }catch(e){
+    return false
+  }
 }
