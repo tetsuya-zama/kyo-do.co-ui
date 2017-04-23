@@ -2,7 +2,13 @@ import {put,call,takeEvery} from 'redux-saga/effects'
 import {SIGNUP_REQUIRED,signupSucceess,signupFailure} from '../action/signup'
 import {SIGNUP_FAILURE_REASONS} from '../const/signup'
 import {loginRequested} from '../action/login'
+import {getApiBaseURL} from '../module/environment';
 import axios from "axios";
+
+/**
+* APIのベースURL
+*/
+const BASE_API_URL = getApiBaseURL();
 
 /**
 * サインアップ要求を受け付けるSaga
@@ -18,7 +24,7 @@ export function* signupSaga(){
 */
 export function* signupTask(action){
   try{
-    const result = yield call(axios.post,"https://api.kyo-do.co/user",{
+    const result = yield call(axios.post,BASE_API_URL + "user",{
       userid:action.payload.id,
       password:action.payload.password,
       name:action.payload.name});
