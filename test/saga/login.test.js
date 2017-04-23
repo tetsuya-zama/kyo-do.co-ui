@@ -1,8 +1,11 @@
 const assert = require("assert");
 import {loginSaga,loginTask,logoutSaga,loginFailureSaga,cleanRememberMeTask,loginFromRememberMeSaga} from '../../src/saga/login';
 import {LOGIN_REQUESTED,LOGOUT_REQUESTED,LOGIN_FAILURE,loginRequested,loginSuccess,loginFailure} from '../../src/action/login';
-import {take,takeEvery,fork,call,put} from 'redux-saga/effects'
+import {take,takeEvery,fork,call,put} from 'redux-saga/effects';
+import {getApiBaseURL} from  '../../src/module/environment';
 import axios from "axios";
+
+const BASE_API_URL = getApiBaseURL();
 
 describe("login Saga",()=>{
   //すべてのLOGIN_REQUESTEDを受け取り、loginTaskに受け渡す
@@ -41,7 +44,7 @@ describe("login Task",()=>{
     rtn = gen.next(true);//localStorageへの保存は成功したものとする
     //与えたActionのpayloadを使用してAPIへアクセスする
     assert.deepEqual(rtn.value,call(axios.post,
-      "https://api.kyo-do.co/auth",
+      BASE_API_URL + "auth",
       {
         userid:testAction.payload.id,
         password:testAction.payload.pass
@@ -52,7 +55,7 @@ describe("login Task",()=>{
     //mockTokenReturnで返ってきたtokenを使ってuser APIへアクセスする
     assert.deepEqual(rtn.value, call(axios,{
       method:"GET",
-      url:"https://api.kyo-do.co/user",
+      url:BASE_API_URL + "user",
       headers:{"Authorization":"Bearer " + mockTokenReturn.token}
     }));
 
@@ -84,7 +87,7 @@ describe("login Task",()=>{
     rtn = gen.next(true);//localStorageへの保存は成功したものとする
     //与えたActionのpayloadを使用してAPIへアクセスする
     assert.deepEqual(rtn.value,call(axios.post,
-      "https://api.kyo-do.co/auth",
+      BASE_API_URL + "auth",
       {
         userid:testAction.payload.id,
         password:testAction.payload.pass
@@ -123,7 +126,7 @@ describe("login Task",()=>{
     assert(!rtn.done); //処理が止まっていない
     //与えたActionのpayloadを使用してAPIへアクセスする
     assert.deepEqual(rtn.value,call(axios.post,
-      "https://api.kyo-do.co/auth",
+      BASE_API_URL + "auth",
       {
         userid:testAction.payload.id,
         password:testAction.payload.pass

@@ -10,10 +10,3 @@ export const SIGNUP_FAILURE_REASONS = {
   EMPTY_NAME : "EMPTY_NAME", //表示名が空
   POLICY_PASSWORD : "POLICY_PASSWORD" //パスワードポリシーの要件を満たしていない
 }
-
-//MOCK用
-//TODO 実装終わったら消す
-/**
-* MOCKで使用するlocalStorage上のユーザーレポジトリのkey
-*/
-export const MOCK_MEMBER_REPO_KEY = "mock_member_repo";

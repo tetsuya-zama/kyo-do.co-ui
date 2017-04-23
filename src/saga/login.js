@@ -1,16 +1,17 @@
 import {take,put,call,takeEvery} from 'redux-saga/effects'
 import {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'
 import {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'
+import {getApiBaseURL} from '../module/environment';
 import axios from "axios";
-
-//MOCK用
-//TODO 実装終わったら消す
-import {MOCK_MEMBER_REPO_KEY} from '../const/signup'
 
 /**
 * rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey
 */
 const REMEMBER_ME_STORAGE_KEY = "rememberme";
+/**
+* APIのベースURL
+*/
+const BASE_API_URL = getApiBaseURL();
 
 /**
 * login要求を受け付けるSaga
@@ -39,7 +40,7 @@ export function* loginTask(action){
 
   //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない
   try{
-    const result = yield call(axios.post,"https://api.kyo-do.co/auth",{
+    const result = yield call(axios.post,BASE_API_URL + "auth",{
       userid:action.payload.id,
       password:action.payload.pass
     });
@@ -48,7 +49,7 @@ export function* loginTask(action){
 
     const resule_user = yield call(axios,{
       method:"GET",
-      url:"https://api.kyo-do.co/user",
+      url:BASE_API_URL + "user",
       headers:{"Authorization":"Bearer " + token}
     });
 
