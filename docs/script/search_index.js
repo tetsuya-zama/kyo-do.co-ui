@@ -390,6 +390,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/signup.js~signuptask",
+    "function/index.html#static-function-signupTask",
+    "<span>signupTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/signup.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/reducer/suggestion.js~suggestion",
     "function/index.html#static-function-suggestion",
     "<span>suggestion</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/suggestion.js</span>",
@@ -924,6 +930,36 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "",
+    "test-file/test/saga/signup.test.js.html#lineNumber12",
+    "signup Saga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/signup.test.js.html#lineNumber14",
+    "signup Saga takes every SIGNUP_REQUIRED action and pass it to signupTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/signup.test.js.html#lineNumber23",
+    "signup Task",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/signup.test.js.html#lineNumber54",
+    "signup Task puts SIGNUP_FAILURE action if server returns signup failure",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/signup.test.js.html#lineNumber25",
+    "signup Task puts SIGNUP_SUCCESS and LOGIN_REQUESTED action if server returns signup success",
+    "test"
+  ],
+  [
     "src/action/accountboard.js",
     "file/src/action/accountboard.js.html",
     "src/action/accountboard.js",
@@ -1371,6 +1407,12 @@ window.esdocSearchIndex = [
     "test/saga/login.test.js",
     "test-file/test/saga/login.test.js.html",
     "test/saga/login.test.js",
+    "testFile"
+  ],
+  [
+    "test/saga/signup.test.js",
+    "test-file/test/saga/signup.test.js.html",
+    "test/saga/signup.test.js",
     "testFile"
   ]
 ]

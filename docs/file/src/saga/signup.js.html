@@ -99,6 +99,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadDestinationSaga">loadDestinationSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rootSaga">rootSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupSaga">signupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupTask">signupTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionSaga">changeSuggestionSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionSaga">loadSuggestionSaga</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">store</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
@@ -111,12 +112,13 @@
 import {SIGNUP_REQUIRED,signupSucceess,signupFailure} from &apos;../action/signup&apos;
 import {SIGNUP_FAILURE_REASONS} from &apos;../const/signup&apos;
 import {loginRequested} from &apos;../action/login&apos;
+import {getApiBaseURL} from &apos;../module/environment&apos;;
 import axios from &quot;axios&quot;;
 
-//MOCK&#x7528;
-//TODO &#x5B9F;&#x88C5;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x6D88;&#x3059;
-import {setToStorage,getFromStorage,existsKeyOnStorage} from &apos;../module/localstorage&apos;
-import {MOCK_MEMBER_REPO_KEY} from &apos;../const/signup&apos;
+/**
+* API&#x306E;&#x30D9;&#x30FC;&#x30B9;URL
+*/
+const BASE_API_URL = getApiBaseURL();
 
 /**
 * &#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
@@ -130,9 +132,9 @@ export function* signupSaga(){
 * &#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x8981;&#x6C42;&#x3092;&#x51E6;&#x7406;&#x3059;&#x308B;&#x30BF;&#x30B9;&#x30AF;
 * @param {Object} action SIGNUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
-function* signupTask(action){
+export function* signupTask(action){
   try{
-    const result = yield call(axios.post,&quot;https://api.kyo-do.co/user&quot;,{
+    const result = yield call(axios.post,BASE_API_URL + &quot;user&quot;,{
       userid:action.payload.id,
       password:action.payload.password,
       name:action.payload.name});
