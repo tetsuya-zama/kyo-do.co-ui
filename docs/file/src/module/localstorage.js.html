@@ -72,10 +72,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MOCK_MEMBER_REPO_KEY">MOCK_MEMBER_REPO_KEY</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE_REASONS">SIGNUP_FAILURE_REASONS</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-existsKeyOnStorage">existsKeyOnStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getFromStorage">getFromStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span></li>
@@ -118,11 +118,15 @@ const LOCAL_STORAGE_PREFIX = &quot;kyo-do.co.&quot;;
 * localStorage&#x3078;&#x5024;&#x3092;&#x30BB;&#x30C3;&#x30C8;&#x3059;&#x308B;
 * @param {string} key &#x30AD;&#x30FC;
 * @param {Object} value &#x30BB;&#x30C3;&#x30C8;&#x3059;&#x308B;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;
-* @return {int} &#x6210;&#x529F;&#x3059;&#x308C;&#x3070;0
+* @return {boolean} &#x6210;&#x529F;&#x3059;&#x308C;&#x3070;true
 */
 export function setToStorage(key,value){
-  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));
-  return 0;
+  try{
+    localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));
+    return true;
+  }catch(e){
+    return false;
+  }
 }
 /**
 * localStorage&#x304B;&#x3089;&#x5024;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;
@@ -130,16 +134,24 @@ export function setToStorage(key,value){
 * @return {Object} localStorage&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x305F;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;
 */
 export function getFromStorage(key){
-  return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));
+  try{
+    return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));
+  }catch(e){
+    return undefined;
+  }
 }
 /**
 * localStorage&#x304B;&#x3089;&#x5024;&#x3092;&#x524A;&#x9664;&#x3059;&#x308B;
 * @param {string} key &#x30AD;&#x30FC;
-* @return {int} &#x6210;&#x529F;&#x3059;&#x308C;&#x3070;0
+* @return {boolean} &#x6210;&#x529F;&#x3059;&#x308C;&#x3070;true
 */
 export function removeFromStorage(key){
-  localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);
-  return 0;
+  try{
+    localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);
+    return true;
+  }catch(e){
+    return false;
+  }
 }
 
 /**
@@ -148,7 +160,11 @@ export function removeFromStorage(key){
 * @return {boolean} &#x5B58;&#x5728;&#x3059;&#x308C;&#x3070;True
 */
 export function existsKeyOnStorage(key){
-  return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;
+  try{
+    return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;
+  }catch(e){
+    return false
+  }
 }
 </code></pre>
 

@@ -2966,7 +2966,7 @@
     "__docId__": 123,
     "kind": "file",
     "name": "src/const/signup.js",
-    "content": "/**\n* サインアップ失敗理由\n*/\nexport const SIGNUP_FAILURE_REASONS = {\n  ID_DUPLICATED : \"ID_DUPLICATED\", //ID重複\n  SERVER_ERROR : \"SERVER_ERROR\", //サーバーエラー\n  INVALID_CONFIRM : \"INVALID_CONFIRM\", //パスワード確認用不一致\n  EMPTY_ID : \"EMPTY_ID\", //IDが空,\n  EMPTY_PASSWORD:\"EMPTY_PASSWORD\", //パスワードが空\n  EMPTY_NAME : \"EMPTY_NAME\", //表示名が空\n  POLICY_PASSWORD : \"POLICY_PASSWORD\" //パスワードポリシーの要件を満たしていない\n}\n\n//MOCK用\n//TODO 実装終わったら消す\n/**\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\n*/\nexport const MOCK_MEMBER_REPO_KEY = \"mock_member_repo\";\n",
+    "content": "/**\n* サインアップ失敗理由\n*/\nexport const SIGNUP_FAILURE_REASONS = {\n  ID_DUPLICATED : \"ID_DUPLICATED\", //ID重複\n  SERVER_ERROR : \"SERVER_ERROR\", //サーバーエラー\n  INVALID_CONFIRM : \"INVALID_CONFIRM\", //パスワード確認用不一致\n  EMPTY_ID : \"EMPTY_ID\", //IDが空,\n  EMPTY_PASSWORD:\"EMPTY_PASSWORD\", //パスワードが空\n  EMPTY_NAME : \"EMPTY_NAME\", //表示名が空\n  POLICY_PASSWORD : \"POLICY_PASSWORD\" //パスワードポリシーの要件を満たしていない\n}\n",
     "static": true,
     "longname": "src/const/signup.js",
     "access": null,
@@ -2994,25 +2994,6 @@
   },
   {
     "__docId__": 125,
-    "kind": "variable",
-    "name": "MOCK_MEMBER_REPO_KEY",
-    "memberof": "src/const/signup.js",
-    "static": true,
-    "longname": "src/const/signup.js~MOCK_MEMBER_REPO_KEY",
-    "access": null,
-    "export": true,
-    "importPath": "kyo-do.co-ui/src/const/signup.js",
-    "importStyle": "{MOCK_MEMBER_REPO_KEY}",
-    "description": "MOCKで使用するlocalStorage上のユーザーレポジトリのkey",
-    "lineNumber": 19,
-    "type": {
-      "types": [
-        "string"
-      ]
-    }
-  },
-  {
-    "__docId__": 126,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport Kyodoco from './component/kyodoco'\nimport { Provider } from 'react-redux'\nimport {configureStore} from './store/store'\n\nimport injectTapEventPlugin from 'react-tap-event-plugin'\nimport MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'\n\n// Needed for onTouchTap\n// http://stackoverflow.com/a/34015469/988941\ninjectTapEventPlugin();\n\nimport \"babel-polyfill\"\n\nconst container = document.getElementById(\"app\");\nconst store = configureStore();\n\nReactDOM.render(\n  <Provider store={store}>\n    <MuiThemeProvider>\n      <Kyodoco />\n    </MuiThemeProvider>\n  </Provider>,\n  container\n);\n",
@@ -3023,7 +3004,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 127,
+    "__docId__": 126,
     "kind": "variable",
     "name": "container",
     "memberof": "src/index.js",
@@ -3049,7 +3030,7 @@
     }
   },
   {
-    "__docId__": 128,
+    "__docId__": 127,
     "kind": "variable",
     "name": "store",
     "memberof": "src/index.js",
@@ -3075,7 +3056,7 @@
     }
   },
   {
-    "__docId__": 129,
+    "__docId__": 128,
     "kind": "file",
     "name": "src/module/base64.js",
     "content": "/**\n* base64エンコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str エンコード対象文字列\n* @return {string} エンコード後文字列\n*/\nexport function base64Encode(str){\n  return btoa(unescape(encodeURIComponent(str)));\n}\n\n/**\n* base64デコード\n* @see http://qiita.com/weal/items/1a2af81138cd8f49937d\n* @param {string} str デコード対象文字列\n* @return {string} デコード後文字列\n*/\nexport function base64Decode(str){\n  return decodeURIComponent(escape(atob(str)));\n}\n",
@@ -3086,7 +3067,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 130,
+    "__docId__": 129,
     "kind": "function",
     "name": "base64Encode",
     "memberof": "src/module/base64.js",
@@ -3125,7 +3106,7 @@
     }
   },
   {
-    "__docId__": 131,
+    "__docId__": 130,
     "kind": "function",
     "name": "base64Decode",
     "memberof": "src/module/base64.js",
@@ -3164,10 +3145,46 @@
     }
   },
   {
+    "__docId__": 131,
+    "kind": "file",
+    "name": "src/module/environment.js",
+    "content": "/**\n* 環境に応じてAPIのベースURLを取得する\n* @return {string} APIのベースURL\n*/\nexport function getApiBaseURL(){\n    /*TODO\n    * テスト用のAPIが出来たら、location.hrefなどに応じてURLを切り替える\n    */\n    return \"https://api.kyo-do.co/\";\n}\n",
+    "static": true,
+    "longname": "src/module/environment.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
     "__docId__": 132,
+    "kind": "function",
+    "name": "getApiBaseURL",
+    "memberof": "src/module/environment.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/module/environment.js~getApiBaseURL",
+    "access": null,
+    "export": true,
+    "importPath": "kyo-do.co-ui/src/module/environment.js",
+    "importStyle": "{getApiBaseURL}",
+    "description": "環境に応じてAPIのベースURLを取得する",
+    "lineNumber": 5,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "APIのベースURL"
+    }
+  },
+  {
+    "__docId__": 133,
     "kind": "file",
     "name": "src/module/localstorage.js",
-    "content": "import {base64Encode,base64Decode} from './base64'\n\n/*\n* ローカルストレージのKeyのプレフィックス\n*/\nconst LOCAL_STORAGE_PREFIX = \"kyo-do.co.\";\n\n/**\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {int} 成功すれば0\n*/\nexport function setToStorage(key,value){\n  localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));\n  return 0;\n}\n/**\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n*/\nexport function getFromStorage(key){\n  return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));\n}\n/**\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {int} 成功すれば0\n*/\nexport function removeFromStorage(key){\n  localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);\n  return 0;\n}\n\n/**\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n*/\nexport function existsKeyOnStorage(key){\n  return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;\n}\n",
+    "content": "import {base64Encode,base64Decode} from './base64'\n\n/*\n* ローカルストレージのKeyのプレフィックス\n*/\nconst LOCAL_STORAGE_PREFIX = \"kyo-do.co.\";\n\n/**\n* localStorageへ値をセットする\n* @param {string} key キー\n* @param {Object} value セットするオブジェクト\n* @return {boolean} 成功すればtrue\n*/\nexport function setToStorage(key,value){\n  try{\n    localStorage.setItem(LOCAL_STORAGE_PREFIX + key,base64Encode(JSON.stringify(value)));\n    return true;\n  }catch(e){\n    return false;\n  }\n}\n/**\n* localStorageから値を取得する\n* @param {string} key キー\n* @return {Object} localStorageに保存されたオブジェクト\n*/\nexport function getFromStorage(key){\n  try{\n    return JSON.parse(base64Decode(localStorage.getItem(LOCAL_STORAGE_PREFIX + key)));\n  }catch(e){\n    return undefined;\n  }\n}\n/**\n* localStorageから値を削除する\n* @param {string} key キー\n* @return {boolean} 成功すればtrue\n*/\nexport function removeFromStorage(key){\n  try{\n    localStorage.removeItem(LOCAL_STORAGE_PREFIX + key);\n    return true;\n  }catch(e){\n    return false;\n  }\n}\n\n/**\n* localStorage上にキーが存在するかを確認する\n* @param {string} key キー\n* @return {boolean} 存在すればTrue\n*/\nexport function existsKeyOnStorage(key){\n  try{\n    return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;\n  }catch(e){\n    return false\n  }\n}\n",
     "static": true,
     "longname": "src/module/localstorage.js",
     "access": null,
@@ -3175,7 +3192,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 133,
+    "__docId__": 134,
     "kind": "variable",
     "name": "LOCAL_STORAGE_PREFIX",
     "memberof": "src/module/localstorage.js",
@@ -3201,7 +3218,7 @@
     }
   },
   {
-    "__docId__": 134,
+    "__docId__": 135,
     "kind": "function",
     "name": "setToStorage",
     "memberof": "src/module/localstorage.js",
@@ -3240,14 +3257,14 @@
     "return": {
       "nullable": null,
       "types": [
-        "int"
+        "boolean"
       ],
       "spread": false,
-      "description": "成功すれば0"
+      "description": "成功すればtrue"
     }
   },
   {
-    "__docId__": 135,
+    "__docId__": 136,
     "kind": "function",
     "name": "getFromStorage",
     "memberof": "src/module/localstorage.js",
@@ -3260,7 +3277,7 @@
     "importPath": "kyo-do.co-ui/src/module/localstorage.js",
     "importStyle": "{getFromStorage}",
     "description": "localStorageから値を取得する",
-    "lineNumber": 23,
+    "lineNumber": 27,
     "params": [
       {
         "nullable": null,
@@ -3283,7 +3300,7 @@
     }
   },
   {
-    "__docId__": 136,
+    "__docId__": 137,
     "kind": "function",
     "name": "removeFromStorage",
     "memberof": "src/module/localstorage.js",
@@ -3296,7 +3313,7 @@
     "importPath": "kyo-do.co-ui/src/module/localstorage.js",
     "importStyle": "{removeFromStorage}",
     "description": "localStorageから値を削除する",
-    "lineNumber": 31,
+    "lineNumber": 39,
     "params": [
       {
         "nullable": null,
@@ -3312,14 +3329,14 @@
     "return": {
       "nullable": null,
       "types": [
-        "int"
+        "boolean"
       ],
       "spread": false,
-      "description": "成功すれば0"
+      "description": "成功すればtrue"
     }
   },
   {
-    "__docId__": 137,
+    "__docId__": 138,
     "kind": "function",
     "name": "existsKeyOnStorage",
     "memberof": "src/module/localstorage.js",
@@ -3332,7 +3349,7 @@
     "importPath": "kyo-do.co-ui/src/module/localstorage.js",
     "importStyle": "{existsKeyOnStorage}",
     "description": "localStorage上にキーが存在するかを確認する",
-    "lineNumber": 41,
+    "lineNumber": 53,
     "params": [
       {
         "nullable": null,
@@ -3355,7 +3372,7 @@
     }
   },
   {
-    "__docId__": 138,
+    "__docId__": 139,
     "kind": "file",
     "name": "src/reducer/accountboard.js",
     "content": "import {ACCOUNT_INFO_MODAL_OPEN,ACCOUNT_INFO_MODAL_CLOSE,CHANGE_ACCOUNT_INFO,CHANGE_ACCOUNT_INFO_FIELD} from '../action/accountboard'\n\n/**\n* アカウント情報変更ボード reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function accountboard(state={open:false, nextuser:{}}, action){\n  switch(action.type){\n    case ACCOUNT_INFO_MODAL_OPEN:\n      return {open:true, nextuser:{}};\n    case ACCOUNT_INFO_MODAL_CLOSE:\n      return {open:false, nextuser:{}};\n    case CHANGE_ACCOUNT_INFO:\n      return {open:false, nextuser:{}};\n    case CHANGE_ACCOUNT_INFO_FIELD:\n      return {open:true, nextuser:action.payload};\n    default:\n      return state;\n  }\n}\n",
@@ -3366,7 +3383,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 139,
+    "__docId__": 140,
     "kind": "function",
     "name": "accountboard",
     "memberof": "src/reducer/accountboard.js",
@@ -3415,7 +3432,7 @@
     }
   },
   {
-    "__docId__": 140,
+    "__docId__": 141,
     "kind": "file",
     "name": "src/reducer/board.js",
     "content": "import {UPDATE_MEMBER_STATUS} from '../action/board'\n\n/**\n* 行き先掲示板 reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function board(state={memberStatus:[]},action){\n  switch(action.type){\n    case(UPDATE_MEMBER_STATUS):\n      return Object.assign({},state,{memberStatus:action.payload});\n    default:\n      return state;\n  }\n}\n",
@@ -3426,7 +3443,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 141,
+    "__docId__": 142,
     "kind": "function",
     "name": "board",
     "memberof": "src/reducer/board.js",
@@ -3475,7 +3492,7 @@
     }
   },
   {
-    "__docId__": 142,
+    "__docId__": 143,
     "kind": "file",
     "name": "src/reducer/login.js",
     "content": "import {LOGIN_STATUS} from '../const/login'\nimport {LOGIN_SUCCESS,LOGIN_FAILURE,LOGIN_REQUESTED,LOGOUT_REQUESTED} from '../action/login'\n\nconst initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n/**\n* ログイン reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function login(state=initialState, action){\n  switch(action.type){\n    case LOGIN_SUCCESS:\n      return {status:LOGIN_STATUS.SUCCESS,user:action.payload};\n    case LOGIN_FAILURE:\n      return {status:LOGIN_STATUS.FAILURE,user:{}};\n    case LOGOUT_REQUESTED:\n      return initialState;\n    case LOGIN_REQUESTED:\n      return initialState;\n    default:\n      return state;\n  }\n}\n",
@@ -3486,7 +3503,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 143,
+    "__docId__": 144,
     "kind": "variable",
     "name": "initialState",
     "memberof": "src/reducer/login.js",
@@ -3512,7 +3529,7 @@
     }
   },
   {
-    "__docId__": 144,
+    "__docId__": 145,
     "kind": "function",
     "name": "login",
     "memberof": "src/reducer/login.js",
@@ -3561,7 +3578,7 @@
     }
   },
   {
-    "__docId__": 145,
+    "__docId__": 146,
     "kind": "file",
     "name": "src/reducer/mydestination.js",
     "content": "import {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'\n\n/**\n* 自分の行き先 reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function mydestination(state={inBusiness:false,comment:\"\",contact:\"\"},action){\n  switch(action.type){\n    case(MY_DESTINATION_CHANGE):\n      return action.payload;\n    case(MY_DESTINATION_CLEAR):\n      return {inBusiness:false,comment:\"\",contact:\"\"};\n    default:\n      return state;\n  }\n}\n",
@@ -3572,7 +3589,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 146,
+    "__docId__": 147,
     "kind": "function",
     "name": "mydestination",
     "memberof": "src/reducer/mydestination.js",
@@ -3621,7 +3638,7 @@
     }
   },
   {
-    "__docId__": 147,
+    "__docId__": 148,
     "kind": "file",
     "name": "src/reducer/root.js",
     "content": "import { combineReducers } from 'redux'\nimport login from './login';\nimport mydestination from './mydestination'\nimport board from './board'\nimport signup from './signup'\nimport accountboard from './accountboard'\nimport suggestion from './suggestion'\n\n/**\n* 各reducerを結合してひとまとめにしてexportする\n* @see http://qiita.com/kuy/items/59c6d7029a10972cba78\n*/\nexport default combineReducers({\n  login,\n  mydestination,\n  board,\n  signup,\n  accountboard,\n  suggestion,\n})\n",
@@ -3632,7 +3649,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 148,
+    "__docId__": 149,
     "kind": "file",
     "name": "src/reducer/signup.js",
     "content": "import {SIGNUP_SUCCESS,SIGNUP_FAILURE} from '../action/signup'\n\n/**\n* サインアップ reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function signup(state={failure_reason:[]},action){\n  switch(action.type){\n    case(SIGNUP_SUCCESS):\n      return {failure_reason:[]};\n    case(SIGNUP_FAILURE):\n      return {failure_reason:action.payload};\n    default:\n      return state;\n  }\n}\n",
@@ -3643,7 +3660,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 149,
+    "__docId__": 150,
     "kind": "function",
     "name": "signup",
     "memberof": "src/reducer/signup.js",
@@ -3692,7 +3709,7 @@
     }
   },
   {
-    "__docId__": 150,
+    "__docId__": 151,
     "kind": "file",
     "name": "src/reducer/suggestion.js",
     "content": "import {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from '../action/suggestion'\n\n/**\n* 自分の行き先 reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function suggestion(state={suggests:[\"EAST 8F\", \"EAST 3F\", \"宝町\", \"NRI 13F\", \"NRI 12F\"]},action){\n  switch(action.type){\n    case(SUGGESTION_CHANGE):\n      return action.payload;\n    case(SUGGESTION_CLEAR):\n      return {suggests:[]};\n    default:\n      return state;\n  }\n}\n",
@@ -3703,7 +3720,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 151,
+    "__docId__": 152,
     "kind": "function",
     "name": "suggestion",
     "memberof": "src/reducer/suggestion.js",
@@ -3752,7 +3769,7 @@
     }
   },
   {
-    "__docId__": 152,
+    "__docId__": 153,
     "kind": "file",
     "name": "src/saga/accountboard.js",
     "content": "import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'\nimport {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'\nimport {CHANGE_ACCOUNT_INFO} from '../action/accountboard'\nimport {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport axios from \"axios\";\n\n/**\n* アカウント情報変更要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* changeAccountInfoSaga(){\n  /*\n  * CHANGE_ACCOUNT_INFO(アカウント情報変更要求)アクションを常に待ち続け、\n  * dispatchされたらchangeAccountInfoTaskにactionを渡して実行する\n  */\n  yield takeEvery(CHANGE_ACCOUNT_INFO,changeAccountInfoTask);\n}\n/**\n* APIに対してID/Passを問い合わせて、\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\n*/\nfunction* changeAccountInfoTask(action){\n\n  const changeData = {};\n  if(action.payload.nextpass){\n    changeData.newPassword = action.payload.nextpass;\n  }\n  if(action.payload.nextname){\n    changeData.name = action.payload.nextname;\n  }\n\n\n  const id = yield select(state => state.login.user.userid);\n\n  //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない\n  try{\n    const token = yield select(state => state.login.user.token);\n    const result = yield call(axios, {\n      method:\"PUT\",\n      url:\"https://api.kyo-do.co/user\",\n      headers:{\"Authorization\":\"Bearer \" + token},\n      data: changeData\n    });\n    const name = (result.data.name)?\n      result.data.name:\n      yield select(state => state.login.user.name);\n    const id = yield select(state => state.login.user.userid);\n\n    yield put(loginSuccess({userid:id,name:name,token:token}));\n  }catch(e){\n    console.log('error');\n    //yield put(loginFailure());\n  }\n}\n",
@@ -3763,7 +3780,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 153,
+    "__docId__": 154,
     "kind": "function",
     "name": "changeAccountInfoSaga",
     "memberof": "src/saga/accountboard.js",
@@ -3783,7 +3800,7 @@
     "params": []
   },
   {
-    "__docId__": 154,
+    "__docId__": 155,
     "kind": "function",
     "name": "changeAccountInfoTask",
     "memberof": "src/saga/accountboard.js",
@@ -3811,7 +3828,7 @@
     ]
   },
   {
-    "__docId__": 155,
+    "__docId__": 156,
     "kind": "file",
     "name": "src/saga/board.js",
     "content": "import {take,put,select,takeEvery,call} from 'redux-saga/effects'\nimport {delay} from 'redux-saga'\nimport {updateMemberStatus} from '../action/board'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {LOGIN_STATUS} from '../const/login'\nimport {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'\nimport axios from \"axios\";\nimport {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from '../action/suggestion'\n\n/**\n* メンバー状況をpollingする間隔(ms)\n*/\nconst STATUS_POLLING_DURATION_MS= 15000;\n\n/**\n* メンバー状況をロードするSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loadMemberStatusSaga(){\n  yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);\n  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);\n  yield takeEvery(MY_DESTINATION_CLEAR,loadMemberStatusTask);\n  yield takeEvery(SUGGESTION_CHANGE,loadMemberStatusTask);\n  yield takeEvery(SUGGESTION_CLEAR,loadMemberStatusTask);\n}\n\n/**\n* メンバー状況をロードするTask\n*/\nfunction* loadMemberStatusTask(){\n  //TODO ダミー実装。本来はAPIから取得\n  const me = yield select(state => state.login.user);\n  const mydestination = yield select(state => state.mydestination);\n  const memberStatus = yield getMemberStatus(me,mydestination);\n  yield put(updateMemberStatus(memberStatus));\n}\n\n/**\n* メンバー状況を定期的に確認するSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* watchMemberStatusSaga(){\n  while(true){\n    const loginStatus = yield select(state => state.login.status);\n    if(loginStatus == LOGIN_STATUS.SUCCESS){\n      //TODO ダミー実装。本来はAPIから取得\n      const me = yield select(state => state.login.user);\n      const mydestination = yield select(state => state.mydestination);\n      const memberStatus = yield getMemberStatus(me,mydestination);\n      yield put(updateMemberStatus(memberStatus));\n    }\n    yield call(delay,STATUS_POLLING_DURATION_MS);\n  }\n}\n\n/**\n* メンバーの状況を返す\n* @param {Object} me 自分のユーザー情報\n* @param {Object} mydestination 自分の行き先\n* @return {Object} メンバー状況\n*/\nfunction* getMemberStatus(me,mydestination){\n  const token = yield select(state => state.login.user.token);\n  try{\n    const result = yield call(axios,{\n      method:\"GET\",\n      url:\"https://api.kyo-do.co/status/all\",\n      headers: { \"Authorization\": \"Bearer \" + token}\n    });\n\n    // 自分の情報を先頭に表示する\n    const memberStatus = result.data.filter(function(value, index, array){ return value.userid != me.userid });\n    return result.data.filter(function(value, index, array){ return value.userid == me.userid }).concat(memberStatus);\n  }catch(e){\n    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい\n  }\n\n}\n",
@@ -3822,7 +3839,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 156,
+    "__docId__": 157,
     "kind": "variable",
     "name": "STATUS_POLLING_DURATION_MS",
     "memberof": "src/saga/board.js",
@@ -3841,7 +3858,7 @@
     }
   },
   {
-    "__docId__": 157,
+    "__docId__": 158,
     "kind": "function",
     "name": "loadMemberStatusSaga",
     "memberof": "src/saga/board.js",
@@ -3861,7 +3878,7 @@
     "params": []
   },
   {
-    "__docId__": 158,
+    "__docId__": 159,
     "kind": "function",
     "name": "loadMemberStatusTask",
     "memberof": "src/saga/board.js",
@@ -3878,7 +3895,7 @@
     "params": []
   },
   {
-    "__docId__": 159,
+    "__docId__": 160,
     "kind": "function",
     "name": "watchMemberStatusSaga",
     "memberof": "src/saga/board.js",
@@ -3898,7 +3915,7 @@
     "params": []
   },
   {
-    "__docId__": 160,
+    "__docId__": 161,
     "kind": "function",
     "name": "getMemberStatus",
     "memberof": "src/saga/board.js",
@@ -3944,10 +3961,10 @@
     }
   },
   {
-    "__docId__": 161,
+    "__docId__": 162,
     "kind": "file",
     "name": "src/saga/login.js",
-    "content": "import {take,put,call,takeEvery} from 'redux-saga/effects'\nimport {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'\nimport {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport axios from \"axios\";\n\n//MOCK用\n//TODO 実装終わったら消す\nimport {MOCK_MEMBER_REPO_KEY} from '../const/signup'\n\n/**\n* rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey\n*/\nconst REMEMBER_ME_STORAGE_KEY = \"rememberme\";\n\n/**\n* login要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginSaga(){\n  /*\n  * LOGIN_REQUESTED(ログイン要求)アクションを常に待ち続け、\n  * dispatchされたらloginTaskにactionを渡して実行する\n  */\n  yield takeEvery(LOGIN_REQUESTED,loginTask);\n}\n/**\n* APIに対してID/Passを問い合わせて、\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\n*/\nexport function* loginTask(action){\n  //rememberme\n  yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});\n\n  //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない\n  try{\n    const result = yield call(axios.post,\"https://api.kyo-do.co/auth\",{\n      userid:action.payload.id,\n      password:action.payload.pass\n    });\n\n    const token = result.data.token;\n\n    const resule_user = yield call(axios,{\n      method:\"GET\",\n      url:\"https://api.kyo-do.co/user\",\n      headers:{\"Authorization\":\"Bearer \" + token}\n    });\n\n    yield put(loginSuccess({userid:action.payload.id,name:resule_user.data.name,token:token}));\n  }catch(e){\n    yield put(loginFailure());\n  }\n}\n/**\n* logout要求を受けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* logoutSaga(){\n  yield takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask);\n}\n\n/**\n* ログインに失敗したときのクリーンアップを行うSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFailureSaga(){\n  yield takeEvery(LOGIN_FAILURE,cleanRememberMeTask);\n}\n/**\n* localStorageに保存されているrememberme情報をクリアするTask\n*/\nexport function* cleanRememberMeTask(){\n  yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);\n}\n\n/**\n* localStorageに保存されているID/PassからログインするSaga\n* アプリを起動して(ブラウザアクセスして)1回だけ実行される\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFromRememberMeSaga(){\n  const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);\n  if(remembermeSaved){\n    const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);\n    yield put(loginRequested(rememberme.id,rememberme.pass));\n  }\n}\n",
+    "content": "import {take,put,call,takeEvery} from 'redux-saga/effects'\nimport {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'\nimport {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport {getApiBaseURL} from '../module/environment';\nimport axios from \"axios\";\n\n/**\n* rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey\n*/\nconst REMEMBER_ME_STORAGE_KEY = \"rememberme\";\n/**\n* APIのベースURL\n*/\nconst BASE_API_URL = getApiBaseURL();\n\n/**\n* login要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginSaga(){\n  /*\n  * LOGIN_REQUESTED(ログイン要求)アクションを常に待ち続け、\n  * dispatchされたらloginTaskにactionを渡して実行する\n  */\n  yield takeEvery(LOGIN_REQUESTED,loginTask);\n}\n/**\n* APIに対してID/Passを問い合わせて、\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\n*/\nexport function* loginTask(action){\n  //rememberme\n  try{\n    yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});\n  }catch(e){\n    //localStorageにアクセスできない場合は何もしない\n  }\n\n\n  //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない\n  try{\n    const result = yield call(axios.post,BASE_API_URL + \"auth\",{\n      userid:action.payload.id,\n      password:action.payload.pass\n    });\n\n    const token = result.data.token;\n\n    const resule_user = yield call(axios,{\n      method:\"GET\",\n      url:BASE_API_URL + \"user\",\n      headers:{\"Authorization\":\"Bearer \" + token}\n    });\n\n    yield put(loginSuccess({userid:action.payload.id,name:resule_user.data.name,token:token}));\n  }catch(e){\n    yield put(loginFailure());\n  }\n}\n/**\n* logout要求を受けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* logoutSaga(){\n  yield takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask);\n}\n\n/**\n* ログインに失敗したときのクリーンアップを行うSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFailureSaga(){\n  yield takeEvery(LOGIN_FAILURE,cleanRememberMeTask);\n}\n/**\n* localStorageに保存されているrememberme情報をクリアするTask\n*/\nexport function* cleanRememberMeTask(){\n  try{\n    yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);\n  }catch(e){\n    //localStorageにアクセスできない場合は何もしない\n  }\n\n}\n\n/**\n* localStorageに保存されているID/PassからログインするSaga\n* アプリを起動して(ブラウザアクセスして)1回だけ実行される\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFromRememberMeSaga(){\n  try{\n    const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);\n    if(remembermeSaved){\n      const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);\n      yield put(loginRequested(rememberme.id,rememberme.pass));\n    }\n  }catch(e){\n    //localStorageにアクセスできない場合は何もしない\n  }\n}\n",
     "static": true,
     "longname": "src/saga/login.js",
     "access": null,
@@ -3955,7 +3972,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 162,
+    "__docId__": 163,
     "kind": "variable",
     "name": "REMEMBER_ME_STORAGE_KEY",
     "memberof": "src/saga/login.js",
@@ -3966,7 +3983,7 @@
     "importPath": "kyo-do.co-ui/src/saga/login.js",
     "importStyle": null,
     "description": "rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey",
-    "lineNumber": 13,
+    "lineNumber": 10,
     "type": {
       "types": [
         "string"
@@ -3974,7 +3991,26 @@
     }
   },
   {
-    "__docId__": 163,
+    "__docId__": 164,
+    "kind": "variable",
+    "name": "BASE_API_URL",
+    "memberof": "src/saga/login.js",
+    "static": true,
+    "longname": "src/saga/login.js~BASE_API_URL",
+    "access": null,
+    "export": false,
+    "importPath": "kyo-do.co-ui/src/saga/login.js",
+    "importStyle": null,
+    "description": "APIのベースURL",
+    "lineNumber": 14,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 165,
     "kind": "function",
     "name": "loginSaga",
     "memberof": "src/saga/login.js",
@@ -3990,11 +4026,11 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 19,
+    "lineNumber": 20,
     "params": []
   },
   {
-    "__docId__": 164,
+    "__docId__": 166,
     "kind": "function",
     "name": "loginTask",
     "memberof": "src/saga/login.js",
@@ -4007,7 +4043,7 @@
     "importPath": "kyo-do.co-ui/src/saga/login.js",
     "importStyle": "{loginTask}",
     "description": "APIに対してID/Passを問い合わせて、\n成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する",
-    "lineNumber": 31,
+    "lineNumber": 32,
     "params": [
       {
         "nullable": null,
@@ -4022,7 +4058,7 @@
     ]
   },
   {
-    "__docId__": 165,
+    "__docId__": 167,
     "kind": "function",
     "name": "logoutSaga",
     "memberof": "src/saga/login.js",
@@ -4038,11 +4074,11 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 59,
+    "lineNumber": 65,
     "params": []
   },
   {
-    "__docId__": 166,
+    "__docId__": 168,
     "kind": "function",
     "name": "loginFailureSaga",
     "memberof": "src/saga/login.js",
@@ -4058,11 +4094,11 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 67,
+    "lineNumber": 73,
     "params": []
   },
   {
-    "__docId__": 167,
+    "__docId__": 169,
     "kind": "function",
     "name": "cleanRememberMeTask",
     "memberof": "src/saga/login.js",
@@ -4075,11 +4111,11 @@
     "importPath": "kyo-do.co-ui/src/saga/login.js",
     "importStyle": "{cleanRememberMeTask}",
     "description": "localStorageに保存されているrememberme情報をクリアするTask",
-    "lineNumber": 73,
+    "lineNumber": 79,
     "params": []
   },
   {
-    "__docId__": 168,
+    "__docId__": 170,
     "kind": "function",
     "name": "loginFromRememberMeSaga",
     "memberof": "src/saga/login.js",
@@ -4095,11 +4131,11 @@
     "see": [
       "http://qiita.com/kuy/items/716affc808ebb3e1e8ac"
     ],
-    "lineNumber": 82,
+    "lineNumber": 93,
     "params": []
   },
   {
-    "__docId__": 169,
+    "__docId__": 171,
     "kind": "file",
     "name": "src/saga/mydestination.js",
     "content": "import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'\nimport {delay} from 'redux-saga'\nimport {MY_DESTINATION_CHANGE,myDestinationChange} from '../action/mydestination'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport axios from 'axios';\n\n/**\n* localStorageに行き先を保管する際のKey\n*/\nconst STORAGE_KEY_DESTINATION = \"my_destination.\";\n/**\n* 行き先を入力してからサーバ同期するまでの遅延時間\n*/\nconst SYNC_DELAY_MS = 1000;\n\n/**\n* ログインが成功した際にログインユーザーの行き先をロードするSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loadDestinationSaga(){\n    yield takeEvery(LOGIN_SUCCESS,loadDestinationTask);\n}\n\n/**\n* ログインユーザーの行き先をロードするtask\n* @param {object} action LOGIN_SUCCESSアクション\n*/\nfunction* loadDestinationTask(action){\n    const token = yield select(state => state.login.user.token);\n\n    try{\n      const savedDestination = yield call(axios,{\n        method:\"GET\",\n        url:\"https://api.kyo-do.co/status\",\n        headers:{\"Authorization\":\"Bearer \" + token}\n      });\n\n      yield put(myDestinationChange(savedDestination.data));\n    }catch(e){\n      console.log(e);\n      //TODO 更新に失敗したエラーアクションを投げる\n    }\n}\n/**\n* 行き先変更アクションを受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* changeDestinationSaga(){\n  yield takeLatest(MY_DESTINATION_CHANGE,changeDestinationTask);\n}\n\n/**\n* 行き先変更アクションを受け付けた際のTask\n* @param {Object} action MY_DESTINATION_CHANGEアクション\n*/\nfunction* changeDestinationTask(action){\n  /**\n  * TODO APIを呼び出してサーバ上に保存\n  */\n  yield call(delay,SYNC_DELAY_MS);\n  const token = yield select(state => state.login.user.token);\n  try{\n\n    yield call(axios.put,\n      \"https://api.kyo-do.co/status\",\n      {inBusiness:action.payload.inBusiness,comment:action.payload.comment,contact:action.payload.contact},\n      {headers:{\"Authorization\":\"Bearer \" + token}}\n    );\n  }catch(e){\n    //TODO 更新が失敗した旨をエラーアクションに投げる\n    console.log(e);\n  }\n}\n",
@@ -4110,7 +4146,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 170,
+    "__docId__": 172,
     "kind": "variable",
     "name": "STORAGE_KEY_DESTINATION",
     "memberof": "src/saga/mydestination.js",
@@ -4129,7 +4165,7 @@
     }
   },
   {
-    "__docId__": 171,
+    "__docId__": 173,
     "kind": "variable",
     "name": "SYNC_DELAY_MS",
     "memberof": "src/saga/mydestination.js",
@@ -4148,7 +4184,7 @@
     }
   },
   {
-    "__docId__": 172,
+    "__docId__": 174,
     "kind": "function",
     "name": "loadDestinationSaga",
     "memberof": "src/saga/mydestination.js",
@@ -4168,7 +4204,7 @@
     "params": []
   },
   {
-    "__docId__": 173,
+    "__docId__": 175,
     "kind": "function",
     "name": "loadDestinationTask",
     "memberof": "src/saga/mydestination.js",
@@ -4196,7 +4232,7 @@
     ]
   },
   {
-    "__docId__": 174,
+    "__docId__": 176,
     "kind": "function",
     "name": "changeDestinationSaga",
     "memberof": "src/saga/mydestination.js",
@@ -4216,7 +4252,7 @@
     "params": []
   },
   {
-    "__docId__": 175,
+    "__docId__": 177,
     "kind": "function",
     "name": "changeDestinationTask",
     "memberof": "src/saga/mydestination.js",
@@ -4244,7 +4280,7 @@
     ]
   },
   {
-    "__docId__": 176,
+    "__docId__": 178,
     "kind": "file",
     "name": "src/saga/root.js",
     "content": "import {fork} from 'redux-saga/effects'\nimport {loginSaga,logoutSaga,loginFailureSaga,loginFromRememberMeSaga} from './login'\nimport {signupSaga} from './signup'\nimport {loadDestinationSaga,changeDestinationSaga} from './mydestination'\nimport {loadMemberStatusSaga,watchMemberStatusSaga} from './board'\nimport {changeAccountInfoSaga} from './accountboard'\nimport {loadSuggestionSaga,changeSuggestionSaga} from './suggestion'\n\n/**\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport default function* rootSaga(){\n  yield fork(loginSaga);\n  yield fork(signupSaga);\n  yield fork(logoutSaga);\n  yield fork(loginFailureSaga);\n  yield fork(loginFromRememberMeSaga);\n  yield fork(loadDestinationSaga);\n  yield fork(changeDestinationSaga);\n  yield fork(loadMemberStatusSaga);\n  yield fork(changeAccountInfoSaga);\n  yield fork(loadSuggestionSaga);\n  yield fork(changeSuggestionSaga);\n}\n",
@@ -4255,7 +4291,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 177,
+    "__docId__": 179,
     "kind": "function",
     "name": "rootSaga",
     "memberof": "src/saga/root.js",
@@ -4275,7 +4311,7 @@
     "params": []
   },
   {
-    "__docId__": 178,
+    "__docId__": 180,
     "kind": "file",
     "name": "src/saga/signup.js",
     "content": "import {put,call,takeEvery} from 'redux-saga/effects'\nimport {SIGNUP_REQUIRED,signupSucceess,signupFailure} from '../action/signup'\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\nimport {loginRequested} from '../action/login'\nimport axios from \"axios\";\n\n//MOCK用\n//TODO 実装終わったら消す\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport {MOCK_MEMBER_REPO_KEY} from '../const/signup'\n\n/**\n* サインアップ要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* signupSaga(){\n    yield takeEvery(SIGNUP_REQUIRED,signupTask);\n}\n\n/**\n* サインアップ要求を処理するタスク\n* @param {Object} action SIGNUP_REQUIREDアクション\n*/\nfunction* signupTask(action){\n  try{\n    const result = yield call(axios.post,\"https://api.kyo-do.co/user\",{\n      userid:action.payload.id,\n      password:action.payload.password,\n      name:action.payload.name});\n\n    yield put(signupSucceess());\n    yield put(loginRequested(action.payload.id,action.payload.password));\n  }catch(e){\n    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい\n    yield put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED]));\n  }\n}\n",
@@ -4286,7 +4322,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 179,
+    "__docId__": 181,
     "kind": "function",
     "name": "signupSaga",
     "memberof": "src/saga/signup.js",
@@ -4306,7 +4342,7 @@
     "params": []
   },
   {
-    "__docId__": 180,
+    "__docId__": 182,
     "kind": "function",
     "name": "signupTask",
     "memberof": "src/saga/signup.js",
@@ -4334,7 +4370,7 @@
     ]
   },
   {
-    "__docId__": 181,
+    "__docId__": 183,
     "kind": "file",
     "name": "src/saga/suggestion.js",
     "content": "import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'\nimport {delay} from 'redux-saga'\nimport {MY_DESTINATION_CHANGE} from '../action/mydestination'\nimport {suggestionChange} from '../action/suggestion'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\n\n/**\n* localStorageに行き先を保管する際のKey\n*/\nconst STORAGE_KEY_SUGGESTION = \"my_destination.history.\";\nconst REGTAB = RegExp(\"\\x09\", 'g');\n\n/**\n* 行き先を入力してからサーバ同期するまでの遅延時間\n*/\nconst SYNC_DELAY_MS = 3000;\n\n/**\n* ログインが成功した際にログインユーザーのサジェスチョンをロードするSaga\n*/\nexport function* loadSuggestionSaga(){\n  yield takeEvery(LOGIN_SUCCESS,loadSuggestionTask);\n  yield takeEvery(MY_DESTINATION_CHANGE, loadSuggestionTask);\n}\n\n/**\n* ログインユーザーの行き先をロードするtask\n*/\nfunction* loadSuggestionTask(){\n  const userid = yield select(state => state.login.user.userid);\n  const saved = existsKeyOnStorage(STORAGE_KEY_SUGGESTION + userid);\n  if(saved){\n    const savedSuggestion = yield getFromStorage(STORAGE_KEY_SUGGESTION + userid);\n    // console.log(savedSuggestion.split(REGTAB));\n    yield put(suggestionChange(savedSuggestion.split(REGTAB)));\n  }\n}\n\n/**\n* 行き先変更アクションを受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* changeSuggestionSaga(){\n  yield takeLatest(MY_DESTINATION_CHANGE,changeSuggestionTask);\n}\n\n/**\n* 行き先変更アクションを受け付けた際のTask\n* @param {Object} action SUGGESTION_CHANGEアクション\n*/\nfunction* changeSuggestionTask(action){\n  var histarr = [];\n\n  yield call(delay,SYNC_DELAY_MS);\n  const logonUser = yield select(state => state.login.user);\n  // サジェスト用履歴をローカルストレージに保存する\n  if(action.payload.comment.length > 0){\n    const saved = existsKeyOnStorage(STORAGE_KEY_SUGGESTION + logonUser.userid);\n    if(saved){\n      const savedHistory = yield getFromStorage(STORAGE_KEY_SUGGESTION + logonUser.userid);\n      histarr = savedHistory.split(REGTAB);\n    } else {\n      // かっちょわるい\n      histarr = [\"EAST 8F\", \"EAST 3F\", \"宝町\", \"NRI 13F\", \"NRI 12F\"];\n    }\n    unshiftArray(histarr,action.payload.comment);\n    setToStorage(STORAGE_KEY_SUGGESTION + logonUser.userid, histarr.join(\"\\x09\"));\n  }\n\n  function isArrayExists(array, value) {\n    // 配列の最後までループ\n    for (var i =0, len = array.length; i < len; i++) {\n      if (value == array[i]) {\n        // 存在したらtrueを返す\n        return true;\n      }\n    }\n    // 存在しない場合falseを返す\n    return false;\n  }\n  // 重複を排除しながらunshiftする関数\n  function unshiftArray(array, value) {\n    // 存在しない場合、配列にpushする\n    if(! isArrayExists(array, value)) {\n      array.unshift(value);\n      // console.log(\"out: \" + action.payload.comment);\n      if(array.length > 15){\n        array.pop();\n      }\n    }\n    return true;\n  }\n}\n",
@@ -4345,7 +4381,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 182,
+    "__docId__": 184,
     "kind": "variable",
     "name": "STORAGE_KEY_SUGGESTION",
     "memberof": "src/saga/suggestion.js",
@@ -4364,7 +4400,7 @@
     }
   },
   {
-    "__docId__": 183,
+    "__docId__": 185,
     "kind": "variable",
     "name": "REGTAB",
     "memberof": "src/saga/suggestion.js",
@@ -4390,7 +4426,7 @@
     }
   },
   {
-    "__docId__": 184,
+    "__docId__": 186,
     "kind": "variable",
     "name": "SYNC_DELAY_MS",
     "memberof": "src/saga/suggestion.js",
@@ -4409,7 +4445,7 @@
     }
   },
   {
-    "__docId__": 185,
+    "__docId__": 187,
     "kind": "function",
     "name": "loadSuggestionSaga",
     "memberof": "src/saga/suggestion.js",
@@ -4426,7 +4462,7 @@
     "params": []
   },
   {
-    "__docId__": 186,
+    "__docId__": 188,
     "kind": "function",
     "name": "loadSuggestionTask",
     "memberof": "src/saga/suggestion.js",
@@ -4443,7 +4479,7 @@
     "params": []
   },
   {
-    "__docId__": 187,
+    "__docId__": 189,
     "kind": "function",
     "name": "changeSuggestionSaga",
     "memberof": "src/saga/suggestion.js",
@@ -4463,7 +4499,7 @@
     "params": []
   },
   {
-    "__docId__": 188,
+    "__docId__": 190,
     "kind": "function",
     "name": "changeSuggestionTask",
     "memberof": "src/saga/suggestion.js",
@@ -4491,7 +4527,7 @@
     ]
   },
   {
-    "__docId__": 189,
+    "__docId__": 191,
     "kind": "file",
     "name": "src/store/store.js",
     "content": "import { createStore, applyMiddleware } from 'redux'\nimport createSagaMiddleware from 'redux-saga'\nimport logger from 'redux-logger'\nimport rootReducer from '../reducer/root'\nimport rootSaga from '../saga/root'\nimport {LOGIN_STATUS} from '../const/login'\n\n\n/**\n* reduxのstoreのセットアップ。redux-saga対応。\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function configureStore() {\n  const sagaMiddleware = createSagaMiddleware();\n  const store = createStore(\n    rootReducer,\n    {\n      login:{status:LOGIN_STATUS.NOTYET, user:{}},\n      mydestination:{inBusiness:false,comment:\"\"},\n      board:{memberStatus:[]},\n      accountboard:{open:false, nextuser:{}},\n      suggestion:{suggests:[]},\n    },\n    applyMiddleware(\n      sagaMiddleware, logger()\n    )\n  );\n  sagaMiddleware.run(rootSaga);\n  return store;\n}\n",
@@ -4502,7 +4538,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 190,
+    "__docId__": 192,
     "kind": "function",
     "name": "configureStore",
     "memberof": "src/store/store.js",
@@ -4527,7 +4563,7 @@
     }
   },
   {
-    "__docId__": 192,
+    "__docId__": 194,
     "kind": "external",
     "name": "Infinity",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
@@ -4539,7 +4575,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 193,
+    "__docId__": 195,
     "kind": "external",
     "name": "NaN",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
@@ -4551,7 +4587,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 194,
+    "__docId__": 196,
     "kind": "external",
     "name": "undefined",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
@@ -4563,7 +4599,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 195,
+    "__docId__": 197,
     "kind": "external",
     "name": "null",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
@@ -4575,7 +4611,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 196,
+    "__docId__": 198,
     "kind": "external",
     "name": "Object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -4587,7 +4623,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 197,
+    "__docId__": 199,
     "kind": "external",
     "name": "object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -4599,7 +4635,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 198,
+    "__docId__": 200,
     "kind": "external",
     "name": "Function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -4611,7 +4647,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 199,
+    "__docId__": 201,
     "kind": "external",
     "name": "function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -4623,7 +4659,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 200,
+    "__docId__": 202,
     "kind": "external",
     "name": "Boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -4635,7 +4671,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 201,
+    "__docId__": 203,
     "kind": "external",
     "name": "boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -4647,7 +4683,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 202,
+    "__docId__": 204,
     "kind": "external",
     "name": "Symbol",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
@@ -4659,7 +4695,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 203,
+    "__docId__": 205,
     "kind": "external",
     "name": "Error",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
@@ -4671,7 +4707,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 204,
+    "__docId__": 206,
     "kind": "external",
     "name": "EvalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
@@ -4683,7 +4719,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 205,
+    "__docId__": 207,
     "kind": "external",
     "name": "InternalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
@@ -4695,7 +4731,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 206,
+    "__docId__": 208,
     "kind": "external",
     "name": "RangeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
@@ -4707,7 +4743,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 207,
+    "__docId__": 209,
     "kind": "external",
     "name": "ReferenceError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
@@ -4719,7 +4755,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 208,
+    "__docId__": 210,
     "kind": "external",
     "name": "SyntaxError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
@@ -4731,7 +4767,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 209,
+    "__docId__": 211,
     "kind": "external",
     "name": "TypeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
@@ -4743,7 +4779,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 210,
+    "__docId__": 212,
     "kind": "external",
     "name": "URIError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
@@ -4755,7 +4791,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 211,
+    "__docId__": 213,
     "kind": "external",
     "name": "Number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -4767,7 +4803,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 212,
+    "__docId__": 214,
     "kind": "external",
     "name": "number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -4779,7 +4815,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 213,
+    "__docId__": 215,
     "kind": "external",
     "name": "Date",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
@@ -4791,7 +4827,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 214,
+    "__docId__": 216,
     "kind": "external",
     "name": "String",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -4803,7 +4839,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 215,
+    "__docId__": 217,
     "kind": "external",
     "name": "string",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -4815,7 +4851,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 216,
+    "__docId__": 218,
     "kind": "external",
     "name": "RegExp",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
@@ -4827,7 +4863,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 217,
+    "__docId__": 219,
     "kind": "external",
     "name": "Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
@@ -4839,7 +4875,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 218,
+    "__docId__": 220,
     "kind": "external",
     "name": "Int8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
@@ -4851,7 +4887,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 219,
+    "__docId__": 221,
     "kind": "external",
     "name": "Uint8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
@@ -4863,7 +4899,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 220,
+    "__docId__": 222,
     "kind": "external",
     "name": "Uint8ClampedArray",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
@@ -4875,7 +4911,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 221,
+    "__docId__": 223,
     "kind": "external",
     "name": "Int16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
@@ -4887,7 +4923,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 222,
+    "__docId__": 224,
     "kind": "external",
     "name": "Uint16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
@@ -4899,7 +4935,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 223,
+    "__docId__": 225,
     "kind": "external",
     "name": "Int32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
@@ -4911,7 +4947,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 224,
+    "__docId__": 226,
     "kind": "external",
     "name": "Uint32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
@@ -4923,7 +4959,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 225,
+    "__docId__": 227,
     "kind": "external",
     "name": "Float32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
@@ -4935,7 +4971,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 226,
+    "__docId__": 228,
     "kind": "external",
     "name": "Float64Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
@@ -4947,7 +4983,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 227,
+    "__docId__": 229,
     "kind": "external",
     "name": "Map",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
@@ -4959,7 +4995,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 228,
+    "__docId__": 230,
     "kind": "external",
     "name": "Set",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
@@ -4971,7 +5007,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 229,
+    "__docId__": 231,
     "kind": "external",
     "name": "WeakMap",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
@@ -4983,7 +5019,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 230,
+    "__docId__": 232,
     "kind": "external",
     "name": "WeakSet",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
@@ -4995,7 +5031,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 231,
+    "__docId__": 233,
     "kind": "external",
     "name": "ArrayBuffer",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
@@ -5007,7 +5043,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 232,
+    "__docId__": 234,
     "kind": "external",
     "name": "DataView",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
@@ -5019,7 +5055,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 233,
+    "__docId__": 235,
     "kind": "external",
     "name": "JSON",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
@@ -5031,7 +5067,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 234,
+    "__docId__": 236,
     "kind": "external",
     "name": "Promise",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
@@ -5043,7 +5079,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 235,
+    "__docId__": 237,
     "kind": "external",
     "name": "Generator",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
@@ -5055,7 +5091,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 236,
+    "__docId__": 238,
     "kind": "external",
     "name": "GeneratorFunction",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
@@ -5067,7 +5103,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 237,
+    "__docId__": 239,
     "kind": "external",
     "name": "Reflect",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
@@ -5079,7 +5115,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 238,
+    "__docId__": 240,
     "kind": "external",
     "name": "Proxy",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
@@ -5092,7 +5128,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 240,
+    "__docId__": 242,
     "kind": "external",
     "name": "CanvasRenderingContext2D",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
@@ -5104,7 +5140,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 241,
+    "__docId__": 243,
     "kind": "external",
     "name": "DocumentFragment",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
@@ -5116,7 +5152,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 242,
+    "__docId__": 244,
     "kind": "external",
     "name": "Element",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
@@ -5128,7 +5164,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 243,
+    "__docId__": 245,
     "kind": "external",
     "name": "Event",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
@@ -5140,7 +5176,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 244,
+    "__docId__": 246,
     "kind": "external",
     "name": "Node",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
@@ -5152,7 +5188,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 245,
+    "__docId__": 247,
     "kind": "external",
     "name": "NodeList",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
@@ -5164,7 +5200,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 246,
+    "__docId__": 248,
     "kind": "external",
     "name": "XMLHttpRequest",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
@@ -5176,7 +5212,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 247,
+    "__docId__": 249,
     "kind": "external",
     "name": "AudioContext",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
@@ -5189,7 +5225,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 248,
+    "__docId__": 250,
     "kind": "testFile",
     "name": "test/action/login.test.js",
     "content": "const assert = require(\"assert\");\nimport {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from \"../../src/action/login\";\nimport {loginRequested,loginSuccess,loginFailure,logoutRequested} from \"../../src/action/login\";\n\n/**@test {loginRequested}*/\ndescribe(\"loginRequested action creator\",()=>{\n  //ユーザーが入力したID,Passを使ってLOGIN_REQUESTEDアクションを生成する\n  it(\"creates LOGIN_REQUESTED action with id and password which user input\",()=>{\n    const testId = \"test_id\";\n    const testPass = \"test_pass\";\n\n    const result = loginRequested(testId,testPass);\n    assert(result.type === LOGIN_REQUESTED);\n    assert(result.payload.id === testId);\n    assert(result.payload.pass === testPass);\n  });\n});\n\n/**@test {loginSuccess}*/\ndescribe(\"loginSuccess action creator\",()=>{\n  //ログインしたユーザーの情報を使ってLOGIN_SUCCESSアクションを生成する\n  it(\"creates LOGIN_SUCCESS action with user data of logon user.\",()=>{\n    const userinfo = {\"name\":\"Mike\",\"userid\":\"mike\",\"token\":\"dummy\"};\n\n    const result = loginSuccess(userinfo);\n    assert(result.type === LOGIN_SUCCESS);\n    assert(result.payload.name === userinfo.name);\n    assert(result.payload.userid === userinfo.userid);\n    assert(result.payload.token === userinfo.token);\n  });\n});\n\n/**@test {loginFailure}*/\ndescribe(\"loginFailure action creator\",()=>{\n  //引数を取らずにLOGIN_FAILUREアクションを生成する\n  it(\"creates LOGIN_FAILURE action with no arguments\",()=>{\n    const result = loginFailure();\n    assert(result.type === LOGIN_FAILURE);\n  });\n});\n\n/**@test {logoutRequested}*/\ndescribe(\"logoutRequested action creator\",()=>{\n  //引数を取らずにLOGOUT_REQUESTEDアクションを生成する\n  it(\"creates LOGOUT_REQUESTED action with no arguments\",()=>{\n    const result = logoutRequested();\n    assert(result.type === LOGOUT_REQUESTED);\n  });\n});\n",
@@ -5200,7 +5236,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 249,
+    "__docId__": 251,
     "kind": "testDescribe",
     "name": "describe0",
     "testId": 0,
@@ -5222,7 +5258,7 @@
     ]
   },
   {
-    "__docId__": 250,
+    "__docId__": 252,
     "kind": "testIt",
     "name": "it1",
     "testId": 1,
@@ -5235,7 +5271,7 @@
     "lineNumber": 8
   },
   {
-    "__docId__": 251,
+    "__docId__": 253,
     "kind": "testDescribe",
     "name": "describe2",
     "testId": 2,
@@ -5257,7 +5293,7 @@
     ]
   },
   {
-    "__docId__": 252,
+    "__docId__": 254,
     "kind": "testIt",
     "name": "it3",
     "testId": 3,
@@ -5270,7 +5306,7 @@
     "lineNumber": 22
   },
   {
-    "__docId__": 253,
+    "__docId__": 255,
     "kind": "testDescribe",
     "name": "describe4",
     "testId": 4,
@@ -5292,7 +5328,7 @@
     ]
   },
   {
-    "__docId__": 254,
+    "__docId__": 256,
     "kind": "testIt",
     "name": "it5",
     "testId": 5,
@@ -5305,7 +5341,7 @@
     "lineNumber": 36
   },
   {
-    "__docId__": 255,
+    "__docId__": 257,
     "kind": "testDescribe",
     "name": "describe6",
     "testId": 6,
@@ -5327,7 +5363,7 @@
     ]
   },
   {
-    "__docId__": 256,
+    "__docId__": 258,
     "kind": "testIt",
     "name": "it7",
     "testId": 7,
@@ -5340,7 +5376,7 @@
     "lineNumber": 45
   },
   {
-    "__docId__": 257,
+    "__docId__": 259,
     "kind": "testFile",
     "name": "test/reducer/login.test.js",
     "content": "const assert = require(\"assert\");\nimport {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from \"../../src/action/login\";\nimport {LOGIN_STATUS} from \"../../src/const/login\"\nimport login from \"../../src/reducer/login\"\n\nconst dummyUserData = {userid:\"mike\",name:\"Mike\",token:\"dummy\"};\n/**@test {login}*/\ndescribe(\"login reducer\",()=>{\n  //LOGIN_SUCCESSアクションが渡された場合、'status'をLOGIN_STATUS.SUCCESSに変更し、'user'をactionのpayloadに変更する\n  it(\"changes 'status' state to LOGIN_STATUS.SUCCESS and changes 'user' state to payload of action if LOGIN_SUCCESS action is passed\",()=>{\n    const action = {\n      type:LOGIN_SUCCESS,\n      payload:dummyUserData\n    };\n\n    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.SUCCESS);\n    assert(result.user === action.payload);\n  });\n  //LOGIN_FAILUREアクションが渡された場合、'status'をLOGIN_STATUS.FAILUREに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.FAILURE and changes 'user' state to empty object if LOGIN_FAILURE action is passed\",()=>{\n    const action = {type:LOGIN_FAILURE};\n\n    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.FAILURE);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //LOGOUT_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGOUT_REQUESTED action is passed\",()=>{\n    const action = {type:LOGOUT_REQUESTED};\n\n    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.NOTYET);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //LOGIN_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action\",()=>{\n    const action = {type:LOGIN_REQUESTED};\n\n    const initialState = {status:LOGIN_STATUS.FAILURE,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.NOTYET);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //その他のアクションが渡された場合はstateを変更しない\n  it(\"doesn't change any state if any other action is passed\",()=>{\n    const action = {type:\"OTHER_ACTION\"};\n\n    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};\n\n    const result = login(initialState,action);\n    assert(result.status === initialState.status);\n    assert(result.user === initialState.user);\n  });\n});\n",
@@ -5351,7 +5387,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 258,
+    "__docId__": 260,
     "kind": "testDescribe",
     "name": "describe8",
     "testId": 8,
@@ -5373,7 +5409,7 @@
     ]
   },
   {
-    "__docId__": 259,
+    "__docId__": 261,
     "kind": "testIt",
     "name": "it9",
     "testId": 9,
@@ -5386,7 +5422,7 @@
     "lineNumber": 10
   },
   {
-    "__docId__": 260,
+    "__docId__": 262,
     "kind": "testIt",
     "name": "it10",
     "testId": 10,
@@ -5399,7 +5435,7 @@
     "lineNumber": 23
   },
   {
-    "__docId__": 261,
+    "__docId__": 263,
     "kind": "testIt",
     "name": "it11",
     "testId": 11,
@@ -5412,7 +5448,7 @@
     "lineNumber": 33
   },
   {
-    "__docId__": 262,
+    "__docId__": 264,
     "kind": "testIt",
     "name": "it12",
     "testId": 12,
@@ -5425,7 +5461,7 @@
     "lineNumber": 43
   },
   {
-    "__docId__": 263,
+    "__docId__": 265,
     "kind": "testIt",
     "name": "it13",
     "testId": 13,
@@ -5436,5 +5472,211 @@
     "access": null,
     "description": "doesn't change any state if any other action is passed",
     "lineNumber": 53
+  },
+  {
+    "__docId__": 266,
+    "kind": "testFile",
+    "name": "test/saga/login.test.js",
+    "content": "const assert = require(\"assert\");\nimport {loginSaga,loginTask,logoutSaga,loginFailureSaga,cleanRememberMeTask,loginFromRememberMeSaga} from '../../src/saga/login';\nimport {LOGIN_REQUESTED,LOGOUT_REQUESTED,LOGIN_FAILURE,loginRequested,loginSuccess,loginFailure} from '../../src/action/login';\nimport {take,takeEvery,fork,call,put} from 'redux-saga/effects';\nimport {getApiBaseURL} from  '../../src/module/environment';\nimport axios from \"axios\";\n\nconst BASE_API_URL = getApiBaseURL();\n\ndescribe(\"login Saga\",()=>{\n  //すべてのLOGIN_REQUESTEDを受け取り、loginTaskに受け渡す\n  it(\"takes every LOGIN_REQUESTED action and pass it to loginTask\",()=>{\n    const gen = loginSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGIN_REQUESTED,loginTask));\n  });\n});\n\ndescribe(\"login Task\",()=>{\n  //ログインが成功した場合、LOGIN_SUCCESSアクションをputする\n  it(\"puts LOGIN_SUCCESS action if the server returns login success\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"test\"\n      }\n    };\n\n    const mockTokenReturn = {\n      token:\"mockToken\"\n    };\n\n    const mockUserDataReturn = {\n      id:\"test\",\n      name:\"テスト\"\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(true);//localStorageへの保存は成功したものとする\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n\n    rtn = gen.next({data:mockTokenReturn});//mockTokenReturnがAPIから返ってきたものとする\n    //mockTokenReturnで返ってきたtokenを使ってuser APIへアクセスする\n    assert.deepEqual(rtn.value, call(axios,{\n      method:\"GET\",\n      url:BASE_API_URL + \"user\",\n      headers:{\"Authorization\":\"Bearer \" + mockTokenReturn.token}\n    }));\n\n    rtn = gen.next({data:mockUserDataReturn});//APIからmockUserDataReturnが返ってきたものとする\n    //APIからの戻り値を使用して、LOGIN_SUCCESSアクションを作成してPUTする\n    assert.deepEqual(rtn.value, put(loginSuccess({\n      userid:mockUserDataReturn.id,\n      name:mockUserDataReturn.name,\n      token:mockTokenReturn.token\n    })));\n\n    rtn = gen.next();\n    assert(rtn.done);\n\n  });\n  //ログインに失敗した場合はLOGIN_FAILUREアクションをPUTする\n  it(\"puts LOGIN_FAILURE action if the server returns login failure\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"invalid_pass\"\n      }\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(true);//localStorageへの保存は成功したものとする\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n\n    rtn = gen.throw(new Error(\"API returns not 200 STATUS CODE\"));\n    assert.deepEqual(rtn.value, put(loginFailure()));\n\n    rtn = gen.next();\n    assert(rtn.done);\n  });\n  //rememberMeデータの保存に失敗しても処理を続ける\n  it(\"proceeds processing even if rememberMe function is not available.\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"test\"\n      }\n    };\n\n    const mockTokenReturn = {\n      token:\"mockToken\"\n    };\n\n    const mockUserDataReturn = {\n      id:\"test\",\n      name:\"テスト\"\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(false);//localStorageへの保存が失敗\n    assert(!rtn.done); //処理が止まっていない\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n  });\n});\n\ndescribe(\"logout Saga\",()=>{\n  //すべてのLOGOUT_REQUESTEDアクションを受け取って、cleanRememberMeTaskに引き渡す\n  it(\"takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask\",()=>{\n    const gen = logoutSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask));\n  });\n});\n\ndescribe(\"loginFailure Saga\",()=>{\n  //すべてのLOGIN_FAILUREアクションを受け取って、cleanRememberMeTaskに引き渡す\n  it(\"takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask\",()=>{\n    const gen = loginFailureSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGIN_FAILURE,cleanRememberMeTask));\n  });\n});\n\ndescribe(\"cleanRememberMe Task\",()=>{\n  //RememberMe用のデータを削除しようとする\n  it(\"tries to clean RememberMe data\",()=>{\n    const gen = cleanRememberMeTask();\n    let ret = gen.next();\n\n    ret = gen.next(true);//localStorageへのアクセスは成功したとする\n    assert(ret.done);\n  })\n});\n\ndescribe(\"loginFromRememberMe Saga\",()=>{\n  //rememberMeのデータが有効である場合、LOGIN_REQUESTEDアクションをputする\n  it(\"puts LOGIN_REQUESTED action if rememberMe data is available\",()=>{\n    const mockRememberMe = {\n      id:\"test\",\n      pass:\"test\"\n    };\n    const gen = loginFromRememberMeSaga();\n    let ret = gen.next();\n\n    ret = gen.next(true);//localStorage上にrememberMeデータがあるものとする\n    ret = gen.next(mockRememberMe)//mockRememberMeがストレージ上から取得できたものとする\n    assert.deepEqual(ret.value,put(loginRequested(mockRememberMe.id,mockRememberMe.pass)));\n    ret = gen.next();\n    assert(ret.done);\n  });\n  //rememberMeのデータがない場合、アクションをputしない\n  it(\"doesn't put any actions if rememberMe is not available\",()=>{\n    const gen = loginFromRememberMeSaga();\n    let ret = gen.next();\n\n    ret = gen.next(false);\n    assert(ret.done);\n  });\n});\n",
+    "static": true,
+    "longname": "test/saga/login.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 267,
+    "kind": "testDescribe",
+    "name": "describe14",
+    "testId": 14,
+    "memberof": "test/saga/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe14",
+    "access": null,
+    "description": "login Saga",
+    "lineNumber": 10
+  },
+  {
+    "__docId__": 268,
+    "kind": "testIt",
+    "name": "it15",
+    "testId": 15,
+    "memberof": "test/saga/login.test.js~describe14",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe14.it15",
+    "access": null,
+    "description": "takes every LOGIN_REQUESTED action and pass it to loginTask",
+    "lineNumber": 12
+  },
+  {
+    "__docId__": 269,
+    "kind": "testDescribe",
+    "name": "describe16",
+    "testId": 16,
+    "memberof": "test/saga/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe16",
+    "access": null,
+    "description": "login Task",
+    "lineNumber": 21
+  },
+  {
+    "__docId__": 270,
+    "kind": "testIt",
+    "name": "it17",
+    "testId": 17,
+    "memberof": "test/saga/login.test.js~describe16",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe16.it17",
+    "access": null,
+    "description": "puts LOGIN_SUCCESS action if the server returns login success",
+    "lineNumber": 23
+  },
+  {
+    "__docId__": 271,
+    "kind": "testIt",
+    "name": "it18",
+    "testId": 18,
+    "memberof": "test/saga/login.test.js~describe16",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe16.it18",
+    "access": null,
+    "description": "puts LOGIN_FAILURE action if the server returns login failure",
+    "lineNumber": 75
+  },
+  {
+    "__docId__": 272,
+    "kind": "testIt",
+    "name": "it19",
+    "testId": 19,
+    "memberof": "test/saga/login.test.js~describe16",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe16.it19",
+    "access": null,
+    "description": "proceeds processing even if rememberMe function is not available.",
+    "lineNumber": 104
+  },
+  {
+    "__docId__": 273,
+    "kind": "testDescribe",
+    "name": "describe20",
+    "testId": 20,
+    "memberof": "test/saga/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe20",
+    "access": null,
+    "description": "logout Saga",
+    "lineNumber": 138
+  },
+  {
+    "__docId__": 274,
+    "kind": "testIt",
+    "name": "it21",
+    "testId": 21,
+    "memberof": "test/saga/login.test.js~describe20",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe20.it21",
+    "access": null,
+    "description": "takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask",
+    "lineNumber": 140
+  },
+  {
+    "__docId__": 275,
+    "kind": "testDescribe",
+    "name": "describe22",
+    "testId": 22,
+    "memberof": "test/saga/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe22",
+    "access": null,
+    "description": "loginFailure Saga",
+    "lineNumber": 149
+  },
+  {
+    "__docId__": 276,
+    "kind": "testIt",
+    "name": "it23",
+    "testId": 23,
+    "memberof": "test/saga/login.test.js~describe22",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe22.it23",
+    "access": null,
+    "description": "takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask",
+    "lineNumber": 151
+  },
+  {
+    "__docId__": 277,
+    "kind": "testDescribe",
+    "name": "describe24",
+    "testId": 24,
+    "memberof": "test/saga/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe24",
+    "access": null,
+    "description": "cleanRememberMe Task",
+    "lineNumber": 160
+  },
+  {
+    "__docId__": 278,
+    "kind": "testIt",
+    "name": "it25",
+    "testId": 25,
+    "memberof": "test/saga/login.test.js~describe24",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe24.it25",
+    "access": null,
+    "description": "tries to clean RememberMe data",
+    "lineNumber": 162
+  },
+  {
+    "__docId__": 279,
+    "kind": "testDescribe",
+    "name": "describe26",
+    "testId": 26,
+    "memberof": "test/saga/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe26",
+    "access": null,
+    "description": "loginFromRememberMe Saga",
+    "lineNumber": 171
+  },
+  {
+    "__docId__": 280,
+    "kind": "testIt",
+    "name": "it27",
+    "testId": 27,
+    "memberof": "test/saga/login.test.js~describe26",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe26.it27",
+    "access": null,
+    "description": "puts LOGIN_REQUESTED action if rememberMe data is available",
+    "lineNumber": 173
+  },
+  {
+    "__docId__": 281,
+    "kind": "testIt",
+    "name": "it28",
+    "testId": 28,
+    "memberof": "test/saga/login.test.js~describe26",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe26.it28",
+    "access": null,
+    "description": "doesn't put any actions if rememberMe is not available",
+    "lineNumber": 188
   }
 ]

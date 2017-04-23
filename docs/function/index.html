@@ -72,10 +72,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MOCK_MEMBER_REPO_KEY">MOCK_MEMBER_REPO_KEY</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE_REASONS">SIGNUP_FAILURE_REASONS</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-existsKeyOnStorage">existsKeyOnStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getFromStorage">getFromStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span></li>
@@ -467,6 +467,34 @@
         
         
         <div data-ice="description"><p>localStorage&#x4E0A;&#x306B;&#x30AD;&#x30FC;&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;&#x304B;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x74B0;&#x5883;&#x306B;&#x5FDC;&#x3058;&#x3066;API&#x306E;&#x30D9;&#x30FC;&#x30B9;URL&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;</p>
 </div>
       </div>
     </td>
@@ -994,7 +1022,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>int</span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
@@ -1050,7 +1078,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-setToStorage">setToStorage</a></span></span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>int</span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-setToStorage">setToStorage</a></span></span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
@@ -1962,11 +1990,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber73">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber79">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {cleanRememberMeTask} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber73">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {cleanRememberMeTask} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber79">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>localStorage&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;rememberme&#x60C5;&#x5831;&#x3092;&#x30AF;&#x30EA;&#x30A2;&#x3059;&#x308B;Task</p>
@@ -2119,11 +2147,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/module/localstorage.js.html#lineNumber41">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/module/localstorage.js.html#lineNumber53">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {existsKeyOnStorage} from &apos;<span><a href="file/src/module/localstorage.js.html#lineNumber41">kyo-do.co-ui/src/module/localstorage.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {existsKeyOnStorage} from &apos;<span><a href="file/src/module/localstorage.js.html#lineNumber53">kyo-do.co-ui/src/module/localstorage.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>localStorage&#x4E0A;&#x306B;&#x30AD;&#x30FC;&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;&#x304B;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;</p>
@@ -2182,6 +2210,63 @@
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-getApiBaseURL">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">getApiBaseURL</span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/module/environment.js.html#lineNumber5">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getApiBaseURL} from &apos;<span><a href="file/src/module/environment.js.html#lineNumber5">kyo-do.co-ui/src/module/environment.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>&#x74B0;&#x5883;&#x306B;&#x5FDC;&#x3058;&#x3066;API&#x306E;&#x30D9;&#x30FC;&#x30B9;URL&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>API&#x306E;&#x30D9;&#x30FC;&#x30B9;URL</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="static-function-getFromStorage">
     <span class="access" data-ice="access">public</span>
     
@@ -2193,11 +2278,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/module/localstorage.js.html#lineNumber23">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/module/localstorage.js.html#lineNumber27">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getFromStorage} from &apos;<span><a href="file/src/module/localstorage.js.html#lineNumber23">kyo-do.co-ui/src/module/localstorage.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getFromStorage} from &apos;<span><a href="file/src/module/localstorage.js.html#lineNumber27">kyo-do.co-ui/src/module/localstorage.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>localStorage&#x304B;&#x3089;&#x5024;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;</p>
@@ -2549,11 +2634,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber67">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber73">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loginFailureSaga} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber67">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loginFailureSaga} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber73">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x306B;&#x5931;&#x6557;&#x3057;&#x305F;&#x3068;&#x304D;&#x306E;&#x30AF;&#x30EA;&#x30FC;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x3092;&#x884C;&#x3046;Saga</p>
@@ -2593,11 +2678,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber82">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber93">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loginFromRememberMeSaga} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber82">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loginFromRememberMeSaga} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber93">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>localStorage&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;ID/Pass&#x304B;&#x3089;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3059;&#x308B;Saga
@@ -2725,11 +2810,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber19">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber20">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loginSaga} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber19">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loginSaga} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber20">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>login&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga</p>
@@ -2849,11 +2934,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber31">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber32">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loginTask} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber31">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {loginTask} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber32">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>API&#x306B;&#x5BFE;&#x3057;&#x3066;ID/Pass&#x3092;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;&#x3066;&#x3001;
@@ -2974,11 +3059,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber59">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/login.js.html#lineNumber65">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {logoutSaga} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber59">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {logoutSaga} from &apos;<span><a href="file/src/saga/login.js.html#lineNumber65">kyo-do.co-ui/src/saga/login.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>logout&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x308B;Saga</p>
@@ -3305,15 +3390,15 @@
     
     
     
-    <span data-ice="name">removeFromStorage</span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>int</span></span>
+    <span data-ice="name">removeFromStorage</span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/module/localstorage.js.html#lineNumber31">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/module/localstorage.js.html#lineNumber39">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {removeFromStorage} from &apos;<span><a href="file/src/module/localstorage.js.html#lineNumber31">kyo-do.co-ui/src/module/localstorage.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {removeFromStorage} from &apos;<span><a href="file/src/module/localstorage.js.html#lineNumber39">kyo-do.co-ui/src/module/localstorage.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>localStorage&#x304B;&#x3089;&#x5024;&#x3092;&#x524A;&#x9664;&#x3059;&#x308B;</p>
@@ -3346,8 +3431,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type" data-ice="returnType"><span>int</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>&#x6210;&#x529F;&#x3059;&#x308C;&#x3070;0</p>
+          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>&#x6210;&#x529F;&#x3059;&#x308C;&#x3070;true</p>
 </td>
         </tr>
       </tbody>
@@ -3423,7 +3508,7 @@
     
     
     
-    <span data-ice="name">setToStorage</span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span>int</span></span>
+    <span data-ice="name">setToStorage</span><span data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
     <span class="right-info">
       
       
@@ -3471,8 +3556,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type" data-ice="returnType"><span>int</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>&#x6210;&#x529F;&#x3059;&#x308C;&#x3070;0</p>
+          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>&#x6210;&#x529F;&#x3059;&#x308C;&#x3070;true</p>
 </td>
         </tr>
       </tbody>

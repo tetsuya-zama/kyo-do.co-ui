@@ -84,12 +84,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "kyo-do.co-ui/src/const/signup.js~mock_member_repo_key",
-    "variable/index.html#static-variable-MOCK_MEMBER_REPO_KEY",
-    "<span>MOCK_MEMBER_REPO_KEY</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/signup.js</span>",
-    "variable"
-  ],
-  [
     "kyo-do.co-ui/src/action/mydestination.js~my_destination_change",
     "variable/index.html#static-variable-MY_DESTINATION_CHANGE",
     "<span>MY_DESTINATION_CHANGE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
@@ -231,6 +225,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/module/localstorage.js~existskeyonstorage",
     "function/index.html#static-function-existsKeyOnStorage",
     "<span>existsKeyOnStorage</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/localstorage.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/module/environment.js~getapibaseurl",
+    "function/index.html#static-function-getApiBaseURL",
+    "<span>getApiBaseURL</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/environment.js</span>",
     "function"
   ],
   [
@@ -750,6 +750,54 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber160",
+    "cleanRememberMe Task",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber162",
+    "cleanRememberMe Task tries to clean RememberMe data",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber10",
+    "login Saga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber12",
+    "login Saga takes every LOGIN_REQUESTED action and pass it to loginTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber21",
+    "login Task",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber104",
+    "login Task proceeds processing even if rememberMe function is not available.",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber75",
+    "login Task puts LOGIN_FAILURE action if the server returns login failure",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber23",
+    "login Task puts LOGIN_SUCCESS action if the server returns login success",
+    "test"
+  ],
+  [
     "login src/reducer/login.js~login,login",
     "test-file/test/reducer/login.test.js.html#lineNumber8",
     "login reducer",
@@ -786,6 +834,18 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber149",
+    "loginFailure Saga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber151",
+    "loginFailure Saga takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask",
+    "test"
+  ],
+  [
     "loginfailure src/action/login.js~loginfailure,loginfailure",
     "test-file/test/action/login.test.js.html#lineNumber34",
     "loginFailure action creator",
@@ -795,6 +855,24 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/login.test.js.html#lineNumber36",
     "loginFailure action creator creates LOGIN_FAILURE action with no arguments",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber171",
+    "loginFromRememberMe Saga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber188",
+    "loginFromRememberMe Saga doesn't put any actions if rememberMe is not available",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber173",
+    "loginFromRememberMe Saga puts LOGIN_REQUESTED action if rememberMe data is available",
     "test"
   ],
   [
@@ -819,6 +897,18 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/login.test.js.html#lineNumber22",
     "loginSuccess action creator creates LOGIN_SUCCESS action with user data of logon user.",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber138",
+    "logout Saga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/login.test.js.html#lineNumber140",
+    "logout Saga takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask",
     "test"
   ],
   [
@@ -1164,6 +1254,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/module/environment.js",
+    "file/src/module/environment.js.html",
+    "src/module/environment.js",
+    "file"
+  ],
+  [
     "src/module/localstorage.js",
     "file/src/module/localstorage.js.html",
     "src/module/localstorage.js",
@@ -1269,6 +1365,12 @@ window.esdocSearchIndex = [
     "test/reducer/login.test.js",
     "test-file/test/reducer/login.test.js.html",
     "test/reducer/login.test.js",
+    "testFile"
+  ],
+  [
+    "test/saga/login.test.js",
+    "test-file/test/saga/login.test.js.html",
+    "test/saga/login.test.js",
     "testFile"
   ]
 ]

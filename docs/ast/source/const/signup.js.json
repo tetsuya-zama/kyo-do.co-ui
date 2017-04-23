@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 504,
+  "end": 376,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 20,
+      "line": 13,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 504,
+    "end": 376,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 20,
+        "line": 13,
         "column": 0
       }
     },
@@ -625,11 +625,9 @@
                       }
                     ]
                   }
-                ],
-                "trailingComments": null
+                ]
               },
-              "leadingComments": null,
-              "trailingComments": null
+              "leadingComments": null
             }
           ],
           "kind": "const",
@@ -651,56 +649,7 @@
               }
             }
           ],
-          "trailingComments": [
-            {
-              "type": "CommentLine",
-              "value": "MOCK用",
-              "start": 377,
-              "end": 384,
-              "loc": {
-                "start": {
-                  "line": 14,
-                  "column": 0
-                },
-                "end": {
-                  "line": 14,
-                  "column": 7
-                }
-              }
-            },
-            {
-              "type": "CommentLine",
-              "value": "TODO 実装終わったら消す",
-              "start": 385,
-              "end": 401,
-              "loc": {
-                "start": {
-                  "line": 15,
-                  "column": 0
-                },
-                "end": {
-                  "line": 15,
-                  "column": 16
-                }
-              }
-            },
-            {
-              "type": "CommentBlock",
-              "value": "*\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\n",
-              "start": 402,
-              "end": 447,
-              "loc": {
-                "start": {
-                  "line": 16,
-                  "column": 0
-                },
-                "end": {
-                  "line": 18,
-                  "column": 2
-                }
-              }
-            }
-          ]
+          "trailingComments": []
         },
         "leadingComments": [
           {
@@ -715,246 +664,6 @@
               },
               "end": {
                 "line": 3,
-                "column": 2
-              }
-            }
-          }
-        ],
-        "trailingComments": [
-          {
-            "type": "CommentLine",
-            "value": "MOCK用",
-            "start": 377,
-            "end": 384,
-            "loc": {
-              "start": {
-                "line": 14,
-                "column": 0
-              },
-              "end": {
-                "line": 14,
-                "column": 7
-              }
-            }
-          },
-          {
-            "type": "CommentLine",
-            "value": "TODO 実装終わったら消す",
-            "start": 385,
-            "end": 401,
-            "loc": {
-              "start": {
-                "line": 15,
-                "column": 0
-              },
-              "end": {
-                "line": 15,
-                "column": 16
-              }
-            }
-          },
-          {
-            "type": "CommentBlock",
-            "value": "*\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\n",
-            "start": 402,
-            "end": 447,
-            "loc": {
-              "start": {
-                "line": 16,
-                "column": 0
-              },
-              "end": {
-                "line": 18,
-                "column": 2
-              }
-            }
-          }
-        ]
-      },
-      {
-        "type": "ExportNamedDeclaration",
-        "start": 448,
-        "end": 503,
-        "loc": {
-          "start": {
-            "line": 19,
-            "column": 0
-          },
-          "end": {
-            "line": 19,
-            "column": 55
-          }
-        },
-        "specifiers": [],
-        "source": null,
-        "declaration": {
-          "type": "VariableDeclaration",
-          "start": 455,
-          "end": 503,
-          "loc": {
-            "start": {
-              "line": 19,
-              "column": 7
-            },
-            "end": {
-              "line": 19,
-              "column": 55
-            }
-          },
-          "declarations": [
-            {
-              "type": "VariableDeclarator",
-              "start": 461,
-              "end": 502,
-              "loc": {
-                "start": {
-                  "line": 19,
-                  "column": 13
-                },
-                "end": {
-                  "line": 19,
-                  "column": 54
-                }
-              },
-              "id": {
-                "type": "Identifier",
-                "start": 461,
-                "end": 481,
-                "loc": {
-                  "start": {
-                    "line": 19,
-                    "column": 13
-                  },
-                  "end": {
-                    "line": 19,
-                    "column": 33
-                  },
-                  "identifierName": "MOCK_MEMBER_REPO_KEY"
-                },
-                "name": "MOCK_MEMBER_REPO_KEY",
-                "leadingComments": null
-              },
-              "init": {
-                "type": "StringLiteral",
-                "start": 484,
-                "end": 502,
-                "loc": {
-                  "start": {
-                    "line": 19,
-                    "column": 36
-                  },
-                  "end": {
-                    "line": 19,
-                    "column": 54
-                  }
-                },
-                "extra": {
-                  "rawValue": "mock_member_repo",
-                  "raw": "\"mock_member_repo\""
-                },
-                "value": "mock_member_repo"
-              },
-              "leadingComments": null
-            }
-          ],
-          "kind": "const",
-          "leadingComments": [
-            {
-              "type": "CommentLine",
-              "value": "MOCK用",
-              "start": 377,
-              "end": 384,
-              "loc": {
-                "start": {
-                  "line": 14,
-                  "column": 0
-                },
-                "end": {
-                  "line": 14,
-                  "column": 7
-                }
-              }
-            },
-            {
-              "type": "CommentLine",
-              "value": "TODO 実装終わったら消す",
-              "start": 385,
-              "end": 401,
-              "loc": {
-                "start": {
-                  "line": 15,
-                  "column": 0
-                },
-                "end": {
-                  "line": 15,
-                  "column": 16
-                }
-              }
-            },
-            {
-              "type": "CommentBlock",
-              "value": "*\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\n",
-              "start": 402,
-              "end": 447,
-              "loc": {
-                "start": {
-                  "line": 16,
-                  "column": 0
-                },
-                "end": {
-                  "line": 18,
-                  "column": 2
-                }
-              }
-            }
-          ],
-          "trailingComments": []
-        },
-        "leadingComments": [
-          {
-            "type": "CommentLine",
-            "value": "MOCK用",
-            "start": 377,
-            "end": 384,
-            "loc": {
-              "start": {
-                "line": 14,
-                "column": 0
-              },
-              "end": {
-                "line": 14,
-                "column": 7
-              }
-            }
-          },
-          {
-            "type": "CommentLine",
-            "value": "TODO 実装終わったら消す",
-            "start": 385,
-            "end": 401,
-            "loc": {
-              "start": {
-                "line": 15,
-                "column": 0
-              },
-              "end": {
-                "line": 15,
-                "column": 16
-              }
-            }
-          },
-          {
-            "type": "CommentBlock",
-            "value": "*\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\n",
-            "start": 402,
-            "end": 447,
-            "loc": {
-              "start": {
-                "line": 16,
-                "column": 0
-              },
-              "end": {
-                "line": 18,
                 "column": 2
               }
             }
@@ -1090,54 +799,6 @@
         "end": {
           "line": 11,
           "column": 60
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": "MOCK用",
-      "start": 377,
-      "end": 384,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 0
-        },
-        "end": {
-          "line": 14,
-          "column": 7
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": "TODO 実装終わったら消す",
-      "start": 385,
-      "end": 401,
-      "loc": {
-        "start": {
-          "line": 15,
-          "column": 0
-        },
-        "end": {
-          "line": 15,
-          "column": 16
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\n",
-      "start": 402,
-      "end": 447,
-      "loc": {
-        "start": {
-          "line": 16,
-          "column": 0
-        },
-        "end": {
-          "line": 18,
-          "column": 2
         }
       }
     }
@@ -2140,216 +1801,6 @@
       }
     },
     {
-      "type": "CommentLine",
-      "value": "MOCK用",
-      "start": 377,
-      "end": 384,
-      "loc": {
-        "start": {
-          "line": 14,
-          "column": 0
-        },
-        "end": {
-          "line": 14,
-          "column": 7
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": "TODO 実装終わったら消す",
-      "start": 385,
-      "end": 401,
-      "loc": {
-        "start": {
-          "line": 15,
-          "column": 0
-        },
-        "end": {
-          "line": 15,
-          "column": 16
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n* MOCKで使用するlocalStorage上のユーザーレポジトリのkey\n",
-      "start": 402,
-      "end": 447,
-      "loc": {
-        "start": {
-          "line": 16,
-          "column": 0
-        },
-        "end": {
-          "line": 18,
-          "column": 2
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "export",
-        "keyword": "export",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "export",
-      "start": 448,
-      "end": 454,
-      "loc": {
-        "start": {
-          "line": 19,
-          "column": 0
-        },
-        "end": {
-          "line": 19,
-          "column": 6
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "const",
-        "keyword": "const",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "const",
-      "start": 455,
-      "end": 460,
-      "loc": {
-        "start": {
-          "line": 19,
-          "column": 7
-        },
-        "end": {
-          "line": 19,
-          "column": 12
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "MOCK_MEMBER_REPO_KEY",
-      "start": 461,
-      "end": 481,
-      "loc": {
-        "start": {
-          "line": 19,
-          "column": 13
-        },
-        "end": {
-          "line": 19,
-          "column": 33
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 482,
-      "end": 483,
-      "loc": {
-        "start": {
-          "line": 19,
-          "column": 34
-        },
-        "end": {
-          "line": 19,
-          "column": 35
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "string",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "mock_member_repo",
-      "start": 484,
-      "end": 502,
-      "loc": {
-        "start": {
-          "line": 19,
-          "column": 36
-        },
-        "end": {
-          "line": 19,
-          "column": 54
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 502,
-      "end": 503,
-      "loc": {
-        "start": {
-          "line": 19,
-          "column": 54
-        },
-        "end": {
-          "line": 19,
-          "column": 55
-        }
-      }
-    },
-    {
       "type": {
         "label": "eof",
         "beforeExpr": false,
@@ -2362,15 +1813,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 504,
-      "end": 504,
+      "start": 376,
+      "end": 376,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 13,
           "column": 0
         },
         "end": {
-          "line": 20,
+          "line": 13,
           "column": 0
         }
       }

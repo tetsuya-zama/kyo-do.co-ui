@@ -72,10 +72,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MOCK_MEMBER_REPO_KEY">MOCK_MEMBER_REPO_KEY</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE_REASONS">SIGNUP_FAILURE_REASONS</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-existsKeyOnStorage">existsKeyOnStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getFromStorage">getFromStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span></li>
@@ -110,16 +110,17 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {take,put,call,takeEvery} from &apos;redux-saga/effects&apos;
 import {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from &apos;../action/login&apos;
 import {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from &apos;../module/localstorage&apos;
+import {getApiBaseURL} from &apos;../module/environment&apos;;
 import axios from &quot;axios&quot;;
-
-//MOCK&#x7528;
-//TODO &#x5B9F;&#x88C5;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x6D88;&#x3059;
-import {MOCK_MEMBER_REPO_KEY} from &apos;../const/signup&apos;
 
 /**
 * rememberme&#x60C5;&#x5831;&#xFF08;&#x5165;&#x529B;&#x3055;&#x308C;&#x305F;ID/Pass&#xFF09;&#x3092;localStorage&#x306B;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x969B;&#x306E;key
 */
 const REMEMBER_ME_STORAGE_KEY = &quot;rememberme&quot;;
+/**
+* API&#x306E;&#x30D9;&#x30FC;&#x30B9;URL
+*/
+const BASE_API_URL = getApiBaseURL();
 
 /**
 * login&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
@@ -139,11 +140,16 @@ export function* loginSaga(){
 */
 export function* loginTask(action){
   //rememberme
-  yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
+  try{
+    yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
+  }catch(e){
+    //localStorage&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x4F55;&#x3082;&#x3057;&#x306A;&#x3044;
+  }
+
 
   //XXX &#x73FE;&#x5728;&#x306E;&#x5B9F;&#x88C5;&#x3067;&#x306F;&#x30B5;&#x30FC;&#x30D0;&#x30A8;&#x30E9;&#x30FC;&#x306A;&#x306E;&#x304B;ID/Pass&#x304C;&#x9593;&#x9055;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x5224;&#x65AD;&#x304C;&#x3064;&#x304B;&#x306A;&#x3044;
   try{
-    const result = yield call(axios.post,&quot;https://api.kyo-do.co/auth&quot;,{
+    const result = yield call(axios.post,BASE_API_URL + &quot;auth&quot;,{
       userid:action.payload.id,
       password:action.payload.pass
     });
@@ -152,7 +158,7 @@ export function* loginTask(action){
 
     const resule_user = yield call(axios,{
       method:&quot;GET&quot;,
-      url:&quot;https://api.kyo-do.co/user&quot;,
+      url:BASE_API_URL + &quot;user&quot;,
       headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}
     });
 
@@ -180,7 +186,12 @@ export function* loginFailureSaga(){
 * localStorage&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;rememberme&#x60C5;&#x5831;&#x3092;&#x30AF;&#x30EA;&#x30A2;&#x3059;&#x308B;Task
 */
 export function* cleanRememberMeTask(){
-  yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);
+  try{
+    yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);
+  }catch(e){
+    //localStorage&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x4F55;&#x3082;&#x3057;&#x306A;&#x3044;
+  }
+
 }
 
 /**
@@ -189,10 +200,14 @@ export function* cleanRememberMeTask(){
 * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
 */
 export function* loginFromRememberMeSaga(){
-  const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);
-  if(remembermeSaved){
-    const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);
-    yield put(loginRequested(rememberme.id,rememberme.pass));
+  try{
+    const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);
+    if(remembermeSaved){
+      const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);
+      yield put(loginRequested(rememberme.id,rememberme.pass));
+    }
+  }catch(e){
+    //localStorage&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x4F55;&#x3082;&#x3057;&#x306A;&#x3044;
   }
 }
 </code></pre>
