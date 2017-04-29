@@ -8,7 +8,7 @@ import {loginRequested} from '../../src/action/login';
 import axios from "axios";
 
 const BASE_API_URL = getApiBaseURL();
-
+/**@test {signupSaga}*/
 describe("signup Saga",()=>{
   //常にSIGNUP_REQUIREDを受け付けて、signupTaskに引き渡す
   it("takes every SIGNUP_REQUIRED action and pass it to signupTask",()=>{
@@ -19,7 +19,7 @@ describe("signup Saga",()=>{
     assert.deepEqual(ret.value, takeEvery(SIGNUP_REQUIRED,signupTask));
   });
 });
-
+/**@test {signupTask} */
 describe("signup Task",()=>{
   //サーバからサインアップ成功が返って来れば、SIGNUP_SUCCESSアクションとLOGIN_REQUESTEDアクションをputする
   it("puts SIGNUP_SUCCESS and LOGIN_REQUESTED action if server returns signup success",()=>{

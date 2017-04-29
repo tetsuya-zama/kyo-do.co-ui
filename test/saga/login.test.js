@@ -6,7 +6,7 @@ import {getApiBaseURL} from  '../../src/module/environment';
 import axios from "axios";
 
 const BASE_API_URL = getApiBaseURL();
-
+/**@test {loginSaga}*/
 describe("login Saga",()=>{
   //すべてのLOGIN_REQUESTEDを受け取り、loginTaskに受け渡す
   it("takes every LOGIN_REQUESTED action and pass it to loginTask",()=>{
@@ -17,7 +17,7 @@ describe("login Saga",()=>{
     assert.deepEqual(ret.value, takeEvery(LOGIN_REQUESTED,loginTask));
   });
 });
-
+/**@test {loginTask}*/
 describe("login Task",()=>{
   //ログインが成功した場合、LOGIN_SUCCESSアクションをputする
   it("puts LOGIN_SUCCESS action if the server returns login success",()=>{
@@ -134,7 +134,7 @@ describe("login Task",()=>{
     ));
   });
 });
-
+/**@test logoutSaga*/
 describe("logout Saga",()=>{
   //すべてのLOGOUT_REQUESTEDアクションを受け取って、cleanRememberMeTaskに引き渡す
   it("takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask",()=>{
@@ -145,7 +145,7 @@ describe("logout Saga",()=>{
     assert.deepEqual(ret.value, takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask));
   });
 });
-
+/**@test {loginFailure}*/
 describe("loginFailure Saga",()=>{
   //すべてのLOGIN_FAILUREアクションを受け取って、cleanRememberMeTaskに引き渡す
   it("takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask",()=>{
@@ -156,7 +156,7 @@ describe("loginFailure Saga",()=>{
     assert.deepEqual(ret.value, takeEvery(LOGIN_FAILURE,cleanRememberMeTask));
   });
 });
-
+/**@test {cleanRememberMeTask}*/
 describe("cleanRememberMe Task",()=>{
   //RememberMe用のデータを削除しようとする
   it("tries to clean RememberMe data",()=>{
@@ -167,7 +167,7 @@ describe("cleanRememberMe Task",()=>{
     assert(ret.done);
   })
 });
-
+/**@test {loginFromRememberMeSaga}*/
 describe("loginFromRememberMe Saga",()=>{
   //rememberMeのデータが有効である場合、LOGIN_REQUESTEDアクションをputする
   it("puts LOGIN_REQUESTED action if rememberMe data is available",()=>{

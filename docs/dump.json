@@ -5397,10 +5397,10 @@
   {
     "__docId__": 260,
     "kind": "testFile",
-    "name": "test/reducer/login.test.js",
-    "content": "const assert = require(\"assert\");\nimport {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from \"../../src/action/login\";\nimport {LOGIN_STATUS} from \"../../src/const/login\"\nimport login from \"../../src/reducer/login\"\n\nconst dummyUserData = {userid:\"mike\",name:\"Mike\",token:\"dummy\"};\n/**@test {login}*/\ndescribe(\"login reducer\",()=>{\n  //LOGIN_SUCCESSアクションが渡された場合、'status'をLOGIN_STATUS.SUCCESSに変更し、'user'をactionのpayloadに変更する\n  it(\"changes 'status' state to LOGIN_STATUS.SUCCESS and changes 'user' state to payload of action if LOGIN_SUCCESS action is passed\",()=>{\n    const action = {\n      type:LOGIN_SUCCESS,\n      payload:dummyUserData\n    };\n\n    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.SUCCESS);\n    assert(result.user === action.payload);\n  });\n  //LOGIN_FAILUREアクションが渡された場合、'status'をLOGIN_STATUS.FAILUREに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.FAILURE and changes 'user' state to empty object if LOGIN_FAILURE action is passed\",()=>{\n    const action = {type:LOGIN_FAILURE};\n\n    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.FAILURE);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //LOGOUT_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGOUT_REQUESTED action is passed\",()=>{\n    const action = {type:LOGOUT_REQUESTED};\n\n    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.NOTYET);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //LOGIN_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action\",()=>{\n    const action = {type:LOGIN_REQUESTED};\n\n    const initialState = {status:LOGIN_STATUS.FAILURE,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.NOTYET);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //その他のアクションが渡された場合はstateを変更しない\n  it(\"doesn't change any state if any other action is passed\",()=>{\n    const action = {type:\"OTHER_ACTION\"};\n\n    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};\n\n    const result = login(initialState,action);\n    assert(result.status === initialState.status);\n    assert(result.user === initialState.user);\n  });\n});\n",
+    "name": "test/component/loginform.test.js",
+    "content": "const assert = require(\"assert\");\nimport LoginForm from '../../src/component/loginform';\nimport {LOGIN_STATUS} from '../../src/const/login';\nimport TextField from 'material-ui/TextField';\nimport RaisedButton from 'material-ui/RaisedButton';\nimport sinon from 'sinon';\nimport React from 'react';\nimport {shallow} from 'enzyme';\n\ndescribe(\"<LoginForm />\",()=>{\n  it(\"renders two <TextField /> and one <RaisedButton />\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const wrapper = shallow(<LoginForm {...props} />);\n\n    assert(wrapper.find(TextField).length == 2);\n    assert(wrapper.find(RaisedButton).length == 1);\n\n  });\n});\n",
     "static": true,
-    "longname": "test/reducer/login.test.js",
+    "longname": "test/component/loginform.test.js",
     "access": null,
     "description": null,
     "lineNumber": 1
@@ -5410,10 +5410,47 @@
     "kind": "testDescribe",
     "name": "describe8",
     "testId": 8,
+    "memberof": "test/component/loginform.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/component/loginform.test.js~describe8",
+    "access": null,
+    "description": "<LoginForm />",
+    "lineNumber": 10
+  },
+  {
+    "__docId__": 262,
+    "kind": "testIt",
+    "name": "it9",
+    "testId": 9,
+    "memberof": "test/component/loginform.test.js~describe8",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/component/loginform.test.js~describe8.it9",
+    "access": null,
+    "description": "renders two <TextField /> and one <RaisedButton />",
+    "lineNumber": 11
+  },
+  {
+    "__docId__": 263,
+    "kind": "testFile",
+    "name": "test/reducer/login.test.js",
+    "content": "const assert = require(\"assert\");\nimport {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from \"../../src/action/login\";\nimport {LOGIN_STATUS} from \"../../src/const/login\"\nimport login from \"../../src/reducer/login\"\n\nconst dummyUserData = {userid:\"mike\",name:\"Mike\",token:\"dummy\"};\n/**@test {login}*/\ndescribe(\"login reducer\",()=>{\n  //LOGIN_SUCCESSアクションが渡された場合、'status'をLOGIN_STATUS.SUCCESSに変更し、'user'をactionのpayloadに変更する\n  it(\"changes 'status' state to LOGIN_STATUS.SUCCESS and changes 'user' state to payload of action if LOGIN_SUCCESS action is passed\",()=>{\n    const action = {\n      type:LOGIN_SUCCESS,\n      payload:dummyUserData\n    };\n\n    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.SUCCESS);\n    assert(result.user === action.payload);\n  });\n  //LOGIN_FAILUREアクションが渡された場合、'status'をLOGIN_STATUS.FAILUREに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.FAILURE and changes 'user' state to empty object if LOGIN_FAILURE action is passed\",()=>{\n    const action = {type:LOGIN_FAILURE};\n\n    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.FAILURE);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //LOGOUT_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGOUT_REQUESTED action is passed\",()=>{\n    const action = {type:LOGOUT_REQUESTED};\n\n    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.NOTYET);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //LOGIN_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action\",()=>{\n    const action = {type:LOGIN_REQUESTED};\n\n    const initialState = {status:LOGIN_STATUS.FAILURE,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.NOTYET);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //その他のアクションが渡された場合はstateを変更しない\n  it(\"doesn't change any state if any other action is passed\",()=>{\n    const action = {type:\"OTHER_ACTION\"};\n\n    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};\n\n    const result = login(initialState,action);\n    assert(result.status === initialState.status);\n    assert(result.user === initialState.user);\n  });\n});\n",
+    "static": true,
+    "longname": "test/reducer/login.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 264,
+    "kind": "testDescribe",
+    "name": "describe10",
+    "testId": 10,
     "memberof": "test/reducer/login.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe8",
+    "longname": "test/reducer/login.test.js~describe10",
     "access": null,
     "description": "login reducer",
     "lineNumber": 8,
@@ -5428,75 +5465,75 @@
     ]
   },
   {
-    "__docId__": 262,
+    "__docId__": 265,
     "kind": "testIt",
-    "name": "it9",
-    "testId": 9,
-    "memberof": "test/reducer/login.test.js~describe8",
+    "name": "it11",
+    "testId": 11,
+    "memberof": "test/reducer/login.test.js~describe10",
     "testDepth": 1,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe8.it9",
+    "longname": "test/reducer/login.test.js~describe10.it11",
     "access": null,
     "description": "changes 'status' state to LOGIN_STATUS.SUCCESS and changes 'user' state to payload of action if LOGIN_SUCCESS action is passed",
     "lineNumber": 10
   },
   {
-    "__docId__": 263,
+    "__docId__": 266,
     "kind": "testIt",
-    "name": "it10",
-    "testId": 10,
-    "memberof": "test/reducer/login.test.js~describe8",
+    "name": "it12",
+    "testId": 12,
+    "memberof": "test/reducer/login.test.js~describe10",
     "testDepth": 1,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe8.it10",
+    "longname": "test/reducer/login.test.js~describe10.it12",
     "access": null,
     "description": "changes 'status' state to LOGIN_STATUS.FAILURE and changes 'user' state to empty object if LOGIN_FAILURE action is passed",
     "lineNumber": 23
   },
   {
-    "__docId__": 264,
+    "__docId__": 267,
     "kind": "testIt",
-    "name": "it11",
-    "testId": 11,
-    "memberof": "test/reducer/login.test.js~describe8",
+    "name": "it13",
+    "testId": 13,
+    "memberof": "test/reducer/login.test.js~describe10",
     "testDepth": 1,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe8.it11",
+    "longname": "test/reducer/login.test.js~describe10.it13",
     "access": null,
     "description": "changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGOUT_REQUESTED action is passed",
     "lineNumber": 33
   },
   {
-    "__docId__": 265,
+    "__docId__": 268,
     "kind": "testIt",
-    "name": "it12",
-    "testId": 12,
-    "memberof": "test/reducer/login.test.js~describe8",
+    "name": "it14",
+    "testId": 14,
+    "memberof": "test/reducer/login.test.js~describe10",
     "testDepth": 1,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe8.it12",
+    "longname": "test/reducer/login.test.js~describe10.it14",
     "access": null,
     "description": "changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action",
     "lineNumber": 43
   },
   {
-    "__docId__": 266,
+    "__docId__": 269,
     "kind": "testIt",
-    "name": "it13",
-    "testId": 13,
-    "memberof": "test/reducer/login.test.js~describe8",
+    "name": "it15",
+    "testId": 15,
+    "memberof": "test/reducer/login.test.js~describe10",
     "testDepth": 1,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe8.it13",
+    "longname": "test/reducer/login.test.js~describe10.it15",
     "access": null,
     "description": "doesn't change any state if any other action is passed",
     "lineNumber": 53
   },
   {
-    "__docId__": 267,
+    "__docId__": 270,
     "kind": "testFile",
     "name": "test/saga/login.test.js",
-    "content": "const assert = require(\"assert\");\nimport {loginSaga,loginTask,logoutSaga,loginFailureSaga,cleanRememberMeTask,loginFromRememberMeSaga} from '../../src/saga/login';\nimport {LOGIN_REQUESTED,LOGOUT_REQUESTED,LOGIN_FAILURE,loginRequested,loginSuccess,loginFailure} from '../../src/action/login';\nimport {take,takeEvery,fork,call,put} from 'redux-saga/effects';\nimport {getApiBaseURL} from  '../../src/module/environment';\nimport axios from \"axios\";\n\nconst BASE_API_URL = getApiBaseURL();\n\ndescribe(\"login Saga\",()=>{\n  //すべてのLOGIN_REQUESTEDを受け取り、loginTaskに受け渡す\n  it(\"takes every LOGIN_REQUESTED action and pass it to loginTask\",()=>{\n    const gen = loginSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGIN_REQUESTED,loginTask));\n  });\n});\n\ndescribe(\"login Task\",()=>{\n  //ログインが成功した場合、LOGIN_SUCCESSアクションをputする\n  it(\"puts LOGIN_SUCCESS action if the server returns login success\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"test\"\n      }\n    };\n\n    const mockTokenReturn = {\n      token:\"mockToken\"\n    };\n\n    const mockUserDataReturn = {\n      id:\"test\",\n      name:\"テスト\"\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(true);//localStorageへの保存は成功したものとする\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n\n    rtn = gen.next({data:mockTokenReturn});//mockTokenReturnがAPIから返ってきたものとする\n    //mockTokenReturnで返ってきたtokenを使ってuser APIへアクセスする\n    assert.deepEqual(rtn.value, call(axios,{\n      method:\"GET\",\n      url:BASE_API_URL + \"user\",\n      headers:{\"Authorization\":\"Bearer \" + mockTokenReturn.token}\n    }));\n\n    rtn = gen.next({data:mockUserDataReturn});//APIからmockUserDataReturnが返ってきたものとする\n    //APIからの戻り値を使用して、LOGIN_SUCCESSアクションを作成してPUTする\n    assert.deepEqual(rtn.value, put(loginSuccess({\n      userid:mockUserDataReturn.id,\n      name:mockUserDataReturn.name,\n      token:mockTokenReturn.token\n    })));\n\n    rtn = gen.next();\n    assert(rtn.done);\n\n  });\n  //ログインに失敗した場合はLOGIN_FAILUREアクションをPUTする\n  it(\"puts LOGIN_FAILURE action if the server returns login failure\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"invalid_pass\"\n      }\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(true);//localStorageへの保存は成功したものとする\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n\n    rtn = gen.throw(new Error(\"API returns not 200 STATUS CODE\"));\n    assert.deepEqual(rtn.value, put(loginFailure()));\n\n    rtn = gen.next();\n    assert(rtn.done);\n  });\n  //rememberMeデータの保存に失敗しても処理を続ける\n  it(\"proceeds processing even if rememberMe function is not available.\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"test\"\n      }\n    };\n\n    const mockTokenReturn = {\n      token:\"mockToken\"\n    };\n\n    const mockUserDataReturn = {\n      id:\"test\",\n      name:\"テスト\"\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(false);//localStorageへの保存が失敗\n    assert(!rtn.done); //処理が止まっていない\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n  });\n});\n\ndescribe(\"logout Saga\",()=>{\n  //すべてのLOGOUT_REQUESTEDアクションを受け取って、cleanRememberMeTaskに引き渡す\n  it(\"takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask\",()=>{\n    const gen = logoutSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask));\n  });\n});\n\ndescribe(\"loginFailure Saga\",()=>{\n  //すべてのLOGIN_FAILUREアクションを受け取って、cleanRememberMeTaskに引き渡す\n  it(\"takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask\",()=>{\n    const gen = loginFailureSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGIN_FAILURE,cleanRememberMeTask));\n  });\n});\n\ndescribe(\"cleanRememberMe Task\",()=>{\n  //RememberMe用のデータを削除しようとする\n  it(\"tries to clean RememberMe data\",()=>{\n    const gen = cleanRememberMeTask();\n    let ret = gen.next();\n\n    ret = gen.next(true);//localStorageへのアクセスは成功したとする\n    assert(ret.done);\n  })\n});\n\ndescribe(\"loginFromRememberMe Saga\",()=>{\n  //rememberMeのデータが有効である場合、LOGIN_REQUESTEDアクションをputする\n  it(\"puts LOGIN_REQUESTED action if rememberMe data is available\",()=>{\n    const mockRememberMe = {\n      id:\"test\",\n      pass:\"test\"\n    };\n    const gen = loginFromRememberMeSaga();\n    let ret = gen.next();\n\n    ret = gen.next(true);//localStorage上にrememberMeデータがあるものとする\n    ret = gen.next(mockRememberMe)//mockRememberMeがストレージ上から取得できたものとする\n    assert.deepEqual(ret.value,put(loginRequested(mockRememberMe.id,mockRememberMe.pass)));\n    ret = gen.next();\n    assert(ret.done);\n  });\n  //rememberMeのデータがない場合、アクションをputしない\n  it(\"doesn't put any actions if rememberMe is not available\",()=>{\n    const gen = loginFromRememberMeSaga();\n    let ret = gen.next();\n\n    ret = gen.next(false);\n    assert(ret.done);\n  });\n});\n",
+    "content": "const assert = require(\"assert\");\nimport {loginSaga,loginTask,logoutSaga,loginFailureSaga,cleanRememberMeTask,loginFromRememberMeSaga} from '../../src/saga/login';\nimport {LOGIN_REQUESTED,LOGOUT_REQUESTED,LOGIN_FAILURE,loginRequested,loginSuccess,loginFailure} from '../../src/action/login';\nimport {take,takeEvery,fork,call,put} from 'redux-saga/effects';\nimport {getApiBaseURL} from  '../../src/module/environment';\nimport axios from \"axios\";\n\nconst BASE_API_URL = getApiBaseURL();\n/**@test {loginSaga}*/\ndescribe(\"login Saga\",()=>{\n  //すべてのLOGIN_REQUESTEDを受け取り、loginTaskに受け渡す\n  it(\"takes every LOGIN_REQUESTED action and pass it to loginTask\",()=>{\n    const gen = loginSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGIN_REQUESTED,loginTask));\n  });\n});\n/**@test {loginTask}*/\ndescribe(\"login Task\",()=>{\n  //ログインが成功した場合、LOGIN_SUCCESSアクションをputする\n  it(\"puts LOGIN_SUCCESS action if the server returns login success\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"test\"\n      }\n    };\n\n    const mockTokenReturn = {\n      token:\"mockToken\"\n    };\n\n    const mockUserDataReturn = {\n      id:\"test\",\n      name:\"テスト\"\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(true);//localStorageへの保存は成功したものとする\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n\n    rtn = gen.next({data:mockTokenReturn});//mockTokenReturnがAPIから返ってきたものとする\n    //mockTokenReturnで返ってきたtokenを使ってuser APIへアクセスする\n    assert.deepEqual(rtn.value, call(axios,{\n      method:\"GET\",\n      url:BASE_API_URL + \"user\",\n      headers:{\"Authorization\":\"Bearer \" + mockTokenReturn.token}\n    }));\n\n    rtn = gen.next({data:mockUserDataReturn});//APIからmockUserDataReturnが返ってきたものとする\n    //APIからの戻り値を使用して、LOGIN_SUCCESSアクションを作成してPUTする\n    assert.deepEqual(rtn.value, put(loginSuccess({\n      userid:mockUserDataReturn.id,\n      name:mockUserDataReturn.name,\n      token:mockTokenReturn.token\n    })));\n\n    rtn = gen.next();\n    assert(rtn.done);\n\n  });\n  //ログインに失敗した場合はLOGIN_FAILUREアクションをPUTする\n  it(\"puts LOGIN_FAILURE action if the server returns login failure\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"invalid_pass\"\n      }\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(true);//localStorageへの保存は成功したものとする\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n\n    rtn = gen.throw(new Error(\"API returns not 200 STATUS CODE\"));\n    assert.deepEqual(rtn.value, put(loginFailure()));\n\n    rtn = gen.next();\n    assert(rtn.done);\n  });\n  //rememberMeデータの保存に失敗しても処理を続ける\n  it(\"proceeds processing even if rememberMe function is not available.\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"test\"\n      }\n    };\n\n    const mockTokenReturn = {\n      token:\"mockToken\"\n    };\n\n    const mockUserDataReturn = {\n      id:\"test\",\n      name:\"テスト\"\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(false);//localStorageへの保存が失敗\n    assert(!rtn.done); //処理が止まっていない\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n  });\n});\n/**@test logoutSaga*/\ndescribe(\"logout Saga\",()=>{\n  //すべてのLOGOUT_REQUESTEDアクションを受け取って、cleanRememberMeTaskに引き渡す\n  it(\"takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask\",()=>{\n    const gen = logoutSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask));\n  });\n});\n/**@test {loginFailure}*/\ndescribe(\"loginFailure Saga\",()=>{\n  //すべてのLOGIN_FAILUREアクションを受け取って、cleanRememberMeTaskに引き渡す\n  it(\"takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask\",()=>{\n    const gen = loginFailureSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGIN_FAILURE,cleanRememberMeTask));\n  });\n});\n/**@test {cleanRememberMeTask}*/\ndescribe(\"cleanRememberMe Task\",()=>{\n  //RememberMe用のデータを削除しようとする\n  it(\"tries to clean RememberMe data\",()=>{\n    const gen = cleanRememberMeTask();\n    let ret = gen.next();\n\n    ret = gen.next(true);//localStorageへのアクセスは成功したとする\n    assert(ret.done);\n  })\n});\n/**@test {loginFromRememberMeSaga}*/\ndescribe(\"loginFromRememberMe Saga\",()=>{\n  //rememberMeのデータが有効である場合、LOGIN_REQUESTEDアクションをputする\n  it(\"puts LOGIN_REQUESTED action if rememberMe data is available\",()=>{\n    const mockRememberMe = {\n      id:\"test\",\n      pass:\"test\"\n    };\n    const gen = loginFromRememberMeSaga();\n    let ret = gen.next();\n\n    ret = gen.next(true);//localStorage上にrememberMeデータがあるものとする\n    ret = gen.next(mockRememberMe)//mockRememberMeがストレージ上から取得できたものとする\n    assert.deepEqual(ret.value,put(loginRequested(mockRememberMe.id,mockRememberMe.pass)));\n    ret = gen.next();\n    assert(ret.done);\n  });\n  //rememberMeのデータがない場合、アクションをputしない\n  it(\"doesn't put any actions if rememberMe is not available\",()=>{\n    const gen = loginFromRememberMeSaga();\n    let ret = gen.next();\n\n    ret = gen.next(false);\n    assert(ret.done);\n  });\n});\n",
     "static": true,
     "longname": "test/saga/login.test.js",
     "access": null,
@@ -5504,33 +5541,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 268,
-    "kind": "testDescribe",
-    "name": "describe14",
-    "testId": 14,
-    "memberof": "test/saga/login.test.js",
-    "testDepth": 0,
-    "static": true,
-    "longname": "test/saga/login.test.js~describe14",
-    "access": null,
-    "description": "login Saga",
-    "lineNumber": 10
-  },
-  {
-    "__docId__": 269,
-    "kind": "testIt",
-    "name": "it15",
-    "testId": 15,
-    "memberof": "test/saga/login.test.js~describe14",
-    "testDepth": 1,
-    "static": true,
-    "longname": "test/saga/login.test.js~describe14.it15",
-    "access": null,
-    "description": "takes every LOGIN_REQUESTED action and pass it to loginTask",
-    "lineNumber": 12
-  },
-  {
-    "__docId__": 270,
+    "__docId__": 271,
     "kind": "testDescribe",
     "name": "describe16",
     "testId": 16,
@@ -5539,11 +5550,20 @@
     "static": true,
     "longname": "test/saga/login.test.js~describe16",
     "access": null,
-    "description": "login Task",
-    "lineNumber": 21
+    "description": "login Saga",
+    "lineNumber": 10,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{loginSaga}"
+      }
+    ],
+    "testTargets": [
+      "loginSaga"
+    ]
   },
   {
-    "__docId__": 271,
+    "__docId__": 272,
     "kind": "testIt",
     "name": "it17",
     "testId": 17,
@@ -5552,63 +5572,72 @@
     "static": true,
     "longname": "test/saga/login.test.js~describe16.it17",
     "access": null,
+    "description": "takes every LOGIN_REQUESTED action and pass it to loginTask",
+    "lineNumber": 12
+  },
+  {
+    "__docId__": 273,
+    "kind": "testDescribe",
+    "name": "describe18",
+    "testId": 18,
+    "memberof": "test/saga/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe18",
+    "access": null,
+    "description": "login Task",
+    "lineNumber": 21,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{loginTask}"
+      }
+    ],
+    "testTargets": [
+      "loginTask"
+    ]
+  },
+  {
+    "__docId__": 274,
+    "kind": "testIt",
+    "name": "it19",
+    "testId": 19,
+    "memberof": "test/saga/login.test.js~describe18",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe18.it19",
+    "access": null,
     "description": "puts LOGIN_SUCCESS action if the server returns login success",
     "lineNumber": 23
   },
   {
-    "__docId__": 272,
+    "__docId__": 275,
     "kind": "testIt",
-    "name": "it18",
-    "testId": 18,
-    "memberof": "test/saga/login.test.js~describe16",
+    "name": "it20",
+    "testId": 20,
+    "memberof": "test/saga/login.test.js~describe18",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe16.it18",
+    "longname": "test/saga/login.test.js~describe18.it20",
     "access": null,
     "description": "puts LOGIN_FAILURE action if the server returns login failure",
     "lineNumber": 75
   },
   {
-    "__docId__": 273,
+    "__docId__": 276,
     "kind": "testIt",
-    "name": "it19",
-    "testId": 19,
-    "memberof": "test/saga/login.test.js~describe16",
+    "name": "it21",
+    "testId": 21,
+    "memberof": "test/saga/login.test.js~describe18",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe16.it19",
+    "longname": "test/saga/login.test.js~describe18.it21",
     "access": null,
     "description": "proceeds processing even if rememberMe function is not available.",
     "lineNumber": 104
   },
   {
-    "__docId__": 274,
-    "kind": "testDescribe",
-    "name": "describe20",
-    "testId": 20,
-    "memberof": "test/saga/login.test.js",
-    "testDepth": 0,
-    "static": true,
-    "longname": "test/saga/login.test.js~describe20",
-    "access": null,
-    "description": "logout Saga",
-    "lineNumber": 138
-  },
-  {
-    "__docId__": 275,
-    "kind": "testIt",
-    "name": "it21",
-    "testId": 21,
-    "memberof": "test/saga/login.test.js~describe20",
-    "testDepth": 1,
-    "static": true,
-    "longname": "test/saga/login.test.js~describe20.it21",
-    "access": null,
-    "description": "takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask",
-    "lineNumber": 140
-  },
-  {
-    "__docId__": 276,
+    "__docId__": 277,
     "kind": "testDescribe",
     "name": "describe22",
     "testId": 22,
@@ -5617,11 +5646,20 @@
     "static": true,
     "longname": "test/saga/login.test.js~describe22",
     "access": null,
-    "description": "loginFailure Saga",
-    "lineNumber": 149
+    "description": "logout Saga",
+    "lineNumber": 138,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "logoutSaga"
+      }
+    ],
+    "testTargets": [
+      "*"
+    ]
   },
   {
-    "__docId__": 277,
+    "__docId__": 278,
     "kind": "testIt",
     "name": "it23",
     "testId": 23,
@@ -5630,11 +5668,11 @@
     "static": true,
     "longname": "test/saga/login.test.js~describe22.it23",
     "access": null,
-    "description": "takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask",
-    "lineNumber": 151
+    "description": "takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask",
+    "lineNumber": 140
   },
   {
-    "__docId__": 278,
+    "__docId__": 279,
     "kind": "testDescribe",
     "name": "describe24",
     "testId": 24,
@@ -5643,11 +5681,20 @@
     "static": true,
     "longname": "test/saga/login.test.js~describe24",
     "access": null,
-    "description": "cleanRememberMe Task",
-    "lineNumber": 160
+    "description": "loginFailure Saga",
+    "lineNumber": 149,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{loginFailure}"
+      }
+    ],
+    "testTargets": [
+      "loginFailure"
+    ]
   },
   {
-    "__docId__": 279,
+    "__docId__": 280,
     "kind": "testIt",
     "name": "it25",
     "testId": 25,
@@ -5656,11 +5703,11 @@
     "static": true,
     "longname": "test/saga/login.test.js~describe24.it25",
     "access": null,
-    "description": "tries to clean RememberMe data",
-    "lineNumber": 162
+    "description": "takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask",
+    "lineNumber": 151
   },
   {
-    "__docId__": 280,
+    "__docId__": 281,
     "kind": "testDescribe",
     "name": "describe26",
     "testId": 26,
@@ -5669,11 +5716,20 @@
     "static": true,
     "longname": "test/saga/login.test.js~describe26",
     "access": null,
-    "description": "loginFromRememberMe Saga",
-    "lineNumber": 171
+    "description": "cleanRememberMe Task",
+    "lineNumber": 160,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{cleanRememberMeTask}"
+      }
+    ],
+    "testTargets": [
+      "cleanRememberMeTask"
+    ]
   },
   {
-    "__docId__": 281,
+    "__docId__": 282,
     "kind": "testIt",
     "name": "it27",
     "testId": 27,
@@ -5682,27 +5738,62 @@
     "static": true,
     "longname": "test/saga/login.test.js~describe26.it27",
     "access": null,
+    "description": "tries to clean RememberMe data",
+    "lineNumber": 162
+  },
+  {
+    "__docId__": 283,
+    "kind": "testDescribe",
+    "name": "describe28",
+    "testId": 28,
+    "memberof": "test/saga/login.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe28",
+    "access": null,
+    "description": "loginFromRememberMe Saga",
+    "lineNumber": 171,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{loginFromRememberMeSaga}"
+      }
+    ],
+    "testTargets": [
+      "loginFromRememberMeSaga"
+    ]
+  },
+  {
+    "__docId__": 284,
+    "kind": "testIt",
+    "name": "it29",
+    "testId": 29,
+    "memberof": "test/saga/login.test.js~describe28",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/login.test.js~describe28.it29",
+    "access": null,
     "description": "puts LOGIN_REQUESTED action if rememberMe data is available",
     "lineNumber": 173
   },
   {
-    "__docId__": 282,
+    "__docId__": 285,
     "kind": "testIt",
-    "name": "it28",
-    "testId": 28,
-    "memberof": "test/saga/login.test.js~describe26",
+    "name": "it30",
+    "testId": 30,
+    "memberof": "test/saga/login.test.js~describe28",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe26.it28",
+    "longname": "test/saga/login.test.js~describe28.it30",
     "access": null,
     "description": "doesn't put any actions if rememberMe is not available",
     "lineNumber": 188
   },
   {
-    "__docId__": 283,
+    "__docId__": 286,
     "kind": "testFile",
     "name": "test/saga/signup.test.js",
-    "content": "const assert = require(\"assert\");\nimport {signupSaga,signupTask} from '../../src/saga/signup';\nimport {put,call,takeEvery} from 'redux-saga/effects';\nimport {getApiBaseURL} from '../../src/module/environment';\nimport {SIGNUP_REQUIRED,signupSucceess,signupFailure} from '../../src/action/signup';\nimport {SIGNUP_FAILURE_REASONS} from '../../src/const/signup'\nimport {loginRequested} from '../../src/action/login';\nimport axios from \"axios\";\n\nconst BASE_API_URL = getApiBaseURL();\n\ndescribe(\"signup Saga\",()=>{\n  //常にSIGNUP_REQUIREDを受け付けて、signupTaskに引き渡す\n  it(\"takes every SIGNUP_REQUIRED action and pass it to signupTask\",()=>{\n    const gen = signupSaga();\n    let ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(SIGNUP_REQUIRED,signupTask));\n  });\n});\n\ndescribe(\"signup Task\",()=>{\n  //サーバからサインアップ成功が返って来れば、SIGNUP_SUCCESSアクションとLOGIN_REQUESTEDアクションをputする\n  it(\"puts SIGNUP_SUCCESS and LOGIN_REQUESTED action if server returns signup success\",()=>{\n    const testAction = {\n      type:SIGNUP_REQUIRED,\n      payload:{\n        id:\"test\",\n        password:\"test\",\n        name:\"テスト\"\n      }\n    };\n\n    const gen = signupTask(testAction);\n    let ret = gen.next();\n\n    assert.deepEqual(ret.value, call(axios.post,BASE_API_URL + \"user\",{\n      userid:testAction.payload.id,\n      password:testAction.payload.password,\n      name:testAction.payload.name}));\n\n    ret = gen.next({result:\"success\"});//SignUPに成功したものとする\n\n    assert.deepEqual(ret.value, put(signupSucceess()));\n    ret = gen.next();\n\n    assert.deepEqual(ret.value, put(loginRequested(testAction.payload.id,testAction.payload.password)));\n    ret = gen.next();\n\n    assert(ret.done);\n\n  });\n  it(\"puts SIGNUP_FAILURE action if server returns signup failure\",()=>{\n    const testAction = {\n      type:SIGNUP_REQUIRED,\n      payload:{\n        id:\"test\",\n        password:\"test\",\n        name:\"テスト\"\n      }\n    };\n\n    const gen = signupTask(testAction);\n    let ret = gen.next();\n\n    assert.deepEqual(ret.value, call(axios.post,BASE_API_URL + \"user\",{\n      userid:testAction.payload.id,\n      password:testAction.payload.password,\n      name:testAction.payload.name}));\n\n    ret = gen.throw(new Error(\"Server doesn't return 200 OK STATUS CODE\"));//SignUPに失敗したものとする\n    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい\n    assert.deepEqual(ret.value, put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED])));\n\n    ret = gen.next();\n    assert(ret.done);\n  });\n});\n",
+    "content": "const assert = require(\"assert\");\nimport {signupSaga,signupTask} from '../../src/saga/signup';\nimport {put,call,takeEvery} from 'redux-saga/effects';\nimport {getApiBaseURL} from '../../src/module/environment';\nimport {SIGNUP_REQUIRED,signupSucceess,signupFailure} from '../../src/action/signup';\nimport {SIGNUP_FAILURE_REASONS} from '../../src/const/signup'\nimport {loginRequested} from '../../src/action/login';\nimport axios from \"axios\";\n\nconst BASE_API_URL = getApiBaseURL();\n/**@test {signupSaga}*/\ndescribe(\"signup Saga\",()=>{\n  //常にSIGNUP_REQUIREDを受け付けて、signupTaskに引き渡す\n  it(\"takes every SIGNUP_REQUIRED action and pass it to signupTask\",()=>{\n    const gen = signupSaga();\n    let ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(SIGNUP_REQUIRED,signupTask));\n  });\n});\n/**@test {signupTask} */\ndescribe(\"signup Task\",()=>{\n  //サーバからサインアップ成功が返って来れば、SIGNUP_SUCCESSアクションとLOGIN_REQUESTEDアクションをputする\n  it(\"puts SIGNUP_SUCCESS and LOGIN_REQUESTED action if server returns signup success\",()=>{\n    const testAction = {\n      type:SIGNUP_REQUIRED,\n      payload:{\n        id:\"test\",\n        password:\"test\",\n        name:\"テスト\"\n      }\n    };\n\n    const gen = signupTask(testAction);\n    let ret = gen.next();\n\n    assert.deepEqual(ret.value, call(axios.post,BASE_API_URL + \"user\",{\n      userid:testAction.payload.id,\n      password:testAction.payload.password,\n      name:testAction.payload.name}));\n\n    ret = gen.next({result:\"success\"});//SignUPに成功したものとする\n\n    assert.deepEqual(ret.value, put(signupSucceess()));\n    ret = gen.next();\n\n    assert.deepEqual(ret.value, put(loginRequested(testAction.payload.id,testAction.payload.password)));\n    ret = gen.next();\n\n    assert(ret.done);\n\n  });\n  it(\"puts SIGNUP_FAILURE action if server returns signup failure\",()=>{\n    const testAction = {\n      type:SIGNUP_REQUIRED,\n      payload:{\n        id:\"test\",\n        password:\"test\",\n        name:\"テスト\"\n      }\n    };\n\n    const gen = signupTask(testAction);\n    let ret = gen.next();\n\n    assert.deepEqual(ret.value, call(axios.post,BASE_API_URL + \"user\",{\n      userid:testAction.payload.id,\n      password:testAction.payload.password,\n      name:testAction.payload.name}));\n\n    ret = gen.throw(new Error(\"Server doesn't return 200 OK STATUS CODE\"));//SignUPに失敗したものとする\n    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい\n    assert.deepEqual(ret.value, put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED])));\n\n    ret = gen.next();\n    assert(ret.done);\n  });\n});\n",
     "static": true,
     "longname": "test/saga/signup.test.js",
     "access": null,
@@ -5710,33 +5801,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 284,
-    "kind": "testDescribe",
-    "name": "describe29",
-    "testId": 29,
-    "memberof": "test/saga/signup.test.js",
-    "testDepth": 0,
-    "static": true,
-    "longname": "test/saga/signup.test.js~describe29",
-    "access": null,
-    "description": "signup Saga",
-    "lineNumber": 12
-  },
-  {
-    "__docId__": 285,
-    "kind": "testIt",
-    "name": "it30",
-    "testId": 30,
-    "memberof": "test/saga/signup.test.js~describe29",
-    "testDepth": 1,
-    "static": true,
-    "longname": "test/saga/signup.test.js~describe29.it30",
-    "access": null,
-    "description": "takes every SIGNUP_REQUIRED action and pass it to signupTask",
-    "lineNumber": 14
-  },
-  {
-    "__docId__": 286,
+    "__docId__": 287,
     "kind": "testDescribe",
     "name": "describe31",
     "testId": 31,
@@ -5745,11 +5810,20 @@
     "static": true,
     "longname": "test/saga/signup.test.js~describe31",
     "access": null,
-    "description": "signup Task",
-    "lineNumber": 23
+    "description": "signup Saga",
+    "lineNumber": 12,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{signupSaga}"
+      }
+    ],
+    "testTargets": [
+      "signupSaga"
+    ]
   },
   {
-    "__docId__": 287,
+    "__docId__": 288,
     "kind": "testIt",
     "name": "it32",
     "testId": 32,
@@ -5758,18 +5832,53 @@
     "static": true,
     "longname": "test/saga/signup.test.js~describe31.it32",
     "access": null,
+    "description": "takes every SIGNUP_REQUIRED action and pass it to signupTask",
+    "lineNumber": 14
+  },
+  {
+    "__docId__": 289,
+    "kind": "testDescribe",
+    "name": "describe33",
+    "testId": 33,
+    "memberof": "test/saga/signup.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/saga/signup.test.js~describe33",
+    "access": null,
+    "description": "signup Task",
+    "lineNumber": 23,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{signupTask}"
+      }
+    ],
+    "testTargets": [
+      "signupTask"
+    ]
+  },
+  {
+    "__docId__": 290,
+    "kind": "testIt",
+    "name": "it34",
+    "testId": 34,
+    "memberof": "test/saga/signup.test.js~describe33",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/saga/signup.test.js~describe33.it34",
+    "access": null,
     "description": "puts SIGNUP_SUCCESS and LOGIN_REQUESTED action if server returns signup success",
     "lineNumber": 25
   },
   {
-    "__docId__": 288,
+    "__docId__": 291,
     "kind": "testIt",
-    "name": "it33",
-    "testId": 33,
-    "memberof": "test/saga/signup.test.js~describe31",
+    "name": "it35",
+    "testId": 35,
+    "memberof": "test/saga/signup.test.js~describe33",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/signup.test.js~describe31.it33",
+    "longname": "test/saga/signup.test.js~describe33.it35",
     "access": null,
     "description": "puts SIGNUP_FAILURE action if server returns signup failure",
     "lineNumber": 54

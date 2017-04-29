@@ -1,5 +1,17 @@
 window.esdocSearchIndex = [
   [
+    "",
+    "test-file/test/component/loginform.test.js.html#lineNumber10",
+    "<LoginForm />",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/loginform.test.js.html#lineNumber11",
+    "<LoginForm /> renders two <TextField /> and one <RaisedButton />",
+    "test"
+  ],
+  [
     "kyo-do.co-ui/src/action/accountboard.js~account_info_modal_close",
     "variable/index.html#static-variable-ACCOUNT_INFO_MODAL_CLOSE",
     "<span>ACCOUNT_INFO_MODAL_CLOSE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
@@ -756,7 +768,7 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "",
+    "cleanremembermetask src/saga/login.js~cleanremembermetask,cleanremembermetask",
     "test-file/test/saga/login.test.js.html#lineNumber160",
     "cleanRememberMe Task",
     "test"
@@ -768,7 +780,7 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "",
+    "loginsaga src/saga/login.js~loginsaga,loginsaga",
     "test-file/test/saga/login.test.js.html#lineNumber10",
     "login Saga",
     "test"
@@ -780,7 +792,7 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "",
+    "logintask src/saga/login.js~logintask,logintask",
     "test-file/test/saga/login.test.js.html#lineNumber21",
     "login Task",
     "test"
@@ -840,7 +852,7 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "",
+    "loginfailure src/action/login.js~loginfailure,loginfailure",
     "test-file/test/saga/login.test.js.html#lineNumber149",
     "loginFailure Saga",
     "test"
@@ -864,7 +876,7 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "",
+    "loginfromremembermesaga src/saga/login.js~loginfromremembermesaga,loginfromremembermesaga",
     "test-file/test/saga/login.test.js.html#lineNumber171",
     "loginFromRememberMe Saga",
     "test"
@@ -906,7 +918,7 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "",
+    "* *,*",
     "test-file/test/saga/login.test.js.html#lineNumber138",
     "logout Saga",
     "test"
@@ -930,7 +942,7 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "",
+    "signupsaga src/saga/signup.js~signupsaga,signupsaga",
     "test-file/test/saga/signup.test.js.html#lineNumber12",
     "signup Saga",
     "test"
@@ -942,7 +954,7 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "",
+    "signuptask src/saga/signup.js~signuptask,signuptask",
     "test-file/test/saga/signup.test.js.html#lineNumber23",
     "signup Task",
     "test"
@@ -1395,6 +1407,12 @@ window.esdocSearchIndex = [
     "test/action/login.test.js",
     "test-file/test/action/login.test.js.html",
     "test/action/login.test.js",
+    "testFile"
+  ],
+  [
+    "test/component/loginform.test.js",
+    "test-file/test/component/loginform.test.js.html",
+    "test/component/loginform.test.js",
     "testFile"
   ],
   [
