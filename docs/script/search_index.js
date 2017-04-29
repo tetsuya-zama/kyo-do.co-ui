@@ -7,31 +7,31 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/component/loginform.test.js.html#lineNumber64",
+    "test-file/test/component/loginform.test.js.html#lineNumber68",
     "<LoginForm /> dispatches LOGIN_REQUESTED ation when button is clicked if two textboxes are not empty",
     "test"
   ],
   [
     "",
-    "test-file/test/component/loginform.test.js.html#lineNumber53",
+    "test-file/test/component/loginform.test.js.html#lineNumber56",
     "<LoginForm /> doesn't dispatch any actions when button is clicked if two textboxes are empty",
     "test"
   ],
   [
     "",
-    "test-file/test/component/loginform.test.js.html#lineNumber40",
+    "test-file/test/component/loginform.test.js.html#lineNumber42",
     "<LoginForm /> doesn't render login failure message if login status is not LOGIN_STATUS.FAILURE",
     "test"
   ],
   [
     "",
-    "test-file/test/component/loginform.test.js.html#lineNumber13",
+    "test-file/test/component/loginform.test.js.html#lineNumber14",
     "<LoginForm /> renders 'userid' textbox, 'password' textbox and one login button",
     "test"
   ],
   [
     "",
-    "test-file/test/component/loginform.test.js.html#lineNumber27",
+    "test-file/test/component/loginform.test.js.html#lineNumber28",
     "<LoginForm /> renders login failure message if login status is LOGIN_STATUS.FAILURE",
     "test"
   ],
