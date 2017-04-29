@@ -2,8 +2,6 @@ const assert = require("assert");
 import LoginForm from '../../src/component/loginform';
 import {LOGIN_STATUS} from '../../src/const/login';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom'
@@ -23,16 +21,17 @@ const mountWithMUI = (node) =>{
 
 /**@test {LoginForm}*/
 describe("<LoginForm />",()=>{
-  it("renders two <TextField /> and one <RaisedButton />",()=>{
+  it("renders 'userid' textbox, 'password' textbox and one login button",()=>{
     const props = {
       dispatch : sinon.spy(),
       login : {status: LOGIN_STATUS.NOTYET}
     };
 
-    const wrapper = shallow(<LoginForm {...props} />);
+    const wrapper = mountWithMUI(<LoginForm {...props} />);
 
-    assert(wrapper.find(TextField).length == 2);
-    assert(wrapper.find(RaisedButton).length == 1);
+    assert.ok(wrapper.ref("userid").find("input"));
+    assert.ok(wrapper.ref("password").find("input"));
+    assert.ok(wrapper.ref("loginbutton").find("button"));
 
   });
 
@@ -69,7 +68,7 @@ describe("<LoginForm />",()=>{
     };
 
     const wrapper = mountWithMUI(<LoginForm {...props} />);
-    wrapper.find(RaisedButton).find("button").simulate("click");
+    wrapper.ref("loginbutton").find("button").simulate("click");
     assert(!props.dispatch.called);
   });
 
@@ -90,7 +89,7 @@ describe("<LoginForm />",()=>{
     wrapper.ref("password").find("input").simulate("change",{target:{value:dummyInputs.pass}});
 
 
-    wrapper.find(RaisedButton).find("button").simulate("click");
+    wrapper.ref("loginbutton").find("button").simulate("click");
 
     assert(props.dispatch.called);
     assert.deepEqual(props.dispatch.getCall(0).args[0],loginRequested(dummyInputs.id,dummyInputs.pass));

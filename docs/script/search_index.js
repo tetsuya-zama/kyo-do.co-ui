@@ -1,38 +1,38 @@
 window.esdocSearchIndex = [
   [
     "loginform src/component/loginform.js~loginform,loginform",
-    "test-file/test/component/loginform.test.js.html#lineNumber25",
+    "test-file/test/component/loginform.test.js.html#lineNumber23",
     "<LoginForm />",
     "test"
   ],
   [
     "",
-    "test-file/test/component/loginform.test.js.html#lineNumber76",
+    "test-file/test/component/loginform.test.js.html#lineNumber75",
     "<LoginForm /> dispatches LOGIN_REQUESTED ation when button is clicked if two textboxes are not empty",
     "test"
   ],
   [
     "",
-    "test-file/test/component/loginform.test.js.html#lineNumber65",
+    "test-file/test/component/loginform.test.js.html#lineNumber64",
     "<LoginForm /> doesn't dispatch any actions when button is clicked if two textboxes are empty",
     "test"
   ],
   [
     "",
-    "test-file/test/component/loginform.test.js.html#lineNumber52",
+    "test-file/test/component/loginform.test.js.html#lineNumber51",
     "<LoginForm /> doesn't render login failure message if login status is not LOGIN_STATUS.FAILURE",
     "test"
   ],
   [
     "",
-    "test-file/test/component/loginform.test.js.html#lineNumber39",
-    "<LoginForm /> renders login failure message if login status is LOGIN_STATUS.FAILURE",
+    "test-file/test/component/loginform.test.js.html#lineNumber24",
+    "<LoginForm /> renders 'userid' textbox, 'password' textbox and one login button",
     "test"
   ],
   [
     "",
-    "test-file/test/component/loginform.test.js.html#lineNumber26",
-    "<LoginForm /> renders two <TextField /> and one <RaisedButton />",
+    "test-file/test/component/loginform.test.js.html#lineNumber38",
+    "<LoginForm /> renders login failure message if login status is LOGIN_STATUS.FAILURE",
     "test"
   ],
   [

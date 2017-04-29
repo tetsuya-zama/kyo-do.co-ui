@@ -79,7 +79,7 @@ export default class LoginForm extends React.Component{
           />
         <br />
         <br />
-        <RaisedButton onClick={this.hundleSubmit} label="Login"/>
+        <RaisedButton onClick={this.hundleSubmit} label="Login" ref="loginbutton"/>
         <br />
         <span style={{color:"red"}}>{message}</span>
       </div>

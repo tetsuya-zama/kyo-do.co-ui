@@ -1932,7 +1932,7 @@
     "__docId__": 81,
     "kind": "file",
     "name": "src/component/loginform.js",
-    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {loginRequested} from '../action/login'\nimport {LOGIN_STATUS} from '../const/login'\nimport TextField from 'material-ui/TextField'\nimport RaisedButton from 'material-ui/RaisedButton'\n\n/**\n* LoginFormコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class LoginForm extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    this.state = {current_id_text:\"\",current_pass_text:\"\"};\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleSubmit = this.hundleSubmit.bind(this);\n    this.hundleIDChange = this.hundleIDChange.bind(this);\n    this.hundlePassChange = this.hundlePassChange.bind(this);\n  }\n\n  /**\n  * ログインボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleSubmit(){\n    /*\n    *入力されたID/Passを取得して、\n    *それを元にLOGIN_REQUESTED(ログイン要求)アクションを作成してdispatchする\n    */\n    const userid = this.state.current_id_text.trim();\n    const password = this.state.current_pass_text.trim();\n    if(userid && password){\n      this.props.dispatch(loginRequested(userid,password));\n    }\n  }\n\n  hundleIDChange(event,newValue){\n    this.setState({current_id_text:newValue});\n  }\n\n  hundlePassChange(event,newValue){\n    this.setState({current_pass_text:newValue});\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //現在の状態がLOGIN_STATUS.FAILURE(ログイン失敗)であれば失敗メッセージを表示する\n    const message = this.props.login.status == LOGIN_STATUS.FAILURE ?\n      \"IDもしくはパスワードが正しくありません\" :\n      \"\";\n\n    return (\n      <div>\n        <h4>ログイン</h4>\n        <TextField\n        hintText=\"User ID\"\n        floatingLabelText=\"User ID\"\n        value={this.state.current_id_text}\n        ref=\"userid\"\n        onChange={this.hundleIDChange}\n        />\n        <br />\n        <TextField\n          hintText=\"Password\"\n          floatingLabelText=\"Password\"\n          type=\"password\"\n          value={this.state.current_pass_text}\n          ref=\"password\"\n          onChange={this.hundlePassChange}\n          />\n        <br />\n        <br />\n        <RaisedButton onClick={this.hundleSubmit} label=\"Login\"/>\n        <br />\n        <span style={{color:\"red\"}}>{message}</span>\n      </div>\n    );\n  }\n}\n",
+    "content": "import React from 'react'\nimport ReactDOM from 'react-dom'\nimport {loginRequested} from '../action/login'\nimport {LOGIN_STATUS} from '../const/login'\nimport TextField from 'material-ui/TextField'\nimport RaisedButton from 'material-ui/RaisedButton'\n\n/**\n* LoginFormコンポーネント\n* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0\n*/\nexport default class LoginForm extends React.Component{\n  /**\n  * コンストラクタ\n  * @param {Object} props プロパティ\n  * @return {undefined}\n  */\n  constructor(props){\n    super(props);\n    this.state = {current_id_text:\"\",current_pass_text:\"\"};\n    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...\n    this.hundleSubmit = this.hundleSubmit.bind(this);\n    this.hundleIDChange = this.hundleIDChange.bind(this);\n    this.hundlePassChange = this.hundlePassChange.bind(this);\n  }\n\n  /**\n  * ログインボタンのクリックをハンドリングするメソッド\n  * @return {undefined}\n  */\n  hundleSubmit(){\n    /*\n    *入力されたID/Passを取得して、\n    *それを元にLOGIN_REQUESTED(ログイン要求)アクションを作成してdispatchする\n    */\n    const userid = this.state.current_id_text.trim();\n    const password = this.state.current_pass_text.trim();\n    if(userid && password){\n      this.props.dispatch(loginRequested(userid,password));\n    }\n  }\n\n  hundleIDChange(event,newValue){\n    this.setState({current_id_text:newValue});\n  }\n\n  hundlePassChange(event,newValue){\n    this.setState({current_pass_text:newValue});\n  }\n\n  /**\n  * 描画メソッド\n  * @return {undefined}\n  */\n  render(){\n    //現在の状態がLOGIN_STATUS.FAILURE(ログイン失敗)であれば失敗メッセージを表示する\n    const message = this.props.login.status == LOGIN_STATUS.FAILURE ?\n      \"IDもしくはパスワードが正しくありません\" :\n      \"\";\n\n    return (\n      <div>\n        <h4>ログイン</h4>\n        <TextField\n        hintText=\"User ID\"\n        floatingLabelText=\"User ID\"\n        value={this.state.current_id_text}\n        ref=\"userid\"\n        onChange={this.hundleIDChange}\n        />\n        <br />\n        <TextField\n          hintText=\"Password\"\n          floatingLabelText=\"Password\"\n          type=\"password\"\n          value={this.state.current_pass_text}\n          ref=\"password\"\n          onChange={this.hundlePassChange}\n          />\n        <br />\n        <br />\n        <RaisedButton onClick={this.hundleSubmit} label=\"Login\" ref=\"loginbutton\"/>\n        <br />\n        <span style={{color:\"red\"}}>{message}</span>\n      </div>\n    );\n  }\n}\n",
     "static": true,
     "longname": "src/component/loginform.js",
     "access": null,
@@ -5398,7 +5398,7 @@
     "__docId__": 260,
     "kind": "testFile",
     "name": "test/component/loginform.test.js",
-    "content": "const assert = require(\"assert\");\nimport LoginForm from '../../src/component/loginform';\nimport {LOGIN_STATUS} from '../../src/const/login';\nimport MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';\nimport TextField from 'material-ui/TextField';\nimport RaisedButton from 'material-ui/RaisedButton';\nimport sinon from 'sinon';\nimport React from 'react';\nimport ReactDOM from 'react-dom'\nimport getMuiTheme from 'material-ui/styles/getMuiTheme';\nimport {shallow,mount} from 'enzyme';\nimport {loginRequested} from '../../src/action/login';\n\n//XXX mui周りは共通のUtil関数を作る\nconst muiTheme = getMuiTheme();\n\nconst mountWithMUI = (node) =>{\n  return mount(node,{\n    context: {muiTheme},\n    childContextTypes: {muiTheme: React.PropTypes.object}\n  });\n}\n\n/**@test {LoginForm}*/\ndescribe(\"<LoginForm />\",()=>{\n  it(\"renders two <TextField /> and one <RaisedButton />\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const wrapper = shallow(<LoginForm {...props} />);\n\n    assert(wrapper.find(TextField).length == 2);\n    assert(wrapper.find(RaisedButton).length == 1);\n\n  });\n\n  it(\"renders login failure message if login status is LOGIN_STATUS.FAILURE\", ()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.FAILURE}\n    };\n\n    const wrapper = shallow(<LoginForm {...props} />);\n\n    const loginFailureMessage = \"IDもしくはパスワードが正しくありません\";\n\n    assert(wrapper.text().indexOf(loginFailureMessage) >= 0);\n  });\n\n  it(\"doesn't render login failure message if login status is not LOGIN_STATUS.FAILURE\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const wrapper = shallow(<LoginForm {...props} />);\n\n    const loginFailureMessage = \"IDもしくはパスワードが正しくありません\";\n\n    assert(wrapper.text().indexOf(loginFailureMessage) < 0);\n  });\n\n  it(\"doesn't dispatch any actions when button is clicked if two textboxes are empty\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const wrapper = mountWithMUI(<LoginForm {...props} />);\n    wrapper.find(RaisedButton).find(\"button\").simulate(\"click\");\n    assert(!props.dispatch.called);\n  });\n\n  it(\"dispatches LOGIN_REQUESTED ation when button is clicked if two textboxes are not empty\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const dummyInputs = {\n      id:\"test\",\n      pass:\"pass\"\n    };\n\n    const wrapper = mountWithMUI(<LoginForm {...props} />);\n\n    wrapper.ref(\"userid\").find(\"input\").simulate(\"change\",{target:{value:dummyInputs.id}});\n    wrapper.ref(\"password\").find(\"input\").simulate(\"change\",{target:{value:dummyInputs.pass}});\n\n\n    wrapper.find(RaisedButton).find(\"button\").simulate(\"click\");\n\n    assert(props.dispatch.called);\n    assert.deepEqual(props.dispatch.getCall(0).args[0],loginRequested(dummyInputs.id,dummyInputs.pass));\n  });\n});\n",
+    "content": "const assert = require(\"assert\");\nimport LoginForm from '../../src/component/loginform';\nimport {LOGIN_STATUS} from '../../src/const/login';\nimport MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';\nimport sinon from 'sinon';\nimport React from 'react';\nimport ReactDOM from 'react-dom'\nimport getMuiTheme from 'material-ui/styles/getMuiTheme';\nimport {shallow,mount} from 'enzyme';\nimport {loginRequested} from '../../src/action/login';\n\n//XXX mui周りは共通のUtil関数を作る\nconst muiTheme = getMuiTheme();\n\nconst mountWithMUI = (node) =>{\n  return mount(node,{\n    context: {muiTheme},\n    childContextTypes: {muiTheme: React.PropTypes.object}\n  });\n}\n\n/**@test {LoginForm}*/\ndescribe(\"<LoginForm />\",()=>{\n  it(\"renders 'userid' textbox, 'password' textbox and one login button\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const wrapper = mountWithMUI(<LoginForm {...props} />);\n\n    assert.ok(wrapper.ref(\"userid\").find(\"input\"));\n    assert.ok(wrapper.ref(\"password\").find(\"input\"));\n    assert.ok(wrapper.ref(\"loginbutton\").find(\"button\"));\n\n  });\n\n  it(\"renders login failure message if login status is LOGIN_STATUS.FAILURE\", ()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.FAILURE}\n    };\n\n    const wrapper = shallow(<LoginForm {...props} />);\n\n    const loginFailureMessage = \"IDもしくはパスワードが正しくありません\";\n\n    assert(wrapper.text().indexOf(loginFailureMessage) >= 0);\n  });\n\n  it(\"doesn't render login failure message if login status is not LOGIN_STATUS.FAILURE\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const wrapper = shallow(<LoginForm {...props} />);\n\n    const loginFailureMessage = \"IDもしくはパスワードが正しくありません\";\n\n    assert(wrapper.text().indexOf(loginFailureMessage) < 0);\n  });\n\n  it(\"doesn't dispatch any actions when button is clicked if two textboxes are empty\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const wrapper = mountWithMUI(<LoginForm {...props} />);\n    wrapper.ref(\"loginbutton\").find(\"button\").simulate(\"click\");\n    assert(!props.dispatch.called);\n  });\n\n  it(\"dispatches LOGIN_REQUESTED ation when button is clicked if two textboxes are not empty\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const dummyInputs = {\n      id:\"test\",\n      pass:\"pass\"\n    };\n\n    const wrapper = mountWithMUI(<LoginForm {...props} />);\n\n    wrapper.ref(\"userid\").find(\"input\").simulate(\"change\",{target:{value:dummyInputs.id}});\n    wrapper.ref(\"password\").find(\"input\").simulate(\"change\",{target:{value:dummyInputs.pass}});\n\n\n    wrapper.ref(\"loginbutton\").find(\"button\").simulate(\"click\");\n\n    assert(props.dispatch.called);\n    assert.deepEqual(props.dispatch.getCall(0).args[0],loginRequested(dummyInputs.id,dummyInputs.pass));\n  });\n});\n",
     "static": true,
     "longname": "test/component/loginform.test.js",
     "access": null,
@@ -5416,7 +5416,7 @@
     "longname": "test/component/loginform.test.js~describe8",
     "access": null,
     "description": "<LoginForm />",
-    "lineNumber": 25,
+    "lineNumber": 23,
     "unknown": [
       {
         "tagName": "@test",
@@ -5437,8 +5437,8 @@
     "static": true,
     "longname": "test/component/loginform.test.js~describe8.it9",
     "access": null,
-    "description": "renders two <TextField /> and one <RaisedButton />",
-    "lineNumber": 26
+    "description": "renders 'userid' textbox, 'password' textbox and one login button",
+    "lineNumber": 24
   },
   {
     "__docId__": 263,
@@ -5451,7 +5451,7 @@
     "longname": "test/component/loginform.test.js~describe8.it10",
     "access": null,
     "description": "renders login failure message if login status is LOGIN_STATUS.FAILURE",
-    "lineNumber": 39
+    "lineNumber": 38
   },
   {
     "__docId__": 264,
@@ -5464,7 +5464,7 @@
     "longname": "test/component/loginform.test.js~describe8.it11",
     "access": null,
     "description": "doesn't render login failure message if login status is not LOGIN_STATUS.FAILURE",
-    "lineNumber": 52
+    "lineNumber": 51
   },
   {
     "__docId__": 265,
@@ -5477,7 +5477,7 @@
     "longname": "test/component/loginform.test.js~describe8.it12",
     "access": null,
     "description": "doesn't dispatch any actions when button is clicked if two textboxes are empty",
-    "lineNumber": 65
+    "lineNumber": 64
   },
   {
     "__docId__": 266,
@@ -5490,7 +5490,7 @@
     "longname": "test/component/loginform.test.js~describe8.it13",
     "access": null,
     "description": "dispatches LOGIN_REQUESTED ation when button is clicked if two textboxes are not empty",
-    "lineNumber": 76
+    "lineNumber": 75
   },
   {
     "__docId__": 267,
