@@ -22,11 +22,25 @@ module.exports = function(config) {
     reporters: ['mocha'],
 
     webpack: {
-      // karma watches the test entry points
-      // (you don't need to specify the entry option)
-      // webpack watches dependencies
-
-      // webpack configuration
+      devtool: 'inline-source-map', //just do inline source maps instead of the default
+      module: {
+        loaders: [
+          {
+            test: /\.js$/,
+            exclude: /\/node_modules\//,
+            loader: 'babel-loader',
+            query: {
+              presets: ['airbnb']
+            }
+          }
+        ]
+      },
+      externals: {
+        'cheerio': 'window',
+        'react/addons': true,
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
+      }
     },
 
     webpackMiddleware: {
