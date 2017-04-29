@@ -17,6 +17,8 @@ module.exports = function(config) {
       'test/**/*.js': ['webpack']
     },
 
+    browsers: ['Chrome'],
+
     reporters: ['mocha'],
 
     webpack: {
