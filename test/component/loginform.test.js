@@ -1,23 +1,12 @@
 const assert = require("assert");
 import LoginForm from '../../src/component/loginform';
 import {LOGIN_STATUS} from '../../src/const/login';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import sinon from 'sinon';
+import {mount,shallow} from 'enzyme';
 import React from 'react';
 import ReactDOM from 'react-dom'
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {shallow,mount} from 'enzyme';
 import {loginRequested} from '../../src/action/login';
-
-//XXX mui周りは共通のUtil関数を作る
-const muiTheme = getMuiTheme();
-
-const mountWithMUI = (node) =>{
-  return mount(node,{
-    context: {muiTheme},
-    childContextTypes: {muiTheme: React.PropTypes.object}
-  });
-}
+import {mountWithMUI} from './testutil';
 
 /**@test {LoginForm}*/
 describe("<LoginForm />",()=>{

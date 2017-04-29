@@ -44,7 +44,7 @@
     "webpack-dev-server": "^2.4.1"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-register -r .jsdom.setup.js test/**/*.js",
+    "test": "mocha --compilers js:babel-register -r .jsdom.setup.js test/**/*.test.js",
     "start": "webpack-dev-server --content-base dist/",
     "esdoc": "esdoc -c esdoc.json",
     "karma": "karma start"

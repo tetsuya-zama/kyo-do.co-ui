@@ -4,7 +4,7 @@ module.exports = function(config) {
     // ... normal karma configuration
     files: [
       // all files ending in "_test"
-      {pattern: 'test/**/*.js', watched: false},
+      {pattern: 'test/**/*.test.js', watched: false},
       // each file acts as entry point for the webpack configuration
     ],
 
