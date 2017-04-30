@@ -110,6 +110,8 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/reducer/signup.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {SIGNUP_SUCCESS,SIGNUP_FAILURE} from &apos;../action/signup&apos;
 
+const initialState = {failure_reason:[]};
+
 /**
 * &#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7; reducer
 * @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864
@@ -117,10 +119,10 @@
 * @param {Object} action dispatch&#x3055;&#x308C;&#x305F;action
 * @return {Object} &#x5909;&#x66F4;&#x5F8C;&#x306E;state
 */
-export default function signup(state={failure_reason:[]},action){
+export default function signup(state=initialState,action){
   switch(action.type){
     case(SIGNUP_SUCCESS):
-      return {failure_reason:[]};
+      return initialState;
     case(SIGNUP_FAILURE):
       return {failure_reason:action.payload};
     default:

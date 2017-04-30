@@ -3652,7 +3652,7 @@
     "__docId__": 149,
     "kind": "file",
     "name": "src/reducer/signup.js",
-    "content": "import {SIGNUP_SUCCESS,SIGNUP_FAILURE} from '../action/signup'\n\n/**\n* サインアップ reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function signup(state={failure_reason:[]},action){\n  switch(action.type){\n    case(SIGNUP_SUCCESS):\n      return {failure_reason:[]};\n    case(SIGNUP_FAILURE):\n      return {failure_reason:action.payload};\n    default:\n      return state;\n  }\n}\n",
+    "content": "import {SIGNUP_SUCCESS,SIGNUP_FAILURE} from '../action/signup'\n\nconst initialState = {failure_reason:[]};\n\n/**\n* サインアップ reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function signup(state=initialState,action){\n  switch(action.type){\n    case(SIGNUP_SUCCESS):\n      return initialState;\n    case(SIGNUP_FAILURE):\n      return {failure_reason:action.payload};\n    default:\n      return state;\n  }\n}\n",
     "static": true,
     "longname": "src/reducer/signup.js",
     "access": null,
@@ -3661,6 +3661,32 @@
   },
   {
     "__docId__": 150,
+    "kind": "variable",
+    "name": "initialState",
+    "memberof": "src/reducer/signup.js",
+    "static": true,
+    "longname": "src/reducer/signup.js~initialState",
+    "access": null,
+    "export": false,
+    "importPath": "kyo-do.co-ui/src/reducer/signup.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"failure_reason\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 151,
     "kind": "function",
     "name": "signup",
     "memberof": "src/reducer/signup.js",
@@ -3676,7 +3702,7 @@
     "see": [
       "http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864"
     ],
-    "lineNumber": 10,
+    "lineNumber": 12,
     "params": [
       {
         "nullable": null,
@@ -3709,7 +3735,7 @@
     }
   },
   {
-    "__docId__": 151,
+    "__docId__": 152,
     "kind": "file",
     "name": "src/reducer/suggestion.js",
     "content": "import {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from '../action/suggestion'\n\n/**\n* 自分の行き先 reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function suggestion(state={suggests:[\"EAST 8F\", \"EAST 3F\", \"宝町\", \"NRI 13F\", \"NRI 12F\"]},action){\n  switch(action.type){\n    case(SUGGESTION_CHANGE):\n      return action.payload;\n    case(SUGGESTION_CLEAR):\n      return {suggests:[]};\n    default:\n      return state;\n  }\n}\n",
@@ -3720,7 +3746,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 152,
+    "__docId__": 153,
     "kind": "function",
     "name": "suggestion",
     "memberof": "src/reducer/suggestion.js",
@@ -3769,7 +3795,7 @@
     }
   },
   {
-    "__docId__": 153,
+    "__docId__": 154,
     "kind": "file",
     "name": "src/saga/accountboard.js",
     "content": "import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'\nimport {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'\nimport {CHANGE_ACCOUNT_INFO} from '../action/accountboard'\nimport {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport axios from \"axios\";\n\n/**\n* アカウント情報変更要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* changeAccountInfoSaga(){\n  /*\n  * CHANGE_ACCOUNT_INFO(アカウント情報変更要求)アクションを常に待ち続け、\n  * dispatchされたらchangeAccountInfoTaskにactionを渡して実行する\n  */\n  yield takeEvery(CHANGE_ACCOUNT_INFO,changeAccountInfoTask);\n}\n/**\n* APIに対してID/Passを問い合わせて、\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\n*/\nfunction* changeAccountInfoTask(action){\n\n  const changeData = {};\n  if(action.payload.nextpass){\n    changeData.newPassword = action.payload.nextpass;\n  }\n  if(action.payload.nextname){\n    changeData.name = action.payload.nextname;\n  }\n\n\n  const id = yield select(state => state.login.user.userid);\n\n  //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない\n  try{\n    const token = yield select(state => state.login.user.token);\n    const result = yield call(axios, {\n      method:\"PUT\",\n      url:\"https://api.kyo-do.co/user\",\n      headers:{\"Authorization\":\"Bearer \" + token},\n      data: changeData\n    });\n    const name = (result.data.name)?\n      result.data.name:\n      yield select(state => state.login.user.name);\n    const id = yield select(state => state.login.user.userid);\n\n    yield put(loginSuccess({userid:id,name:name,token:token}));\n  }catch(e){\n    console.log('error');\n    //yield put(loginFailure());\n  }\n}\n",
@@ -3780,7 +3806,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 154,
+    "__docId__": 155,
     "kind": "function",
     "name": "changeAccountInfoSaga",
     "memberof": "src/saga/accountboard.js",
@@ -3800,7 +3826,7 @@
     "params": []
   },
   {
-    "__docId__": 155,
+    "__docId__": 156,
     "kind": "function",
     "name": "changeAccountInfoTask",
     "memberof": "src/saga/accountboard.js",
@@ -3828,7 +3854,7 @@
     ]
   },
   {
-    "__docId__": 156,
+    "__docId__": 157,
     "kind": "file",
     "name": "src/saga/board.js",
     "content": "import {take,put,select,takeEvery,call} from 'redux-saga/effects'\nimport {delay} from 'redux-saga'\nimport {updateMemberStatus} from '../action/board'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {LOGIN_STATUS} from '../const/login'\nimport {MY_DESTINATION_CHANGE,MY_DESTINATION_CLEAR} from '../action/mydestination'\nimport axios from \"axios\";\nimport {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from '../action/suggestion'\n\n/**\n* メンバー状況をpollingする間隔(ms)\n*/\nconst STATUS_POLLING_DURATION_MS= 15000;\n\n/**\n* メンバー状況をロードするSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loadMemberStatusSaga(){\n  yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);\n  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);\n  yield takeEvery(MY_DESTINATION_CLEAR,loadMemberStatusTask);\n  yield takeEvery(SUGGESTION_CHANGE,loadMemberStatusTask);\n  yield takeEvery(SUGGESTION_CLEAR,loadMemberStatusTask);\n}\n\n/**\n* メンバー状況をロードするTask\n*/\nfunction* loadMemberStatusTask(){\n  //TODO ダミー実装。本来はAPIから取得\n  const me = yield select(state => state.login.user);\n  const mydestination = yield select(state => state.mydestination);\n  const memberStatus = yield getMemberStatus(me,mydestination);\n  yield put(updateMemberStatus(memberStatus));\n}\n\n/**\n* メンバー状況を定期的に確認するSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* watchMemberStatusSaga(){\n  while(true){\n    const loginStatus = yield select(state => state.login.status);\n    if(loginStatus == LOGIN_STATUS.SUCCESS){\n      //TODO ダミー実装。本来はAPIから取得\n      const me = yield select(state => state.login.user);\n      const mydestination = yield select(state => state.mydestination);\n      const memberStatus = yield getMemberStatus(me,mydestination);\n      yield put(updateMemberStatus(memberStatus));\n    }\n    yield call(delay,STATUS_POLLING_DURATION_MS);\n  }\n}\n\n/**\n* メンバーの状況を返す\n* @param {Object} me 自分のユーザー情報\n* @param {Object} mydestination 自分の行き先\n* @return {Object} メンバー状況\n*/\nfunction* getMemberStatus(me,mydestination){\n  const token = yield select(state => state.login.user.token);\n  try{\n    const result = yield call(axios,{\n      method:\"GET\",\n      url:\"https://api.kyo-do.co/status/all\",\n      headers: { \"Authorization\": \"Bearer \" + token}\n    });\n\n    // 自分の情報を先頭に表示する\n    const memberStatus = result.data.filter(function(value, index, array){ return value.userid != me.userid });\n    return result.data.filter(function(value, index, array){ return value.userid == me.userid }).concat(memberStatus);\n  }catch(e){\n    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい\n  }\n\n}\n",
@@ -3839,7 +3865,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 157,
+    "__docId__": 158,
     "kind": "variable",
     "name": "STATUS_POLLING_DURATION_MS",
     "memberof": "src/saga/board.js",
@@ -3858,7 +3884,7 @@
     }
   },
   {
-    "__docId__": 158,
+    "__docId__": 159,
     "kind": "function",
     "name": "loadMemberStatusSaga",
     "memberof": "src/saga/board.js",
@@ -3878,7 +3904,7 @@
     "params": []
   },
   {
-    "__docId__": 159,
+    "__docId__": 160,
     "kind": "function",
     "name": "loadMemberStatusTask",
     "memberof": "src/saga/board.js",
@@ -3895,7 +3921,7 @@
     "params": []
   },
   {
-    "__docId__": 160,
+    "__docId__": 161,
     "kind": "function",
     "name": "watchMemberStatusSaga",
     "memberof": "src/saga/board.js",
@@ -3915,7 +3941,7 @@
     "params": []
   },
   {
-    "__docId__": 161,
+    "__docId__": 162,
     "kind": "function",
     "name": "getMemberStatus",
     "memberof": "src/saga/board.js",
@@ -3961,7 +3987,7 @@
     }
   },
   {
-    "__docId__": 162,
+    "__docId__": 163,
     "kind": "file",
     "name": "src/saga/login.js",
     "content": "import {take,put,call,takeEvery} from 'redux-saga/effects'\nimport {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from '../action/login'\nimport {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport {getApiBaseURL} from '../module/environment';\nimport axios from \"axios\";\n\n/**\n* rememberme情報（入力されたID/Pass）をlocalStorageに保存する際のkey\n*/\nconst REMEMBER_ME_STORAGE_KEY = \"rememberme\";\n/**\n* APIのベースURL\n*/\nconst BASE_API_URL = getApiBaseURL();\n\n/**\n* login要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginSaga(){\n  /*\n  * LOGIN_REQUESTED(ログイン要求)アクションを常に待ち続け、\n  * dispatchされたらloginTaskにactionを渡して実行する\n  */\n  yield takeEvery(LOGIN_REQUESTED,loginTask);\n}\n/**\n* APIに対してID/Passを問い合わせて、\n* 成功すればユーザー情報を元にLOGIN_SUCCESS(ログイン成功)アクションをput(dispatch)する\n* @param {object} action LOGIN_REQUESTED(ログイン要求)アクション\n*/\nexport function* loginTask(action){\n  //rememberme\n  try{\n    yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});\n  }catch(e){\n    //localStorageにアクセスできない場合は何もしない\n  }\n\n\n  //XXX 現在の実装ではサーバエラーなのかID/Passが間違っているのか判断がつかない\n  try{\n    const result = yield call(axios.post,BASE_API_URL + \"auth\",{\n      userid:action.payload.id,\n      password:action.payload.pass\n    });\n\n    const token = result.data.token;\n\n    const resule_user = yield call(axios,{\n      method:\"GET\",\n      url:BASE_API_URL + \"user\",\n      headers:{\"Authorization\":\"Bearer \" + token}\n    });\n\n    yield put(loginSuccess({userid:action.payload.id,name:resule_user.data.name,token:token}));\n  }catch(e){\n    yield put(loginFailure());\n  }\n}\n/**\n* logout要求を受けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* logoutSaga(){\n  yield takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask);\n}\n\n/**\n* ログインに失敗したときのクリーンアップを行うSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFailureSaga(){\n  yield takeEvery(LOGIN_FAILURE,cleanRememberMeTask);\n}\n/**\n* localStorageに保存されているrememberme情報をクリアするTask\n*/\nexport function* cleanRememberMeTask(){\n  try{\n    yield removeFromStorage(REMEMBER_ME_STORAGE_KEY);\n  }catch(e){\n    //localStorageにアクセスできない場合は何もしない\n  }\n\n}\n\n/**\n* localStorageに保存されているID/PassからログインするSaga\n* アプリを起動して(ブラウザアクセスして)1回だけ実行される\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loginFromRememberMeSaga(){\n  try{\n    const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);\n    if(remembermeSaved){\n      const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);\n      yield put(loginRequested(rememberme.id,rememberme.pass));\n    }\n  }catch(e){\n    //localStorageにアクセスできない場合は何もしない\n  }\n}\n",
@@ -3972,7 +3998,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 163,
+    "__docId__": 164,
     "kind": "variable",
     "name": "REMEMBER_ME_STORAGE_KEY",
     "memberof": "src/saga/login.js",
@@ -3991,7 +4017,7 @@
     }
   },
   {
-    "__docId__": 164,
+    "__docId__": 165,
     "kind": "variable",
     "name": "BASE_API_URL",
     "memberof": "src/saga/login.js",
@@ -4010,7 +4036,7 @@
     }
   },
   {
-    "__docId__": 165,
+    "__docId__": 166,
     "kind": "function",
     "name": "loginSaga",
     "memberof": "src/saga/login.js",
@@ -4030,7 +4056,7 @@
     "params": []
   },
   {
-    "__docId__": 166,
+    "__docId__": 167,
     "kind": "function",
     "name": "loginTask",
     "memberof": "src/saga/login.js",
@@ -4058,7 +4084,7 @@
     ]
   },
   {
-    "__docId__": 167,
+    "__docId__": 168,
     "kind": "function",
     "name": "logoutSaga",
     "memberof": "src/saga/login.js",
@@ -4078,7 +4104,7 @@
     "params": []
   },
   {
-    "__docId__": 168,
+    "__docId__": 169,
     "kind": "function",
     "name": "loginFailureSaga",
     "memberof": "src/saga/login.js",
@@ -4098,7 +4124,7 @@
     "params": []
   },
   {
-    "__docId__": 169,
+    "__docId__": 170,
     "kind": "function",
     "name": "cleanRememberMeTask",
     "memberof": "src/saga/login.js",
@@ -4115,7 +4141,7 @@
     "params": []
   },
   {
-    "__docId__": 170,
+    "__docId__": 171,
     "kind": "function",
     "name": "loginFromRememberMeSaga",
     "memberof": "src/saga/login.js",
@@ -4135,7 +4161,7 @@
     "params": []
   },
   {
-    "__docId__": 171,
+    "__docId__": 172,
     "kind": "file",
     "name": "src/saga/mydestination.js",
     "content": "import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'\nimport {delay} from 'redux-saga'\nimport {MY_DESTINATION_CHANGE,myDestinationChange} from '../action/mydestination'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\nimport axios from 'axios';\n\n/**\n* localStorageに行き先を保管する際のKey\n*/\nconst STORAGE_KEY_DESTINATION = \"my_destination.\";\n/**\n* 行き先を入力してからサーバ同期するまでの遅延時間\n*/\nconst SYNC_DELAY_MS = 1000;\n\n/**\n* ログインが成功した際にログインユーザーの行き先をロードするSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* loadDestinationSaga(){\n    yield takeEvery(LOGIN_SUCCESS,loadDestinationTask);\n}\n\n/**\n* ログインユーザーの行き先をロードするtask\n* @param {object} action LOGIN_SUCCESSアクション\n*/\nfunction* loadDestinationTask(action){\n    const token = yield select(state => state.login.user.token);\n\n    try{\n      const savedDestination = yield call(axios,{\n        method:\"GET\",\n        url:\"https://api.kyo-do.co/status\",\n        headers:{\"Authorization\":\"Bearer \" + token}\n      });\n\n      yield put(myDestinationChange(savedDestination.data));\n    }catch(e){\n      console.log(e);\n      //TODO 更新に失敗したエラーアクションを投げる\n    }\n}\n/**\n* 行き先変更アクションを受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* changeDestinationSaga(){\n  yield takeLatest(MY_DESTINATION_CHANGE,changeDestinationTask);\n}\n\n/**\n* 行き先変更アクションを受け付けた際のTask\n* @param {Object} action MY_DESTINATION_CHANGEアクション\n*/\nfunction* changeDestinationTask(action){\n  /**\n  * TODO APIを呼び出してサーバ上に保存\n  */\n  yield call(delay,SYNC_DELAY_MS);\n  const token = yield select(state => state.login.user.token);\n  try{\n\n    yield call(axios.put,\n      \"https://api.kyo-do.co/status\",\n      {inBusiness:action.payload.inBusiness,comment:action.payload.comment,contact:action.payload.contact},\n      {headers:{\"Authorization\":\"Bearer \" + token}}\n    );\n  }catch(e){\n    //TODO 更新が失敗した旨をエラーアクションに投げる\n    console.log(e);\n  }\n}\n",
@@ -4146,7 +4172,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 172,
+    "__docId__": 173,
     "kind": "variable",
     "name": "STORAGE_KEY_DESTINATION",
     "memberof": "src/saga/mydestination.js",
@@ -4165,7 +4191,7 @@
     }
   },
   {
-    "__docId__": 173,
+    "__docId__": 174,
     "kind": "variable",
     "name": "SYNC_DELAY_MS",
     "memberof": "src/saga/mydestination.js",
@@ -4184,7 +4210,7 @@
     }
   },
   {
-    "__docId__": 174,
+    "__docId__": 175,
     "kind": "function",
     "name": "loadDestinationSaga",
     "memberof": "src/saga/mydestination.js",
@@ -4204,7 +4230,7 @@
     "params": []
   },
   {
-    "__docId__": 175,
+    "__docId__": 176,
     "kind": "function",
     "name": "loadDestinationTask",
     "memberof": "src/saga/mydestination.js",
@@ -4232,7 +4258,7 @@
     ]
   },
   {
-    "__docId__": 176,
+    "__docId__": 177,
     "kind": "function",
     "name": "changeDestinationSaga",
     "memberof": "src/saga/mydestination.js",
@@ -4252,7 +4278,7 @@
     "params": []
   },
   {
-    "__docId__": 177,
+    "__docId__": 178,
     "kind": "function",
     "name": "changeDestinationTask",
     "memberof": "src/saga/mydestination.js",
@@ -4280,7 +4306,7 @@
     ]
   },
   {
-    "__docId__": 178,
+    "__docId__": 179,
     "kind": "file",
     "name": "src/saga/root.js",
     "content": "import {fork} from 'redux-saga/effects'\nimport {loginSaga,logoutSaga,loginFailureSaga,loginFromRememberMeSaga} from './login'\nimport {signupSaga} from './signup'\nimport {loadDestinationSaga,changeDestinationSaga} from './mydestination'\nimport {loadMemberStatusSaga,watchMemberStatusSaga} from './board'\nimport {changeAccountInfoSaga} from './accountboard'\nimport {loadSuggestionSaga,changeSuggestionSaga} from './suggestion'\n\n/**\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport default function* rootSaga(){\n  yield fork(loginSaga);\n  yield fork(signupSaga);\n  yield fork(logoutSaga);\n  yield fork(loginFailureSaga);\n  yield fork(loginFromRememberMeSaga);\n  yield fork(loadDestinationSaga);\n  yield fork(changeDestinationSaga);\n  yield fork(loadMemberStatusSaga);\n  yield fork(changeAccountInfoSaga);\n  yield fork(loadSuggestionSaga);\n  yield fork(changeSuggestionSaga);\n}\n",
@@ -4291,7 +4317,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 179,
+    "__docId__": 180,
     "kind": "function",
     "name": "rootSaga",
     "memberof": "src/saga/root.js",
@@ -4311,7 +4337,7 @@
     "params": []
   },
   {
-    "__docId__": 180,
+    "__docId__": 181,
     "kind": "file",
     "name": "src/saga/signup.js",
     "content": "import {put,call,takeEvery} from 'redux-saga/effects'\nimport {SIGNUP_REQUIRED,signupSucceess,signupFailure} from '../action/signup'\nimport {SIGNUP_FAILURE_REASONS} from '../const/signup'\nimport {loginRequested} from '../action/login'\nimport {getApiBaseURL} from '../module/environment';\nimport axios from \"axios\";\n\n/**\n* APIのベースURL\n*/\nconst BASE_API_URL = getApiBaseURL();\n\n/**\n* サインアップ要求を受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* signupSaga(){\n    yield takeEvery(SIGNUP_REQUIRED,signupTask);\n}\n\n/**\n* サインアップ要求を処理するタスク\n* @param {Object} action SIGNUP_REQUIREDアクション\n*/\nexport function* signupTask(action){\n  try{\n    const result = yield call(axios.post,BASE_API_URL + \"user\",{\n      userid:action.payload.id,\n      password:action.payload.password,\n      name:action.payload.name});\n\n    yield put(signupSucceess());\n    yield put(loginRequested(action.payload.id,action.payload.password));\n  }catch(e){\n    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい\n    yield put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED]));\n  }\n}\n",
@@ -4322,7 +4348,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 181,
+    "__docId__": 182,
     "kind": "variable",
     "name": "BASE_API_URL",
     "memberof": "src/saga/signup.js",
@@ -4341,7 +4367,7 @@
     }
   },
   {
-    "__docId__": 182,
+    "__docId__": 183,
     "kind": "function",
     "name": "signupSaga",
     "memberof": "src/saga/signup.js",
@@ -4361,7 +4387,7 @@
     "params": []
   },
   {
-    "__docId__": 183,
+    "__docId__": 184,
     "kind": "function",
     "name": "signupTask",
     "memberof": "src/saga/signup.js",
@@ -4389,7 +4415,7 @@
     ]
   },
   {
-    "__docId__": 184,
+    "__docId__": 185,
     "kind": "file",
     "name": "src/saga/suggestion.js",
     "content": "import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'\nimport {delay} from 'redux-saga'\nimport {MY_DESTINATION_CHANGE} from '../action/mydestination'\nimport {suggestionChange} from '../action/suggestion'\nimport {LOGIN_SUCCESS} from '../action/login'\nimport {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'\n\n/**\n* localStorageに行き先を保管する際のKey\n*/\nconst STORAGE_KEY_SUGGESTION = \"my_destination.history.\";\nconst REGTAB = RegExp(\"\\x09\", 'g');\n\n/**\n* 行き先を入力してからサーバ同期するまでの遅延時間\n*/\nconst SYNC_DELAY_MS = 3000;\n\n/**\n* ログインが成功した際にログインユーザーのサジェスチョンをロードするSaga\n*/\nexport function* loadSuggestionSaga(){\n  yield takeEvery(LOGIN_SUCCESS,loadSuggestionTask);\n  yield takeEvery(MY_DESTINATION_CHANGE, loadSuggestionTask);\n}\n\n/**\n* ログインユーザーの行き先をロードするtask\n*/\nfunction* loadSuggestionTask(){\n  const userid = yield select(state => state.login.user.userid);\n  const saved = existsKeyOnStorage(STORAGE_KEY_SUGGESTION + userid);\n  if(saved){\n    const savedSuggestion = yield getFromStorage(STORAGE_KEY_SUGGESTION + userid);\n    // console.log(savedSuggestion.split(REGTAB));\n    yield put(suggestionChange(savedSuggestion.split(REGTAB)));\n  }\n}\n\n/**\n* 行き先変更アクションを受け付けるSaga\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function* changeSuggestionSaga(){\n  yield takeLatest(MY_DESTINATION_CHANGE,changeSuggestionTask);\n}\n\n/**\n* 行き先変更アクションを受け付けた際のTask\n* @param {Object} action SUGGESTION_CHANGEアクション\n*/\nfunction* changeSuggestionTask(action){\n  var histarr = [];\n\n  yield call(delay,SYNC_DELAY_MS);\n  const logonUser = yield select(state => state.login.user);\n  // サジェスト用履歴をローカルストレージに保存する\n  if(action.payload.comment.length > 0){\n    const saved = existsKeyOnStorage(STORAGE_KEY_SUGGESTION + logonUser.userid);\n    if(saved){\n      const savedHistory = yield getFromStorage(STORAGE_KEY_SUGGESTION + logonUser.userid);\n      histarr = savedHistory.split(REGTAB);\n    } else {\n      // かっちょわるい\n      histarr = [\"EAST 8F\", \"EAST 3F\", \"宝町\", \"NRI 13F\", \"NRI 12F\"];\n    }\n    unshiftArray(histarr,action.payload.comment);\n    setToStorage(STORAGE_KEY_SUGGESTION + logonUser.userid, histarr.join(\"\\x09\"));\n  }\n\n  function isArrayExists(array, value) {\n    // 配列の最後までループ\n    for (var i =0, len = array.length; i < len; i++) {\n      if (value == array[i]) {\n        // 存在したらtrueを返す\n        return true;\n      }\n    }\n    // 存在しない場合falseを返す\n    return false;\n  }\n  // 重複を排除しながらunshiftする関数\n  function unshiftArray(array, value) {\n    // 存在しない場合、配列にpushする\n    if(! isArrayExists(array, value)) {\n      array.unshift(value);\n      // console.log(\"out: \" + action.payload.comment);\n      if(array.length > 15){\n        array.pop();\n      }\n    }\n    return true;\n  }\n}\n",
@@ -4400,7 +4426,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 185,
+    "__docId__": 186,
     "kind": "variable",
     "name": "STORAGE_KEY_SUGGESTION",
     "memberof": "src/saga/suggestion.js",
@@ -4419,7 +4445,7 @@
     }
   },
   {
-    "__docId__": 186,
+    "__docId__": 187,
     "kind": "variable",
     "name": "REGTAB",
     "memberof": "src/saga/suggestion.js",
@@ -4445,7 +4471,7 @@
     }
   },
   {
-    "__docId__": 187,
+    "__docId__": 188,
     "kind": "variable",
     "name": "SYNC_DELAY_MS",
     "memberof": "src/saga/suggestion.js",
@@ -4464,7 +4490,7 @@
     }
   },
   {
-    "__docId__": 188,
+    "__docId__": 189,
     "kind": "function",
     "name": "loadSuggestionSaga",
     "memberof": "src/saga/suggestion.js",
@@ -4481,7 +4507,7 @@
     "params": []
   },
   {
-    "__docId__": 189,
+    "__docId__": 190,
     "kind": "function",
     "name": "loadSuggestionTask",
     "memberof": "src/saga/suggestion.js",
@@ -4498,7 +4524,7 @@
     "params": []
   },
   {
-    "__docId__": 190,
+    "__docId__": 191,
     "kind": "function",
     "name": "changeSuggestionSaga",
     "memberof": "src/saga/suggestion.js",
@@ -4518,7 +4544,7 @@
     "params": []
   },
   {
-    "__docId__": 191,
+    "__docId__": 192,
     "kind": "function",
     "name": "changeSuggestionTask",
     "memberof": "src/saga/suggestion.js",
@@ -4546,7 +4572,7 @@
     ]
   },
   {
-    "__docId__": 192,
+    "__docId__": 193,
     "kind": "file",
     "name": "src/store/store.js",
     "content": "import { createStore, applyMiddleware } from 'redux'\nimport createSagaMiddleware from 'redux-saga'\nimport logger from 'redux-logger'\nimport rootReducer from '../reducer/root'\nimport rootSaga from '../saga/root'\nimport {LOGIN_STATUS} from '../const/login'\n\n\n/**\n* reduxのstoreのセットアップ。redux-saga対応。\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n*/\nexport function configureStore() {\n  const sagaMiddleware = createSagaMiddleware();\n  const store = createStore(\n    rootReducer,\n    {\n      login:{status:LOGIN_STATUS.NOTYET, user:{}},\n      mydestination:{inBusiness:false,comment:\"\"},\n      board:{memberStatus:[]},\n      accountboard:{open:false, nextuser:{}},\n      suggestion:{suggests:[]},\n    },\n    applyMiddleware(\n      sagaMiddleware, logger()\n    )\n  );\n  sagaMiddleware.run(rootSaga);\n  return store;\n}\n",
@@ -4557,7 +4583,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 193,
+    "__docId__": 194,
     "kind": "function",
     "name": "configureStore",
     "memberof": "src/store/store.js",
@@ -4582,7 +4608,7 @@
     }
   },
   {
-    "__docId__": 195,
+    "__docId__": 196,
     "kind": "external",
     "name": "Infinity",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
@@ -4594,7 +4620,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 196,
+    "__docId__": 197,
     "kind": "external",
     "name": "NaN",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
@@ -4606,7 +4632,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 197,
+    "__docId__": 198,
     "kind": "external",
     "name": "undefined",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
@@ -4618,7 +4644,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 198,
+    "__docId__": 199,
     "kind": "external",
     "name": "null",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
@@ -4630,7 +4656,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 199,
+    "__docId__": 200,
     "kind": "external",
     "name": "Object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -4642,7 +4668,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 200,
+    "__docId__": 201,
     "kind": "external",
     "name": "object",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
@@ -4654,7 +4680,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 201,
+    "__docId__": 202,
     "kind": "external",
     "name": "Function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -4666,7 +4692,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 202,
+    "__docId__": 203,
     "kind": "external",
     "name": "function",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
@@ -4678,7 +4704,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 203,
+    "__docId__": 204,
     "kind": "external",
     "name": "Boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -4690,7 +4716,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 204,
+    "__docId__": 205,
     "kind": "external",
     "name": "boolean",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
@@ -4702,7 +4728,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 205,
+    "__docId__": 206,
     "kind": "external",
     "name": "Symbol",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
@@ -4714,7 +4740,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 206,
+    "__docId__": 207,
     "kind": "external",
     "name": "Error",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
@@ -4726,7 +4752,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 207,
+    "__docId__": 208,
     "kind": "external",
     "name": "EvalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
@@ -4738,7 +4764,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 208,
+    "__docId__": 209,
     "kind": "external",
     "name": "InternalError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
@@ -4750,7 +4776,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 209,
+    "__docId__": 210,
     "kind": "external",
     "name": "RangeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
@@ -4762,7 +4788,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 210,
+    "__docId__": 211,
     "kind": "external",
     "name": "ReferenceError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
@@ -4774,7 +4800,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 211,
+    "__docId__": 212,
     "kind": "external",
     "name": "SyntaxError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
@@ -4786,7 +4812,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 212,
+    "__docId__": 213,
     "kind": "external",
     "name": "TypeError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
@@ -4798,7 +4824,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 213,
+    "__docId__": 214,
     "kind": "external",
     "name": "URIError",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
@@ -4810,7 +4836,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 214,
+    "__docId__": 215,
     "kind": "external",
     "name": "Number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -4822,7 +4848,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 215,
+    "__docId__": 216,
     "kind": "external",
     "name": "number",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
@@ -4834,7 +4860,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 216,
+    "__docId__": 217,
     "kind": "external",
     "name": "Date",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
@@ -4846,7 +4872,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 217,
+    "__docId__": 218,
     "kind": "external",
     "name": "String",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -4858,7 +4884,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 218,
+    "__docId__": 219,
     "kind": "external",
     "name": "string",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
@@ -4870,7 +4896,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 219,
+    "__docId__": 220,
     "kind": "external",
     "name": "RegExp",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
@@ -4882,7 +4908,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 220,
+    "__docId__": 221,
     "kind": "external",
     "name": "Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
@@ -4894,7 +4920,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 221,
+    "__docId__": 222,
     "kind": "external",
     "name": "Int8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
@@ -4906,7 +4932,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 222,
+    "__docId__": 223,
     "kind": "external",
     "name": "Uint8Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
@@ -4918,7 +4944,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 223,
+    "__docId__": 224,
     "kind": "external",
     "name": "Uint8ClampedArray",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
@@ -4930,7 +4956,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 224,
+    "__docId__": 225,
     "kind": "external",
     "name": "Int16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
@@ -4942,7 +4968,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 225,
+    "__docId__": 226,
     "kind": "external",
     "name": "Uint16Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
@@ -4954,7 +4980,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 226,
+    "__docId__": 227,
     "kind": "external",
     "name": "Int32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
@@ -4966,7 +4992,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 227,
+    "__docId__": 228,
     "kind": "external",
     "name": "Uint32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
@@ -4978,7 +5004,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 228,
+    "__docId__": 229,
     "kind": "external",
     "name": "Float32Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
@@ -4990,7 +5016,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 229,
+    "__docId__": 230,
     "kind": "external",
     "name": "Float64Array",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
@@ -5002,7 +5028,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 230,
+    "__docId__": 231,
     "kind": "external",
     "name": "Map",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
@@ -5014,7 +5040,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 231,
+    "__docId__": 232,
     "kind": "external",
     "name": "Set",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
@@ -5026,7 +5052,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 232,
+    "__docId__": 233,
     "kind": "external",
     "name": "WeakMap",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
@@ -5038,7 +5064,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 233,
+    "__docId__": 234,
     "kind": "external",
     "name": "WeakSet",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
@@ -5050,7 +5076,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 234,
+    "__docId__": 235,
     "kind": "external",
     "name": "ArrayBuffer",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
@@ -5062,7 +5088,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 235,
+    "__docId__": 236,
     "kind": "external",
     "name": "DataView",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
@@ -5074,7 +5100,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 236,
+    "__docId__": 237,
     "kind": "external",
     "name": "JSON",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
@@ -5086,7 +5112,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 237,
+    "__docId__": 238,
     "kind": "external",
     "name": "Promise",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
@@ -5098,7 +5124,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 238,
+    "__docId__": 239,
     "kind": "external",
     "name": "Generator",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
@@ -5110,7 +5136,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 239,
+    "__docId__": 240,
     "kind": "external",
     "name": "GeneratorFunction",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
@@ -5122,7 +5148,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 240,
+    "__docId__": 241,
     "kind": "external",
     "name": "Reflect",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
@@ -5134,7 +5160,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 241,
+    "__docId__": 242,
     "kind": "external",
     "name": "Proxy",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
@@ -5147,7 +5173,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 243,
+    "__docId__": 244,
     "kind": "external",
     "name": "CanvasRenderingContext2D",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
@@ -5159,7 +5185,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 244,
+    "__docId__": 245,
     "kind": "external",
     "name": "DocumentFragment",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
@@ -5171,7 +5197,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 245,
+    "__docId__": 246,
     "kind": "external",
     "name": "Element",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
@@ -5183,7 +5209,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 246,
+    "__docId__": 247,
     "kind": "external",
     "name": "Event",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
@@ -5195,7 +5221,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 247,
+    "__docId__": 248,
     "kind": "external",
     "name": "Node",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
@@ -5207,7 +5233,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 248,
+    "__docId__": 249,
     "kind": "external",
     "name": "NodeList",
     "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
@@ -5219,7 +5245,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 249,
+    "__docId__": 250,
     "kind": "external",
     "name": "XMLHttpRequest",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
@@ -5231,7 +5257,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 250,
+    "__docId__": 251,
     "kind": "external",
     "name": "AudioContext",
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
@@ -5244,7 +5270,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 251,
+    "__docId__": 252,
     "kind": "testFile",
     "name": "test/action/login.test.js",
     "content": "const assert = require(\"assert\");\nimport {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from \"../../src/action/login\";\nimport {loginRequested,loginSuccess,loginFailure,logoutRequested} from \"../../src/action/login\";\n\n/**@test {loginRequested}*/\ndescribe(\"loginRequested action creator\",()=>{\n  //ユーザーが入力したID,Passを使ってLOGIN_REQUESTEDアクションを生成する\n  it(\"creates LOGIN_REQUESTED action with id and password which user input\",()=>{\n    const testId = \"test_id\";\n    const testPass = \"test_pass\";\n\n    const result = loginRequested(testId,testPass);\n    assert(result.type === LOGIN_REQUESTED);\n    assert(result.payload.id === testId);\n    assert(result.payload.pass === testPass);\n  });\n});\n\n/**@test {loginSuccess}*/\ndescribe(\"loginSuccess action creator\",()=>{\n  //ログインしたユーザーの情報を使ってLOGIN_SUCCESSアクションを生成する\n  it(\"creates LOGIN_SUCCESS action with user data of logon user.\",()=>{\n    const userinfo = {\"name\":\"Mike\",\"userid\":\"mike\",\"token\":\"dummy\"};\n\n    const result = loginSuccess(userinfo);\n    assert(result.type === LOGIN_SUCCESS);\n    assert(result.payload.name === userinfo.name);\n    assert(result.payload.userid === userinfo.userid);\n    assert(result.payload.token === userinfo.token);\n  });\n});\n\n/**@test {loginFailure}*/\ndescribe(\"loginFailure action creator\",()=>{\n  //引数を取らずにLOGIN_FAILUREアクションを生成する\n  it(\"creates LOGIN_FAILURE action with no arguments\",()=>{\n    const result = loginFailure();\n    assert(result.type === LOGIN_FAILURE);\n  });\n});\n\n/**@test {logoutRequested}*/\ndescribe(\"logoutRequested action creator\",()=>{\n  //引数を取らずにLOGOUT_REQUESTEDアクションを生成する\n  it(\"creates LOGOUT_REQUESTED action with no arguments\",()=>{\n    const result = logoutRequested();\n    assert(result.type === LOGOUT_REQUESTED);\n  });\n});\n",
@@ -5255,7 +5281,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 252,
+    "__docId__": 253,
     "kind": "testDescribe",
     "name": "describe0",
     "testId": 0,
@@ -5277,7 +5303,7 @@
     ]
   },
   {
-    "__docId__": 253,
+    "__docId__": 254,
     "kind": "testIt",
     "name": "it1",
     "testId": 1,
@@ -5290,7 +5316,7 @@
     "lineNumber": 8
   },
   {
-    "__docId__": 254,
+    "__docId__": 255,
     "kind": "testDescribe",
     "name": "describe2",
     "testId": 2,
@@ -5312,7 +5338,7 @@
     ]
   },
   {
-    "__docId__": 255,
+    "__docId__": 256,
     "kind": "testIt",
     "name": "it3",
     "testId": 3,
@@ -5325,7 +5351,7 @@
     "lineNumber": 22
   },
   {
-    "__docId__": 256,
+    "__docId__": 257,
     "kind": "testDescribe",
     "name": "describe4",
     "testId": 4,
@@ -5347,7 +5373,7 @@
     ]
   },
   {
-    "__docId__": 257,
+    "__docId__": 258,
     "kind": "testIt",
     "name": "it5",
     "testId": 5,
@@ -5360,7 +5386,7 @@
     "lineNumber": 36
   },
   {
-    "__docId__": 258,
+    "__docId__": 259,
     "kind": "testDescribe",
     "name": "describe6",
     "testId": 6,
@@ -5382,7 +5408,7 @@
     ]
   },
   {
-    "__docId__": 259,
+    "__docId__": 260,
     "kind": "testIt",
     "name": "it7",
     "testId": 7,
@@ -5395,7 +5421,123 @@
     "lineNumber": 45
   },
   {
-    "__docId__": 260,
+    "__docId__": 261,
+    "kind": "testFile",
+    "name": "test/action/signup.test.js",
+    "content": "const assert = require(\"assert\");\nimport {SIGNUP_REQUIRED,SIGNUP_SUCCESS,SIGNUP_FAILURE} from '../../src/action/signup';\nimport {signupRequired,signupSucceess,signupFailure} from '../../src/action/signup';\nimport {SIGNUP_FAILURE_REASONS} from '../../src/const/signup';\n\n/**@test {signupRequired}*/\ndescribe(\"signupRequired action creator\",()=>{\n  it(\"creates SIGNUP_REQUIRED action with form data which user input\",()=>{\n    const dummyFormData = {\n      id:\"test\",\n      password:\"pass\",\n      name:\"テスト\"\n    };\n\n    const result = signupRequired(dummyFormData);\n    assert(result.type == SIGNUP_REQUIRED);\n    assert.deepEqual(result.payload,dummyFormData);\n  });\n});\n/**@test {signupSucceess}*/\ndescribe(\"signupSucceess action creator\",()=>{\n  it(\"creates SIGNUP_SUCCESS action with no arguments\",()=>{\n    const result = signupSucceess();\n\n    assert(result.type == SIGNUP_SUCCESS);\n  });\n});\n/**@test {signupFailure}*/\ndescribe(\"signupFailure action creator\",()=>{\n  it(\"creates SIGNUP_FAILURE action with array of SIGNUP_FAILURE_REASONS\",()=>{\n    const dummyErrorReasons = [\n      SIGNUP_FAILURE_REASONS.EMPTY_ID,\n      SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD,\n      SIGNUP_FAILURE_REASONS.EMPTY_NAME\n    ];\n\n    const result = signupFailure(dummyErrorReasons);\n\n    assert(result.type == SIGNUP_FAILURE);\n    assert.deepEqual(result.payload, dummyErrorReasons);\n  });\n});\n",
+    "static": true,
+    "longname": "test/action/signup.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 262,
+    "kind": "testDescribe",
+    "name": "describe8",
+    "testId": 8,
+    "memberof": "test/action/signup.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/action/signup.test.js~describe8",
+    "access": null,
+    "description": "signupRequired action creator",
+    "lineNumber": 7,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{signupRequired}"
+      }
+    ],
+    "testTargets": [
+      "signupRequired"
+    ]
+  },
+  {
+    "__docId__": 263,
+    "kind": "testIt",
+    "name": "it9",
+    "testId": 9,
+    "memberof": "test/action/signup.test.js~describe8",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/action/signup.test.js~describe8.it9",
+    "access": null,
+    "description": "creates SIGNUP_REQUIRED action with form data which user input",
+    "lineNumber": 8
+  },
+  {
+    "__docId__": 264,
+    "kind": "testDescribe",
+    "name": "describe10",
+    "testId": 10,
+    "memberof": "test/action/signup.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/action/signup.test.js~describe10",
+    "access": null,
+    "description": "signupSucceess action creator",
+    "lineNumber": 21,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{signupSucceess}"
+      }
+    ],
+    "testTargets": [
+      "signupSucceess"
+    ]
+  },
+  {
+    "__docId__": 265,
+    "kind": "testIt",
+    "name": "it11",
+    "testId": 11,
+    "memberof": "test/action/signup.test.js~describe10",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/action/signup.test.js~describe10.it11",
+    "access": null,
+    "description": "creates SIGNUP_SUCCESS action with no arguments",
+    "lineNumber": 22
+  },
+  {
+    "__docId__": 266,
+    "kind": "testDescribe",
+    "name": "describe12",
+    "testId": 12,
+    "memberof": "test/action/signup.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/action/signup.test.js~describe12",
+    "access": null,
+    "description": "signupFailure action creator",
+    "lineNumber": 29,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{signupFailure}"
+      }
+    ],
+    "testTargets": [
+      "signupFailure"
+    ]
+  },
+  {
+    "__docId__": 267,
+    "kind": "testIt",
+    "name": "it13",
+    "testId": 13,
+    "memberof": "test/action/signup.test.js~describe12",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/action/signup.test.js~describe12.it13",
+    "access": null,
+    "description": "creates SIGNUP_FAILURE action with array of SIGNUP_FAILURE_REASONS",
+    "lineNumber": 30
+  },
+  {
+    "__docId__": 268,
     "kind": "testFile",
     "name": "test/component/loginform.test.js",
     "content": "const assert = require(\"assert\");\nimport LoginForm from '../../src/component/loginform';\nimport {LOGIN_STATUS} from '../../src/const/login';\nimport sinon from 'sinon';\nimport {mount,shallow} from 'enzyme';\nimport React from 'react';\nimport ReactDOM from 'react-dom';\nimport {loginRequested} from '../../src/action/login';\nimport {mountWithMUI} from './testutil';\n\n/**@test {LoginForm}*/\ndescribe(\"<LoginForm />\",()=>{\n  //\"userid\",\"password\"テキストボックスとログインボタンを描画する\n  it(\"renders 'userid' textbox, 'password' textbox and one login button\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const wrapper = mountWithMUI(<LoginForm {...props} />);\n\n    assert.ok(wrapper.ref(\"userid\").find(\"input\"));\n    assert.ok(wrapper.ref(\"password\").find(\"input\"));\n    assert.ok(wrapper.ref(\"loginbutton\").find(\"button\"));\n\n  });\n  //login statusがLOGIN_STATUS.FAILUREだった場合は、ログイン失敗メッセージを描画する\n  it(\"renders login failure message if login status is LOGIN_STATUS.FAILURE\", ()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.FAILURE}\n    };\n\n    const wrapper = shallow(<LoginForm {...props} />);\n\n    const loginFailureMessage = \"IDもしくはパスワードが正しくありません\";\n\n    assert(wrapper.text().indexOf(loginFailureMessage) >= 0);\n  });\n\n  //login statusがLOGIN_STATUS.FAILURE以外の場合はログイン失敗メッセージを表示しない\n  it(\"doesn't render login failure message if login status is not LOGIN_STATUS.FAILURE\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const wrapper = shallow(<LoginForm {...props} />);\n\n    const loginFailureMessage = \"IDもしくはパスワードが正しくありません\";\n\n    assert(wrapper.text().indexOf(loginFailureMessage) < 0);\n  });\n\n  //useridやpasswordが空の場合は、ログインボタンをクリックしても何のActionもdispatchしない\n  it(\"doesn't dispatch any actions when button is clicked if two textboxes are empty\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const wrapper = mountWithMUI(<LoginForm {...props} />);\n    wrapper.ref(\"loginbutton\").find(\"button\").simulate(\"click\");\n    assert(!props.dispatch.called);\n  });\n\n  //useridやpasswordに文字が入力されている場合は、LOGIN_REQUESTEDアクションをdispatchする\n  it(\"dispatches LOGIN_REQUESTED ation when button is clicked if two textboxes are not empty\",()=>{\n    const props = {\n      dispatch : sinon.spy(),\n      login : {status: LOGIN_STATUS.NOTYET}\n    };\n\n    const dummyInputs = {\n      id:\"test\",\n      pass:\"pass\"\n    };\n\n    const wrapper = mountWithMUI(<LoginForm {...props} />);\n\n    wrapper.ref(\"userid\").find(\"input\").simulate(\"change\",{target:{value:dummyInputs.id}});\n    wrapper.ref(\"password\").find(\"input\").simulate(\"change\",{target:{value:dummyInputs.pass}});\n\n\n    wrapper.ref(\"loginbutton\").find(\"button\").simulate(\"click\");\n\n    assert(props.dispatch.called);\n    assert.deepEqual(props.dispatch.getCall(0).args[0],loginRequested(dummyInputs.id,dummyInputs.pass));\n  });\n});\n",
@@ -5406,14 +5548,14 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 261,
+    "__docId__": 269,
     "kind": "testDescribe",
-    "name": "describe8",
-    "testId": 8,
+    "name": "describe14",
+    "testId": 14,
     "memberof": "test/component/loginform.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/component/loginform.test.js~describe8",
+    "longname": "test/component/loginform.test.js~describe14",
     "access": null,
     "description": "<LoginForm />",
     "lineNumber": 12,
@@ -5428,72 +5570,72 @@
     ]
   },
   {
-    "__docId__": 262,
+    "__docId__": 270,
     "kind": "testIt",
-    "name": "it9",
-    "testId": 9,
-    "memberof": "test/component/loginform.test.js~describe8",
+    "name": "it15",
+    "testId": 15,
+    "memberof": "test/component/loginform.test.js~describe14",
     "testDepth": 1,
     "static": true,
-    "longname": "test/component/loginform.test.js~describe8.it9",
+    "longname": "test/component/loginform.test.js~describe14.it15",
     "access": null,
     "description": "renders 'userid' textbox, 'password' textbox and one login button",
     "lineNumber": 14
   },
   {
-    "__docId__": 263,
+    "__docId__": 271,
     "kind": "testIt",
-    "name": "it10",
-    "testId": 10,
-    "memberof": "test/component/loginform.test.js~describe8",
+    "name": "it16",
+    "testId": 16,
+    "memberof": "test/component/loginform.test.js~describe14",
     "testDepth": 1,
     "static": true,
-    "longname": "test/component/loginform.test.js~describe8.it10",
+    "longname": "test/component/loginform.test.js~describe14.it16",
     "access": null,
     "description": "renders login failure message if login status is LOGIN_STATUS.FAILURE",
     "lineNumber": 28
   },
   {
-    "__docId__": 264,
+    "__docId__": 272,
     "kind": "testIt",
-    "name": "it11",
-    "testId": 11,
-    "memberof": "test/component/loginform.test.js~describe8",
+    "name": "it17",
+    "testId": 17,
+    "memberof": "test/component/loginform.test.js~describe14",
     "testDepth": 1,
     "static": true,
-    "longname": "test/component/loginform.test.js~describe8.it11",
+    "longname": "test/component/loginform.test.js~describe14.it17",
     "access": null,
     "description": "doesn't render login failure message if login status is not LOGIN_STATUS.FAILURE",
     "lineNumber": 42
   },
   {
-    "__docId__": 265,
+    "__docId__": 273,
     "kind": "testIt",
-    "name": "it12",
-    "testId": 12,
-    "memberof": "test/component/loginform.test.js~describe8",
+    "name": "it18",
+    "testId": 18,
+    "memberof": "test/component/loginform.test.js~describe14",
     "testDepth": 1,
     "static": true,
-    "longname": "test/component/loginform.test.js~describe8.it12",
+    "longname": "test/component/loginform.test.js~describe14.it18",
     "access": null,
     "description": "doesn't dispatch any actions when button is clicked if two textboxes are empty",
     "lineNumber": 56
   },
   {
-    "__docId__": 266,
+    "__docId__": 274,
     "kind": "testIt",
-    "name": "it13",
-    "testId": 13,
-    "memberof": "test/component/loginform.test.js~describe8",
+    "name": "it19",
+    "testId": 19,
+    "memberof": "test/component/loginform.test.js~describe14",
     "testDepth": 1,
     "static": true,
-    "longname": "test/component/loginform.test.js~describe8.it13",
+    "longname": "test/component/loginform.test.js~describe14.it19",
     "access": null,
     "description": "dispatches LOGIN_REQUESTED ation when button is clicked if two textboxes are not empty",
     "lineNumber": 68
   },
   {
-    "__docId__": 267,
+    "__docId__": 275,
     "kind": "testFile",
     "name": "test/reducer/login.test.js",
     "content": "const assert = require(\"assert\");\nimport {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from \"../../src/action/login\";\nimport {LOGIN_STATUS} from \"../../src/const/login\"\nimport login from \"../../src/reducer/login\"\n\nconst dummyUserData = {userid:\"mike\",name:\"Mike\",token:\"dummy\"};\n/**@test {login}*/\ndescribe(\"login reducer\",()=>{\n  //LOGIN_SUCCESSアクションが渡された場合、'status'をLOGIN_STATUS.SUCCESSに変更し、'user'をactionのpayloadに変更する\n  it(\"changes 'status' state to LOGIN_STATUS.SUCCESS and changes 'user' state to payload of action if LOGIN_SUCCESS action is passed\",()=>{\n    const action = {\n      type:LOGIN_SUCCESS,\n      payload:dummyUserData\n    };\n\n    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.SUCCESS);\n    assert(result.user === action.payload);\n  });\n  //LOGIN_FAILUREアクションが渡された場合、'status'をLOGIN_STATUS.FAILUREに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.FAILURE and changes 'user' state to empty object if LOGIN_FAILURE action is passed\",()=>{\n    const action = {type:LOGIN_FAILURE};\n\n    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.FAILURE);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //LOGOUT_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGOUT_REQUESTED action is passed\",()=>{\n    const action = {type:LOGOUT_REQUESTED};\n\n    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.NOTYET);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //LOGIN_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる\n  it(\"changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action\",()=>{\n    const action = {type:LOGIN_REQUESTED};\n\n    const initialState = {status:LOGIN_STATUS.FAILURE,user:{}};\n\n    const result = login(initialState,action);\n    assert(result.status === LOGIN_STATUS.NOTYET);\n    assert(Object.keys(result.user).length === 0);\n  });\n  //その他のアクションが渡された場合はstateを変更しない\n  it(\"doesn't change any state if any other action is passed\",()=>{\n    const action = {type:\"OTHER_ACTION\"};\n\n    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};\n\n    const result = login(initialState,action);\n    assert(result.status === initialState.status);\n    assert(result.user === initialState.user);\n  });\n});\n",
@@ -5504,14 +5646,14 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 268,
+    "__docId__": 276,
     "kind": "testDescribe",
-    "name": "describe14",
-    "testId": 14,
+    "name": "describe20",
+    "testId": 20,
     "memberof": "test/reducer/login.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe14",
+    "longname": "test/reducer/login.test.js~describe20",
     "access": null,
     "description": "login reducer",
     "lineNumber": 8,
@@ -5526,72 +5668,131 @@
     ]
   },
   {
-    "__docId__": 269,
+    "__docId__": 277,
     "kind": "testIt",
-    "name": "it15",
-    "testId": 15,
-    "memberof": "test/reducer/login.test.js~describe14",
+    "name": "it21",
+    "testId": 21,
+    "memberof": "test/reducer/login.test.js~describe20",
     "testDepth": 1,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe14.it15",
+    "longname": "test/reducer/login.test.js~describe20.it21",
     "access": null,
     "description": "changes 'status' state to LOGIN_STATUS.SUCCESS and changes 'user' state to payload of action if LOGIN_SUCCESS action is passed",
     "lineNumber": 10
   },
   {
-    "__docId__": 270,
+    "__docId__": 278,
     "kind": "testIt",
-    "name": "it16",
-    "testId": 16,
-    "memberof": "test/reducer/login.test.js~describe14",
+    "name": "it22",
+    "testId": 22,
+    "memberof": "test/reducer/login.test.js~describe20",
     "testDepth": 1,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe14.it16",
+    "longname": "test/reducer/login.test.js~describe20.it22",
     "access": null,
     "description": "changes 'status' state to LOGIN_STATUS.FAILURE and changes 'user' state to empty object if LOGIN_FAILURE action is passed",
     "lineNumber": 23
   },
   {
-    "__docId__": 271,
+    "__docId__": 279,
     "kind": "testIt",
-    "name": "it17",
-    "testId": 17,
-    "memberof": "test/reducer/login.test.js~describe14",
+    "name": "it23",
+    "testId": 23,
+    "memberof": "test/reducer/login.test.js~describe20",
     "testDepth": 1,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe14.it17",
+    "longname": "test/reducer/login.test.js~describe20.it23",
     "access": null,
     "description": "changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGOUT_REQUESTED action is passed",
     "lineNumber": 33
   },
   {
-    "__docId__": 272,
+    "__docId__": 280,
     "kind": "testIt",
-    "name": "it18",
-    "testId": 18,
-    "memberof": "test/reducer/login.test.js~describe14",
+    "name": "it24",
+    "testId": 24,
+    "memberof": "test/reducer/login.test.js~describe20",
     "testDepth": 1,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe14.it18",
+    "longname": "test/reducer/login.test.js~describe20.it24",
     "access": null,
     "description": "changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action",
     "lineNumber": 43
   },
   {
-    "__docId__": 273,
+    "__docId__": 281,
     "kind": "testIt",
-    "name": "it19",
-    "testId": 19,
-    "memberof": "test/reducer/login.test.js~describe14",
+    "name": "it25",
+    "testId": 25,
+    "memberof": "test/reducer/login.test.js~describe20",
     "testDepth": 1,
     "static": true,
-    "longname": "test/reducer/login.test.js~describe14.it19",
+    "longname": "test/reducer/login.test.js~describe20.it25",
     "access": null,
     "description": "doesn't change any state if any other action is passed",
     "lineNumber": 53
   },
   {
-    "__docId__": 274,
+    "__docId__": 282,
+    "kind": "testFile",
+    "name": "test/reducer/signup.test.js",
+    "content": "const assert = require(\"assert\");\nimport {SIGNUP_SUCCESS,SIGNUP_FAILURE} from '../../src/action/signup';\nimport {SIGNUP_FAILURE_REASONS} from '../../src/const/signup';\nimport signup from '../../src/reducer/signup';\n\n/**@test {signup} */\ndescribe(\"signup reducer\",()=>{\n  it(\"changes failure_reason state to empty array if SIGNUP_SUCCESS action is passed\",()=>{\n    const action = {type:SIGNUP_SUCCESS};\n    const dummyInitialState = {failure_reason:[\n      SIGNUP_FAILURE_REASONS.INVALID_CONFIRM,\n      SIGNUP_FAILURE_REASONS.POLICY_PASSWORD,\n      SIGNUP_FAILURE_REASONS.EMPTY_NAME\n    ]};\n\n    const result = signup(dummyInitialState,action);\n    assert(result.failure_reason.length == 0);\n  });\n  it(\"changes failure_reason state to payload of the action if SIGNUP_FAILURE action is passed\",()=>{\n    const action = {\n      type:SIGNUP_FAILURE,\n      payload:[\n        SIGNUP_FAILURE_REASONS.INVALID_CONFIRM,\n        SIGNUP_FAILURE_REASONS.POLICY_PASSWORD,\n        SIGNUP_FAILURE_REASONS.EMPTY_NAME\n      ]\n    };\n\n    const dummyInitialState = {failure_reason:[]};\n\n    const result = signup(dummyInitialState,action);\n    assert.deepEqual(result.failure_reason, action.payload);\n  });\n});\n",
+    "static": true,
+    "longname": "test/reducer/signup.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 283,
+    "kind": "testDescribe",
+    "name": "describe26",
+    "testId": 26,
+    "memberof": "test/reducer/signup.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "test/reducer/signup.test.js~describe26",
+    "access": null,
+    "description": "signup reducer",
+    "lineNumber": 7,
+    "unknown": [
+      {
+        "tagName": "@test",
+        "tagValue": "{signup}"
+      }
+    ],
+    "testTargets": [
+      "signup"
+    ]
+  },
+  {
+    "__docId__": 284,
+    "kind": "testIt",
+    "name": "it27",
+    "testId": 27,
+    "memberof": "test/reducer/signup.test.js~describe26",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/reducer/signup.test.js~describe26.it27",
+    "access": null,
+    "description": "changes failure_reason state to empty array if SIGNUP_SUCCESS action is passed",
+    "lineNumber": 8
+  },
+  {
+    "__docId__": 285,
+    "kind": "testIt",
+    "name": "it28",
+    "testId": 28,
+    "memberof": "test/reducer/signup.test.js~describe26",
+    "testDepth": 1,
+    "static": true,
+    "longname": "test/reducer/signup.test.js~describe26.it28",
+    "access": null,
+    "description": "changes failure_reason state to payload of the action if SIGNUP_FAILURE action is passed",
+    "lineNumber": 19
+  },
+  {
+    "__docId__": 286,
     "kind": "testFile",
     "name": "test/saga/login.test.js",
     "content": "const assert = require(\"assert\");\nimport {loginSaga,loginTask,logoutSaga,loginFailureSaga,cleanRememberMeTask,loginFromRememberMeSaga} from '../../src/saga/login';\nimport {LOGIN_REQUESTED,LOGOUT_REQUESTED,LOGIN_FAILURE,loginRequested,loginSuccess,loginFailure} from '../../src/action/login';\nimport {take,takeEvery,fork,call,put} from 'redux-saga/effects';\nimport {getApiBaseURL} from  '../../src/module/environment';\nimport axios from \"axios\";\n\nconst BASE_API_URL = getApiBaseURL();\n/**@test {loginSaga}*/\ndescribe(\"login Saga\",()=>{\n  //すべてのLOGIN_REQUESTEDを受け取り、loginTaskに受け渡す\n  it(\"takes every LOGIN_REQUESTED action and pass it to loginTask\",()=>{\n    const gen = loginSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGIN_REQUESTED,loginTask));\n  });\n});\n/**@test {loginTask}*/\ndescribe(\"login Task\",()=>{\n  //ログインが成功した場合、LOGIN_SUCCESSアクションをputする\n  it(\"puts LOGIN_SUCCESS action if the server returns login success\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"test\"\n      }\n    };\n\n    const mockTokenReturn = {\n      token:\"mockToken\"\n    };\n\n    const mockUserDataReturn = {\n      id:\"test\",\n      name:\"テスト\"\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(true);//localStorageへの保存は成功したものとする\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n\n    rtn = gen.next({data:mockTokenReturn});//mockTokenReturnがAPIから返ってきたものとする\n    //mockTokenReturnで返ってきたtokenを使ってuser APIへアクセスする\n    assert.deepEqual(rtn.value, call(axios,{\n      method:\"GET\",\n      url:BASE_API_URL + \"user\",\n      headers:{\"Authorization\":\"Bearer \" + mockTokenReturn.token}\n    }));\n\n    rtn = gen.next({data:mockUserDataReturn});//APIからmockUserDataReturnが返ってきたものとする\n    //APIからの戻り値を使用して、LOGIN_SUCCESSアクションを作成してPUTする\n    assert.deepEqual(rtn.value, put(loginSuccess({\n      userid:mockUserDataReturn.id,\n      name:mockUserDataReturn.name,\n      token:mockTokenReturn.token\n    })));\n\n    rtn = gen.next();\n    assert(rtn.done);\n\n  });\n  //ログインに失敗した場合はLOGIN_FAILUREアクションをPUTする\n  it(\"puts LOGIN_FAILURE action if the server returns login failure\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"invalid_pass\"\n      }\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(true);//localStorageへの保存は成功したものとする\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n\n    rtn = gen.throw(new Error(\"API returns not 200 STATUS CODE\"));\n    assert.deepEqual(rtn.value, put(loginFailure()));\n\n    rtn = gen.next();\n    assert(rtn.done);\n  });\n  //rememberMeデータの保存に失敗しても処理を続ける\n  it(\"proceeds processing even if rememberMe function is not available.\",()=>{\n    const testAction = {\n      type:LOGIN_REQUESTED,\n      payload:{\n        id:\"test\",\n        pass:\"test\"\n      }\n    };\n\n    const mockTokenReturn = {\n      token:\"mockToken\"\n    };\n\n    const mockUserDataReturn = {\n      id:\"test\",\n      name:\"テスト\"\n    };\n\n    const gen = loginTask(testAction);\n    let rtn = gen.next();\n\n    rtn = gen.next(false);//localStorageへの保存が失敗\n    assert(!rtn.done); //処理が止まっていない\n    //与えたActionのpayloadを使用してAPIへアクセスする\n    assert.deepEqual(rtn.value,call(axios.post,\n      BASE_API_URL + \"auth\",\n      {\n        userid:testAction.payload.id,\n        password:testAction.payload.pass\n      }\n    ));\n  });\n});\n/**@test logoutSaga*/\ndescribe(\"logout Saga\",()=>{\n  //すべてのLOGOUT_REQUESTEDアクションを受け取って、cleanRememberMeTaskに引き渡す\n  it(\"takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask\",()=>{\n    const gen = logoutSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGOUT_REQUESTED,cleanRememberMeTask));\n  });\n});\n/**@test {loginFailure}*/\ndescribe(\"loginFailure Saga\",()=>{\n  //すべてのLOGIN_FAILUREアクションを受け取って、cleanRememberMeTaskに引き渡す\n  it(\"takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask\",()=>{\n    const gen = loginFailureSaga();\n    const ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(LOGIN_FAILURE,cleanRememberMeTask));\n  });\n});\n/**@test {cleanRememberMeTask}*/\ndescribe(\"cleanRememberMe Task\",()=>{\n  //RememberMe用のデータを削除しようとする\n  it(\"tries to clean RememberMe data\",()=>{\n    const gen = cleanRememberMeTask();\n    let ret = gen.next();\n\n    ret = gen.next(true);//localStorageへのアクセスは成功したとする\n    assert(ret.done);\n  })\n});\n/**@test {loginFromRememberMeSaga}*/\ndescribe(\"loginFromRememberMe Saga\",()=>{\n  //rememberMeのデータが有効である場合、LOGIN_REQUESTEDアクションをputする\n  it(\"puts LOGIN_REQUESTED action if rememberMe data is available\",()=>{\n    const mockRememberMe = {\n      id:\"test\",\n      pass:\"test\"\n    };\n    const gen = loginFromRememberMeSaga();\n    let ret = gen.next();\n\n    ret = gen.next(true);//localStorage上にrememberMeデータがあるものとする\n    ret = gen.next(mockRememberMe)//mockRememberMeがストレージ上から取得できたものとする\n    assert.deepEqual(ret.value,put(loginRequested(mockRememberMe.id,mockRememberMe.pass)));\n    ret = gen.next();\n    assert(ret.done);\n  });\n  //rememberMeのデータがない場合、アクションをputしない\n  it(\"doesn't put any actions if rememberMe is not available\",()=>{\n    const gen = loginFromRememberMeSaga();\n    let ret = gen.next();\n\n    ret = gen.next(false);\n    assert(ret.done);\n  });\n});\n",
@@ -5602,14 +5803,14 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 275,
+    "__docId__": 287,
     "kind": "testDescribe",
-    "name": "describe20",
-    "testId": 20,
+    "name": "describe29",
+    "testId": 29,
     "memberof": "test/saga/login.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/saga/login.test.js~describe20",
+    "longname": "test/saga/login.test.js~describe29",
     "access": null,
     "description": "login Saga",
     "lineNumber": 10,
@@ -5624,27 +5825,27 @@
     ]
   },
   {
-    "__docId__": 276,
+    "__docId__": 288,
     "kind": "testIt",
-    "name": "it21",
-    "testId": 21,
-    "memberof": "test/saga/login.test.js~describe20",
+    "name": "it30",
+    "testId": 30,
+    "memberof": "test/saga/login.test.js~describe29",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe20.it21",
+    "longname": "test/saga/login.test.js~describe29.it30",
     "access": null,
     "description": "takes every LOGIN_REQUESTED action and pass it to loginTask",
     "lineNumber": 12
   },
   {
-    "__docId__": 277,
+    "__docId__": 289,
     "kind": "testDescribe",
-    "name": "describe22",
-    "testId": 22,
+    "name": "describe31",
+    "testId": 31,
     "memberof": "test/saga/login.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/saga/login.test.js~describe22",
+    "longname": "test/saga/login.test.js~describe31",
     "access": null,
     "description": "login Task",
     "lineNumber": 21,
@@ -5659,53 +5860,53 @@
     ]
   },
   {
-    "__docId__": 278,
+    "__docId__": 290,
     "kind": "testIt",
-    "name": "it23",
-    "testId": 23,
-    "memberof": "test/saga/login.test.js~describe22",
+    "name": "it32",
+    "testId": 32,
+    "memberof": "test/saga/login.test.js~describe31",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe22.it23",
+    "longname": "test/saga/login.test.js~describe31.it32",
     "access": null,
     "description": "puts LOGIN_SUCCESS action if the server returns login success",
     "lineNumber": 23
   },
   {
-    "__docId__": 279,
+    "__docId__": 291,
     "kind": "testIt",
-    "name": "it24",
-    "testId": 24,
-    "memberof": "test/saga/login.test.js~describe22",
+    "name": "it33",
+    "testId": 33,
+    "memberof": "test/saga/login.test.js~describe31",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe22.it24",
+    "longname": "test/saga/login.test.js~describe31.it33",
     "access": null,
     "description": "puts LOGIN_FAILURE action if the server returns login failure",
     "lineNumber": 75
   },
   {
-    "__docId__": 280,
+    "__docId__": 292,
     "kind": "testIt",
-    "name": "it25",
-    "testId": 25,
-    "memberof": "test/saga/login.test.js~describe22",
+    "name": "it34",
+    "testId": 34,
+    "memberof": "test/saga/login.test.js~describe31",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe22.it25",
+    "longname": "test/saga/login.test.js~describe31.it34",
     "access": null,
     "description": "proceeds processing even if rememberMe function is not available.",
     "lineNumber": 104
   },
   {
-    "__docId__": 281,
+    "__docId__": 293,
     "kind": "testDescribe",
-    "name": "describe26",
-    "testId": 26,
+    "name": "describe35",
+    "testId": 35,
     "memberof": "test/saga/login.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/saga/login.test.js~describe26",
+    "longname": "test/saga/login.test.js~describe35",
     "access": null,
     "description": "logout Saga",
     "lineNumber": 138,
@@ -5720,27 +5921,27 @@
     ]
   },
   {
-    "__docId__": 282,
+    "__docId__": 294,
     "kind": "testIt",
-    "name": "it27",
-    "testId": 27,
-    "memberof": "test/saga/login.test.js~describe26",
+    "name": "it36",
+    "testId": 36,
+    "memberof": "test/saga/login.test.js~describe35",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe26.it27",
+    "longname": "test/saga/login.test.js~describe35.it36",
     "access": null,
     "description": "takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask",
     "lineNumber": 140
   },
   {
-    "__docId__": 283,
+    "__docId__": 295,
     "kind": "testDescribe",
-    "name": "describe28",
-    "testId": 28,
+    "name": "describe37",
+    "testId": 37,
     "memberof": "test/saga/login.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/saga/login.test.js~describe28",
+    "longname": "test/saga/login.test.js~describe37",
     "access": null,
     "description": "loginFailure Saga",
     "lineNumber": 149,
@@ -5755,27 +5956,27 @@
     ]
   },
   {
-    "__docId__": 284,
+    "__docId__": 296,
     "kind": "testIt",
-    "name": "it29",
-    "testId": 29,
-    "memberof": "test/saga/login.test.js~describe28",
+    "name": "it38",
+    "testId": 38,
+    "memberof": "test/saga/login.test.js~describe37",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe28.it29",
+    "longname": "test/saga/login.test.js~describe37.it38",
     "access": null,
     "description": "takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask",
     "lineNumber": 151
   },
   {
-    "__docId__": 285,
+    "__docId__": 297,
     "kind": "testDescribe",
-    "name": "describe30",
-    "testId": 30,
+    "name": "describe39",
+    "testId": 39,
     "memberof": "test/saga/login.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/saga/login.test.js~describe30",
+    "longname": "test/saga/login.test.js~describe39",
     "access": null,
     "description": "cleanRememberMe Task",
     "lineNumber": 160,
@@ -5790,27 +5991,27 @@
     ]
   },
   {
-    "__docId__": 286,
+    "__docId__": 298,
     "kind": "testIt",
-    "name": "it31",
-    "testId": 31,
-    "memberof": "test/saga/login.test.js~describe30",
+    "name": "it40",
+    "testId": 40,
+    "memberof": "test/saga/login.test.js~describe39",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe30.it31",
+    "longname": "test/saga/login.test.js~describe39.it40",
     "access": null,
     "description": "tries to clean RememberMe data",
     "lineNumber": 162
   },
   {
-    "__docId__": 287,
+    "__docId__": 299,
     "kind": "testDescribe",
-    "name": "describe32",
-    "testId": 32,
+    "name": "describe41",
+    "testId": 41,
     "memberof": "test/saga/login.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/saga/login.test.js~describe32",
+    "longname": "test/saga/login.test.js~describe41",
     "access": null,
     "description": "loginFromRememberMe Saga",
     "lineNumber": 171,
@@ -5825,33 +6026,33 @@
     ]
   },
   {
-    "__docId__": 288,
+    "__docId__": 300,
     "kind": "testIt",
-    "name": "it33",
-    "testId": 33,
-    "memberof": "test/saga/login.test.js~describe32",
+    "name": "it42",
+    "testId": 42,
+    "memberof": "test/saga/login.test.js~describe41",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe32.it33",
+    "longname": "test/saga/login.test.js~describe41.it42",
     "access": null,
     "description": "puts LOGIN_REQUESTED action if rememberMe data is available",
     "lineNumber": 173
   },
   {
-    "__docId__": 289,
+    "__docId__": 301,
     "kind": "testIt",
-    "name": "it34",
-    "testId": 34,
-    "memberof": "test/saga/login.test.js~describe32",
+    "name": "it43",
+    "testId": 43,
+    "memberof": "test/saga/login.test.js~describe41",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/login.test.js~describe32.it34",
+    "longname": "test/saga/login.test.js~describe41.it43",
     "access": null,
     "description": "doesn't put any actions if rememberMe is not available",
     "lineNumber": 188
   },
   {
-    "__docId__": 290,
+    "__docId__": 302,
     "kind": "testFile",
     "name": "test/saga/signup.test.js",
     "content": "const assert = require(\"assert\");\nimport {signupSaga,signupTask} from '../../src/saga/signup';\nimport {put,call,takeEvery} from 'redux-saga/effects';\nimport {getApiBaseURL} from '../../src/module/environment';\nimport {SIGNUP_REQUIRED,signupSucceess,signupFailure} from '../../src/action/signup';\nimport {SIGNUP_FAILURE_REASONS} from '../../src/const/signup'\nimport {loginRequested} from '../../src/action/login';\nimport axios from \"axios\";\n\nconst BASE_API_URL = getApiBaseURL();\n/**@test {signupSaga}*/\ndescribe(\"signup Saga\",()=>{\n  //常にSIGNUP_REQUIREDを受け付けて、signupTaskに引き渡す\n  it(\"takes every SIGNUP_REQUIRED action and pass it to signupTask\",()=>{\n    const gen = signupSaga();\n    let ret = gen.next();\n\n    assert(!ret.done);\n    assert.deepEqual(ret.value, takeEvery(SIGNUP_REQUIRED,signupTask));\n  });\n});\n/**@test {signupTask} */\ndescribe(\"signup Task\",()=>{\n  //サーバからサインアップ成功が返って来れば、SIGNUP_SUCCESSアクションとLOGIN_REQUESTEDアクションをputする\n  it(\"puts SIGNUP_SUCCESS and LOGIN_REQUESTED action if server returns signup success\",()=>{\n    const testAction = {\n      type:SIGNUP_REQUIRED,\n      payload:{\n        id:\"test\",\n        password:\"test\",\n        name:\"テスト\"\n      }\n    };\n\n    const gen = signupTask(testAction);\n    let ret = gen.next();\n\n    assert.deepEqual(ret.value, call(axios.post,BASE_API_URL + \"user\",{\n      userid:testAction.payload.id,\n      password:testAction.payload.password,\n      name:testAction.payload.name}));\n\n    ret = gen.next({result:\"success\"});//SignUPに成功したものとする\n\n    assert.deepEqual(ret.value, put(signupSucceess()));\n    ret = gen.next();\n\n    assert.deepEqual(ret.value, put(loginRequested(testAction.payload.id,testAction.payload.password)));\n    ret = gen.next();\n\n    assert(ret.done);\n\n  });\n  it(\"puts SIGNUP_FAILURE action if server returns signup failure\",()=>{\n    const testAction = {\n      type:SIGNUP_REQUIRED,\n      payload:{\n        id:\"test\",\n        password:\"test\",\n        name:\"テスト\"\n      }\n    };\n\n    const gen = signupTask(testAction);\n    let ret = gen.next();\n\n    assert.deepEqual(ret.value, call(axios.post,BASE_API_URL + \"user\",{\n      userid:testAction.payload.id,\n      password:testAction.payload.password,\n      name:testAction.payload.name}));\n\n    ret = gen.throw(new Error(\"Server doesn't return 200 OK STATUS CODE\"));//SignUPに失敗したものとする\n    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい\n    assert.deepEqual(ret.value, put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED])));\n\n    ret = gen.next();\n    assert(ret.done);\n  });\n});\n",
@@ -5862,14 +6063,14 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 291,
+    "__docId__": 303,
     "kind": "testDescribe",
-    "name": "describe35",
-    "testId": 35,
+    "name": "describe44",
+    "testId": 44,
     "memberof": "test/saga/signup.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/saga/signup.test.js~describe35",
+    "longname": "test/saga/signup.test.js~describe44",
     "access": null,
     "description": "signup Saga",
     "lineNumber": 12,
@@ -5884,27 +6085,27 @@
     ]
   },
   {
-    "__docId__": 292,
+    "__docId__": 304,
     "kind": "testIt",
-    "name": "it36",
-    "testId": 36,
-    "memberof": "test/saga/signup.test.js~describe35",
+    "name": "it45",
+    "testId": 45,
+    "memberof": "test/saga/signup.test.js~describe44",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/signup.test.js~describe35.it36",
+    "longname": "test/saga/signup.test.js~describe44.it45",
     "access": null,
     "description": "takes every SIGNUP_REQUIRED action and pass it to signupTask",
     "lineNumber": 14
   },
   {
-    "__docId__": 293,
+    "__docId__": 305,
     "kind": "testDescribe",
-    "name": "describe37",
-    "testId": 37,
+    "name": "describe46",
+    "testId": 46,
     "memberof": "test/saga/signup.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "test/saga/signup.test.js~describe37",
+    "longname": "test/saga/signup.test.js~describe46",
     "access": null,
     "description": "signup Task",
     "lineNumber": 23,
@@ -5919,27 +6120,27 @@
     ]
   },
   {
-    "__docId__": 294,
+    "__docId__": 306,
     "kind": "testIt",
-    "name": "it38",
-    "testId": 38,
-    "memberof": "test/saga/signup.test.js~describe37",
+    "name": "it47",
+    "testId": 47,
+    "memberof": "test/saga/signup.test.js~describe46",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/signup.test.js~describe37.it38",
+    "longname": "test/saga/signup.test.js~describe46.it47",
     "access": null,
     "description": "puts SIGNUP_SUCCESS and LOGIN_REQUESTED action if server returns signup success",
     "lineNumber": 25
   },
   {
-    "__docId__": 295,
+    "__docId__": 307,
     "kind": "testIt",
-    "name": "it39",
-    "testId": 39,
-    "memberof": "test/saga/signup.test.js~describe37",
+    "name": "it48",
+    "testId": 48,
+    "memberof": "test/saga/signup.test.js~describe46",
     "testDepth": 1,
     "static": true,
-    "longname": "test/saga/signup.test.js~describe37.it39",
+    "longname": "test/saga/signup.test.js~describe46.it48",
     "access": null,
     "description": "puts SIGNUP_FAILURE action if server returns signup failure",
     "lineNumber": 54

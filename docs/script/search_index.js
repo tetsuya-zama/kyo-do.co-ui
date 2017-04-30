@@ -996,6 +996,60 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "signup src/reducer/signup.js~signup,signup",
+    "test-file/test/reducer/signup.test.js.html#lineNumber7",
+    "signup reducer",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/signup.test.js.html#lineNumber8",
+    "signup reducer changes failure_reason state to empty array if SIGNUP_SUCCESS action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/signup.test.js.html#lineNumber19",
+    "signup reducer changes failure_reason state to payload of the action if SIGNUP_FAILURE action is passed",
+    "test"
+  ],
+  [
+    "signupfailure src/action/signup.js~signupfailure,signupfailure",
+    "test-file/test/action/signup.test.js.html#lineNumber29",
+    "signupFailure action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/signup.test.js.html#lineNumber30",
+    "signupFailure action creator creates SIGNUP_FAILURE action with array of SIGNUP_FAILURE_REASONS",
+    "test"
+  ],
+  [
+    "signuprequired src/action/signup.js~signuprequired,signuprequired",
+    "test-file/test/action/signup.test.js.html#lineNumber7",
+    "signupRequired action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/signup.test.js.html#lineNumber8",
+    "signupRequired action creator creates SIGNUP_REQUIRED action with form data which user input",
+    "test"
+  ],
+  [
+    "signupsucceess src/action/signup.js~signupsucceess,signupsucceess",
+    "test-file/test/action/signup.test.js.html#lineNumber21",
+    "signupSucceess action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/signup.test.js.html#lineNumber22",
+    "signupSucceess action creator creates SIGNUP_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
     "src/action/accountboard.js",
     "file/src/action/accountboard.js.html",
     "src/action/accountboard.js",
@@ -1434,6 +1488,12 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/action/signup.test.js",
+    "test-file/test/action/signup.test.js.html",
+    "test/action/signup.test.js",
+    "testFile"
+  ],
+  [
     "test/component/loginform.test.js",
     "test-file/test/component/loginform.test.js.html",
     "test/component/loginform.test.js",
@@ -1443,6 +1503,12 @@ window.esdocSearchIndex = [
     "test/reducer/login.test.js",
     "test-file/test/reducer/login.test.js.html",
     "test/reducer/login.test.js",
+    "testFile"
+  ],
+  [
+    "test/reducer/signup.test.js",
+    "test-file/test/reducer/signup.test.js.html",
+    "test/reducer/signup.test.js",
     "testFile"
   ],
   [
