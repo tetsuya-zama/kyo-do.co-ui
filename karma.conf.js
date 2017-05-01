@@ -1,11 +1,8 @@
 // Karma configuration
 module.exports = function(config) {
   config.set({
-    // ... normal karma configuration
     files: [
-      // all files ending in "_test"
-      {pattern: 'test/**/*.test.js', watched: false},
-      // each file acts as entry point for the webpack configuration
+      {pattern: 'test/**/*.test.js', watched: true},
     ],
 
     frameworks: [
@@ -44,8 +41,6 @@ module.exports = function(config) {
     },
 
     webpackMiddleware: {
-      // webpack-dev-middleware configuration
-      // i. e.
       stats: 'errors-only'
     }
   });
