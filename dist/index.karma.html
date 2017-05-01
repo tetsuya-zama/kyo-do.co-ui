@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="apple-touch-icon" href="/img/apple-icon.png">
+    <title>キョウ-ドコ？</title>
+  </head>
+  <body>
+    <div id="app" />
+    <script src="context.js"></script>
+    <script>
+      %CLIENT_CONFIG%
+      window.__karma__.setupContext(window);
+      %MAPPINGS%
+    </script>
+    %SCRIPTS%
+    <script type="text/javascript">
+      window.__karma__.loaded();
+    </script>
+  </body>
+</html>

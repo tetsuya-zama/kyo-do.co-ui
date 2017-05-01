@@ -3,7 +3,13 @@ module.exports = function(config) {
   config.set({
     files: [
       {pattern: 'test/**/*.test.js', watched: true},
+      {pattern: 'src/**/*.js', watched: true},
+      {pattern: 'dist/img/*.png', served:true},
     ],
+
+    proxies:{
+      "/img/":"/base/dist/img/"
+    },
 
     frameworks: [
         'mocha-debug','mocha'
@@ -11,7 +17,14 @@ module.exports = function(config) {
 
     preprocessors: {
       // add webpack as preprocessor
-      'test/**/*.js': ['webpack']
+      'test/**/*.js': ['webpack'],
+      'src/**/*.js' : ['webpack']
+    },
+
+    customContextFile: 'dist/index.karma.html',
+
+    client:{
+      clearContext:false
     },
 
     browsers: ['Chrome'],
