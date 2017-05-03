@@ -19,9 +19,9 @@ describe("<LoginForm />",()=>{
 
     const wrapper = mountWithMUI(<LoginForm {...props} />);
 
-    assert.ok(wrapper.ref("userid").find("input"));
-    assert.ok(wrapper.ref("password").find("input"));
-    assert.ok(wrapper.ref("loginbutton").find("button"));
+    assert(wrapper.ref("userid").find("input").length === 1);
+    assert(wrapper.ref("password").find("input").length === 1);
+    assert(wrapper.ref("loginbutton").find("button").length === 1);
 
   });
   //login statusがLOGIN_STATUS.FAILUREだった場合は、ログイン失敗メッセージを描画する
