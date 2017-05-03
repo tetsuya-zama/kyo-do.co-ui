@@ -206,7 +206,7 @@ describe("<SignUpForm />",()=>{
   });
 
   //画面サイドバリデーションが失敗した理由に応じてSIGNUP_FAILUREの引数に渡すSIGNUP_FAILURE_REASONSを決める
-  it("dispaches SIGNUP_FAILURE action with each SIGNUP_FAILURE_REASONS of reasons why display side validation is not passed",()=>{
+  it("dispatches SIGNUP_FAILURE action with each SIGNUP_FAILURE_REASONS of reasons why display side validation is not passed",()=>{
     validationConditions.forEach(cond =>{
       const props = {
         dispatch:sinon.spy(),
