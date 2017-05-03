@@ -43,14 +43,14 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/component/signupform.test.js.html#lineNumber209",
-    "<SignUpForm /> dispaches SIGNUP_FAILURE action with each SIGNUP_FAILURE_REASONS of reasons why display side validation is not passed",
+    "test-file/test/component/signupform.test.js.html#lineNumber181",
+    "<SignUpForm /> dispatches SIGNUP_FAILURE action if some display validations is not passed",
     "test"
   ],
   [
     "",
-    "test-file/test/component/signupform.test.js.html#lineNumber181",
-    "<SignUpForm /> dispatches SIGNUP_FAILURE action if some display validations is not passed",
+    "test-file/test/component/signupform.test.js.html#lineNumber209",
+    "<SignUpForm /> dispatches SIGNUP_FAILURE action with each SIGNUP_FAILURE_REASONS of reasons why display side validation is not passed",
     "test"
   ],
   [
