@@ -1,4 +1,4 @@
-const assert = require("assert");
+import assert from 'power-assert';
 import {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from "../../src/action/login";
 import {LOGIN_STATUS} from "../../src/const/login"
 import login from "../../src/reducer/login"

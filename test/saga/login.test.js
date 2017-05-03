@@ -1,4 +1,4 @@
-const assert = require("assert");
+import assert from 'power-assert';
 import {loginSaga,loginTask,logoutSaga,loginFailureSaga,cleanRememberMeTask,loginFromRememberMeSaga} from '../../src/saga/login';
 import {LOGIN_REQUESTED,LOGOUT_REQUESTED,LOGIN_FAILURE,loginRequested,loginSuccess,loginFailure} from '../../src/action/login';
 import {take,takeEvery,fork,call,put} from 'redux-saga/effects';

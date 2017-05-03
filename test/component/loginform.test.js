@@ -1,4 +1,4 @@
-const assert = require("assert");
+import assert from 'power-assert';
 import LoginForm from '../../src/component/loginform';
 import {LOGIN_STATUS} from '../../src/const/login';
 import sinon from 'sinon';

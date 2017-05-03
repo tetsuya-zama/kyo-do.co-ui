@@ -1,4 +1,4 @@
-const assert = require("assert");
+import assert from 'power-assert';
 import {SIGNUP_REQUIRED,SIGNUP_SUCCESS,SIGNUP_FAILURE} from '../../src/action/signup';
 import {signupRequired,signupSucceess,signupFailure} from '../../src/action/signup';
 import {SIGNUP_FAILURE_REASONS} from '../../src/const/signup';

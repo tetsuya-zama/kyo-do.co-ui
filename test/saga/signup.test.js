@@ -1,4 +1,4 @@
-const assert = require("assert");
+import assert from 'power-assert';
 import {signupSaga,signupTask} from '../../src/saga/signup';
 import {put,call,takeEvery} from 'redux-saga/effects';
 import {getApiBaseURL} from '../../src/module/environment';
