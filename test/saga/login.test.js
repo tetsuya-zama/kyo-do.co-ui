@@ -134,7 +134,7 @@ describe("login Task",()=>{
     ));
   });
 });
-/**@test logoutSaga*/
+/**@test {logoutSaga}*/
 describe("logout Saga",()=>{
   //すべてのLOGOUT_REQUESTEDアクションを受け取って、cleanRememberMeTaskに引き渡す
   it("takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask",()=>{
