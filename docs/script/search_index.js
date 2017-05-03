@@ -902,7 +902,7 @@ window.esdocSearchIndex = [
   [
     "",
     "test-file/test/reducer/login.test.js.html#lineNumber43",
-    "login reducer changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action",
+    "login reducer changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action is passed",
     "test"
   ],
   [

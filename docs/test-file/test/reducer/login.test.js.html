@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">test/reducer/login.test.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/tetsuya-zama/kyo-do.co-ui" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">action</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfo">changeAccountInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoField">changeAccountInfoField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeccountInfoModal">closeccountInfoModal</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openAccountInfoModal">openAccountInfoModal</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateMemberStatus">updateMemberStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailure">loginFailure</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginRequested">loginRequested</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSuccess">loginSuccess</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutRequested">logoutRequested</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-myDestinationChange">myDestinationChange</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-myDestinationClear">myDestinationClear</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupFailure">signupFailure</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupRequired">signupRequired</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupSucceess">signupSucceess</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-suggestionChange">suggestionChange</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-suggestionClear">suggestionClear</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ACCOUNT_INFO_MODAL_CLOSE">ACCOUNT_INFO_MODAL_CLOSE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ACCOUNT_INFO_MODAL_OPEN">ACCOUNT_INFO_MODAL_OPEN</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CHANGE_ACCOUNT_INFO">CHANGE_ACCOUNT_INFO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CHANGE_ACCOUNT_INFO_FIELD">CHANGE_ACCOUNT_INFO_FIELD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEAR_MY_DESTINATION">CLEAR_MY_DESTINATION</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPDATE_MEMBER_STATUS">UPDATE_MEMBER_STATUS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_FAILURE">LOGIN_FAILURE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_REQUESTED">LOGIN_REQUESTED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_SUCCESS">LOGIN_SUCCESS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGOUT_REQUESTED">LOGOUT_REQUESTED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MY_DESTINATION_CHANGE">MY_DESTINATION_CHANGE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MY_DESTINATION_CLEAR">MY_DESTINATION_CLEAR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE">SIGNUP_FAILURE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_REQUIRED">SIGNUP_REQUIRED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_SUCCESS">SIGNUP_SUCCESS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SUGGESTION_CHANGE">SUGGESTION_CHANGE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SUGGESTION_CLEAR">SUGGESTION_CLEAR</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/accountboard.js~AccountBoard.html">AccountBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE_REASONS">SIGNUP_FAILURE_REASONS</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-existsKeyOnStorage">existsKeyOnStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getFromStorage">getFromStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setToStorage">setToStorage</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reducer</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-accountboard">accountboard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-board">board</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mydestination">mydestination</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signup">signup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-suggestion">suggestion</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoSaga">changeAccountInfoSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cleanRememberMeTask">cleanRememberMeTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFromRememberMeSaga">loginFromRememberMeSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSaga">loginSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginTask">loginTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutSaga">logoutSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeDestinationSaga">changeDestinationSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadDestinationSaga">loadDestinationSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rootSaga">rootSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupSaga">signupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupTask">signupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionSaga">changeSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionSaga">loadSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">store</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/reducer/login.test.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
+import {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from &quot;../../src/action/login&quot;;
+import {LOGIN_STATUS} from &quot;../../src/const/login&quot;
+import login from &quot;../../src/reducer/login&quot;
+
+const dummyUserData = {userid:&quot;mike&quot;,name:&quot;Mike&quot;,token:&quot;dummy&quot;};
+/**@test {login}*/
+describe(&quot;login reducer&quot;,()=&gt;{
+  //LOGIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&apos;status&apos;&#x3092;LOGIN_STATUS.SUCCESS&#x306B;&#x5909;&#x66F4;&#x3057;&#x3001;&apos;user&apos;&#x3092;action&#x306E;payload&#x306B;&#x5909;&#x66F4;&#x3059;&#x308B;
+  it(&quot;changes &apos;status&apos; state to LOGIN_STATUS.SUCCESS and changes &apos;user&apos; state to payload of action if LOGIN_SUCCESS action is passed&quot;,()=&gt;{
+    const action = {
+      type:LOGIN_SUCCESS,
+      payload:dummyUserData
+    };
+
+    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};
+
+    const result = login(initialState,action);
+    assert(result.status === LOGIN_STATUS.SUCCESS);
+    assert(result.user === action.payload);
+  });
+  //LOGIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&apos;status&apos;&#x3092;LOGIN_STATUS.FAILURE&#x306B;&#x5909;&#x66F4;&#x3057;&#x3001;&apos;user&apos;&#x306F;&#x7A7A;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x306A;&#x308B;
+  it(&quot;changes &apos;status&apos; state to LOGIN_STATUS.FAILURE and changes &apos;user&apos; state to empty object if LOGIN_FAILURE action is passed&quot;,()=&gt;{
+    const action = {type:LOGIN_FAILURE};
+
+    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};
+
+    const result = login(initialState,action);
+    assert(result.status === LOGIN_STATUS.FAILURE);
+    assert(Object.keys(result.user).length === 0);
+  });
+  //LOGOUT_REQUESTED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&apos;status&apos;&#x3092;LOGIN_STATUS.NOTYET&#x306B;&#x5909;&#x66F4;&#x3057;&#x3001;&apos;user&apos;&#x306F;&#x7A7A;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x306A;&#x308B;
+  it(&quot;changes &apos;status&apos; state to LOGIN_STATUS.NOTYET and changes &apos;user&apos; state to empty object if LOGOUT_REQUESTED action is passed&quot;,()=&gt;{
+    const action = {type:LOGOUT_REQUESTED};
+
+    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};
+
+    const result = login(initialState,action);
+    assert(result.status === LOGIN_STATUS.NOTYET);
+    assert(Object.keys(result.user).length === 0);
+  });
+  //LOGIN_REQUESTED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&apos;status&apos;&#x3092;LOGIN_STATUS.NOTYET&#x306B;&#x5909;&#x66F4;&#x3057;&#x3001;&apos;user&apos;&#x306F;&#x7A7A;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x306A;&#x308B;
+  it(&quot;changes &apos;status&apos; state to LOGIN_STATUS.NOTYET and changes &apos;user&apos; state to empty object if LOGIN_REQUESTED action is passed&quot;,()=&gt;{
+    const action = {type:LOGIN_REQUESTED};
+
+    const initialState = {status:LOGIN_STATUS.FAILURE,user:{}};
+
+    const result = login(initialState,action);
+    assert(result.status === LOGIN_STATUS.NOTYET);
+    assert(Object.keys(result.user).length === 0);
+  });
+  //&#x305D;&#x306E;&#x4ED6;&#x306E;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x306F;state&#x3092;&#x5909;&#x66F4;&#x3057;&#x306A;&#x3044;
+  it(&quot;doesn&apos;t change any state if any other action is passed&quot;,()=&gt;{
+    const action = {type:&quot;OTHER_ACTION&quot;};
+
+    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};
+
+    const result = login(initialState,action);
+    assert(result.status === initialState.status);
+    assert(result.user === initialState.user);
+  });
+});
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

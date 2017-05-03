@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="">
+  <title data-ice="title">Test | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/tetsuya-zama/kyo-do.co-ui" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">action</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfo">changeAccountInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoField">changeAccountInfoField</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeccountInfoModal">closeccountInfoModal</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openAccountInfoModal">openAccountInfoModal</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateMemberStatus">updateMemberStatus</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailure">loginFailure</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginRequested">loginRequested</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSuccess">loginSuccess</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutRequested">logoutRequested</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-myDestinationChange">myDestinationChange</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-myDestinationClear">myDestinationClear</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupFailure">signupFailure</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupRequired">signupRequired</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupSucceess">signupSucceess</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-suggestionChange">suggestionChange</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-suggestionClear">suggestionClear</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ACCOUNT_INFO_MODAL_CLOSE">ACCOUNT_INFO_MODAL_CLOSE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ACCOUNT_INFO_MODAL_OPEN">ACCOUNT_INFO_MODAL_OPEN</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CHANGE_ACCOUNT_INFO">CHANGE_ACCOUNT_INFO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CHANGE_ACCOUNT_INFO_FIELD">CHANGE_ACCOUNT_INFO_FIELD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEAR_MY_DESTINATION">CLEAR_MY_DESTINATION</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPDATE_MEMBER_STATUS">UPDATE_MEMBER_STATUS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_FAILURE">LOGIN_FAILURE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_REQUESTED">LOGIN_REQUESTED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_SUCCESS">LOGIN_SUCCESS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGOUT_REQUESTED">LOGOUT_REQUESTED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MY_DESTINATION_CHANGE">MY_DESTINATION_CHANGE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MY_DESTINATION_CLEAR">MY_DESTINATION_CLEAR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE">SIGNUP_FAILURE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_REQUIRED">SIGNUP_REQUIRED</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_SUCCESS">SIGNUP_SUCCESS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SUGGESTION_CHANGE">SUGGESTION_CHANGE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SUGGESTION_CLEAR">SUGGESTION_CLEAR</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/accountboard.js~AccountBoard.html">AccountBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE_REASONS">SIGNUP_FAILURE_REASONS</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-existsKeyOnStorage">existsKeyOnStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getFromStorage">getFromStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setToStorage">setToStorage</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reducer</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-accountboard">accountboard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-board">board</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mydestination">mydestination</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signup">signup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-suggestion">suggestion</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoSaga">changeAccountInfoSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cleanRememberMeTask">cleanRememberMeTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFromRememberMeSaga">loginFromRememberMeSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginSaga">loginSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginTask">loginTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logoutSaga">logoutSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeDestinationSaga">changeDestinationSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadDestinationSaga">loadDestinationSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rootSaga">rootSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupSaga">signupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupTask">signupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionSaga">changeSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionSaga">loadSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">store</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1>Test</h1>
+<table class="test-summary">
+  <thead>
+    <tr>
+      <td class="test-description">Description</td>
+      <td class="test-target">Identifier</td>
+      <td class="test-count">Count</td>
+    </tr>
+  </thead>
+
+  <tbody data-ice="tests">
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/action/login.test.js.html#lineNumber6"><p>loginRequested action creator</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-loginRequested">loginRequested</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/action/login.test.js.html#lineNumber8"><p>creates LOGIN_REQUESTED action with id and password which user input</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/action/login.test.js.html#lineNumber20"><p>loginSuccess action creator</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-loginSuccess">loginSuccess</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/action/login.test.js.html#lineNumber22"><p>creates LOGIN_SUCCESS action with user data of logon user.</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/action/login.test.js.html#lineNumber34"><p>loginFailure action creator</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-loginFailure">loginFailure</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/action/login.test.js.html#lineNumber36"><p>creates LOGIN_FAILURE action with no arguments</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/action/login.test.js.html#lineNumber43"><p>logoutRequested action creator</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-logoutRequested">logoutRequested</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/action/login.test.js.html#lineNumber45"><p>creates LOGOUT_REQUESTED action with no arguments</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/action/signup.test.js.html#lineNumber7"><p>signupRequired action creator</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-signupRequired">signupRequired</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/action/signup.test.js.html#lineNumber8"><p>creates SIGNUP_REQUIRED action with form data which user input</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/action/signup.test.js.html#lineNumber21"><p>signupSucceess action creator</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-signupSucceess">signupSucceess</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/action/signup.test.js.html#lineNumber22"><p>creates SIGNUP_SUCCESS action with no arguments</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/action/signup.test.js.html#lineNumber29"><p>signupFailure action creator</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-signupFailure">signupFailure</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/action/signup.test.js.html#lineNumber30"><p>creates SIGNUP_FAILURE action with array of SIGNUP_FAILURE_REASONS</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/component/loginform.test.js.html#lineNumber12"><p>&lt;LoginForm /&gt;</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></td>
+  <td data-ice="testCount">5</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/loginform.test.js.html#lineNumber14"><p>renders &apos;userid&apos; textbox, &apos;password&apos; textbox and one login button</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/loginform.test.js.html#lineNumber28"><p>renders login failure message if login status is LOGIN_STATUS.FAILURE</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/loginform.test.js.html#lineNumber42"><p>doesn&apos;t render login failure message if login status is not LOGIN_STATUS.FAILURE</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/loginform.test.js.html#lineNumber56"><p>doesn&apos;t dispatch any actions when button is clicked if two textboxes are empty</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/loginform.test.js.html#lineNumber68"><p>dispatches LOGIN_REQUESTED ation when button is clicked if two textboxes are not empty</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/component/signupform.test.js.html#lineNumber88"><p>&lt;SignUpForm /&gt;</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></td>
+  <td data-ice="testCount">7</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/signupform.test.js.html#lineNumber90"><p>renders id,pass,pass_confirm,name textboxes and sign up button</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/signupform.test.js.html#lineNumber107"><p>doesn&apos;t render any validation error messages if failure_reason is empty array.</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/signupform.test.js.html#lineNumber122"><p>renders each validation error messages of failure_reason</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/signupform.test.js.html#lineNumber137"><p>renders multipul validation error messages if failure_reason has multipul reasons</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/signupform.test.js.html#lineNumber153"><p>dispatches SIGNUP_REQUIRED action if all display side validations are passed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/signupform.test.js.html#lineNumber181"><p>dispatches SIGNUP_FAILURE action if some display validations is not passed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/signupform.test.js.html#lineNumber209"><p>dispatches SIGNUP_FAILURE action with each SIGNUP_FAILURE_REASONS of reasons why display side validation is not passed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/reducer/login.test.js.html#lineNumber8"><p>login reducer</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-login">login</a></span></td>
+  <td data-ice="testCount">5</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/reducer/login.test.js.html#lineNumber10"><p>changes &apos;status&apos; state to LOGIN_STATUS.SUCCESS and changes &apos;user&apos; state to payload of action if LOGIN_SUCCESS action is passed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/reducer/login.test.js.html#lineNumber23"><p>changes &apos;status&apos; state to LOGIN_STATUS.FAILURE and changes &apos;user&apos; state to empty object if LOGIN_FAILURE action is passed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/reducer/login.test.js.html#lineNumber33"><p>changes &apos;status&apos; state to LOGIN_STATUS.NOTYET and changes &apos;user&apos; state to empty object if LOGOUT_REQUESTED action is passed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/reducer/login.test.js.html#lineNumber43"><p>changes &apos;status&apos; state to LOGIN_STATUS.NOTYET and changes &apos;user&apos; state to empty object if LOGIN_REQUESTED action is passed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/reducer/login.test.js.html#lineNumber53"><p>doesn&apos;t change any state if any other action is passed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/reducer/signup.test.js.html#lineNumber7"><p>signup reducer</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-signup">signup</a></span></td>
+  <td data-ice="testCount">2</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/reducer/signup.test.js.html#lineNumber8"><p>changes failure_reason state to empty array if SIGNUP_SUCCESS action is passed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/reducer/signup.test.js.html#lineNumber19"><p>changes failure_reason state to payload of the action if SIGNUP_FAILURE action is passed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/login.test.js.html#lineNumber10"><p>login Saga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-loginSaga">loginSaga</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/login.test.js.html#lineNumber12"><p>takes every LOGIN_REQUESTED action and pass it to loginTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/login.test.js.html#lineNumber21"><p>login Task</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-loginTask">loginTask</a></span></td>
+  <td data-ice="testCount">3</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/login.test.js.html#lineNumber23"><p>puts LOGIN_SUCCESS action if the server returns login success</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/login.test.js.html#lineNumber75"><p>puts LOGIN_FAILURE action if the server returns login failure</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/login.test.js.html#lineNumber104"><p>proceeds processing even if rememberMe function is not available.</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/login.test.js.html#lineNumber138"><p>logout Saga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/login.test.js.html#lineNumber140"><p>takes every LOGOUT_REQUESTED action and pass it to cleanRememberMeTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/login.test.js.html#lineNumber149"><p>loginFailure Saga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-loginFailure">loginFailure</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/login.test.js.html#lineNumber151"><p>takes every LOGIN_FAILURE action and pass it to cleanRememberMeTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/login.test.js.html#lineNumber160"><p>cleanRememberMe Task</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-cleanRememberMeTask">cleanRememberMeTask</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/login.test.js.html#lineNumber162"><p>tries to clean RememberMe data</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/login.test.js.html#lineNumber171"><p>loginFromRememberMe Saga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-loginFromRememberMeSaga">loginFromRememberMeSaga</a></span></td>
+  <td data-ice="testCount">2</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/login.test.js.html#lineNumber173"><p>puts LOGIN_REQUESTED action if rememberMe data is available</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/login.test.js.html#lineNumber188"><p>doesn&apos;t put any actions if rememberMe is not available</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/signup.test.js.html#lineNumber12"><p>signup Saga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-signupSaga">signupSaga</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/signup.test.js.html#lineNumber14"><p>takes every SIGNUP_REQUIRED action and pass it to signupTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/signup.test.js.html#lineNumber23"><p>signup Task</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-signupTask">signupTask</a></span></td>
+  <td data-ice="testCount">2</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/signup.test.js.html#lineNumber25"><p>puts SIGNUP_SUCCESS and LOGIN_REQUESTED action if server returns signup success</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/signup.test.js.html#lineNumber54"><p>puts SIGNUP_FAILURE action if server returns signup failure</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
