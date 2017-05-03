@@ -990,7 +990,7 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "* *,*",
+    "logoutsaga src/saga/login.js~logoutsaga,logoutsaga",
     "test-file/test/saga/login.test.js.html#lineNumber138",
     "logout Saga",
     "test"
