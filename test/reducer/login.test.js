@@ -40,7 +40,7 @@ describe("login reducer",()=>{
     assert(Object.keys(result.user).length === 0);
   });
   //LOGIN_REQUESTEDアクションが渡された場合、'status'をLOGIN_STATUS.NOTYETに変更し、'user'は空オブジェクトとなる
-  it("changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action",()=>{
+  it("changes 'status' state to LOGIN_STATUS.NOTYET and changes 'user' state to empty object if LOGIN_REQUESTED action is passed",()=>{
     const action = {type:LOGIN_REQUESTED};
 
     const initialState = {status:LOGIN_STATUS.FAILURE,user:{}};
