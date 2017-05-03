@@ -171,7 +171,7 @@ export default class SignUpForm extends React.Component{
         </span>
         <br />
         <br />
-        <RaisedButton onClick={this.hundleSubmit} label="Sign Up"/>
+        <RaisedButton ref="signup" onClick={this.hundleSubmit} label="Sign Up"/>
       </div>
     )
   }
