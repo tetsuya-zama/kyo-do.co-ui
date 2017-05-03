@@ -281,7 +281,11 @@ export default class SignUpForm extends React.Component{
         &lt;/span&gt;
         &lt;br /&gt;
         &lt;br /&gt;
-        &lt;RaisedButton onClick={this.hundleSubmit} label=&quot;Sign Up&quot;/&gt;
+        &lt;RaisedButton ref=&quot;signup&quot; onClick={this.hundleSubmit} label=&quot;Sign Up&quot;/&gt;
+        &lt;br /&gt;
+        &lt;span style={{color:&quot;red&quot;}}&gt;
+          {serverErrorMessage}
+        &lt;/span&gt;
       &lt;/div&gt;
     )
   }

@@ -36,6 +36,54 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "signupform src/component/signupform.js~signupform,signupform",
+    "test-file/test/component/signupform.test.js.html#lineNumber88",
+    "<SignUpForm />",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/signupform.test.js.html#lineNumber209",
+    "<SignUpForm /> dispaches SIGNUP_FAILURE action with each SIGNUP_FAILURE_REASONS of reasons why display side validation is not passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/signupform.test.js.html#lineNumber181",
+    "<SignUpForm /> dispatches SIGNUP_FAILURE action if some display validations is not passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/signupform.test.js.html#lineNumber153",
+    "<SignUpForm /> dispatches SIGNUP_REQUIRED action if all display side validations are passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/signupform.test.js.html#lineNumber107",
+    "<SignUpForm /> doesn't render any validation error messages if failure_reason is empty array.",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/signupform.test.js.html#lineNumber122",
+    "<SignUpForm /> renders each validation error messages of failure_reason",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/signupform.test.js.html#lineNumber90",
+    "<SignUpForm /> renders id,pass,pass_confirm,name textboxes and sign up button",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/signupform.test.js.html#lineNumber137",
+    "<SignUpForm /> renders multipul validation error messages if failure_reason has multipul reasons",
+    "test"
+  ],
+  [
     "kyo-do.co-ui/src/action/accountboard.js~account_info_modal_close",
     "variable/index.html#static-variable-ACCOUNT_INFO_MODAL_CLOSE",
     "<span>ACCOUNT_INFO_MODAL_CLOSE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
@@ -1497,6 +1545,12 @@ window.esdocSearchIndex = [
     "test/component/loginform.test.js",
     "test-file/test/component/loginform.test.js.html",
     "test/component/loginform.test.js",
+    "testFile"
+  ],
+  [
+    "test/component/signupform.test.js",
+    "test-file/test/component/signupform.test.js.html",
+    "test/component/signupform.test.js",
     "testFile"
   ],
   [
