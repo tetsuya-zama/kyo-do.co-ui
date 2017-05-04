@@ -15,7 +15,6 @@ describe("<MyDestination />",()=>{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
-      suggestion:[],
       login:{
         status:LOGIN_STATUS.SUCCESS,
         user:{
@@ -38,7 +37,6 @@ describe("<MyDestination />",()=>{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
-      suggestion:[],
       login:{
         status:LOGIN_STATUS.SUCCESS,
         user:{
@@ -65,7 +63,6 @@ describe("<MyDestination />",()=>{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
-      suggestion:[],
       login:{
         status:LOGIN_STATUS.SUCCESS,
         user:{
@@ -94,7 +91,6 @@ describe("<MyDestination />",()=>{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
-      suggestion:[],
       login:{
         status:LOGIN_STATUS.SUCCESS,
         user:{
@@ -117,5 +113,33 @@ describe("<MyDestination />",()=>{
       comment:DEFAULT_MY_DESTINATION.comment,
       contact:nextContact
     }));
+  });
+
+  it("renders values which is passed as mydestination state",()=>{
+    const myDestinationState = {
+      inBusiness:true,
+      comment:"EAST3F",
+      contact:"090-XXX-XXXX",
+      suggestion:DEFAULT_MY_DESTINATION.suggestion
+    };
+
+    const props = {
+      dispatch:sinon.spy(),
+      mydestination:myDestinationState,
+      login:{
+        status:LOGIN_STATUS.SUCCESS,
+        user:{
+          id:"test",
+          name:"テスト",
+          token:"dummy"
+        }
+      }
+    };
+
+    const wrapper = mountWithMUI(<MyDestination {...props} />);
+
+    assert(wrapper.ref("in_business").find("input").get(0).checked);
+    assert(wrapper.ref("comment").find("input").get(0).value === myDestinationState.comment);
+    assert(wrapper.ref("contact").find("input").get(0).value === myDestinationState.contact);
   });
 });

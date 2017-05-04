@@ -91,7 +91,7 @@ export default class MyDestination extends React.Component{
               maxSearchResults={10}
               openOnFocus={true}
               onUpdateInput={this.hundleCommentChange}
-              value={this.props.mydestination.comment}
+              searchText={this.props.mydestination.comment}
               ref="comment"
             />
           </td>
