@@ -73,6 +73,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE_REASONS">SIGNUP_FAILURE_REASONS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_VALIDATION_ERROR_MESSAGES">SIGNUP_VALIDATION_ERROR_MESSAGES</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
@@ -111,22 +112,12 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
 import SignUpForm from &apos;../../src/component/signupform&apos;;
 import {signupFailure,signupRequired} from &apos;../../src/action/signup&apos;;
-import {SIGNUP_FAILURE_REASONS} from &apos;../../src/const/signup&apos;;
+import {SIGNUP_FAILURE_REASONS, SIGNUP_VALIDATION_ERROR_MESSAGES} from &apos;../../src/const/signup&apos;;
 import sinon from &apos;sinon&apos;;
 import {shallow} from &apos;enzyme&apos;;
 import React from &apos;react&apos;;
 import ReactDOM from &apos;react-dom&apos;;
 import {mountWithMUI} from &apos;./testutil&apos;;
-
-const validationErrorMessages = [
-  {reason : SIGNUP_FAILURE_REASONS.ID_DUPLICATED, msg : &quot;&#x3054;&#x6307;&#x5B9A;&#x306E;ID&#x306F;&#x3059;&#x3067;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&quot;},
-  {reason : SIGNUP_FAILURE_REASONS.SERVER_ERROR, msg:&quot;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x307E;&#x3057;&#x305F;&quot;},
-  {reason : SIGNUP_FAILURE_REASONS.INVALID_CONFIRM, msg : &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3068;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#xFF08;&#x78BA;&#x8A8D;&#xFF09;&#x304C;&#x4E00;&#x81F4;&#x3057;&#x307E;&#x305B;&#x3093;&quot;},
-  {reason : SIGNUP_FAILURE_REASONS.EMPTY_ID, msg : &quot;ID&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot;},
-  {reason : SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD, msg : &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot;},
-  {reason : SIGNUP_FAILURE_REASONS.EMPTY_NAME, msg : &quot;&#x540D;&#x524D;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot;},
-  {reason : SIGNUP_FAILURE_REASONS.POLICY_PASSWORD, msg : &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x30DD;&#x30EA;&#x30B7;&#x30FC;&#x306E;&#x8981;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;(8&#x6587;&#x5B57;&#x4EE5;&#x4E0A;&#xFF0C;&#x534A;&#x89D2;&#x82F1;&#x6570;&#x5B57;&#x3092;1&#x6587;&#x5B57;&#x4EE5;&#x4E0A;&#x542B;&#x3080;)&quot;}
-];
 
 const validationConditions = [
   {
@@ -148,7 +139,7 @@ const validationConditions = [
     }
   },
   {
-    expect: [SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD, SIGNUP_FAILURE_REASONS.POLICY_PASSWORD],
+    expect: [SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD],
     form : {
       id:&quot;test_id&quot;,
       pass:&quot;&quot;,
@@ -192,6 +183,15 @@ const validationConditions = [
       name:&quot;&#x5358;&#x4F53;&#x30C6;&#x30B9;&#x30C8;&quot;
     }
   },
+  {
+    expect: [SIGNUP_FAILURE_REASONS.EMPTY_ID,SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD,SIGNUP_FAILURE_REASONS.EMPTY_NAME],
+    form : {
+      id:&quot;&quot;,
+      pass:&quot;&quot;,
+      pass_confirm:&quot;&quot;,
+      name:&quot;&quot;
+    }
+  },
 ];
 
 /**@test {SignUpForm}*/
@@ -224,13 +224,13 @@ describe(&quot;&lt;SignUpForm /&gt;&quot;,()=&gt;{
 
     const wrapper = shallow(&lt;SignUpForm {...props} /&gt;);
 
-    validationErrorMessages.forEach(m =&gt; {
+    SIGNUP_VALIDATION_ERROR_MESSAGES.forEach(m =&gt; {
       assert(wrapper.text().indexOf(m.msg) &lt; 0);
     });
   });
   //failure_reason&#x306B;&#x5FDC;&#x3058;&#x305F;&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x63CF;&#x753B;&#x3059;&#x308B;
   it(&quot;renders each validation error messages of failure_reason&quot;,()=&gt;{
-    validationErrorMessages.forEach(m =&gt;{
+    SIGNUP_VALIDATION_ERROR_MESSAGES.forEach(m =&gt;{
       const props = {
         dispatch:sinon.spy(),
         signup:{
@@ -245,7 +245,7 @@ describe(&quot;&lt;SignUpForm /&gt;&quot;,()=&gt;{
   });
   //failure_reason&#x304C;&#x8907;&#x6570;&#x3042;&#x308C;&#x3070;&#x3001;&#x8907;&#x6570;&#x306E;&#x30D0;&#x30EA;&#x30C7;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x63CF;&#x753B;&#x3059;&#x308B;
   it(&quot;renders multipul validation error messages if failure_reason has multipul reasons&quot;,()=&gt;{
-    const messages = validationErrorMessages.filter(m =&gt; m.reason == (SIGNUP_FAILURE_REASONS.EMPTY_ID || SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD));
+    const messages = SIGNUP_VALIDATION_ERROR_MESSAGES.filter(m =&gt; m.reason == (SIGNUP_FAILURE_REASONS.EMPTY_ID || SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD));
     const props = {
       dispatch:sinon.spy(),
       signup:{

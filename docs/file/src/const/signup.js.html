@@ -73,6 +73,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE_REASONS">SIGNUP_FAILURE_REASONS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_VALIDATION_ERROR_MESSAGES">SIGNUP_VALIDATION_ERROR_MESSAGES</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
@@ -119,7 +120,20 @@ export const SIGNUP_FAILURE_REASONS = {
   EMPTY_PASSWORD:&quot;EMPTY_PASSWORD&quot;, //&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x304C;&#x7A7A;
   EMPTY_NAME : &quot;EMPTY_NAME&quot;, //&#x8868;&#x793A;&#x540D;&#x304C;&#x7A7A;
   POLICY_PASSWORD : &quot;POLICY_PASSWORD&quot; //&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x30DD;&#x30EA;&#x30B7;&#x30FC;&#x306E;&#x8981;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;
-}
+};
+
+/**
+* &#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x5931;&#x6557;&#x6642;&#x306E;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;
+*/
+export const SIGNUP_VALIDATION_ERROR_MESSAGES = [
+  {reason : SIGNUP_FAILURE_REASONS.ID_DUPLICATED, msg : &quot;&#x3054;&#x6307;&#x5B9A;&#x306E;ID&#x306F;&#x3059;&#x3067;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&quot;},
+  {reason : SIGNUP_FAILURE_REASONS.SERVER_ERROR, msg:&quot;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x307E;&#x3057;&#x305F;&quot;},
+  {reason : SIGNUP_FAILURE_REASONS.INVALID_CONFIRM, msg : &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3068;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#xFF08;&#x78BA;&#x8A8D;&#xFF09;&#x304C;&#x4E00;&#x81F4;&#x3057;&#x307E;&#x305B;&#x3093;&quot;},
+  {reason : SIGNUP_FAILURE_REASONS.EMPTY_ID, msg : &quot;ID&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot;},
+  {reason : SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD, msg : &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot;},
+  {reason : SIGNUP_FAILURE_REASONS.EMPTY_NAME, msg : &quot;&#x540D;&#x524D;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot;},
+  {reason : SIGNUP_FAILURE_REASONS.POLICY_PASSWORD, msg : &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x30DD;&#x30EA;&#x30B7;&#x30FC;&#x306E;&#x8981;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;(8&#x6587;&#x5B57;&#x4EE5;&#x4E0A;&#xFF0C;&#x534A;&#x89D2;&#x82F1;&#x6570;&#x5B57;&#x3092;1&#x6587;&#x5B57;&#x4EE5;&#x4E0A;&#x542B;&#x3080;)&quot;}
+];
 </code></pre>
 
 </div>

@@ -73,6 +73,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE_REASONS">SIGNUP_FAILURE_REASONS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_VALIDATION_ERROR_MESSAGES">SIGNUP_VALIDATION_ERROR_MESSAGES</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
@@ -111,7 +112,7 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
 import ReactDOM from &apos;react-dom&apos;
 import {signupFailure,signupRequired} from &apos;../action/signup&apos;
-import {SIGNUP_FAILURE_REASONS} from &apos;../const/signup&apos;
+import {SIGNUP_FAILURE_REASONS,SIGNUP_VALIDATION_ERROR_MESSAGES} from &apos;../const/signup&apos;
 import TextField from &apos;material-ui/TextField&apos;
 import RaisedButton from &apos;material-ui/RaisedButton&apos;
 /**
@@ -134,6 +135,7 @@ export default class SignUpForm extends React.Component{
     this.hundlePassChange = this.hundlePassChange.bind(this);
     this.hundleConfirmPasswordChange = this.hundleConfirmPasswordChange.bind(this);
     this.hundleNameChange = this.hundleNameChange.bind(this);
+    this.renderValidationError = this.renderValidationError.bind(this);
   }
   /**
   * Sign Up&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
@@ -160,19 +162,42 @@ export default class SignUpForm extends React.Component{
 
   }
 
-
+  /**
+  * id textbox&#x306E;&#x66F4;&#x65B0;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30CF;&#x30F3;&#x30C9;&#x30E9;
+  * @param {Object} event &#x30A4;&#x30D9;&#x30F3;&#x30C8;
+  * @param {string} newValue &#x66F4;&#x65B0;&#x5F8C;&#x306E;&#x5024;
+  * @return {undefined}
+  */
   hundleIDChange(event,newValue){
     this.setState({id_text:newValue});
   }
 
+  /**
+  * pass textbox&#x306E;&#x66F4;&#x65B0;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30CF;&#x30F3;&#x30C9;&#x30E9;
+  * @param {Object} event &#x30A4;&#x30D9;&#x30F3;&#x30C8;
+  * @param {string} newValue &#x66F4;&#x65B0;&#x5F8C;&#x306E;&#x5024;
+  * @return {undefined}
+  */
   hundlePassChange(event,newValue){
     this.setState({pass_text:newValue});
   }
 
+  /**
+  * pass_confirm textbox&#x306E;&#x66F4;&#x65B0;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30CF;&#x30F3;&#x30C9;&#x30E9;
+  * @param {Object} event &#x30A4;&#x30D9;&#x30F3;&#x30C8;
+  * @param {string} newValue &#x66F4;&#x65B0;&#x5F8C;&#x306E;&#x5024;
+  * @return {undefined}
+  */
   hundleConfirmPasswordChange(event,newValue){
     this.setState({confirm_pass_text:newValue});
   }
 
+  /**
+  * name textbox&#x306E;&#x66F4;&#x65B0;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30CF;&#x30F3;&#x30C9;&#x30E9;
+  * @param {Object} event &#x30A4;&#x30D9;&#x30F3;&#x30C8;
+  * @param {string} newValue &#x66F4;&#x65B0;&#x5F8C;&#x306E;&#x5024;
+  * @return {undefined}
+  */
   hundleNameChange(event,newValue){
     this.setState({name_text:newValue});
   }
@@ -191,6 +216,8 @@ export default class SignUpForm extends React.Component{
     }
     if(!forminfo.pass || forminfo.pass.trim().length == 0){
       errors.push(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD);
+    }else if(!forminfo.pass.match(match_pattern)){
+      errors.push(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD);
     }
     if(!forminfo.name || forminfo.name.trim().length == 0){
       errors.push(SIGNUP_FAILURE_REASONS.EMPTY_NAME);
@@ -198,33 +225,35 @@ export default class SignUpForm extends React.Component{
     if(forminfo.pass !== forminfo.pass_confirm){
       errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);
     }
-    if(!forminfo.pass.match(match_pattern)){
-      errors.push(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD);
-    }
+
     return errors;
 
+  }
+  /**
+  * props.failure_reason&#x306E;&#x72B6;&#x6CC1;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x5F15;&#x6570;&#x306B;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x30A8;&#x30E9;&#x30FC;&#x7406;&#x7531;&#x306B;&#x5BFE;&#x5FDC;&#x3059;&#x308B;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x63CF;&#x753B;&#x3059;&#x308B;
+  * @param {string} singleFailureReason SIGNUP_FAILURE_REASONS&#x306E;&#x3046;&#x3061;&#xFF11;&#x3064;
+  * @return {Symbol} &#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x63CF;&#x753B;&#x3059;&#x308B;react-dom
+  */
+  renderValidationError(singleFailureReason){
+    if(this.props.signup.failure_reason.indexOf(singleFailureReason) &gt;=0){
+      const errorMessage = SIGNUP_VALIDATION_ERROR_MESSAGES
+        .filter(m=&gt;m.reason === singleFailureReason)
+        .map(m=&gt;m.msg)[0];
+
+      return (
+        &lt;span style={{color:&quot;red&quot;}}&gt;
+          {errorMessage}
+        &lt;/span&gt;
+      );
+    }else{
+      return null;
+    }
   }
   /**
   * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
   */
   render(){
-    const failure_reason = this.props.signup.failure_reason;
-    const emptyIdMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_ID) &gt;= 0 ?
-      &quot;ID&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot; : &quot;&quot;;
-    const emptyPassMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD) &gt;= 0 ?
-      &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot; : &quot;&quot;;
-    const emptyNameMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_NAME) &gt;= 0 ?
-      &quot;&#x540D;&#x524D;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&quot; : &quot;&quot;;
-    const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) &gt;= 0 ?
-      &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3068;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#xFF08;&#x78BA;&#x8A8D;&#xFF09;&#x304C;&#x4E00;&#x81F4;&#x3057;&#x307E;&#x305B;&#x3093;&quot; : &quot;&quot;;
-    const policyPasswordMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD) &gt;= 0 ?
-      &quot;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x30DD;&#x30EA;&#x30B7;&#x30FC;&#x306E;&#x8981;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;(8&#x6587;&#x5B57;&#x4EE5;&#x4E0A;&#xFF0C;&#x534A;&#x89D2;&#x82F1;&#x6570;&#x5B57;&#x3092;1&#x6587;&#x5B57;&#x4EE5;&#x4E0A;&#x542B;&#x3080;)&quot; : &quot;&quot;;
-    const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) &gt;= 0 ?
-      &quot;&#x3054;&#x6307;&#x5B9A;&#x306E;ID&#x306F;&#x3059;&#x3067;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&quot; : &quot;&quot;;
-    const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) &gt;= 0 ?
-      &quot;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x307E;&#x3057;&#x305F;&quot; : &quot;&quot;;
-
     return (
       &lt;div&gt;
         &lt;h4&gt;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x767B;&#x9332;&lt;/h4&gt;
@@ -238,9 +267,8 @@ export default class SignUpForm extends React.Component{
         onChange={this.hundleIDChange}
         /&gt;
         &lt;br /&gt;
-        &lt;span style={{color:&quot;red&quot;}}&gt;
-          {emptyIdMessage}{idDuplicatedMessage}
-        &lt;/span&gt;
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_ID)}
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.ID_DUPLICATED)}
         &lt;br /&gt;
         &lt;TextField
         hintText=&quot;Password&quot;
@@ -251,9 +279,8 @@ export default class SignUpForm extends React.Component{
         onChange={this.hundlePassChange}
         /&gt;
         &lt;br /&gt;
-        &lt;span style={{color:&quot;red&quot;}}&gt;
-          {emptyPassMessage}{policyPasswordMessage}
-        &lt;/span&gt;
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD)}
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD)}
         &lt;br /&gt;
         &lt;TextField
         hintText=&quot;Password(Confirm)&quot;
@@ -264,9 +291,7 @@ export default class SignUpForm extends React.Component{
         onChange={this.hundleConfirmPasswordChange}
         /&gt;
         &lt;br /&gt;
-        &lt;span style={{color:&quot;red&quot;}}&gt;
-          {invalidConfirmMessage}
-        &lt;/span&gt;
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM)}
         &lt;br /&gt;
         &lt;TextField
         hintText=&quot;&#x8868;&#x793A;&#x540D;&quot;
@@ -276,16 +301,12 @@ export default class SignUpForm extends React.Component{
         onChange={this.hundleNameChange}
         /&gt;
         &lt;br /&gt;
-        &lt;span style={{color:&quot;red&quot;}}&gt;
-          {emptyNameMessage}
-        &lt;/span&gt;
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_NAME)}
         &lt;br /&gt;
         &lt;br /&gt;
         &lt;RaisedButton ref=&quot;signup&quot; onClick={this.hundleSubmit} label=&quot;Sign Up&quot;/&gt;
         &lt;br /&gt;
-        &lt;span style={{color:&quot;red&quot;}}&gt;
-          {serverErrorMessage}
-        &lt;/span&gt;
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.SERVER_ERROR)}
       &lt;/div&gt;
     )
   }

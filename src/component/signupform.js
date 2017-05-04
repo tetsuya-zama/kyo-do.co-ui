@@ -118,7 +118,11 @@ export default class SignUpForm extends React.Component{
     return errors;
 
   }
-
+  /**
+  * props.failure_reasonの状況に応じて引数に与えられたエラー理由に対応するエラーメッセージを描画する
+  * @param {string} singleFailureReason SIGNUP_FAILURE_REASONSのうち１つ
+  * @return {Symbol} エラーメッセージを描画するreact-dom
+  */
   renderValidationError(singleFailureReason){
     if(this.props.signup.failure_reason.indexOf(singleFailureReason) >=0){
       const errorMessage = SIGNUP_VALIDATION_ERROR_MESSAGES
