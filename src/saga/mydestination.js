@@ -1,14 +1,15 @@
 import {take,put,select,takeEvery,takeLatest,call} from 'redux-saga/effects'
 import {delay} from 'redux-saga'
-import {MY_DESTINATION_CHANGE,myDestinationChange} from '../action/mydestination'
+import {MY_DESTINATION_CHANGE,myDestinationChange,myDestinationSaveComplete} from '../action/mydestination'
 import {LOGIN_SUCCESS} from '../action/login'
-import {setToStorage,getFromStorage,existsKeyOnStorage} from '../module/localstorage'
+import {getApiBaseURL} from '../module/environment';
 import axios from 'axios';
 
 /**
-* localStorageに行き先を保管する際のKey
+* APIのベースURL
 */
-const STORAGE_KEY_DESTINATION = "my_destination.";
+const BASE_API_URL = getApiBaseURL();
+
 /**
 * 行き先を入力してからサーバ同期するまでの遅延時間
 */
@@ -24,15 +25,14 @@ export function* loadDestinationSaga(){
 
 /**
 * ログインユーザーの行き先をロードするtask
-* @param {object} action LOGIN_SUCCESSアクション
 */
-function* loadDestinationTask(action){
+export function* loadDestinationTask(){
     const token = yield select(state => state.login.user.token);
 
     try{
       const savedDestination = yield call(axios,{
         method:"GET",
-        url:"https://api.kyo-do.co/status",
+        url:BASE_API_URL + "status",
         headers:{"Authorization":"Bearer " + token}
       });
 
@@ -54,19 +54,18 @@ export function* changeDestinationSaga(){
 * 行き先変更アクションを受け付けた際のTask
 * @param {Object} action MY_DESTINATION_CHANGEアクション
 */
-function* changeDestinationTask(action){
-  /**
-  * TODO APIを呼び出してサーバ上に保存
-  */
+export function* changeDestinationTask(action){
   yield call(delay,SYNC_DELAY_MS);
   const token = yield select(state => state.login.user.token);
   try{
 
     yield call(axios.put,
-      "https://api.kyo-do.co/status",
+      BASE_API_URL + "status",
       {inBusiness:action.payload.inBusiness,comment:action.payload.comment,contact:action.payload.contact},
       {headers:{"Authorization":"Bearer " + token}}
     );
+
+    yield put(myDestinationSaveComplete());
   }catch(e){
     //TODO 更新が失敗した旨をエラーアクションに投げる
     console.log(e);
