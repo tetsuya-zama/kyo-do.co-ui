@@ -36,6 +36,36 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "mydestination src/component/mydestination.js~mydestination,mydestination",
+    "test-file/test/component/mydestination.test.js.html#lineNumber13",
+    "<MyDestination />",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/mydestination.test.js.html#lineNumber64",
+    "<MyDestination /> dispatches MY_DESTINATION_CHANGE action if comment is changed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/mydestination.test.js.html#lineNumber93",
+    "<MyDestination /> dispatches MY_DESTINATION_CHANGE action if contact is changed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/mydestination.test.js.html#lineNumber37",
+    "<MyDestination /> dispatches MY_DESTINATION_CHANGE action if in_business is toggled",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/mydestination.test.js.html#lineNumber14",
+    "<MyDestination /> renders in_business toggle, comment and contact textboxes and clear button",
+    "test"
+  ],
+  [
     "signupform src/component/signupform.js~signupform,signupform",
     "test-file/test/component/signupform.test.js.html#lineNumber87",
     "<SignUpForm />",
@@ -1452,6 +1482,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/mydestination.js~mydestination#hundlecommentchange",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleCommentChange",
+    "src/component/mydestination.js~MyDestination#hundleCommentChange",
+    "method"
+  ],
+  [
     "src/component/mydestination.js~mydestination#hundlecontactchange",
     "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleContactChange",
     "src/component/mydestination.js~MyDestination#hundleContactChange",
@@ -1461,12 +1497,6 @@ window.esdocSearchIndex = [
     "src/component/mydestination.js~mydestination#hundletoggle",
     "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleToggle",
     "src/component/mydestination.js~MyDestination#hundleToggle",
-    "method"
-  ],
-  [
-    "src/component/mydestination.js~mydestination#hundleupdateinput",
-    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleUpdateInput",
-    "src/component/mydestination.js~MyDestination#hundleUpdateInput",
     "method"
   ],
   [
@@ -1695,6 +1725,12 @@ window.esdocSearchIndex = [
     "test/component/loginform.test.js",
     "test-file/test/component/loginform.test.js.html",
     "test/component/loginform.test.js",
+    "testFile"
+  ],
+  [
+    "test/component/mydestination.test.js",
+    "test-file/test/component/mydestination.test.js.html",
+    "test/component/mydestination.test.js",
     "testFile"
   ],
   [
