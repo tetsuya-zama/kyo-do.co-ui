@@ -87,7 +87,7 @@ export default class MyDestination extends React.Component{
             <AutoComplete
               hintText="コメント"
               filter={AutoComplete.fuzzyFilter}
-              dataSource={this.props.suggestion.length > 0 ? this.props.suggestion : ["EAST 8F", "EAST 3F", "宝町", "NRI 13F", "NRI 12F"]}
+              dataSource={this.props.mydestination.suggestion}
               maxSearchResults={10}
               openOnFocus={true}
               onUpdateInput={this.hundleCommentChange}
