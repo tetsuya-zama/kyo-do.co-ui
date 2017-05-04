@@ -1,3 +1,4 @@
+import {DEFAULT_MY_DESTINATION} from '../const/mydestination';
 
 /**
 * 自分の行き先変更アクション名
@@ -16,10 +17,6 @@ export function myDestinationChange(destination){
   };
 }
 
-/**
-* 自分の行き先クリアアクション名
-*/
-export const MY_DESTINATION_CLEAR = "MY_DESTINATION_CLEAR";
 
 /**
 * 自分の行き先クリアアクションのcreator
@@ -27,6 +24,7 @@ export const MY_DESTINATION_CLEAR = "MY_DESTINATION_CLEAR";
 */
 export function myDestinationClear(){
   return {
-    type:MY_DESTINATION_CLEAR
+    type:MY_DESTINATION_CHANGE,
+    payload:destination
   };
 }

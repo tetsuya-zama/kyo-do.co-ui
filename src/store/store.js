@@ -4,6 +4,7 @@ import logger from 'redux-logger'
 import rootReducer from '../reducer/root'
 import rootSaga from '../saga/root'
 import {LOGIN_STATUS} from '../const/login'
+import {DEFAULT_MY_DESTINATION} from '../const/mydestination';
 
 
 /**
@@ -16,7 +17,7 @@ export function configureStore() {
     rootReducer,
     {
       login:{status:LOGIN_STATUS.NOTYET, user:{}},
-      mydestination:{inBusiness:false,comment:""},
+      mydestination:DEFAULT_MY_DESTINATION,
       board:{memberStatus:[]},
       accountboard:{open:false, nextuser:{}},
       suggestion:{suggests:[]},
