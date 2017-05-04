@@ -76,6 +76,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_MY_DESTINATION">DEFAULT_MY_DESTINATION</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE_REASONS">SIGNUP_FAILURE_REASONS</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_VALIDATION_ERROR_MESSAGES">SIGNUP_VALIDATION_ERROR_MESSAGES</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_SUGGENSTIONS">DEFAULT_SUGGENSTIONS</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
@@ -88,7 +89,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mydestination">mydestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signup">signup</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-suggestion">suggestion</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoSaga">changeAccountInfoSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
@@ -316,7 +316,7 @@
   <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/component/mydestination.test.js.html#lineNumber13"><p>&lt;MyDestination /&gt;</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></td>
-  <td data-ice="testCount">4</td>
+  <td data-ice="testCount">5</td>
 </tr>
 
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
@@ -326,19 +326,25 @@
   <td></td>
 </tr>
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/mydestination.test.js.html#lineNumber37"><p>dispatches MY_DESTINATION_CHANGE action if in_business is toggled</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/mydestination.test.js.html#lineNumber36"><p>dispatches MY_DESTINATION_CHANGE action if in_business is toggled</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
 </tr>
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/mydestination.test.js.html#lineNumber64"><p>dispatches MY_DESTINATION_CHANGE action if comment is changed</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/mydestination.test.js.html#lineNumber62"><p>dispatches MY_DESTINATION_CHANGE action if comment is changed</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
 </tr>
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/mydestination.test.js.html#lineNumber93"><p>dispatches MY_DESTINATION_CHANGE action if contact is changed</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/mydestination.test.js.html#lineNumber91"><p>dispatches MY_DESTINATION_CHANGE action if contact is changed</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/component/mydestination.test.js.html#lineNumber119"><p>renders values which is passed as mydestination state</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>

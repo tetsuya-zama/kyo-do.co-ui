@@ -76,6 +76,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_MY_DESTINATION">DEFAULT_MY_DESTINATION</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_FAILURE_REASONS">SIGNUP_FAILURE_REASONS</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP_VALIDATION_ERROR_MESSAGES">SIGNUP_VALIDATION_ERROR_MESSAGES</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_SUGGENSTIONS">DEFAULT_SUGGENSTIONS</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
@@ -88,7 +89,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mydestination">mydestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signup">signup</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-suggestion">suggestion</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoSaga">changeAccountInfoSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
@@ -130,7 +130,6 @@ describe(&quot;&lt;MyDestination /&gt;&quot;,()=&gt;{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
-      suggestion:[],
       login:{
         status:LOGIN_STATUS.SUCCESS,
         user:{
@@ -153,7 +152,6 @@ describe(&quot;&lt;MyDestination /&gt;&quot;,()=&gt;{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
-      suggestion:[],
       login:{
         status:LOGIN_STATUS.SUCCESS,
         user:{
@@ -180,7 +178,6 @@ describe(&quot;&lt;MyDestination /&gt;&quot;,()=&gt;{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
-      suggestion:[],
       login:{
         status:LOGIN_STATUS.SUCCESS,
         user:{
@@ -196,6 +193,7 @@ describe(&quot;&lt;MyDestination /&gt;&quot;,()=&gt;{
     const wrapper = mountWithMUI(&lt;MyDestination {...props} /&gt;);
 
     wrapper.ref(&quot;comment&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:nextComment}});
+    wrapper.ref(&quot;comment&quot;).find(&quot;input&quot;).simulate(&quot;blur&quot;);
 
     assert(props.dispatch.called);
     assert(props.dispatch.getCall(0).args[0],myDestinationChange({
@@ -209,7 +207,6 @@ describe(&quot;&lt;MyDestination /&gt;&quot;,()=&gt;{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
-      suggestion:[],
       login:{
         status:LOGIN_STATUS.SUCCESS,
         user:{
@@ -232,6 +229,34 @@ describe(&quot;&lt;MyDestination /&gt;&quot;,()=&gt;{
       comment:DEFAULT_MY_DESTINATION.comment,
       contact:nextContact
     }));
+  });
+
+  it(&quot;renders values which is passed as mydestination state&quot;,()=&gt;{
+    const myDestinationState = {
+      inBusiness:true,
+      comment:&quot;EAST3F&quot;,
+      contact:&quot;090-XXX-XXXX&quot;,
+      suggestion:DEFAULT_MY_DESTINATION.suggestion
+    };
+
+    const props = {
+      dispatch:sinon.spy(),
+      mydestination:myDestinationState,
+      login:{
+        status:LOGIN_STATUS.SUCCESS,
+        user:{
+          id:&quot;test&quot;,
+          name:&quot;&#x30C6;&#x30B9;&#x30C8;&quot;,
+          token:&quot;dummy&quot;
+        }
+      }
+    };
+
+    const wrapper = mountWithMUI(&lt;MyDestination {...props} /&gt;);
+
+    assert(wrapper.ref(&quot;in_business&quot;).find(&quot;input&quot;).get(0).checked);
+    assert(wrapper.ref(&quot;comment&quot;).find(&quot;input&quot;).get(0).value === myDestinationState.comment);
+    assert(wrapper.ref(&quot;contact&quot;).find(&quot;input&quot;).get(0).value === myDestinationState.contact);
   });
 });
 </code></pre>

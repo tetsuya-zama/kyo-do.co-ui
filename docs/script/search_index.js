@@ -43,19 +43,19 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/component/mydestination.test.js.html#lineNumber64",
+    "test-file/test/component/mydestination.test.js.html#lineNumber62",
     "<MyDestination /> dispatches MY_DESTINATION_CHANGE action if comment is changed",
     "test"
   ],
   [
     "",
-    "test-file/test/component/mydestination.test.js.html#lineNumber93",
+    "test-file/test/component/mydestination.test.js.html#lineNumber91",
     "<MyDestination /> dispatches MY_DESTINATION_CHANGE action if contact is changed",
     "test"
   ],
   [
     "",
-    "test-file/test/component/mydestination.test.js.html#lineNumber37",
+    "test-file/test/component/mydestination.test.js.html#lineNumber36",
     "<MyDestination /> dispatches MY_DESTINATION_CHANGE action if in_business is toggled",
     "test"
   ],
@@ -63,6 +63,12 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/component/mydestination.test.js.html#lineNumber14",
     "<MyDestination /> renders in_business toggle, comment and contact textboxes and clear button",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/mydestination.test.js.html#lineNumber119",
+    "<MyDestination /> renders values which is passed as mydestination state",
     "test"
   ],
   [
@@ -159,6 +165,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/const/mydestination.js~default_my_destination",
     "variable/index.html#static-variable-DEFAULT_MY_DESTINATION",
     "<span>DEFAULT_MY_DESTINATION</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/mydestination.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/const/suggestion.js~default_suggenstions",
+    "variable/index.html#static-variable-DEFAULT_SUGGENSTIONS",
+    "<span>DEFAULT_SUGGENSTIONS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/suggestion.js</span>",
     "variable"
   ],
   [
@@ -537,12 +549,6 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/saga/signup.js~signuptask",
     "function/index.html#static-function-signupTask",
     "<span>signupTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/signup.js</span>",
-    "function"
-  ],
-  [
-    "kyo-do.co-ui/src/reducer/suggestion.js~suggestion",
-    "function/index.html#static-function-suggestion",
-    "<span>suggestion</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/suggestion.js</span>",
     "function"
   ],
   [
@@ -1590,6 +1596,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/const/suggestion.js",
+    "file/src/const/suggestion.js.html",
+    "src/const/suggestion.js",
+    "file"
+  ],
+  [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",
@@ -1647,12 +1659,6 @@ window.esdocSearchIndex = [
     "src/reducer/signup.js",
     "file/src/reducer/signup.js.html",
     "src/reducer/signup.js",
-    "file"
-  ],
-  [
-    "src/reducer/suggestion.js",
-    "file/src/reducer/suggestion.js.html",
-    "src/reducer/suggestion.js",
     "file"
   ],
   [
