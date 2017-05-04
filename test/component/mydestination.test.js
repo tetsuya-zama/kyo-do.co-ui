@@ -78,6 +78,7 @@ describe("<MyDestination />",()=>{
     const wrapper = mountWithMUI(<MyDestination {...props} />);
 
     wrapper.ref("comment").find("input").simulate("change",{target:{value:nextComment}});
+    wrapper.ref("comment").find("input").simulate("blur");
 
     assert(props.dispatch.called);
     assert(props.dispatch.getCall(0).args[0],myDestinationChange({
