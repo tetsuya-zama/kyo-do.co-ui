@@ -1,0 +1,39 @@
+import assert from 'power-assert';
+import {MY_DESTINATION_CHANGE,MY_DESTINATION_SAVE_COMPLETE} from '../../src/action/mydestination';
+import {myDestinationChange,myDestinationClear,myDestinationSaveComplete} from '../../src/action/mydestination';
+import {DEFAULT_MY_DESTINATION} from '../../src/const/mydestination';
+
+/**@test {myDestinationChange}*/
+describe("myDestinationChange action creator",()=>{
+  it("creates MY_DESTINATION_CHANGE action with inBusiness, comment and contact data which user input",()=>{
+    const inputData = {
+      inBusiness : true,
+      comment : "EAST 3F",
+      contact : "090-XXX-XXXX"
+    };
+
+    const result = myDestinationChange(inputData);
+
+    assert(result.type === MY_DESTINATION_CHANGE);
+    assert.deepEqual(result.payload,inputData);
+  });
+});
+
+/**@test {myDestinationClear}*/
+describe("myDestinationClear action creator",()=>{
+  it("creates MY_DESTINATION_CHANGE action with DEFAULT_MY_DESTINATION",()=>{
+    const result = myDestinationClear();
+
+    assert(result.type === MY_DESTINATION_CHANGE);
+    assert.deepEqual(result.payload,DEFAULT_MY_DESTINATION);
+  });
+});
+
+/**@test {myDestinationSaveComplete}*/
+describe("myDestinationSaveComplete action creator", ()=>{
+  it("creates MY_DESTINATION_SAVE_COMPLETE action with no argument",()=>{
+    const result = myDestinationSaveComplete();
+
+    assert(result.type === MY_DESTINATION_SAVE_COMPLETE);
+  });
+});

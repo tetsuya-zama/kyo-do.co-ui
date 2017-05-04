@@ -19,12 +19,27 @@ export function myDestinationChange(destination){
 
 
 /**
-* 自分の行き先クリアアクションのcreator
-* @return {Object} 自分の行き先クリアアクション
+* 自分の行き先変更アクションをデフォルトの値で作るcreator
+* @return {Object} 自分の行き先変更アクション
 */
 export function myDestinationClear(){
   return {
     type:MY_DESTINATION_CHANGE,
-    payload:destination
+    payload:DEFAULT_MY_DESTINATION
+  };
+}
+
+/**
+* 自分の行き先セーブ完了アクション
+*/
+export const MY_DESTINATION_SAVE_COMPLETE = "MY_DESTINATION_SAVE_COMPLETE";
+
+/**
+* 自分の行き先サーブ完了アクションのcreator
+* @return {Object} 自分の行き先セーブ完了アクション
+*/
+export function myDestinationSaveComplete(){
+  return {
+    type : MY_DESTINATION_SAVE_COMPLETE
   };
 }
