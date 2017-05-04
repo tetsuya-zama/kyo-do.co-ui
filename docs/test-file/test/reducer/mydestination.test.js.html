@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">test/saga/signup.test.js | API Document</title>
+  <title data-ice="title">test/reducer/mydestination.test.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -112,84 +112,53 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">test/saga/signup.test.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">test/reducer/mydestination.test.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
-import {signupSaga,signupTask} from &apos;../../src/saga/signup&apos;;
-import {put,call,takeEvery} from &apos;redux-saga/effects&apos;;
-import {getApiBaseURL} from &apos;../../src/module/environment&apos;;
-import {SIGNUP_REQUIRED,signupSucceess,signupFailure} from &apos;../../src/action/signup&apos;;
-import {SIGNUP_FAILURE_REASONS} from &apos;../../src/const/signup&apos;
-import {loginRequested} from &apos;../../src/action/login&apos;;
-import axios from &quot;axios&quot;;
+import {MY_DESTINATION_CHANGE} from &apos;../../src/action/mydestination&apos;;
+import mydestination from &apos;../../src/reducer/mydestination&apos;;
 
-const BASE_API_URL = getApiBaseURL();
-/**@test {signupSaga}*/
-describe(&quot;signup Saga&quot;,()=&gt;{
-  //&#x5E38;&#x306B;SIGNUP_REQUIRED&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x3066;&#x3001;signupTask&#x306B;&#x5F15;&#x304D;&#x6E21;&#x3059;
-  it(&quot;takes every SIGNUP_REQUIRED action and pass it to signupTask&quot;,()=&gt;{
-    const gen = signupSaga();
-    let ret = gen.next();
+/**@test {mydestination}*/
+describe(&quot;mydestination reducer&quot;,()=&gt;{
+  it(&quot;changes mydestination state into payload of the action if MY_DESTINATION_CHANGE action is passed&quot;,()=&gt;{
+    const initialState = {
+      inBusiness:true,
+      comment:&quot;EAST 8F&quot;,
+      contact:&quot;&quot;
+    };
 
-    assert(!ret.done);
-    assert.deepEqual(ret.value, takeEvery(SIGNUP_REQUIRED,signupTask));
-  });
-});
-/**@test {signupTask} */
-describe(&quot;signup Task&quot;,()=&gt;{
-  //&#x30B5;&#x30FC;&#x30D0;&#x304B;&#x3089;&#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7;&#x6210;&#x529F;&#x304C;&#x8FD4;&#x3063;&#x3066;&#x6765;&#x308C;&#x3070;&#x3001;SIGNUP_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3068;LOGIN_REQUESTED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put&#x3059;&#x308B;
-  it(&quot;puts SIGNUP_SUCCESS and LOGIN_REQUESTED action if server returns signup success&quot;,()=&gt;{
-    const testAction = {
-      type:SIGNUP_REQUIRED,
+    const dummyAction = {
+      type:MY_DESTINATION_CHANGE,
       payload:{
-        id:&quot;test&quot;,
-        password:&quot;test&quot;,
-        name:&quot;&#x30C6;&#x30B9;&#x30C8;&quot;
+        inBusiness:true,
+        comment:&quot;&quot;,
+        contact:&quot;0X0-XXXX-XXXX&quot;
       }
     };
 
-    const gen = signupTask(testAction);
-    let ret = gen.next();
+    const result = mydestination(initialState,dummyAction);
 
-    assert.deepEqual(ret.value, call(axios.post,BASE_API_URL + &quot;user&quot;,{
-      userid:testAction.payload.id,
-      password:testAction.payload.password,
-      name:testAction.payload.name}));
-
-    ret = gen.next({result:&quot;success&quot;});//SignUP&#x306B;&#x6210;&#x529F;&#x3057;&#x305F;&#x3082;&#x306E;&#x3068;&#x3059;&#x308B;
-
-    assert.deepEqual(ret.value, put(signupSucceess()));
-    ret = gen.next();
-
-    assert.deepEqual(ret.value, put(loginRequested(testAction.payload.id,testAction.payload.password)));
-    ret = gen.next();
-
-    assert(ret.done);
-
+    assert.deepEqual(result, dummyAction.payload);
   });
-  it(&quot;puts SIGNUP_FAILURE action if server returns signup failure&quot;,()=&gt;{
-    const testAction = {
-      type:SIGNUP_REQUIRED,
+
+  it(&quot;doesn&apos;t make any changes if another action is passed&quot;,()=&gt;{
+    const initialState = {
+      inBusiness:true,
+      comment:&quot;EAST 8F&quot;,
+      contact:&quot;&quot;
+    };
+
+    const dummyAction = {
+      type:&quot;DUMMY_ACTION_NAME&quot;,
       payload:{
-        id:&quot;test&quot;,
-        password:&quot;test&quot;,
-        name:&quot;&#x30C6;&#x30B9;&#x30C8;&quot;
+        inBusiness:true,
+        comment:&quot;&quot;,
+        contact:&quot;0X0-XXXX-XXXX&quot;
       }
     };
 
-    const gen = signupTask(testAction);
-    let ret = gen.next();
+    const result = mydestination(initialState,dummyAction);
 
-    assert.deepEqual(ret.value, call(axios.post,BASE_API_URL + &quot;user&quot;,{
-      userid:testAction.payload.id,
-      password:testAction.payload.password,
-      name:testAction.payload.name}));
-
-    ret = gen.throw(new Error(&quot;Server doesn&apos;t return 200 OK STATUS CODE&quot;));//SignUP&#x306B;&#x5931;&#x6557;&#x3057;&#x305F;&#x3082;&#x306E;&#x3068;&#x3059;&#x308B;
-    //XXX&#x3000;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x8D77;&#x304D;&#x308C;&#x3070;ID&#x91CD;&#x8907;&#x3068;&#x5224;&#x65AD;&#x3057;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;&#x30B5;&#x30FC;&#x30D0;&#x30A8;&#x30E9;&#x30FC;&#x3068;&#x533A;&#x5225;&#x3057;&#x305F;&#x3044;
-    assert.deepEqual(ret.value, put(signupFailure([SIGNUP_FAILURE_REASONS.ID_DUPLICATED])));
-
-    ret = gen.next();
-    assert(ret.done);
+    assert.deepEqual(result, initialState);
   });
 });
 </code></pre>

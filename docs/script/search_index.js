@@ -126,6 +126,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/const/mydestination.js~default_my_destination",
+    "variable/index.html#static-variable-DEFAULT_MY_DESTINATION",
+    "<span>DEFAULT_MY_DESTINATION</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/mydestination.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/component/header.js~header",
     "class/src/component/header.js~Header.html",
     "<span>Header</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/header.js</span>",
@@ -174,9 +180,9 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "kyo-do.co-ui/src/action/mydestination.js~my_destination_clear",
-    "variable/index.html#static-variable-MY_DESTINATION_CLEAR",
-    "<span>MY_DESTINATION_CLEAR</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
+    "kyo-do.co-ui/src/action/mydestination.js~my_destination_save_complete",
+    "variable/index.html#static-variable-MY_DESTINATION_SAVE_COMPLETE",
+    "<span>MY_DESTINATION_SAVE_COMPLETE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
     "variable"
   ],
   [
@@ -288,6 +294,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/mydestination.js~changedestinationtask",
+    "function/index.html#static-function-changeDestinationTask",
+    "<span>changeDestinationTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/mydestination.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/saga/suggestion.js~changesuggestionsaga",
     "function/index.html#static-function-changeSuggestionSaga",
     "<span>changeSuggestionSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/suggestion.js</span>",
@@ -333,6 +345,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/saga/mydestination.js~loaddestinationsaga",
     "function/index.html#static-function-loadDestinationSaga",
     "<span>loadDestinationSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/mydestination.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/mydestination.js~loaddestinationtask",
+    "function/index.html#static-function-loadDestinationTask",
+    "<span>loadDestinationTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/mydestination.js</span>",
     "function"
   ],
   [
@@ -417,6 +435,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/mydestination.js~mydestinationclear",
     "function/index.html#static-function-myDestinationClear",
     "<span>myDestinationClear</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/mydestination.js~mydestinationsavecomplete",
+    "function/index.html#static-function-myDestinationSaveComplete",
+    "<span>myDestinationSaveComplete</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
     "function"
   ],
   [
@@ -846,6 +870,30 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "changedestinationsaga src/saga/mydestination.js~changedestinationsaga,changedestinationsaga",
+    "test-file/test/saga/mydestination.test.js.html#lineNumber53",
+    "changeDestinationSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/mydestination.test.js.html#lineNumber54",
+    "changeDestinationSaga takes latest MY_DESTINATION_CHANGE action and pass it to changeDestinationTask",
+    "test"
+  ],
+  [
+    "changedestinationtask src/saga/mydestination.js~changedestinationtask,changedestinationtask",
+    "test-file/test/saga/mydestination.test.js.html#lineNumber64",
+    "changeDestinationTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/mydestination.test.js.html#lineNumber65",
+    "changeDestinationTask save user's destination which is payload of MY_DESTINATION_CHANGE action into server via api and puts MY_DESTINATION_SAVE_COMPLETE action",
+    "test"
+  ],
+  [
     "cleanremembermetask src/saga/login.js~cleanremembermetask,cleanremembermetask",
     "test-file/test/saga/login.test.js.html#lineNumber160",
     "cleanRememberMe Task",
@@ -855,6 +903,30 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/saga/login.test.js.html#lineNumber162",
     "cleanRememberMe Task tries to clean RememberMe data",
+    "test"
+  ],
+  [
+    "loaddestinationsaga src/saga/mydestination.js~loaddestinationsaga,loaddestinationsaga",
+    "test-file/test/saga/mydestination.test.js.html#lineNumber12",
+    "loadDestinationSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/mydestination.test.js.html#lineNumber13",
+    "loadDestinationSaga takes every LOGIN_SUCCESS action and pass it to loadDestinationTask",
+    "test"
+  ],
+  [
+    "loaddestinationtask src/saga/mydestination.js~loaddestinationtask,loaddestinationtask",
+    "test-file/test/saga/mydestination.test.js.html#lineNumber23",
+    "loadDestinationTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/mydestination.test.js.html#lineNumber24",
+    "loadDestinationTask load user's destination data from server via api and puts MY_DESTINATION_CHANGE action",
     "test"
   ],
   [
@@ -1017,6 +1089,60 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/login.test.js.html#lineNumber45",
     "logoutRequested action creator creates LOGOUT_REQUESTED action with no arguments",
+    "test"
+  ],
+  [
+    "mydestinationchange src/action/mydestination.js~mydestinationchange,mydestinationchange",
+    "test-file/test/action/mydestination.test.js.html#lineNumber7",
+    "myDestinationChange action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/mydestination.test.js.html#lineNumber8",
+    "myDestinationChange action creator creates MY_DESTINATION_CHANGE action with inBusiness, comment and contact data which user input",
+    "test"
+  ],
+  [
+    "mydestinationclear src/action/mydestination.js~mydestinationclear,mydestinationclear",
+    "test-file/test/action/mydestination.test.js.html#lineNumber23",
+    "myDestinationClear action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/mydestination.test.js.html#lineNumber24",
+    "myDestinationClear action creator creates MY_DESTINATION_CHANGE action with DEFAULT_MY_DESTINATION",
+    "test"
+  ],
+  [
+    "mydestinationsavecomplete src/action/mydestination.js~mydestinationsavecomplete,mydestinationsavecomplete",
+    "test-file/test/action/mydestination.test.js.html#lineNumber33",
+    "myDestinationSaveComplete action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/mydestination.test.js.html#lineNumber34",
+    "myDestinationSaveComplete action creator creates MY_DESTINATION_SAVE_COMPLETE action with no argument",
+    "test"
+  ],
+  [
+    "mydestination src/reducer/mydestination.js~mydestination,mydestination",
+    "test-file/test/reducer/mydestination.test.js.html#lineNumber6",
+    "mydestination reducer",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/mydestination.test.js.html#lineNumber7",
+    "mydestination reducer changes mydestination state into payload of the action if MY_DESTINATION_CHANGE action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/mydestination.test.js.html#lineNumber28",
+    "mydestination reducer doesn't make any changes if another action is passed",
     "test"
   ],
   [
@@ -1422,6 +1548,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/const/mydestination.js",
+    "file/src/const/mydestination.js.html",
+    "src/const/mydestination.js",
+    "file"
+  ],
+  [
     "src/const/signup.js",
     "file/src/const/signup.js.html",
     "src/const/signup.js",
@@ -1548,6 +1680,12 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/action/mydestination.test.js",
+    "test-file/test/action/mydestination.test.js.html",
+    "test/action/mydestination.test.js",
+    "testFile"
+  ],
+  [
     "test/action/signup.test.js",
     "test-file/test/action/signup.test.js.html",
     "test/action/signup.test.js",
@@ -1572,6 +1710,12 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/reducer/mydestination.test.js",
+    "test-file/test/reducer/mydestination.test.js.html",
+    "test/reducer/mydestination.test.js",
+    "testFile"
+  ],
+  [
     "test/reducer/signup.test.js",
     "test-file/test/reducer/signup.test.js.html",
     "test/reducer/signup.test.js",
@@ -1581,6 +1725,12 @@ window.esdocSearchIndex = [
     "test/saga/login.test.js",
     "test-file/test/saga/login.test.js.html",
     "test/saga/login.test.js",
+    "testFile"
+  ],
+  [
+    "test/saga/mydestination.test.js",
+    "test-file/test/saga/mydestination.test.js.html",
+    "test/saga/mydestination.test.js",
     "testFile"
   ],
   [
