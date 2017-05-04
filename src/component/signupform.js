@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {signupFailure,signupRequired} from '../action/signup'
-import {SIGNUP_FAILURE_REASONS} from '../const/signup'
+import {SIGNUP_FAILURE_REASONS,SIGNUP_VALIDATION_ERROR_MESSAGES} from '../const/signup'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 /**
@@ -24,6 +24,7 @@ export default class SignUpForm extends React.Component{
     this.hundlePassChange = this.hundlePassChange.bind(this);
     this.hundleConfirmPasswordChange = this.hundleConfirmPasswordChange.bind(this);
     this.hundleNameChange = this.hundleNameChange.bind(this);
+    this.renderValidationError = this.renderValidationError.bind(this);
   }
   /**
   * Sign Upボタンのクリックをハンドリングするメソッド
@@ -104,6 +105,8 @@ export default class SignUpForm extends React.Component{
     }
     if(!forminfo.pass || forminfo.pass.trim().length == 0){
       errors.push(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD);
+    }else if(!forminfo.pass.match(match_pattern)){
+      errors.push(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD);
     }
     if(!forminfo.name || forminfo.name.trim().length == 0){
       errors.push(SIGNUP_FAILURE_REASONS.EMPTY_NAME);
@@ -111,33 +114,31 @@ export default class SignUpForm extends React.Component{
     if(forminfo.pass !== forminfo.pass_confirm){
       errors.push(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM);
     }
-    if(!forminfo.pass.match(match_pattern)){
-      errors.push(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD);
-    }
+
     return errors;
 
+  }
+
+  renderValidationError(singleFailureReason){
+    if(this.props.signup.failure_reason.indexOf(singleFailureReason) >=0){
+      const errorMessage = SIGNUP_VALIDATION_ERROR_MESSAGES
+        .filter(m=>m.reason === singleFailureReason)
+        .map(m=>m.msg)[0];
+
+      return (
+        <span style={{color:"red"}}>
+          {errorMessage}
+        </span>
+      );
+    }else{
+      return null;
+    }
   }
   /**
   * 描画メソッド
   * @return {undefined}
   */
   render(){
-    const failure_reason = this.props.signup.failure_reason;
-    const emptyIdMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_ID) >= 0 ?
-      "IDを入力してください" : "";
-    const emptyPassMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD) >= 0 ?
-      "パスワードを入力してください" : "";
-    const emptyNameMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.EMPTY_NAME) >= 0 ?
-      "名前を入力してください" : "";
-    const invalidConfirmMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM) >= 0 ?
-      "パスワードとパスワード（確認）が一致しません" : "";
-    const policyPasswordMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD) >= 0 ?
-      "パスワードポリシーの要件を満たしていません(8文字以上，半角英数字を1文字以上含む)" : "";
-    const idDuplicatedMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.ID_DUPLICATED) >= 0 ?
-      "ご指定のIDはすでに使われています" : "";
-    const serverErrorMessage = failure_reason.indexOf(SIGNUP_FAILURE_REASONS.SERVER_ERROR) >= 0 ?
-      "サーバーエラーが発生しました" : "";
-
     return (
       <div>
         <h4>ユーザー登録</h4>
@@ -151,9 +152,8 @@ export default class SignUpForm extends React.Component{
         onChange={this.hundleIDChange}
         />
         <br />
-        <span style={{color:"red"}}>
-          {emptyIdMessage}{idDuplicatedMessage}
-        </span>
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_ID)}
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.ID_DUPLICATED)}
         <br />
         <TextField
         hintText="Password"
@@ -164,9 +164,8 @@ export default class SignUpForm extends React.Component{
         onChange={this.hundlePassChange}
         />
         <br />
-        <span style={{color:"red"}}>
-          {emptyPassMessage}{policyPasswordMessage}
-        </span>
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD)}
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD)}
         <br />
         <TextField
         hintText="Password(Confirm)"
@@ -177,9 +176,7 @@ export default class SignUpForm extends React.Component{
         onChange={this.hundleConfirmPasswordChange}
         />
         <br />
-        <span style={{color:"red"}}>
-          {invalidConfirmMessage}
-        </span>
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM)}
         <br />
         <TextField
         hintText="表示名"
@@ -189,16 +186,12 @@ export default class SignUpForm extends React.Component{
         onChange={this.hundleNameChange}
         />
         <br />
-        <span style={{color:"red"}}>
-          {emptyNameMessage}
-        </span>
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_NAME)}
         <br />
         <br />
         <RaisedButton ref="signup" onClick={this.hundleSubmit} label="Sign Up"/>
         <br />
-        <span style={{color:"red"}}>
-          {serverErrorMessage}
-        </span>
+        {this.renderValidationError(SIGNUP_FAILURE_REASONS.SERVER_ERROR)}
       </div>
     )
   }

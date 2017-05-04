@@ -1,22 +1,12 @@
 import assert from 'power-assert';
 import SignUpForm from '../../src/component/signupform';
 import {signupFailure,signupRequired} from '../../src/action/signup';
-import {SIGNUP_FAILURE_REASONS} from '../../src/const/signup';
+import {SIGNUP_FAILURE_REASONS, SIGNUP_VALIDATION_ERROR_MESSAGES} from '../../src/const/signup';
 import sinon from 'sinon';
 import {shallow} from 'enzyme';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {mountWithMUI} from './testutil';
-
-const validationErrorMessages = [
-  {reason : SIGNUP_FAILURE_REASONS.ID_DUPLICATED, msg : "ご指定のIDはすでに使われています"},
-  {reason : SIGNUP_FAILURE_REASONS.SERVER_ERROR, msg:"サーバーエラーが発生しました"},
-  {reason : SIGNUP_FAILURE_REASONS.INVALID_CONFIRM, msg : "パスワードとパスワード（確認）が一致しません"},
-  {reason : SIGNUP_FAILURE_REASONS.EMPTY_ID, msg : "IDを入力してください"},
-  {reason : SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD, msg : "パスワードを入力してください"},
-  {reason : SIGNUP_FAILURE_REASONS.EMPTY_NAME, msg : "名前を入力してください"},
-  {reason : SIGNUP_FAILURE_REASONS.POLICY_PASSWORD, msg : "パスワードポリシーの要件を満たしていません(8文字以上，半角英数字を1文字以上含む)"}
-];
 
 const validationConditions = [
   {
@@ -38,7 +28,7 @@ const validationConditions = [
     }
   },
   {
-    expect: [SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD, SIGNUP_FAILURE_REASONS.POLICY_PASSWORD],
+    expect: [SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD],
     form : {
       id:"test_id",
       pass:"",
@@ -82,6 +72,15 @@ const validationConditions = [
       name:"単体テスト"
     }
   },
+  {
+    expect: [SIGNUP_FAILURE_REASONS.EMPTY_ID,SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD,SIGNUP_FAILURE_REASONS.EMPTY_NAME],
+    form : {
+      id:"",
+      pass:"",
+      pass_confirm:"",
+      name:""
+    }
+  },
 ];
 
 /**@test {SignUpForm}*/
@@ -114,13 +113,13 @@ describe("<SignUpForm />",()=>{
 
     const wrapper = shallow(<SignUpForm {...props} />);
 
-    validationErrorMessages.forEach(m => {
+    SIGNUP_VALIDATION_ERROR_MESSAGES.forEach(m => {
       assert(wrapper.text().indexOf(m.msg) < 0);
     });
   });
   //failure_reasonに応じたバリデーションエラーメッセージを描画する
   it("renders each validation error messages of failure_reason",()=>{
-    validationErrorMessages.forEach(m =>{
+    SIGNUP_VALIDATION_ERROR_MESSAGES.forEach(m =>{
       const props = {
         dispatch:sinon.spy(),
         signup:{
@@ -135,7 +134,7 @@ describe("<SignUpForm />",()=>{
   });
   //failure_reasonが複数あれば、複数のバリデーションエラーメッセージを描画する
   it("renders multipul validation error messages if failure_reason has multipul reasons",()=>{
-    const messages = validationErrorMessages.filter(m => m.reason == (SIGNUP_FAILURE_REASONS.EMPTY_ID || SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD));
+    const messages = SIGNUP_VALIDATION_ERROR_MESSAGES.filter(m => m.reason == (SIGNUP_FAILURE_REASONS.EMPTY_ID || SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD));
     const props = {
       dispatch:sinon.spy(),
       signup:{
