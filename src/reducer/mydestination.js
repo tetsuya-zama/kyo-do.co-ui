@@ -1,4 +1,5 @@
 import {MY_DESTINATION_CHANGE} from '../action/mydestination'
+import {DEFAULT_MY_DESTINATION} from '../const/mydestination'
 
 /**
 * 自分の行き先 reducer
@@ -7,7 +8,7 @@ import {MY_DESTINATION_CHANGE} from '../action/mydestination'
 * @param {Object} action dispatchされたaction
 * @return {Object} 変更後のstate
 */
-export default function mydestination(state={inBusiness:false,comment:"",contact:""},action){
+export default function mydestination(state=DEFAULT_MY_DESTINATION,action){
   switch(action.type){
     case(MY_DESTINATION_CHANGE):
       return action.payload;
