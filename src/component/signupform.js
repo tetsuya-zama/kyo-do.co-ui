@@ -50,19 +50,42 @@ export default class SignUpForm extends React.Component{
 
   }
 
-
+  /**
+  * id textboxの更新イベントハンドラ
+  * @param {Object} event イベント
+  * @param {string} newValue 更新後の値
+  * @return {undefined}
+  */
   hundleIDChange(event,newValue){
     this.setState({id_text:newValue});
   }
 
+  /**
+  * pass textboxの更新イベントハンドラ
+  * @param {Object} event イベント
+  * @param {string} newValue 更新後の値
+  * @return {undefined}
+  */
   hundlePassChange(event,newValue){
     this.setState({pass_text:newValue});
   }
 
+  /**
+  * pass_confirm textboxの更新イベントハンドラ
+  * @param {Object} event イベント
+  * @param {string} newValue 更新後の値
+  * @return {undefined}
+  */
   hundleConfirmPasswordChange(event,newValue){
     this.setState({confirm_pass_text:newValue});
   }
 
+  /**
+  * name textboxの更新イベントハンドラ
+  * @param {Object} event イベント
+  * @param {string} newValue 更新後の値
+  * @return {undefined}
+  */
   hundleNameChange(event,newValue){
     this.setState({name_text:newValue});
   }
