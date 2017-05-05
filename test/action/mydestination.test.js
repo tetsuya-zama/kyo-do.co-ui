@@ -31,9 +31,15 @@ describe("myDestinationClear action creator",()=>{
 
 /**@test {myDestinationSaveComplete}*/
 describe("myDestinationSaveComplete action creator", ()=>{
-  it("creates MY_DESTINATION_SAVE_COMPLETE action with no argument",()=>{
-    const result = myDestinationSaveComplete();
+  it("creates MY_DESTINATION_SAVE_COMPLETE action with inBusiness, comment and contact data",()=>{
+    const inputData = {
+      inBusiness : true,
+      comment : "EAST 3F",
+      contact : "090-XXX-XXXX"
+    };
+    const result = myDestinationSaveComplete(inputData);
 
     assert(result.type === MY_DESTINATION_SAVE_COMPLETE);
+    assert.deepEqual(result.payload,inputData)
   });
 });

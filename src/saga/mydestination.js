@@ -65,7 +65,7 @@ export function* changeDestinationTask(action){
       {headers:{"Authorization":"Bearer " + token}}
     );
 
-    yield put(myDestinationSaveComplete());
+    yield put(myDestinationSaveComplete(action.payload));
   }catch(e){
     //TODO 更新が失敗した旨をエラーアクションに投げる
     console.log(e);

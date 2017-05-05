@@ -90,7 +90,7 @@ describe("changeDestinationTask",()=>{
 
     ret = gen.next(dummyAction.payload); //APIへのセーブは成功したものとする
 
-    assert.deepEqual(ret.value, put(myDestinationSaveComplete()));
+    assert.deepEqual(ret.value, put(myDestinationSaveComplete(dummyAction.payload)));
 
     ret = gen.next();
     assert(ret.done);

@@ -32,7 +32,7 @@ export function* loginSaga(){
 export function* loginTask(action){
   //rememberme
   try{
-    yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
+    yield call(setToStorage,REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
   }catch(e){
     //localStorageにアクセスできない場合は何もしない
   }
@@ -92,9 +92,9 @@ export function* cleanRememberMeTask(){
 */
 export function* loginFromRememberMeSaga(){
   try{
-    const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);
+    const remembermeSaved = yield call(existsKeyOnStorage,REMEMBER_ME_STORAGE_KEY);
     if(remembermeSaved){
-      const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);
+      const rememberme = yield call(getFromStorage,REMEMBER_ME_STORAGE_KEY);
       yield put(loginRequested(rememberme.id,rememberme.pass));
     }
   }catch(e){

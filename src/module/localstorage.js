@@ -52,8 +52,9 @@ export function removeFromStorage(key){
 */
 export function existsKeyOnStorage(key){
   try{
-    return localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;
+    const result = localStorage.getItem(LOCAL_STORAGE_PREFIX + key) !== null;
+    return result;
   }catch(e){
-    return false
+    return false;
   }
 }

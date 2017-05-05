@@ -20,7 +20,6 @@ export function configureStore() {
       mydestination:DEFAULT_MY_DESTINATION,
       board:{memberStatus:[]},
       accountboard:{open:false, nextuser:{}},
-      suggestion:{suggests:[]},
     },
     applyMiddleware(
       sagaMiddleware, logger()

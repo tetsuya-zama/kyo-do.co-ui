@@ -36,10 +36,12 @@ export const MY_DESTINATION_SAVE_COMPLETE = "MY_DESTINATION_SAVE_COMPLETE";
 
 /**
 * 自分の行き先サーブ完了アクションのcreator
+* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先
 * @return {Object} 自分の行き先セーブ完了アクション
 */
-export function myDestinationSaveComplete(){
+export function myDestinationSaveComplete(destination){
   return {
-    type : MY_DESTINATION_SAVE_COMPLETE
+    type : MY_DESTINATION_SAVE_COMPLETE,
+    payload:destination
   };
 }
