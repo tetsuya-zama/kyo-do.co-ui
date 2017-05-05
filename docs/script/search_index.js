@@ -348,6 +348,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/suggestion.js~changesuggestiontask",
+    "function/index.html#static-function-changeSuggestionTask",
+    "<span>changeSuggestionTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/suggestion.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/saga/login.js~cleanremembermetask",
     "function/index.html#static-function-cleanRememberMeTask",
     "<span>cleanRememberMeTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/login.js</span>",
@@ -405,6 +411,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/saga/suggestion.js~loadsuggestionsaga",
     "function/index.html#static-function-loadSuggestionSaga",
     "<span>loadSuggestionSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/suggestion.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/suggestion.js~loadsuggestiontask",
+    "function/index.html#static-function-loadSuggestionTask",
+    "<span>loadSuggestionTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/suggestion.js</span>",
     "function"
   ],
   [
@@ -930,6 +942,54 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber52",
+    "changeSuggestionSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber53",
+    "changeSuggestionSaga takes every MY_DESTINATION_SAVE_COMPLETE action and pass it to changeSuggestionTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber62",
+    "changeSuggestionTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber111",
+    "changeSuggestionTask add comment to top of DEFAULT_SUGGENSTIONS if suggestion hasn't saved yet",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber63",
+    "changeSuggestionTask adds comment in payload of action to top of saved suggestion and puts SUGGESTION_CHANGE action with it",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber95",
+    "changeSuggestionTask does nothing if comment in payload of action is empty",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber139",
+    "changeSuggestionTask doesn't add comment if it has already been in suggestion array",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber171",
+    "changeSuggestionTask pops out the last suggestion of array if size of the array exceeds 15",
+    "test"
+  ],
+  [
     "cleanremembermetask src/saga/login.js~cleanremembermetask,cleanremembermetask",
     "test-file/test/saga/login.test.js.html#lineNumber160",
     "cleanRememberMe Task",
@@ -963,6 +1023,36 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/saga/mydestination.test.js.html#lineNumber24",
     "loadDestinationTask load user's destination data from server via api and puts MY_DESTINATION_CHANGE action",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber9",
+    "loadSuggestionSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber10",
+    "loadSuggestionSaga takes every LOGIN_SUCCESS action and pass it to loadSuggestionTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber19",
+    "loadSuggestionTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber39",
+    "loadSuggestionTask doesn't put any actions if suggestion is not saved in storage",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/suggestion.test.js.html#lineNumber20",
+    "loadSuggestionTask loads suggestion from storage and puts SUGGESTION_CHANGE action with it",
     "test"
   ],
   [
@@ -1160,24 +1250,36 @@ window.esdocSearchIndex = [
   [
     "",
     "test-file/test/action/mydestination.test.js.html#lineNumber34",
-    "myDestinationSaveComplete action creator creates MY_DESTINATION_SAVE_COMPLETE action with no argument",
+    "myDestinationSaveComplete action creator creates MY_DESTINATION_SAVE_COMPLETE action with inBusiness, comment and contact data",
     "test"
   ],
   [
     "mydestination src/reducer/mydestination.js~mydestination,mydestination",
-    "test-file/test/reducer/mydestination.test.js.html#lineNumber6",
+    "test-file/test/reducer/mydestination.test.js.html#lineNumber8",
     "mydestination reducer",
     "test"
   ],
   [
     "",
-    "test-file/test/reducer/mydestination.test.js.html#lineNumber7",
+    "test-file/test/reducer/mydestination.test.js.html#lineNumber9",
     "mydestination reducer changes mydestination state into payload of the action if MY_DESTINATION_CHANGE action is passed",
     "test"
   ],
   [
     "",
-    "test-file/test/reducer/mydestination.test.js.html#lineNumber28",
+    "test-file/test/reducer/mydestination.test.js.html#lineNumber55",
+    "mydestination reducer changes suggestion of mydestination state into DEFAULT_SUGGENSTIONS if SUGGESTION_CLEAR is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/mydestination.test.js.html#lineNumber34",
+    "mydestination reducer changes suggestion of mydestination state into payload of the action if SUGGESTION_CHANGE action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/mydestination.test.js.html#lineNumber75",
     "mydestination reducer doesn't make any changes if another action is passed",
     "test"
   ],
@@ -1710,6 +1812,30 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "suggestionchange src/action/suggestion.js~suggestionchange,suggestionchange",
+    "test-file/test/action/suggestion.test.js.html#lineNumber6",
+    "suggestionChange action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/suggestion.test.js.html#lineNumber7",
+    "suggestionChange action creator creates SUGGESTION_CHANGE action with array of suggestion string",
+    "test"
+  ],
+  [
+    "suggestionclear src/action/suggestion.js~suggestionclear,suggestionclear",
+    "test-file/test/action/suggestion.test.js.html#lineNumber17",
+    "suggestionClear action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/suggestion.test.js.html#lineNumber18",
+    "suggestionClear action creator creates SUGGESTION_CLEAR action with no arguments",
+    "test"
+  ],
+  [
     "test/action/login.test.js",
     "test-file/test/action/login.test.js.html",
     "test/action/login.test.js",
@@ -1725,6 +1851,12 @@ window.esdocSearchIndex = [
     "test/action/signup.test.js",
     "test-file/test/action/signup.test.js.html",
     "test/action/signup.test.js",
+    "testFile"
+  ],
+  [
+    "test/action/suggestion.test.js",
+    "test-file/test/action/suggestion.test.js.html",
+    "test/action/suggestion.test.js",
     "testFile"
   ],
   [
@@ -1779,6 +1911,12 @@ window.esdocSearchIndex = [
     "test/saga/signup.test.js",
     "test-file/test/saga/signup.test.js.html",
     "test/saga/signup.test.js",
+    "testFile"
+  ],
+  [
+    "test/saga/suggestion.test.js",
+    "test-file/test/saga/suggestion.test.js.html",
+    "test/saga/suggestion.test.js",
     "testFile"
   ]
 ]

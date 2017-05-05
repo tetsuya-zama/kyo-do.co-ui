@@ -106,7 +106,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupSaga">signupSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupTask">signupTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionSaga">changeSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionTask">changeSuggestionTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionSaga">loadSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionTask">loadSuggestionTask</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">store</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
 </ul>
 </div>
@@ -147,7 +149,7 @@ export function* loginSaga(){
 export function* loginTask(action){
   //rememberme
   try{
-    yield setToStorage(REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
+    yield call(setToStorage,REMEMBER_ME_STORAGE_KEY,{id:action.payload.id,pass:action.payload.pass});
   }catch(e){
     //localStorage&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3067;&#x304D;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x4F55;&#x3082;&#x3057;&#x306A;&#x3044;
   }
@@ -207,9 +209,9 @@ export function* cleanRememberMeTask(){
 */
 export function* loginFromRememberMeSaga(){
   try{
-    const remembermeSaved = yield existsKeyOnStorage(REMEMBER_ME_STORAGE_KEY);
+    const remembermeSaved = yield call(existsKeyOnStorage,REMEMBER_ME_STORAGE_KEY);
     if(remembermeSaved){
-      const rememberme = yield getFromStorage(REMEMBER_ME_STORAGE_KEY);
+      const rememberme = yield call(getFromStorage,REMEMBER_ME_STORAGE_KEY);
       yield put(loginRequested(rememberme.id,rememberme.pass));
     }
   }catch(e){

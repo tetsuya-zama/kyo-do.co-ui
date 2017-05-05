@@ -106,7 +106,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupSaga">signupSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupTask">signupTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionSaga">changeSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionTask">changeSuggestionTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionSaga">loadSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionTask">loadSuggestionTask</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">store</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
 </ul>
 </div>
@@ -180,7 +182,7 @@ export function* changeDestinationTask(action){
       {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}}
     );
 
-    yield put(myDestinationSaveComplete());
+    yield put(myDestinationSaveComplete(action.payload));
   }catch(e){
     //TODO &#x66F4;&#x65B0;&#x304C;&#x5931;&#x6557;&#x3057;&#x305F;&#x65E8;&#x3092;&#x30A8;&#x30E9;&#x30FC;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x6295;&#x3052;&#x308B;
     console.log(e);

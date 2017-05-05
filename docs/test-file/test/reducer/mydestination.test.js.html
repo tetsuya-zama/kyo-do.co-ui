@@ -106,7 +106,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupSaga">signupSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupTask">signupTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionSaga">changeSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionTask">changeSuggestionTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionSaga">loadSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionTask">loadSuggestionTask</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">store</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
 </ul>
 </div>
@@ -116,6 +118,8 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
 import {MY_DESTINATION_CHANGE} from &apos;../../src/action/mydestination&apos;;
 import mydestination from &apos;../../src/reducer/mydestination&apos;;
+import {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from &apos;../../src/action/suggestion&apos;;
+import {DEFAULT_SUGGENSTIONS} from &apos;../../src/const/suggestion&apos;;
 
 /**@test {mydestination}*/
 describe(&quot;mydestination reducer&quot;,()=&gt;{
@@ -123,13 +127,14 @@ describe(&quot;mydestination reducer&quot;,()=&gt;{
     const initialState = {
       inBusiness:true,
       comment:&quot;EAST 8F&quot;,
-      contact:&quot;&quot;
+      contact:&quot;&quot;,
+      suggestion:DEFAULT_SUGGENSTIONS
     };
 
     const dummyAction = {
       type:MY_DESTINATION_CHANGE,
       payload:{
-        inBusiness:true,
+        inBusiness:false,
         comment:&quot;&quot;,
         contact:&quot;0X0-XXXX-XXXX&quot;
       }
@@ -137,14 +142,59 @@ describe(&quot;mydestination reducer&quot;,()=&gt;{
 
     const result = mydestination(initialState,dummyAction);
 
-    assert.deepEqual(result, dummyAction.payload);
+    assert(result.inBusiness === dummyAction.payload.inBusiness);
+    assert(result.comment === dummyAction.payload.comment);
+    assert(result.contact === dummyAction.payload.contact);
+    assert.deepEqual(result.suggestion,initialState.suggestion);
+  });
+
+  it(&quot;changes suggestion of mydestination state into payload of the action if SUGGESTION_CHANGE action is passed&quot;,()=&gt;{
+    const initialState = {
+      inBusiness:true,
+      comment:&quot;EAST 8F&quot;,
+      contact:&quot;&quot;,
+      suggestion:DEFAULT_SUGGENSTIONS
+    };
+
+    const dummyAction = {
+      type:SUGGESTION_CHANGE,
+      payload:[&quot;&#x6771;&#x9280;&#x5EA7;&quot;,&quot;EAST 8F&quot;, &quot;EAST 3F&quot;, &quot;&#x5B9D;&#x753A;&quot;, &quot;NRI 13F&quot;, &quot;NRI 12F&quot;]
+    };
+
+    const result = mydestination(initialState,dummyAction);
+
+    assert(result.inBusiness === initialState.inBusiness);
+    assert(result.comment === initialState.comment);
+    assert(result.contact === initialState.contact);
+    assert.deepEqual(result.suggestion,dummyAction.payload);
+  });
+
+  it(&quot;changes suggestion of mydestination state into DEFAULT_SUGGENSTIONS if SUGGESTION_CLEAR is passed&quot;,()=&gt;{
+    const initialState = {
+      inBusiness:true,
+      comment:&quot;EAST 8F&quot;,
+      contact:&quot;&quot;,
+      suggestion:[&quot;&#x6771;&#x9280;&#x5EA7;&quot;,&quot;EAST 8F&quot;, &quot;EAST 3F&quot;, &quot;&#x5B9D;&#x753A;&quot;, &quot;NRI 13F&quot;, &quot;NRI 12F&quot;]
+    };
+
+    const dummyAction = {
+      type:SUGGESTION_CLEAR
+    };
+
+    const result = mydestination(initialState,dummyAction);
+
+    assert(result.inBusiness === initialState.inBusiness);
+    assert(result.comment === initialState.comment);
+    assert(result.contact === initialState.contact);
+    assert.deepEqual(result.suggestion,DEFAULT_SUGGENSTIONS);
   });
 
   it(&quot;doesn&apos;t make any changes if another action is passed&quot;,()=&gt;{
     const initialState = {
       inBusiness:true,
       comment:&quot;EAST 8F&quot;,
-      contact:&quot;&quot;
+      contact:&quot;&quot;,
+      suggestion:DEFAULT_SUGGENSTIONS
     };
 
     const dummyAction = {

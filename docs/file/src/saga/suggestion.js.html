@@ -106,7 +106,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupSaga">signupSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signupTask">signupTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionSaga">changeSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeSuggestionTask">changeSuggestionTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionSaga">loadSuggestionSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadSuggestionTask">loadSuggestionTask</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">store</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureStore">configureStore</a></span></span></li>
 </ul>
 </div>
@@ -115,40 +117,34 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/saga/suggestion.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {take,put,select,takeEvery,takeLatest,call} from &apos;redux-saga/effects&apos;
 import {delay} from &apos;redux-saga&apos;
-import {MY_DESTINATION_CHANGE} from &apos;../action/mydestination&apos;
+import {MY_DESTINATION_SAVE_COMPLETE} from &apos;../action/mydestination&apos;
 import {suggestionChange} from &apos;../action/suggestion&apos;
 import {LOGIN_SUCCESS} from &apos;../action/login&apos;
 import {setToStorage,getFromStorage,existsKeyOnStorage} from &apos;../module/localstorage&apos;
+import {DEFAULT_SUGGENSTIONS} from &apos;../const/suggestion&apos;
 
 /**
 * localStorage&#x306B;&#x884C;&#x304D;&#x5148;&#x3092;&#x4FDD;&#x7BA1;&#x3059;&#x308B;&#x969B;&#x306E;Key
 */
-const STORAGE_KEY_SUGGESTION = &quot;my_destination.history.&quot;;
-const REGTAB = RegExp(&quot;\x09&quot;, &apos;g&apos;);
+const STORAGE_KEY_SUGGESTION = &quot;my_destination.suggestion.&quot;;
 
-/**
-* &#x884C;&#x304D;&#x5148;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304B;&#x3089;&#x30B5;&#x30FC;&#x30D0;&#x540C;&#x671F;&#x3059;&#x308B;&#x307E;&#x3067;&#x306E;&#x9045;&#x5EF6;&#x6642;&#x9593;
-*/
-const SYNC_DELAY_MS = 3000;
 
 /**
 * &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x304C;&#x6210;&#x529F;&#x3057;&#x305F;&#x969B;&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x30B5;&#x30B8;&#x30A7;&#x30B9;&#x30C1;&#x30E7;&#x30F3;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Saga
 */
 export function* loadSuggestionSaga(){
   yield takeEvery(LOGIN_SUCCESS,loadSuggestionTask);
-  yield takeEvery(MY_DESTINATION_CHANGE, loadSuggestionTask);
 }
 
 /**
 * &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x884C;&#x304D;&#x5148;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;task
 */
-function* loadSuggestionTask(){
+export function* loadSuggestionTask(){
   const userid = yield select(state =&gt; state.login.user.userid);
-  const saved = existsKeyOnStorage(STORAGE_KEY_SUGGESTION + userid);
+  const saved = yield call(existsKeyOnStorage,STORAGE_KEY_SUGGESTION + userid);
   if(saved){
-    const savedSuggestion = yield getFromStorage(STORAGE_KEY_SUGGESTION + userid);
-    // console.log(savedSuggestion.split(REGTAB));
-    yield put(suggestionChange(savedSuggestion.split(REGTAB)));
+    const savedSuggestion = yield call(getFromStorage,STORAGE_KEY_SUGGESTION + userid);
+    yield put(suggestionChange(savedSuggestion));
   }
 }
 
@@ -157,54 +153,38 @@ function* loadSuggestionTask(){
 * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
 */
 export function* changeSuggestionSaga(){
-  yield takeLatest(MY_DESTINATION_CHANGE,changeSuggestionTask);
+  yield takeEvery(MY_DESTINATION_SAVE_COMPLETE,changeSuggestionTask);
 }
 
 /**
 * &#x884C;&#x304D;&#x5148;&#x5909;&#x66F4;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x305F;&#x969B;&#x306E;Task
 * @param {Object} action SUGGESTION_CHANGE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
-function* changeSuggestionTask(action){
-  var histarr = [];
-
-  yield call(delay,SYNC_DELAY_MS);
-  const logonUser = yield select(state =&gt; state.login.user);
+export function* changeSuggestionTask(action){
   // &#x30B5;&#x30B8;&#x30A7;&#x30B9;&#x30C8;&#x7528;&#x5C65;&#x6B74;&#x3092;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x306B;&#x4FDD;&#x5B58;&#x3059;&#x308B;
   if(action.payload.comment.length &gt; 0){
-    const saved = existsKeyOnStorage(STORAGE_KEY_SUGGESTION + logonUser.userid);
-    if(saved){
-      const savedHistory = yield getFromStorage(STORAGE_KEY_SUGGESTION + logonUser.userid);
-      histarr = savedHistory.split(REGTAB);
-    } else {
-      // &#x304B;&#x3063;&#x3061;&#x3087;&#x308F;&#x308B;&#x3044;
-      histarr = [&quot;EAST 8F&quot;, &quot;EAST 3F&quot;, &quot;&#x5B9D;&#x753A;&quot;, &quot;NRI 13F&quot;, &quot;NRI 12F&quot;];
-    }
-    unshiftArray(histarr,action.payload.comment);
-    setToStorage(STORAGE_KEY_SUGGESTION + logonUser.userid, histarr.join(&quot;\x09&quot;));
+    const logonUser = yield select(state =&gt; state.login.user);
+    const saved = yield call(existsKeyOnStorage,STORAGE_KEY_SUGGESTION + logonUser.userid);
+    const savedHistory = saved ? yield call(getFromStorage,STORAGE_KEY_SUGGESTION + logonUser.userid) : DEFAULT_SUGGENSTIONS;
+    const histarr = unshiftArray(savedHistory,action.payload.comment);
+    yield call(setToStorage,STORAGE_KEY_SUGGESTION + logonUser.userid, histarr);
+    yield put(suggestionChange(histarr));
   }
 
   function isArrayExists(array, value) {
-    // &#x914D;&#x5217;&#x306E;&#x6700;&#x5F8C;&#x307E;&#x3067;&#x30EB;&#x30FC;&#x30D7;
-    for (var i =0, len = array.length; i &lt; len; i++) {
-      if (value == array[i]) {
-        // &#x5B58;&#x5728;&#x3057;&#x305F;&#x3089;true&#x3092;&#x8FD4;&#x3059;
-        return true;
-      }
-    }
-    // &#x5B58;&#x5728;&#x3057;&#x306A;&#x3044;&#x5834;&#x5408;false&#x3092;&#x8FD4;&#x3059;
-    return false;
+    return array.indexOf(value) &gt;= 0;
   }
   // &#x91CD;&#x8907;&#x3092;&#x6392;&#x9664;&#x3057;&#x306A;&#x304C;&#x3089;unshift&#x3059;&#x308B;&#x95A2;&#x6570;
   function unshiftArray(array, value) {
+    const result = array.concat();
     // &#x5B58;&#x5728;&#x3057;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;&#x914D;&#x5217;&#x306B;push&#x3059;&#x308B;
     if(! isArrayExists(array, value)) {
-      array.unshift(value);
-      // console.log(&quot;out: &quot; + action.payload.comment);
-      if(array.length &gt; 15){
-        array.pop();
+      result.unshift(value);
+      if(result.length &gt; 15){
+        result.pop();
       }
     }
-    return true;
+    return result;
   }
 }
 </code></pre>
