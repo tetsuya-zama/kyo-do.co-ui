@@ -540,7 +540,7 @@
     "__docId__": 22,
     "kind": "file",
     "name": "src/action/mydestination.js",
-    "content": "import {DEFAULT_MY_DESTINATION} from '../const/mydestination';\n\n/**\n* 自分の行き先変更アクション名\n*/\nexport const MY_DESTINATION_CHANGE = \"MY_DESTINATION_CHANGE\";\n\n/**\n* 自分の行き先変更アクションのcreator\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\n* @return {Object} 自分の行き先変更アクション\n*/\nexport function myDestinationChange(destination){\n  return {\n    type:MY_DESTINATION_CHANGE,\n    payload:destination\n  };\n}\n\n\n/**\n* 自分の行き先変更アクションをデフォルトの値で作るcreator\n* @return {Object} 自分の行き先変更アクション\n*/\nexport function myDestinationClear(){\n  return {\n    type:MY_DESTINATION_CHANGE,\n    payload:DEFAULT_MY_DESTINATION\n  };\n}\n\n/**\n* 自分の行き先セーブ完了アクション\n*/\nexport const MY_DESTINATION_SAVE_COMPLETE = \"MY_DESTINATION_SAVE_COMPLETE\";\n\n/**\n* 自分の行き先サーブ完了アクションのcreator\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\n* @return {Object} 自分の行き先セーブ完了アクション\n*/\nexport function myDestinationSaveComplete(destination){\n  return {\n    type : MY_DESTINATION_SAVE_COMPLETE,\n    payload:destination\n  };\n}\n",
+    "content": "import {DEFAULT_MY_DESTINATION} from '../const/mydestination';\n\n/**\n* 自分の行き先変更アクション名\n*/\nexport const MY_DESTINATION_CHANGE = \"MY_DESTINATION_CHANGE\";\n\n/**\n* 自分の行き先変更アクションのcreator\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\n* @return {Object} 自分の行き先変更アクション\n*/\nexport function myDestinationChange(destination){\n  return {\n    type:MY_DESTINATION_CHANGE,\n    payload:destination\n  };\n}\n\n\n/**\n* 自分の行き先変更アクションをデフォルトの値で作るcreator\n* @return {Object} 自分の行き先変更アクション\n*/\nexport function myDestinationClear(){\n  return {\n    type:MY_DESTINATION_CHANGE,\n    payload:DEFAULT_MY_DESTINATION\n  };\n}\n\n/**\n* 自分の行き先セーブ完了アクション\n*/\nexport const MY_DESTINATION_SAVE_COMPLETE = \"MY_DESTINATION_SAVE_COMPLETE\";\n\n/**\n* 自分の行き先セーブ完了アクションのcreator\n* @param {{inBusiness:boolean,comment:string,contact:string}} destination 行き先\n* @return {Object} 自分の行き先セーブ完了アクション\n*/\nexport function myDestinationSaveComplete(destination){\n  return {\n    type : MY_DESTINATION_SAVE_COMPLETE,\n    payload:destination\n  };\n}\n",
     "static": true,
     "longname": "src/action/mydestination.js",
     "access": null,
@@ -659,7 +659,7 @@
     "export": true,
     "importPath": "kyo-do.co-ui/src/action/mydestination.js",
     "importStyle": "{myDestinationSaveComplete}",
-    "description": "自分の行き先サーブ完了アクションのcreator",
+    "description": "自分の行き先セーブ完了アクションのcreator",
     "lineNumber": 42,
     "params": [
       {
