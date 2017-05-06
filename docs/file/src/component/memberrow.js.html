@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/reducer/signup.js | API Document</title>
+  <title data-ice="title">src/component/memberrow.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -117,26 +117,42 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/reducer/signup.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {SIGNUP_SUCCESS,SIGNUP_FAILURE} from &apos;../action/signup&apos;
-
-const initialState = {failure_reason:[]};
+<div class="content" data-ice="content"><h1 data-ice="title">src/component/memberrow.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+import {List, ListItem} from &apos;material-ui/List&apos;;
+import Avatar from &apos;material-ui/Avatar&apos;;
+import {
+  red600,
+  grey400
+} from &apos;material-ui/styles/colors&apos;;
 
 /**
-* &#x30B5;&#x30A4;&#x30F3;&#x30A2;&#x30C3;&#x30D7; reducer
-* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864
-* @param {Object} state &#x5909;&#x66F4;&#x524D;&#x306E;state
-* @param {Object} action dispatch&#x3055;&#x308C;&#x305F;action
-* @return {Object} &#x5909;&#x66F4;&#x5F8C;&#x306E;state
+* &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x3054;&#x3068;&#x306E;&#x884C;&#x304D;&#x5148;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
+* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
 */
-export default function signup(state=initialState,action){
-  switch(action.type){
-    case(SIGNUP_SUCCESS):
-      return initialState;
-    case(SIGNUP_FAILURE):
-      return {failure_reason:action.payload};
-    default:
-      return state;
+export default class MemberRow extends React.Component{
+  /**
+  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
+  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
+  * @return {undefined}
+  */
+  constructor(props){
+    super(props);
+  }
+  /**
+  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @return {undefined}
+  */
+  render(){
+    return (
+      &lt;List&gt;
+        &lt;ListItem
+          primaryText={this.props.member.name + &quot;&#xFF1A;&quot; + this.props.member.contact}
+            secondaryText={&quot;&#x6700;&#x7D42;&#x66F4;&#x65B0;&#x65E5;:&quot; + this.props.member.lastUpdate.substr(0,16)+&quot; &quot;+(this.props.member.comment == null ? &quot;&quot; : this.props.member.comment)}
+          leftAvatar={&lt;Avatar backgroundColor={this.props.member.inBusiness ? red600 : grey400} &gt; {this.props.member.inBusiness ? &quot;&#x51FA;&quot; : &quot;&#x9000;&quot;}&lt;/Avatar&gt;} /&gt;
+      &lt;/List&gt;
+    );
   }
 }
 </code></pre>

@@ -71,6 +71,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberrow.js~MemberRow.html">MemberRow</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">const</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_STATUS">LOGIN_STATUS</a></span></span></li>
@@ -117,8 +118,9 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/component/board.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
 import ReactDOM from &apos;react-dom&apos;;
+import MemberRow from &apos;./memberrow&apos;;
 import {List, ListItem} from &apos;material-ui/List&apos;;
 import Avatar from &apos;material-ui/Avatar&apos;;
 import TextField from &apos;material-ui/TextField&apos;;
@@ -145,25 +147,20 @@ export default class Board extends React.Component{
     this.hundleFilterChange = this.hundleFilterChange.bind(this);
   }
 
-
+  /**
+  * Filter&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x5909;&#x66F4;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @param {Object} event &#x30A4;&#x30D9;&#x30F3;&#x30C8;
+  * @param {string} newValue &#x5909;&#x66F4;&#x5F8C;&#x306E;&#x5024;
+  * @return {undefined}
+  */
+  hundleFilterChange(event,newValue){
+    this.setState({current_filter_text : newValue});
+  }
   /**
   * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
   */
-
-  hundleFilterChange(event,newValue){
-//    const line = this.props.memberStatus;
-//    const line = this.props.memberStatus.filter((name) =&gt; (
-//      name.toLowerCase().indexOf(newValue) &gt;= 0
-//    ));
-//
-    this.setState({current_filter_text : newValue});
-  }
-
   render(){
-    //&#x30C1;&#x30FC;&#x30E0;&#x306E;&#x6570;&#x3060;&#x3051;TeamBoard&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;
-    //const teamBoards = this.props.memberStatus.map(team =&gt; &lt;TeamBoard key={team.teamId} team={team}/&gt;);
-    //const memberRows = this.state.filterdMemberStatus.map((member,idx) =&gt; &lt;MemberRow key={idx} member={member}/&gt;);
 
     const filterMemberRows = this.props.memberStatus.filter((member) =&gt; (
       member.name.toLowerCase().indexOf(this.state.current_filter_text) &gt;= 0
@@ -183,72 +180,6 @@ export default class Board extends React.Component{
         /&gt;
       {memberRows}
       &lt;/div&gt;);
-  }
-}
-/**
-* &#x30C1;&#x30FC;&#x30E0;&#x5225;&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
-* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
-*/
-class TeamBoard extends React.Component{
-  /**
-  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
-  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
-  * @return {undefined}
-  */
-  constructor(props){
-    super(props);
-  }
-  /**
-  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
-  * @return {undefined}
-  */
-  render(){
-    //&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x6570;&#x3060;&#x3051;MemberRow&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;&#x4F5C;&#x6210;&#x3059;&#x308B;
-//    const memberRows = this.props.team.members.map((member,idx) =&gt; &lt;MemberRow key={idx} member={member}/&gt;);
-    return (
-      &lt;div&gt;
-        &lt;h4&gt;{this.props.team.name}&lt;/h4&gt;
-        &lt;table&gt;
-        &lt;tbody&gt;
-        {memberRows}
-        &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-/**
-* &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
-* @return {undefined}
-*/
-class MemberRow extends React.Component{
-  /**
-  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
-  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
-  * @return {undefined}
-  */
-  constructor(props){
-    super(props);
-  }
-  /**
-  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
-  * @return {undefined}
-  {this.props.member.name}
-  &lt;td&gt;{this.props.member.name}&lt;/td&gt;
-  &lt;td&gt;{this.props.member.inBusiness ? &quot;&#x51FA;&#x52E4;&quot; : &quot;&#x9000;&#x52E4;&quot;}&lt;/td&gt;
-  &lt;td&gt;{this.props.member.comment}&lt;/td&gt;
-  leftAvatar={&lt;Avatar&gt;{this.props.member.name.charAt(0).toUpperCase()}&lt;/Avatar&gt;}
-  */
-  render(){
-      //const memberRows = this.props.memberStatus.map((member,idx) =&gt; &lt;MemberRow key={idx} member={member}/&gt;);
-    return (
-      &lt;List&gt;
-        &lt;ListItem
-          primaryText={this.props.member.name + &quot;&#xFF1A;&quot; + this.props.member.contact}
-            secondaryText={&quot;&#x6700;&#x7D42;&#x66F4;&#x65B0;&#x65E5;:&quot; + this.props.member.lastUpdate.substr(0,16)+&quot; &quot;+(this.props.member.comment == null ? &quot;&quot; : this.props.member.comment)}
-          leftAvatar={&lt;Avatar backgroundColor={this.props.member.inBusiness ? red600 : grey400} &gt; {this.props.member.inBusiness ? &quot;&#x51FA;&quot; : &quot;&#x9000;&quot;}&lt;/Avatar&gt;} /&gt;
-      &lt;/List&gt;
-    );
   }
 }
 </code></pre>

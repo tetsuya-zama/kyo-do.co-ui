@@ -228,6 +228,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/component/memberrow.js~memberrow",
+    "class/src/component/memberrow.js~MemberRow.html",
+    "<span>MemberRow</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/memberrow.js</span>",
+    "class"
+  ],
+  [
     "kyo-do.co-ui/src/component/mydestination.js~mydestination",
     "class/src/component/mydestination.js~MyDestination.html",
     "<span>MyDestination</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/mydestination.js</span>",
@@ -1636,6 +1642,24 @@ window.esdocSearchIndex = [
     "class/src/component/loginform.js~LoginForm.html#instance-member-state",
     "src/component/loginform.js~LoginForm#state",
     "member"
+  ],
+  [
+    "src/component/memberrow.js",
+    "file/src/component/memberrow.js.html",
+    "src/component/memberrow.js",
+    "file"
+  ],
+  [
+    "src/component/memberrow.js~memberrow#constructor",
+    "class/src/component/memberrow.js~MemberRow.html#instance-constructor-constructor",
+    "src/component/memberrow.js~MemberRow#constructor",
+    "method"
+  ],
+  [
+    "src/component/memberrow.js~memberrow#render",
+    "class/src/component/memberrow.js~MemberRow.html#instance-method-render",
+    "src/component/memberrow.js~MemberRow#render",
+    "method"
   ],
   [
     "src/component/mydestination.js",
