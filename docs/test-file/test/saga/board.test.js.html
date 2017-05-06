@@ -150,10 +150,10 @@ describe(&quot;loadMemberStatusSaga&quot;,()=&gt;{
 describe(&quot;loadMemberStatusTask&quot;,()=&gt;{
   it(&quot;gets all member status from server via API and puts UPDATE_MEMBER_STATUS action with the result&quot;,()=&gt;{
     const dummyAPIResult = [
-      {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;},
-      {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;},
-      {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;},
-      {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;}
+      {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+      {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+      {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+      {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
     ];
 
     const dummyToken = &quot;dummytoken&quot;;
@@ -178,10 +178,10 @@ describe(&quot;loadMemberStatusTask&quot;,()=&gt;{
 
     //&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3067;&#x3042;&#x308B;testC&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x5148;&#x982D;&#x306B;&#x3057;&#x3066;UPDATE_MEMBER_STATUS&#x3092;put&#x3059;&#x308B;
     const expectedPayload = [
-      {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;},
-      {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;},
-      {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;},
-      {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;}
+      {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+      {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+      {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+      {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
     ];
 
     assert.deepEqual(ret.value, put(updateMemberStatus(expectedPayload)));

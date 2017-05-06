@@ -1,5 +1,23 @@
 window.esdocSearchIndex = [
   [
+    "board src/component/board.js~board,board",
+    "test-file/test/component/board.test.js.html#lineNumber8",
+    "<Board />",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/board.test.js.html#lineNumber27",
+    "<Board /> filters narrows down <MemberRow /> by name which is input at memberfilter textbox",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/board.test.js.html#lineNumber9",
+    "<Board /> renders memberfilter textbox and <MemberRow /> as meny as number of mamberStatus prop",
+    "test"
+  ],
+  [
     "loginform src/component/loginform.js~loginform,loginform",
     "test-file/test/component/loginform.test.js.html#lineNumber12",
     "<LoginForm />",
@@ -33,6 +51,30 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/component/loginform.test.js.html#lineNumber28",
     "<LoginForm /> renders login failure message if login status is LOGIN_STATUS.FAILURE",
+    "test"
+  ],
+  [
+    "memberrow src/component/memberrow.js~memberrow,memberrow",
+    "test-file/test/component/memberrow.test.js.html#lineNumber8",
+    "<MemberRow />",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/memberrow.test.js.html#lineNumber35",
+    "<MemberRow /> renders '出' text if inBusiness is true",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/memberrow.test.js.html#lineNumber23",
+    "<MemberRow /> renders '退' text if inBusiness is false",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/memberrow.test.js.html#lineNumber9",
+    "<MemberRow /> renders name, comment and contact text of member prop",
     "test"
   ],
   [
@@ -1956,9 +1998,21 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/component/board.test.js",
+    "test-file/test/component/board.test.js.html",
+    "test/component/board.test.js",
+    "testFile"
+  ],
+  [
     "test/component/loginform.test.js",
     "test-file/test/component/loginform.test.js.html",
     "test/component/loginform.test.js",
+    "testFile"
+  ],
+  [
+    "test/component/memberrow.test.js",
+    "test-file/test/component/memberrow.test.js.html",
+    "test/component/memberrow.test.js",
     "testFile"
   ],
   [

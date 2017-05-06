@@ -121,13 +121,8 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
 import ReactDOM from &apos;react-dom&apos;;
 import MemberRow from &apos;./memberrow&apos;;
-import {List, ListItem} from &apos;material-ui/List&apos;;
-import Avatar from &apos;material-ui/Avatar&apos;;
 import TextField from &apos;material-ui/TextField&apos;;
-import {
-  red600,
-  grey400
-} from &apos;material-ui/styles/colors&apos;;
+
 
 /**
 * &#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
@@ -163,7 +158,7 @@ export default class Board extends React.Component{
   render(){
 
     const filterMemberRows = this.props.memberStatus.filter((member) =&gt; (
-      member.name.toLowerCase().indexOf(this.state.current_filter_text) &gt;= 0
+      member.name.toLowerCase().indexOf(this.state.current_filter_text.toLowerCase()) &gt;= 0
     ));
 
     const memberRows = filterMemberRows.map((member,idx) =&gt; &lt;MemberRow key={idx} member={member}/&gt;);
@@ -177,6 +172,7 @@ export default class Board extends React.Component{
         hintText=&quot;Filter&quot;
         value={this.state.current_filter_text}
         onChange={this.hundleFilterChange}
+        ref=&quot;memberfilter&quot;
         /&gt;
       {memberRows}
       &lt;/div&gt;);
