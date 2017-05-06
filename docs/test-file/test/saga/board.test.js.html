@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">test/action/suggestion.test.js | API Document</title>
+  <title data-ice="title">test/saga/board.test.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -116,28 +116,130 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">test/action/suggestion.test.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
-import {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from &apos;../../src/action/suggestion&apos;;
-import {suggestionChange,suggestionClear} from &apos;../../src/action/suggestion&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">test/saga/board.test.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &quot;power-assert&quot;;
+import {loadMemberStatusSaga,loadMemberStatusTask,watchMemberStatusSaga} from &apos;../../src/saga/board&apos;;
+import {updateMemberStatus,memberStatusPolling,MEMBER_STATUS_POLLING} from &apos;../../src/action/board&apos;;
+import {LOGIN_SUCCESS} from &apos;../../src/action/login&apos;;
+import {LOGIN_STATUS} from &apos;../../src/const/login&apos;;
+import {MY_DESTINATION_SAVE_COMPLETE} from &apos;../../src/action/mydestination&apos;;
+import {take,put,select,takeEvery,call} from &apos;redux-saga/effects&apos;;
+import {getApiBaseURL} from  &apos;../../src/module/environment&apos;;
+import axios from &quot;axios&quot;;
 
-/**@test {suggestionChange}*/
-describe(&quot;suggestionChange action creator&quot;,()=&gt;{
-  it(&quot;creates SUGGESTION_CHANGE action with array of suggestion string&quot;,()=&gt;{
-    const suggestion = [&quot;&#x6771;&#x9280;&#x5EA7;&quot;,&quot;EAST 8F&quot;, &quot;EAST 3F&quot;, &quot;&#x5B9D;&#x753A;&quot;, &quot;NRI 13F&quot;, &quot;NRI 12F&quot;];
-    const result = suggestionChange(suggestion);
+const BASE_API_URL = getApiBaseURL();
 
-    assert(result.type === SUGGESTION_CHANGE);
-    assert.deepEqual(result.payload, suggestion);
+/**@test {loadMemberStatusSaga}*/
+describe(&quot;loadMemberStatusSaga&quot;,()=&gt;{
+  it(&quot;takes every LOGIN_SUCCESS,MY_DESTINATION_SAVE_COMPLETE and MEMBER_STATUS_POLLING and pass it to loadMemberStatusTask&quot;,()=&gt;{
+    const gen = loadMemberStatusSaga();
+    let ret = gen.next();
+
+    assert(ret.value, takeEvery(LOGIN_SUCCESS,loadMemberStatusTask));
+    ret = gen.next();
+    assert(ret.value, takeEvery(MY_DESTINATION_SAVE_COMPLETE,loadMemberStatusTask));
+    ret = gen.next();
+    assert(ret.value, takeEvery(MEMBER_STATUS_POLLING,loadMemberStatusTask));
+    ret = gen.next();
+    assert(ret.done);
   });
 });
 
-/**@test {suggestionClear}*/
-describe(&quot;suggestionClear action creator&quot;,()=&gt;{
-  it(&quot;creates SUGGESTION_CLEAR action with no arguments&quot;,()=&gt;{
-    const result = suggestionClear();
+/**@test {loadMemberStatusTask}*/
+describe(&quot;loadMemberStatusTask&quot;,()=&gt;{
+  it(&quot;gets all member status from server via API and puts UPDATE_MEMBER_STATUS action with the result&quot;,()=&gt;{
+    const dummyAPIResult = [
+      {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;},
+      {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;},
+      {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;},
+      {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;}
+    ];
 
-    assert(result.type === SUGGESTION_CLEAR);
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const dummyLogonUserId = &quot;testC&quot;;
+
+    const gen = loadMemberStatusTask();
+    let ret = gen.next();
+
+    //gen calls yield select(state =&gt; state.login.user.token);
+    ret = gen.next(dummyToken);//dummyToken&#x304C;state&#x4E0A;&#x306B;&#x4FDD;&#x7BA1;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x3068;&#x3059;&#x308B;
+    //gen calls yield select(state=&gt; state.login.user.userid);
+    ret = gen.next(dummyLogonUserId); //dummyLogonUserId(&quot;testC&quot;)&#x304C;state&#x4E0A;&#x306B;&#x4FDD;&#x7BA1;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x3068;&#x3059;&#x308B;
+
+    assert.deepEqual(ret.value, call(axios,{
+      method:&quot;GET&quot;,
+      url:BASE_API_URL + &quot;status/all&quot;,
+      headers: { &quot;Authorization&quot;: &quot;Bearer &quot; + dummyToken}
+    }));
+
+    ret = gen.next({data:dummyAPIResult}); //dummyAPIResult&#x304C;API&#x304B;&#x3089;&#x8FD4;&#x3063;&#x3066;&#x304D;&#x305F;&#x3082;&#x306E;&#x3068;&#x3059;&#x308B;
+
+    //&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3067;&#x3042;&#x308B;testC&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x5148;&#x982D;&#x306B;&#x3057;&#x3066;UPDATE_MEMBER_STATUS&#x3092;put&#x3059;&#x308B;
+    const expectedPayload = [
+      {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;},
+      {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;},
+      {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;},
+      {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;}
+    ];
+
+    assert.deepEqual(ret.value, put(updateMemberStatus(expectedPayload)));
+
+    ret = gen.next();
+    assert(ret.done);
+  });
+});
+
+/**@test {watchMemberStatusSaga}*/
+describe(&quot;watchMemberStatusSaga&quot;,()=&gt;{
+  it(&quot;creates generator which never ends&quot;,()=&gt;{
+    const gen = watchMemberStatusSaga();
+    let ret = gen.next();
+
+    for(let i = 0;i &lt; 100; i++){
+      //gen calls yield select(state =&gt; state.login.status)
+      ret = gen.next(LOGIN_STATUS.SUCCESS);
+      //gem calls yield put(memberStatusPolling())
+      ret = gen.next();
+      //gen calls yield call(delay,STATUS_POLLING_DURATION_MS)
+      //gen.next()&#x3067;&#x306F;delay&#x304C;&#x767A;&#x751F;&#x3057;&#x3066;&#x30C6;&#x30B9;&#x30C8;&#x306B;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x305F;&#x3081;&#x3001;true&#x3092;&#x6CE8;&#x5165;&#x3059;&#x308B;
+      ret = gen.next(true);
+
+      assert(!ret.done);
+    }
+  });
+
+  it(&quot;puts MEMBER_STATUS_POLLING action if user has been logged in&quot;,()=&gt;{
+    const gen = watchMemberStatusSaga();
+    let ret = gen.next();
+
+    //gen calls yield select(state =&gt; state.login.status)
+    ret = gen.next(LOGIN_STATUS.SUCCESS);
+
+    assert.deepEqual(ret.value, put(memberStatusPolling()));
+    ret = gen.next();
+
+    //gen calls yield call(delay,STATUS_POLLING_DURATION_MS)
+    //gen.next()&#x3067;&#x306F;delay&#x304C;&#x767A;&#x751F;&#x3057;&#x3066;&#x30C6;&#x30B9;&#x30C8;&#x306B;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x305F;&#x3081;&#x3001;true&#x3092;&#x6CE8;&#x5165;&#x3059;&#x308B;
+    ret = gen.next(true);
+
+    assert(!ret.done);
+  });
+
+  it(&quot;doesn&apos;t put any action if user hasn&apos;t been logged in&quot;,()=&gt;{
+    const gen = watchMemberStatusSaga();
+    let ret = gen.next();
+
+    //gen calls yield select(state =&gt; state.login.status)
+    ret = gen.next(LOGIN_STATUS.NOTYET);
+
+    assert.notDeepEqual(ret.value, put(memberStatusPolling()));
+
+    //gen calls yield call(delay,STATUS_POLLING_DURATION_MS)
+    //gen.next()&#x3067;&#x306F;delay&#x304C;&#x767A;&#x751F;&#x3057;&#x3066;&#x30C6;&#x30B9;&#x30C8;&#x306B;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x305F;&#x3081;&#x3001;true&#x3092;&#x6CE8;&#x5165;&#x3059;&#x308B;
+    ret = gen.next(true);
+
+    assert(!ret.done);
   });
 });
 </code></pre>

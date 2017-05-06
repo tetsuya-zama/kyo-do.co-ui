@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">test/action/suggestion.test.js | API Document</title>
+  <title data-ice="title">test/reducer/board.test.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -116,28 +116,53 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">test/action/suggestion.test.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">test/reducer/board.test.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
-import {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from &apos;../../src/action/suggestion&apos;;
-import {suggestionChange,suggestionClear} from &apos;../../src/action/suggestion&apos;;
+import board from &apos;../../src/reducer/board&apos;;
+import {UPDATE_MEMBER_STATUS} from &apos;../../src/action/board&apos;;
 
-/**@test {suggestionChange}*/
-describe(&quot;suggestionChange action creator&quot;,()=&gt;{
-  it(&quot;creates SUGGESTION_CHANGE action with array of suggestion string&quot;,()=&gt;{
-    const suggestion = [&quot;&#x6771;&#x9280;&#x5EA7;&quot;,&quot;EAST 8F&quot;, &quot;EAST 3F&quot;, &quot;&#x5B9D;&#x753A;&quot;, &quot;NRI 13F&quot;, &quot;NRI 12F&quot;];
-    const result = suggestionChange(suggestion);
+/**@test {board}*/
+describe(&quot;board reducer&quot;,()=&gt;{
+  it(&quot;changes memberStatus of board state into payload of the action if UPDATE_MEMBER_STATUS action is passed&quot;,()=&gt;{
+    const initialState = {
+      memberStatus:[
+        {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-XXX-XXXX&quot;},
+        {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-YYY-YYYY&quot;},
+        {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;}
+      ]
+    };
 
-    assert(result.type === SUGGESTION_CHANGE);
-    assert.deepEqual(result.payload, suggestion);
+    const dummyAction = {
+      type:UPDATE_MEMBER_STATUS,
+      payload:[
+        {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;},
+        {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;},
+        {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;},
+        {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;}
+      ]
+    };
+
+    const result = board(initialState,dummyAction);
+
+    assert.deepEqual(result.memberStatus,dummyAction.payload);
   });
-});
 
-/**@test {suggestionClear}*/
-describe(&quot;suggestionClear action creator&quot;,()=&gt;{
-  it(&quot;creates SUGGESTION_CLEAR action with no arguments&quot;,()=&gt;{
-    const result = suggestionClear();
+  it(&quot;does nothing if any other action is passed&quot;,()=&gt;{
+    const initialState = {
+      memberStatus:[
+        {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-XXX-XXXX&quot;},
+        {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-YYY-YYYY&quot;},
+        {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;}
+      ]
+    };
 
-    assert(result.type === SUGGESTION_CLEAR);
+    const dummyAction = {
+      type:&quot;DUMMY_ACTION_NAME&quot;,
+    };
+
+    const result = board(initialState,dummyAction);
+
+    assert.deepEqual(result,initialState);
   });
 });
 </code></pre>

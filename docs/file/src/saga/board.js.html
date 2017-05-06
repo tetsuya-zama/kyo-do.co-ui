@@ -36,6 +36,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoField">changeAccountInfoField</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeccountInfoModal">closeccountInfoModal</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openAccountInfoModal">openAccountInfoModal</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-memberStatusPolling">memberStatusPolling</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateMemberStatus">updateMemberStatus</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailure">loginFailure</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginRequested">loginRequested</a></span></span></li>
@@ -53,7 +54,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ACCOUNT_INFO_MODAL_OPEN">ACCOUNT_INFO_MODAL_OPEN</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CHANGE_ACCOUNT_INFO">CHANGE_ACCOUNT_INFO</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CHANGE_ACCOUNT_INFO_FIELD">CHANGE_ACCOUNT_INFO_FIELD</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEAR_MY_DESTINATION">CLEAR_MY_DESTINATION</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MEMBER_STATUS_POLLING">MEMBER_STATUS_POLLING</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPDATE_MEMBER_STATUS">UPDATE_MEMBER_STATUS</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_FAILURE">LOGIN_FAILURE</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN_REQUESTED">LOGIN_REQUESTED</a></span></span></li>
@@ -91,6 +92,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signup">signup</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoSaga">changeAccountInfoSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusTask">loadMemberStatusTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cleanRememberMeTask">cleanRememberMeTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
@@ -117,12 +119,17 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/saga/board.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {take,put,select,takeEvery,call} from &apos;redux-saga/effects&apos;
 import {delay} from &apos;redux-saga&apos;
-import {updateMemberStatus} from &apos;../action/board&apos;
+import {updateMemberStatus,memberStatusPolling,MEMBER_STATUS_POLLING} from &apos;../action/board&apos;
 import {LOGIN_SUCCESS} from &apos;../action/login&apos;
 import {LOGIN_STATUS} from &apos;../const/login&apos;
-import {MY_DESTINATION_CHANGE} from &apos;../action/mydestination&apos;
+import {MY_DESTINATION_SAVE_COMPLETE} from &apos;../action/mydestination&apos;
+import {getApiBaseURL} from &apos;../module/environment&apos;
 import axios from &quot;axios&quot;;
-import {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from &apos;../action/suggestion&apos;
+
+/**
+* API&#x306E;&#x30D9;&#x30FC;&#x30B9;URL
+*/
+const BASE_API_URL = getApiBaseURL();
 
 /**
 * &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;polling&#x3059;&#x308B;&#x9593;&#x9694;(ms)
@@ -135,20 +142,30 @@ const STATUS_POLLING_DURATION_MS= 15000;
 */
 export function* loadMemberStatusSaga(){
   yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);
-  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);
-  yield takeEvery(SUGGESTION_CHANGE,loadMemberStatusTask);
-  yield takeEvery(SUGGESTION_CLEAR,loadMemberStatusTask);
+  yield takeEvery(MY_DESTINATION_SAVE_COMPLETE,loadMemberStatusTask);
+  yield takeEvery(MEMBER_STATUS_POLLING,loadMemberStatusTask);
 }
 
 /**
 * &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;Task
 */
-function* loadMemberStatusTask(){
-  //TODO &#x30C0;&#x30DF;&#x30FC;&#x5B9F;&#x88C5;&#x3002;&#x672C;&#x6765;&#x306F;API&#x304B;&#x3089;&#x53D6;&#x5F97;
-  const me = yield select(state =&gt; state.login.user);
-  const mydestination = yield select(state =&gt; state.mydestination);
-  const memberStatus = yield getMemberStatus(me,mydestination);
-  yield put(updateMemberStatus(memberStatus));
+export function* loadMemberStatusTask(){
+  const token = yield select(state =&gt; state.login.user.token);
+  const logonUserId = yield select(state=&gt; state.login.user.userid);
+  try{
+    const result = yield call(axios,{
+      method:&quot;GET&quot;,
+      url:BASE_API_URL + &quot;status/all&quot;,
+      headers: { &quot;Authorization&quot;: &quot;Bearer &quot; + token}
+    });
+
+    // &#x81EA;&#x5206;&#x306E;&#x60C5;&#x5831;&#x3092;&#x5148;&#x982D;&#x306B;&#x8868;&#x793A;&#x3059;&#x308B;
+    const memberStatus = result.data.filter(status =&gt; status.userid !== logonUserId);
+    const logonUserStatus = result.data.filter(status =&gt; status.userid === logonUserId);
+    yield put(updateMemberStatus(logonUserStatus.concat(memberStatus)));
+  }catch(e){
+    //XXX&#x3000;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x8D77;&#x304D;&#x308C;&#x3070;ID&#x91CD;&#x8907;&#x3068;&#x5224;&#x65AD;&#x3057;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;&#x30B5;&#x30FC;&#x30D0;&#x30A8;&#x30E9;&#x30FC;&#x3068;&#x533A;&#x5225;&#x3057;&#x305F;&#x3044;
+  }
 }
 
 /**
@@ -159,38 +176,10 @@ export function* watchMemberStatusSaga(){
   while(true){
     const loginStatus = yield select(state =&gt; state.login.status);
     if(loginStatus == LOGIN_STATUS.SUCCESS){
-      //TODO &#x30C0;&#x30DF;&#x30FC;&#x5B9F;&#x88C5;&#x3002;&#x672C;&#x6765;&#x306F;API&#x304B;&#x3089;&#x53D6;&#x5F97;
-      const me = yield select(state =&gt; state.login.user);
-      const mydestination = yield select(state =&gt; state.mydestination);
-      const memberStatus = yield getMemberStatus(me,mydestination);
-      yield put(updateMemberStatus(memberStatus));
+      yield put(memberStatusPolling());
     }
     yield call(delay,STATUS_POLLING_DURATION_MS);
   }
-}
-
-/**
-* &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x72B6;&#x6CC1;&#x3092;&#x8FD4;&#x3059;
-* @param {Object} me &#x81EA;&#x5206;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;
-* @param {Object} mydestination &#x81EA;&#x5206;&#x306E;&#x884C;&#x304D;&#x5148;
-* @return {Object} &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x72B6;&#x6CC1;
-*/
-function* getMemberStatus(me,mydestination){
-  const token = yield select(state =&gt; state.login.user.token);
-  try{
-    const result = yield call(axios,{
-      method:&quot;GET&quot;,
-      url:&quot;https://api.kyo-do.co/status/all&quot;,
-      headers: { &quot;Authorization&quot;: &quot;Bearer &quot; + token}
-    });
-
-    // &#x81EA;&#x5206;&#x306E;&#x60C5;&#x5831;&#x3092;&#x5148;&#x982D;&#x306B;&#x8868;&#x793A;&#x3059;&#x308B;
-    const memberStatus = result.data.filter(function(value, index, array){ return value.userid != me.userid });
-    return result.data.filter(function(value, index, array){ return value.userid == me.userid }).concat(memberStatus);
-  }catch(e){
-    //XXX&#x3000;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x8D77;&#x304D;&#x308C;&#x3070;ID&#x91CD;&#x8907;&#x3068;&#x5224;&#x65AD;&#x3057;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;&#x30B5;&#x30FC;&#x30D0;&#x30A8;&#x30E9;&#x30FC;&#x3068;&#x533A;&#x5225;&#x3057;&#x305F;&#x3044;
-  }
-
 }
 </code></pre>
 

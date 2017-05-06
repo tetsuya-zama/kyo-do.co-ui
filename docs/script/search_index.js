@@ -156,12 +156,6 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "kyo-do.co-ui/src/action/board.js~clear_my_destination",
-    "variable/index.html#static-variable-CLEAR_MY_DESTINATION",
-    "<span>CLEAR_MY_DESTINATION</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/board.js</span>",
-    "variable"
-  ],
-  [
     "kyo-do.co-ui/src/const/mydestination.js~default_my_destination",
     "variable/index.html#static-variable-DEFAULT_MY_DESTINATION",
     "<span>DEFAULT_MY_DESTINATION</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/mydestination.js</span>",
@@ -214,6 +208,12 @@ window.esdocSearchIndex = [
     "class/src/component/loginform.js~LoginForm.html",
     "<span>LoginForm</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/loginform.js</span>",
     "class"
+  ],
+  [
+    "kyo-do.co-ui/src/action/board.js~member_status_polling",
+    "variable/index.html#static-variable-MEMBER_STATUS_POLLING",
+    "<span>MEMBER_STATUS_POLLING</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/board.js</span>",
+    "variable"
   ],
   [
     "kyo-do.co-ui/src/action/mydestination.js~my_destination_change",
@@ -408,6 +408,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/board.js~loadmemberstatustask",
+    "function/index.html#static-function-loadMemberStatusTask",
+    "<span>loadMemberStatusTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/board.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/saga/suggestion.js~loadsuggestionsaga",
     "function/index.html#static-function-loadSuggestionSaga",
     "<span>loadSuggestionSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/suggestion.js</span>",
@@ -477,6 +483,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/saga/login.js~logoutsaga",
     "function/index.html#static-function-logoutSaga",
     "<span>logoutSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/login.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/board.js~memberstatuspolling",
+    "function/index.html#static-function-memberStatusPolling",
+    "<span>memberStatusPolling</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/board.js</span>",
     "function"
   ],
   [
@@ -918,6 +930,24 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "board src/reducer/board.js~board,board",
+    "test-file/test/reducer/board.test.js.html#lineNumber6",
+    "board reducer",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/board.test.js.html#lineNumber7",
+    "board reducer changes memberStatus of board state into payload of the action if UPDATE_MEMBER_STATUS action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/board.test.js.html#lineNumber31",
+    "board reducer does nothing if any other action is passed",
+    "test"
+  ],
+  [
     "changedestinationsaga src/saga/mydestination.js~changedestinationsaga,changedestinationsaga",
     "test-file/test/saga/mydestination.test.js.html#lineNumber53",
     "changeDestinationSaga",
@@ -1023,6 +1053,30 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/saga/mydestination.test.js.html#lineNumber24",
     "loadDestinationTask load user's destination data from server via api and puts MY_DESTINATION_CHANGE action",
+    "test"
+  ],
+  [
+    "loadmemberstatussaga src/saga/board.js~loadmemberstatussaga,loadmemberstatussaga",
+    "test-file/test/saga/board.test.js.html#lineNumber14",
+    "loadMemberStatusSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/board.test.js.html#lineNumber15",
+    "loadMemberStatusSaga takes every LOGIN_SUCCESS,MY_DESTINATION_SAVE_COMPLETE and MEMBER_STATUS_POLLING and pass it to loadMemberStatusTask",
+    "test"
+  ],
+  [
+    "loadmemberstatustask src/saga/board.js~loadmemberstatustask,loadmemberstatustask",
+    "test-file/test/saga/board.test.js.html#lineNumber30",
+    "loadMemberStatusTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/board.test.js.html#lineNumber31",
+    "loadMemberStatusTask gets all member status from server via API and puts UPDATE_MEMBER_STATUS action with the result",
     "test"
   ],
   [
@@ -1215,6 +1269,18 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/login.test.js.html#lineNumber45",
     "logoutRequested action creator creates LOGOUT_REQUESTED action with no arguments",
+    "test"
+  ],
+  [
+    "memberstatuspolling src/action/board.js~memberstatuspolling,memberstatuspolling",
+    "test-file/test/action/board.test.js.html#lineNumber22",
+    "memberStatusPolling action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/board.test.js.html#lineNumber23",
+    "memberStatusPolling action creator creates MEMBER_STATUS_POLLING action creator with no arguments",
     "test"
   ],
   [
@@ -1836,6 +1902,12 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "test/action/board.test.js",
+    "test-file/test/action/board.test.js.html",
+    "test/action/board.test.js",
+    "testFile"
+  ],
+  [
     "test/action/login.test.js",
     "test-file/test/action/login.test.js.html",
     "test/action/login.test.js",
@@ -1878,6 +1950,12 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/reducer/board.test.js",
+    "test-file/test/reducer/board.test.js.html",
+    "test/reducer/board.test.js",
+    "testFile"
+  ],
+  [
     "test/reducer/login.test.js",
     "test-file/test/reducer/login.test.js.html",
     "test/reducer/login.test.js",
@@ -1893,6 +1971,12 @@ window.esdocSearchIndex = [
     "test/reducer/signup.test.js",
     "test-file/test/reducer/signup.test.js.html",
     "test/reducer/signup.test.js",
+    "testFile"
+  ],
+  [
+    "test/saga/board.test.js",
+    "test-file/test/saga/board.test.js.html",
+    "test/saga/board.test.js",
     "testFile"
   ],
   [
@@ -1918,5 +2002,41 @@ window.esdocSearchIndex = [
     "test-file/test/saga/suggestion.test.js.html",
     "test/saga/suggestion.test.js",
     "testFile"
+  ],
+  [
+    "updatememberstatus src/action/board.js~updatememberstatus,updatememberstatus",
+    "test-file/test/action/board.test.js.html#lineNumber6",
+    "updateMemberStatus action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/board.test.js.html#lineNumber7",
+    "updateMemberStatus action creator creates UPDATE_MEMBER_STATUS action with all member status from API",
+    "test"
+  ],
+  [
+    "watchmemberstatussaga src/saga/board.js~watchmemberstatussaga,watchmemberstatussaga",
+    "test-file/test/saga/board.test.js.html#lineNumber75",
+    "watchMemberStatusSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/board.test.js.html#lineNumber76",
+    "watchMemberStatusSaga creates generator which never ends",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/board.test.js.html#lineNumber110",
+    "watchMemberStatusSaga doesn't put any action if user hasn't been logged in",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/board.test.js.html#lineNumber93",
+    "watchMemberStatusSaga puts MEMBER_STATUS_POLLING action if user has been logged in",
+    "test"
   ]
 ]
