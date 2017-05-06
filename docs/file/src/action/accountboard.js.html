@@ -34,7 +34,7 @@
     
   <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">action</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfo">changeAccountInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoField">changeAccountInfoField</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeccountInfoModal">closeccountInfoModal</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeAccountInfoModal">closeAccountInfoModal</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openAccountInfoModal">openAccountInfoModal</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-memberStatusPolling">memberStatusPolling</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateMemberStatus">updateMemberStatus</a></span></span></li>
@@ -92,6 +92,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mydestination">mydestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signup">signup</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoSaga">changeAccountInfoSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoTask">changeAccountInfoTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusTask">loadMemberStatusTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
@@ -127,7 +128,7 @@ export const ACCOUNT_INFO_MODAL_OPEN = &quot;ACCOUNT_INFO_MODAL_OPEN&quot;;
 * &#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x60C5;&#x5831;&#x5909;&#x66F4;&#x30E2;&#x30FC;&#x30C0;&#x30EB;Open&#x306E;creator
 * @return {Object} &#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x60C5;&#x5831;&#x5909;&#x66F4;&#x30E2;&#x30FC;&#x30C0;&#x30EB;Open&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
-export function openAccountInfoModal(name, pass){
+export function openAccountInfoModal(){
   return {
     type:ACCOUNT_INFO_MODAL_OPEN
   };
@@ -142,7 +143,7 @@ export const ACCOUNT_INFO_MODAL_CLOSE = &quot;ACCOUNT_INFO_MODAL_CLOSE&quot;;
 * &#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x60C5;&#x5831;&#x5909;&#x66F4;&#x30E2;&#x30FC;&#x30C0;&#x30EB;Close&#x306E;creator
 * @return {Object} &#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x60C5;&#x5831;&#x5909;&#x66F4;&#x30E2;&#x30FC;&#x30C0;&#x30EB;Close&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
-export function closeccountInfoModal(){
+export function closeAccountInfoModal(){
   return {
     type:ACCOUNT_INFO_MODAL_CLOSE
   };

@@ -34,7 +34,7 @@
     
   <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">action</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfo">changeAccountInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoField">changeAccountInfoField</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeccountInfoModal">closeccountInfoModal</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeAccountInfoModal">closeAccountInfoModal</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openAccountInfoModal">openAccountInfoModal</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-memberStatusPolling">memberStatusPolling</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateMemberStatus">updateMemberStatus</a></span></span></li>
@@ -92,6 +92,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mydestination">mydestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signup">signup</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoSaga">changeAccountInfoSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoTask">changeAccountInfoTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusTask">loadMemberStatusTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
@@ -124,7 +125,7 @@ import FlatButton from &apos;material-ui/FlatButton&apos;;
 import TextField from &apos;material-ui/TextField&apos;;
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from &apos;material-ui/Toolbar&apos;;
 import Dialog from &apos;material-ui/Dialog&apos;;
-import {closeccountInfoModal,changeAccountInfo,changeAccountInfoField} from &apos;../action/accountboard&apos;;
+import {closeAccountInfoModal,changeAccountInfo,changeAccountInfoField} from &apos;../action/accountboard&apos;;
 
 /**
 * AccountBoard&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
@@ -138,9 +139,8 @@ export default class AccountBoard extends React.Component{
   */
   constructor(props){
     super(props);
-    this.state = {pass_text:&quot;&quot;,confirm_pass_text:&quot;&quot;,name_text:&quot;&quot;};
     //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
-    this.hundleClick = this.hundleClick.bind(this);
+    this.hundleSubmit = this.hundleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.hundlePassChange = this.hundlePassChange.bind(this);
     this.hundleNameChange = this.hundleNameChange.bind(this);
@@ -150,7 +150,7 @@ export default class AccountBoard extends React.Component{
   * &#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x60C5;&#x5831;&#x5909;&#x66F4;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
   */
-  hundleClick(){
+  hundleSubmit(){
       this.props.dispatch(changeAccountInfo(this.props.accountboard.nextuser.nextname, this.props.accountboard.nextuser.nextpass));
   }
 
@@ -159,13 +159,25 @@ export default class AccountBoard extends React.Component{
   * @return {undefined}
   */
   handleClose(){
-      this.props.dispatch(closeccountInfoModal());
+      this.props.dispatch(closeAccountInfoModal());
   }
 
+  /**
+  * pass&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x5909;&#x66F4;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @param {Object} event &#x30A4;&#x30D9;&#x30F3;&#x30C8;
+  * @param {string} newValue &#x5909;&#x66F4;&#x5F8C;&#x306E;&#x5024;
+  * @return {undefined}
+  */
   hundlePassChange(event,newValue){
     this.props.dispatch(changeAccountInfoField(this.props.accountboard.nextuser.nextname, newValue));
   }
 
+  /**
+  * name&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x5909;&#x66F4;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @param {Object} event &#x30A4;&#x30D9;&#x30F3;&#x30C8;
+  * @param {string} newValue &#x5909;&#x66F4;&#x5F8C;&#x306E;&#x5024;
+  * @return {undefined}
+  */
   hundleNameChange(event,newValue){
     this.props.dispatch(changeAccountInfoField(newValue, this.props.accountboard.nextuser.nextpass));
   }
@@ -180,11 +192,13 @@ export default class AccountBoard extends React.Component{
         label=&quot;Cancel&quot;
         primary={true}
         onTouchTap={this.handleClose}
+        ref=&quot;cancel&quot;
       /&gt;,
       &lt;FlatButton
         label=&quot;Submit&quot;
         primary={true}
-        onTouchTap={this.hundleClick}
+        onTouchTap={this.hundleSubmit}
+        ref=&quot;submit&quot;
       /&gt;,
     ];
 
@@ -200,6 +214,7 @@ export default class AccountBoard extends React.Component{
           hintText=&quot;&#x8868;&#x793A;&#x540D;&quot;
           value={this.props.accountboard.nextuser.nextname}
           onChange={this.hundleNameChange}
+          ref=&quot;name&quot;
           /&gt;
           &lt;br /&gt;
           &lt;TextField
@@ -207,6 +222,7 @@ export default class AccountBoard extends React.Component{
           value={this.props.accountboard.nextuser.nextpass}
           type=&quot;password&quot;
           onChange={this.hundlePassChange}
+          ref=&quot;pass&quot;
           /&gt;
         &lt;/Dialog&gt;
 

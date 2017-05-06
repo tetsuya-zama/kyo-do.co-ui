@@ -34,7 +34,7 @@
     
   <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">action</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfo">changeAccountInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoField">changeAccountInfoField</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeccountInfoModal">closeccountInfoModal</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeAccountInfoModal">closeAccountInfoModal</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openAccountInfoModal">openAccountInfoModal</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-memberStatusPolling">memberStatusPolling</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateMemberStatus">updateMemberStatus</a></span></span></li>
@@ -92,6 +92,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mydestination">mydestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signup">signup</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">saga</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoSaga">changeAccountInfoSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeAccountInfoTask">changeAccountInfoTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusTask">loadMemberStatusTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
@@ -119,10 +120,15 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/saga/accountboard.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {take,put,select,takeEvery,takeLatest,call} from &apos;redux-saga/effects&apos;
-import {LOGIN_REQUESTED,LOGIN_FAILURE,LOGOUT_REQUESTED,loginRequested,loginSuccess,loginFailure} from &apos;../action/login&apos;
 import {CHANGE_ACCOUNT_INFO} from &apos;../action/accountboard&apos;
-import {getFromStorage,setToStorage,removeFromStorage,existsKeyOnStorage} from &apos;../module/localstorage&apos;
+import {loginSuccess} from &apos;../action/login&apos;
+import {getApiBaseURL} from &apos;../module/environment&apos;
 import axios from &quot;axios&quot;;
+
+/**
+* API&#x306E;&#x30D9;&#x30FC;&#x30B9;URL
+*/
+const BASE_API_URL = getApiBaseURL();
 
 /**
 * &#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x60C5;&#x5831;&#x5909;&#x66F4;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
@@ -140,7 +146,7 @@ export function* changeAccountInfoSaga(){
 * &#x6210;&#x529F;&#x3059;&#x308C;&#x3070;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;&#x3092;&#x5143;&#x306B;LOGIN_SUCCESS(&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x6210;&#x529F;)&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;put(dispatch)&#x3059;&#x308B;
 * @param {object} action LOGIN_REQUESTED(&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x8981;&#x6C42;)&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
-function* changeAccountInfoTask(action){
+export function* changeAccountInfoTask(action){
 
   const changeData = {};
   if(action.payload.nextpass){
@@ -151,14 +157,12 @@ function* changeAccountInfoTask(action){
   }
 
 
-  const id = yield select(state =&gt; state.login.user.userid);
-
   //XXX &#x73FE;&#x5728;&#x306E;&#x5B9F;&#x88C5;&#x3067;&#x306F;&#x30B5;&#x30FC;&#x30D0;&#x30A8;&#x30E9;&#x30FC;&#x306A;&#x306E;&#x304B;ID/Pass&#x304C;&#x9593;&#x9055;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x5224;&#x65AD;&#x304C;&#x3064;&#x304B;&#x306A;&#x3044;
   try{
     const token = yield select(state =&gt; state.login.user.token);
     const result = yield call(axios, {
       method:&quot;PUT&quot;,
-      url:&quot;https://api.kyo-do.co/user&quot;,
+      url:BASE_API_URL + &quot;user&quot;,
       headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token},
       data: changeData
     });

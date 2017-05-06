@@ -1,5 +1,53 @@
 window.esdocSearchIndex = [
   [
+    "accountboard src/component/accountboard.js~accountboard,accountboard",
+    "test-file/test/component/accountboard.test.js.html#lineNumber11",
+    "<AccountBoard />",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/accountboard.test.js.html#lineNumber70",
+    "<AccountBoard /> dispatches ACCOUNT_INFO_MODAL_CLOSE action when cancel button is clicked",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/accountboard.test.js.html#lineNumber132",
+    "<AccountBoard /> dispatches CHANGE_ACCOUNT_INFO aciton with current newname and newpass when submit button is clicked",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/accountboard.test.js.html#lineNumber112",
+    "<AccountBoard /> dispatches CHANGE_ACCOUNT_INFO_FIELD action with current newname and newpass when value of pass textbox is changed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/accountboard.test.js.html#lineNumber92",
+    "<AccountBoard /> dispatches CHANGE_ACCOUNT_INFO_FIELD action with current newname and newpass when value of pass textbox is changed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/accountboard.test.js.html#lineNumber12",
+    "<AccountBoard /> renders name and pass textboxes and submit and cancel button if 'open' of accountboard state is true",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/accountboard.test.js.html#lineNumber32",
+    "<AccountBoard /> renders no inputs if 'open' of accountboard state is false",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/component/accountboard.test.js.html#lineNumber52",
+    "<AccountBoard /> renders values which are passed as accountboard state",
+    "test"
+  ],
+  [
     "board src/component/board.js~board,board",
     "test-file/test/component/board.test.js.html#lineNumber8",
     "<Board />",
@@ -378,6 +426,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/accountboard.js~changeaccountinfotask",
+    "function/index.html#static-function-changeAccountInfoTask",
+    "<span>changeAccountInfoTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/accountboard.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/saga/mydestination.js~changedestinationsaga",
     "function/index.html#static-function-changeDestinationSaga",
     "<span>changeDestinationSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/mydestination.js</span>",
@@ -408,9 +462,9 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "kyo-do.co-ui/src/action/accountboard.js~closeccountinfomodal",
-    "function/index.html#static-function-closeccountInfoModal",
-    "<span>closeccountInfoModal</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
+    "kyo-do.co-ui/src/action/accountboard.js~closeaccountinfomodal",
+    "function/index.html#static-function-closeAccountInfoModal",
+    "<span>closeAccountInfoModal</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
     "function"
   ],
   [
@@ -978,6 +1032,42 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "",
+    "test-file/test/reducer/accountboard.test.js.html#lineNumber5",
+    "accountboard reducer",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/accountboard.test.js.html#lineNumber67",
+    "accountboard reducer changes nextuser of accountboard state and turns open to true",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/accountboard.test.js.html#lineNumber91",
+    "accountboard reducer does nothing if any other action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/accountboard.test.js.html#lineNumber25",
+    "accountboard reducer turns open of accountboard state into false and clears nextuser if ACCOUNT_INFO_MODAL_CLOSE action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/accountboard.test.js.html#lineNumber44",
+    "accountboard reducer turns open of accountboard state into false and clears nextuser if CHANGE_ACCOUNT_INFO action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/accountboard.test.js.html#lineNumber6",
+    "accountboard reducer turns open of accountboard state into true and clears nextuser if ACCOUNT_INFO_MODAL_OPEN action is passed",
+    "test"
+  ],
+  [
     "board src/reducer/board.js~board,board",
     "test-file/test/reducer/board.test.js.html#lineNumber6",
     "board reducer",
@@ -993,6 +1083,54 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/reducer/board.test.js.html#lineNumber31",
     "board reducer does nothing if any other action is passed",
+    "test"
+  ],
+  [
+    "changeaccountinfo src/action/accountboard.js~changeaccountinfo,changeaccountinfo",
+    "test-file/test/action/acountboard.test.js.html#lineNumber24",
+    "changeAccountInfo action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/acountboard.test.js.html#lineNumber25",
+    "changeAccountInfo action creator creates CHANGE_ACCOUNT_INFO action with name and pass",
+    "test"
+  ],
+  [
+    "changeaccountinfofield src/action/accountboard.js~changeaccountinfofield,changeaccountinfofield",
+    "test-file/test/action/acountboard.test.js.html#lineNumber38",
+    "changeAccountInfoField action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/acountboard.test.js.html#lineNumber39",
+    "changeAccountInfoField action creator creates CHANGE_ACCOUNT_INFO_FIELD action with name and pass",
+    "test"
+  ],
+  [
+    "changeaccountinfosaga src/saga/accountboard.js~changeaccountinfosaga,changeaccountinfosaga",
+    "test-file/test/saga/accountboard.test.js.html#lineNumber12",
+    "changeAccountInfoSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/accountboard.test.js.html#lineNumber13",
+    "changeAccountInfoSaga takes every CHANGE_ACCOUNT_INFO action and pass it to changeAccountInfoTask",
+    "test"
+  ],
+  [
+    "changeaccountinfotask src/saga/accountboard.js~changeaccountinfotask,changeaccountinfotask",
+    "test-file/test/saga/accountboard.test.js.html#lineNumber23",
+    "changeAccountInfoTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/accountboard.test.js.html#lineNumber24",
+    "changeAccountInfoTask sends changes in payload of CHANGE_ACCOUNT_INFO and puts LOGIN_SUCCESS action again",
     "test"
   ],
   [
@@ -1077,6 +1215,18 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/saga/login.test.js.html#lineNumber162",
     "cleanRememberMe Task tries to clean RememberMe data",
+    "test"
+  ],
+  [
+    "closeaccountinfomodal src/action/accountboard.js~closeaccountinfomodal,closeaccountinfomodal",
+    "test-file/test/action/acountboard.test.js.html#lineNumber15",
+    "closeAccountInfoModal action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/acountboard.test.js.html#lineNumber16",
+    "closeAccountInfoModal action creator creates ACCOUNT_INFO_MODAL_CLOSE action with no argument",
     "test"
   ],
   [
@@ -1398,6 +1548,18 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "openaccountinfomodal src/action/accountboard.js~openaccountinfomodal,openaccountinfomodal",
+    "test-file/test/action/acountboard.test.js.html#lineNumber6",
+    "openAccountInfoModal action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/acountboard.test.js.html#lineNumber7",
+    "openAccountInfoModal action creator creates ACCOUNT_INFO_MODAL_OPEN action with no argument",
+    "test"
+  ],
+  [
     "signupsaga src/saga/signup.js~signupsaga,signupsaga",
     "test-file/test/saga/signup.test.js.html#lineNumber12",
     "signup Saga",
@@ -1536,12 +1698,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/accountboard.js~accountboard#hundleclick",
-    "class/src/component/accountboard.js~AccountBoard.html#instance-method-hundleClick",
-    "src/component/accountboard.js~AccountBoard#hundleClick",
-    "method"
-  ],
-  [
     "src/component/accountboard.js~accountboard#hundlenamechange",
     "class/src/component/accountboard.js~AccountBoard.html#instance-method-hundleNameChange",
     "src/component/accountboard.js~AccountBoard#hundleNameChange",
@@ -1554,16 +1710,16 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/accountboard.js~accountboard#hundlesubmit",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-method-hundleSubmit",
+    "src/component/accountboard.js~AccountBoard#hundleSubmit",
+    "method"
+  ],
+  [
     "src/component/accountboard.js~accountboard#render",
     "class/src/component/accountboard.js~AccountBoard.html#instance-method-render",
     "src/component/accountboard.js~AccountBoard#render",
     "method"
-  ],
-  [
-    "src/component/accountboard.js~accountboard#state",
-    "class/src/component/accountboard.js~AccountBoard.html#instance-member-state",
-    "src/component/accountboard.js~AccountBoard#state",
-    "member"
   ],
   [
     "src/component/board.js",
@@ -1608,21 +1764,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/header.js~header#handleclose",
-    "class/src/component/header.js~Header.html#instance-method-handleClose",
-    "src/component/header.js~Header#handleClose",
-    "method"
-  ],
-  [
     "src/component/header.js~header#handleopen",
     "class/src/component/header.js~Header.html#instance-method-handleOpen",
     "src/component/header.js~Header#handleOpen",
     "method"
   ],
   [
-    "src/component/header.js~header#hundleclick",
-    "class/src/component/header.js~Header.html#instance-method-hundleClick",
-    "src/component/header.js~Header#hundleClick",
+    "src/component/header.js~header#hundlelogout",
+    "class/src/component/header.js~Header.html#instance-method-hundleLogout",
+    "src/component/header.js~Header#hundleLogout",
     "method"
   ],
   [
@@ -1630,12 +1780,6 @@ window.esdocSearchIndex = [
     "class/src/component/header.js~Header.html#instance-method-render",
     "src/component/header.js~Header#render",
     "method"
-  ],
-  [
-    "src/component/header.js~header#state",
-    "class/src/component/header.js~Header.html#instance-member-state",
-    "src/component/header.js~Header#state",
-    "member"
   ],
   [
     "src/component/kyodoco.js",
@@ -1968,6 +2112,12 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "test/action/acountboard.test.js",
+    "test-file/test/action/acountboard.test.js.html",
+    "test/action/acountboard.test.js",
+    "testFile"
+  ],
+  [
     "test/action/board.test.js",
     "test-file/test/action/board.test.js.html",
     "test/action/board.test.js",
@@ -1995,6 +2145,12 @@ window.esdocSearchIndex = [
     "test/action/suggestion.test.js",
     "test-file/test/action/suggestion.test.js.html",
     "test/action/suggestion.test.js",
+    "testFile"
+  ],
+  [
+    "test/component/accountboard.test.js",
+    "test-file/test/component/accountboard.test.js.html",
+    "test/component/accountboard.test.js",
     "testFile"
   ],
   [
@@ -2028,6 +2184,12 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/reducer/accountboard.test.js",
+    "test-file/test/reducer/accountboard.test.js.html",
+    "test/reducer/accountboard.test.js",
+    "testFile"
+  ],
+  [
     "test/reducer/board.test.js",
     "test-file/test/reducer/board.test.js.html",
     "test/reducer/board.test.js",
@@ -2049,6 +2211,12 @@ window.esdocSearchIndex = [
     "test/reducer/signup.test.js",
     "test-file/test/reducer/signup.test.js.html",
     "test/reducer/signup.test.js",
+    "testFile"
+  ],
+  [
+    "test/saga/accountboard.test.js",
+    "test-file/test/saga/accountboard.test.js.html",
+    "test/saga/accountboard.test.js",
     "testFile"
   ],
   [
