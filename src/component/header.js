@@ -29,17 +29,15 @@ export default class Header extends React.Component{
   constructor(props){
     super(props);
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
-    this.state = {open: false}
-    this.hundleClick = this.hundleClick.bind(this);
+    this.hundleLogout = this.hundleLogout.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
   }
 
   /**
   * ログアウトボタンのクリックをハンドリングするメソッド
   * @return {undefined}
   */
-  hundleClick(){
+  hundleLogout(){
       this.props.dispatch(logoutRequested());
   }
 
@@ -52,30 +50,10 @@ export default class Header extends React.Component{
   }
 
   /**
-  * モーダルのクローズをハンドリングするメソッド
-  * @return {undefined}
-  */
-  handleClose(){
-      this.setState({open: false});
-  }
-
-  /**
   * 描画メソッド
   * @return {undefined}
   */
   render(){
-    const actions = [
-      <FlatButton
-        label="Cancel"
-        primary={true}
-        onTouchTap={this.handleClose}
-      />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        onTouchTap={this.handleClose}
-      />,
-    ];
     // ツールバーの表示
     const toolbar = this.props.login.status == LOGIN_STATUS.SUCCESS ?
       <Toolbar>
@@ -88,9 +66,11 @@ export default class Header extends React.Component{
                 <NavigationExpandMoreIcon />
               </IconButton>
             }
+
+            ref="menu_button"
           >
-            <MenuItem primaryText="アカウント情報変更" onTouchTap={this.handleOpen} />
-            <MenuItem primaryText="LOGOUT" onTouchTap={this.hundleClick} />
+            <MenuItem ref="change_account_button" primaryText="アカウント情報変更" onTouchTap={this.handleOpen} />
+            <MenuItem ref="logout_button" primaryText="LOGOUT" onTouchTap={this.hundleLogout} />
           </IconMenu>
         </ToolbarGroup>
         <AccountBoard dispatch={this.props.dispatch} accountboard={this.props.accountboard} />

@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import Dialog from 'material-ui/Dialog';
-import {closeccountInfoModal,changeAccountInfo,changeAccountInfoField} from '../action/accountboard';
+import {closeAccountInfoModal,changeAccountInfo,changeAccountInfoField} from '../action/accountboard';
 
 /**
 * AccountBoardコンポーネント
@@ -18,9 +18,8 @@ export default class AccountBoard extends React.Component{
   */
   constructor(props){
     super(props);
-    this.state = {pass_text:"",confirm_pass_text:"",name_text:""};
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
-    this.hundleClick = this.hundleClick.bind(this);
+    this.hundleSubmit = this.hundleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.hundlePassChange = this.hundlePassChange.bind(this);
     this.hundleNameChange = this.hundleNameChange.bind(this);
@@ -30,7 +29,7 @@ export default class AccountBoard extends React.Component{
   * アカウント情報変更ボタンのクリックをハンドリングするメソッド
   * @return {undefined}
   */
-  hundleClick(){
+  hundleSubmit(){
       this.props.dispatch(changeAccountInfo(this.props.accountboard.nextuser.nextname, this.props.accountboard.nextuser.nextpass));
   }
 
@@ -39,13 +38,25 @@ export default class AccountBoard extends React.Component{
   * @return {undefined}
   */
   handleClose(){
-      this.props.dispatch(closeccountInfoModal());
+      this.props.dispatch(closeAccountInfoModal());
   }
 
+  /**
+  * passテキストボックスの変更をハンドリングするメソッド
+  * @param {Object} event イベント
+  * @param {string} newValue 変更後の値
+  * @return {undefined}
+  */
   hundlePassChange(event,newValue){
     this.props.dispatch(changeAccountInfoField(this.props.accountboard.nextuser.nextname, newValue));
   }
 
+  /**
+  * nameテキストボックスの変更をハンドリングするメソッド
+  * @param {Object} event イベント
+  * @param {string} newValue 変更後の値
+  * @return {undefined}
+  */
   hundleNameChange(event,newValue){
     this.props.dispatch(changeAccountInfoField(newValue, this.props.accountboard.nextuser.nextpass));
   }
@@ -60,11 +71,13 @@ export default class AccountBoard extends React.Component{
         label="Cancel"
         primary={true}
         onTouchTap={this.handleClose}
+        ref="cancel"
       />,
       <FlatButton
         label="Submit"
         primary={true}
-        onTouchTap={this.hundleClick}
+        onTouchTap={this.hundleSubmit}
+        ref="submit"
       />,
     ];
 
@@ -80,6 +93,7 @@ export default class AccountBoard extends React.Component{
           hintText="表示名"
           value={this.props.accountboard.nextuser.nextname}
           onChange={this.hundleNameChange}
+          ref="name"
           />
           <br />
           <TextField
@@ -87,6 +101,7 @@ export default class AccountBoard extends React.Component{
           value={this.props.accountboard.nextuser.nextpass}
           type="password"
           onChange={this.hundlePassChange}
+          ref="pass"
           />
         </Dialog>
 

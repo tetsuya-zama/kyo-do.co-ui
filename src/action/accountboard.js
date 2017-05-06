@@ -7,7 +7,7 @@ export const ACCOUNT_INFO_MODAL_OPEN = "ACCOUNT_INFO_MODAL_OPEN";
 * アカウント情報変更モーダルOpenのcreator
 * @return {Object} アカウント情報変更モーダルOpenアクション
 */
-export function openAccountInfoModal(name, pass){
+export function openAccountInfoModal(){
   return {
     type:ACCOUNT_INFO_MODAL_OPEN
   };
@@ -22,7 +22,7 @@ export const ACCOUNT_INFO_MODAL_CLOSE = "ACCOUNT_INFO_MODAL_CLOSE";
 * アカウント情報変更モーダルCloseのcreator
 * @return {Object} アカウント情報変更モーダルCloseアクション
 */
-export function closeccountInfoModal(){
+export function closeAccountInfoModal(){
   return {
     type:ACCOUNT_INFO_MODAL_CLOSE
   };
