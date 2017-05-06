@@ -6,9 +6,9 @@ import {updateMemberStatus,memberStatusPolling} from '../../src/action/board';
 describe("updateMemberStatus action creator",()=>{
   it("creates UPDATE_MEMBER_STATUS action with all member status from API",()=>{
     const dummyMemberStatus = [
-      {userid:"testA",name:"Aさん",inBusiness:true,comment:"自席",contact:"090-XXX-XXXX"},
-      {userid:"testB",name:"Bさん",inBusiness:false,comment:"",contact:"090-YYY-YYYY"},
-      {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:""}
+      {userid:"testA",name:"Aさん",inBusiness:true,comment:"自席",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
+      {userid:"testB",name:"Bさん",inBusiness:false,comment:"",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"},
+      {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"}
     ];
 
     const result  = updateMemberStatus(dummyMemberStatus);

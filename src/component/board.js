@@ -1,13 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MemberRow from './memberrow';
-import {List, ListItem} from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
 import TextField from 'material-ui/TextField';
-import {
-  red600,
-  grey400
-} from 'material-ui/styles/colors';
+
 
 /**
 * 行き先掲示板コンポーネント
@@ -43,7 +38,7 @@ export default class Board extends React.Component{
   render(){
 
     const filterMemberRows = this.props.memberStatus.filter((member) => (
-      member.name.toLowerCase().indexOf(this.state.current_filter_text) >= 0
+      member.name.toLowerCase().indexOf(this.state.current_filter_text.toLowerCase()) >= 0
     ));
 
     const memberRows = filterMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
@@ -57,6 +52,7 @@ export default class Board extends React.Component{
         hintText="Filter"
         value={this.state.current_filter_text}
         onChange={this.hundleFilterChange}
+        ref="memberfilter"
         />
       {memberRows}
       </div>);

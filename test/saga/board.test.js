@@ -30,10 +30,10 @@ describe("loadMemberStatusSaga",()=>{
 describe("loadMemberStatusTask",()=>{
   it("gets all member status from server via API and puts UPDATE_MEMBER_STATUS action with the result",()=>{
     const dummyAPIResult = [
-      {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX"},
-      {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY"},
-      {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:""},
-      {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ"}
+      {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
+      {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"},
+      {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
+      {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
     ];
 
     const dummyToken = "dummytoken";
@@ -58,10 +58,10 @@ describe("loadMemberStatusTask",()=>{
 
     //ログインユーザーであるtestCのデータを先頭にしてUPDATE_MEMBER_STATUSをputする
     const expectedPayload = [
-      {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:""},
-      {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX"},
-      {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY"},
-      {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ"}
+      {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
+      {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
+      {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"},
+      {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
     ];
 
     assert.deepEqual(ret.value, put(updateMemberStatus(expectedPayload)));
