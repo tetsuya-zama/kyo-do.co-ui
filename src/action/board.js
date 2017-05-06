@@ -15,4 +15,17 @@ export function updateMemberStatus(memberStatus){
   }
 }
 
-export const CLEAR_MY_DESTINATION='CLEAR_MY_DESTINATION';
+/**
+* pollingによるメンバーステータスの更新要求アクション
+*/
+export const MEMBER_STATUS_POLLING = "MEMBER_STATUS_POLLING";
+
+/**
+* pollingによるメンバーステータスの更新要求アクションのcreator
+* @return {Object} MEMBER_STATUS_POLLINGアクション
+*/
+export function memberStatusPolling(){
+  return {
+    type:MEMBER_STATUS_POLLING
+  };
+}

@@ -22,4 +22,5 @@ export default function* rootSaga(){
   yield fork(changeAccountInfoSaga);
   yield fork(loadSuggestionSaga);
   yield fork(changeSuggestionSaga);
+  yield fork(watchMemberStatusSaga);
 }

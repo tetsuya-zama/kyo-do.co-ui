@@ -1,11 +1,16 @@
 import {take,put,select,takeEvery,call} from 'redux-saga/effects'
 import {delay} from 'redux-saga'
-import {updateMemberStatus} from '../action/board'
+import {updateMemberStatus,memberStatusPolling,MEMBER_STATUS_POLLING} from '../action/board'
 import {LOGIN_SUCCESS} from '../action/login'
 import {LOGIN_STATUS} from '../const/login'
-import {MY_DESTINATION_CHANGE} from '../action/mydestination'
+import {MY_DESTINATION_SAVE_COMPLETE} from '../action/mydestination'
+import {getApiBaseURL} from '../module/environment'
 import axios from "axios";
-import {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from '../action/suggestion'
+
+/**
+* APIのベースURL
+*/
+const BASE_API_URL = getApiBaseURL();
 
 /**
 * メンバー状況をpollingする間隔(ms)
@@ -18,20 +23,30 @@ const STATUS_POLLING_DURATION_MS= 15000;
 */
 export function* loadMemberStatusSaga(){
   yield takeEvery(LOGIN_SUCCESS,loadMemberStatusTask);
-  yield takeEvery(MY_DESTINATION_CHANGE,loadMemberStatusTask);
-  yield takeEvery(SUGGESTION_CHANGE,loadMemberStatusTask);
-  yield takeEvery(SUGGESTION_CLEAR,loadMemberStatusTask);
+  yield takeEvery(MY_DESTINATION_SAVE_COMPLETE,loadMemberStatusTask);
+  yield takeEvery(MEMBER_STATUS_POLLING,loadMemberStatusTask);
 }
 
 /**
 * メンバー状況をロードするTask
 */
-function* loadMemberStatusTask(){
-  //TODO ダミー実装。本来はAPIから取得
-  const me = yield select(state => state.login.user);
-  const mydestination = yield select(state => state.mydestination);
-  const memberStatus = yield getMemberStatus(me,mydestination);
-  yield put(updateMemberStatus(memberStatus));
+export function* loadMemberStatusTask(){
+  const token = yield select(state => state.login.user.token);
+  const logonUserId = yield select(state=> state.login.user.userid);
+  try{
+    const result = yield call(axios,{
+      method:"GET",
+      url:BASE_API_URL + "status/all",
+      headers: { "Authorization": "Bearer " + token}
+    });
+
+    // 自分の情報を先頭に表示する
+    const memberStatus = result.data.filter(status => status.userid !== logonUserId);
+    const logonUserStatus = result.data.filter(status => status.userid === logonUserId);
+    yield put(updateMemberStatus(logonUserStatus.concat(memberStatus)));
+  }catch(e){
+    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい
+  }
 }
 
 /**
@@ -42,36 +57,8 @@ export function* watchMemberStatusSaga(){
   while(true){
     const loginStatus = yield select(state => state.login.status);
     if(loginStatus == LOGIN_STATUS.SUCCESS){
-      //TODO ダミー実装。本来はAPIから取得
-      const me = yield select(state => state.login.user);
-      const mydestination = yield select(state => state.mydestination);
-      const memberStatus = yield getMemberStatus(me,mydestination);
-      yield put(updateMemberStatus(memberStatus));
+      yield put(memberStatusPolling());
     }
     yield call(delay,STATUS_POLLING_DURATION_MS);
   }
-}
-
-/**
-* メンバーの状況を返す
-* @param {Object} me 自分のユーザー情報
-* @param {Object} mydestination 自分の行き先
-* @return {Object} メンバー状況
-*/
-function* getMemberStatus(me,mydestination){
-  const token = yield select(state => state.login.user.token);
-  try{
-    const result = yield call(axios,{
-      method:"GET",
-      url:"https://api.kyo-do.co/status/all",
-      headers: { "Authorization": "Bearer " + token}
-    });
-
-    // 自分の情報を先頭に表示する
-    const memberStatus = result.data.filter(function(value, index, array){ return value.userid != me.userid });
-    return result.data.filter(function(value, index, array){ return value.userid == me.userid }).concat(memberStatus);
-  }catch(e){
-    //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい
-  }
-
 }
