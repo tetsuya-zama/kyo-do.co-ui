@@ -19,13 +19,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/component/accountboard.test.js.html#lineNumber112",
+    "test-file/test/component/accountboard.test.js.html#lineNumber92",
     "<AccountBoard /> dispatches CHANGE_ACCOUNT_INFO_FIELD action with current newname and newpass when value of pass textbox is changed",
     "test"
   ],
   [
     "",
-    "test-file/test/component/accountboard.test.js.html#lineNumber92",
+    "test-file/test/component/accountboard.test.js.html#lineNumber112",
     "<AccountBoard /> dispatches CHANGE_ACCOUNT_INFO_FIELD action with current newname and newpass when value of pass textbox is changed",
     "test"
   ],
@@ -723,6 +723,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/module/localstorage.js~getfromstorage",
     "function/index.html#static-function-getFromStorage",
     "<span>getFromStorage</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/localstorage.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/reducer/group.js~group",
+    "function/index.html#static-function-group",
+    "<span>group</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/group.js</span>",
     "function"
   ],
   [
@@ -1698,6 +1704,24 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "group src/reducer/group.js~group,group",
+    "test-file/test/reducer/group.test.js.html#lineNumber7",
+    "group reducer",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/group.test.js.html#lineNumber8",
+    "group reducer changes usersGroups state to action's payload if USERS_GROUPS_LOADED action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/group.test.js.html#lineNumber72",
+    "group reducer does nothing if any other action is passed",
+    "test"
+  ],
+  [
     "loaddestinationsaga src/saga/mydestination.js~loaddestinationsaga,loaddestinationsaga",
     "test-file/test/saga/mydestination.test.js.html#lineNumber12",
     "loadDestinationSaga",
@@ -2550,6 +2574,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/reducer/group.js",
+    "file/src/reducer/group.js.html",
+    "src/reducer/group.js",
+    "file"
+  ],
+  [
     "src/reducer/login.js",
     "file/src/reducer/login.js.html",
     "src/reducer/login.js",
@@ -2733,6 +2763,12 @@ window.esdocSearchIndex = [
     "test/reducer/board.test.js",
     "test-file/test/reducer/board.test.js.html",
     "test/reducer/board.test.js",
+    "testFile"
+  ],
+  [
+    "test/reducer/group.test.js",
+    "test-file/test/reducer/group.test.js.html",
+    "test/reducer/group.test.js",
     "testFile"
   ],
   [

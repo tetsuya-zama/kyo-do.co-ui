@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/reducer/board.js | API Document</title>
+  <title data-ice="title">test/reducer/group.test.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -167,24 +167,107 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/reducer/board.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {UPDATE_MEMBER_STATUS} from &apos;../action/board&apos;
+<div class="content" data-ice="content"><h1 data-ice="title">test/reducer/group.test.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
+import group from &apos;../../src/reducer/group&apos;;
+import {USERS_GROUPS_LOADED} from &apos;../../src/action/group&apos;;
+import {usersGroupsLoaded} from &apos;../../src/action/group&apos;;
 
-/**
-* &#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F; reducer
-* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864
-* @param {Object} state &#x5909;&#x66F4;&#x524D;&#x306E;state
-* @param {Object} action dispatch&#x3055;&#x308C;&#x305F;action
-* @return {Object} &#x5909;&#x66F4;&#x5F8C;&#x306E;state
-*/
-export default function board(state={memberStatus:[]},action){
-  switch(action.type){
-    case(UPDATE_MEMBER_STATUS):
-      return Object.assign({},state,{memberStatus:action.payload});
-    default:
-      return state;
-  }
-}
+/**@test {group} */
+describe(&quot;group reducer&quot;,()=&gt;{
+  it(&quot;changes usersGroups state to action&apos;s payload if USERS_GROUPS_LOADED action is passed&quot;,()=&gt;{
+    const dummyAPIResult = [
+      {
+        id:&quot;group_id_1&quot;,
+        name:&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;1&quot;,
+        members:[
+          {
+            id:&quot;member1&quot;,
+            name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;1&quot;,
+            isAdmin:true
+          },
+          {
+            id:&quot;member2&quot;,
+            name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;2&quot;,
+            isAdmin:false
+          },
+        ]
+      },
+      {
+        id:&quot;group_id_2&quot;,
+          name:&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;2&quot;,
+        members:[
+          {
+            id:&quot;member3&quot;,
+            name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;3&quot;,
+            isAdmin:true
+          },
+          {
+            id:&quot;member4&quot;,
+            name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;4&quot;,
+            isAdmin:false
+          },
+        ]
+      }
+    ];
+
+    const dummyCurrentState = {
+      usersGroups:[
+        {
+          id:&quot;group_id_3&quot;,
+            name:&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;3&quot;,
+          members:[
+            {
+              id:&quot;member5&quot;,
+              name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;5&quot;,
+              isAdmin:true
+            },
+            {
+              id:&quot;member6&quot;,
+              name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;6&quot;,
+              isAdmin:false
+            },
+          ]
+        }
+      ]
+    };
+
+    const action = usersGroupsLoaded(dummyAPIResult);
+
+    const result = group(dummyCurrentState,action);
+
+    assert.deepEqual(result.usersGroups,dummyAPIResult);
+  });
+
+  it(&quot;does nothing if any other action is passed&quot;,()=&gt;{
+    const action = {type:&quot;DUMMY_ACTION_NAME&quot;};
+
+    const dummyCurrentState = {
+      usersGroups:[
+        {
+          id:&quot;group_id_3&quot;,
+            name:&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;3&quot;,
+          members:[
+            {
+              id:&quot;member5&quot;,
+              name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;5&quot;,
+              isAdmin:true
+            },
+            {
+              id:&quot;member6&quot;,
+              name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;6&quot;,
+              isAdmin:false
+            },
+          ]
+        }
+      ]
+    };
+
+    const result = group(dummyCurrentState,action);
+
+    assert.deepEqual(result,dummyCurrentState);
+  });
+});
 </code></pre>
 
 </div>
