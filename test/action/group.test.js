@@ -98,8 +98,8 @@ describe("usersGroupsLoaded action creator",()=>{
             isAdmin:true
           },
           {
-            id:"member3",
-            name:"メンバー3",
+            id:"member4",
+            name:"メンバー4",
             isAdmin:false
           },
         ]
