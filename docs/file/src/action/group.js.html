@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">test/component/board.test.js | API Document</title>
+  <title data-ice="title">src/action/group.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -166,59 +166,393 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">test/component/board.test.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &quot;power-assert&quot;;
-import Board from &quot;../../src/component/board&quot;;
-import React from &apos;react&apos;;
-import ReactDOM from &apos;react-dom&apos;;
-import {mountWithMUI} from &apos;./testutil&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">src/action/group.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+/**
+* &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x6240;&#x5C5E;&#x3057;&#x3066;&#x3044;&#x308B;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x3059;&#x3079;&#x3066;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const LOAD_USERS_GROUPS = &quot;LOAD_USERS_GROUPS&quot;;
 
-/**@test {Board}*/
-describe(&quot;&lt;Board /&gt;&quot;,()=&gt;{
-  it(&quot;renders memberfilter textbox and &lt;MemberRow /&gt; as meny as number of mamberStatus prop&quot;,()=&gt;{
-    const dummyMemberStatus = [
-      {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
-    ];
+/**
+* &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x6240;&#x5C5E;&#x3057;&#x3066;&#x3044;&#x308B;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x3059;&#x3079;&#x3066;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} LOAD_USERS_GROUPS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function loadUsersGroups(){
+  return {
+    type:LOAD_USERS_GROUPS
+  };
+}
 
-    const props = {
-      memberStatus:dummyMemberStatus
-    };
+/**
+* polling&#x306B;&#x3088;&#x308B;&#x6240;&#x5C5E;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30ED;&#x30FC;&#x30C9;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const LOAD_USERS_GROUPS_POLLING = &quot;LOAD_USERS_GROUPS_POLLING&quot;;
+/**
+* polling&#x306B;&#x3088;&#x308B;&#x6240;&#x5C5E;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30ED;&#x30FC;&#x30C9;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} LOAD_USERS_GROUPS_POLLING&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function loadUsersGroupsPolling(){
+  return {
+    type:LOAD_USERS_GROUPS_POLLING
+  };
+}
 
-    const wrapper = mountWithMUI(&lt;Board {...props} /&gt;);
+/**
+* &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x6240;&#x5C5E;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x30ED;&#x30FC;&#x30C9;&#x5B8C;&#x4E86;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const USERS_GROUPS_LOADED = &quot;USERS_GROUPS_LOADED&quot;;
 
-    assert(wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).length === 1);
-    assert(wrapper.find(&quot;MemberRow&quot;).length === dummyMemberStatus.length);
-  });
+/**
+* &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x6240;&#x5C5E;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x30ED;&#x30FC;&#x30C9;&#x5B8C;&#x4E86;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @param {Object} usersGroups &#x30ED;&#x30FC;&#x30C9;&#x3055;&#x308C;&#x305F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x6240;&#x5C5E;&#x30B0;&#x30EB;&#x30FC;&#x30D7;
+* @return {Object} USERS_GROUPS_LOADED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function usersGroupsLoaded(usersGroups){
+  return {
+    type:USERS_GROUPS_LOADED,
+    payload:usersGroups
+  };
+}
 
-  it(&quot;filters narrows down &lt;MemberRow /&gt; by name which is input at memberfilter textbox&quot;,()=&gt;{
-    const dummyMemberStatus = [
-      {userid:&quot;testA&quot;,name:&quot;&#x5C71;&#x7530;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testB&quot;,name:&quot;&#x7530;&#x4E2D;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testC&quot;,name:&quot;&#x4E2D;&#x6751;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testD&quot;,name:&quot;&#x6751;&#x7530;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
-    ];
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const CREATE_GROUP_REQUIRED = &quot;CREATE_GROUP_REQUIRED&quot;;
 
-    const props = {
-      memberStatus:dummyMemberStatus
-    };
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @param {string} groupName &#x4F5C;&#x6210;&#x3092;&#x8981;&#x6C42;&#x3059;&#x308B;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;
+* @return {Object} CREATE_GROUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function createGroupRequired(groupName){
+  return {
+    type: CREATE_GROUP_REQUIRED,
+    payload:{
+      groupName:groupName
+    }
+  };
+}
 
-    const wrapper = mountWithMUI(&lt;Board {...props} /&gt;);
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const CREATE_GROUP_SUCCESS = &quot;CREATE_GROUP_SUCCESS&quot;;
 
-    wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:&quot;&#x7530;&quot;}});
-    assert(wrapper.find(&quot;MemberRow&quot;).length === 3);
-    wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:&quot;&#x4E2D;&quot;}});
-    assert(wrapper.find(&quot;MemberRow&quot;).length === 2);
-    wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:&quot;&#x7530;&#x4E2D;&quot;}});
-    assert(wrapper.find(&quot;MemberRow&quot;).length === 1);
-    wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:&quot;&#x9234;&#x6728;&quot;}});
-    assert(wrapper.find(&quot;MemberRow&quot;).length === 0);
-    wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:&quot;&quot;}});
-    assert(wrapper.find(&quot;MemberRow&quot;).length === 4);
-  });
-});
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} CREATE_GROUP_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function createGroupSuccess(){
+  return {
+    type:CREATE_GROUP_SUCCESS
+  };
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const CREATE_GROUP_FAILURE = &quot;CREATE_GROUP_FAILURE&quot;;
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} CREATE_GROUP_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function createGroupFailure(){
+  return {
+    type: CREATE_GROUP_FAILURE
+  };
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const ADD_MEMBER_TO_GROUP_REQUIRED = &quot;ADD_MEMBER_TO_GROUP_REQUIRED&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @param {string} groupId &#x8FFD;&#x52A0;&#x3059;&#x308B;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;ID
+* @param {string} memberId &#x8FFD;&#x52A0;&#x3059;&#x308B;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;ID
+* @return {Object} ADD_MEMBER_TO_GROUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function addMemberToGroupRequired(groupId,memberId){
+  return {
+    type:ADD_MEMBER_TO_GROUP_REQUIRED,
+    payload:{
+      groupId:groupId,
+      memberId:memberId
+    }
+  };
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const ADD_MEMBER_TO_GROUP_SUCCESS = &quot;ADD_MEMBER_TO_GROUP_SUCCESS&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} ADD_MEMBER_TO_GROUP_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function addMemberToGroupSuccess(){
+  return {
+    type: ADD_MEMBER_TO_GROUP_SUCCESS
+  };
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const ADD_MEMBER_TO_GROUP_FAILURE = &quot;ADD_MEMBER_TO_GROUP_FAILURE&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} ADD_MEMBER_TO_GROUP_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function addMemberToGroupFailure(){
+  return {
+    type: ADD_MEMBER_TO_GROUP_FAILURE
+  };
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x524A;&#x9664;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const DELETE_MEMBER_FROM_GROUP_REQUIRED = &quot;DELETE_MEMBER_FROM_GROUP_REQUIRED&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @param {string} groupId &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x3092;&#x524A;&#x9664;&#x3059;&#x308B;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;ID
+* @param {string} memberId &#x524A;&#x9664;&#x3055;&#x308C;&#x308B;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;ID
+* @return {Object} DELETE_MEMBER_FROM_GROUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function deleteMemberFromGroupRequired(groupId,memberId){
+  return {
+    type:DELETE_MEMBER_FROM_GROUP_REQUIRED,
+    payload:{
+      groupId:groupId,
+      memberId:memberId
+    }
+  };
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const DELETE_MEMBER_FROM_GROUP_SUCCESS = &quot;DELETE_MEMBER_FROM_GROUP_SUCCESS&quot;;
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return DELETE_MEMBER_FROM_GROUP_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function deleteMemberFromGroupSuccess(){
+  return {
+    type:DELETE_MEMBER_FROM_GROUP_SUCCESS
+  };
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const DELETE_MEMBER_FROM_GROUP_FAILURE = &quot;DELETE_MEMBER_FROM_GROUP_FAILURE&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return DELETE_MEMBER_FROM_GROUP_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function deleteMemberFromGroupFailure(){
+  return {
+    type:DELETE_MEMBER_FROM_GROUP_FAILURE
+  }
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const SET_MEMBER_AS_GROUP_ADMIN_REQUIRED = &quot;SET_MEMBER_AS_GROUP_ADMIN_REQUIRED&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @param {string} groupId &#x7BA1;&#x7406;&#x8005;&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;ID
+* @param {string} memberId &#x7BA1;&#x7406;&#x8005;&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;ID
+* @return {Object} SET_MEMBER_AS_GROUP_ADMIN_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function setMemberAsGroupAdminRequired(groupId,memberId){
+  return {
+    type:SET_MEMBER_AS_GROUP_ADMIN_REQUIRED,
+    payload:{
+      groupId:groupId,
+      memberId:memberId
+    }
+  };
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const SET_MEMBER_AS_GROUP_ADMIN_SUCCESS = &quot;SET_MEMBER_AS_GROUP_ADMIN_SUCCESS&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} SET_MEMBER_AS_GROUP_ADMIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function setMemberAsGroupAdminSuccess(){
+  return {
+    type:SET_MEMBER_AS_GROUP_ADMIN_SUCCESS
+  };
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const SET_MEMBER_AS_GROUP_ADMIN_FAILURE = &quot;SET_MEMBER_AS_GROUP_ADMIN_FAILURE&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} SET_MEMBER_AS_GROUP_ADMIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function setMemberAsGroupAdminFailure(){
+  return {
+    type:SET_MEMBER_AS_GROUP_ADMIN_FAILURE
+  };
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x89E3;&#x9664;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED = &quot;UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x89E3;&#x9664;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @param {string} groupId&#x3000;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x3092;&#x89E3;&#x9664;&#x3059;&#x308B;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;ID
+* @param {string} memberId &#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x3092;&#x89E3;&#x9664;&#x3059;&#x308B;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;ID
+* @return {Object} UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function unsetMemberAsGroupAdminRequired(groupId,memberId){
+  return {
+    type:UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED,
+    payload:{
+      groupId:groupId,
+      memberId:memberId
+    }
+  };
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x89E3;&#x9664;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS = &quot;UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x89E3;&#x9664;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function unsetMemberAsGroupAdminSuccess(){
+  return {
+    type:UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS
+  };
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x89E3;&#x9664;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE = &quot;UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x89E3;&#x9664;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function unsetMemberAsGroupAdminFailure(){
+  return {
+    type:UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE
+  };
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const CHANGE_GROUP_NAME_REQUIRED = &quot;CHANGE_GROUP_NAME_REQUIRED&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @param {string} groupId &#x540D;&#x79F0;&#x3092;&#x5909;&#x66F4;&#x3059;&#x308B;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;ID
+* @param {string} newName &#x5909;&#x66F4;&#x5F8C;&#x306E;&#x540D;&#x79F0;
+* @return {Object} CHANGE_GROUP_NAME_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function changeGroupNameRequired(groupId,newName){
+  return {
+    type:CHANGE_GROUP_NAME_REQUIRED,
+    payload:{
+      groupId:groupId,
+      newName:newName
+    }
+  };
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const CHANGE_GROUP_NAME_SUCCESS = &quot;CHANGE_GROUP_NAME_SUCCESS&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} CHANGE_GROUP_NAME_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function changeGroupNameSuccess(){
+  return {
+    type:CHANGE_GROUP_NAME_SUCCESS
+  };
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const CHANGE_GROUP_NAME_FAILURE = &quot;CHANGE_GROUP_NAME_FAILURE&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} CHANGE_GROUP_NAME_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function changeGroupNameFailure(){
+  return {
+    type:CHANGE_GROUP_NAME_FAILURE
+  };
+}
+
+/**
+*&#x3000;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const DELETE_GROUP_REQUIRED = &quot;DELETE_GROUP_REQUIRED&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @param {string} groupId &#x524A;&#x9664;&#x3059;&#x308B;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;ID
+* @return {Object} DELETE_GROUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function deleteGroupRequired(groupId){
+  return {
+    type:DELETE_GROUP_REQUIRED,
+    payload:{
+      groupId:groupId
+    }
+  };
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const DELETE_GROUP_SUCCESS = &quot;DELETE_GROUP_SUCCESS&quot;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return DELETE_GROUP_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function deleteGroupSuccess(){
+  return {
+    type:DELETE_GROUP_SUCCESS
+  };
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x540D;
+*/
+export const DELETE_GROUP_FAILURE = &quot;DELETE_GROUP_FAILURE&quot;;
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
+* @return {Object} DELETE_GROUP_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function deleteGroupFailure(){
+  return {
+    type:DELETE_GROUP_FAILURE
+  };
+}
 </code></pre>
 
 </div>

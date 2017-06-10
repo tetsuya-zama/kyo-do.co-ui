@@ -222,6 +222,24 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/action/group.js~add_member_to_group_failure",
+    "variable/index.html#static-variable-ADD_MEMBER_TO_GROUP_FAILURE",
+    "<span>ADD_MEMBER_TO_GROUP_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~add_member_to_group_required",
+    "variable/index.html#static-variable-ADD_MEMBER_TO_GROUP_REQUIRED",
+    "<span>ADD_MEMBER_TO_GROUP_REQUIRED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~add_member_to_group_success",
+    "variable/index.html#static-variable-ADD_MEMBER_TO_GROUP_SUCCESS",
+    "<span>ADD_MEMBER_TO_GROUP_SUCCESS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/component/accountboard.js~accountboard",
     "class/src/component/accountboard.js~AccountBoard.html",
     "<span>AccountBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/accountboard.js</span>",
@@ -246,6 +264,42 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/action/group.js~change_group_name_failure",
+    "variable/index.html#static-variable-CHANGE_GROUP_NAME_FAILURE",
+    "<span>CHANGE_GROUP_NAME_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~change_group_name_required",
+    "variable/index.html#static-variable-CHANGE_GROUP_NAME_REQUIRED",
+    "<span>CHANGE_GROUP_NAME_REQUIRED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~change_group_name_success",
+    "variable/index.html#static-variable-CHANGE_GROUP_NAME_SUCCESS",
+    "<span>CHANGE_GROUP_NAME_SUCCESS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~create_group_failure",
+    "variable/index.html#static-variable-CREATE_GROUP_FAILURE",
+    "<span>CREATE_GROUP_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~create_group_required",
+    "variable/index.html#static-variable-CREATE_GROUP_REQUIRED",
+    "<span>CREATE_GROUP_REQUIRED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~create_group_success",
+    "variable/index.html#static-variable-CREATE_GROUP_SUCCESS",
+    "<span>CREATE_GROUP_SUCCESS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/const/mydestination.js~default_my_destination",
     "variable/index.html#static-variable-DEFAULT_MY_DESTINATION",
     "<span>DEFAULT_MY_DESTINATION</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/mydestination.js</span>",
@@ -258,10 +312,58 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/action/group.js~delete_group_failure",
+    "variable/index.html#static-variable-DELETE_GROUP_FAILURE",
+    "<span>DELETE_GROUP_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~delete_group_required",
+    "variable/index.html#static-variable-DELETE_GROUP_REQUIRED",
+    "<span>DELETE_GROUP_REQUIRED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~delete_group_success",
+    "variable/index.html#static-variable-DELETE_GROUP_SUCCESS",
+    "<span>DELETE_GROUP_SUCCESS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~delete_member_from_group_failure",
+    "variable/index.html#static-variable-DELETE_MEMBER_FROM_GROUP_FAILURE",
+    "<span>DELETE_MEMBER_FROM_GROUP_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~delete_member_from_group_required",
+    "variable/index.html#static-variable-DELETE_MEMBER_FROM_GROUP_REQUIRED",
+    "<span>DELETE_MEMBER_FROM_GROUP_REQUIRED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~delete_member_from_group_success",
+    "variable/index.html#static-variable-DELETE_MEMBER_FROM_GROUP_SUCCESS",
+    "<span>DELETE_MEMBER_FROM_GROUP_SUCCESS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/component/header.js~header",
     "class/src/component/header.js~Header.html",
     "<span>Header</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/header.js</span>",
     "class"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~load_users_groups",
+    "variable/index.html#static-variable-LOAD_USERS_GROUPS",
+    "<span>LOAD_USERS_GROUPS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~load_users_groups_polling",
+    "variable/index.html#static-variable-LOAD_USERS_GROUPS_POLLING",
+    "<span>LOAD_USERS_GROUPS_POLLING</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
   ],
   [
     "kyo-do.co-ui/src/action/login.js~login_failure",
@@ -330,6 +432,24 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "kyo-do.co-ui/src/action/group.js~set_member_as_group_admin_failure",
+    "variable/index.html#static-variable-SET_MEMBER_AS_GROUP_ADMIN_FAILURE",
+    "<span>SET_MEMBER_AS_GROUP_ADMIN_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~set_member_as_group_admin_required",
+    "variable/index.html#static-variable-SET_MEMBER_AS_GROUP_ADMIN_REQUIRED",
+    "<span>SET_MEMBER_AS_GROUP_ADMIN_REQUIRED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~set_member_as_group_admin_success",
+    "variable/index.html#static-variable-SET_MEMBER_AS_GROUP_ADMIN_SUCCESS",
+    "<span>SET_MEMBER_AS_GROUP_ADMIN_SUCCESS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/action/signup.js~signup_failure",
     "variable/index.html#static-variable-SIGNUP_FAILURE",
     "<span>SIGNUP_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/signup.js</span>",
@@ -378,15 +498,57 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "kyo-do.co-ui/src/action/group.js~unset_member_as_group_admin_failure",
+    "variable/index.html#static-variable-UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE",
+    "<span>UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~unset_member_as_group_admin_required",
+    "variable/index.html#static-variable-UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED",
+    "<span>UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~unset_member_as_group_admin_success",
+    "variable/index.html#static-variable-UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS",
+    "<span>UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/action/board.js~update_member_status",
     "variable/index.html#static-variable-UPDATE_MEMBER_STATUS",
     "<span>UPDATE_MEMBER_STATUS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/board.js</span>",
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/action/group.js~users_groups_loaded",
+    "variable/index.html#static-variable-USERS_GROUPS_LOADED",
+    "<span>USERS_GROUPS_LOADED</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/reducer/accountboard.js~accountboard",
     "function/index.html#static-function-accountboard",
     "<span>accountboard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/accountboard.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~addmembertogroupfailure",
+    "function/index.html#static-function-addMemberToGroupFailure",
+    "<span>addMemberToGroupFailure</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~addmembertogrouprequired",
+    "function/index.html#static-function-addMemberToGroupRequired",
+    "<span>addMemberToGroupRequired</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~addmembertogroupsuccess",
+    "function/index.html#static-function-addMemberToGroupSuccess",
+    "<span>addMemberToGroupSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
     "function"
   ],
   [
@@ -444,6 +606,24 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/action/group.js~changegroupnamefailure",
+    "function/index.html#static-function-changeGroupNameFailure",
+    "<span>changeGroupNameFailure</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~changegroupnamerequired",
+    "function/index.html#static-function-changeGroupNameRequired",
+    "<span>changeGroupNameRequired</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~changegroupnamesuccess",
+    "function/index.html#static-function-changeGroupNameSuccess",
+    "<span>changeGroupNameSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/saga/suggestion.js~changesuggestionsaga",
     "function/index.html#static-function-changeSuggestionSaga",
     "<span>changeSuggestionSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/suggestion.js</span>",
@@ -471,6 +651,60 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/store/store.js~configurestore",
     "function/index.html#static-function-configureStore",
     "<span>configureStore</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/store/store.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~creategroupfailure",
+    "function/index.html#static-function-createGroupFailure",
+    "<span>createGroupFailure</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~creategrouprequired",
+    "function/index.html#static-function-createGroupRequired",
+    "<span>createGroupRequired</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~creategroupsuccess",
+    "function/index.html#static-function-createGroupSuccess",
+    "<span>createGroupSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~deletegroupfailure",
+    "function/index.html#static-function-deleteGroupFailure",
+    "<span>deleteGroupFailure</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~deletegrouprequired",
+    "function/index.html#static-function-deleteGroupRequired",
+    "<span>deleteGroupRequired</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~deletegroupsuccess",
+    "function/index.html#static-function-deleteGroupSuccess",
+    "<span>deleteGroupSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~deletememberfromgroupfailure",
+    "function/index.html#static-function-deleteMemberFromGroupFailure",
+    "<span>deleteMemberFromGroupFailure</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~deletememberfromgrouprequired",
+    "function/index.html#static-function-deleteMemberFromGroupRequired",
+    "<span>deleteMemberFromGroupRequired</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~deletememberfromgroupsuccess",
+    "function/index.html#static-function-deleteMemberFromGroupSuccess",
+    "<span>deleteMemberFromGroupSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
     "function"
   ],
   [
@@ -525,6 +759,18 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/saga/suggestion.js~loadsuggestiontask",
     "function/index.html#static-function-loadSuggestionTask",
     "<span>loadSuggestionTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/suggestion.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~loadusersgroups",
+    "function/index.html#static-function-loadUsersGroups",
+    "<span>loadUsersGroups</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~loadusersgroupspolling",
+    "function/index.html#static-function-loadUsersGroupsPolling",
+    "<span>loadUsersGroupsPolling</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
     "function"
   ],
   [
@@ -636,6 +882,24 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/action/group.js~setmemberasgroupadminfailure",
+    "function/index.html#static-function-setMemberAsGroupAdminFailure",
+    "<span>setMemberAsGroupAdminFailure</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~setmemberasgroupadminrequired",
+    "function/index.html#static-function-setMemberAsGroupAdminRequired",
+    "<span>setMemberAsGroupAdminRequired</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~setmemberasgroupadminsuccess",
+    "function/index.html#static-function-setMemberAsGroupAdminSuccess",
+    "<span>setMemberAsGroupAdminSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/module/localstorage.js~settostorage",
     "function/index.html#static-function-setToStorage",
     "<span>setToStorage</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/module/localstorage.js</span>",
@@ -690,9 +954,33 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/action/group.js~unsetmemberasgroupadminfailure",
+    "function/index.html#static-function-unsetMemberAsGroupAdminFailure",
+    "<span>unsetMemberAsGroupAdminFailure</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~unsetmemberasgroupadminrequired",
+    "function/index.html#static-function-unsetMemberAsGroupAdminRequired",
+    "<span>unsetMemberAsGroupAdminRequired</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~unsetmemberasgroupadminsuccess",
+    "function/index.html#static-function-unsetMemberAsGroupAdminSuccess",
+    "<span>unsetMemberAsGroupAdminSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/board.js~updatememberstatus",
     "function/index.html#static-function-updateMemberStatus",
     "<span>updateMemberStatus</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/board.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/group.js~usersgroupsloaded",
+    "function/index.html#static-function-usersGroupsLoaded",
+    "<span>usersGroupsLoaded</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
     "function"
   ],
   [
@@ -1068,6 +1356,42 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "addmembertogroupfailure src/action/group.js~addmembertogroupfailure,addmembertogroupfailure",
+    "test-file/test/action/group.test.js.html#lineNumber169",
+    "addMemberToGroupFailure action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber170",
+    "addMemberToGroupFailure action creator creates ADD_MEMBER_TO_GROUP_FAILURE action with no arguments",
+    "test"
+  ],
+  [
+    "addmembertogrouprequired src/action/group.js~addmembertogrouprequired,addmembertogrouprequired",
+    "test-file/test/action/group.test.js.html#lineNumber146",
+    "addMemberToGroupRequired action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber147",
+    "addMemberToGroupRequired action creator creates ADD_MEMBER_TO_GROUP_REQUIRED action with target group ID and target member ID",
+    "test"
+  ],
+  [
+    "addmembertogroupsuccess src/action/group.js~addmembertogroupsuccess,addmembertogroupsuccess",
+    "test-file/test/action/group.test.js.html#lineNumber160",
+    "addMemberToGroupSuccess action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber161",
+    "addMemberToGroupSuccess action creator creates ADD_MEMBER_TO_GROUP_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
     "board src/reducer/board.js~board,board",
     "test-file/test/reducer/board.test.js.html#lineNumber6",
     "board reducer",
@@ -1158,6 +1482,42 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "changegroupnamefailure src/action/group.js~changegroupnamefailure,changegroupnamefailure",
+    "test-file/test/action/group.test.js.html#lineNumber297",
+    "changeGroupNameFailure action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber298",
+    "changeGroupNameFailure action creator creates CHANGE_GROUP_NAME_FAILURE action with no arguments",
+    "test"
+  ],
+  [
+    "changegroupnamerequired src/action/group.js~changegroupnamerequired,changegroupnamerequired",
+    "test-file/test/action/group.test.js.html#lineNumber274",
+    "changeGroupNameRequired action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber275",
+    "changeGroupNameRequired action creator creates CHANGE_GROUP_NAME_REQUIRED action with targetGroupId and new group name",
+    "test"
+  ],
+  [
+    "changegroupnamesuccess src/action/group.js~changegroupnamesuccess,changegroupnamesuccess",
+    "test-file/test/action/group.test.js.html#lineNumber288",
+    "changeGroupNameSuccess action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber289",
+    "changeGroupNameSuccess action creator creates CHANGE_GROUP_NAME_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
     "",
     "test-file/test/saga/suggestion.test.js.html#lineNumber52",
     "changeSuggestionSaga",
@@ -1227,6 +1587,114 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/acountboard.test.js.html#lineNumber16",
     "closeAccountInfoModal action creator creates ACCOUNT_INFO_MODAL_CLOSE action with no argument",
+    "test"
+  ],
+  [
+    "creategroupfailure src/action/group.js~creategroupfailure,creategroupfailure",
+    "test-file/test/action/group.test.js.html#lineNumber137",
+    "createGroupFailure action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber138",
+    "createGroupFailure action creator creates CREATE_GROUP_FAILURE action with no arguments",
+    "test"
+  ],
+  [
+    "creategrouprequired src/action/group.js~creategrouprequired,creategrouprequired",
+    "test-file/test/action/group.test.js.html#lineNumber116",
+    "createGroupRequired action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber117",
+    "createGroupRequired action creator creates CREATE_GROUP_REQUIRED action with new group name",
+    "test"
+  ],
+  [
+    "creategroupsuccess src/action/group.js~creategroupsuccess,creategroupsuccess",
+    "test-file/test/action/group.test.js.html#lineNumber128",
+    "createGroupSuccess action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber129",
+    "createGroupSuccess action creator creates CREATE_GROUP_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
+    "deletegroupfailure src/action/group.js~deletegroupfailure,deletegroupfailure",
+    "test-file/test/action/group.test.js.html#lineNumber327",
+    "deleteGroupFailure action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber328",
+    "deleteGroupFailure action creator creates DELETE_GROUP_FAILURE action with no arguments",
+    "test"
+  ],
+  [
+    "deletegrouprequired src/action/group.js~deletegrouprequired,deletegrouprequired",
+    "test-file/test/action/group.test.js.html#lineNumber306",
+    "deleteGroupRequired action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber307",
+    "deleteGroupRequired action creator creates DELETE_GROUP_REQUIRED action with target group ID",
+    "test"
+  ],
+  [
+    "deletegroupsuccess src/action/group.js~deletegroupsuccess,deletegroupsuccess",
+    "test-file/test/action/group.test.js.html#lineNumber318",
+    "deleteGroupSuccess action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber319",
+    "deleteGroupSuccess action creator creates DELETE_GROUP_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
+    "deletememberfromgroupfailure src/action/group.js~deletememberfromgroupfailure,deletememberfromgroupfailure",
+    "test-file/test/action/group.test.js.html#lineNumber201",
+    "deleteMemberFromGroupFailure action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber202",
+    "deleteMemberFromGroupFailure action creator creates DELETE_MEMBER_FROM_GROUP_FAILURE action with no arguments",
+    "test"
+  ],
+  [
+    "deletememberfromgrouprequired src/action/group.js~deletememberfromgrouprequired,deletememberfromgrouprequired",
+    "test-file/test/action/group.test.js.html#lineNumber178",
+    "deleteMemberFromGroupRequired action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber179",
+    "deleteMemberFromGroupRequired action creator creates DELETE_MEMBER_FROM_GROUP_REQUIRED action with target group ID and target member ID",
+    "test"
+  ],
+  [
+    "deletememberfromgroupsuccess src/action/group.js~deletememberfromgroupsuccess,deletememberfromgroupsuccess",
+    "test-file/test/action/group.test.js.html#lineNumber192",
+    "deleteMemberFromGroupSuccess action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber193",
+    "deleteMemberFromGroupSuccess action creator creates DELETE_MEMBER_FROM_GROUP_SUCCESS action with no arguments",
     "test"
   ],
   [
@@ -1305,6 +1773,30 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/saga/suggestion.test.js.html#lineNumber20",
     "loadSuggestionTask loads suggestion from storage and puts SUGGESTION_CHANGE action with it",
+    "test"
+  ],
+  [
+    "loadusersgroups src/action/group.js~loadusersgroups,loadusersgroups",
+    "test-file/test/action/group.test.js.html#lineNumber56",
+    "loadUsersGroups action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber57",
+    "loadUsersGroups action creator creates LOAD_USERS_GROUPS with no arguments",
+    "test"
+  ],
+  [
+    "loadusersgroupspolling src/action/group.js~loadusersgroupspolling,loadusersgroupspolling",
+    "test-file/test/action/group.test.js.html#lineNumber64",
+    "loadUsersGroupsPolling action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber65",
+    "loadUsersGroupsPolling action creator creates LOAD_USERS_GROUPS_POLLING action with no arguments",
     "test"
   ],
   [
@@ -1560,6 +2052,42 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "setmemberasgroupadminfailure src/action/group.js~setmemberasgroupadminfailure,setmemberasgroupadminfailure",
+    "test-file/test/action/group.test.js.html#lineNumber233",
+    "setMemberAsGroupAdminFailure action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber234",
+    "setMemberAsGroupAdminFailure action creator creates SET_MEMBER_AS_GROUP_ADMIN_FAILURE action with no arguments",
+    "test"
+  ],
+  [
+    "setmemberasgroupadminrequired src/action/group.js~setmemberasgroupadminrequired,setmemberasgroupadminrequired",
+    "test-file/test/action/group.test.js.html#lineNumber210",
+    "setMemberAsGroupAdminRequired action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber211",
+    "setMemberAsGroupAdminRequired action creator creates SET_MEMBER_AS_GROUP_ADMIN_REQUIRED action with target group ID and target member ID",
+    "test"
+  ],
+  [
+    "setmemberasgroupadminsuccess src/action/group.js~setmemberasgroupadminsuccess,setmemberasgroupadminsuccess",
+    "test-file/test/action/group.test.js.html#lineNumber224",
+    "setMemberAsGroupAdminSuccess action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber225",
+    "setMemberAsGroupAdminSuccess action creator creates SET_MEMBER_AS_GROUP_ADMIN_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
     "signupsaga src/saga/signup.js~signupsaga,signupsaga",
     "test-file/test/saga/signup.test.js.html#lineNumber12",
     "signup Saga",
@@ -1653,6 +2181,12 @@ window.esdocSearchIndex = [
     "src/action/board.js",
     "file/src/action/board.js.html",
     "src/action/board.js",
+    "file"
+  ],
+  [
+    "src/action/group.js",
+    "file/src/action/group.js.html",
+    "src/action/group.js",
     "file"
   ],
   [
@@ -2124,6 +2658,12 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/action/group.test.js",
+    "test-file/test/action/group.test.js.html",
+    "test/action/group.test.js",
+    "testFile"
+  ],
+  [
     "test/action/login.test.js",
     "test-file/test/action/login.test.js.html",
     "test/action/login.test.js",
@@ -2250,6 +2790,42 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "* *,*",
+    "test-file/test/action/group.test.js.html#lineNumber265",
+    "unsetMemberAsGroupAdminFailure action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber266",
+    "unsetMemberAsGroupAdminFailure action creator creates UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE action creator",
+    "test"
+  ],
+  [
+    "unsetmemberasgroupadminrequired src/action/group.js~unsetmemberasgroupadminrequired,unsetmemberasgroupadminrequired",
+    "test-file/test/action/group.test.js.html#lineNumber242",
+    "unsetMemberAsGroupAdminRequired action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber243",
+    "unsetMemberAsGroupAdminRequired action creator creates UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED action with target group ID and target member ID",
+    "test"
+  ],
+  [
+    "unsetmemberasgroupadminsuccess src/action/group.js~unsetmemberasgroupadminsuccess,unsetmemberasgroupadminsuccess",
+    "test-file/test/action/group.test.js.html#lineNumber256",
+    "unsetMemberAsGroupAdminSuccess action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber257",
+    "unsetMemberAsGroupAdminSuccess action creator creates UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
     "updatememberstatus src/action/board.js~updatememberstatus,updatememberstatus",
     "test-file/test/action/board.test.js.html#lineNumber6",
     "updateMemberStatus action creator",
@@ -2259,6 +2835,18 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/board.test.js.html#lineNumber7",
     "updateMemberStatus action creator creates UPDATE_MEMBER_STATUS action with all member status from API",
+    "test"
+  ],
+  [
+    "usersgroupsloaded src/action/group.js~usersgroupsloaded,usersgroupsloaded",
+    "test-file/test/action/group.test.js.html#lineNumber72",
+    "usersGroupsLoaded action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/group.test.js.html#lineNumber73",
+    "usersGroupsLoaded action creator creates USERS_GROUPS_LOADED action with array of group data which api returns",
     "test"
   ],
   [

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">test/component/board.test.js | API Document</title>
+  <title data-ice="title">test/action/group.test.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -166,58 +166,339 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">test/component/board.test.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &quot;power-assert&quot;;
-import Board from &quot;../../src/component/board&quot;;
-import React from &apos;react&apos;;
-import ReactDOM from &apos;react-dom&apos;;
-import {mountWithMUI} from &apos;./testutil&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">test/action/group.test.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
+import {
+  LOAD_USERS_GROUPS,
+  LOAD_USERS_GROUPS_POLLING,
+  USERS_GROUPS_LOADED,
+  CREATE_GROUP_REQUIRED,
+  CREATE_GROUP_SUCCESS,
+  CREATE_GROUP_FAILURE,
+  ADD_MEMBER_TO_GROUP_REQUIRED,
+  ADD_MEMBER_TO_GROUP_SUCCESS,
+  ADD_MEMBER_TO_GROUP_FAILURE,
+  DELETE_MEMBER_FROM_GROUP_REQUIRED,
+  DELETE_MEMBER_FROM_GROUP_SUCCESS,
+  DELETE_MEMBER_FROM_GROUP_FAILURE,
+  SET_MEMBER_AS_GROUP_ADMIN_REQUIRED,
+  SET_MEMBER_AS_GROUP_ADMIN_SUCCESS,
+  SET_MEMBER_AS_GROUP_ADMIN_FAILURE,
+  UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED,
+  UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS,
+  UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE,
+  CHANGE_GROUP_NAME_REQUIRED,
+  CHANGE_GROUP_NAME_SUCCESS,
+  CHANGE_GROUP_NAME_FAILURE,
+  DELETE_GROUP_REQUIRED,
+  DELETE_GROUP_SUCCESS,
+  DELETE_GROUP_FAILURE
+} from &apos;../../src/action/group&apos;;
 
-/**@test {Board}*/
-describe(&quot;&lt;Board /&gt;&quot;,()=&gt;{
-  it(&quot;renders memberfilter textbox and &lt;MemberRow /&gt; as meny as number of mamberStatus prop&quot;,()=&gt;{
-    const dummyMemberStatus = [
-      {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+import {
+  loadUsersGroups,
+  loadUsersGroupsPolling,
+  usersGroupsLoaded,
+  createGroupRequired,
+  createGroupSuccess,
+  createGroupFailure,
+  addMemberToGroupRequired,
+  addMemberToGroupSuccess,
+  addMemberToGroupFailure,
+  deleteMemberFromGroupRequired,
+  deleteMemberFromGroupSuccess,
+  deleteMemberFromGroupFailure,
+  setMemberAsGroupAdminRequired,
+  setMemberAsGroupAdminSuccess,
+  setMemberAsGroupAdminFailure,
+  unsetMemberAsGroupAdminRequired,
+  unsetMemberAsGroupAdminSuccess,
+  unsetMemberAsGroupAdminFailure,
+  changeGroupNameRequired,
+  changeGroupNameSuccess,
+  changeGroupNameFailure,
+  deleteGroupRequired,
+  deleteGroupSuccess,
+  deleteGroupFailure
+} from &apos;../../src/action/group&apos;;
+/**@test {loadUsersGroups} */
+describe(&quot;loadUsersGroups action creator&quot;,()=&gt;{
+  it(&quot;creates LOAD_USERS_GROUPS with no arguments&quot;,()=&gt;{
+    const result = loadUsersGroups();
+
+    assert(result.type === LOAD_USERS_GROUPS);
+  })
+});
+/**@test {loadUsersGroupsPolling}*/
+describe(&quot;loadUsersGroupsPolling action creator&quot;,()=&gt;{
+  it(&quot;creates LOAD_USERS_GROUPS_POLLING action with no arguments&quot;,()=&gt;{
+    const result = loadUsersGroupsPolling();
+
+    assert(result.type === LOAD_USERS_GROUPS_POLLING);
+  })
+});
+/**@test {usersGroupsLoaded}*/
+describe(&quot;usersGroupsLoaded action creator&quot;,()=&gt;{
+  it(&quot;creates USERS_GROUPS_LOADED action with array of group data which api returns&quot;,()=&gt;{
+    const dummyAPIResult = [
+      {
+        id:&quot;group_id_1&quot;,
+        name:&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;1&quot;,
+        members:[
+          {
+            id:&quot;member1&quot;,
+            name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;1&quot;,
+            isAdmin:true
+          },
+          {
+            id:&quot;member2&quot;,
+            name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;2&quot;,
+            isAdmin:false
+          },
+        ]
+      },
+      {
+        id:&quot;group_id_2&quot;,
+          name:&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;2&quot;,
+        members:[
+          {
+            id:&quot;member3&quot;,
+            name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;3&quot;,
+            isAdmin:true
+          },
+          {
+            id:&quot;member3&quot;,
+            name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;3&quot;,
+            isAdmin:false
+          },
+        ]
+      }
     ];
 
-    const props = {
-      memberStatus:dummyMemberStatus
-    };
+    const result = usersGroupsLoaded(dummyAPIResult);
 
-    const wrapper = mountWithMUI(&lt;Board {...props} /&gt;);
-
-    assert(wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).length === 1);
-    assert(wrapper.find(&quot;MemberRow&quot;).length === dummyMemberStatus.length);
+    assert(result.type === USERS_GROUPS_LOADED);
+    assert.deepEqual(result.payload,dummyAPIResult);
   });
+});
+/**@test {createGroupRequired} */
+describe(&quot;createGroupRequired action creator&quot;,()=&gt;{
+  it(&quot;creates CREATE_GROUP_REQUIRED action with new group name&quot;,()=&gt;{
+    const testGroupName = &quot;test group&quot;;
 
-  it(&quot;filters narrows down &lt;MemberRow /&gt; by name which is input at memberfilter textbox&quot;,()=&gt;{
-    const dummyMemberStatus = [
-      {userid:&quot;testA&quot;,name:&quot;&#x5C71;&#x7530;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testB&quot;,name:&quot;&#x7530;&#x4E2D;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testC&quot;,name:&quot;&#x4E2D;&#x6751;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
-      {userid:&quot;testD&quot;,name:&quot;&#x6751;&#x7530;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
-    ];
+    const result = createGroupRequired(testGroupName);
 
-    const props = {
-      memberStatus:dummyMemberStatus
-    };
-
-    const wrapper = mountWithMUI(&lt;Board {...props} /&gt;);
-
-    wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:&quot;&#x7530;&quot;}});
-    assert(wrapper.find(&quot;MemberRow&quot;).length === 3);
-    wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:&quot;&#x4E2D;&quot;}});
-    assert(wrapper.find(&quot;MemberRow&quot;).length === 2);
-    wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:&quot;&#x7530;&#x4E2D;&quot;}});
-    assert(wrapper.find(&quot;MemberRow&quot;).length === 1);
-    wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:&quot;&#x9234;&#x6728;&quot;}});
-    assert(wrapper.find(&quot;MemberRow&quot;).length === 0);
-    wrapper.ref(&quot;memberfilter&quot;).find(&quot;input&quot;).simulate(&quot;change&quot;,{target:{value:&quot;&quot;}});
-    assert(wrapper.find(&quot;MemberRow&quot;).length === 4);
+    assert(result.type === CREATE_GROUP_REQUIRED);
+    assert(result.payload.groupName === testGroupName);
   });
+});
+
+/**@test {createGroupSuccess}*/
+describe(&quot;createGroupSuccess action creator&quot;,()=&gt;{
+  it(&quot;creates CREATE_GROUP_SUCCESS action with no arguments&quot;,()=&gt;{
+    const result = createGroupSuccess();
+
+    assert(result.type === CREATE_GROUP_SUCCESS);
+  });
+});
+
+/**@test {createGroupFailure}*/
+describe(&quot;createGroupFailure action creator&quot;,()=&gt;{
+  it(&quot;creates CREATE_GROUP_FAILURE action with no arguments&quot;,()=&gt;{
+    const result = createGroupFailure();
+
+    assert(result.type === CREATE_GROUP_FAILURE);
+  })
+});
+
+/**@test {addMemberToGroupRequired} */
+describe(&quot;addMemberToGroupRequired action creator&quot;,()=&gt;{
+  it(&quot;creates ADD_MEMBER_TO_GROUP_REQUIRED action with target group ID and target member ID&quot;,()=&gt;{
+    const targetGroupId = &quot;group_id_1&quot;;
+    const targetMemberId = &quot;member1&quot;;
+
+    const result = addMemberToGroupRequired(targetGroupId,targetMemberId);
+
+    assert(result.type === ADD_MEMBER_TO_GROUP_REQUIRED);
+    assert(result.payload.groupId === targetGroupId);
+    assert(result.payload.memberId === targetMemberId);
+  });
+});
+
+/**@test {addMemberToGroupSuccess} */
+describe(&quot;addMemberToGroupSuccess action creator&quot;,()=&gt;{
+  it(&quot;creates ADD_MEMBER_TO_GROUP_SUCCESS action with no arguments&quot;,()=&gt;{
+    const result = addMemberToGroupSuccess();
+
+    assert(result.type === ADD_MEMBER_TO_GROUP_SUCCESS);
+  });
+});
+
+/**@test {addMemberToGroupFailure}*/
+describe(&quot;addMemberToGroupFailure action creator&quot;,()=&gt;{
+  it(&quot;creates ADD_MEMBER_TO_GROUP_FAILURE action with no arguments&quot;,()=&gt;{
+    const result = addMemberToGroupFailure();
+
+    assert(result.type === ADD_MEMBER_TO_GROUP_FAILURE);
+  });
+});
+
+/**@test {deleteMemberFromGroupRequired} */
+describe(&quot;deleteMemberFromGroupRequired action creator&quot;,()=&gt;{
+  it(&quot;creates DELETE_MEMBER_FROM_GROUP_REQUIRED action with target group ID and target member ID&quot;,()=&gt;{
+    const targetGroupId = &quot;group_id_1&quot;;
+    const targetMemberId = &quot;member1&quot;;
+
+    const result = deleteMemberFromGroupRequired(targetGroupId,targetMemberId);
+
+    assert(result.type === DELETE_MEMBER_FROM_GROUP_REQUIRED);
+    assert(result.payload.groupId === targetGroupId);
+    assert(result.payload.memberId === targetMemberId);
+  });
+});
+
+/**@test {deleteMemberFromGroupSuccess} */
+describe(&quot;deleteMemberFromGroupSuccess action creator&quot;,()=&gt;{
+  it(&quot;creates DELETE_MEMBER_FROM_GROUP_SUCCESS action with no arguments&quot;,()=&gt;{
+    const result = deleteMemberFromGroupSuccess();
+
+    assert(result.type === DELETE_MEMBER_FROM_GROUP_SUCCESS);
+  });
+});
+
+/**@test {deleteMemberFromGroupFailure} */
+describe(&quot;deleteMemberFromGroupFailure action creator&quot;,()=&gt;{
+  it(&quot;creates DELETE_MEMBER_FROM_GROUP_FAILURE action with no arguments&quot;,()=&gt;{
+    const result = deleteMemberFromGroupFailure();
+
+    assert(result.type === DELETE_MEMBER_FROM_GROUP_FAILURE);
+  });
+});
+
+/**@test {setMemberAsGroupAdminRequired}*/
+describe(&quot;setMemberAsGroupAdminRequired action creator&quot;,()=&gt;{
+  it(&quot;creates SET_MEMBER_AS_GROUP_ADMIN_REQUIRED action with target group ID and target member ID&quot;,()=&gt;{
+    const targetGroupId = &quot;group_id_1&quot;;
+    const targetMemberId = &quot;member1&quot;;
+
+    const result = setMemberAsGroupAdminRequired(targetGroupId,targetMemberId);
+
+    assert(result.type === SET_MEMBER_AS_GROUP_ADMIN_REQUIRED);
+    assert(result.payload.groupId === targetGroupId);
+    assert(result.payload.memberId === targetMemberId);
+  });
+});
+
+/**@test {setMemberAsGroupAdminSuccess} */
+describe(&quot;setMemberAsGroupAdminSuccess action creator&quot;,()=&gt;{
+  it(&quot;creates SET_MEMBER_AS_GROUP_ADMIN_SUCCESS action with no arguments&quot;,()=&gt;{
+    const result = setMemberAsGroupAdminSuccess();
+
+    assert(result.type === SET_MEMBER_AS_GROUP_ADMIN_SUCCESS);
+  });
+});
+
+/**@test {setMemberAsGroupAdminFailure} */
+describe(&quot;setMemberAsGroupAdminFailure action creator&quot;,()=&gt;{
+  it(&quot;creates SET_MEMBER_AS_GROUP_ADMIN_FAILURE action with no arguments&quot;,()=&gt;{
+    const result = setMemberAsGroupAdminFailure();
+
+    assert(result.type === SET_MEMBER_AS_GROUP_ADMIN_FAILURE);
+  });
+});
+
+/**@test {unsetMemberAsGroupAdminRequired} */
+describe(&quot;unsetMemberAsGroupAdminRequired action creator&quot;,()=&gt;{
+  it(&quot;creates UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED action with target group ID and target member ID&quot;,()=&gt;{
+    const targetGroupId = &quot;group_id_1&quot;;
+    const targetMemberId = &quot;member1&quot;;
+
+    const result = unsetMemberAsGroupAdminRequired(targetGroupId,targetMemberId);
+
+    assert(result.type === UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED);
+    assert(result.payload.groupId === targetGroupId);
+    assert(result.payload.memberId === targetMemberId);
+  });
+});
+
+/**@test {unsetMemberAsGroupAdminSuccess} */
+describe(&quot;unsetMemberAsGroupAdminSuccess action creator&quot;,()=&gt;{
+  it(&quot;creates UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS action with no arguments&quot;,()=&gt;{
+    const result = unsetMemberAsGroupAdminSuccess();
+
+    assert(result.type === UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS);
+  })
+});
+
+/**@test [unsetMemberAsGroupAdminFailure] */
+describe(&quot;unsetMemberAsGroupAdminFailure action creator&quot;,()=&gt;{
+  it(&quot;creates UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE action creator&quot;,()=&gt;{
+    const result = unsetMemberAsGroupAdminFailure();
+
+    assert(result.type === UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE);
+  });
+});
+
+/**@test {changeGroupNameRequired} */
+describe(&quot;changeGroupNameRequired action creator&quot;,()=&gt;{
+  it(&quot;creates CHANGE_GROUP_NAME_REQUIRED action with targetGroupId and new group name&quot;,()=&gt;{
+    const targetGroupId = &quot;group_id_1&quot;;
+    const newGroupName = &quot;new name&quot;;
+
+    const result = changeGroupNameRequired(targetGroupId,newGroupName);
+
+    assert(result.type === CHANGE_GROUP_NAME_REQUIRED);
+    assert(result.payload.groupId === targetGroupId);
+    assert(result.payload.newName === newGroupName);
+  });
+});
+
+/**@test {changeGroupNameSuccess} */
+describe(&quot;changeGroupNameSuccess action creator&quot;,()=&gt;{
+  it(&quot;creates CHANGE_GROUP_NAME_SUCCESS action with no arguments&quot;,()=&gt;{
+    const result = changeGroupNameSuccess();
+
+    assert(result.type === CHANGE_GROUP_NAME_SUCCESS);
+  });
+});
+
+/**@test {changeGroupNameFailure} */
+describe(&quot;changeGroupNameFailure action creator&quot;,()=&gt;{
+  it(&quot;creates CHANGE_GROUP_NAME_FAILURE action with no arguments&quot;,()=&gt;{
+    const result = changeGroupNameFailure();
+
+    assert(result.type === CHANGE_GROUP_NAME_FAILURE);
+  });
+});
+
+/**@test  {deleteGroupRequired} */
+describe(&quot;deleteGroupRequired action creator&quot;,()=&gt;{
+  it(&quot;creates DELETE_GROUP_REQUIRED action with target group ID&quot;,()=&gt;{
+    const targetGroupId = &quot;group_id_1&quot;;
+
+    const result = deleteGroupRequired(targetGroupId);
+
+    assert(result.type === DELETE_GROUP_REQUIRED);
+    assert(result.payload.groupId === targetGroupId);
+  });
+});
+
+/**@test {deleteGroupSuccess} */
+describe(&quot;deleteGroupSuccess action creator&quot;,()=&gt;{
+  it(&quot;creates DELETE_GROUP_SUCCESS action with no arguments&quot;,()=&gt;{
+    const result = deleteGroupSuccess();
+
+    assert(result.type === DELETE_GROUP_SUCCESS);
+  });
+});
+
+/**@test {deleteGroupFailure} */
+describe(&quot;deleteGroupFailure action creator&quot;,()=&gt;{
+  it(&quot;creates DELETE_GROUP_FAILURE action with no arguments&quot;,()=&gt;{
+    const result = deleteGroupFailure();
+
+    assert(result.type === DELETE_GROUP_FAILURE);
+  })
 });
 </code></pre>
 
