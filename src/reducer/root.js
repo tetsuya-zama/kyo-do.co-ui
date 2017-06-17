@@ -16,5 +16,6 @@ export default combineReducers({
   board,
   signup,
   accountboard,
-  group
+  group,
+  groupboards
 })

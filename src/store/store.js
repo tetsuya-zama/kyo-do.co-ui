@@ -5,6 +5,8 @@ import rootReducer from '../reducer/root'
 import rootSaga from '../saga/root'
 import {LOGIN_STATUS} from '../const/login'
 import {DEFAULT_MY_DESTINATION} from '../const/mydestination';
+import {DEFAULT_GROUP} from '../const/group';
+import {DEFAULT_GROUPBORADS} from '../const/groupboards';
 
 
 /**
@@ -20,6 +22,8 @@ export function configureStore() {
       mydestination:DEFAULT_MY_DESTINATION,
       board:{memberStatus:[]},
       accountboard:{open:false, nextuser:{}},
+      groups:DEFAULT_GROUPS,
+      groupboards:DEFAULT_GROUPBORADS
     },
     applyMiddleware(
       sagaMiddleware, logger()
