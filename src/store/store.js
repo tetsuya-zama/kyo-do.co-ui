@@ -22,7 +22,7 @@ export function configureStore() {
       mydestination:DEFAULT_MY_DESTINATION,
       board:{memberStatus:[]},
       accountboard:{open:false, nextuser:{}},
-      groups:DEFAULT_GROUPS,
+      group:DEFAULT_GROUP,
       groupboards:DEFAULT_GROUPBORADS
     },
     applyMiddleware(

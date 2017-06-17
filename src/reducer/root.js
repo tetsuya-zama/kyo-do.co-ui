@@ -5,6 +5,7 @@ import board from './board'
 import signup from './signup'
 import accountboard from './accountboard'
 import group from './group'
+import groupboards from './groupboards'
 
 /**
 * 各reducerを結合してひとまとめにしてexportする
