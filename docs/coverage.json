@@ -1,7 +1,7 @@
 {
-  "coverage": "97.04%",
-  "expectCount": 169,
-  "actualCount": 164,
+  "coverage": "96.66%",
+  "expectCount": 180,
+  "actualCount": 174,
   "files": {
     "src/action/accountboard.js": {
       "expectCount": 8,
@@ -24,6 +24,23 @@
       "undocumentLines": [
         19
       ]
+    },
+    "src/action/groupboards.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "src/const/group.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "src/const/groupboards.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "src/const/mydestination.js": {
       "expectCount": 1,
@@ -152,6 +169,11 @@
       "undocumentLines": []
     },
     "src/reducer/group.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/reducer/groupboards.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []

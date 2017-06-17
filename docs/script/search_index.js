@@ -282,6 +282,18 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/action/groupboards.js~close_group_creation_board",
+    "variable/index.html#static-variable-CLOSE_GROUP_CREATION_BOARD",
+    "<span>CLOSE_GROUP_CREATION_BOARD</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/groupboards.js~close_group_management_board",
+    "variable/index.html#static-variable-CLOSE_GROUP_MANAGEMENT_BOARD",
+    "<span>CLOSE_GROUP_MANAGEMENT_BOARD</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "variable"
+  ],
+  [
     "kyo-do.co-ui/src/action/group.js~create_group_failure",
     "variable/index.html#static-variable-CREATE_GROUP_FAILURE",
     "<span>CREATE_GROUP_FAILURE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
@@ -297,6 +309,18 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/group.js~create_group_success",
     "variable/index.html#static-variable-CREATE_GROUP_SUCCESS",
     "<span>CREATE_GROUP_SUCCESS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/const/group.js~default_group",
+    "variable/index.html#static-variable-DEFAULT_GROUP",
+    "<span>DEFAULT_GROUP</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/group.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/const/groupboards.js~default_groupborads",
+    "variable/index.html#static-variable-DEFAULT_GROUPBORADS",
+    "<span>DEFAULT_GROUPBORADS</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/const/groupboards.js</span>",
     "variable"
   ],
   [
@@ -430,6 +454,18 @@ window.esdocSearchIndex = [
     "class/src/component/mydestination.js~MyDestination.html",
     "<span>MyDestination</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/mydestination.js</span>",
     "class"
+  ],
+  [
+    "kyo-do.co-ui/src/action/groupboards.js~open_group_creation_board",
+    "variable/index.html#static-variable-OPEN_GROUP_CREATION_BOARD",
+    "<span>OPEN_GROUP_CREATION_BOARD</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/groupboards.js~open_group_management_board",
+    "variable/index.html#static-variable-OPEN_GROUP_MANAGEMENT_BOARD",
+    "<span>OPEN_GROUP_MANAGEMENT_BOARD</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "variable"
   ],
   [
     "kyo-do.co-ui/src/action/group.js~set_member_as_group_admin_failure",
@@ -648,6 +684,18 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/action/groupboards.js~closegroupcreationboard",
+    "function/index.html#static-function-closeGroupCreationBoard",
+    "<span>closeGroupCreationBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/groupboards.js~closegroupmanagementboard",
+    "function/index.html#static-function-closeGroupManagementBoard",
+    "<span>closeGroupManagementBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/store/store.js~configurestore",
     "function/index.html#static-function-configureStore",
     "<span>configureStore</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/store/store.js</span>",
@@ -729,6 +777,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/reducer/group.js~group",
     "function/index.html#static-function-group",
     "<span>group</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/reducer/groupboards.js~groupboards",
+    "function/index.html#static-function-groupboards",
+    "<span>groupboards</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/groupboards.js</span>",
     "function"
   ],
   [
@@ -873,6 +927,18 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/accountboard.js~openaccountinfomodal",
     "function/index.html#static-function-openAccountInfoModal",
     "<span>openAccountInfoModal</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/accountboard.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/groupboards.js~opengroupcreationboard",
+    "function/index.html#static-function-openGroupCreationBoard",
+    "<span>openGroupCreationBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/groupboards.js~opengroupmanagementboard",
+    "function/index.html#static-function-openGroupManagementBoard",
+    "<span>openGroupManagementBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
     "function"
   ],
   [
@@ -1596,6 +1662,30 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
+    "test-file/test/action/groupboards.test.js.html#lineNumber61",
+    "closeGroupCreationBoard action creator",
+    "test"
+  ],
+  [
+    "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
+    "test-file/test/action/groupboards.test.js.html#lineNumber25",
+    "closeGroupCreationBoard action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/groupboards.test.js.html#lineNumber26",
+    "closeGroupCreationBoard action creator creates CLOSE_GROUP_CREATION_BOARD with no arguments",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/groupboards.test.js.html#lineNumber62",
+    "closeGroupCreationBoard action creator creates CLOSE_GROUP_MANAGEMENT_BOARD with no arguments",
+    "test"
+  ],
+  [
     "creategroupfailure src/action/group.js~creategroupfailure,creategroupfailure",
     "test-file/test/action/group.test.js.html#lineNumber137",
     "createGroupFailure action creator",
@@ -1719,6 +1809,42 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/reducer/group.test.js.html#lineNumber72",
     "group reducer does nothing if any other action is passed",
+    "test"
+  ],
+  [
+    "groupboards src/reducer/groupboards.js~groupboards,groupboards",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber11",
+    "groupboards reducer",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber122",
+    "groupboards reducer does nothing if any other action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber31",
+    "groupboards reducer sets creationBoard.isOpen state to false when CLOSE_GROUP_CREATION_BOARD action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber12",
+    "groupboards reducer sets creationBoard.isOpen state to true when OPEN_GROUP_CREATION_BOARD action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber87",
+    "groupboards reducer sets managementBoard.isOpen state to false and managementBoard.group state to empty if CLOSE_GROUP_MANAGEMENT_BOARD action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber50",
+    "groupboards reducer sets managementBoard.isOpen state to true and managementBoard.group to action's payload if OPEN_GROUP_MANAGEMENT_BOARD action is passed",
     "test"
   ],
   [
@@ -2076,6 +2202,30 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "opengroupcreationboard src/action/groupboards.js~opengroupcreationboard,opengroupcreationboard",
+    "test-file/test/action/groupboards.test.js.html#lineNumber17",
+    "openGroupCreationBoard action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/groupboards.test.js.html#lineNumber18",
+    "openGroupCreationBoard action creator creates OPEN_GROUP_CREATION_BOARD action with no arguments",
+    "test"
+  ],
+  [
+    "opengroupmanagementboard src/action/groupboards.js~opengroupmanagementboard,opengroupmanagementboard",
+    "test-file/test/action/groupboards.test.js.html#lineNumber34",
+    "openGroupManagementBoard action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/groupboards.test.js.html#lineNumber35",
+    "openGroupManagementBoard action creator creates OPEN_GROUP_MANAGEMENT_BOARD action with target group object",
+    "test"
+  ],
+  [
     "setmemberasgroupadminfailure src/action/group.js~setmemberasgroupadminfailure,setmemberasgroupadminfailure",
     "test-file/test/action/group.test.js.html#lineNumber233",
     "setMemberAsGroupAdminFailure action creator",
@@ -2211,6 +2361,12 @@ window.esdocSearchIndex = [
     "src/action/group.js",
     "file/src/action/group.js.html",
     "src/action/group.js",
+    "file"
+  ],
+  [
+    "src/action/groupboards.js",
+    "file/src/action/groupboards.js.html",
+    "src/action/groupboards.js",
     "file"
   ],
   [
@@ -2514,6 +2670,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/const/group.js",
+    "file/src/const/group.js.html",
+    "src/const/group.js",
+    "file"
+  ],
+  [
+    "src/const/groupboards.js",
+    "file/src/const/groupboards.js.html",
+    "src/const/groupboards.js",
+    "file"
+  ],
+  [
     "src/const/login.js",
     "file/src/const/login.js.html",
     "src/const/login.js",
@@ -2577,6 +2745,12 @@ window.esdocSearchIndex = [
     "src/reducer/group.js",
     "file/src/reducer/group.js.html",
     "src/reducer/group.js",
+    "file"
+  ],
+  [
+    "src/reducer/groupboards.js",
+    "file/src/reducer/groupboards.js.html",
+    "src/reducer/groupboards.js",
     "file"
   ],
   [
@@ -2694,6 +2868,12 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/action/groupboards.test.js",
+    "test-file/test/action/groupboards.test.js.html",
+    "test/action/groupboards.test.js",
+    "testFile"
+  ],
+  [
     "test/action/login.test.js",
     "test-file/test/action/login.test.js.html",
     "test/action/login.test.js",
@@ -2769,6 +2949,12 @@ window.esdocSearchIndex = [
     "test/reducer/group.test.js",
     "test-file/test/reducer/group.test.js.html",
     "test/reducer/group.test.js",
+    "testFile"
+  ],
+  [
+    "test/reducer/groupboards.test.js",
+    "test-file/test/reducer/groupboards.test.js.html",
+    "test/reducer/groupboards.test.js",
     "testFile"
   ],
   [
