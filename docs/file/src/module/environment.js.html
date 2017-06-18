@@ -125,6 +125,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SUGGESTION_CLEAR">SUGGESTION_CLEAR</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/accountboard.js~AccountBoard.html">AccountBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupcreationboard.js~GroupCreationBoard.html">GroupCreationBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberrow.js~MemberRow.html">MemberRow</a></span></span></li>
@@ -184,10 +185,12 @@
 * @return {string} API&#x306E;&#x30D9;&#x30FC;&#x30B9;URL
 */
 export function getApiBaseURL(){
-    /*TODO
-    * &#x30C6;&#x30B9;&#x30C8;&#x7528;&#x306E;API&#x304C;&#x51FA;&#x6765;&#x305F;&#x3089;&#x3001;location.href&#x306A;&#x3069;&#x306B;&#x5FDC;&#x3058;&#x3066;URL&#x3092;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;
-    */
-    return &quot;https://api.kyo-do.co/&quot;;
+    switch(process.env.NODE_ENV){
+      case(&quot;debug&quot;):
+        return &quot;http://localhost:3000/&quot;;
+      default:
+        return &quot;https://api.kyo-do.co/&quot;;
+    }
 }
 </code></pre>
 

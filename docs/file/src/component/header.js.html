@@ -125,6 +125,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SUGGESTION_CLEAR">SUGGESTION_CLEAR</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/accountboard.js~AccountBoard.html">AccountBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupcreationboard.js~GroupCreationBoard.html">GroupCreationBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberrow.js~MemberRow.html">MemberRow</a></span></span></li>
@@ -195,7 +196,9 @@ import RaisedButton from &apos;material-ui/RaisedButton&apos;;
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from &apos;material-ui/Toolbar&apos;;
 import Dialog from &apos;material-ui/Dialog&apos;;
 import AccountBoard from &apos;./accountboard&apos;;
-import {openAccountInfoModal} from &apos;../action/accountboard&apos;
+import GroupCreationBoard from &apos;./groupcreationboard&apos;;
+import {openAccountInfoModal} from &apos;../action/accountboard&apos;;
+import {openGroupCreationBoard} from &apos;../action/groupboards&apos;;
 
 /**
 * Header&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
@@ -212,6 +215,7 @@ export default class Header extends React.Component{
     //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
     this.hundleLogout = this.hundleLogout.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
+    this.handleCreateGroup = this.handleCreateGroup.bind(this);
   }
 
   /**
@@ -228,6 +232,14 @@ export default class Header extends React.Component{
   */
   handleOpen(){
       this.props.dispatch(openAccountInfoModal());
+  }
+  /**
+  * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @return {undefined}
+  *
+  */
+  handleCreateGroup(){
+      this.props.dispatch(openGroupCreationBoard());
   }
 
   /**
@@ -251,10 +263,12 @@ export default class Header extends React.Component{
             ref=&quot;menu_button&quot;
           &gt;
             &lt;MenuItem ref=&quot;change_account_button&quot; primaryText=&quot;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x60C5;&#x5831;&#x5909;&#x66F4;&quot; onTouchTap={this.handleOpen} /&gt;
+            &lt;MenuItem ref=&quot;create_group_button&quot; primaryText=&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&quot; onTouchTap={this.handleCreateGroup} /&gt;
             &lt;MenuItem ref=&quot;logout_button&quot; primaryText=&quot;LOGOUT&quot; onTouchTap={this.hundleLogout} /&gt;
           &lt;/IconMenu&gt;
         &lt;/ToolbarGroup&gt;
         &lt;AccountBoard dispatch={this.props.dispatch} accountboard={this.props.accountboard} /&gt;
+        &lt;GroupCreationBoard dispatch={this.props.dispatch} groupboards ={this.props.groupboards} /&gt;
       &lt;/Toolbar&gt;:
       null
 

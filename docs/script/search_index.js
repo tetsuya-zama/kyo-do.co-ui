@@ -372,6 +372,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/component/groupcreationboard.js~groupcreationboard",
+    "class/src/component/groupcreationboard.js~GroupCreationBoard.html",
+    "<span>GroupCreationBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/groupcreationboard.js</span>",
+    "class"
+  ],
+  [
     "kyo-do.co-ui/src/component/header.js~header",
     "class/src/component/header.js~Header.html",
     "<span>Header</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/header.js</span>",
@@ -1663,13 +1669,13 @@ window.esdocSearchIndex = [
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber61",
+    "test-file/test/action/groupboards.test.js.html#lineNumber25",
     "closeGroupCreationBoard action creator",
     "test"
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber25",
+    "test-file/test/action/groupboards.test.js.html#lineNumber61",
     "closeGroupCreationBoard action creator",
     "test"
   ],
@@ -2466,6 +2472,48 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/component/groupcreationboard.js",
+    "file/src/component/groupcreationboard.js.html",
+    "src/component/groupcreationboard.js",
+    "file"
+  ],
+  [
+    "src/component/groupcreationboard.js~groupcreationboard#constructor",
+    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-constructor-constructor",
+    "src/component/groupcreationboard.js~GroupCreationBoard#constructor",
+    "method"
+  ],
+  [
+    "src/component/groupcreationboard.js~groupcreationboard#hundleclose",
+    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-method-hundleClose",
+    "src/component/groupcreationboard.js~GroupCreationBoard#hundleClose",
+    "method"
+  ],
+  [
+    "src/component/groupcreationboard.js~groupcreationboard#hundlenamechange",
+    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-method-hundleNameChange",
+    "src/component/groupcreationboard.js~GroupCreationBoard#hundleNameChange",
+    "method"
+  ],
+  [
+    "src/component/groupcreationboard.js~groupcreationboard#hundleok",
+    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-method-hundleOK",
+    "src/component/groupcreationboard.js~GroupCreationBoard#hundleOK",
+    "method"
+  ],
+  [
+    "src/component/groupcreationboard.js~groupcreationboard#render",
+    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-method-render",
+    "src/component/groupcreationboard.js~GroupCreationBoard#render",
+    "method"
+  ],
+  [
+    "src/component/groupcreationboard.js~groupcreationboard#state",
+    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-member-state",
+    "src/component/groupcreationboard.js~GroupCreationBoard#state",
+    "member"
+  ],
+  [
     "src/component/header.js",
     "file/src/component/header.js.html",
     "src/component/header.js",
@@ -2475,6 +2523,12 @@ window.esdocSearchIndex = [
     "src/component/header.js~header#constructor",
     "class/src/component/header.js~Header.html#instance-constructor-constructor",
     "src/component/header.js~Header#constructor",
+    "method"
+  ],
+  [
+    "src/component/header.js~header#handlecreategroup",
+    "class/src/component/header.js~Header.html#instance-method-handleCreateGroup",
+    "src/component/header.js~Header#handleCreateGroup",
     "method"
   ],
   [
