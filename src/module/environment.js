@@ -3,8 +3,10 @@
 * @return {string} APIのベースURL
 */
 export function getApiBaseURL(){
-    /*TODO
-    * テスト用のAPIが出来たら、location.hrefなどに応じてURLを切り替える
-    */
-    return "https://api.kyo-do.co/";
+    switch(process.env.NODE_ENV){
+      case("debug"):
+        return "http://localhost:3000/";
+      default:
+        return "https://api.kyo-do.co/";
+    }
 }
