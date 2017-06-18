@@ -68,7 +68,12 @@ class Kyodoco extends React.Component{
     return(
       <div>
       <header>
-        <Header dispatch={this.props.dispatch} login={this.props.login} accountboard={this.props.accountboard}/>
+        <Header
+          dispatch={this.props.dispatch}
+          login={this.props.login}
+          accountboard={this.props.accountboard}
+          groupboards={this.props.groupboards}
+        />
       </header>
       <hr />
       {content}

@@ -14,7 +14,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import Dialog from 'material-ui/Dialog';
 import AccountBoard from './accountboard';
-import {openAccountInfoModal} from '../action/accountboard'
+import GroupCreationBoard from './groupcreationboard';
+import {openAccountInfoModal} from '../action/accountboard';
+import {openGroupCreationBoard} from '../action/groupboards';
 
 /**
 * Headerコンポーネント
@@ -31,6 +33,7 @@ export default class Header extends React.Component{
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.hundleLogout = this.hundleLogout.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
+    this.handleCreateGroup = this.handleCreateGroup.bind(this);
   }
 
   /**
@@ -47,6 +50,14 @@ export default class Header extends React.Component{
   */
   handleOpen(){
       this.props.dispatch(openAccountInfoModal());
+  }
+  /**
+  * グループ作成ボタンのクリックをハンドリングするメソッド
+  * @return {undefined}
+  *
+  */
+  handleCreateGroup(){
+      this.props.dispatch(openGroupCreationBoard());
   }
 
   /**
@@ -70,10 +81,12 @@ export default class Header extends React.Component{
             ref="menu_button"
           >
             <MenuItem ref="change_account_button" primaryText="アカウント情報変更" onTouchTap={this.handleOpen} />
+            <MenuItem ref="create_group_button" primaryText="グループ作成" onTouchTap={this.handleCreateGroup} />
             <MenuItem ref="logout_button" primaryText="LOGOUT" onTouchTap={this.hundleLogout} />
           </IconMenu>
         </ToolbarGroup>
         <AccountBoard dispatch={this.props.dispatch} accountboard={this.props.accountboard} />
+        <GroupCreationBoard dispatch={this.props.dispatch} groupboards ={this.props.groupboards} />
       </Toolbar>:
       null
 
