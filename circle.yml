@@ -1,0 +1,19 @@
+machine:
+  timezone: Asia/Tokyo
+
+  node:
+    version: 6.10.2
+  post:
+    - npm install -g npm@3
+
+dependencies:
+  pre:
+    - sudo pip install awscli
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - webpack
+      - ls dist/
+      - aws s3 cp dist/bundle.js s3://tkd-kyodocoui/js/
