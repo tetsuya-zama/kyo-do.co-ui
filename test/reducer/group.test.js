@@ -1,100 +1,405 @@
 import assert from 'power-assert';
 import group from '../../src/reducer/group';
-import {USERS_GROUPS_LOADED} from '../../src/action/group';
-import {usersGroupsLoaded} from '../../src/action/group';
+import {GROUPS_LOADED,GROUP_MEMBER_LOADED} from '../../src/action/group';
+import {groupsLoaded,groupMemberLoaded} from '../../src/action/group';
 
 /**@test {group} */
 describe("group reducer",()=>{
-  it("changes usersGroups state to action's payload if USERS_GROUPS_LOADED action is passed",()=>{
-    const dummyAPIResult = [
+  it("marges group information if GROUPS_LOADED action is passed",()=>{
+    const dummyCurrentState = {
+      allGroups:[
+        {
+          "id": "g0001",
+          "name": "groupname1",
+          "admin": [
+            "userid1",
+            "userid2"
+          ]
+        },
+        {
+          "id": "g0002",
+          "name": "groupname2",
+          "admin": [
+            "userid3"
+          ]
+        }
+      ],
+      userGroups:[]
+    };
+
+    const dummyGroupInfo = [
       {
-        id:"group_id_1",
-        name:"グループ1",
-        members:[
-          {
-            id:"member1",
-            name:"メンバー1",
-            isAdmin:true
-          },
-          {
-            id:"member2",
-            name:"メンバー2",
-            isAdmin:false
-          },
+        "id": "g0001",
+        "name": "groupname1",
+        "admin": [
+          "userid1",
+          "userid2"
         ]
       },
       {
-        id:"group_id_2",
-          name:"グループ2",
-        members:[
-          {
-            id:"member3",
-            name:"メンバー3",
-            isAdmin:true
-          },
-          {
-            id:"member4",
-            name:"メンバー4",
-            isAdmin:false
-          },
+        "id": "g0002",
+        "name": "groupname2 updated",
+        "admin": [
+          "userid3",
+          "userid4"
+        ]
+      },
+      {
+        "id": "g0003",
+        "name": "groupname3",
+        "admin": [
+          "userid1",
+          "userid3"
         ]
       }
     ];
 
+    const dummyLogonUserId = "userid3";
+
+    const dummyAction = groupsLoaded(dummyGroupInfo,dummyLogonUserId);
+
+    const result = group(dummyCurrentState,dummyAction);
+
+    assert(result.allGroups.length === 3);
+    assert(getGroupById(result.allGroups, "g0002").name === "groupname2 updated");
+    assert(getGroupById(result.allGroups, "g0002").admin.indexOf("userid4") >= 0);
+    assert(getGroupById(result.allGroups, "g0003").name === "groupname3");
+    assert(getGroupById(result.allGroups, "g0003").admin.indexOf("userid1") >= 0);
+    assert(getGroupById(result.allGroups, "g0003").admin.indexOf("userid3") >= 0);
+  });
+
+  it("doesn't update members of current group if GROUPS_LOADED action is passed",()=>{
     const dummyCurrentState = {
-      usersGroups:[
+      allGroups:[
         {
-          id:"group_id_3",
-            name:"グループ3",
-          members:[
-            {
-              id:"member5",
-              name:"メンバー5",
-              isAdmin:true
-            },
-            {
-              id:"member6",
-              name:"メンバー6",
-              isAdmin:false
-            },
+          "id": "g0001",
+          "name": "groupname1",
+          "admin": [
+            "userid1",
+            "userid2"
+          ],
+          "members": [
+            "userid1",
+            "userid2",
+            "userid5"
+          ]
+        },
+        {
+          "id": "g0002",
+          "name": "groupname2",
+          "admin": [
+            "userid3"
+          ]
+        }
+      ],
+      userGroups:[]
+    };
+
+    const dummyGroupInfo = [
+      {
+        "id": "g0001",
+        "name": "groupname1",
+        "admin": [
+          "userid1",
+          "userid2"
+        ]
+      },
+      {
+        "id": "g0002",
+        "name": "groupname2 updated",
+        "admin": [
+          "userid3",
+          "userid4"
+        ]
+      },
+      {
+        "id": "g0003",
+        "name": "groupname3",
+        "admin": [
+          "userid1",
+          "userid3"
+        ]
+      }
+    ];
+
+    const dummyLogonUserId = "userid3";
+
+    const dummyAction = groupsLoaded(dummyGroupInfo,dummyLogonUserId);
+
+    const result = group(dummyCurrentState,dummyAction);
+
+    assert(result.allGroups.length === 3);
+    assert(getGroupById(result.allGroups,"g0001").members);
+    assert(getGroupById(result.allGroups,"g0001").members.length);
+    assert(getGroupById(result.allGroups,"g0001").members.indexOf("userid1") >= 0);
+    assert(getGroupById(result.allGroups,"g0001").members.indexOf("userid2") >= 0);
+    assert(getGroupById(result.allGroups,"g0001").members.indexOf("userid5") >= 0);
+  });
+
+  it("deletes groups which aren't in new array if GROUPS_LOADED is passed",()=>{
+    const dummyCurrentState = {
+      allGroups:[
+        {
+          "id": "g0001",
+          "name": "groupname1",
+          "admin": [
+            "userid1",
+            "userid2"
+          ]
+        },
+        {
+          "id": "g0002",
+          "name": "groupname2",
+          "admin": [
+            "userid3"
+          ]
+        }
+      ],
+      userGroups:[]
+    };
+
+    const dummyGroupInfo = [
+      {
+        "id": "g0002",
+        "name": "groupname2 updated",
+        "admin": [
+          "userid3",
+          "userid4"
+        ]
+      },
+      {
+        "id": "g0003",
+        "name": "groupname3",
+        "admin": [
+          "userid1",
+          "userid3"
+        ]
+      }
+    ];
+
+    const dummyLogonUserId = "userid3";
+
+    const dummyAction = groupsLoaded(dummyGroupInfo,dummyLogonUserId);
+
+    const result = group(dummyCurrentState,dummyAction);
+
+    assert(result.allGroups.length === 2);
+    assert(!getGroupById(result.allGroups,"g0001"));
+  });
+
+  it("copies groups which logonUserId is in admin or members of it, to userGroups array if GROUPS_LOADED action is passed",()=>{
+    const dummyCurrentState = {
+      allGroups:[
+        {
+          "id": "g0001",
+          "name": "groupname1",
+          "admin": [
+            "userid1",
+            "userid2"
+          ]
+        },
+        {
+          "id": "g0002",
+          "name": "groupname2",
+          "admin": [
+            "userid3"
+          ]
+        }
+      ],
+      userGroups:[]
+    };
+
+    const dummyGroupInfo = [
+      {
+        "id": "g0001",
+        "name": "groupname1",
+        "admin": [
+          "userid1",
+          "userid2"
+        ]
+      },
+      {
+        "id": "g0002",
+        "name": "groupname2 updated",
+        "admin": [
+          "userid3",
+          "userid4"
+        ]
+      },
+      {
+        "id": "g0003",
+        "name": "groupname3",
+        "admin": [
+          "userid1",
+          "userid3"
+        ]
+      }
+    ];
+
+    const dummyLogonUserId = "userid3";
+
+    const dummyAction = groupsLoaded(dummyGroupInfo,dummyLogonUserId);
+
+    const result = group(dummyCurrentState,dummyAction);
+
+    assert(result.usersGroups.length === 2);
+    assert.deepEqual(
+      result.usersGroups,
+      [
+        {
+          "id": "g0002",
+          "name": "groupname2 updated",
+          "admin": [
+            "userid3",
+            "userid4"
+          ]
+        },
+        {
+          "id": "g0003",
+          "name": "groupname3",
+          "admin": [
+            "userid1",
+            "userid3"
           ]
         }
       ]
+    );
+  });
+
+  it("fetches members of group if GROUP_MEMBER_LOADED action is passed",()=>{
+    const dummyCurrentState = {
+      allGroups:[
+        {
+          "id": "g0001",
+          "name": "groupname1",
+          "admin": [
+            "userid1",
+            "userid2"
+          ]
+        },
+        {
+          "id": "g0002",
+          "name": "groupname2",
+          "admin": [
+            "userid3"
+          ]
+        }
+      ],
+      userGroups:[]
     };
 
-    const action = usersGroupsLoaded(dummyAPIResult);
+    const dummyGroupWithMember = {
+      "id": "g0001",
+      "name": "groupname1",
+      "admin": [
+        "userid1",
+        "userid2"
+      ],
+      "members":[
+        "userid1",
+        "userid2",
+        "userid3"
+      ]
+    };
 
-    const result = group(dummyCurrentState,action);
+    const dummyLogonUserId = "userid3";
 
-    assert.deepEqual(result.usersGroups,dummyAPIResult);
+    const dummyAction = groupMemberLoaded(dummyGroupWithMember,dummyLogonUserId);
+
+    const result = group(dummyCurrentState,dummyAction);
+
+    assert(result.allGroups.length === 2);
+    assert(getGroupById(result.allGroups,"g0001").members);
+    assert(getGroupById(result.allGroups,"g0001").members.length === 3);
+    assert(getGroupById(result.allGroups,"g0001").members.indexOf("userid1") >= 0);
+    assert(getGroupById(result.allGroups,"g0001").members.indexOf("userid2") >= 0);
+    assert(getGroupById(result.allGroups,"g0001").members.indexOf("userid3") >= 0);
+  });
+
+  it("copies groups which logonUserId is in admin or members of it, to userGroups array if GROUP_MEMBER_LOADED action is passed",()=>{
+    const dummyCurrentState = {
+      allGroups:[
+        {
+          "id": "g0001",
+          "name": "groupname1",
+          "admin": [
+            "userid1",
+            "userid2"
+          ]
+        },
+        {
+          "id": "g0002",
+          "name": "groupname2",
+          "admin": [
+            "userid3"
+          ]
+        }
+      ],
+      userGroups:[]
+    };
+
+    const dummyGroupWithMember = {
+      "id": "g0001",
+      "name": "groupname1",
+      "admin": [
+        "userid1",
+        "userid2"
+      ],
+      "members":[
+        "userid1",
+        "userid2",
+        "userid3"
+      ]
+    };
+
+    const dummyLogonUserId = "userid3";
+
+    const dummyAction = groupMemberLoaded(dummyGroupWithMember,dummyLogonUserId);
+
+    const result = group(dummyCurrentState,dummyAction);
+
+    assert(result.usersGroups.length === 2);
+    assert(getGroupById(result.usersGroups,"g0001"));
+    assert(getGroupById(result.usersGroups,"g0002"));
   });
 
   it("does nothing if any other action is passed",()=>{
-    const action = {type:"DUMMY_ACTION_NAME"};
-
     const dummyCurrentState = {
-      usersGroups:[
+      allGroups:[
         {
-          id:"group_id_3",
-            name:"グループ3",
-          members:[
-            {
-              id:"member5",
-              name:"メンバー5",
-              isAdmin:true
-            },
-            {
-              id:"member6",
-              name:"メンバー6",
-              isAdmin:false
-            },
+          "id": "g0001",
+          "name": "groupname1",
+          "admin": [
+            "userid1",
+            "userid2"
+          ]
+        },
+        {
+          "id": "g0002",
+          "name": "groupname2",
+          "admin": [
+            "userid3"
           ]
         }
-      ]
+      ],
+      userGroups:[]
     };
 
-    const result = group(dummyCurrentState,action);
+    const dummyAction = {type:"DUMMY_ACTION_NAME"};
 
-    assert.deepEqual(result,dummyCurrentState);
-  });
+    const result = group(dummyCurrentState,dummyAction);
+
+    assert.deepEqual(result, dummyCurrentState);
+  })
 });
+
+/**
+* グループ配列の中からIDに紐づくグループを取得する
+* @param {array} groups グループの配列
+* @param {String} groupId 取得したいグループのID
+* @return {Object} グループIDに紐づくグループ
+*/
+function getGroupById(groups, groupId){
+  const filteredGroups = groups.filter(group => group.id === groupId);
+  return filteredGroups.length === 1 ? filteredGroups[0] : undefined;
+}

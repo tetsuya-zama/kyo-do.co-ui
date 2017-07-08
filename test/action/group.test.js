@@ -1,8 +1,7 @@
 import assert from 'power-assert';
 import {
-  LOAD_USERS_GROUPS,
-  LOAD_USERS_GROUPS_POLLING,
-  USERS_GROUPS_LOADED,
+  GROUPS_LOADED,
+  GROUP_MEMBER_LOADED,
   CREATE_GROUP_REQUIRED,
   CREATE_GROUP_SUCCESS,
   CREATE_GROUP_FAILURE,
@@ -27,9 +26,8 @@ import {
 } from '../../src/action/group';
 
 import {
-  loadUsersGroups,
-  loadUsersGroupsPolling,
-  usersGroupsLoaded,
+  groupsLoaded,
+  groupMemberLoaded,
   createGroupRequired,
   createGroupSuccess,
   createGroupFailure,
@@ -52,66 +50,65 @@ import {
   deleteGroupSuccess,
   deleteGroupFailure
 } from '../../src/action/group';
-/**@test {loadUsersGroups} */
-describe("loadUsersGroups action creator",()=>{
-  it("creates LOAD_USERS_GROUPS with no arguments",()=>{
-    const result = loadUsersGroups();
 
-    assert(result.type === LOAD_USERS_GROUPS);
-  })
-});
-/**@test {loadUsersGroupsPolling}*/
-describe("loadUsersGroupsPolling action creator",()=>{
-  it("creates LOAD_USERS_GROUPS_POLLING action with no arguments",()=>{
-    const result = loadUsersGroupsPolling();
-
-    assert(result.type === LOAD_USERS_GROUPS_POLLING);
-  })
-});
-/**@test {usersGroupsLoaded}*/
-describe("usersGroupsLoaded action creator",()=>{
-  it("creates USERS_GROUPS_LOADED action with array of group data which api returns",()=>{
+/**@{test} groupsLoaded */
+describe("groupsLoaded action creator",()=>{
+  it("creates GROUPS_LOADED action with groupinfo and logonUserId",()=>{
     const dummyAPIResult = [
       {
-        id:"group_id_1",
-        name:"グループ1",
-        members:[
-          {
-            id:"member1",
-            name:"メンバー1",
-            isAdmin:true
-          },
-          {
-            id:"member2",
-            name:"メンバー2",
-            isAdmin:false
-          },
+        "id": "g0001",
+        "name": "groupname1",
+        "admin": [
+          "userid1",
+          "userid2"
         ]
       },
       {
-        id:"group_id_2",
-          name:"グループ2",
-        members:[
-          {
-            id:"member3",
-            name:"メンバー3",
-            isAdmin:true
-          },
-          {
-            id:"member4",
-            name:"メンバー4",
-            isAdmin:false
-          },
+        "id": "g0002",
+        "name": "groupname2",
+        "admin": [
+          "userid3"
         ]
       }
     ];
 
-    const result = usersGroupsLoaded(dummyAPIResult);
+    const dummyLogonUserId = "userid1";
 
-    assert(result.type === USERS_GROUPS_LOADED);
-    assert.deepEqual(result.payload,dummyAPIResult);
+    const result = groupsLoaded(dummyAPIResult,dummyLogonUserId);
+
+    assert(result.type === GROUPS_LOADED);
+    assert.deepEqual(result.payload.groupinfo,dummyAPIResult);
+    assert(result.payload.logonUserId === dummyLogonUserId);
   });
 });
+
+describe("groupMemberLoaded action creator",()=>{
+  it("creates GROUP_MEMBER_LOADED action with groupWithMember data and logonUserId",()=>{
+    const dummyGroupWithMember = {
+      "id": "g0001",
+      "name": "groupname1",
+      "admin": [
+        "userid1",
+        "userid2"
+      ],
+      "members":[
+        "userid1",
+        "userid2",
+        "userid3",
+        "userid4"
+      ]
+    };
+
+    const dummyLogonUserId = "userid4";
+
+    const result = groupMemberLoaded(dummyGroupWithMember,dummyLogonUserId);
+
+    assert(result.type === GROUP_MEMBER_LOADED);
+    assert.deepEqual(result.payload.groupWithMember, dummyGroupWithMember);
+    assert(result.payload.logonUserId === dummyLogonUserId);
+  });
+});
+
 /**@test {createGroupRequired} */
 describe("createGroupRequired action creator",()=>{
   it("creates CREATE_GROUP_REQUIRED action with new group name",()=>{

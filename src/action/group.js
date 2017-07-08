@@ -1,49 +1,45 @@
+/**
+* グループのロード完了アクション名
+*/
+export const GROUPS_LOADED = "GROUPS_LOADED";
 
 /**
-* ログインユーザーが所属しているグループをすべてロードするアクション名
+* グループのロード完了アクションのcreator
+* @param {Object} groupinfo ロードされたグループ情報
+* @param {String} logonUserId ログインしているユーザーのID
+* @return GROUPS_LOADED アクション
 */
-export const LOAD_USERS_GROUPS = "LOAD_USERS_GROUPS";
-
-/**
-* ログインユーザーが所属しているグループをすべてロードするアクションのcreator
-* @return {Object} LOAD_USERS_GROUPSアクション
-*/
-export function loadUsersGroups(){
+export function groupsLoaded(groupinfo,logonUserId){
   return {
-    type:LOAD_USERS_GROUPS
+    type: GROUPS_LOADED,
+    payload : {
+      groupinfo:groupinfo,
+      logonUserId:logonUserId
+    }
   };
 }
 
 /**
-* pollingによる所属グループロードアクション名
+* グループメンバーのロード完了アクション名
 */
-export const LOAD_USERS_GROUPS_POLLING = "LOAD_USERS_GROUPS_POLLING";
+export const GROUP_MEMBER_LOADED = "GROUP_MEMBER_LOADED";
+
 /**
-* pollingによる所属グループロードアクションのcreator
-* @return {Object} LOAD_USERS_GROUPS_POLLINGアクション
+* グループメンバーのロード完了アクションのcreator
+* @param {Object} groupWithMember メンバー情報付きのグループ情報
+* @param {String} logonUserId ログインしているユーザーのID
+* @return {Object} GROUP_MEMBER_LOADEDアクション
 */
-export function loadUsersGroupsPolling(){
+export function groupMemberLoaded(groupWithMember,logonUserId){
   return {
-    type:LOAD_USERS_GROUPS_POLLING
+    type: GROUP_MEMBER_LOADED,
+    payload:{
+      groupWithMember:groupWithMember,
+      logonUserId:logonUserId
+    }
   };
 }
 
-/**
-* ユーザー所属グループのロード完了アクション名
-*/
-export const USERS_GROUPS_LOADED = "USERS_GROUPS_LOADED";
-
-/**
-* ユーザー所属グループのロード完了アクションのcreator
-* @param {Object} usersGroups ロードされたユーザー所属グループ
-* @return {Object} USERS_GROUPS_LOADEDアクション
-*/
-export function usersGroupsLoaded(usersGroups){
-  return {
-    type:USERS_GROUPS_LOADED,
-    payload:usersGroups
-  };
-}
 
 /**
 * グループ作成要求アクション名
