@@ -51,7 +51,7 @@ import {
   deleteGroupFailure
 } from '../../src/action/group';
 
-/**@{test} groupsLoaded */
+/**@test {groupsLoaded} */
 describe("groupsLoaded action creator",()=>{
   it("creates GROUPS_LOADED action with groupinfo and logonUserId",()=>{
     const dummyAPIResult = [
@@ -82,6 +82,7 @@ describe("groupsLoaded action creator",()=>{
   });
 });
 
+/**@test {groupMemberLoaded} */
 describe("groupMemberLoaded action creator",()=>{
   it("creates GROUP_MEMBER_LOADED action with groupWithMember data and logonUserId",()=>{
     const dummyGroupWithMember = {

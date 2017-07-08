@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/const/login.js | API Document</title>
+  <title data-ice="title">test/saga/group.test.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -181,15 +181,130 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/const/login.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
-* login state&#x5185;&#x306E;status&#x5B9A;&#x7FA9;&#x3002;SUCCESS(&#x6210;&#x529F;)&#x3001;FAILURE(&#x5931;&#x6557;)&#x3001;NOTYET(&#x672A;&#x5B9F;&#x65BD;)&#x3002;
-*/
-export const LOGIN_STATUS={
-  SUCCESS:&quot;SUCCESS&quot;,
-  FAILURE:&quot;FAILURE&quot;,
-  NOTYET:&quot;NOTYET&quot;
-}
+<div class="content" data-ice="content"><h1 data-ice="title">test/saga/group.test.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &quot;power-assert&quot;;
+import {groupSaga,loadUserGroupsSaga,loadUserGroupsTask,fetchMemberTask} from &apos;../../src/saga/group&apos;;
+import {groupsLoaded,groupMemberLoaded} from &apos;../../src/action/group&apos;;
+import {UPDATE_MEMBER_STATUS} from &apos;../../src/action/board&apos;;
+import {take,put,select,takeEvery,call,fork} from &apos;redux-saga/effects&apos;;
+import {getApiBaseURL} from  &apos;../../src/module/environment&apos;;
+import axios from &quot;axios&quot;;
+
+const BASE_API_URL = getApiBaseURL();
+
+/**@test {groupSaga}*/
+describe(&quot;groupSaga&quot;,()=&gt;{
+  it(&quot;forks loadUserGroupsSaga&quot;,()=&gt;{
+    const gen = groupSaga();
+
+    let ret = gen.next();
+    assert.deepEqual(ret.value,fork(loadUserGroupsSaga));
+  });
+});
+
+/**@test {loadUserGroupsSaga} */
+describe(&quot;loadUserGroupsSaga&quot;,()=&gt;{
+  it(&quot;takes every UPDATE_MEMBER_STATUS action and pass it to loadUserGroupsTask&quot;,()=&gt;{
+    const gen = loadUserGroupsSaga();
+
+    let ret = gen.next();
+    assert.deepEqual(ret.value, takeEvery(UPDATE_MEMBER_STATUS,loadUserGroupsTask));
+  });
+});
+
+/**@test {loadUserGroupsTask} */
+describe(&quot;loadUserGroupsTask&quot;,()=&gt;{
+  it(&quot;puts GROUPS_LOADED action with API Result and calls fetchMemberTask for each groups&quot;,()=&gt;{
+    const dummyToken = &quot;dummyToken&quot;;
+    const dummyLogonUserId = &quot;userid1&quot;;
+    const dummyAPIResult = {
+      data:[
+        {
+          &quot;id&quot;: &quot;g0001&quot;,
+          &quot;name&quot;: &quot;groupname1&quot;,
+          &quot;admin&quot;: [
+            &quot;userid1&quot;,
+            &quot;userid2&quot;
+          ]
+        },
+        {
+          &quot;id&quot;: &quot;g0002&quot;,
+          &quot;name&quot;: &quot;groupname2&quot;,
+          &quot;admin&quot;: [
+            &quot;userid3&quot;
+          ]
+        }
+      ]
+    };
+
+    const gen = loadUserGroupsTask();
+
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+
+    ret = gen.next(dummyLogonUserId);
+    assert.deepEqual(ret.value,call(axios,{
+      method:&quot;GET&quot;,
+      url:BASE_API_URL + &quot;group&quot;,
+      headers: { &quot;Authorization&quot;: &quot;Bearer &quot; + dummyToken}
+    }));
+
+    ret = gen.next(dummyAPIResult);
+    assert.deepEqual(ret.value, put(groupsLoaded(dummyAPIResult.data)));
+
+    ret = gen.next();
+    assert.deepEqual(ret.value, dummyAPIResult.data.map(group =&gt; call(fetchMemberTask,group,dummyToken,dummyLogonUserId)));
+
+    ret = gen.next();
+    assert(ret.done);
+  });
+});
+
+/**@test {fetchMemberTask} */
+describe(&quot;fetchMemberTask&quot;,()=&gt;{
+  it(&quot;puts GROUP_MEMBER_LOADED action with API Result&quot;,()=&gt;{
+    const dummyToken = &quot;dummyToken&quot;;
+    const dummyLogonUserId = &quot;userid1&quot;;
+    const dummyGroup = {
+      &quot;id&quot;: &quot;g0001&quot;,
+      &quot;name&quot;: &quot;groupname1&quot;,
+      &quot;admin&quot;: [
+        &quot;userid1&quot;,
+        &quot;userid2&quot;
+      ]
+    };
+    const dummyAPIResult = {
+      data:{
+        &quot;members&quot;: [
+          &quot;userid1&quot;,
+          &quot;userid2&quot;
+        ]
+      }
+    };
+    const dummyMemberStatus = [
+      {userid:&quot;userid1&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+      {userid:&quot;userid2&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+    ];
+
+    const gen = fetchMemberTask(dummyGroup,dummyToken,dummyLogonUserId);
+
+    let ret = gen.next();
+    assert.deepEqual(ret.value,call(axios,{
+      method:&quot;GET&quot;,
+      url:BASE_API_URL + &quot;group/&quot; + dummyGroup.id + &quot;/member&quot;,
+      headers: { &quot;Authorization&quot;: &quot;Bearer &quot; + dummyToken}
+    }));
+
+    ret = gen.next(dummyAPIResult);
+
+    ret = gen.next(dummyMemberStatus);
+    assert.deepEqual(ret.value, put(groupMemberLoaded(Object.assign({},dummyGroup,{member:dummyMemberStatus}),dummyLogonUserId)))
+
+    ret = gen.next();
+    assert(ret.done);
+  });
+});
 </code></pre>
 
 </div>
