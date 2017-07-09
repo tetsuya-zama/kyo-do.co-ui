@@ -155,10 +155,24 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusTask">loadMemberStatusTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addMemberToGroupSaga">addMemberToGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addMemberToGroupTask">addMemberToGroupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeGroupNameSaga">changeGroupNameSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeGroupNameTask">changeGroupNameTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createGroupSaga">createGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createGroupTask">createGroupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteGroupSaga">deleteGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteGroupTask">deleteGroupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteMemberFromGroupSaga">deleteMemberFromGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteMemberFromGroupTask">deleteMemberFromGroupTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchMemberTask">fetchMemberTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-groupSaga">groupSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadUserGroupsSaga">loadUserGroupsSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadUserGroupsTask">loadUserGroupsTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setMemberAsGroupAdminSaga">setMemberAsGroupAdminSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setMemberAsGroupAdminTask">setMemberAsGroupAdminTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unsetMemberAsGroupAdminSaga">unsetMemberAsGroupAdminSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unsetMemberAsGroupAdminTask">unsetMemberAsGroupAdminTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cleanRememberMeTask">cleanRememberMeTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFromRememberMeSaga">loginFromRememberMeSaga</a></span></span></li>
@@ -183,7 +197,40 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/saga/group.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {take,put,select,takeEvery,call,fork} from &apos;redux-saga/effects&apos;
-import {groupsLoaded,groupMemberLoaded} from &apos;../action/group&apos;
+import {
+  groupsLoaded,
+  groupMemberLoaded,
+  createGroupSuccess,
+  createGroupFailure,
+  addMemberToGroupSuccess,
+  addMemberToGroupFailure,
+  deleteMemberFromGroupSuccess,
+  deleteMemberFromGroupFailure,
+  setMemberAsGroupAdminSuccess,
+  setMemberAsGroupAdminFailure,
+  unsetMemberAsGroupAdminSuccess,
+  unsetMemberAsGroupAdminFailure,
+  changeGroupNameSuccess,
+  changeGroupNameFailure,
+  deleteGroupSuccess,
+  deleteGroupFailure
+} from &apos;../action/group&apos;
+import {
+  CREATE_GROUP_REQUIRED,
+  CREATE_GROUP_SUCCESS,
+  ADD_MEMBER_TO_GROUP_REQUIRED,
+  ADD_MEMBER_TO_GROUP_SUCCESS,
+  DELETE_MEMBER_FROM_GROUP_REQUIRED,
+  DELETE_MEMBER_FROM_GROUP_SUCCESS,
+  SET_MEMBER_AS_GROUP_ADMIN_REQUIRED,
+  SET_MEMBER_AS_GROUP_ADMIN_SUCCESS,
+  UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED,
+  UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS,
+  CHANGE_GROUP_NAME_REQUIRED,
+  CHANGE_GROUP_NAME_SUCCESS,
+  DELETE_GROUP_REQUIRED,
+  DELETE_GROUP_SUCCESS
+} from &apos;../action/group&apos;
 import {UPDATE_MEMBER_STATUS} from &apos;../action/board&apos;
 import {getApiBaseURL} from &apos;../module/environment&apos;
 import axios from &quot;axios&quot;;
@@ -198,8 +245,14 @@ const BASE_API_URL = getApiBaseURL();
 * @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
 */
 export function* groupSaga(){
-  //TODO group&#x95A2;&#x9023;&#x306E;&#x4ED6;&#x306E;Saga(CRUD)&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;fork&#x3059;&#x308B;
   yield fork(loadUserGroupsSaga);
+  yield fork(createGroupSaga);
+  yield fork(addMemberToGroupSaga);
+  yield fork(deleteMemberFromGroupSaga);
+  yield fork(setMemberAsGroupAdminSaga);
+  yield fork(unsetMemberAsGroupAdminSaga);
+  yield fork(changeGroupNameSaga);
+  yield fork(deleteGroupSaga);
 }
 
 /**
@@ -208,6 +261,13 @@ export function* groupSaga(){
 */
 export function* loadUserGroupsSaga(){
   yield takeEvery(UPDATE_MEMBER_STATUS,loadUserGroupsTask);
+  yield takeEvery(CREATE_GROUP_SUCCESS,loadUserGroupsTask);
+  yield takeEvery(ADD_MEMBER_TO_GROUP_SUCCESS,loadUserGroupsTask);
+  yield takeEvery(DELETE_MEMBER_FROM_GROUP_SUCCESS,loadUserGroupsTask);
+  yield takeEvery(SET_MEMBER_AS_GROUP_ADMIN_SUCCESS,loadUserGroupsTask);
+  yield takeEvery(UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS,loadUserGroupsTask);
+  yield takeEvery(CHANGE_GROUP_NAME_SUCCESS,loadUserGroupsTask);
+  yield takeEvery(DELETE_GROUP_SUCCESS,loadUserGroupsTask);
 }
 
 /**
@@ -260,6 +320,268 @@ export function* fetchMemberTask(group,token,logonUserId){
 }
 
 /**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x4F5C;&#x6210;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* createGroupSaga(){
+  yield takeEvery(CREATE_GROUP_REQUIRED,createGroupTask);
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x4F5C;&#x6210;&#x3092;API&#x3078;&#x8981;&#x6C42;&#x3059;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+* @param {Object} action CREATE_GROUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function* createGroupTask(action){
+  const token = yield select(state =&gt; state.login.user.token);
+  const groupName = action.payload.groupName;
+
+  try{
+    const result = yield call(
+      axios.post,
+      BASE_API_URL + &quot;group&quot;,
+      {&quot;groupname&quot;: groupName},
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}}
+    );
+
+    yield put(createGroupSuccess());
+  }catch(e){
+    yield put(createGroupFailure());
+  }
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* addMemberToGroupSaga(){
+  yield takeEvery(ADD_MEMBER_TO_GROUP_REQUIRED,addMemberToGroupTask);
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x3092;API&#x3078;&#x8981;&#x6C42;&#x3059;&#x308B;Task
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+* @param {Object} action  ADD_MEMBER_TO_GROUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function* addMemberToGroupTask(action){
+  const token = yield select(state =&gt; state.login.user.token);
+  const groupId = action.payload.groupId;
+  const memberId = action.payload.memberId;
+
+  const currentGroups = yield(state =&gt; state.group.allGroups);
+  const targetGroup = getGroupById(currentGroups,groupId);
+
+  const currentMemberIds = targetGroup.member.map(member =&gt; member.userid);
+  const nextMemberIds = currentMemberIds.concat([memberId]);
+
+  try{
+    const result = yield call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + groupId + &quot;/member&quot;,
+      {&quot;member&quot;: nextMemberIds},
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}}
+    );
+
+    yield put(addMemberToGroupSuccess());
+  }catch(e){
+    yield put(addMemberToGroupFailure());
+  }
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* deleteMemberFromGroupSaga(){
+  yield takeEvery(DELETE_MEMBER_FROM_GROUP_REQUIRED,deleteMemberFromGroupTask);
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x3092;API&#x306B;&#x8981;&#x6C42;&#x3059;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+* @param {Object} action DELETE_MEMBER_FROM_GROUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function* deleteMemberFromGroupTask(action){
+  const token = yield select(state =&gt; state.login.user.token);
+  const groupId = action.payload.groupId;
+  const memberId = action.payload.memberId;
+
+  const currentGroups = yield(state =&gt; state.group.allGroups);
+  const targetGroup = getGroupById(currentGroups,groupId);
+
+  const currentMemberIds = targetGroup.member.map(member =&gt; member.userid);
+  const nextMemberIds = currentMemberIds.filter(mid =&gt; mid !== memberId);
+
+  try{
+    const result = yield call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + groupId + &quot;/member&quot;,
+      {&quot;member&quot;: nextMemberIds},
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}}
+    );
+
+    yield put(deleteMemberFromGroupSuccess());
+  }catch(e){
+    yield put(deleteMemberFromGroupFailure());
+  }
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* setMemberAsGroupAdminSaga(){
+  yield takeEvery(SET_MEMBER_AS_GROUP_ADMIN_REQUIRED,setMemberAsGroupAdminTask);
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x3092;API&#x3078;&#x8981;&#x6C42;&#x3059;&#x308B;Task
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+* @param {Object} action SET_MEMBER_AS_GROUP_ADMIN_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function* setMemberAsGroupAdminTask(action){
+  const token = yield select(state =&gt; state.login.user.token);
+  const groupId = action.payload.groupId;
+  const memberId = action.payload.memberId;
+
+  const currentGroups = yield(state =&gt; state.group.allGroups);
+  const targetGroup = getGroupById(currentGroups,groupId);
+
+  const currentGroupName = targetGroup.name;
+
+  const currentAdmins = targetGroup.admin;
+  const nextAdmins = currentAdmins.concat([memberId]);
+
+  try{
+    const result = yield call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + groupId,
+      {
+        &quot;groupname&quot;: currentGroupName,
+        &quot;admin&quot; : nextAdmins
+      },
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}}
+    );
+
+    yield put(setMemberAsGroupAdminSuccess());
+  }catch(e){
+    yield put(setMemberAsGroupAdminFailure());
+  }
+}
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x524A;&#x9664;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* unsetMemberAsGroupAdminSaga(){
+  yield takeEvery(UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED,unsetMemberAsGroupAdminTask);
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x524A;&#x9664;&#x3092;API&#x306B;&#x8981;&#x6C42;&#x3059;&#x308B;Task
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+* @param {Object} action UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function* unsetMemberAsGroupAdminTask(action){
+  const token = yield select(state =&gt; state.login.user.token);
+  const groupId = action.payload.groupId;
+  const memberId = action.payload.memberId;
+
+  const currentGroups = yield(state =&gt; state.group.allGroups);
+  const targetGroup = getGroupById(currentGroups,groupId);
+
+  const currentGroupName = targetGroup.name;
+
+  const currentAdmins = targetGroup.admin;
+  const nextAdmins = currentAdmins.filter(mid =&gt; mid !== memberId);
+
+  try{
+    const result = yield call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + groupId,
+      {
+        &quot;groupname&quot;: currentGroupName,
+        &quot;admin&quot; : nextAdmins
+      },
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}}
+    );
+
+    yield put(unsetMemberAsGroupAdminSuccess());
+  }catch(e){
+    yield put(unsetMemberAsGroupAdminFailure());
+  }
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* changeGroupNameSaga(){
+  yield takeEvery(CHANGE_GROUP_NAME_REQUIRED,changeGroupNameTask);
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x306E;&#x5909;&#x66F4;&#x3092;API&#x3078;&#x8981;&#x6C42;&#x3059;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+* @param {Object} action CHANGE_GROUP_NAME_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function* changeGroupNameTask(action){
+  const token = yield select(state =&gt; state.login.user.token);
+  const groupId = action.payload.groupId;
+  const newGroupName = action.payload.newName;
+
+  const currentGroups = yield(state =&gt; state.group.allGroups);
+  const targetGroup = getGroupById(currentGroups,groupId);
+
+  const currentAdmins = targetGroup.admin;
+
+  try{
+    const result = yield call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + groupId,
+      {
+        &quot;groupname&quot;: newGroupName,
+        &quot;admin&quot; : currentAdmins
+      },
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}}
+    );
+
+    yield put(changeGroupNameSuccess());
+  }catch(e){
+    yield put(changeGroupNameFailure());
+  }
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* deleteGroupSaga(){
+  yield takeEvery(DELETE_GROUP_REQUIRED,deleteGroupTask);
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x524A;&#x9664;&#x3092;API&#x3078;&#x8981;&#x6C42;&#x3059;&#x308B;Task
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+* @param {Objecy} action DELETE_GROUP_REQUIRED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
+*/
+export function* deleteGroupTask(action){
+  const token = yield select(state =&gt; state.login.user.token);
+  const groupId = action.payload.groupId;
+
+  try{
+    const result = yield call(axios,{
+      method:&quot;DELETE&quot;,
+      url:BASE_API_URL + &quot;group/&quot; + groupId,
+      headers: { &quot;Authorization&quot;: &quot;Bearer &quot; + token}
+    });
+
+    yield put(deleteGroupSuccess());
+  }catch(e){
+    yield put(deleteGroupFailure());
+  }
+}
+
+/**
 * &#x30E1;&#x30F3;&#x30D0;&#x30FC;ID&#x306B;&#x7D10;&#x3065;&#x304F;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x72B6;&#x6CC1;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;
 * @param {array} memberStatus &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x72B6;&#x6CC1;&#x306E;&#x914D;&#x5217;
 * @param {String} memberId &#x53D6;&#x5F97;&#x3057;&#x305F;&#x3044;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;ID
@@ -268,6 +590,17 @@ export function* fetchMemberTask(group,token,logonUserId){
 function getMemberStatusById(memberStatus,memberId){
   const filteredMemberStatus = memberStatus.filter(member =&gt; member.userid === memberId);
   return filteredMemberStatus.length === 1 ? filteredMemberStatus[0] : undefined;
+}
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x914D;&#x5217;&#x306E;&#x4E2D;&#x304B;&#x3089;ID&#x306B;&#x7D10;&#x3065;&#x304F;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;
+* @param {array} groups &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x914D;&#x5217;
+* @param {String} groupId &#x53D6;&#x5F97;&#x3057;&#x305F;&#x3044;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;ID
+* @return {Object} &#x30B0;&#x30EB;&#x30FC;&#x30D7;ID&#x306B;&#x7D10;&#x3065;&#x304F;&#x30B0;&#x30EB;&#x30FC;&#x30D7;
+*/
+function getGroupById(groups, groupId){
+  const filteredGroups = groups.filter(group =&gt; group.id === groupId);
+  return filteredGroups.length === 1 ? filteredGroups[0] : undefined;
 }
 </code></pre>
 

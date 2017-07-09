@@ -155,10 +155,24 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusTask">loadMemberStatusTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addMemberToGroupSaga">addMemberToGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addMemberToGroupTask">addMemberToGroupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeGroupNameSaga">changeGroupNameSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeGroupNameTask">changeGroupNameTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createGroupSaga">createGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createGroupTask">createGroupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteGroupSaga">deleteGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteGroupTask">deleteGroupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteMemberFromGroupSaga">deleteMemberFromGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteMemberFromGroupTask">deleteMemberFromGroupTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchMemberTask">fetchMemberTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-groupSaga">groupSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadUserGroupsSaga">loadUserGroupsSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadUserGroupsTask">loadUserGroupsTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setMemberAsGroupAdminSaga">setMemberAsGroupAdminSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setMemberAsGroupAdminTask">setMemberAsGroupAdminTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unsetMemberAsGroupAdminSaga">unsetMemberAsGroupAdminSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unsetMemberAsGroupAdminTask">unsetMemberAsGroupAdminTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cleanRememberMeTask">cleanRememberMeTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFromRememberMeSaga">loginFromRememberMeSaga</a></span></span></li>
@@ -1426,14 +1440,14 @@
 
 
 <tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber12"><p>groupSaga</p>
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber71"><p>groupSaga</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-groupSaga">groupSaga</a></span></td>
   <td data-ice="testCount">1</td>
 </tr>
 
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber13"><p>forks loadUserGroupsSaga</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber72"><p>forks every group related sagas</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
@@ -1441,14 +1455,14 @@
 
 
 <tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber22"><p>loadUserGroupsSaga</p>
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber98"><p>loadUserGroupsSaga</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-loadUserGroupsSaga">loadUserGroupsSaga</a></span></td>
   <td data-ice="testCount">1</td>
 </tr>
 
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber23"><p>takes every UPDATE_MEMBER_STATUS action and pass it to loadUserGroupsTask</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber99"><p>takes every UPDATE_MEMBER_STATUS action and XXX_SUCCESS actions and pass it to loadUserGroupsTask</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
@@ -1456,14 +1470,14 @@
 
 
 <tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber32"><p>loadUserGroupsTask</p>
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber125"><p>loadUserGroupsTask</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-loadUserGroupsTask">loadUserGroupsTask</a></span></td>
   <td data-ice="testCount">1</td>
 </tr>
 
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber33"><p>puts GROUPS_LOADED action with API Result and calls fetchMemberTask for each groups</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber126"><p>puts GROUPS_LOADED action with API Result and calls fetchMemberTask for each groups</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>
@@ -1471,14 +1485,266 @@
 
 
 <tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber81"><p>fetchMemberTask</p>
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber174"><p>fetchMemberTask</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-fetchMemberTask">fetchMemberTask</a></span></td>
   <td data-ice="testCount">1</td>
 </tr>
 
 <tr data-ice="testIt" style="display: none;" data-test-depth="1">
-  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber82"><p>puts GROUP_MEMBER_LOADED action with API Result</p>
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber175"><p>puts GROUP_MEMBER_LOADED action with API Result</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber219"><p>createGroupSaga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-createGroupSaga">createGroupSaga</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber220"><p>takes every CREATE_GROUP_REQUIRED action and pass it to createGroupTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber232"><p>createGroupTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-createGroupTask">createGroupTask</a></span></td>
+  <td data-ice="testCount">2</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber233"><p>puts CREATE_GROUP_SUCCESS action if server side api returns success</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber262"><p>puts CREATE_GROUP_FAILURE action if server side api returns failure</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber292"><p>addMemberToGroupSaga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-addMemberToGroupSaga">addMemberToGroupSaga</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber293"><p>takes every ADD_MEMBER_TO_GROUP_REQUIRED action and pass it to addMemberToGroupTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber305"><p>addMemberToGroupTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-addMemberToGroupTask">addMemberToGroupTask</a></span></td>
+  <td data-ice="testCount">2</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber306"><p>puts ADD_MEMBER_TO_GROUP_SUCCESS action if server side api returns success</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber365"><p>puts ADD_MEMBER_TO_GROUP_FAILURE action if server side api returns failure</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber426"><p>deleteMemberFromGroupSaga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-deleteMemberFromGroupSaga">deleteMemberFromGroupSaga</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber427"><p>takes every DELETE_MEMBER_FROM_GROUP_REQUIRED action and pass it to deleteMemberFromGroupTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber439"><p>deleteMemberFromGroupTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-deleteMemberFromGroupTask">deleteMemberFromGroupTask</a></span></td>
+  <td data-ice="testCount">2</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber440"><p>puts DELETE_MEMBER_FROM_GROUP_SUCCESS action if server side api returns success</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber497"><p>puts DELETE_MEMBER_FROM_GROUP_FAILURE action if server side api returns failure</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber557"><p>setMemberAsGroupAdminSaga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-setMemberAsGroupAdminSaga">setMemberAsGroupAdminSaga</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber558"><p>takes every SET_MEMBER_AS_GROUP_ADMIN_REQUIRED action and pass it to setMemberAsGroupAdminTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber570"><p>setMemberAsGroupAdminTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-setMemberAsGroupAdminTask">setMemberAsGroupAdminTask</a></span></td>
+  <td data-ice="testCount">2</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber571"><p>puts SET_MEMBER_AS_GROUP_ADMIN_SUCCESS action if server side api returns success</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber629"><p>puts SET_MEMBER_AS_GROUP_ADMIN_FAILURE action if server side api returns failure</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber690"><p>unsetMemberAsGroupAdminSaga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-unsetMemberAsGroupAdminSaga">unsetMemberAsGroupAdminSaga</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber691"><p>takes every UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED action and pass it to unsetMemberAsGroupAdminTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber703"><p>unsetMemberAsGroupAdminTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-unsetMemberAsGroupAdminTask">unsetMemberAsGroupAdminTask</a></span></td>
+  <td data-ice="testCount">2</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber704"><p>puts UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS action if server side api returns success</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber762"><p>puts UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE action if server side api returns failure</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber823"><p>changeGroupNameSaga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-changeGroupNameSaga">changeGroupNameSaga</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber824"><p>takes every CHANGE_GROUP_NAME_REQUIRED action and pass it to changeGroupNameTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber836"><p>changeGroupNameTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-changeGroupNameTask">changeGroupNameTask</a></span></td>
+  <td data-ice="testCount">2</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber837"><p>puts CHANGE_GROUP_NAME_SUCCESS action if server side api returns success</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber895"><p>puts CHANGE_GROUP_NAME_FAILURE action if server side api returns failure</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber956"><p>deleteGroupSaga</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-deleteGroupSaga">deleteGroupSaga</a></span></td>
+  <td data-ice="testCount">1</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber957"><p>takes every DELETE_GROUP_REQUIRED action and pass it to deleteGroupTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+
+
+<tr class="test-describe" data-ice="testDescribe" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span class="toggle closed"></span><span><a href="test-file/test/saga/group.test.js.html#lineNumber969"><p>deleteGroupTask</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-deleteGroupTask">deleteGroupTask</a></span></td>
+  <td data-ice="testCount">2</td>
+</tr>
+
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber970"><p>puts DELETE_GROUP_SUCCESS action if server side api returns success</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+  <td></td>
+</tr>
+<tr data-ice="testIt" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/saga/group.test.js.html#lineNumber996"><p>puts DELETE_GROUP_FAILURE action if server side api returns failure</p>
 </a></span></td>
   <td data-ice="testTarget" class="test-target">-</td>
   <td></td>

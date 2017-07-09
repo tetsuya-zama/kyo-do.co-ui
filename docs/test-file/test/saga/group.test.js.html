@@ -155,10 +155,24 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusSaga">loadMemberStatusSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadMemberStatusTask">loadMemberStatusTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watchMemberStatusSaga">watchMemberStatusSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addMemberToGroupSaga">addMemberToGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addMemberToGroupTask">addMemberToGroupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeGroupNameSaga">changeGroupNameSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeGroupNameTask">changeGroupNameTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createGroupSaga">createGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createGroupTask">createGroupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteGroupSaga">deleteGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteGroupTask">deleteGroupTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteMemberFromGroupSaga">deleteMemberFromGroupSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteMemberFromGroupTask">deleteMemberFromGroupTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchMemberTask">fetchMemberTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-groupSaga">groupSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadUserGroupsSaga">loadUserGroupsSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadUserGroupsTask">loadUserGroupsTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setMemberAsGroupAdminSaga">setMemberAsGroupAdminSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setMemberAsGroupAdminTask">setMemberAsGroupAdminTask</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unsetMemberAsGroupAdminSaga">unsetMemberAsGroupAdminSaga</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unsetMemberAsGroupAdminTask">unsetMemberAsGroupAdminTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cleanRememberMeTask">cleanRememberMeTask</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFailureSaga">loginFailureSaga</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loginFromRememberMeSaga">loginFromRememberMeSaga</a></span></span></li>
@@ -183,9 +197,68 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">test/saga/group.test.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &quot;power-assert&quot;;
-import {groupSaga,loadUserGroupsSaga,loadUserGroupsTask,fetchMemberTask} from &apos;../../src/saga/group&apos;;
-import {groupsLoaded,groupMemberLoaded} from &apos;../../src/action/group&apos;;
+import {
+  groupSaga,
+  loadUserGroupsSaga,
+  loadUserGroupsTask,
+  fetchMemberTask,
+  createGroupSaga,
+  createGroupTask,
+  addMemberToGroupSaga,
+  addMemberToGroupTask,
+  deleteMemberFromGroupSaga,
+  deleteMemberFromGroupTask,
+  setMemberAsGroupAdminSaga,
+  setMemberAsGroupAdminTask,
+  unsetMemberAsGroupAdminSaga,
+  unsetMemberAsGroupAdminTask,
+  changeGroupNameSaga,
+  changeGroupNameTask,
+  deleteGroupSaga,
+  deleteGroupTask
+} from &apos;../../src/saga/group&apos;;
+import {
+  groupsLoaded,
+  groupMemberLoaded,
+  createGroupRequired,
+  createGroupSuccess,
+  createGroupFailure,
+  addMemberToGroupRequired,
+  addMemberToGroupSuccess,
+  addMemberToGroupFailure,
+  deleteMemberFromGroupRequired,
+  deleteMemberFromGroupSuccess,
+  deleteMemberFromGroupFailure,
+  setMemberAsGroupAdminRequired,
+  setMemberAsGroupAdminSuccess,
+  setMemberAsGroupAdminFailure,
+  unsetMemberAsGroupAdminRequired,
+  unsetMemberAsGroupAdminSuccess,
+  unsetMemberAsGroupAdminFailure,
+  changeGroupNameRequired,
+  changeGroupNameSuccess,
+  changeGroupNameFailure,
+  deleteGroupRequired,
+  deleteGroupSuccess,
+  deleteGroupFailure
+} from &apos;../../src/action/group&apos;;
 import {UPDATE_MEMBER_STATUS} from &apos;../../src/action/board&apos;;
+import {
+  CREATE_GROUP_REQUIRED,
+  CREATE_GROUP_SUCCESS,
+  ADD_MEMBER_TO_GROUP_REQUIRED,
+  ADD_MEMBER_TO_GROUP_SUCCESS,
+  DELETE_MEMBER_FROM_GROUP_REQUIRED,
+  DELETE_MEMBER_FROM_GROUP_SUCCESS,
+  SET_MEMBER_AS_GROUP_ADMIN_REQUIRED,
+  SET_MEMBER_AS_GROUP_ADMIN_SUCCESS,
+  UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED,
+  UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS,
+  CHANGE_GROUP_NAME_REQUIRED,
+  CHANGE_GROUP_NAME_SUCCESS,
+  DELETE_GROUP_REQUIRED,
+  DELETE_GROUP_SUCCESS
+} from &apos;../../src/action/group&apos;;
 import {take,put,select,takeEvery,call,fork} from &apos;redux-saga/effects&apos;;
 import {getApiBaseURL} from  &apos;../../src/module/environment&apos;;
 import axios from &quot;axios&quot;;
@@ -194,21 +267,55 @@ const BASE_API_URL = getApiBaseURL();
 
 /**@test {groupSaga}*/
 describe(&quot;groupSaga&quot;,()=&gt;{
-  it(&quot;forks loadUserGroupsSaga&quot;,()=&gt;{
+  it(&quot;forks every group related sagas&quot;,()=&gt;{
     const gen = groupSaga();
 
     let ret = gen.next();
     assert.deepEqual(ret.value,fork(loadUserGroupsSaga));
+    ret = gen.next();
+    assert.deepEqual(ret.value,fork(createGroupSaga));
+    ret = gen.next();
+    assert.deepEqual(ret.value,fork(addMemberToGroupSaga));
+    ret = gen.next();
+    assert.deepEqual(ret.value,fork(deleteMemberFromGroupSaga));
+    ret = gen.next();
+    assert.deepEqual(ret.value,fork(setMemberAsGroupAdminSaga));
+    ret = gen.next();
+    assert.deepEqual(ret.value,fork(unsetMemberAsGroupAdminSaga));
+    ret = gen.next();
+    assert.deepEqual(ret.value,fork(changeGroupNameSaga));
+    ret = gen.next();
+    assert.deepEqual(ret.value,fork(deleteGroupSaga));
+    ret = gen.next();
+
+    assert(ret.done);
   });
 });
 
 /**@test {loadUserGroupsSaga} */
 describe(&quot;loadUserGroupsSaga&quot;,()=&gt;{
-  it(&quot;takes every UPDATE_MEMBER_STATUS action and pass it to loadUserGroupsTask&quot;,()=&gt;{
+  it(&quot;takes every UPDATE_MEMBER_STATUS action and XXX_SUCCESS actions and pass it to loadUserGroupsTask&quot;,()=&gt;{
     const gen = loadUserGroupsSaga();
 
     let ret = gen.next();
     assert.deepEqual(ret.value, takeEvery(UPDATE_MEMBER_STATUS,loadUserGroupsTask));
+    ret = gen.next();
+    assert.deepEqual(ret.value, takeEvery(CREATE_GROUP_SUCCESS,loadUserGroupsTask));
+    ret = gen.next();
+    assert.deepEqual(ret.value, takeEvery(ADD_MEMBER_TO_GROUP_SUCCESS,loadUserGroupsTask));
+    ret = gen.next();
+    assert.deepEqual(ret.value, takeEvery(DELETE_MEMBER_FROM_GROUP_SUCCESS,loadUserGroupsTask));
+    ret = gen.next();
+    assert.deepEqual(ret.value, takeEvery(SET_MEMBER_AS_GROUP_ADMIN_SUCCESS,loadUserGroupsTask));
+    ret = gen.next();
+    assert.deepEqual(ret.value, takeEvery(UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS,loadUserGroupsTask));
+    ret = gen.next();
+    assert.deepEqual(ret.value, takeEvery(CHANGE_GROUP_NAME_SUCCESS,loadUserGroupsTask));
+    ret = gen.next();
+    assert.deepEqual(ret.value, takeEvery(DELETE_GROUP_SUCCESS,loadUserGroupsTask));
+    ret = gen.next();
+
+    assert(ret.done);
   });
 });
 
@@ -302,6 +409,812 @@ describe(&quot;fetchMemberTask&quot;,()=&gt;{
     assert.deepEqual(ret.value, put(groupMemberLoaded(Object.assign({},dummyGroup,{member:dummyMemberStatus}),dummyLogonUserId)))
 
     ret = gen.next();
+    assert(ret.done);
+  });
+});
+
+/**@test {createGroupSaga} */
+describe(&quot;createGroupSaga&quot;,()=&gt;{
+  it(&quot;takes every CREATE_GROUP_REQUIRED action and pass it to createGroupTask&quot;,()=&gt;{
+    const gen = createGroupSaga();
+    let ret = gen.next();
+
+    assert.deepEqual(ret.value, takeEvery(CREATE_GROUP_REQUIRED,createGroupTask));
+
+    ret = gen.next();
+    assert(ret.done);
+  });
+});
+
+/**@test {createGroupTask} */
+describe(&quot;createGroupTask&quot;,()=&gt;{
+  it(&quot;puts CREATE_GROUP_SUCCESS action if server side api returns success&quot;,()=&gt;{
+    const dummyGroupName = &quot;test group name&quot;;
+    const dummyAction = createGroupRequired(dummyGroupName);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = createGroupTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    assert.deepEqual(ret.value,call(
+      axios.post,
+      BASE_API_URL + &quot;group&quot;,
+      {&quot;groupname&quot;: dummyGroupName},
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.next(JSON.stringify({
+      &quot;message&quot;: &quot;ok&quot;,
+      &quot;groupId&quot;: &quot;g0001&quot;
+    }));
+
+    assert.deepEqual(ret.value,put(createGroupSuccess()));
+
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+
+  it(&quot;puts CREATE_GROUP_FAILURE action if server side api returns failure&quot;,()=&gt;{
+    const dummyGroupName = &quot;test group name&quot;;
+    const dummyAction = createGroupRequired(dummyGroupName);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = createGroupTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    assert.deepEqual(ret.value,call(
+      axios.post,
+      BASE_API_URL + &quot;group&quot;,
+      {&quot;groupname&quot;: dummyGroupName},
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.throw(new Error(JSON.stringify({
+      &quot;message&quot;: &quot;user post is faild&quot;
+    })));
+
+    assert.deepEqual(ret.value,put(createGroupFailure()));
+
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+});
+
+/**@test {addMemberToGroupSaga}*/
+describe(&quot;addMemberToGroupSaga&quot;,()=&gt;{
+  it(&quot;takes every ADD_MEMBER_TO_GROUP_REQUIRED action and pass it to addMemberToGroupTask&quot;,()=&gt;{
+    const gen = addMemberToGroupSaga();
+    let ret = gen.next();
+
+    assert.deepEqual(ret.value, takeEvery(ADD_MEMBER_TO_GROUP_REQUIRED,addMemberToGroupTask));
+
+    ret = gen.next();
+    assert(ret.done);
+  });
+});
+
+/**@test {addMemberToGroupTask}*/
+describe(&quot;addMemberToGroupTask&quot;,()=&gt;{
+  it(&quot;puts ADD_MEMBER_TO_GROUP_SUCCESS action if server side api returns success&quot;,()=&gt;{
+    const dummyCurrentGroups = [
+      {
+        &quot;id&quot;: &quot;g0001&quot;,
+        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot;: [
+          &quot;testA&quot;,
+          &quot;testB&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      },
+      {
+        &quot;id&quot;: &quot;g0002&quot;,
+        &quot;name&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot;: [
+          &quot;testC&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      }
+    ];
+
+    const dummyTargetGroupId = &quot;g0001&quot;;
+    const dummyTargetMemberId = &quot;testC&quot;;
+    const dummyAction = addMemberToGroupRequired(dummyTargetGroupId,dummyTargetMemberId);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = addMemberToGroupTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    ret = gen.next(dummyCurrentGroups);
+
+    assert.deepEqual(ret.value,call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId + &quot;/member&quot;,
+      {&quot;member&quot;: [
+        &quot;testA&quot;,
+        &quot;testB&quot;,
+        dummyTargetMemberId
+      ]},
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.next(JSON.stringify(
+      {
+        &quot;message&quot;: &quot;ok&quot;
+      }
+    ));
+
+    assert.deepEqual(ret.value,put(addMemberToGroupSuccess()));
+  });
+
+  it(&quot;puts ADD_MEMBER_TO_GROUP_FAILURE action if server side api returns failure&quot;,()=&gt;{
+    const dummyCurrentGroups = [
+      {
+        &quot;id&quot;: &quot;g0001&quot;,
+        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot;: [
+          &quot;testA&quot;,
+          &quot;testB&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      },
+      {
+        &quot;id&quot;: &quot;g0002&quot;,
+        &quot;name&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot;: [
+          &quot;testC&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      }
+    ];
+
+    const dummyTargetGroupId = &quot;g0001&quot;;
+    const dummyTargetMemberId = &quot;testC&quot;;
+    const dummyAction = addMemberToGroupRequired(dummyTargetGroupId,dummyTargetMemberId);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = addMemberToGroupTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    ret = gen.next(dummyCurrentGroups);
+
+    assert.deepEqual(ret.value,call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId + &quot;/member&quot;,
+      {&quot;member&quot;: [
+        &quot;testA&quot;,
+        &quot;testB&quot;,
+        dummyTargetMemberId
+      ]},
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.throw(new Error(JSON.stringify(
+      {
+        &quot;message&quot;: &quot;invalid token&quot;
+      }
+    )));
+
+    assert.deepEqual(ret.value,put(addMemberToGroupFailure()));
+  });
+});
+
+/**@test {deleteMemberFromGroupSaga}*/
+describe(&quot;deleteMemberFromGroupSaga&quot;,()=&gt;{
+  it(&quot;takes every DELETE_MEMBER_FROM_GROUP_REQUIRED action and pass it to deleteMemberFromGroupTask&quot;,()=&gt;{
+    const gen = deleteMemberFromGroupSaga();
+    let ret = gen.next();
+
+    assert.deepEqual(ret.value,takeEvery(DELETE_MEMBER_FROM_GROUP_REQUIRED,deleteMemberFromGroupTask));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+});
+
+/**@test {deleteMemberFromGroupTask}*/
+describe(&quot;deleteMemberFromGroupTask&quot;,()=&gt;{
+  it(&quot;puts DELETE_MEMBER_FROM_GROUP_SUCCESS action if server side api returns success&quot;,()=&gt;{
+    const dummyCurrentGroups = [
+      {
+        &quot;id&quot;: &quot;g0001&quot;,
+        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot;: [
+          &quot;testA&quot;,
+          &quot;testB&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      },
+      {
+        &quot;id&quot;: &quot;g0002&quot;,
+        &quot;name&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot;: [
+          &quot;testC&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      }
+    ];
+
+    const dummyTargetGroupId = &quot;g0002&quot;;
+    const dummyTargetMemberId = &quot;testD&quot;;
+    const dummyAction = deleteMemberFromGroupRequired(dummyTargetGroupId,dummyTargetMemberId);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = deleteMemberFromGroupTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    ret = gen.next(dummyCurrentGroups);
+
+    assert.deepEqual(ret.value,call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId + &quot;/member&quot;,
+      {&quot;member&quot;: [&quot;testC&quot;]},
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.next(JSON.stringify(
+      {
+        &quot;message&quot;:&quot;ok&quot;
+      }
+    ));
+
+    assert.deepEqual(ret.value,put(deleteMemberFromGroupSuccess()));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+  it(&quot;puts DELETE_MEMBER_FROM_GROUP_FAILURE action if server side api returns failure&quot;,()=&gt;{
+    const dummyCurrentGroups = [
+      {
+        &quot;id&quot;: &quot;g0001&quot;,
+        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot;: [
+          &quot;testA&quot;,
+          &quot;testB&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      },
+      {
+        &quot;id&quot;: &quot;g0002&quot;,
+        &quot;name&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot;: [
+          &quot;testC&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      }
+    ];
+
+    const dummyTargetGroupId = &quot;g0002&quot;;
+    const dummyTargetMemberId = &quot;testD&quot;;
+    const dummyAction = deleteMemberFromGroupRequired(dummyTargetGroupId,dummyTargetMemberId);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = deleteMemberFromGroupTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    ret = gen.next(dummyCurrentGroups);
+
+    assert.deepEqual(ret.value,call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId + &quot;/member&quot;,
+      {&quot;member&quot;: [&quot;testC&quot;]},
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.throw(new Error(JSON.stringify(
+      {
+        &quot;message&quot;:&quot;invalid token&quot;
+      }
+    )));
+
+    assert.deepEqual(ret.value,put(deleteMemberFromGroupFailure()));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+});
+
+/**@test {setMemberAsGroupAdminSaga}*/
+describe(&quot;setMemberAsGroupAdminSaga&quot;,()=&gt;{
+  it(&quot;takes every SET_MEMBER_AS_GROUP_ADMIN_REQUIRED action and pass it to setMemberAsGroupAdminTask&quot;,()=&gt;{
+    const gen = setMemberAsGroupAdminSaga();
+    let ret = gen.next();
+
+    assert.deepEqual(ret.value, takeEvery(SET_MEMBER_AS_GROUP_ADMIN_REQUIRED,setMemberAsGroupAdminTask));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+});
+
+/**@test {setMemberAsGroupAdminTask}*/
+describe(&quot;setMemberAsGroupAdminTask&quot;,()=&gt;{
+  it(&quot;puts SET_MEMBER_AS_GROUP_ADMIN_SUCCESS action if server side api returns success&quot;,()=&gt;{
+    const dummyCurrentGroups = [
+      {
+        &quot;id&quot;: &quot;g0001&quot;,
+        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot;: [
+          &quot;testA&quot;,
+          &quot;testB&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      },
+      {
+        &quot;id&quot;: &quot;g0002&quot;,
+        &quot;name&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot;: [
+          &quot;testC&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      }
+    ];
+
+    const dummyTargetGroupId = &quot;g0002&quot;;
+    const dummyTargetMemberId = &quot;testD&quot;;
+    const dummyAction = setMemberAsGroupAdminRequired(dummyTargetGroupId,dummyTargetMemberId);
+
+    const dummyToken = &quot;dummyToken&quot;;
+
+    const gen = setMemberAsGroupAdminTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    ret = gen.next(dummyCurrentGroups);
+
+    assert.deepEqual(ret.value,call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId,
+      {
+        &quot;groupname&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot; : [&quot;testC&quot;,dummyTargetMemberId]
+      },
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.next(JSON.stringify(
+      {&quot;message&quot;:&quot;ok&quot;}
+    ));
+
+    assert.deepEqual(ret.value, put(setMemberAsGroupAdminSuccess()));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+  it(&quot;puts SET_MEMBER_AS_GROUP_ADMIN_FAILURE action if server side api returns failure&quot;,()=&gt;{
+    const dummyCurrentGroups = [
+      {
+        &quot;id&quot;: &quot;g0001&quot;,
+        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot;: [
+          &quot;testA&quot;,
+          &quot;testB&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      },
+      {
+        &quot;id&quot;: &quot;g0002&quot;,
+        &quot;name&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot;: [
+          &quot;testC&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      }
+    ];
+
+    const dummyTargetGroupId = &quot;g0002&quot;;
+    const dummyTargetMemberId = &quot;testD&quot;;
+    const dummyAction = setMemberAsGroupAdminRequired(dummyTargetGroupId,dummyTargetMemberId);
+
+    const dummyToken = &quot;dummyToken&quot;;
+
+    const gen = setMemberAsGroupAdminTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    ret = gen.next(dummyCurrentGroups);
+
+    assert.deepEqual(ret.value,call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId,
+      {
+        &quot;groupname&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot; : [&quot;testC&quot;,dummyTargetMemberId]
+      },
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.throw(new Error(JSON.stringify(
+      {&quot;message&quot;:&quot;invalid token&quot;}
+    )));
+
+    assert.deepEqual(ret.value, put(setMemberAsGroupAdminFailure()));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+});
+
+/**@test {unsetMemberAsGroupAdminSaga}*/
+describe(&quot;unsetMemberAsGroupAdminSaga&quot;,()=&gt;{
+  it(&quot;takes every UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED action and pass it to unsetMemberAsGroupAdminTask&quot;,()=&gt;{
+    const gen = unsetMemberAsGroupAdminSaga();
+    let ret = gen.next();
+
+    assert.deepEqual(ret.value, takeEvery(UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED,unsetMemberAsGroupAdminTask));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+});
+
+/**@test {unsetMemberAsGroupAdminTask}*/
+describe(&quot;unsetMemberAsGroupAdminTask&quot;,()=&gt;{
+  it(&quot;puts UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS action if server side api returns success&quot;,()=&gt;{
+    const dummyCurrentGroups = [
+      {
+        &quot;id&quot;: &quot;g0001&quot;,
+        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot;: [
+          &quot;testA&quot;,
+          &quot;testB&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      },
+      {
+        &quot;id&quot;: &quot;g0002&quot;,
+        &quot;name&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot;: [
+          &quot;testC&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      }
+    ];
+
+    const dummyTargetGroupId = &quot;g0001&quot;;
+    const dummyTargetMemberId = &quot;testA&quot;;
+    const dummyAction = unsetMemberAsGroupAdminRequired(dummyTargetGroupId,dummyTargetMemberId);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = unsetMemberAsGroupAdminTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    ret = gen.next(dummyCurrentGroups);
+
+    assert.deepEqual(ret.value,call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId,
+      {
+        &quot;groupname&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot; : [&quot;testB&quot;]
+      },
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.next(JSON.stringify(
+      {&quot;message&quot;:&quot;ok&quot;}
+    ));
+
+    assert(ret.value, put(unsetMemberAsGroupAdminSuccess()));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+  it(&quot;puts UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE action if server side api returns failure&quot;,()=&gt;{
+    const dummyCurrentGroups = [
+      {
+        &quot;id&quot;: &quot;g0001&quot;,
+        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot;: [
+          &quot;testA&quot;,
+          &quot;testB&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      },
+      {
+        &quot;id&quot;: &quot;g0002&quot;,
+        &quot;name&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot;: [
+          &quot;testC&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      }
+    ];
+
+    const dummyTargetGroupId = &quot;g0001&quot;;
+    const dummyTargetMemberId = &quot;testA&quot;;
+    const dummyAction = unsetMemberAsGroupAdminRequired(dummyTargetGroupId,dummyTargetMemberId);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = unsetMemberAsGroupAdminTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    ret = gen.next(dummyCurrentGroups);
+
+    assert.deepEqual(ret.value,call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId,
+      {
+        &quot;groupname&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot; : [&quot;testB&quot;]
+      },
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.throw(new Error(JSON.stringify(
+      {&quot;message&quot;:&quot;invalid token&quot;}
+    )));
+
+    assert(ret.value, put(unsetMemberAsGroupAdminFailure()));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+});
+
+/**@test {changeGroupNameSaga}*/
+describe(&quot;changeGroupNameSaga&quot;,()=&gt;{
+  it(&quot;takes every CHANGE_GROUP_NAME_REQUIRED action and pass it to changeGroupNameTask&quot;,()=&gt;{
+    const gen = changeGroupNameSaga();
+    let ret = gen.next();
+
+    assert(ret.value, takeEvery(CHANGE_GROUP_NAME_REQUIRED, changeGroupNameTask));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+});
+
+/**@test {changeGroupNameTask}*/
+describe(&quot;changeGroupNameTask&quot;,()=&gt;{
+  it(&quot;puts CHANGE_GROUP_NAME_SUCCESS action if server side api returns success&quot;,()=&gt;{
+    const dummyCurrentGroups = [
+      {
+        &quot;id&quot;: &quot;g0001&quot;,
+        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot;: [
+          &quot;testA&quot;,
+          &quot;testB&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      },
+      {
+        &quot;id&quot;: &quot;g0002&quot;,
+        &quot;name&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot;: [
+          &quot;testC&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      }
+    ];
+
+    const dummyTargetGroupId = &quot;g0001&quot;;
+    const dummyNewGroupName = &quot;groupname1 updated&quot;;
+    const dummyAction = changeGroupNameRequired(dummyTargetGroupId,dummyNewGroupName);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = changeGroupNameTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    ret = gen.next(dummyCurrentGroups);
+
+    assert.deepEqual(ret.value,call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId,
+      {
+        &quot;groupname&quot;: dummyNewGroupName,
+        &quot;admin&quot; : [&quot;testA&quot;,&quot;testB&quot;]
+      },
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.next(JSON.stringify(
+      {&quot;message&quot;:&quot;ok&quot;}
+    ));
+
+    assert.deepEqual(ret.value, put(changeGroupNameSuccess()));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+  it(&quot;puts CHANGE_GROUP_NAME_FAILURE action if server side api returns failure&quot;,()=&gt;{
+    const dummyCurrentGroups = [
+      {
+        &quot;id&quot;: &quot;g0001&quot;,
+        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;admin&quot;: [
+          &quot;testA&quot;,
+          &quot;testB&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testA&quot;,name:&quot;A&#x3055;&#x3093;&quot;,inBusiness:false,comment:&quot;&quot;,contact:&quot;090-XXX-XXXX&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testB&quot;,name:&quot;B&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x5728;&#x5B85;&#x52E4;&#x52D9;&quot;,contact:&quot;090-YYY-YYYY&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      },
+      {
+        &quot;id&quot;: &quot;g0002&quot;,
+        &quot;name&quot;: &quot;groupname2&quot;,
+        &quot;admin&quot;: [
+          &quot;testC&quot;
+        ],
+        &quot;member&quot;:[
+          {userid:&quot;testC&quot;,name:&quot;C&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x4EAC;&#x6A4B;&quot;,contact:&quot;&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;},
+          {userid:&quot;testD&quot;,name:&quot;D&#x3055;&#x3093;&quot;,inBusiness:true,comment:&quot;&#x81EA;&#x5E2D;&quot;,contact:&quot;090-ZZZZ-ZZZZ&quot;,lastUpdate:&quot;2017/05/01 10:00:00&quot;}
+        ]
+      }
+    ];
+
+    const dummyTargetGroupId = &quot;g0001&quot;;
+    const dummyNewGroupName = &quot;groupname1 updated&quot;;
+    const dummyAction = changeGroupNameRequired(dummyTargetGroupId,dummyNewGroupName);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = changeGroupNameTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+    ret = gen.next(dummyCurrentGroups);
+
+    assert.deepEqual(ret.value,call(
+      axios.put,
+      BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId,
+      {
+        &quot;groupname&quot;: dummyNewGroupName,
+        &quot;admin&quot; : [&quot;testA&quot;,&quot;testB&quot;]
+      },
+      {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + dummyToken}}
+    ));
+
+    ret = gen.throw(new Error(JSON.stringify(
+      {&quot;message&quot;:&quot;invalid token&quot;}
+    )));
+
+    assert.deepEqual(ret.value, put(changeGroupNameFailure()));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+});
+
+/**@test {deleteGroupSaga}*/
+describe(&quot;deleteGroupSaga&quot;,()=&gt;{
+  it(&quot;takes every DELETE_GROUP_REQUIRED action and pass it to deleteGroupTask&quot;,()=&gt;{
+    const gen = deleteGroupSaga();
+    let ret = gen.next();
+
+    assert.deepEqual(ret.value, takeEvery(DELETE_GROUP_REQUIRED,deleteGroupTask));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+});
+
+/**@test {deleteGroupTask}*/
+describe(&quot;deleteGroupTask&quot;,()=&gt;{
+  it(&quot;puts DELETE_GROUP_SUCCESS action if server side api returns success&quot;,()=&gt;{
+    const dummyTargetGroupId = &quot;g0001&quot;;
+    const dummyAction = deleteGroupRequired(dummyTargetGroupId);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = deleteGroupTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+
+    assert.deepEqual(ret.value,call(axios,{
+      method:&quot;DELETE&quot;,
+      url:BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId,
+      headers: { &quot;Authorization&quot;: &quot;Bearer &quot; + dummyToken}
+    }));
+
+    ret = gen.next(JSON.stringify(
+      {&quot;message&quot;:&quot;ok&quot;}
+    ));
+
+    assert.deepEqual(ret.value,put(deleteGroupSuccess()));
+    ret = gen.next();
+
+    assert(ret.done);
+  });
+  it(&quot;puts DELETE_GROUP_FAILURE action if server side api returns failure&quot;,()=&gt;{
+    const dummyTargetGroupId = &quot;g0001&quot;;
+    const dummyAction = deleteGroupRequired(dummyTargetGroupId);
+
+    const dummyToken = &quot;dummytoken&quot;;
+
+    const gen = deleteGroupTask(dummyAction);
+    let ret = gen.next();
+
+    ret = gen.next(dummyToken);
+
+    assert.deepEqual(ret.value,call(axios,{
+      method:&quot;DELETE&quot;,
+      url:BASE_API_URL + &quot;group/&quot; + dummyTargetGroupId,
+      headers: { &quot;Authorization&quot;: &quot;Bearer &quot; + dummyToken}
+    }));
+
+    ret = gen.throw(new Error(JSON.stringify(
+      {&quot;message&quot;:&quot;ok&quot;}
+    )));
+
+    assert.deepEqual(ret.value,put(deleteGroupFailure()));
+    ret = gen.next();
+
     assert(ret.done);
   });
 });

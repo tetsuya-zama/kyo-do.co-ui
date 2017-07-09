@@ -582,9 +582,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/group.js~addmembertogroupsaga",
+    "function/index.html#static-function-addMemberToGroupSaga",
+    "<span>addMemberToGroupSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/group.js~addmembertogroupsuccess",
     "function/index.html#static-function-addMemberToGroupSuccess",
     "<span>addMemberToGroupSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/group.js~addmembertogrouptask",
+    "function/index.html#static-function-addMemberToGroupTask",
+    "<span>addMemberToGroupTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
     "function"
   ],
   [
@@ -654,9 +666,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/group.js~changegroupnamesaga",
+    "function/index.html#static-function-changeGroupNameSaga",
+    "<span>changeGroupNameSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/group.js~changegroupnamesuccess",
     "function/index.html#static-function-changeGroupNameSuccess",
     "<span>changeGroupNameSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/group.js~changegroupnametask",
+    "function/index.html#static-function-changeGroupNameTask",
+    "<span>changeGroupNameTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
     "function"
   ],
   [
@@ -714,9 +738,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/group.js~creategroupsaga",
+    "function/index.html#static-function-createGroupSaga",
+    "<span>createGroupSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/group.js~creategroupsuccess",
     "function/index.html#static-function-createGroupSuccess",
     "<span>createGroupSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/group.js~creategrouptask",
+    "function/index.html#static-function-createGroupTask",
+    "<span>createGroupTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
     "function"
   ],
   [
@@ -732,9 +768,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/group.js~deletegroupsaga",
+    "function/index.html#static-function-deleteGroupSaga",
+    "<span>deleteGroupSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/group.js~deletegroupsuccess",
     "function/index.html#static-function-deleteGroupSuccess",
     "<span>deleteGroupSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/group.js~deletegrouptask",
+    "function/index.html#static-function-deleteGroupTask",
+    "<span>deleteGroupTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
     "function"
   ],
   [
@@ -750,9 +798,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/group.js~deletememberfromgroupsaga",
+    "function/index.html#static-function-deleteMemberFromGroupSaga",
+    "<span>deleteMemberFromGroupSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/group.js~deletememberfromgroupsuccess",
     "function/index.html#static-function-deleteMemberFromGroupSuccess",
     "<span>deleteMemberFromGroupSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/group.js~deletememberfromgrouptask",
+    "function/index.html#static-function-deleteMemberFromGroupTask",
+    "<span>deleteMemberFromGroupTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
     "function"
   ],
   [
@@ -990,9 +1050,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/group.js~setmemberasgroupadminsaga",
+    "function/index.html#static-function-setMemberAsGroupAdminSaga",
+    "<span>setMemberAsGroupAdminSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/group.js~setmemberasgroupadminsuccess",
     "function/index.html#static-function-setMemberAsGroupAdminSuccess",
     "<span>setMemberAsGroupAdminSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/group.js~setmemberasgroupadmintask",
+    "function/index.html#static-function-setMemberAsGroupAdminTask",
+    "<span>setMemberAsGroupAdminTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
     "function"
   ],
   [
@@ -1062,9 +1134,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "kyo-do.co-ui/src/saga/group.js~unsetmemberasgroupadminsaga",
+    "function/index.html#static-function-unsetMemberAsGroupAdminSaga",
+    "<span>unsetMemberAsGroupAdminSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
+    "function"
+  ],
+  [
     "kyo-do.co-ui/src/action/group.js~unsetmemberasgroupadminsuccess",
     "function/index.html#static-function-unsetMemberAsGroupAdminSuccess",
     "<span>unsetMemberAsGroupAdminSuccess</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/group.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/group.js~unsetmemberasgroupadmintask",
+    "function/index.html#static-function-unsetMemberAsGroupAdminTask",
+    "<span>unsetMemberAsGroupAdminTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/group.js</span>",
     "function"
   ],
   [
@@ -1470,6 +1554,18 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "addmembertogroupsaga src/saga/group.js~addmembertogroupsaga,addmembertogroupsaga",
+    "test-file/test/saga/group.test.js.html#lineNumber292",
+    "addMemberToGroupSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber293",
+    "addMemberToGroupSaga takes every ADD_MEMBER_TO_GROUP_REQUIRED action and pass it to addMemberToGroupTask",
+    "test"
+  ],
+  [
     "addmembertogroupsuccess src/action/group.js~addmembertogroupsuccess,addmembertogroupsuccess",
     "test-file/test/action/group.test.js.html#lineNumber158",
     "addMemberToGroupSuccess action creator",
@@ -1479,6 +1575,24 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/group.test.js.html#lineNumber159",
     "addMemberToGroupSuccess action creator creates ADD_MEMBER_TO_GROUP_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
+    "addmembertogrouptask src/saga/group.js~addmembertogrouptask,addmembertogrouptask",
+    "test-file/test/saga/group.test.js.html#lineNumber305",
+    "addMemberToGroupTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber365",
+    "addMemberToGroupTask puts ADD_MEMBER_TO_GROUP_FAILURE action if server side api returns failure",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber306",
+    "addMemberToGroupTask puts ADD_MEMBER_TO_GROUP_SUCCESS action if server side api returns success",
     "test"
   ],
   [
@@ -1596,6 +1710,18 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "changegroupnamesaga src/saga/group.js~changegroupnamesaga,changegroupnamesaga",
+    "test-file/test/saga/group.test.js.html#lineNumber823",
+    "changeGroupNameSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber824",
+    "changeGroupNameSaga takes every CHANGE_GROUP_NAME_REQUIRED action and pass it to changeGroupNameTask",
+    "test"
+  ],
+  [
     "changegroupnamesuccess src/action/group.js~changegroupnamesuccess,changegroupnamesuccess",
     "test-file/test/action/group.test.js.html#lineNumber286",
     "changeGroupNameSuccess action creator",
@@ -1605,6 +1731,24 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/group.test.js.html#lineNumber287",
     "changeGroupNameSuccess action creator creates CHANGE_GROUP_NAME_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
+    "changegroupnametask src/saga/group.js~changegroupnametask,changegroupnametask",
+    "test-file/test/saga/group.test.js.html#lineNumber836",
+    "changeGroupNameTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber895",
+    "changeGroupNameTask puts CHANGE_GROUP_NAME_FAILURE action if server side api returns failure",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber837",
+    "changeGroupNameTask puts CHANGE_GROUP_NAME_SUCCESS action if server side api returns success",
     "test"
   ],
   [
@@ -1681,13 +1825,13 @@ window.esdocSearchIndex = [
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber61",
+    "test-file/test/action/groupboards.test.js.html#lineNumber25",
     "closeGroupCreationBoard action creator",
     "test"
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber25",
+    "test-file/test/action/groupboards.test.js.html#lineNumber61",
     "closeGroupCreationBoard action creator",
     "test"
   ],
@@ -1728,6 +1872,18 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "creategroupsaga src/saga/group.js~creategroupsaga,creategroupsaga",
+    "test-file/test/saga/group.test.js.html#lineNumber219",
+    "createGroupSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber220",
+    "createGroupSaga takes every CREATE_GROUP_REQUIRED action and pass it to createGroupTask",
+    "test"
+  ],
+  [
     "creategroupsuccess src/action/group.js~creategroupsuccess,creategroupsuccess",
     "test-file/test/action/group.test.js.html#lineNumber126",
     "createGroupSuccess action creator",
@@ -1737,6 +1893,24 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/group.test.js.html#lineNumber127",
     "createGroupSuccess action creator creates CREATE_GROUP_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
+    "creategrouptask src/saga/group.js~creategrouptask,creategrouptask",
+    "test-file/test/saga/group.test.js.html#lineNumber232",
+    "createGroupTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber262",
+    "createGroupTask puts CREATE_GROUP_FAILURE action if server side api returns failure",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber233",
+    "createGroupTask puts CREATE_GROUP_SUCCESS action if server side api returns success",
     "test"
   ],
   [
@@ -1764,6 +1938,18 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "deletegroupsaga src/saga/group.js~deletegroupsaga,deletegroupsaga",
+    "test-file/test/saga/group.test.js.html#lineNumber956",
+    "deleteGroupSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber957",
+    "deleteGroupSaga takes every DELETE_GROUP_REQUIRED action and pass it to deleteGroupTask",
+    "test"
+  ],
+  [
     "deletegroupsuccess src/action/group.js~deletegroupsuccess,deletegroupsuccess",
     "test-file/test/action/group.test.js.html#lineNumber316",
     "deleteGroupSuccess action creator",
@@ -1773,6 +1959,24 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/group.test.js.html#lineNumber317",
     "deleteGroupSuccess action creator creates DELETE_GROUP_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
+    "deletegrouptask src/saga/group.js~deletegrouptask,deletegrouptask",
+    "test-file/test/saga/group.test.js.html#lineNumber969",
+    "deleteGroupTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber996",
+    "deleteGroupTask puts DELETE_GROUP_FAILURE action if server side api returns failure",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber970",
+    "deleteGroupTask puts DELETE_GROUP_SUCCESS action if server side api returns success",
     "test"
   ],
   [
@@ -1800,6 +2004,18 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "deletememberfromgroupsaga src/saga/group.js~deletememberfromgroupsaga,deletememberfromgroupsaga",
+    "test-file/test/saga/group.test.js.html#lineNumber426",
+    "deleteMemberFromGroupSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber427",
+    "deleteMemberFromGroupSaga takes every DELETE_MEMBER_FROM_GROUP_REQUIRED action and pass it to deleteMemberFromGroupTask",
+    "test"
+  ],
+  [
     "deletememberfromgroupsuccess src/action/group.js~deletememberfromgroupsuccess,deletememberfromgroupsuccess",
     "test-file/test/action/group.test.js.html#lineNumber190",
     "deleteMemberFromGroupSuccess action creator",
@@ -1812,14 +2028,32 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "deletememberfromgrouptask src/saga/group.js~deletememberfromgrouptask,deletememberfromgrouptask",
+    "test-file/test/saga/group.test.js.html#lineNumber439",
+    "deleteMemberFromGroupTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber497",
+    "deleteMemberFromGroupTask puts DELETE_MEMBER_FROM_GROUP_FAILURE action if server side api returns failure",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber440",
+    "deleteMemberFromGroupTask puts DELETE_MEMBER_FROM_GROUP_SUCCESS action if server side api returns success",
+    "test"
+  ],
+  [
     "fetchmembertask src/saga/group.js~fetchmembertask,fetchmembertask",
-    "test-file/test/saga/group.test.js.html#lineNumber81",
+    "test-file/test/saga/group.test.js.html#lineNumber174",
     "fetchMemberTask",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber82",
+    "test-file/test/saga/group.test.js.html#lineNumber175",
     "fetchMemberTask puts GROUP_MEMBER_LOADED action with API Result",
     "test"
   ],
@@ -1885,14 +2119,14 @@ window.esdocSearchIndex = [
   ],
   [
     "groupsaga src/saga/group.js~groupsaga,groupsaga",
-    "test-file/test/saga/group.test.js.html#lineNumber12",
+    "test-file/test/saga/group.test.js.html#lineNumber71",
     "groupSaga",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber13",
-    "groupSaga forks loadUserGroupsSaga",
+    "test-file/test/saga/group.test.js.html#lineNumber72",
+    "groupSaga forks every group related sagas",
     "test"
   ],
   [
@@ -2023,25 +2257,25 @@ window.esdocSearchIndex = [
   ],
   [
     "loadusergroupssaga src/saga/group.js~loadusergroupssaga,loadusergroupssaga",
-    "test-file/test/saga/group.test.js.html#lineNumber22",
+    "test-file/test/saga/group.test.js.html#lineNumber98",
     "loadUserGroupsSaga",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber23",
-    "loadUserGroupsSaga takes every UPDATE_MEMBER_STATUS action and pass it to loadUserGroupsTask",
+    "test-file/test/saga/group.test.js.html#lineNumber99",
+    "loadUserGroupsSaga takes every UPDATE_MEMBER_STATUS action and XXX_SUCCESS actions and pass it to loadUserGroupsTask",
     "test"
   ],
   [
     "loadusergroupstask src/saga/group.js~loadusergroupstask,loadusergroupstask",
-    "test-file/test/saga/group.test.js.html#lineNumber32",
+    "test-file/test/saga/group.test.js.html#lineNumber125",
     "loadUserGroupsTask",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber33",
+    "test-file/test/saga/group.test.js.html#lineNumber126",
     "loadUserGroupsTask puts GROUPS_LOADED action with API Result and calls fetchMemberTask for each groups",
     "test"
   ],
@@ -2346,6 +2580,18 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "setmemberasgroupadminsaga src/saga/group.js~setmemberasgroupadminsaga,setmemberasgroupadminsaga",
+    "test-file/test/saga/group.test.js.html#lineNumber557",
+    "setMemberAsGroupAdminSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber558",
+    "setMemberAsGroupAdminSaga takes every SET_MEMBER_AS_GROUP_ADMIN_REQUIRED action and pass it to setMemberAsGroupAdminTask",
+    "test"
+  ],
+  [
     "setmemberasgroupadminsuccess src/action/group.js~setmemberasgroupadminsuccess,setmemberasgroupadminsuccess",
     "test-file/test/action/group.test.js.html#lineNumber222",
     "setMemberAsGroupAdminSuccess action creator",
@@ -2355,6 +2601,24 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/group.test.js.html#lineNumber223",
     "setMemberAsGroupAdminSuccess action creator creates SET_MEMBER_AS_GROUP_ADMIN_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
+    "setmemberasgroupadmintask src/saga/group.js~setmemberasgroupadmintask,setmemberasgroupadmintask",
+    "test-file/test/saga/group.test.js.html#lineNumber570",
+    "setMemberAsGroupAdminTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber629",
+    "setMemberAsGroupAdminTask puts SET_MEMBER_AS_GROUP_ADMIN_FAILURE action if server side api returns failure",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber571",
+    "setMemberAsGroupAdminTask puts SET_MEMBER_AS_GROUP_ADMIN_SUCCESS action if server side api returns success",
     "test"
   ],
   [
@@ -3192,6 +3456,18 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "unsetmemberasgroupadminsaga src/saga/group.js~unsetmemberasgroupadminsaga,unsetmemberasgroupadminsaga",
+    "test-file/test/saga/group.test.js.html#lineNumber690",
+    "unsetMemberAsGroupAdminSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber691",
+    "unsetMemberAsGroupAdminSaga takes every UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED action and pass it to unsetMemberAsGroupAdminTask",
+    "test"
+  ],
+  [
     "unsetmemberasgroupadminsuccess src/action/group.js~unsetmemberasgroupadminsuccess,unsetmemberasgroupadminsuccess",
     "test-file/test/action/group.test.js.html#lineNumber254",
     "unsetMemberAsGroupAdminSuccess action creator",
@@ -3201,6 +3477,24 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/group.test.js.html#lineNumber255",
     "unsetMemberAsGroupAdminSuccess action creator creates UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS action with no arguments",
+    "test"
+  ],
+  [
+    "unsetmemberasgroupadmintask src/saga/group.js~unsetmemberasgroupadmintask,unsetmemberasgroupadmintask",
+    "test-file/test/saga/group.test.js.html#lineNumber703",
+    "unsetMemberAsGroupAdminTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber762",
+    "unsetMemberAsGroupAdminTask puts UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE action if server side api returns failure",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/group.test.js.html#lineNumber704",
+    "unsetMemberAsGroupAdminTask puts UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS action if server side api returns success",
     "test"
   ],
   [
