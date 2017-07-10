@@ -35,13 +35,15 @@ export const OPEN_GROUP_MANAGEMENT_BOARD = "OPEN_GROUP_MANAGEMENT_BOARD";
 
 /**
 * グループ管理ボードオープンアクションのcreator
-* @param {Object} targetGroup 管理対象のグループ
+* @param {String} targetGroupId 管理対象のGroupのID
 * @return {Object} OPEN_GROUP_MANAGEMENT_BOARDアクション
 */
-export function openGroupManagementBoard(targetGroup){
+export function openGroupManagementBoard(targetGroupId){
   return {
     type: OPEN_GROUP_MANAGEMENT_BOARD,
-    payload:targetGroup
+    payload:{
+      groupId:targetGroupId
+    }
   };
 }
 

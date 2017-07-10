@@ -7,6 +7,6 @@ export const DEFAULT_GROUPBORADS = {
   },
   managementBoard:{
     isOpen:false,
-    group:{}
+    groupId:""
   }
 };

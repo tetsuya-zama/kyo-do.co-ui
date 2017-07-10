@@ -20,9 +20,9 @@ export default function groupboards(state=DEFAULT_GROUPBORADS,action){
     case(CLOSE_GROUP_CREATION_BOARD):
       return Object.assign({},state,{creationBoard:{isOpen:false}});
     case(OPEN_GROUP_MANAGEMENT_BOARD):
-      return Object.assign({},state,{managementBoard:{isOpen:true, group:action.payload}});
+      return Object.assign({},state,{managementBoard:{isOpen:true, groupId:action.payload.groupId}});
     case(CLOSE_GROUP_MANAGEMENT_BOARD):
-      return Object.assign({},state,{managementBoard:{isOpen:false, group:{}}});
+      return Object.assign({},state,{managementBoard:{isOpen:false, groupId:""}});
     default:
       return state;
   }

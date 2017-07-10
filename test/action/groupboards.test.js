@@ -33,27 +33,12 @@ describe("closeGroupCreationBoard action creator",()=>{
 /**@test {openGroupManagementBoard} */
 describe("openGroupManagementBoard action creator",()=>{
   it("creates OPEN_GROUP_MANAGEMENT_BOARD action with target group object",()=>{
-    const dummyGroup = {
-      id:"group_id_1",
-      name:"グループ1",
-      members:[
-        {
-          id:"member1",
-          name:"メンバー1",
-          isAdmin:true
-        },
-        {
-          id:"member2",
-          name:"メンバー2",
-          isAdmin:false
-        },
-      ]
-    };
+    const dummyGroupId = "g0001";
 
-    const result = openGroupManagementBoard(dummyGroup);
+    const result = openGroupManagementBoard(dummyGroupId);
 
     assert(result.type === OPEN_GROUP_MANAGEMENT_BOARD);
-    assert.deepEqual(result.payload, dummyGroup);
+    assert(result.payload.groupId, dummyGroupId);
   });
 });
 

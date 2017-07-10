@@ -18,7 +18,7 @@ describe("groupboards reducer",()=>{
       },
       managementBoard:{
         isOpen:false,
-        group:{}
+        groupId:""
       }
     };
 
@@ -37,7 +37,7 @@ describe("groupboards reducer",()=>{
       },
       managementBoard:{
         isOpen:false,
-        group:{}
+        groupId:""
       }
     };
 
@@ -48,24 +48,9 @@ describe("groupboards reducer",()=>{
   });
 
   it("sets managementBoard.isOpen state to true and managementBoard.group to action's payload if OPEN_GROUP_MANAGEMENT_BOARD action is passed",()=>{
-    const dummyGroup = {
-      id:"group_id_1",
-      name:"グループ1",
-      members:[
-        {
-          id:"member1",
-          name:"メンバー1",
-          isAdmin:true
-        },
-        {
-          id:"member2",
-          name:"メンバー2",
-          isAdmin:false
-        },
-      ]
-    };
+    const dummyGroupId = "g0001";
 
-    const action = openGroupManagementBoard(dummyGroup);
+    const action = openGroupManagementBoard(dummyGroupId);
 
     const dummyCurrentState = {
       creationBoard:{
@@ -73,14 +58,14 @@ describe("groupboards reducer",()=>{
       },
       managementBoard:{
         isOpen:false,
-        group:{}
+        groupId:""
       }
     };
 
     const result = groupboards(dummyCurrentState,action);
 
     assert(result.managementBoard.isOpen === true);
-    assert.deepEqual(result.managementBoard.group, dummyGroup);
+    assert(result.managementBoard.groupId === dummyGroupId);
     assert.deepEqual(result.creationBoard, dummyCurrentState.creationBoard);
   });
 
@@ -93,29 +78,14 @@ describe("groupboards reducer",()=>{
       },
       managementBoard:{
         isOpen:true,
-        group:{
-          id:"group_id_1",
-          name:"グループ1",
-          members:[
-            {
-              id:"member1",
-              name:"メンバー1",
-              isAdmin:true
-            },
-            {
-              id:"member2",
-              name:"メンバー2",
-              isAdmin:false
-            },
-          ]
-        }
+        groupId:"g0001"
       }
     };
 
     const result = groupboards(dummyCurrentState,action);
 
     assert(result.managementBoard.isOpen === false);
-    assert.deepEqual(result.managementBoard.group, {});
+    assert(result.managementBoard.groupId==="");
     assert.deepEqual(result.creationBoard,dummyCurrentState.creationBoard);
   });
 
@@ -128,22 +98,7 @@ describe("groupboards reducer",()=>{
       },
       managementBoard:{
         isOpen:true,
-        group:{
-          id:"group_id_1",
-          name:"グループ1",
-          members:[
-            {
-              id:"member1",
-              name:"メンバー1",
-              isAdmin:true
-            },
-            {
-              id:"member2",
-              name:"メンバー2",
-              isAdmin:false
-            },
-          ]
-        }
+        groupId:""
       }
     };
 
