@@ -247,12 +247,14 @@ describe("createGroupTask",()=>{
       {headers:{"Authorization":"Bearer " + dummyToken}}
     ));
 
-    ret = gen.next(JSON.stringify({
-      "message": "ok",
-      "groupId": "g0001"
-    }));
+    ret = gen.next({
+      data:{
+        "message": "ok",
+        "groupId": "g0001"
+      }
+    });
 
-    assert.deepEqual(ret.value,put(createGroupSuccess()));
+    assert.deepEqual(ret.value,put(createGroupSuccess("g0001")));
 
     ret = gen.next();
 

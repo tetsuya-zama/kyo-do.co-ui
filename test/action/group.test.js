@@ -125,9 +125,11 @@ describe("createGroupRequired action creator",()=>{
 /**@test {createGroupSuccess}*/
 describe("createGroupSuccess action creator",()=>{
   it("creates CREATE_GROUP_SUCCESS action with no arguments",()=>{
-    const result = createGroupSuccess();
+    const dummyGroupId = "g0001";
+    const result = createGroupSuccess(dummyGroupId);
 
     assert(result.type === CREATE_GROUP_SUCCESS);
+    assert(result.payload.groupId === dummyGroupId);
   });
 });
 

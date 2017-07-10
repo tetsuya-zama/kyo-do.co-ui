@@ -69,9 +69,12 @@ export const CREATE_GROUP_SUCCESS = "CREATE_GROUP_SUCCESS";
 * グループ作成成功アクションのcreator
 * @return {Object} CREATE_GROUP_SUCCESSアクション
 */
-export function createGroupSuccess(){
+export function createGroupSuccess(groupId){
   return {
-    type:CREATE_GROUP_SUCCESS
+    type:CREATE_GROUP_SUCCESS,
+    payload:{
+      groupId:groupId
+    }
   };
 }
 /**

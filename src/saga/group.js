@@ -147,8 +147,7 @@ export function* createGroupTask(action){
       {"groupname": groupName},
       {headers:{"Authorization":"Bearer " + token}}
     );
-
-    yield put(createGroupSuccess());
+    yield put(createGroupSuccess(result.data.groupId));
   }catch(e){
     yield put(createGroupFailure());
   }
