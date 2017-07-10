@@ -301,35 +301,38 @@ describe("addMemberToGroupSaga",()=>{
   });
 });
 
+/**
+* グループ編集に関するテストの共用テストデータ
+*/
+const DUMMY_CURRENT_GROUPS = [
+  {
+    "id": "g0001",
+    "name": "groupname1",
+    "admin": [
+      "testA",
+      "testB"
+    ],
+    "member":[
+      {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
+      {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
+    ]
+  },
+  {
+    "id": "g0002",
+    "name": "groupname2",
+    "admin": [
+      "testC"
+    ],
+    "member":[
+      {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
+      {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
+    ]
+  }
+];
+
 /**@test {addMemberToGroupTask}*/
 describe("addMemberToGroupTask",()=>{
   it("puts ADD_MEMBER_TO_GROUP_SUCCESS action if server side api returns success",()=>{
-    const dummyCurrentGroups = [
-      {
-        "id": "g0001",
-        "name": "groupname1",
-        "admin": [
-          "testA",
-          "testB"
-        ],
-        "member":[
-          {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      },
-      {
-        "id": "g0002",
-        "name": "groupname2",
-        "admin": [
-          "testC"
-        ],
-        "member":[
-          {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      }
-    ];
-
     const dummyTargetGroupId = "g0001";
     const dummyTargetMemberId = "testC";
     const dummyAction = addMemberToGroupRequired(dummyTargetGroupId,dummyTargetMemberId);
@@ -340,7 +343,7 @@ describe("addMemberToGroupTask",()=>{
     let ret = gen.next();
 
     ret = gen.next(dummyToken);
-    ret = gen.next(dummyCurrentGroups);
+    ret = gen.next(DUMMY_CURRENT_GROUPS);
 
     assert.deepEqual(ret.value,call(
       axios.put,
@@ -363,32 +366,6 @@ describe("addMemberToGroupTask",()=>{
   });
 
   it("puts ADD_MEMBER_TO_GROUP_FAILURE action if server side api returns failure",()=>{
-    const dummyCurrentGroups = [
-      {
-        "id": "g0001",
-        "name": "groupname1",
-        "admin": [
-          "testA",
-          "testB"
-        ],
-        "member":[
-          {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      },
-      {
-        "id": "g0002",
-        "name": "groupname2",
-        "admin": [
-          "testC"
-        ],
-        "member":[
-          {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      }
-    ];
-
     const dummyTargetGroupId = "g0001";
     const dummyTargetMemberId = "testC";
     const dummyAction = addMemberToGroupRequired(dummyTargetGroupId,dummyTargetMemberId);
@@ -399,7 +376,7 @@ describe("addMemberToGroupTask",()=>{
     let ret = gen.next();
 
     ret = gen.next(dummyToken);
-    ret = gen.next(dummyCurrentGroups);
+    ret = gen.next(DUMMY_CURRENT_GROUPS);
 
     assert.deepEqual(ret.value,call(
       axios.put,
@@ -438,32 +415,6 @@ describe("deleteMemberFromGroupSaga",()=>{
 /**@test {deleteMemberFromGroupTask}*/
 describe("deleteMemberFromGroupTask",()=>{
   it("puts DELETE_MEMBER_FROM_GROUP_SUCCESS action if server side api returns success",()=>{
-    const dummyCurrentGroups = [
-      {
-        "id": "g0001",
-        "name": "groupname1",
-        "admin": [
-          "testA",
-          "testB"
-        ],
-        "member":[
-          {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      },
-      {
-        "id": "g0002",
-        "name": "groupname2",
-        "admin": [
-          "testC"
-        ],
-        "member":[
-          {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      }
-    ];
-
     const dummyTargetGroupId = "g0002";
     const dummyTargetMemberId = "testD";
     const dummyAction = deleteMemberFromGroupRequired(dummyTargetGroupId,dummyTargetMemberId);
@@ -474,7 +425,7 @@ describe("deleteMemberFromGroupTask",()=>{
     let ret = gen.next();
 
     ret = gen.next(dummyToken);
-    ret = gen.next(dummyCurrentGroups);
+    ret = gen.next(DUMMY_CURRENT_GROUPS);
 
     assert.deepEqual(ret.value,call(
       axios.put,
@@ -495,32 +446,6 @@ describe("deleteMemberFromGroupTask",()=>{
     assert(ret.done);
   });
   it("puts DELETE_MEMBER_FROM_GROUP_FAILURE action if server side api returns failure",()=>{
-    const dummyCurrentGroups = [
-      {
-        "id": "g0001",
-        "name": "groupname1",
-        "admin": [
-          "testA",
-          "testB"
-        ],
-        "member":[
-          {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      },
-      {
-        "id": "g0002",
-        "name": "groupname2",
-        "admin": [
-          "testC"
-        ],
-        "member":[
-          {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      }
-    ];
-
     const dummyTargetGroupId = "g0002";
     const dummyTargetMemberId = "testD";
     const dummyAction = deleteMemberFromGroupRequired(dummyTargetGroupId,dummyTargetMemberId);
@@ -531,7 +456,7 @@ describe("deleteMemberFromGroupTask",()=>{
     let ret = gen.next();
 
     ret = gen.next(dummyToken);
-    ret = gen.next(dummyCurrentGroups);
+    ret = gen.next(DUMMY_CURRENT_GROUPS);
 
     assert.deepEqual(ret.value,call(
       axios.put,
@@ -569,32 +494,6 @@ describe("setMemberAsGroupAdminSaga",()=>{
 /**@test {setMemberAsGroupAdminTask}*/
 describe("setMemberAsGroupAdminTask",()=>{
   it("puts SET_MEMBER_AS_GROUP_ADMIN_SUCCESS action if server side api returns success",()=>{
-    const dummyCurrentGroups = [
-      {
-        "id": "g0001",
-        "name": "groupname1",
-        "admin": [
-          "testA",
-          "testB"
-        ],
-        "member":[
-          {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      },
-      {
-        "id": "g0002",
-        "name": "groupname2",
-        "admin": [
-          "testC"
-        ],
-        "member":[
-          {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      }
-    ];
-
     const dummyTargetGroupId = "g0002";
     const dummyTargetMemberId = "testD";
     const dummyAction = setMemberAsGroupAdminRequired(dummyTargetGroupId,dummyTargetMemberId);
@@ -605,7 +504,7 @@ describe("setMemberAsGroupAdminTask",()=>{
     let ret = gen.next();
 
     ret = gen.next(dummyToken);
-    ret = gen.next(dummyCurrentGroups);
+    ret = gen.next(DUMMY_CURRENT_GROUPS);
 
     assert.deepEqual(ret.value,call(
       axios.put,
@@ -627,32 +526,6 @@ describe("setMemberAsGroupAdminTask",()=>{
     assert(ret.done);
   });
   it("puts SET_MEMBER_AS_GROUP_ADMIN_FAILURE action if server side api returns failure",()=>{
-    const dummyCurrentGroups = [
-      {
-        "id": "g0001",
-        "name": "groupname1",
-        "admin": [
-          "testA",
-          "testB"
-        ],
-        "member":[
-          {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      },
-      {
-        "id": "g0002",
-        "name": "groupname2",
-        "admin": [
-          "testC"
-        ],
-        "member":[
-          {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      }
-    ];
-
     const dummyTargetGroupId = "g0002";
     const dummyTargetMemberId = "testD";
     const dummyAction = setMemberAsGroupAdminRequired(dummyTargetGroupId,dummyTargetMemberId);
@@ -663,7 +536,7 @@ describe("setMemberAsGroupAdminTask",()=>{
     let ret = gen.next();
 
     ret = gen.next(dummyToken);
-    ret = gen.next(dummyCurrentGroups);
+    ret = gen.next(DUMMY_CURRENT_GROUPS);
 
     assert.deepEqual(ret.value,call(
       axios.put,
@@ -702,32 +575,6 @@ describe("unsetMemberAsGroupAdminSaga",()=>{
 /**@test {unsetMemberAsGroupAdminTask}*/
 describe("unsetMemberAsGroupAdminTask",()=>{
   it("puts UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS action if server side api returns success",()=>{
-    const dummyCurrentGroups = [
-      {
-        "id": "g0001",
-        "name": "groupname1",
-        "admin": [
-          "testA",
-          "testB"
-        ],
-        "member":[
-          {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      },
-      {
-        "id": "g0002",
-        "name": "groupname2",
-        "admin": [
-          "testC"
-        ],
-        "member":[
-          {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      }
-    ];
-
     const dummyTargetGroupId = "g0001";
     const dummyTargetMemberId = "testA";
     const dummyAction = unsetMemberAsGroupAdminRequired(dummyTargetGroupId,dummyTargetMemberId);
@@ -738,7 +585,7 @@ describe("unsetMemberAsGroupAdminTask",()=>{
     let ret = gen.next();
 
     ret = gen.next(dummyToken);
-    ret = gen.next(dummyCurrentGroups);
+    ret = gen.next(DUMMY_CURRENT_GROUPS);
 
     assert.deepEqual(ret.value,call(
       axios.put,
@@ -760,32 +607,6 @@ describe("unsetMemberAsGroupAdminTask",()=>{
     assert(ret.done);
   });
   it("puts UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE action if server side api returns failure",()=>{
-    const dummyCurrentGroups = [
-      {
-        "id": "g0001",
-        "name": "groupname1",
-        "admin": [
-          "testA",
-          "testB"
-        ],
-        "member":[
-          {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      },
-      {
-        "id": "g0002",
-        "name": "groupname2",
-        "admin": [
-          "testC"
-        ],
-        "member":[
-          {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      }
-    ];
-
     const dummyTargetGroupId = "g0001";
     const dummyTargetMemberId = "testA";
     const dummyAction = unsetMemberAsGroupAdminRequired(dummyTargetGroupId,dummyTargetMemberId);
@@ -796,7 +617,7 @@ describe("unsetMemberAsGroupAdminTask",()=>{
     let ret = gen.next();
 
     ret = gen.next(dummyToken);
-    ret = gen.next(dummyCurrentGroups);
+    ret = gen.next(DUMMY_CURRENT_GROUPS);
 
     assert.deepEqual(ret.value,call(
       axios.put,
@@ -835,32 +656,6 @@ describe("changeGroupNameSaga",()=>{
 /**@test {changeGroupNameTask}*/
 describe("changeGroupNameTask",()=>{
   it("puts CHANGE_GROUP_NAME_SUCCESS action if server side api returns success",()=>{
-    const dummyCurrentGroups = [
-      {
-        "id": "g0001",
-        "name": "groupname1",
-        "admin": [
-          "testA",
-          "testB"
-        ],
-        "member":[
-          {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      },
-      {
-        "id": "g0002",
-        "name": "groupname2",
-        "admin": [
-          "testC"
-        ],
-        "member":[
-          {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      }
-    ];
-
     const dummyTargetGroupId = "g0001";
     const dummyNewGroupName = "groupname1 updated";
     const dummyAction = changeGroupNameRequired(dummyTargetGroupId,dummyNewGroupName);
@@ -871,7 +666,7 @@ describe("changeGroupNameTask",()=>{
     let ret = gen.next();
 
     ret = gen.next(dummyToken);
-    ret = gen.next(dummyCurrentGroups);
+    ret = gen.next(DUMMY_CURRENT_GROUPS);
 
     assert.deepEqual(ret.value,call(
       axios.put,
@@ -893,32 +688,6 @@ describe("changeGroupNameTask",()=>{
     assert(ret.done);
   });
   it("puts CHANGE_GROUP_NAME_FAILURE action if server side api returns failure",()=>{
-    const dummyCurrentGroups = [
-      {
-        "id": "g0001",
-        "name": "groupname1",
-        "admin": [
-          "testA",
-          "testB"
-        ],
-        "member":[
-          {userid:"testA",name:"Aさん",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testB",name:"Bさん",inBusiness:true,comment:"在宅勤務",contact:"090-YYY-YYYY",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      },
-      {
-        "id": "g0002",
-        "name": "groupname2",
-        "admin": [
-          "testC"
-        ],
-        "member":[
-          {userid:"testC",name:"Cさん",inBusiness:true,comment:"京橋",contact:"",lastUpdate:"2017/05/01 10:00:00"},
-          {userid:"testD",name:"Dさん",inBusiness:true,comment:"自席",contact:"090-ZZZZ-ZZZZ",lastUpdate:"2017/05/01 10:00:00"}
-        ]
-      }
-    ];
-
     const dummyTargetGroupId = "g0001";
     const dummyNewGroupName = "groupname1 updated";
     const dummyAction = changeGroupNameRequired(dummyTargetGroupId,dummyNewGroupName);
@@ -929,7 +698,7 @@ describe("changeGroupNameTask",()=>{
     let ret = gen.next();
 
     ret = gen.next(dummyToken);
-    ret = gen.next(dummyCurrentGroups);
+    ret = gen.next(DUMMY_CURRENT_GROUPS);
 
     assert.deepEqual(ret.value,call(
       axios.put,
