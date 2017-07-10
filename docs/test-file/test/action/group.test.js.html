@@ -124,6 +124,7 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/accountboard.js~AccountBoard.html">AccountBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupcreationboard.js~GroupCreationBoard.html">GroupCreationBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupmanagementboard.js~GroupManagementBoard.html">GroupManagementBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberrow.js~MemberRow.html">MemberRow</a></span></span></li>
@@ -325,9 +326,11 @@ describe(&quot;createGroupRequired action creator&quot;,()=&gt;{
 /**@test {createGroupSuccess}*/
 describe(&quot;createGroupSuccess action creator&quot;,()=&gt;{
   it(&quot;creates CREATE_GROUP_SUCCESS action with no arguments&quot;,()=&gt;{
-    const result = createGroupSuccess();
+    const dummyGroupId = &quot;g0001&quot;;
+    const result = createGroupSuccess(dummyGroupId);
 
     assert(result.type === CREATE_GROUP_SUCCESS);
+    assert(result.payload.groupId === dummyGroupId);
   });
 });
 

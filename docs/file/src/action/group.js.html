@@ -124,6 +124,7 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/accountboard.js~AccountBoard.html">AccountBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupcreationboard.js~GroupCreationBoard.html">GroupCreationBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupmanagementboard.js~GroupManagementBoard.html">GroupManagementBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberrow.js~MemberRow.html">MemberRow</a></span></span></li>
@@ -269,9 +270,12 @@ export const CREATE_GROUP_SUCCESS = &quot;CREATE_GROUP_SUCCESS&quot;;
 * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
 * @return {Object} CREATE_GROUP_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
-export function createGroupSuccess(){
+export function createGroupSuccess(groupId){
   return {
-    type:CREATE_GROUP_SUCCESS
+    type:CREATE_GROUP_SUCCESS,
+    payload:{
+      groupId:groupId
+    }
   };
 }
 /**

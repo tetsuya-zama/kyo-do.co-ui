@@ -124,6 +124,7 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/accountboard.js~AccountBoard.html">AccountBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupcreationboard.js~GroupCreationBoard.html">GroupCreationBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupmanagementboard.js~GroupManagementBoard.html">GroupManagementBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberrow.js~MemberRow.html">MemberRow</a></span></span></li>
@@ -1056,7 +1057,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="function/index.html#static-function-createGroupSuccess">createGroupSuccess</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+          <span data-ice="name"><span><a href="function/index.html#static-function-createGroupSuccess">createGroupSuccess</a></span></span><span data-ice="signature">(groupId: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
         </p>
       </div>
       <div>
@@ -3159,11 +3160,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber133">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber136">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addMemberToGroupFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber133">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addMemberToGroupFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber136">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -3203,7 +3204,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber167">addMemberToGroupFailure action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber169">addMemberToGroupFailure action creator</a></span></li>
 </ul>
   </div>
 
@@ -3222,11 +3223,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber101">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber104">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addMemberToGroupRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber101">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addMemberToGroupRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber104">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -3290,7 +3291,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber144">addMemberToGroupRequired action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber146">addMemberToGroupRequired action creator</a></span></li>
 </ul>
   </div>
 
@@ -3309,11 +3310,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber161">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber160">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addMemberToGroupSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber161">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addMemberToGroupSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber160">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga</p>
@@ -3340,7 +3341,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber292">addMemberToGroupSaga</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber294">addMemberToGroupSaga</a></span></li>
 </ul>
   </div>
 
@@ -3359,11 +3360,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber119">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber122">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addMemberToGroupSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber119">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addMemberToGroupSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber122">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -3403,7 +3404,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber158">addMemberToGroupSuccess action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber160">addMemberToGroupSuccess action creator</a></span></li>
 </ul>
   </div>
 
@@ -3422,11 +3423,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber170">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber169">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addMemberToGroupTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber170">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addMemberToGroupTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber169">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3078;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x3092;API&#x3078;&#x8981;&#x6C42;&#x3059;&#x308B;Task</p>
@@ -3470,7 +3471,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber334">addMemberToGroupTask</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber336">addMemberToGroupTask</a></span></li>
 </ul>
   </div>
 
@@ -4129,11 +4130,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber331">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber334">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeGroupNameFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber331">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeGroupNameFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber334">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -4173,7 +4174,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber295">changeGroupNameFailure action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber297">changeGroupNameFailure action creator</a></span></li>
 </ul>
   </div>
 
@@ -4192,11 +4193,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber298">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber301">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeGroupNameRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber298">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeGroupNameRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber301">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -4260,7 +4261,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber272">changeGroupNameRequired action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber274">changeGroupNameRequired action creator</a></span></li>
 </ul>
   </div>
 
@@ -4279,11 +4280,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber322">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber321">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeGroupNameSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber322">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeGroupNameSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber321">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga</p>
@@ -4310,7 +4311,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber644">changeGroupNameSaga</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber646">changeGroupNameSaga</a></span></li>
 </ul>
   </div>
 
@@ -4329,11 +4330,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber317">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber320">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeGroupNameSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber317">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeGroupNameSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber320">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x5909;&#x66F4;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -4373,7 +4374,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber286">changeGroupNameSuccess action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber288">changeGroupNameSuccess action creator</a></span></li>
 </ul>
   </div>
 
@@ -4392,11 +4393,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber331">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber330">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeGroupNameTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber331">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {changeGroupNameTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber330">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x306E;&#x5909;&#x66F4;&#x3092;API&#x3078;&#x8981;&#x6C42;&#x3059;&#x308B;Saga</p>
@@ -4440,7 +4441,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber657">changeGroupNameTask</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber659">changeGroupNameTask</a></span></li>
 </ul>
   </div>
 
@@ -4854,11 +4855,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber85">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber88">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {createGroupFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber85">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {createGroupFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber88">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -4898,7 +4899,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber135">createGroupFailure action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber137">createGroupFailure action creator</a></span></li>
 </ul>
   </div>
 
@@ -5043,7 +5044,7 @@
     
     
     
-    <span data-ice="name">createGroupSuccess</span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+    <span data-ice="name">createGroupSuccess</span><span data-ice="signature">(groupId: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
     <span class="right-info">
       
       
@@ -5059,7 +5060,23 @@
 
   
 
-  <div data-ice="properties">
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">groupId</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
 </div>
 
   <div class="return-params" data-ice="returnParams">
@@ -5177,11 +5194,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber378">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber381">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteGroupFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber378">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteGroupFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber381">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -5221,7 +5238,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber325">deleteGroupFailure action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber327">deleteGroupFailure action creator</a></span></li>
 </ul>
   </div>
 
@@ -5240,11 +5257,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber347">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber350">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteGroupRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber347">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteGroupRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber350">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -5301,7 +5318,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber304">deleteGroupRequired action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber306">deleteGroupRequired action creator</a></span></li>
 </ul>
   </div>
 
@@ -5320,11 +5337,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber362">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber361">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteGroupSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber362">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteGroupSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber361">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga</p>
@@ -5351,7 +5368,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber725">deleteGroupSaga</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber727">deleteGroupSaga</a></span></li>
 </ul>
   </div>
 
@@ -5370,11 +5387,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber364">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber367">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteGroupSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber364">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteGroupSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber367">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x524A;&#x9664;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -5414,7 +5431,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber316">deleteGroupSuccess action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber318">deleteGroupSuccess action creator</a></span></li>
 </ul>
   </div>
 
@@ -5433,11 +5450,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber371">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber370">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteGroupTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber371">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteGroupTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber370">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x524A;&#x9664;&#x3092;API&#x3078;&#x8981;&#x6C42;&#x3059;&#x308B;Task</p>
@@ -5481,7 +5498,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber738">deleteGroupTask</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber740">deleteGroupTask</a></span></li>
 </ul>
   </div>
 
@@ -5500,11 +5517,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber180">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber183">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteMemberFromGroupFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber180">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteMemberFromGroupFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber183">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -5544,7 +5561,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber199">deleteMemberFromGroupFailure action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber201">deleteMemberFromGroupFailure action creator</a></span></li>
 </ul>
   </div>
 
@@ -5563,11 +5580,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber149">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber152">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteMemberFromGroupRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber149">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteMemberFromGroupRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber152">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -5631,7 +5648,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber176">deleteMemberFromGroupRequired action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber178">deleteMemberFromGroupRequired action creator</a></span></li>
 </ul>
   </div>
 
@@ -5650,11 +5667,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber199">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber198">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteMemberFromGroupSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber199">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteMemberFromGroupSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber198">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga</p>
@@ -5681,7 +5698,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber403">deleteMemberFromGroupSaga</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber405">deleteMemberFromGroupSaga</a></span></li>
 </ul>
   </div>
 
@@ -5700,11 +5717,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber166">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber169">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteMemberFromGroupSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber166">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteMemberFromGroupSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber169">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -5744,7 +5761,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber190">deleteMemberFromGroupSuccess action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber192">deleteMemberFromGroupSuccess action creator</a></span></li>
 </ul>
   </div>
 
@@ -5763,11 +5780,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber208">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber207">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteMemberFromGroupTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber208">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {deleteMemberFromGroupTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber207">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x524A;&#x9664;&#x3092;API&#x306B;&#x8981;&#x6C42;&#x3059;&#x308B;Saga</p>
@@ -5811,7 +5828,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber416">deleteMemberFromGroupTask</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber418">deleteMemberFromGroupTask</a></span></li>
 </ul>
   </div>
 
@@ -6502,11 +6519,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/reducer/groupboards.js.html#lineNumber16">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/reducer/groupboards.js.html#lineNumber17">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import groupboards from &apos;<span><a href="file/src/reducer/groupboards.js.html#lineNumber16">kyo-do.co-ui/src/reducer/groupboards.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import groupboards from &apos;<span><a href="file/src/reducer/groupboards.js.html#lineNumber17">kyo-do.co-ui/src/reducer/groupboards.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7; reducer</p>
@@ -6570,7 +6587,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/reducer/groupboards.test.js.html#lineNumber11">groupboards reducer</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/reducer/groupboards.test.js.html#lineNumber14">groupboards reducer</a></span></li>
 </ul>
   </div>
 
@@ -8405,11 +8422,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber230">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber233">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setMemberAsGroupAdminFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber230">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setMemberAsGroupAdminFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber233">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -8449,7 +8466,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber231">setMemberAsGroupAdminFailure action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber233">setMemberAsGroupAdminFailure action creator</a></span></li>
 </ul>
   </div>
 
@@ -8468,11 +8485,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber196">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber199">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setMemberAsGroupAdminRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber196">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setMemberAsGroupAdminRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber199">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x8981;&#x6C42;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -8536,7 +8553,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber208">setMemberAsGroupAdminRequired action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber210">setMemberAsGroupAdminRequired action creator</a></span></li>
 </ul>
   </div>
 
@@ -8555,11 +8572,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber237">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber236">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setMemberAsGroupAdminSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber237">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setMemberAsGroupAdminSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber236">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga</p>
@@ -8586,7 +8603,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber482">setMemberAsGroupAdminSaga</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber484">setMemberAsGroupAdminSaga</a></span></li>
 </ul>
   </div>
 
@@ -8605,11 +8622,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber215">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber218">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setMemberAsGroupAdminSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber215">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setMemberAsGroupAdminSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber218">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -8649,7 +8666,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber222">setMemberAsGroupAdminSuccess action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber224">setMemberAsGroupAdminSuccess action creator</a></span></li>
 </ul>
   </div>
 
@@ -8668,11 +8685,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber246">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber245">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setMemberAsGroupAdminTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber246">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setMemberAsGroupAdminTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber245">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x3092;API&#x3078;&#x8981;&#x6C42;&#x3059;&#x308B;Task</p>
@@ -8716,7 +8733,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber495">setMemberAsGroupAdminTask</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber497">setMemberAsGroupAdminTask</a></span></li>
 </ul>
   </div>
 
@@ -9386,11 +9403,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber281">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber284">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {unsetMemberAsGroupAdminFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber281">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {unsetMemberAsGroupAdminFailure} from &apos;<span><a href="file/src/action/group.js.html#lineNumber284">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x89E3;&#x9664;&#x5931;&#x6557;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -9443,11 +9460,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber247">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber250">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {unsetMemberAsGroupAdminRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber247">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {unsetMemberAsGroupAdminRequired} from &apos;<span><a href="file/src/action/group.js.html#lineNumber250">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x89E3;&#x9664;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -9511,7 +9528,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber240">unsetMemberAsGroupAdminRequired action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber242">unsetMemberAsGroupAdminRequired action creator</a></span></li>
 </ul>
   </div>
 
@@ -9530,11 +9547,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber279">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber278">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {unsetMemberAsGroupAdminSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber279">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {unsetMemberAsGroupAdminSaga} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber278">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x524A;&#x9664;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x4ED8;&#x3051;&#x308B;Saga</p>
@@ -9561,7 +9578,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber563">unsetMemberAsGroupAdminSaga</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber565">unsetMemberAsGroupAdminSaga</a></span></li>
 </ul>
   </div>
 
@@ -9580,11 +9597,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber266">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/action/group.js.html#lineNumber269">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {unsetMemberAsGroupAdminSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber266">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {unsetMemberAsGroupAdminSuccess} from &apos;<span><a href="file/src/action/group.js.html#lineNumber269">kyo-do.co-ui/src/action/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x8A2D;&#x5B9A;&#x89E3;&#x9664;&#x6210;&#x529F;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator</p>
@@ -9624,7 +9641,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber254">unsetMemberAsGroupAdminSuccess action creator</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/action/group.test.js.html#lineNumber256">unsetMemberAsGroupAdminSuccess action creator</a></span></li>
 </ul>
   </div>
 
@@ -9643,11 +9660,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber288">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/saga/group.js.html#lineNumber287">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {unsetMemberAsGroupAdminTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber288">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {unsetMemberAsGroupAdminTask} from &apos;<span><a href="file/src/saga/group.js.html#lineNumber287">kyo-do.co-ui/src/saga/group.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x7BA1;&#x7406;&#x8005;&#x524A;&#x9664;&#x3092;API&#x306B;&#x8981;&#x6C42;&#x3059;&#x308B;Task</p>
@@ -9691,7 +9708,7 @@
     <h4>Test:</h4>
     <ul>
       
-    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber576">unsetMemberAsGroupAdminTask</a></span></li>
+    <li data-ice="test"><span><a href="test-file/test/saga/group.test.js.html#lineNumber578">unsetMemberAsGroupAdminTask</a></span></li>
 </ul>
   </div>
 

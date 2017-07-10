@@ -390,6 +390,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "kyo-do.co-ui/src/component/groupmanagementboard.js~groupmanagementboard",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html",
+    "<span>GroupManagementBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/groupmanagementboard.js</span>",
+    "class"
+  ],
+  [
     "kyo-do.co-ui/src/component/header.js~header",
     "class/src/component/header.js~Header.html",
     "<span>Header</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/header.js</span>",
@@ -1543,67 +1549,67 @@ window.esdocSearchIndex = [
   ],
   [
     "addmembertogroupfailure src/action/group.js~addmembertogroupfailure,addmembertogroupfailure",
-    "test-file/test/action/group.test.js.html#lineNumber167",
+    "test-file/test/action/group.test.js.html#lineNumber169",
     "addMemberToGroupFailure action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber168",
+    "test-file/test/action/group.test.js.html#lineNumber170",
     "addMemberToGroupFailure action creator creates ADD_MEMBER_TO_GROUP_FAILURE action with no arguments",
     "test"
   ],
   [
     "addmembertogrouprequired src/action/group.js~addmembertogrouprequired,addmembertogrouprequired",
-    "test-file/test/action/group.test.js.html#lineNumber144",
+    "test-file/test/action/group.test.js.html#lineNumber146",
     "addMemberToGroupRequired action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber145",
+    "test-file/test/action/group.test.js.html#lineNumber147",
     "addMemberToGroupRequired action creator creates ADD_MEMBER_TO_GROUP_REQUIRED action with target group ID and target member ID",
     "test"
   ],
   [
     "addmembertogroupsaga src/saga/group.js~addmembertogroupsaga,addmembertogroupsaga",
-    "test-file/test/saga/group.test.js.html#lineNumber292",
+    "test-file/test/saga/group.test.js.html#lineNumber294",
     "addMemberToGroupSaga",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber293",
+    "test-file/test/saga/group.test.js.html#lineNumber295",
     "addMemberToGroupSaga takes every ADD_MEMBER_TO_GROUP_REQUIRED action and pass it to addMemberToGroupTask",
     "test"
   ],
   [
     "addmembertogroupsuccess src/action/group.js~addmembertogroupsuccess,addmembertogroupsuccess",
-    "test-file/test/action/group.test.js.html#lineNumber158",
+    "test-file/test/action/group.test.js.html#lineNumber160",
     "addMemberToGroupSuccess action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber159",
+    "test-file/test/action/group.test.js.html#lineNumber161",
     "addMemberToGroupSuccess action creator creates ADD_MEMBER_TO_GROUP_SUCCESS action with no arguments",
     "test"
   ],
   [
     "addmembertogrouptask src/saga/group.js~addmembertogrouptask,addmembertogrouptask",
-    "test-file/test/saga/group.test.js.html#lineNumber334",
+    "test-file/test/saga/group.test.js.html#lineNumber336",
     "addMemberToGroupTask",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber368",
+    "test-file/test/saga/group.test.js.html#lineNumber370",
     "addMemberToGroupTask puts ADD_MEMBER_TO_GROUP_FAILURE action if server side api returns failure",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber335",
+    "test-file/test/saga/group.test.js.html#lineNumber337",
     "addMemberToGroupTask puts ADD_MEMBER_TO_GROUP_SUCCESS action if server side api returns success",
     "test"
   ],
@@ -1699,67 +1705,67 @@ window.esdocSearchIndex = [
   ],
   [
     "changegroupnamefailure src/action/group.js~changegroupnamefailure,changegroupnamefailure",
-    "test-file/test/action/group.test.js.html#lineNumber295",
+    "test-file/test/action/group.test.js.html#lineNumber297",
     "changeGroupNameFailure action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber296",
+    "test-file/test/action/group.test.js.html#lineNumber298",
     "changeGroupNameFailure action creator creates CHANGE_GROUP_NAME_FAILURE action with no arguments",
     "test"
   ],
   [
     "changegroupnamerequired src/action/group.js~changegroupnamerequired,changegroupnamerequired",
-    "test-file/test/action/group.test.js.html#lineNumber272",
+    "test-file/test/action/group.test.js.html#lineNumber274",
     "changeGroupNameRequired action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber273",
+    "test-file/test/action/group.test.js.html#lineNumber275",
     "changeGroupNameRequired action creator creates CHANGE_GROUP_NAME_REQUIRED action with targetGroupId and new group name",
     "test"
   ],
   [
     "changegroupnamesaga src/saga/group.js~changegroupnamesaga,changegroupnamesaga",
-    "test-file/test/saga/group.test.js.html#lineNumber644",
+    "test-file/test/saga/group.test.js.html#lineNumber646",
     "changeGroupNameSaga",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber645",
+    "test-file/test/saga/group.test.js.html#lineNumber647",
     "changeGroupNameSaga takes every CHANGE_GROUP_NAME_REQUIRED action and pass it to changeGroupNameTask",
     "test"
   ],
   [
     "changegroupnamesuccess src/action/group.js~changegroupnamesuccess,changegroupnamesuccess",
-    "test-file/test/action/group.test.js.html#lineNumber286",
+    "test-file/test/action/group.test.js.html#lineNumber288",
     "changeGroupNameSuccess action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber287",
+    "test-file/test/action/group.test.js.html#lineNumber289",
     "changeGroupNameSuccess action creator creates CHANGE_GROUP_NAME_SUCCESS action with no arguments",
     "test"
   ],
   [
     "changegroupnametask src/saga/group.js~changegroupnametask,changegroupnametask",
-    "test-file/test/saga/group.test.js.html#lineNumber657",
+    "test-file/test/saga/group.test.js.html#lineNumber659",
     "changeGroupNameTask",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber690",
+    "test-file/test/saga/group.test.js.html#lineNumber692",
     "changeGroupNameTask puts CHANGE_GROUP_NAME_FAILURE action if server side api returns failure",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber658",
+    "test-file/test/saga/group.test.js.html#lineNumber660",
     "changeGroupNameTask puts CHANGE_GROUP_NAME_SUCCESS action if server side api returns success",
     "test"
   ],
@@ -1837,13 +1843,13 @@ window.esdocSearchIndex = [
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber25",
+    "test-file/test/action/groupboards.test.js.html#lineNumber46",
     "closeGroupCreationBoard action creator",
     "test"
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber46",
+    "test-file/test/action/groupboards.test.js.html#lineNumber25",
     "closeGroupCreationBoard action creator",
     "test"
   ],
@@ -1861,13 +1867,13 @@ window.esdocSearchIndex = [
   ],
   [
     "creategroupfailure src/action/group.js~creategroupfailure,creategroupfailure",
-    "test-file/test/action/group.test.js.html#lineNumber135",
+    "test-file/test/action/group.test.js.html#lineNumber137",
     "createGroupFailure action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber136",
+    "test-file/test/action/group.test.js.html#lineNumber138",
     "createGroupFailure action creator creates CREATE_GROUP_FAILURE action with no arguments",
     "test"
   ],
@@ -1915,7 +1921,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber262",
+    "test-file/test/saga/group.test.js.html#lineNumber264",
     "createGroupTask puts CREATE_GROUP_FAILURE action if server side api returns failure",
     "test"
   ],
@@ -1927,133 +1933,133 @@ window.esdocSearchIndex = [
   ],
   [
     "deletegroupfailure src/action/group.js~deletegroupfailure,deletegroupfailure",
-    "test-file/test/action/group.test.js.html#lineNumber325",
+    "test-file/test/action/group.test.js.html#lineNumber327",
     "deleteGroupFailure action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber326",
+    "test-file/test/action/group.test.js.html#lineNumber328",
     "deleteGroupFailure action creator creates DELETE_GROUP_FAILURE action with no arguments",
     "test"
   ],
   [
     "deletegrouprequired src/action/group.js~deletegrouprequired,deletegrouprequired",
-    "test-file/test/action/group.test.js.html#lineNumber304",
+    "test-file/test/action/group.test.js.html#lineNumber306",
     "deleteGroupRequired action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber305",
+    "test-file/test/action/group.test.js.html#lineNumber307",
     "deleteGroupRequired action creator creates DELETE_GROUP_REQUIRED action with target group ID",
     "test"
   ],
   [
     "deletegroupsaga src/saga/group.js~deletegroupsaga,deletegroupsaga",
-    "test-file/test/saga/group.test.js.html#lineNumber725",
+    "test-file/test/saga/group.test.js.html#lineNumber727",
     "deleteGroupSaga",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber726",
+    "test-file/test/saga/group.test.js.html#lineNumber728",
     "deleteGroupSaga takes every DELETE_GROUP_REQUIRED action and pass it to deleteGroupTask",
     "test"
   ],
   [
     "deletegroupsuccess src/action/group.js~deletegroupsuccess,deletegroupsuccess",
-    "test-file/test/action/group.test.js.html#lineNumber316",
+    "test-file/test/action/group.test.js.html#lineNumber318",
     "deleteGroupSuccess action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber317",
+    "test-file/test/action/group.test.js.html#lineNumber319",
     "deleteGroupSuccess action creator creates DELETE_GROUP_SUCCESS action with no arguments",
     "test"
   ],
   [
     "deletegrouptask src/saga/group.js~deletegrouptask,deletegrouptask",
-    "test-file/test/saga/group.test.js.html#lineNumber738",
+    "test-file/test/saga/group.test.js.html#lineNumber740",
     "deleteGroupTask",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber765",
+    "test-file/test/saga/group.test.js.html#lineNumber767",
     "deleteGroupTask puts DELETE_GROUP_FAILURE action if server side api returns failure",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber739",
+    "test-file/test/saga/group.test.js.html#lineNumber741",
     "deleteGroupTask puts DELETE_GROUP_SUCCESS action if server side api returns success",
     "test"
   ],
   [
     "deletememberfromgroupfailure src/action/group.js~deletememberfromgroupfailure,deletememberfromgroupfailure",
-    "test-file/test/action/group.test.js.html#lineNumber199",
+    "test-file/test/action/group.test.js.html#lineNumber201",
     "deleteMemberFromGroupFailure action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber200",
+    "test-file/test/action/group.test.js.html#lineNumber202",
     "deleteMemberFromGroupFailure action creator creates DELETE_MEMBER_FROM_GROUP_FAILURE action with no arguments",
     "test"
   ],
   [
     "deletememberfromgrouprequired src/action/group.js~deletememberfromgrouprequired,deletememberfromgrouprequired",
-    "test-file/test/action/group.test.js.html#lineNumber176",
+    "test-file/test/action/group.test.js.html#lineNumber178",
     "deleteMemberFromGroupRequired action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber177",
+    "test-file/test/action/group.test.js.html#lineNumber179",
     "deleteMemberFromGroupRequired action creator creates DELETE_MEMBER_FROM_GROUP_REQUIRED action with target group ID and target member ID",
     "test"
   ],
   [
     "deletememberfromgroupsaga src/saga/group.js~deletememberfromgroupsaga,deletememberfromgroupsaga",
-    "test-file/test/saga/group.test.js.html#lineNumber403",
+    "test-file/test/saga/group.test.js.html#lineNumber405",
     "deleteMemberFromGroupSaga",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber404",
+    "test-file/test/saga/group.test.js.html#lineNumber406",
     "deleteMemberFromGroupSaga takes every DELETE_MEMBER_FROM_GROUP_REQUIRED action and pass it to deleteMemberFromGroupTask",
     "test"
   ],
   [
     "deletememberfromgroupsuccess src/action/group.js~deletememberfromgroupsuccess,deletememberfromgroupsuccess",
-    "test-file/test/action/group.test.js.html#lineNumber190",
+    "test-file/test/action/group.test.js.html#lineNumber192",
     "deleteMemberFromGroupSuccess action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber191",
+    "test-file/test/action/group.test.js.html#lineNumber193",
     "deleteMemberFromGroupSuccess action creator creates DELETE_MEMBER_FROM_GROUP_SUCCESS action with no arguments",
     "test"
   ],
   [
     "deletememberfromgrouptask src/saga/group.js~deletememberfromgrouptask,deletememberfromgrouptask",
-    "test-file/test/saga/group.test.js.html#lineNumber416",
+    "test-file/test/saga/group.test.js.html#lineNumber418",
     "deleteMemberFromGroupTask",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber448",
+    "test-file/test/saga/group.test.js.html#lineNumber450",
     "deleteMemberFromGroupTask puts DELETE_MEMBER_FROM_GROUP_FAILURE action if server side api returns failure",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber417",
+    "test-file/test/saga/group.test.js.html#lineNumber419",
     "deleteMemberFromGroupTask puts DELETE_MEMBER_FROM_GROUP_SUCCESS action if server side api returns success",
     "test"
   ],
@@ -2143,37 +2149,43 @@ window.esdocSearchIndex = [
   ],
   [
     "groupboards src/reducer/groupboards.js~groupboards,groupboards",
-    "test-file/test/reducer/groupboards.test.js.html#lineNumber11",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber14",
     "groupboards reducer",
     "test"
   ],
   [
     "",
-    "test-file/test/reducer/groupboards.test.js.html#lineNumber92",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber115",
     "groupboards reducer does nothing if any other action is passed",
     "test"
   ],
   [
     "",
-    "test-file/test/reducer/groupboards.test.js.html#lineNumber31",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber95",
+    "groupboards reducer sets creationBoard.isOpen state to false and managementBoard.isOpen state to true and managementBoard.group to action's payload if CREATE_GROUP_SUCCESS action is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber34",
     "groupboards reducer sets creationBoard.isOpen state to false when CLOSE_GROUP_CREATION_BOARD action is passed",
     "test"
   ],
   [
     "",
-    "test-file/test/reducer/groupboards.test.js.html#lineNumber12",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber15",
     "groupboards reducer sets creationBoard.isOpen state to true when OPEN_GROUP_CREATION_BOARD action is passed",
     "test"
   ],
   [
     "",
-    "test-file/test/reducer/groupboards.test.js.html#lineNumber72",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber75",
     "groupboards reducer sets managementBoard.isOpen state to false and managementBoard.group state to empty if CLOSE_GROUP_MANAGEMENT_BOARD action is passed",
     "test"
   ],
   [
     "",
-    "test-file/test/reducer/groupboards.test.js.html#lineNumber50",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber53",
     "groupboards reducer sets managementBoard.isOpen state to true and managementBoard.group to action's payload if OPEN_GROUP_MANAGEMENT_BOARD action is passed",
     "test"
   ],
@@ -2569,67 +2581,67 @@ window.esdocSearchIndex = [
   ],
   [
     "setmemberasgroupadminfailure src/action/group.js~setmemberasgroupadminfailure,setmemberasgroupadminfailure",
-    "test-file/test/action/group.test.js.html#lineNumber231",
+    "test-file/test/action/group.test.js.html#lineNumber233",
     "setMemberAsGroupAdminFailure action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber232",
+    "test-file/test/action/group.test.js.html#lineNumber234",
     "setMemberAsGroupAdminFailure action creator creates SET_MEMBER_AS_GROUP_ADMIN_FAILURE action with no arguments",
     "test"
   ],
   [
     "setmemberasgroupadminrequired src/action/group.js~setmemberasgroupadminrequired,setmemberasgroupadminrequired",
-    "test-file/test/action/group.test.js.html#lineNumber208",
+    "test-file/test/action/group.test.js.html#lineNumber210",
     "setMemberAsGroupAdminRequired action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber209",
+    "test-file/test/action/group.test.js.html#lineNumber211",
     "setMemberAsGroupAdminRequired action creator creates SET_MEMBER_AS_GROUP_ADMIN_REQUIRED action with target group ID and target member ID",
     "test"
   ],
   [
     "setmemberasgroupadminsaga src/saga/group.js~setmemberasgroupadminsaga,setmemberasgroupadminsaga",
-    "test-file/test/saga/group.test.js.html#lineNumber482",
+    "test-file/test/saga/group.test.js.html#lineNumber484",
     "setMemberAsGroupAdminSaga",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber483",
+    "test-file/test/saga/group.test.js.html#lineNumber485",
     "setMemberAsGroupAdminSaga takes every SET_MEMBER_AS_GROUP_ADMIN_REQUIRED action and pass it to setMemberAsGroupAdminTask",
     "test"
   ],
   [
     "setmemberasgroupadminsuccess src/action/group.js~setmemberasgroupadminsuccess,setmemberasgroupadminsuccess",
-    "test-file/test/action/group.test.js.html#lineNumber222",
+    "test-file/test/action/group.test.js.html#lineNumber224",
     "setMemberAsGroupAdminSuccess action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber223",
+    "test-file/test/action/group.test.js.html#lineNumber225",
     "setMemberAsGroupAdminSuccess action creator creates SET_MEMBER_AS_GROUP_ADMIN_SUCCESS action with no arguments",
     "test"
   ],
   [
     "setmemberasgroupadmintask src/saga/group.js~setmemberasgroupadmintask,setmemberasgroupadmintask",
-    "test-file/test/saga/group.test.js.html#lineNumber495",
+    "test-file/test/saga/group.test.js.html#lineNumber497",
     "setMemberAsGroupAdminTask",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber528",
+    "test-file/test/saga/group.test.js.html#lineNumber530",
     "setMemberAsGroupAdminTask puts SET_MEMBER_AS_GROUP_ADMIN_FAILURE action if server side api returns failure",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber496",
+    "test-file/test/saga/group.test.js.html#lineNumber498",
     "setMemberAsGroupAdminTask puts SET_MEMBER_AS_GROUP_ADMIN_SUCCESS action if server side api returns success",
     "test"
   ],
@@ -2877,6 +2889,54 @@ window.esdocSearchIndex = [
     "src/component/groupcreationboard.js~groupcreationboard#state",
     "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-member-state",
     "src/component/groupcreationboard.js~GroupCreationBoard#state",
+    "member"
+  ],
+  [
+    "src/component/groupmanagementboard.js",
+    "file/src/component/groupmanagementboard.js.html",
+    "src/component/groupmanagementboard.js",
+    "file"
+  ],
+  [
+    "src/component/groupmanagementboard.js~groupmanagementboard#constructor",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-constructor-constructor",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#constructor",
+    "method"
+  ],
+  [
+    "src/component/groupmanagementboard.js~groupmanagementboard#hundlechangenamebutton",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-hundleChangeNameButton",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#hundleChangeNameButton",
+    "method"
+  ],
+  [
+    "src/component/groupmanagementboard.js~groupmanagementboard#hundleclose",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-hundleClose",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#hundleClose",
+    "method"
+  ],
+  [
+    "src/component/groupmanagementboard.js~groupmanagementboard#hundledeletegroupbutton",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-hundleDeleteGroupButton",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#hundleDeleteGroupButton",
+    "method"
+  ],
+  [
+    "src/component/groupmanagementboard.js~groupmanagementboard#hundlenamechange",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-hundleNameChange",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#hundleNameChange",
+    "method"
+  ],
+  [
+    "src/component/groupmanagementboard.js~groupmanagementboard#render",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-render",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#render",
+    "method"
+  ],
+  [
+    "src/component/groupmanagementboard.js~groupmanagementboard#state",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-member-state",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#state",
     "member"
   ],
   [
@@ -3457,67 +3517,67 @@ window.esdocSearchIndex = [
   ],
   [
     "* *,*",
-    "test-file/test/action/group.test.js.html#lineNumber263",
+    "test-file/test/action/group.test.js.html#lineNumber265",
     "unsetMemberAsGroupAdminFailure action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber264",
+    "test-file/test/action/group.test.js.html#lineNumber266",
     "unsetMemberAsGroupAdminFailure action creator creates UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE action creator",
     "test"
   ],
   [
     "unsetmemberasgroupadminrequired src/action/group.js~unsetmemberasgroupadminrequired,unsetmemberasgroupadminrequired",
-    "test-file/test/action/group.test.js.html#lineNumber240",
+    "test-file/test/action/group.test.js.html#lineNumber242",
     "unsetMemberAsGroupAdminRequired action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber241",
+    "test-file/test/action/group.test.js.html#lineNumber243",
     "unsetMemberAsGroupAdminRequired action creator creates UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED action with target group ID and target member ID",
     "test"
   ],
   [
     "unsetmemberasgroupadminsaga src/saga/group.js~unsetmemberasgroupadminsaga,unsetmemberasgroupadminsaga",
-    "test-file/test/saga/group.test.js.html#lineNumber563",
+    "test-file/test/saga/group.test.js.html#lineNumber565",
     "unsetMemberAsGroupAdminSaga",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber564",
+    "test-file/test/saga/group.test.js.html#lineNumber566",
     "unsetMemberAsGroupAdminSaga takes every UNSET_MEMBER_AS_GROUP_ADMIN_REQUIRED action and pass it to unsetMemberAsGroupAdminTask",
     "test"
   ],
   [
     "unsetmemberasgroupadminsuccess src/action/group.js~unsetmemberasgroupadminsuccess,unsetmemberasgroupadminsuccess",
-    "test-file/test/action/group.test.js.html#lineNumber254",
+    "test-file/test/action/group.test.js.html#lineNumber256",
     "unsetMemberAsGroupAdminSuccess action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/group.test.js.html#lineNumber255",
+    "test-file/test/action/group.test.js.html#lineNumber257",
     "unsetMemberAsGroupAdminSuccess action creator creates UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS action with no arguments",
     "test"
   ],
   [
     "unsetmemberasgroupadmintask src/saga/group.js~unsetmemberasgroupadmintask,unsetmemberasgroupadmintask",
-    "test-file/test/saga/group.test.js.html#lineNumber576",
+    "test-file/test/saga/group.test.js.html#lineNumber578",
     "unsetMemberAsGroupAdminTask",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber609",
+    "test-file/test/saga/group.test.js.html#lineNumber611",
     "unsetMemberAsGroupAdminTask puts UNSET_MEMBER_AS_GROUP_ADMIN_FAILURE action if server side api returns failure",
     "test"
   ],
   [
     "",
-    "test-file/test/saga/group.test.js.html#lineNumber577",
+    "test-file/test/saga/group.test.js.html#lineNumber579",
     "unsetMemberAsGroupAdminTask puts UNSET_MEMBER_AS_GROUP_ADMIN_SUCCESS action if server side api returns success",
     "test"
   ],

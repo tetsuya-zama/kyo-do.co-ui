@@ -124,6 +124,7 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/accountboard.js~AccountBoard.html">AccountBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupcreationboard.js~GroupCreationBoard.html">GroupCreationBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupmanagementboard.js~GroupManagementBoard.html">GroupManagementBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberrow.js~MemberRow.html">MemberRow</a></span></span></li>
@@ -215,6 +216,7 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from &apos;materi
 import Dialog from &apos;material-ui/Dialog&apos;;
 import AccountBoard from &apos;./accountboard&apos;;
 import GroupCreationBoard from &apos;./groupcreationboard&apos;;
+import GroupManagementBoard from &apos;./groupmanagementboard&apos;;
 import {openAccountInfoModal} from &apos;../action/accountboard&apos;;
 import {openGroupCreationBoard} from &apos;../action/groupboards&apos;;
 
@@ -287,6 +289,11 @@ export default class Header extends React.Component{
         &lt;/ToolbarGroup&gt;
         &lt;AccountBoard dispatch={this.props.dispatch} accountboard={this.props.accountboard} /&gt;
         &lt;GroupCreationBoard dispatch={this.props.dispatch} groupboards ={this.props.groupboards} /&gt;
+        &lt;GroupManagementBoard
+          dispatch={this.props.dispatch}
+          managementBoard={this.props.groupboards.managementBoard}
+          group={this.props.group}
+        /&gt;
       &lt;/Toolbar&gt;:
       null
 

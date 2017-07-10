@@ -124,6 +124,7 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/accountboard.js~AccountBoard.html">AccountBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupcreationboard.js~GroupCreationBoard.html">GroupCreationBoard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupmanagementboard.js~GroupManagementBoard.html">GroupManagementBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberrow.js~MemberRow.html">MemberRow</a></span></span></li>
@@ -347,8 +348,7 @@ export function* createGroupTask(action){
       {&quot;groupname&quot;: groupName},
       {headers:{&quot;Authorization&quot;:&quot;Bearer &quot; + token}}
     );
-
-    yield put(createGroupSuccess());
+    yield put(createGroupSuccess(result.data.groupId));
   }catch(e){
     yield put(createGroupFailure());
   }
@@ -372,7 +372,7 @@ export function* addMemberToGroupTask(action){
   const groupId = action.payload.groupId;
   const memberId = action.payload.memberId;
 
-  const currentGroups = yield(state =&gt; state.group.allGroups);
+  const currentGroups = yield select(state =&gt; state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
   const currentMemberIds = targetGroup.member.map(member =&gt; member.userid);
@@ -410,7 +410,7 @@ export function* deleteMemberFromGroupTask(action){
   const groupId = action.payload.groupId;
   const memberId = action.payload.memberId;
 
-  const currentGroups = yield(state =&gt; state.group.allGroups);
+  const currentGroups = yield select(state =&gt; state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
   const currentMemberIds = targetGroup.member.map(member =&gt; member.userid);
@@ -448,7 +448,7 @@ export function* setMemberAsGroupAdminTask(action){
   const groupId = action.payload.groupId;
   const memberId = action.payload.memberId;
 
-  const currentGroups = yield(state =&gt; state.group.allGroups);
+  const currentGroups = yield select(state =&gt; state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
   const currentGroupName = targetGroup.name;
@@ -490,7 +490,7 @@ export function* unsetMemberAsGroupAdminTask(action){
   const groupId = action.payload.groupId;
   const memberId = action.payload.memberId;
 
-  const currentGroups = yield(state =&gt; state.group.allGroups);
+  const currentGroups = yield select(state =&gt; state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
   const currentGroupName = targetGroup.name;
@@ -533,7 +533,7 @@ export function* changeGroupNameTask(action){
   const groupId = action.payload.groupId;
   const newGroupName = action.payload.newName;
 
-  const currentGroups = yield(state =&gt; state.group.allGroups);
+  const currentGroups = yield select(state =&gt; state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
   const currentAdmins = targetGroup.admin;
