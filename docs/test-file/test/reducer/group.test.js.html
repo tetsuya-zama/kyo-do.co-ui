@@ -139,10 +139,12 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">module</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Decode">base64Decode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-base64Encode">base64Encode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getApiBaseURL">getApiBaseURL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getGroupById">getGroupById</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-existsKeyOnStorage">existsKeyOnStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getFromStorage">getFromStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeFromStorage">removeFromStorage</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setToStorage">setToStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMemberStatusById">getMemberStatusById</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reducer</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-accountboard">accountboard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-board">board</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-group">group</a></span></span></li>
@@ -200,6 +202,7 @@
 import group from &apos;../../src/reducer/group&apos;;
 import {GROUPS_LOADED,GROUP_MEMBER_LOADED} from &apos;../../src/action/group&apos;;
 import {groupsLoaded,groupMemberLoaded} from &apos;../../src/action/group&apos;;
+import {getGroupById} from &apos;../../src/module/group&apos;;
 
 /**@test {group} */
 describe(&quot;group reducer&quot;,()=&gt;{
@@ -590,17 +593,6 @@ describe(&quot;group reducer&quot;,()=&gt;{
     assert.deepEqual(result, dummyCurrentState);
   })
 });
-
-/**
-* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x914D;&#x5217;&#x306E;&#x4E2D;&#x304B;&#x3089;ID&#x306B;&#x7D10;&#x3065;&#x304F;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;
-* @param {array} groups &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x914D;&#x5217;
-* @param {String} groupId &#x53D6;&#x5F97;&#x3057;&#x305F;&#x3044;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;ID
-* @return {Object} &#x30B0;&#x30EB;&#x30FC;&#x30D7;ID&#x306B;&#x7D10;&#x3065;&#x304F;&#x30B0;&#x30EB;&#x30FC;&#x30D7;
-*/
-function getGroupById(groups, groupId){
-  const filteredGroups = groups.filter(group =&gt; group.id === groupId);
-  return filteredGroups.length === 1 ? filteredGroups[0] : undefined;
-}
 </code></pre>
 
 </div>
