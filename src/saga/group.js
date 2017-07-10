@@ -171,7 +171,7 @@ export function* addMemberToGroupTask(action){
   const groupId = action.payload.groupId;
   const memberId = action.payload.memberId;
 
-  const currentGroups = yield(state => state.group.allGroups);
+  const currentGroups = yield select(state => state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
   const currentMemberIds = targetGroup.member.map(member => member.userid);
@@ -209,7 +209,7 @@ export function* deleteMemberFromGroupTask(action){
   const groupId = action.payload.groupId;
   const memberId = action.payload.memberId;
 
-  const currentGroups = yield(state => state.group.allGroups);
+  const currentGroups = yield select(state => state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
   const currentMemberIds = targetGroup.member.map(member => member.userid);
@@ -247,7 +247,7 @@ export function* setMemberAsGroupAdminTask(action){
   const groupId = action.payload.groupId;
   const memberId = action.payload.memberId;
 
-  const currentGroups = yield(state => state.group.allGroups);
+  const currentGroups = yield select(state => state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
   const currentGroupName = targetGroup.name;
@@ -289,7 +289,7 @@ export function* unsetMemberAsGroupAdminTask(action){
   const groupId = action.payload.groupId;
   const memberId = action.payload.memberId;
 
-  const currentGroups = yield(state => state.group.allGroups);
+  const currentGroups = yield select(state => state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
   const currentGroupName = targetGroup.name;
@@ -332,7 +332,7 @@ export function* changeGroupNameTask(action){
   const groupId = action.payload.groupId;
   const newGroupName = action.payload.newName;
 
-  const currentGroups = yield(state => state.group.allGroups);
+  const currentGroups = yield select(state => state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
   const currentAdmins = targetGroup.admin;

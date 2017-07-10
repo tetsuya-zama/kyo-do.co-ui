@@ -6,6 +6,9 @@ import {
   openGroupManagementBoard,
   closeGroupManagementBoard
 } from '../../src/action/groupboards';
+import {
+  createGroupSuccess
+} from '../../src/action/group';
 
 /** @test {groupboards} */
 describe("groupboards reducer",()=>{
@@ -87,6 +90,26 @@ describe("groupboards reducer",()=>{
     assert(result.managementBoard.isOpen === false);
     assert(result.managementBoard.groupId==="");
     assert.deepEqual(result.creationBoard,dummyCurrentState.creationBoard);
+  });
+
+  it("sets creationBoard.isOpen state to false and managementBoard.isOpen state to true and managementBoard.group to action's payload if CREATE_GROUP_SUCCESS action is passed",()=>{
+    const dummyGroupId = "g0001";
+    const dummyAction = createGroupSuccess(dummyGroupId);
+    const dummyCurrentState = {
+      creationBoard:{
+        isOpen:true
+      },
+      managementBoard:{
+        isOpen:false,
+        groupId:""
+      }
+    };
+
+    const result = groupboards(dummyCurrentState,dummyAction);
+
+    assert(result.creationBoard.isOpen === false);
+    assert(result.managementBoard.isOpen === true);
+    assert(result.managementBoard.groupId === dummyGroupId);
   });
 
   it("does nothing if any other action is passed",()=>{

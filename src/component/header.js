@@ -15,6 +15,7 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import Dialog from 'material-ui/Dialog';
 import AccountBoard from './accountboard';
 import GroupCreationBoard from './groupcreationboard';
+import GroupManagementBoard from './groupmanagementboard';
 import {openAccountInfoModal} from '../action/accountboard';
 import {openGroupCreationBoard} from '../action/groupboards';
 
@@ -87,6 +88,11 @@ export default class Header extends React.Component{
         </ToolbarGroup>
         <AccountBoard dispatch={this.props.dispatch} accountboard={this.props.accountboard} />
         <GroupCreationBoard dispatch={this.props.dispatch} groupboards ={this.props.groupboards} />
+        <GroupManagementBoard
+          dispatch={this.props.dispatch}
+          managementBoard={this.props.groupboards.managementBoard}
+          group={this.props.group}
+        />
       </Toolbar>:
       null
 

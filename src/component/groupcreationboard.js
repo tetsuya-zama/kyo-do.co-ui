@@ -56,10 +56,10 @@ export default class GroupCreationBoard extends React.Component{
       this.props.dispatch(createGroupRequired(newGroupName));
     }
   }
-  
+
   /**
   * 描画メソッド
-  * @return {undefined}
+  * @return {Object} JSX
   */
   render(){
     const actions = [
