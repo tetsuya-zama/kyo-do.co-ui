@@ -235,13 +235,15 @@ export const OPEN_GROUP_MANAGEMENT_BOARD = &quot;OPEN_GROUP_MANAGEMENT_BOARD&quo
 
 /**
 * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x7BA1;&#x7406;&#x30DC;&#x30FC;&#x30C9;&#x30AA;&#x30FC;&#x30D7;&#x30F3;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;creator
-* @param {Object} targetGroup &#x7BA1;&#x7406;&#x5BFE;&#x8C61;&#x306E;&#x30B0;&#x30EB;&#x30FC;&#x30D7;
+* @param {String} targetGroupId &#x7BA1;&#x7406;&#x5BFE;&#x8C61;&#x306E;Group&#x306E;ID
 * @return {Object} OPEN_GROUP_MANAGEMENT_BOARD&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;
 */
-export function openGroupManagementBoard(targetGroup){
+export function openGroupManagementBoard(targetGroupId){
   return {
     type: OPEN_GROUP_MANAGEMENT_BOARD,
-    payload:targetGroup
+    payload:{
+      groupId:targetGroupId
+    }
   };
 }
 

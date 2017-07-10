@@ -1843,7 +1843,7 @@ window.esdocSearchIndex = [
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber61",
+    "test-file/test/action/groupboards.test.js.html#lineNumber46",
     "closeGroupCreationBoard action creator",
     "test"
   ],
@@ -1855,7 +1855,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/action/groupboards.test.js.html#lineNumber62",
+    "test-file/test/action/groupboards.test.js.html#lineNumber47",
     "closeGroupCreationBoard action creator creates CLOSE_GROUP_MANAGEMENT_BOARD with no arguments",
     "test"
   ],
@@ -2149,7 +2149,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/reducer/groupboards.test.js.html#lineNumber122",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber92",
     "groupboards reducer does nothing if any other action is passed",
     "test"
   ],
@@ -2167,7 +2167,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/reducer/groupboards.test.js.html#lineNumber87",
+    "test-file/test/reducer/groupboards.test.js.html#lineNumber72",
     "groupboards reducer sets managementBoard.isOpen state to false and managementBoard.group state to empty if CLOSE_GROUP_MANAGEMENT_BOARD action is passed",
     "test"
   ],

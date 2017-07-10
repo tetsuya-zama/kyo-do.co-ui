@@ -218,7 +218,7 @@ describe(&quot;groupboards reducer&quot;,()=&gt;{
       },
       managementBoard:{
         isOpen:false,
-        group:{}
+        groupId:&quot;&quot;
       }
     };
 
@@ -237,7 +237,7 @@ describe(&quot;groupboards reducer&quot;,()=&gt;{
       },
       managementBoard:{
         isOpen:false,
-        group:{}
+        groupId:&quot;&quot;
       }
     };
 
@@ -248,24 +248,9 @@ describe(&quot;groupboards reducer&quot;,()=&gt;{
   });
 
   it(&quot;sets managementBoard.isOpen state to true and managementBoard.group to action&apos;s payload if OPEN_GROUP_MANAGEMENT_BOARD action is passed&quot;,()=&gt;{
-    const dummyGroup = {
-      id:&quot;group_id_1&quot;,
-      name:&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;1&quot;,
-      members:[
-        {
-          id:&quot;member1&quot;,
-          name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;1&quot;,
-          isAdmin:true
-        },
-        {
-          id:&quot;member2&quot;,
-          name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;2&quot;,
-          isAdmin:false
-        },
-      ]
-    };
+    const dummyGroupId = &quot;g0001&quot;;
 
-    const action = openGroupManagementBoard(dummyGroup);
+    const action = openGroupManagementBoard(dummyGroupId);
 
     const dummyCurrentState = {
       creationBoard:{
@@ -273,14 +258,14 @@ describe(&quot;groupboards reducer&quot;,()=&gt;{
       },
       managementBoard:{
         isOpen:false,
-        group:{}
+        groupId:&quot;&quot;
       }
     };
 
     const result = groupboards(dummyCurrentState,action);
 
     assert(result.managementBoard.isOpen === true);
-    assert.deepEqual(result.managementBoard.group, dummyGroup);
+    assert(result.managementBoard.groupId === dummyGroupId);
     assert.deepEqual(result.creationBoard, dummyCurrentState.creationBoard);
   });
 
@@ -293,29 +278,14 @@ describe(&quot;groupboards reducer&quot;,()=&gt;{
       },
       managementBoard:{
         isOpen:true,
-        group:{
-          id:&quot;group_id_1&quot;,
-          name:&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;1&quot;,
-          members:[
-            {
-              id:&quot;member1&quot;,
-              name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;1&quot;,
-              isAdmin:true
-            },
-            {
-              id:&quot;member2&quot;,
-              name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;2&quot;,
-              isAdmin:false
-            },
-          ]
-        }
+        groupId:&quot;g0001&quot;
       }
     };
 
     const result = groupboards(dummyCurrentState,action);
 
     assert(result.managementBoard.isOpen === false);
-    assert.deepEqual(result.managementBoard.group, {});
+    assert(result.managementBoard.groupId===&quot;&quot;);
     assert.deepEqual(result.creationBoard,dummyCurrentState.creationBoard);
   });
 
@@ -328,22 +298,7 @@ describe(&quot;groupboards reducer&quot;,()=&gt;{
       },
       managementBoard:{
         isOpen:true,
-        group:{
-          id:&quot;group_id_1&quot;,
-          name:&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;1&quot;,
-          members:[
-            {
-              id:&quot;member1&quot;,
-              name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;1&quot;,
-              isAdmin:true
-            },
-            {
-              id:&quot;member2&quot;,
-              name:&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;2&quot;,
-              isAdmin:false
-            },
-          ]
-        }
+        groupId:&quot;&quot;
       }
     };
 

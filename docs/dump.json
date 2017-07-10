@@ -1518,7 +1518,7 @@
     "__docId__": 61,
     "kind": "file",
     "name": "src/action/groupboards.js",
-    "content": "/**\n* グループ作成ボードオープンアクション名\n*/\nexport const OPEN_GROUP_CREATION_BOARD = \"OPEN_GROUP_CREATION_BOARD\";\n\n/**\n* グループ作成ボードオープンアクションのcreator\n* @return {Object} OPEN_GROUP_CREATION_BOARDアクション\n*/\nexport function openGroupCreationBoard(){\n  return {\n    type : OPEN_GROUP_CREATION_BOARD\n  };\n}\n\n/**\n* グループ作成ボードクローズアクション\n*/\nexport const CLOSE_GROUP_CREATION_BOARD = \"CLOSE_GROUP_CREATION_BOARD\";\n\n/**\n* グループ作成ボードクローズアクションのcreator\n* @return {Object} CLOSE_GROUP_CREATION_BOARDアクション\n*/\nexport function closeGroupCreationBoard(){\n  return {\n    type: CLOSE_GROUP_CREATION_BOARD\n  };\n}\n\n/**\n* グループ管理ボードオープンアクション名\n*/\nexport const OPEN_GROUP_MANAGEMENT_BOARD = \"OPEN_GROUP_MANAGEMENT_BOARD\";\n\n/**\n* グループ管理ボードオープンアクションのcreator\n* @param {Object} targetGroup 管理対象のグループ\n* @return {Object} OPEN_GROUP_MANAGEMENT_BOARDアクション\n*/\nexport function openGroupManagementBoard(targetGroup){\n  return {\n    type: OPEN_GROUP_MANAGEMENT_BOARD,\n    payload:targetGroup\n  };\n}\n\n/**\n* グループ管理ボードクローズアクション名\n*/\nexport const CLOSE_GROUP_MANAGEMENT_BOARD = \"CLOSE_GROUP_MANAGEMENT_BOARD\";\n\n/**\n* グループ管理ボードクローズアクションのcreator\n* @return {Object} CLOSE_GROUP_MANAGEMENT_BOARDアクション\n*/\nexport function closeGroupManagementBoard(){\n  return {\n    type: CLOSE_GROUP_MANAGEMENT_BOARD\n  };\n}\n",
+    "content": "/**\n* グループ作成ボードオープンアクション名\n*/\nexport const OPEN_GROUP_CREATION_BOARD = \"OPEN_GROUP_CREATION_BOARD\";\n\n/**\n* グループ作成ボードオープンアクションのcreator\n* @return {Object} OPEN_GROUP_CREATION_BOARDアクション\n*/\nexport function openGroupCreationBoard(){\n  return {\n    type : OPEN_GROUP_CREATION_BOARD\n  };\n}\n\n/**\n* グループ作成ボードクローズアクション\n*/\nexport const CLOSE_GROUP_CREATION_BOARD = \"CLOSE_GROUP_CREATION_BOARD\";\n\n/**\n* グループ作成ボードクローズアクションのcreator\n* @return {Object} CLOSE_GROUP_CREATION_BOARDアクション\n*/\nexport function closeGroupCreationBoard(){\n  return {\n    type: CLOSE_GROUP_CREATION_BOARD\n  };\n}\n\n/**\n* グループ管理ボードオープンアクション名\n*/\nexport const OPEN_GROUP_MANAGEMENT_BOARD = \"OPEN_GROUP_MANAGEMENT_BOARD\";\n\n/**\n* グループ管理ボードオープンアクションのcreator\n* @param {String} targetGroupId 管理対象のGroupのID\n* @return {Object} OPEN_GROUP_MANAGEMENT_BOARDアクション\n*/\nexport function openGroupManagementBoard(targetGroupId){\n  return {\n    type: OPEN_GROUP_MANAGEMENT_BOARD,\n    payload:{\n      groupId:targetGroupId\n    }\n  };\n}\n\n/**\n* グループ管理ボードクローズアクション名\n*/\nexport const CLOSE_GROUP_MANAGEMENT_BOARD = \"CLOSE_GROUP_MANAGEMENT_BOARD\";\n\n/**\n* グループ管理ボードクローズアクションのcreator\n* @return {Object} CLOSE_GROUP_MANAGEMENT_BOARDアクション\n*/\nexport function closeGroupManagementBoard(){\n  return {\n    type: CLOSE_GROUP_MANAGEMENT_BOARD\n  };\n}\n",
     "static": true,
     "longname": "src/action/groupboards.js",
     "access": null,
@@ -1651,12 +1651,12 @@
       {
         "nullable": null,
         "types": [
-          "Object"
+          "String"
         ],
         "spread": false,
         "optional": false,
-        "name": "targetGroup",
-        "description": "管理対象のグループ"
+        "name": "targetGroupId",
+        "description": "管理対象のGroupのID"
       }
     ],
     "return": {
@@ -1680,7 +1680,7 @@
     "importPath": "kyo-do.co-ui/src/action/groupboards.js",
     "importStyle": "{CLOSE_GROUP_MANAGEMENT_BOARD}",
     "description": "グループ管理ボードクローズアクション名",
-    "lineNumber": 51,
+    "lineNumber": 53,
     "type": {
       "types": [
         "string"
@@ -1701,7 +1701,7 @@
     "importPath": "kyo-do.co-ui/src/action/groupboards.js",
     "importStyle": "{closeGroupManagementBoard}",
     "description": "グループ管理ボードクローズアクションのcreator",
-    "lineNumber": 57,
+    "lineNumber": 59,
     "params": [],
     "return": {
       "nullable": null,
@@ -4692,7 +4692,7 @@
     "__docId__": 190,
     "kind": "file",
     "name": "src/const/groupboards.js",
-    "content": "/**\n* groupboards stateのデフォルト値\n*/\nexport const DEFAULT_GROUPBORADS = {\n  creationBoard:{\n    isOpen:false\n  },\n  managementBoard:{\n    isOpen:false,\n    group:{}\n  }\n};\n",
+    "content": "/**\n* groupboards stateのデフォルト値\n*/\nexport const DEFAULT_GROUPBORADS = {\n  creationBoard:{\n    isOpen:false\n  },\n  managementBoard:{\n    isOpen:false,\n    groupId:\"\"\n  }\n};\n",
     "static": true,
     "longname": "src/const/groupboards.js",
     "access": null,
@@ -5672,7 +5672,7 @@
     "__docId__": 228,
     "kind": "file",
     "name": "src/reducer/groupboards.js",
-    "content": "import {\n  OPEN_GROUP_CREATION_BOARD,\n  CLOSE_GROUP_CREATION_BOARD,\n  OPEN_GROUP_MANAGEMENT_BOARD,\n  CLOSE_GROUP_MANAGEMENT_BOARD\n} from '../action/groupboards';\nimport {DEFAULT_GROUPBORADS} from '../const/groupboards';\n\n/**\n* グループ reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function groupboards(state=DEFAULT_GROUPBORADS,action){\n  switch(action.type){\n    case(OPEN_GROUP_CREATION_BOARD):\n      return Object.assign({},state,{creationBoard:{isOpen:true}});\n    case(CLOSE_GROUP_CREATION_BOARD):\n      return Object.assign({},state,{creationBoard:{isOpen:false}});\n    case(OPEN_GROUP_MANAGEMENT_BOARD):\n      return Object.assign({},state,{managementBoard:{isOpen:true, group:action.payload}});\n    case(CLOSE_GROUP_MANAGEMENT_BOARD):\n      return Object.assign({},state,{managementBoard:{isOpen:false, group:{}}});\n    default:\n      return state;\n  }\n}\n",
+    "content": "import {\n  OPEN_GROUP_CREATION_BOARD,\n  CLOSE_GROUP_CREATION_BOARD,\n  OPEN_GROUP_MANAGEMENT_BOARD,\n  CLOSE_GROUP_MANAGEMENT_BOARD\n} from '../action/groupboards';\nimport {DEFAULT_GROUPBORADS} from '../const/groupboards';\n\n/**\n* グループ reducer\n* @see http://qiita.com/yasuhiro-okada-aktsk/items/9d9025cb58ffba35f864\n* @param {Object} state 変更前のstate\n* @param {Object} action dispatchされたaction\n* @return {Object} 変更後のstate\n*/\nexport default function groupboards(state=DEFAULT_GROUPBORADS,action){\n  switch(action.type){\n    case(OPEN_GROUP_CREATION_BOARD):\n      return Object.assign({},state,{creationBoard:{isOpen:true}});\n    case(CLOSE_GROUP_CREATION_BOARD):\n      return Object.assign({},state,{creationBoard:{isOpen:false}});\n    case(OPEN_GROUP_MANAGEMENT_BOARD):\n      return Object.assign({},state,{managementBoard:{isOpen:true, groupId:action.payload.groupId}});\n    case(CLOSE_GROUP_MANAGEMENT_BOARD):\n      return Object.assign({},state,{managementBoard:{isOpen:false, groupId:\"\"}});\n    default:\n      return state;\n  }\n}\n",
     "static": true,
     "longname": "src/reducer/groupboards.js",
     "access": null,
@@ -8932,7 +8932,7 @@
     "__docId__": 417,
     "kind": "testFile",
     "name": "test/action/groupboards.test.js",
-    "content": "import assert from 'power-assert';\nimport {\n  OPEN_GROUP_CREATION_BOARD,\n  CLOSE_GROUP_CREATION_BOARD,\n  OPEN_GROUP_MANAGEMENT_BOARD,\n  CLOSE_GROUP_MANAGEMENT_BOARD\n} from '../../src/action/groupboards';\n\nimport {\n  openGroupCreationBoard,\n  closeGroupCreationBoard,\n  openGroupManagementBoard,\n  closeGroupManagementBoard\n} from '../../src/action/groupboards';\n\n/**@test {openGroupCreationBoard}*/\ndescribe(\"openGroupCreationBoard action creator\",()=>{\n  it(\"creates OPEN_GROUP_CREATION_BOARD action with no arguments\",()=>{\n    const result = openGroupCreationBoard();\n\n    assert(result.type === OPEN_GROUP_CREATION_BOARD);\n  });\n});\n/**@test {closeGroupCreationBoard} */\ndescribe(\"closeGroupCreationBoard action creator\",()=>{\n  it(\"creates CLOSE_GROUP_CREATION_BOARD with no arguments\",()=>{\n    const result = closeGroupCreationBoard();\n\n    assert(result.type === CLOSE_GROUP_CREATION_BOARD);\n  });\n});\n\n/**@test {openGroupManagementBoard} */\ndescribe(\"openGroupManagementBoard action creator\",()=>{\n  it(\"creates OPEN_GROUP_MANAGEMENT_BOARD action with target group object\",()=>{\n    const dummyGroup = {\n      id:\"group_id_1\",\n      name:\"グループ1\",\n      members:[\n        {\n          id:\"member1\",\n          name:\"メンバー1\",\n          isAdmin:true\n        },\n        {\n          id:\"member2\",\n          name:\"メンバー2\",\n          isAdmin:false\n        },\n      ]\n    };\n\n    const result = openGroupManagementBoard(dummyGroup);\n\n    assert(result.type === OPEN_GROUP_MANAGEMENT_BOARD);\n    assert.deepEqual(result.payload, dummyGroup);\n  });\n});\n\n/**@test {closeGroupCreationBoard} */\ndescribe(\"closeGroupCreationBoard action creator\",()=>{\n  it(\"creates CLOSE_GROUP_MANAGEMENT_BOARD with no arguments\",()=>{\n    const result = closeGroupManagementBoard();\n\n    assert(result.type === CLOSE_GROUP_MANAGEMENT_BOARD);\n  });\n});\n",
+    "content": "import assert from 'power-assert';\nimport {\n  OPEN_GROUP_CREATION_BOARD,\n  CLOSE_GROUP_CREATION_BOARD,\n  OPEN_GROUP_MANAGEMENT_BOARD,\n  CLOSE_GROUP_MANAGEMENT_BOARD\n} from '../../src/action/groupboards';\n\nimport {\n  openGroupCreationBoard,\n  closeGroupCreationBoard,\n  openGroupManagementBoard,\n  closeGroupManagementBoard\n} from '../../src/action/groupboards';\n\n/**@test {openGroupCreationBoard}*/\ndescribe(\"openGroupCreationBoard action creator\",()=>{\n  it(\"creates OPEN_GROUP_CREATION_BOARD action with no arguments\",()=>{\n    const result = openGroupCreationBoard();\n\n    assert(result.type === OPEN_GROUP_CREATION_BOARD);\n  });\n});\n/**@test {closeGroupCreationBoard} */\ndescribe(\"closeGroupCreationBoard action creator\",()=>{\n  it(\"creates CLOSE_GROUP_CREATION_BOARD with no arguments\",()=>{\n    const result = closeGroupCreationBoard();\n\n    assert(result.type === CLOSE_GROUP_CREATION_BOARD);\n  });\n});\n\n/**@test {openGroupManagementBoard} */\ndescribe(\"openGroupManagementBoard action creator\",()=>{\n  it(\"creates OPEN_GROUP_MANAGEMENT_BOARD action with target group object\",()=>{\n    const dummyGroupId = \"g0001\";\n\n    const result = openGroupManagementBoard(dummyGroupId);\n\n    assert(result.type === OPEN_GROUP_MANAGEMENT_BOARD);\n    assert(result.payload.groupId, dummyGroupId);\n  });\n});\n\n/**@test {closeGroupCreationBoard} */\ndescribe(\"closeGroupCreationBoard action creator\",()=>{\n  it(\"creates CLOSE_GROUP_MANAGEMENT_BOARD with no arguments\",()=>{\n    const result = closeGroupManagementBoard();\n\n    assert(result.type === CLOSE_GROUP_MANAGEMENT_BOARD);\n  });\n});\n",
     "static": true,
     "longname": "test/action/groupboards.test.js",
     "access": null,
@@ -9055,7 +9055,7 @@
     "longname": "test/action/groupboards.test.js~describe64",
     "access": null,
     "description": "closeGroupCreationBoard action creator",
-    "lineNumber": 61,
+    "lineNumber": 46,
     "unknown": [
       {
         "tagName": "@test",
@@ -9077,7 +9077,7 @@
     "longname": "test/action/groupboards.test.js~describe64.it65",
     "access": null,
     "description": "creates CLOSE_GROUP_MANAGEMENT_BOARD with no arguments",
-    "lineNumber": 62
+    "lineNumber": 47
   },
   {
     "__docId__": 426,
@@ -10394,7 +10394,7 @@
     "__docId__": 515,
     "kind": "testFile",
     "name": "test/reducer/groupboards.test.js",
-    "content": "import assert from 'power-assert';\nimport groupboards from '../../src/reducer/groupboards';\nimport {\n  openGroupCreationBoard,\n  closeGroupCreationBoard,\n  openGroupManagementBoard,\n  closeGroupManagementBoard\n} from '../../src/action/groupboards';\n\n/** @test {groupboards} */\ndescribe(\"groupboards reducer\",()=>{\n  it(\"sets creationBoard.isOpen state to true when OPEN_GROUP_CREATION_BOARD action is passed\",()=>{\n    const action = openGroupCreationBoard();\n\n    const dummyCurrentState = {\n      creationBoard:{\n        isOpen:false\n      },\n      managementBoard:{\n        isOpen:false,\n        group:{}\n      }\n    };\n\n    const result = groupboards(dummyCurrentState,action);\n\n    assert(result.creationBoard.isOpen === true);\n    assert.deepEqual(result.managementBoard, dummyCurrentState.managementBoard);\n  });\n\n  it(\"sets creationBoard.isOpen state to false when CLOSE_GROUP_CREATION_BOARD action is passed\",()=>{\n    const action = closeGroupCreationBoard();\n\n    const dummyCurrentState = {\n      creationBoard:{\n        isOpen:true\n      },\n      managementBoard:{\n        isOpen:false,\n        group:{}\n      }\n    };\n\n    const result = groupboards(dummyCurrentState,action);\n\n    assert(result.creationBoard.isOpen === false);\n    assert.deepEqual(result.managementBoard, dummyCurrentState.managementBoard);\n  });\n\n  it(\"sets managementBoard.isOpen state to true and managementBoard.group to action's payload if OPEN_GROUP_MANAGEMENT_BOARD action is passed\",()=>{\n    const dummyGroup = {\n      id:\"group_id_1\",\n      name:\"グループ1\",\n      members:[\n        {\n          id:\"member1\",\n          name:\"メンバー1\",\n          isAdmin:true\n        },\n        {\n          id:\"member2\",\n          name:\"メンバー2\",\n          isAdmin:false\n        },\n      ]\n    };\n\n    const action = openGroupManagementBoard(dummyGroup);\n\n    const dummyCurrentState = {\n      creationBoard:{\n        isOpen:false\n      },\n      managementBoard:{\n        isOpen:false,\n        group:{}\n      }\n    };\n\n    const result = groupboards(dummyCurrentState,action);\n\n    assert(result.managementBoard.isOpen === true);\n    assert.deepEqual(result.managementBoard.group, dummyGroup);\n    assert.deepEqual(result.creationBoard, dummyCurrentState.creationBoard);\n  });\n\n  it(\"sets managementBoard.isOpen state to false and managementBoard.group state to empty if CLOSE_GROUP_MANAGEMENT_BOARD action is passed\",()=>{\n    const action = closeGroupManagementBoard();\n\n    const dummyCurrentState = {\n      creationBoard:{\n        isOpen:false\n      },\n      managementBoard:{\n        isOpen:true,\n        group:{\n          id:\"group_id_1\",\n          name:\"グループ1\",\n          members:[\n            {\n              id:\"member1\",\n              name:\"メンバー1\",\n              isAdmin:true\n            },\n            {\n              id:\"member2\",\n              name:\"メンバー2\",\n              isAdmin:false\n            },\n          ]\n        }\n      }\n    };\n\n    const result = groupboards(dummyCurrentState,action);\n\n    assert(result.managementBoard.isOpen === false);\n    assert.deepEqual(result.managementBoard.group, {});\n    assert.deepEqual(result.creationBoard,dummyCurrentState.creationBoard);\n  });\n\n  it(\"does nothing if any other action is passed\",()=>{\n    const action = {type:\"DUMMY_ACTION_NAME\"};\n\n    const dummyCurrentState = {\n      creationBoard:{\n        isOpen:false\n      },\n      managementBoard:{\n        isOpen:true,\n        group:{\n          id:\"group_id_1\",\n          name:\"グループ1\",\n          members:[\n            {\n              id:\"member1\",\n              name:\"メンバー1\",\n              isAdmin:true\n            },\n            {\n              id:\"member2\",\n              name:\"メンバー2\",\n              isAdmin:false\n            },\n          ]\n        }\n      }\n    };\n\n    const result = groupboards(dummyCurrentState,action);\n\n    assert.deepEqual(result, dummyCurrentState);\n  });\n});\n",
+    "content": "import assert from 'power-assert';\nimport groupboards from '../../src/reducer/groupboards';\nimport {\n  openGroupCreationBoard,\n  closeGroupCreationBoard,\n  openGroupManagementBoard,\n  closeGroupManagementBoard\n} from '../../src/action/groupboards';\n\n/** @test {groupboards} */\ndescribe(\"groupboards reducer\",()=>{\n  it(\"sets creationBoard.isOpen state to true when OPEN_GROUP_CREATION_BOARD action is passed\",()=>{\n    const action = openGroupCreationBoard();\n\n    const dummyCurrentState = {\n      creationBoard:{\n        isOpen:false\n      },\n      managementBoard:{\n        isOpen:false,\n        groupId:\"\"\n      }\n    };\n\n    const result = groupboards(dummyCurrentState,action);\n\n    assert(result.creationBoard.isOpen === true);\n    assert.deepEqual(result.managementBoard, dummyCurrentState.managementBoard);\n  });\n\n  it(\"sets creationBoard.isOpen state to false when CLOSE_GROUP_CREATION_BOARD action is passed\",()=>{\n    const action = closeGroupCreationBoard();\n\n    const dummyCurrentState = {\n      creationBoard:{\n        isOpen:true\n      },\n      managementBoard:{\n        isOpen:false,\n        groupId:\"\"\n      }\n    };\n\n    const result = groupboards(dummyCurrentState,action);\n\n    assert(result.creationBoard.isOpen === false);\n    assert.deepEqual(result.managementBoard, dummyCurrentState.managementBoard);\n  });\n\n  it(\"sets managementBoard.isOpen state to true and managementBoard.group to action's payload if OPEN_GROUP_MANAGEMENT_BOARD action is passed\",()=>{\n    const dummyGroupId = \"g0001\";\n\n    const action = openGroupManagementBoard(dummyGroupId);\n\n    const dummyCurrentState = {\n      creationBoard:{\n        isOpen:false\n      },\n      managementBoard:{\n        isOpen:false,\n        groupId:\"\"\n      }\n    };\n\n    const result = groupboards(dummyCurrentState,action);\n\n    assert(result.managementBoard.isOpen === true);\n    assert(result.managementBoard.groupId === dummyGroupId);\n    assert.deepEqual(result.creationBoard, dummyCurrentState.creationBoard);\n  });\n\n  it(\"sets managementBoard.isOpen state to false and managementBoard.group state to empty if CLOSE_GROUP_MANAGEMENT_BOARD action is passed\",()=>{\n    const action = closeGroupManagementBoard();\n\n    const dummyCurrentState = {\n      creationBoard:{\n        isOpen:false\n      },\n      managementBoard:{\n        isOpen:true,\n        groupId:\"g0001\"\n      }\n    };\n\n    const result = groupboards(dummyCurrentState,action);\n\n    assert(result.managementBoard.isOpen === false);\n    assert(result.managementBoard.groupId===\"\");\n    assert.deepEqual(result.creationBoard,dummyCurrentState.creationBoard);\n  });\n\n  it(\"does nothing if any other action is passed\",()=>{\n    const action = {type:\"DUMMY_ACTION_NAME\"};\n\n    const dummyCurrentState = {\n      creationBoard:{\n        isOpen:false\n      },\n      managementBoard:{\n        isOpen:true,\n        groupId:\"\"\n      }\n    };\n\n    const result = groupboards(dummyCurrentState,action);\n\n    assert.deepEqual(result, dummyCurrentState);\n  });\n});\n",
     "static": true,
     "longname": "test/reducer/groupboards.test.js",
     "access": null,
@@ -10473,7 +10473,7 @@
     "longname": "test/reducer/groupboards.test.js~describe142.it146",
     "access": null,
     "description": "sets managementBoard.isOpen state to false and managementBoard.group state to empty if CLOSE_GROUP_MANAGEMENT_BOARD action is passed",
-    "lineNumber": 87
+    "lineNumber": 72
   },
   {
     "__docId__": 521,
@@ -10486,7 +10486,7 @@
     "longname": "test/reducer/groupboards.test.js~describe142.it147",
     "access": null,
     "description": "does nothing if any other action is passed",
-    "lineNumber": 122
+    "lineNumber": 92
   },
   {
     "__docId__": 522,
