@@ -36,6 +36,8 @@ import {
 import {UPDATE_MEMBER_STATUS} from '../action/board'
 import {getApiBaseURL} from '../module/environment'
 import axios from "axios";
+import {getGroupById} from '../module/group';
+import {getMemberStatusById} from '../module/member';
 
 /**
 * APIのベースURL
@@ -381,26 +383,4 @@ export function* deleteGroupTask(action){
   }catch(e){
     yield put(deleteGroupFailure());
   }
-}
-
-/**
-* メンバーIDに紐づくメンバーの状況を取得する
-* @param {array} memberStatus メンバーの状況の配列
-* @param {String} memberId 取得したいメンバーのID
-* @return {Object} メンバーIDに紐づくメンバーの状況
-*/
-function getMemberStatusById(memberStatus,memberId){
-  const filteredMemberStatus = memberStatus.filter(member => member.userid === memberId);
-  return filteredMemberStatus.length === 1 ? filteredMemberStatus[0] : undefined;
-}
-
-/**
-* グループ配列の中からIDに紐づくグループを取得する
-* @param {array} groups グループの配列
-* @param {String} groupId 取得したいグループのID
-* @return {Object} グループIDに紐づくグループ
-*/
-function getGroupById(groups, groupId){
-  const filteredGroups = groups.filter(group => group.id === groupId);
-  return filteredGroups.length === 1 ? filteredGroups[0] : undefined;
 }

@@ -1,5 +1,6 @@
 import {GROUPS_LOADED,GROUP_MEMBER_LOADED} from '../action/group';
 import {DEFAULT_GROUP} from '../const/group';
+import {getGroupById} from '../module/group';
 
 /**
 * グループ reducer
@@ -43,7 +44,7 @@ function margeGroupInfo(currentGroups, newGroups){
         return Object.assign({},newGroup,{members : currentGroup.members});
       }else{
         return newGroup;
-      }      
+      }
     }else{
       return newGroup;
     }
@@ -84,15 +85,4 @@ function fetchGroupMember(currentGroups, newGroupWithMembers){
       return group;
     }
   })
-}
-
-/**
-* グループ配列の中からIDに紐づくグループを取得する
-* @param {array} groups グループの配列
-* @param {String} groupId 取得したいグループのID
-* @return {Object} グループIDに紐づくグループ
-*/
-function getGroupById(groups, groupId){
-  const filteredGroups = groups.filter(group => group.id === groupId);
-  return filteredGroups.length === 1 ? filteredGroups[0] : undefined;
 }
