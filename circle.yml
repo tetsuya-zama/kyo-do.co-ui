@@ -16,4 +16,5 @@ deployment:
     commands:
       - webpack
       - ls dist/
-      - aws s3 cp dist/bundle.js s3://tkd-kyodocoui/js/
+      - aws s3 cp dist/bundle.js s3://kyo-do.co-origin/
+      - aws s3 cp dist/bundle.js.map s3://kyo-do.co-origin/
