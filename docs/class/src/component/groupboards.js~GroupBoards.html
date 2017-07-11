@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">test/reducer/login.test.js | API Document</title>
+  <title data-ice="title">GroupBoards | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -201,71 +201,260 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">test/reducer/login.test.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
-import {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from &quot;../../src/action/login&quot;;
-import {LOGIN_STATUS} from &quot;../../src/const/login&quot;
-import login from &quot;../../src/reducer/login&quot;
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import GroupBoards from &apos;<span><a href="file/src/component/groupboards.js.html#lineNumber12">kyo-do.co-ui/src/component/groupboards.js</a></span>&apos;</code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/src/component/groupboards.js.html#lineNumber12">source</a></span></span>
+</div>
 
-const dummyUserData = {userid:&quot;mike&quot;,name:&quot;Mike&quot;,token:&quot;dummy&quot;};
-/**@test {login}*/
-describe(&quot;login reducer&quot;,()=&gt;{
-  //LOGIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&apos;status&apos;&#x3092;LOGIN_STATUS.SUCCESS&#x306B;&#x5909;&#x66F4;&#x3057;&#x3001;&apos;user&apos;&#x3092;action&#x306E;payload&#x306B;&#x5909;&#x66F4;&#x3059;&#x308B;
-  it(&quot;changes &apos;status&apos; state to LOGIN_STATUS.SUCCESS and changes &apos;user&apos; state to payload of action if LOGIN_SUCCESS action is passed&quot;,()=&gt;{
-    const action = {
-      type:LOGIN_SUCCESS,
-      payload:dummyUserData
-    };
+<div class="self-detail detail">
+  <h1 data-ice="name">GroupBoards</h1>
 
-    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};
+  
 
-    const result = login(initialState,action);
-    assert(result.status === LOGIN_STATUS.SUCCESS);
-    assert(result.user === action.payload);
-  });
-  //LOGIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&apos;status&apos;&#x3092;LOGIN_STATUS.FAILURE&#x306B;&#x5909;&#x66F4;&#x3057;&#x3001;&apos;user&apos;&#x306F;&#x7A7A;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x306A;&#x308B;
-  it(&quot;changes &apos;status&apos; state to LOGIN_STATUS.FAILURE and changes &apos;user&apos; state to empty object if LOGIN_FAILURE action is passed&quot;,()=&gt;{
-    const action = {type:LOGIN_FAILURE};
+  
+  
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>react~React.Component</span> &#x2192; GroupBoards</div></div>
+  
+  
+  
+  
+  
+  
 
-    const initialState = {status:LOGIN_STATUS.NOTYET,user:{}};
+  
+  
+  <div class="description" data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x5225;&#x306E;&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;</p>
+</div>
+  
 
-    const result = login(initialState,action);
-    assert(result.status === LOGIN_STATUS.FAILURE);
-    assert(Object.keys(result.user).length === 0);
-  });
-  //LOGOUT_REQUESTED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&apos;status&apos;&#x3092;LOGIN_STATUS.NOTYET&#x306B;&#x5909;&#x66F4;&#x3057;&#x3001;&apos;user&apos;&#x306F;&#x7A7A;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x306A;&#x308B;
-  it(&quot;changes &apos;status&apos; state to LOGIN_STATUS.NOTYET and changes &apos;user&apos; state to empty object if LOGOUT_REQUESTED action is passed&quot;,()=&gt;{
-    const action = {type:LOGOUT_REQUESTED};
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="http://qiita.com/nownabe/items/2d8b92d95186c3941de0">http://qiita.com/nownabe/items/2d8b92d95186c3941de0</a></span></li></ul></div>
 
-    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};
+  
 
-    const result = login(initialState,action);
-    assert(result.status === LOGIN_STATUS.NOTYET);
-    assert(Object.keys(result.user).length === 0);
-  });
-  //LOGIN_REQUESTED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x3001;&apos;status&apos;&#x3092;LOGIN_STATUS.NOTYET&#x306B;&#x5909;&#x66F4;&#x3057;&#x3001;&apos;user&apos;&#x306F;&#x7A7A;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3068;&#x306A;&#x308B;
-  it(&quot;changes &apos;status&apos; state to LOGIN_STATUS.NOTYET and changes &apos;user&apos; state to empty object if LOGIN_REQUESTED action is passed&quot;,()=&gt;{
-    const action = {type:LOGIN_REQUESTED};
+  
 
-    const initialState = {status:LOGIN_STATUS.FAILURE,user:{}};
+  
+</div>
 
-    const result = login(initialState,action);
-    assert(result.status === LOGIN_STATUS.NOTYET);
-    assert(Object.keys(result.user).length === 0);
-  });
-  //&#x305D;&#x306E;&#x4ED6;&#x306E;&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x306F;state&#x3092;&#x5909;&#x66F4;&#x3057;&#x306A;&#x3044;
-  it(&quot;doesn&apos;t change any state if any other action is passed&quot;,()=&gt;{
-    const action = {type:&quot;OTHER_ACTION&quot;};
 
-    const initialState = {status:LOGIN_STATUS.SUCCESS,user:dummyUserData};
 
-    const result = login(initialState,action);
-    assert(result.status === initialState.status);
-    assert(result.user === initialState.user);
-  });
-});
-</code></pre>
+<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/src/component/groupboards.js~GroupBoards.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(props: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
 
+<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/src/component/groupboards.js~GroupBoards.html#instance-method-render">render</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-constructor-constructor">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">constructor</span><span data-ice="signature">(props: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/component/groupboards.js.html#lineNumber18">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">props</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-render">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">render</span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/component/groupboards.js.html#lineNumber26">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 </div>
 
 <footer class="footer">

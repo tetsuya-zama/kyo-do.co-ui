@@ -384,6 +384,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/component/groupboards.js~groupboards",
+    "class/src/component/groupboards.js~GroupBoards.html",
+    "<span>GroupBoards</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/groupboards.js</span>",
+    "class"
+  ],
+  [
     "kyo-do.co-ui/src/component/groupcreationboard.js~groupcreationboard",
     "class/src/component/groupcreationboard.js~GroupCreationBoard.html",
     "<span>GroupCreationBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/groupcreationboard.js</span>",
@@ -2860,6 +2866,24 @@ window.esdocSearchIndex = [
     "class/src/component/board.js~Board.html#instance-member-state",
     "src/component/board.js~Board#state",
     "member"
+  ],
+  [
+    "src/component/groupboards.js",
+    "file/src/component/groupboards.js.html",
+    "src/component/groupboards.js",
+    "file"
+  ],
+  [
+    "src/component/groupboards.js~groupboards#constructor",
+    "class/src/component/groupboards.js~GroupBoards.html#instance-constructor-constructor",
+    "src/component/groupboards.js~GroupBoards#constructor",
+    "method"
+  ],
+  [
+    "src/component/groupboards.js~groupboards#render",
+    "class/src/component/groupboards.js~GroupBoards.html#instance-method-render",
+    "src/component/groupboards.js~GroupBoards#render",
+    "method"
   ],
   [
     "src/component/groupcreationboard.js",

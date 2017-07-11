@@ -123,6 +123,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SUGGESTION_CLEAR">SUGGESTION_CLEAR</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">component</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/accountboard.js~AccountBoard.html">AccountBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/board.js~Board.html">Board</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupboards.js~GroupBoards.html">GroupBoards</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupcreationboard.js~GroupCreationBoard.html">GroupCreationBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupmanagementboard.js~GroupManagementBoard.html">GroupManagementBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupmember.js~GroupMember.html">GroupMember</a></span></span></li>
@@ -206,7 +207,7 @@ import { connect } from &apos;react-redux&apos;
 import Header from &apos;./header&apos;
 import LoginForm from &apos;./loginform&apos;
 import SignUpForm from &apos;./signupform&apos;
-import Board from &apos;./board&apos;
+import GroupBoards from &apos;./groupboards&apos;
 import MyDestination from &apos;./mydestination&apos;
 import {LOGIN_STATUS} from &apos;../const/login&apos;
 import Paper from &apos;material-ui/Paper&apos;;
@@ -247,8 +248,11 @@ class Kyodoco extends React.Component{
           login={this.props.login}
           mydestination={this.props.mydestination}
         /&gt;
-        &lt;Board
-          memberStatus={this.props.board.memberStatus}
+        &lt;GroupBoards
+          dispatch={this.props.dispatch}
+          board={this.props.board}
+          group={this.props.group}
+          login={this.props.login}
         /&gt;
        &lt;/div&gt;
       ) :
