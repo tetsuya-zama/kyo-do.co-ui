@@ -28,7 +28,7 @@ export default class GroupMember extends React.Component{
   /**
   * 管理者チェックボックスのチェックをハンドリングするhandler
   * @param {Object} event
-  * @param {checked} チェックされた場合はtrue/外れた場合はfalse
+  * @param {boolean} checked チェックされた場合はtrue/外れた場合はfalse
   * @return {undefined}
   */
   handleAdminCheck(event,checked){

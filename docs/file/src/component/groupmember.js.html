@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">test/action/login.test.js | API Document</title>
+  <title data-ice="title">src/component/groupmember.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -200,56 +200,81 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">test/action/login.test.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
-import {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from &quot;../../src/action/login&quot;;
-import {loginRequested,loginSuccess,loginFailure,logoutRequested} from &quot;../../src/action/login&quot;;
+<div class="content" data-ice="content"><h1 data-ice="title">src/component/groupmember.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+import Checkbox from &apos;material-ui/Checkbox&apos;;
+import FlatButton from &apos;material-ui/FlatButton&apos;;
+import {
+  setMemberAsGroupAdminRequired,
+  unsetMemberAsGroupAdminRequired,
+  deleteMemberFromGroupRequired
+} from &apos;../action/group&apos;;
 
-/**@test {loginRequested}*/
-describe(&quot;loginRequested action creator&quot;,()=&gt;{
-  //&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x5165;&#x529B;&#x3057;&#x305F;ID,Pass&#x3092;&#x4F7F;&#x3063;&#x3066;LOGIN_REQUESTED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;
-  it(&quot;creates LOGIN_REQUESTED action with id and password which user input&quot;,()=&gt;{
-    const testId = &quot;test_id&quot;;
-    const testPass = &quot;test_pass&quot;;
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x7BA1;&#x7406; &#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
+* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
+*/
+export default class GroupMember extends React.Component{
+  /**
+  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
+  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
+  * @return {undefined}
+  */
+  constructor(props){
+    super(props);
 
-    const result = loginRequested(testId,testPass);
-    assert(result.type === LOGIN_REQUESTED);
-    assert(result.payload.id === testId);
-    assert(result.payload.pass === testPass);
-  });
-});
+    this.handleAdminCheck = this.handleAdminCheck.bind(this);
+    this.handleDeleteMemberButton = this.handleDeleteMemberButton.bind(this);
+  }
 
-/**@test {loginSuccess}*/
-describe(&quot;loginSuccess action creator&quot;,()=&gt;{
-  //&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x305F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x60C5;&#x5831;&#x3092;&#x4F7F;&#x3063;&#x3066;LOGIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;
-  it(&quot;creates LOGIN_SUCCESS action with user data of logon user.&quot;,()=&gt;{
-    const userinfo = {&quot;name&quot;:&quot;Mike&quot;,&quot;userid&quot;:&quot;mike&quot;,&quot;token&quot;:&quot;dummy&quot;};
+  /**
+  * &#x7BA1;&#x7406;&#x8005;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
+  * @param {Object} event
+  * @param {boolean} checked &#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x306F;true/&#x5916;&#x308C;&#x305F;&#x5834;&#x5408;&#x306F;false
+  * @return {undefined}
+  */
+  handleAdminCheck(event,checked){
+    if(checked){
+      this.props.dispatch(setMemberAsGroupAdminRequired(this.props.groupId,this.props.memberId));
+    }else{
+      this.props.dispatch(unsetMemberAsGroupAdminRequired(this.props.groupId,this.props.memberId));
+    }
+  }
 
-    const result = loginSuccess(userinfo);
-    assert(result.type === LOGIN_SUCCESS);
-    assert(result.payload.name === userinfo.name);
-    assert(result.payload.userid === userinfo.userid);
-    assert(result.payload.token === userinfo.token);
-  });
-});
+  /**
+  * &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x524A;&#x9664;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
+  */
+  handleDeleteMemberButton(){
+    if(confirm(&quot;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x304B;&#x3089;&#x524A;&#x9664;&#x3057;&#x307E;&#x3059;&#x3002;&#x3088;&#x308D;&#x3057;&#x3044;&#x3067;&#x3059;&#x304B;&#xFF1F;&quot;)){
+      this.props.dispatch(deleteMemberFromGroupRequired(this.props.groupId,this.props.memberId));
+    }
+  }
 
-/**@test {loginFailure}*/
-describe(&quot;loginFailure action creator&quot;,()=&gt;{
-  //&#x5F15;&#x6570;&#x3092;&#x53D6;&#x3089;&#x305A;&#x306B;LOGIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;
-  it(&quot;creates LOGIN_FAILURE action with no arguments&quot;,()=&gt;{
-    const result = loginFailure();
-    assert(result.type === LOGIN_FAILURE);
-  });
-});
-
-/**@test {logoutRequested}*/
-describe(&quot;logoutRequested action creator&quot;,()=&gt;{
-  //&#x5F15;&#x6570;&#x3092;&#x53D6;&#x3089;&#x305A;&#x306B;LOGOUT_REQUESTED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;
-  it(&quot;creates LOGOUT_REQUESTED action with no arguments&quot;,()=&gt;{
-    const result = logoutRequested();
-    assert(result.type === LOGOUT_REQUESTED);
-  });
-});
+  /**
+  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @return {Object} JSX
+  */
+  render(){
+    return(
+      &lt;div&gt;
+        &lt;span&gt;{this.props.memberId}&lt;/span&gt;
+        &lt;Checkbox
+          label=&quot;&#x7BA1;&#x7406;&#x8005;&quot;
+          defaultChecked={this.props.isAdmin}
+          onCheck={this.handleAdminCheck}
+          ref=&quot;adminCheckBox&quot;
+        /&gt;
+        &lt;FlatButton
+          label=&quot;&#x524A;&#x9664;&quot;
+          primary={true}
+          onTouchTap={this.handleDeleteMemberButton}
+          ref=&quot;deleteMemberButton&quot;
+        /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
 </code></pre>
 
 </div>

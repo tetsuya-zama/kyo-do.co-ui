@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">test/action/login.test.js | API Document</title>
+  <title data-ice="title">GroupMember | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -200,58 +200,440 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">test/action/login.test.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
-import {LOGIN_REQUESTED,LOGIN_SUCCESS,LOGIN_FAILURE,LOGOUT_REQUESTED} from &quot;../../src/action/login&quot;;
-import {loginRequested,loginSuccess,loginFailure,logoutRequested} from &quot;../../src/action/login&quot;;
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import GroupMember from &apos;<span><a href="file/src/component/groupmember.js.html#lineNumber15">kyo-do.co-ui/src/component/groupmember.js</a></span>&apos;</code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/src/component/groupmember.js.html#lineNumber15">source</a></span></span>
+</div>
 
-/**@test {loginRequested}*/
-describe(&quot;loginRequested action creator&quot;,()=&gt;{
-  //&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x5165;&#x529B;&#x3057;&#x305F;ID,Pass&#x3092;&#x4F7F;&#x3063;&#x3066;LOGIN_REQUESTED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;
-  it(&quot;creates LOGIN_REQUESTED action with id and password which user input&quot;,()=&gt;{
-    const testId = &quot;test_id&quot;;
-    const testPass = &quot;test_pass&quot;;
+<div class="self-detail detail">
+  <h1 data-ice="name">GroupMember</h1>
 
-    const result = loginRequested(testId,testPass);
-    assert(result.type === LOGIN_REQUESTED);
-    assert(result.payload.id === testId);
-    assert(result.payload.pass === testPass);
-  });
-});
+  
 
-/**@test {loginSuccess}*/
-describe(&quot;loginSuccess action creator&quot;,()=&gt;{
-  //&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x305F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x60C5;&#x5831;&#x3092;&#x4F7F;&#x3063;&#x3066;LOGIN_SUCCESS&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;
-  it(&quot;creates LOGIN_SUCCESS action with user data of logon user.&quot;,()=&gt;{
-    const userinfo = {&quot;name&quot;:&quot;Mike&quot;,&quot;userid&quot;:&quot;mike&quot;,&quot;token&quot;:&quot;dummy&quot;};
+  
+  
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>react~React.Component</span> &#x2192; GroupMember</div></div>
+  
+  
+  
+  
+  
+  
 
-    const result = loginSuccess(userinfo);
-    assert(result.type === LOGIN_SUCCESS);
-    assert(result.payload.name === userinfo.name);
-    assert(result.payload.userid === userinfo.userid);
-    assert(result.payload.token === userinfo.token);
-  });
-});
+  
+  
+  <div class="description" data-ice="description"><p>&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x7BA1;&#x7406; &#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;</p>
+</div>
+  
 
-/**@test {loginFailure}*/
-describe(&quot;loginFailure action creator&quot;,()=&gt;{
-  //&#x5F15;&#x6570;&#x3092;&#x53D6;&#x3089;&#x305A;&#x306B;LOGIN_FAILURE&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;
-  it(&quot;creates LOGIN_FAILURE action with no arguments&quot;,()=&gt;{
-    const result = loginFailure();
-    assert(result.type === LOGIN_FAILURE);
-  });
-});
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="http://qiita.com/nownabe/items/2d8b92d95186c3941de0">http://qiita.com/nownabe/items/2d8b92d95186c3941de0</a></span></li></ul></div>
 
-/**@test {logoutRequested}*/
-describe(&quot;logoutRequested action creator&quot;,()=&gt;{
-  //&#x5F15;&#x6570;&#x3092;&#x53D6;&#x3089;&#x305A;&#x306B;LOGOUT_REQUESTED&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;
-  it(&quot;creates LOGOUT_REQUESTED action with no arguments&quot;,()=&gt;{
-    const result = logoutRequested();
-    assert(result.type === LOGOUT_REQUESTED);
-  });
-});
-</code></pre>
+  
 
+  
+
+  
+</div>
+
+
+
+<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/src/component/groupmember.js~GroupMember.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(props: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/src/component/groupmember.js~GroupMember.html#instance-method-handleAdminCheck">handleAdminCheck</a></span></span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, checked: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x7BA1;&#x7406;&#x8005;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/src/component/groupmember.js~GroupMember.html#instance-method-handleDeleteMemberButton">handleDeleteMemberButton</a></span></span><span data-ice="signature">()</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x524A;&#x9664;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/src/component/groupmember.js~GroupMember.html#instance-method-render">render</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-constructor-constructor">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">constructor</span><span data-ice="signature">(props: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/component/groupmember.js.html#lineNumber21">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">props</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-handleAdminCheck">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">handleAdminCheck</span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, checked: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/component/groupmember.js.html#lineNumber34">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x7BA1;&#x7406;&#x8005;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">event</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">checked</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x305F;&#x5834;&#x5408;&#x306F;true/&#x5916;&#x308C;&#x305F;&#x5834;&#x5408;&#x306F;false</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-handleDeleteMemberButton">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">handleDeleteMemberButton</span><span data-ice="signature">()</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/component/groupmember.js.html#lineNumber45">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306E;&#x524A;&#x9664;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-render">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">render</span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/component/groupmember.js.html#lineNumber55">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>JSX</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 </div>
 
 <footer class="footer">

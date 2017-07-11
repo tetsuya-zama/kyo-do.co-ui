@@ -396,6 +396,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "kyo-do.co-ui/src/component/groupmember.js~groupmember",
+    "class/src/component/groupmember.js~GroupMember.html",
+    "<span>GroupMember</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/groupmember.js</span>",
+    "class"
+  ],
+  [
     "kyo-do.co-ui/src/component/header.js~header",
     "class/src/component/header.js~Header.html",
     "<span>Header</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/header.js</span>",
@@ -2944,6 +2950,36 @@ window.esdocSearchIndex = [
     "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-member-state",
     "src/component/groupmanagementboard.js~GroupManagementBoard#state",
     "member"
+  ],
+  [
+    "src/component/groupmember.js",
+    "file/src/component/groupmember.js.html",
+    "src/component/groupmember.js",
+    "file"
+  ],
+  [
+    "src/component/groupmember.js~groupmember#constructor",
+    "class/src/component/groupmember.js~GroupMember.html#instance-constructor-constructor",
+    "src/component/groupmember.js~GroupMember#constructor",
+    "method"
+  ],
+  [
+    "src/component/groupmember.js~groupmember#handleadmincheck",
+    "class/src/component/groupmember.js~GroupMember.html#instance-method-handleAdminCheck",
+    "src/component/groupmember.js~GroupMember#handleAdminCheck",
+    "method"
+  ],
+  [
+    "src/component/groupmember.js~groupmember#handledeletememberbutton",
+    "class/src/component/groupmember.js~GroupMember.html#instance-method-handleDeleteMemberButton",
+    "src/component/groupmember.js~GroupMember#handleDeleteMemberButton",
+    "method"
+  ],
+  [
+    "src/component/groupmember.js~groupmember#render",
+    "class/src/component/groupmember.js~GroupMember.html#instance-method-render",
+    "src/component/groupmember.js~GroupMember#render",
+    "method"
   ],
   [
     "src/component/header.js",

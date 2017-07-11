@@ -1,7 +1,7 @@
 {
-  "coverage": "95.9%",
-  "expectCount": 220,
-  "actualCount": 211,
+  "coverage": "96%",
+  "expectCount": 225,
+  "actualCount": 216,
   "files": {
     "src/action/accountboard.js": {
       "expectCount": 8,
@@ -63,8 +63,13 @@
       "expectCount": 8,
       "actualCount": 7,
       "undocumentLines": [
-        24
+        25
       ]
+    },
+    "src/component/groupmember.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
     },
     "src/component/header.js": {
       "expectCount": 6,
