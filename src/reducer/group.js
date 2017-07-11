@@ -40,13 +40,13 @@ function margeGroupInfo(currentGroups, newGroups){
   return newGroups.map((newGroup) => {
     const currentGroup = getGroupById(currentGroups, newGroup.id);
     if(currentGroup){
-      if(currentGroup.members){
-        return Object.assign({},newGroup,{members : currentGroup.members});
+      if(currentGroup.member){
+        return Object.assign({},newGroup,{member : currentGroup.member});
       }else{
-        return newGroup;
+        return Object.assign({},newGroup,{member : []});
       }
     }else{
-      return newGroup;
+      return Object.assign({},newGroup,{member : []});
     }
   });
 }

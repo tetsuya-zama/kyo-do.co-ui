@@ -160,7 +160,7 @@ describe("loadUserGroupsTask",()=>{
     }));
 
     ret = gen.next(dummyAPIResult);
-    assert.deepEqual(ret.value, put(groupsLoaded(dummyAPIResult.data)));
+    assert.deepEqual(ret.value, put(groupsLoaded(dummyAPIResult.data,dummyLogonUserId)));
 
     ret = gen.next();
     assert.deepEqual(ret.value, dummyAPIResult.data.map(group => call(fetchMemberTask,group,dummyToken,dummyLogonUserId)));

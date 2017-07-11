@@ -79,7 +79,7 @@ describe("group reducer",()=>{
             "userid1",
             "userid2"
           ],
-          "members": [
+          "member": [
             "userid1",
             "userid2",
             "userid5"
@@ -130,11 +130,11 @@ describe("group reducer",()=>{
     const result = group(dummyCurrentState,dummyAction);
 
     assert(result.allGroups.length === 3);
-    assert(getGroupById(result.allGroups,"g0001").members);
-    assert(getGroupById(result.allGroups,"g0001").members.length);
-    assert(getGroupById(result.allGroups,"g0001").members.indexOf("userid1") >= 0);
-    assert(getGroupById(result.allGroups,"g0001").members.indexOf("userid2") >= 0);
-    assert(getGroupById(result.allGroups,"g0001").members.indexOf("userid5") >= 0);
+    assert(getGroupById(result.allGroups,"g0001").member);
+    assert(getGroupById(result.allGroups,"g0001").member.length);
+    assert(getGroupById(result.allGroups,"g0001").member.indexOf("userid1") >= 0);
+    assert(getGroupById(result.allGroups,"g0001").member.indexOf("userid2") >= 0);
+    assert(getGroupById(result.allGroups,"g0001").member.indexOf("userid5") >= 0);
   });
 
   it("deletes groups which aren't in new array if GROUPS_LOADED is passed",()=>{
@@ -253,7 +253,8 @@ describe("group reducer",()=>{
           "admin": [
             "userid3",
             "userid4"
-          ]
+          ],
+          "member":[]
         },
         {
           "id": "g0003",
@@ -261,7 +262,8 @@ describe("group reducer",()=>{
           "admin": [
             "userid1",
             "userid3"
-          ]
+          ],
+          "member":[]
         }
       ]
     );

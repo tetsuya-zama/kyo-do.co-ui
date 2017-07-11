@@ -89,7 +89,7 @@ export function* loadUserGroupsTask(){
       headers: { "Authorization": "Bearer " + token}
     });
 
-    yield put(groupsLoaded(result.data));
+    yield put(groupsLoaded(result.data,logonUserId));
     yield result.data.map(group => call(fetchMemberTask,group,token,logonUserId));
   }catch(e){
     //noop
