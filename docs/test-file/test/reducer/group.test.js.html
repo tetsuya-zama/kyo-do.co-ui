@@ -283,7 +283,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
             &quot;userid1&quot;,
             &quot;userid2&quot;
           ],
-          &quot;members&quot;: [
+          &quot;member&quot;: [
             &quot;userid1&quot;,
             &quot;userid2&quot;,
             &quot;userid5&quot;
@@ -334,11 +334,11 @@ describe(&quot;group reducer&quot;,()=&gt;{
     const result = group(dummyCurrentState,dummyAction);
 
     assert(result.allGroups.length === 3);
-    assert(getGroupById(result.allGroups,&quot;g0001&quot;).members);
-    assert(getGroupById(result.allGroups,&quot;g0001&quot;).members.length);
-    assert(getGroupById(result.allGroups,&quot;g0001&quot;).members.indexOf(&quot;userid1&quot;) &gt;= 0);
-    assert(getGroupById(result.allGroups,&quot;g0001&quot;).members.indexOf(&quot;userid2&quot;) &gt;= 0);
-    assert(getGroupById(result.allGroups,&quot;g0001&quot;).members.indexOf(&quot;userid5&quot;) &gt;= 0);
+    assert(getGroupById(result.allGroups,&quot;g0001&quot;).member);
+    assert(getGroupById(result.allGroups,&quot;g0001&quot;).member.length);
+    assert(getGroupById(result.allGroups,&quot;g0001&quot;).member.indexOf(&quot;userid1&quot;) &gt;= 0);
+    assert(getGroupById(result.allGroups,&quot;g0001&quot;).member.indexOf(&quot;userid2&quot;) &gt;= 0);
+    assert(getGroupById(result.allGroups,&quot;g0001&quot;).member.indexOf(&quot;userid5&quot;) &gt;= 0);
   });
 
   it(&quot;deletes groups which aren&apos;t in new array if GROUPS_LOADED is passed&quot;,()=&gt;{
@@ -457,7 +457,8 @@ describe(&quot;group reducer&quot;,()=&gt;{
           &quot;admin&quot;: [
             &quot;userid3&quot;,
             &quot;userid4&quot;
-          ]
+          ],
+          &quot;member&quot;:[]
         },
         {
           &quot;id&quot;: &quot;g0003&quot;,
@@ -465,7 +466,8 @@ describe(&quot;group reducer&quot;,()=&gt;{
           &quot;admin&quot;: [
             &quot;userid1&quot;,
             &quot;userid3&quot;
-          ]
+          ],
+          &quot;member&quot;:[]
         }
       ]
     );

@@ -2107,7 +2107,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/reducer/group.test.js.html#lineNumber320",
+    "test-file/test/reducer/group.test.js.html#lineNumber322",
     "group reducer copies groups which logonUserId is in admin or members of it, to userGroups array if GROUP_MEMBER_LOADED action is passed",
     "test"
   ],
@@ -2119,7 +2119,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/reducer/group.test.js.html#lineNumber367",
+    "test-file/test/reducer/group.test.js.html#lineNumber369",
     "group reducer does nothing if any other action is passed",
     "test"
   ],
@@ -2131,7 +2131,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/reducer/group.test.js.html#lineNumber270",
+    "test-file/test/reducer/group.test.js.html#lineNumber272",
     "group reducer fetches members of group if GROUP_MEMBER_LOADED action is passed",
     "test"
   ],

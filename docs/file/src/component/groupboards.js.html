@@ -207,7 +207,7 @@ import ReactDOM from &apos;react-dom&apos;;
 import {Tabs, Tab} from &apos;material-ui/Tabs&apos;;
 import Board from &apos;./board&apos;;
 import FlatButton from &apos;material-ui/FlatButton&apos;;
-import openGroupManagementBoard from &apos;../action/groupboards&apos;;
+import {openGroupManagementBoard} from &apos;../action/groupboards&apos;;
 
 /**
 * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x5225;&#x306E;&#x884C;&#x304D;&#x5148;&#x63B2;&#x793A;&#x677F;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
@@ -222,7 +222,7 @@ export default class GroupBoards extends React.Component{
   constructor(props){
     super(props);
   }
-  
+
   /**
   * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
@@ -230,7 +230,7 @@ export default class GroupBoards extends React.Component{
   render(){
     const groupTabs = this.props.group.usersGroups
       .map((group,idx) =&gt; {
-        const isAdmin = group.admin.indexOf(this.login.user.userid) &gt;= 0;
+        const isAdmin = group.admin.indexOf(this.props.login.user.userid) &gt;= 0;
         const editButton = isAdmin ?
           &lt;FlatButton label=&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x8A2D;&#x5B9A;&quot; primary={true} onTouchTap={()=&gt; this.props.dispatch(openGroupManagementBoard(group.id))} ref=&quot;groupEdit&quot; /&gt; :
           null;
