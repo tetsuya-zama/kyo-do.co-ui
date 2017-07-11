@@ -18,19 +18,19 @@ export default class SignUpForm extends React.Component{
     super(props);
     this.state = {id_text:"",pass_text:"",confirm_pass_text:"",name_text:""};
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
-    this.hundleSubmit = this.hundleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.validate = this.validate.bind(this);
-    this.hundleIDChange = this.hundleIDChange.bind(this);
-    this.hundlePassChange = this.hundlePassChange.bind(this);
-    this.hundleConfirmPasswordChange = this.hundleConfirmPasswordChange.bind(this);
-    this.hundleNameChange = this.hundleNameChange.bind(this);
+    this.handleIDChange = this.handleIDChange.bind(this);
+    this.handlePassChange = this.handlePassChange.bind(this);
+    this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
     this.renderValidationError = this.renderValidationError.bind(this);
   }
   /**
   * Sign Upボタンのクリックをハンドリングするメソッド
   * @return {undefined}
   */
-  hundleSubmit(){
+  handleSubmit(){
     const id = this.state.id_text.trim();
     const pass = this.state.pass_text.trim();
     const pass_confirm = this.state.confirm_pass_text.trim();
@@ -57,7 +57,7 @@ export default class SignUpForm extends React.Component{
   * @param {string} newValue 更新後の値
   * @return {undefined}
   */
-  hundleIDChange(event,newValue){
+  handleIDChange(event,newValue){
     this.setState({id_text:newValue});
   }
 
@@ -67,7 +67,7 @@ export default class SignUpForm extends React.Component{
   * @param {string} newValue 更新後の値
   * @return {undefined}
   */
-  hundlePassChange(event,newValue){
+  handlePassChange(event,newValue){
     this.setState({pass_text:newValue});
   }
 
@@ -77,7 +77,7 @@ export default class SignUpForm extends React.Component{
   * @param {string} newValue 更新後の値
   * @return {undefined}
   */
-  hundleConfirmPasswordChange(event,newValue){
+  handleConfirmPasswordChange(event,newValue){
     this.setState({confirm_pass_text:newValue});
   }
 
@@ -87,7 +87,7 @@ export default class SignUpForm extends React.Component{
   * @param {string} newValue 更新後の値
   * @return {undefined}
   */
-  hundleNameChange(event,newValue){
+  handleNameChange(event,newValue){
     this.setState({name_text:newValue});
   }
 
@@ -153,7 +153,7 @@ export default class SignUpForm extends React.Component{
         floatingLabelText="User ID"
         value={this.state.id_text}
         ref="id"
-        onChange={this.hundleIDChange}
+        onChange={this.handleIDChange}
         />
         <br />
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_ID)}
@@ -165,7 +165,7 @@ export default class SignUpForm extends React.Component{
         value={this.state.pass_text}
         ref="pass"
         type="password"
-        onChange={this.hundlePassChange}
+        onChange={this.handlePassChange}
         />
         <br />
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD)}
@@ -177,7 +177,7 @@ export default class SignUpForm extends React.Component{
         value={this.state.confirm_pass_text}
         ref="pass_confirm"
         type="password"
-        onChange={this.hundleConfirmPasswordChange}
+        onChange={this.handleConfirmPasswordChange}
         />
         <br />
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM)}
@@ -187,13 +187,13 @@ export default class SignUpForm extends React.Component{
         floatingLabelText="表示名"
         value={this.state.name_text}
         ref="name"
-        onChange={this.hundleNameChange}
+        onChange={this.handleNameChange}
         />
         <br />
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_NAME)}
         <br />
         <br />
-        <RaisedButton ref="signup" onClick={this.hundleSubmit} label="Sign Up"/>
+        <RaisedButton ref="signup" onClick={this.handleSubmit} label="Sign Up"/>
         <br />
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.SERVER_ERROR)}
       </div>

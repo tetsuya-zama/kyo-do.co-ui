@@ -19,7 +19,7 @@ export default class Board extends React.Component{
     this.state = {
       current_filter_text:""
     }
-    this.hundleFilterChange = this.hundleFilterChange.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
   /**
@@ -28,7 +28,7 @@ export default class Board extends React.Component{
   * @param {string} newValue 変更後の値
   * @return {undefined}
   */
-  hundleFilterChange(event,newValue){
+  handleFilterChange(event,newValue){
     this.setState({current_filter_text : newValue});
   }
   /**
@@ -51,7 +51,7 @@ export default class Board extends React.Component{
       <TextField
         hintText="Filter"
         value={this.state.current_filter_text}
-        onChange={this.hundleFilterChange}
+        onChange={this.handleFilterChange}
         ref="memberfilter"
         />
       {memberRows}

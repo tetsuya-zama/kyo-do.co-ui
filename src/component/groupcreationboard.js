@@ -23,33 +23,33 @@ export default class GroupCreationBoard extends React.Component{
       newGroupName:""
     }
 
-    this.hundleNameChange = this.hundleNameChange.bind(this);
-    this.hundleClose = this.hundleClose.bind(this);
-    this.hundleOK = this.hundleOK.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOK = this.handleOK.bind(this);
   }
   /**
-  * グループ名の変更をハンドリングするhundler
+  * グループ名の変更をハンドリングするhandler
   * @param {Object} event イベント
   * @param {string} newValue 変更後の値
   * @return {undefined}
   */
-  hundleNameChange(event,newValue){
+  handleNameChange(event,newValue){
     this.setState({newGroupName:newValue});
   }
 
   /**
-  * キャンセルボタンのクリックをハンドリングするhundler
+  * キャンセルボタンのクリックをハンドリングするhandler
   * @return {undefined}
   */
-  hundleClose(){
+  handleClose(){
     this.setState({newGroupName:""});
     this.props.dispatch(closeGroupCreationBoard());
   }
   /**
-  * OKボタンのクリックをハンドリングするhundler
+  * OKボタンのクリックをハンドリングするhandler
   * @return {undefined}
   */
-  hundleOK(){
+  handleOK(){
     const newGroupName = this.state.newGroupName;
     if(newGroupName.trim().length > 0){
       this.setState({newGroupName:""});
@@ -66,13 +66,13 @@ export default class GroupCreationBoard extends React.Component{
       <FlatButton
         label="Close"
         primary={true}
-        onTouchTap={this.hundleClose}
+        onTouchTap={this.handleClose}
         ref="Close"
       />,
       <FlatButton
         label="OK"
         primary={true}
-        onTouchTap={this.hundleOK}
+        onTouchTap={this.handleOK}
         ref="ok"
       />,
     ];
@@ -87,7 +87,7 @@ export default class GroupCreationBoard extends React.Component{
         <TextField
         hintText="グループ名"
         value={this.state.newGroupName}
-        onChange={this.hundleNameChange}
+        onChange={this.handleNameChange}
         ref="newGroupName"
         />
       </Dialog>

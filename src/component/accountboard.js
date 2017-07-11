@@ -19,17 +19,17 @@ export default class AccountBoard extends React.Component{
   constructor(props){
     super(props);
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
-    this.hundleSubmit = this.hundleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.hundlePassChange = this.hundlePassChange.bind(this);
-    this.hundleNameChange = this.hundleNameChange.bind(this);
+    this.handlePassChange = this.handlePassChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
   }
 
   /**
   * アカウント情報変更ボタンのクリックをハンドリングするメソッド
   * @return {undefined}
   */
-  hundleSubmit(){
+  handleSubmit(){
       this.props.dispatch(changeAccountInfo(this.props.accountboard.nextuser.nextname, this.props.accountboard.nextuser.nextpass));
   }
 
@@ -47,7 +47,7 @@ export default class AccountBoard extends React.Component{
   * @param {string} newValue 変更後の値
   * @return {undefined}
   */
-  hundlePassChange(event,newValue){
+  handlePassChange(event,newValue){
     this.props.dispatch(changeAccountInfoField(this.props.accountboard.nextuser.nextname, newValue));
   }
 
@@ -57,7 +57,7 @@ export default class AccountBoard extends React.Component{
   * @param {string} newValue 変更後の値
   * @return {undefined}
   */
-  hundleNameChange(event,newValue){
+  handleNameChange(event,newValue){
     this.props.dispatch(changeAccountInfoField(newValue, this.props.accountboard.nextuser.nextpass));
   }
 
@@ -76,7 +76,7 @@ export default class AccountBoard extends React.Component{
       <FlatButton
         label="Submit"
         primary={true}
-        onTouchTap={this.hundleSubmit}
+        onTouchTap={this.handleSubmit}
         ref="submit"
       />,
     ];
@@ -92,7 +92,7 @@ export default class AccountBoard extends React.Component{
           <TextField
           hintText="表示名"
           value={this.props.accountboard.nextuser.nextname}
-          onChange={this.hundleNameChange}
+          onChange={this.handleNameChange}
           ref="name"
           />
           <br />
@@ -100,7 +100,7 @@ export default class AccountBoard extends React.Component{
           hintText="Password"
           value={this.props.accountboard.nextuser.nextpass}
           type="password"
-          onChange={this.hundlePassChange}
+          onChange={this.handlePassChange}
           ref="pass"
           />
         </Dialog>

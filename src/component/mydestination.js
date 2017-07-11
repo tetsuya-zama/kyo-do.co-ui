@@ -20,16 +20,16 @@ export default class MyDestination extends React.Component{
     super(props);
 
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
-    this.hundleClear = this.hundleClear.bind(this);
-    this.hundleToggle = this.hundleToggle.bind(this);
-    this.hundleCommentChange = this.hundleCommentChange.bind(this);
-    this.hundleContactChange = this.hundleContactChange.bind(this);
+    this.handleClear = this.handleClear.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleCommentChange = this.handleCommentChange.bind(this);
+    this.handleContactChange = this.handleContactChange.bind(this);
   }
   /**
   * クリアボタンをクリックをハンドリングするメソッド
   * @return {undefined}
   */
-  hundleClear(){
+  handleClear(){
     const action = myDestinationClear();
     this.props.dispatch(action);
   }
@@ -39,7 +39,7 @@ export default class MyDestination extends React.Component{
   * @param {boolean} isInputChecked "出勤"となっているかどうか
   * @return {undefined}
   */
-  hundleToggle(event,isInputChecked){
+  handleToggle(event,isInputChecked){
     this.props.dispatch(myDestinationChange({
         inBusiness:isInputChecked, comment:this.props.mydestination.comment, contact:this.props.mydestination.contact
     }));
@@ -50,7 +50,7 @@ export default class MyDestination extends React.Component{
   * @param {string} newValue 新しいテキストボックスの値
   * @return {undefined}
   */
-  hundleCommentChange(newValue) {
+  handleCommentChange(newValue) {
     this.props.dispatch(myDestinationChange({
         inBusiness:this.props.mydestination.inBusiness, comment:newValue, contact:this.props.mydestination.contact
     }));
@@ -62,7 +62,7 @@ export default class MyDestination extends React.Component{
   * @param {string} newValue 新しい値
   * @return {undefined}
   */
-  hundleContactChange(event,newValue){
+  handleContactChange(event,newValue){
     this.props.dispatch(myDestinationChange({
         inBusiness:this.props.mydestination.inBusiness, comment:this.props.mydestination.comment, contact:newValue
     }));
@@ -81,7 +81,7 @@ export default class MyDestination extends React.Component{
         <tr>
           <td>{this.props.login.user.name}</td>
           <td>
-            <Toggle label="出勤" toggled={this.props.mydestination.inBusiness} onToggle={this.hundleToggle} ref="in_business"/>
+            <Toggle label="出勤" toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"/>
           </td>
           <td>
             <AutoComplete
@@ -90,20 +90,20 @@ export default class MyDestination extends React.Component{
               dataSource={this.props.mydestination.suggestion}
               maxSearchResults={10}
               openOnFocus={true}
-              onUpdateInput={this.hundleCommentChange}
+              onUpdateInput={this.handleCommentChange}
               searchText={this.props.mydestination.comment}
               ref="comment"
             />
           </td>
           <td>
-            <RaisedButton label="Clear" secondary={true} onClick={this.hundleClear} ref="clear_button"/>
+            <RaisedButton label="Clear" secondary={true} onClick={this.handleClear} ref="clear_button"/>
           </td>
         </tr>
         <tr>
           <td></td>
           <td></td>
           <td>
-            <TextField hintText="連絡先" value={this.props.mydestination.contact} onChange={this.hundleContactChange} ref="contact"/>
+            <TextField hintText="連絡先" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
           </td>
           <td></td>
         </tr>

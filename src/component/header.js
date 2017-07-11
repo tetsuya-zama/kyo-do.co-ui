@@ -32,7 +32,7 @@ export default class Header extends React.Component{
   constructor(props){
     super(props);
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
-    this.hundleLogout = this.hundleLogout.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleCreateGroup = this.handleCreateGroup.bind(this);
   }
@@ -41,7 +41,7 @@ export default class Header extends React.Component{
   * ログアウトボタンのクリックをハンドリングするメソッド
   * @return {undefined}
   */
-  hundleLogout(){
+  handleLogout(){
       this.props.dispatch(logoutRequested());
   }
 
@@ -83,7 +83,7 @@ export default class Header extends React.Component{
           >
             <MenuItem ref="change_account_button" primaryText="アカウント情報変更" onTouchTap={this.handleOpen} />
             <MenuItem ref="create_group_button" primaryText="グループ作成" onTouchTap={this.handleCreateGroup} />
-            <MenuItem ref="logout_button" primaryText="LOGOUT" onTouchTap={this.hundleLogout} />
+            <MenuItem ref="logout_button" primaryText="LOGOUT" onTouchTap={this.handleLogout} />
           </IconMenu>
         </ToolbarGroup>
         <AccountBoard dispatch={this.props.dispatch} accountboard={this.props.accountboard} />

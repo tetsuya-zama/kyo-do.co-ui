@@ -19,16 +19,16 @@ export default class LoginForm extends React.Component{
     super(props);
     this.state = {current_id_text:"",current_pass_text:""};
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
-    this.hundleSubmit = this.hundleSubmit.bind(this);
-    this.hundleIDChange = this.hundleIDChange.bind(this);
-    this.hundlePassChange = this.hundlePassChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleIDChange = this.handleIDChange.bind(this);
+    this.handlePassChange = this.handlePassChange.bind(this);
   }
 
   /**
   * ログインボタンのクリックをハンドリングするメソッド
   * @return {undefined}
   */
-  hundleSubmit(){
+  handleSubmit(){
     /*
     *入力されたID/Passを取得して、
     *それを元にLOGIN_REQUESTED(ログイン要求)アクションを作成してdispatchする
@@ -40,11 +40,11 @@ export default class LoginForm extends React.Component{
     }
   }
 
-  hundleIDChange(event,newValue){
+  handleIDChange(event,newValue){
     this.setState({current_id_text:newValue});
   }
 
-  hundlePassChange(event,newValue){
+  handlePassChange(event,newValue){
     this.setState({current_pass_text:newValue});
   }
 
@@ -66,7 +66,7 @@ export default class LoginForm extends React.Component{
         floatingLabelText="User ID"
         value={this.state.current_id_text}
         ref="userid"
-        onChange={this.hundleIDChange}
+        onChange={this.handleIDChange}
         />
         <br />
         <TextField
@@ -75,11 +75,11 @@ export default class LoginForm extends React.Component{
           type="password"
           value={this.state.current_pass_text}
           ref="password"
-          onChange={this.hundlePassChange}
+          onChange={this.handlePassChange}
           />
         <br />
         <br />
-        <RaisedButton onClick={this.hundleSubmit} label="Login" ref="loginbutton"/>
+        <RaisedButton onClick={this.handleSubmit} label="Login" ref="loginbutton"/>
         <br />
         <span style={{color:"red"}}>{message}</span>
       </div>
