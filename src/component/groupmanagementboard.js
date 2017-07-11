@@ -7,6 +7,7 @@ import {getGroupById} from '../module/group';
 import {deleteGroupRequired,changeGroupNameRequired} from '../action/group';
 import {closeGroupManagementBoard} from '../action/groupboards';
 import MemberAddForm from './memberaddform';
+import GroupMember from './groupmember';
 
 /**
 * グループ管理ボード コンポーネント
@@ -98,6 +99,20 @@ export default class GroupManagementBoard extends React.Component{
       targetGroup.name :
       this.state.newGroupName;
 
+    const members = targetGroup.member ? targetGroup.member.map(status => status.userid)
+      .map((memberId,idx) => {
+        return (
+          <GroupMember
+            key={idx}
+            dispatch={this.props.dispatch}
+            memberId={memberId}
+            groupId={targetGroup.id}
+            isAdmin={targetGroup.admin.indexOf(memberId) >= 0}
+          />
+        );
+      }) : [];
+
+
     return(
       <Dialog
         title={targetGroup.name + "を編集"}
@@ -132,6 +147,7 @@ export default class GroupManagementBoard extends React.Component{
           group={targetGroup}
           memberStatus={this.props.board.memberStatus}
         />
+        {members}
       </Dialog>
     )
   }
