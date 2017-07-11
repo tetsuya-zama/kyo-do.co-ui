@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Header from './header'
 import LoginForm from './loginform'
 import SignUpForm from './signupform'
-import Board from './board'
+import GroupBoards from './groupboards'
 import MyDestination from './mydestination'
 import {LOGIN_STATUS} from '../const/login'
 import Paper from 'material-ui/Paper';
@@ -44,8 +44,11 @@ class Kyodoco extends React.Component{
           login={this.props.login}
           mydestination={this.props.mydestination}
         />
-        <Board
-          memberStatus={this.props.board.memberStatus}
+        <GroupBoards
+          dispatch={this.props.dispatch}
+          board={this.props.board}
+          group={this.props.group}
+          login={this.props.login}
         />
        </div>
       ) :
