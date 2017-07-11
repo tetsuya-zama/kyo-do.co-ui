@@ -1,7 +1,7 @@
 {
-  "coverage": "95.79%",
-  "expectCount": 214,
-  "actualCount": 205,
+  "coverage": "95.9%",
+  "expectCount": 220,
+  "actualCount": 211,
   "files": {
     "src/action/accountboard.js": {
       "expectCount": 8,
@@ -61,10 +61,9 @@
     },
     "src/component/groupmanagementboard.js": {
       "expectCount": 8,
-      "actualCount": 6,
+      "actualCount": 7,
       "undocumentLines": [
-        10,
-        19
+        24
       ]
     },
     "src/component/header.js": {
@@ -100,6 +99,13 @@
       "expectCount": 5,
       "actualCount": 5,
       "undocumentLines": []
+    },
+    "src/component/memberaddform.js": {
+      "expectCount": 6,
+      "actualCount": 5,
+      "undocumentLines": [
+        21
+      ]
     },
     "src/component/memberrow.js": {
       "expectCount": 3,

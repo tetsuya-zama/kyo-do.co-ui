@@ -127,6 +127,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupmanagementboard.js~GroupManagementBoard.html">GroupManagementBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberaddform.js~MemberAddForm.html">MemberAddForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberrow.js~MemberRow.html">MemberRow</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
@@ -316,7 +317,9 @@ export function* fetchMemberTask(group,token,logonUserId){
 
     const memberStatus = yield select(state =&gt; state.board.memberStatus);
 
-    const groupMemberStatus = result.data.members.map(memberId =&gt;getMemberStatusById(memberStatus,memberId));
+    const groupMemberStatus = result.data.members.map(
+      memberId =&gt;getMemberStatusById(memberStatus,memberId))
+    .filter(val =&gt; val != undefined);
 
     yield put(groupMemberLoaded(Object.assign({},group,{member:groupMemberStatus}),logonUserId));
   }catch(e){

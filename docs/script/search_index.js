@@ -456,6 +456,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "kyo-do.co-ui/src/component/memberaddform.js~memberaddform",
+    "class/src/component/memberaddform.js~MemberAddForm.html",
+    "<span>MemberAddForm</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/memberaddform.js</span>",
+    "class"
+  ],
+  [
     "kyo-do.co-ui/src/component/memberrow.js~memberrow",
     "class/src/component/memberrow.js~MemberRow.html",
     "<span>MemberRow</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/component/memberrow.js</span>",
@@ -1843,13 +1849,13 @@ window.esdocSearchIndex = [
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber46",
+    "test-file/test/action/groupboards.test.js.html#lineNumber25",
     "closeGroupCreationBoard action creator",
     "test"
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber25",
+    "test-file/test/action/groupboards.test.js.html#lineNumber46",
     "closeGroupCreationBoard action creator",
     "test"
   ],
@@ -2904,27 +2910,27 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/groupmanagementboard.js~groupmanagementboard#hundlechangenamebutton",
-    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-hundleChangeNameButton",
-    "src/component/groupmanagementboard.js~GroupManagementBoard#hundleChangeNameButton",
+    "src/component/groupmanagementboard.js~groupmanagementboard#handlechangenamebutton",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-handleChangeNameButton",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#handleChangeNameButton",
     "method"
   ],
   [
-    "src/component/groupmanagementboard.js~groupmanagementboard#hundleclose",
-    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-hundleClose",
-    "src/component/groupmanagementboard.js~GroupManagementBoard#hundleClose",
+    "src/component/groupmanagementboard.js~groupmanagementboard#handleclose",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-handleClose",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#handleClose",
     "method"
   ],
   [
-    "src/component/groupmanagementboard.js~groupmanagementboard#hundledeletegroupbutton",
-    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-hundleDeleteGroupButton",
-    "src/component/groupmanagementboard.js~GroupManagementBoard#hundleDeleteGroupButton",
+    "src/component/groupmanagementboard.js~groupmanagementboard#handledeletegroupbutton",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-handleDeleteGroupButton",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#handleDeleteGroupButton",
     "method"
   ],
   [
-    "src/component/groupmanagementboard.js~groupmanagementboard#hundlenamechange",
-    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-hundleNameChange",
-    "src/component/groupmanagementboard.js~GroupManagementBoard#hundleNameChange",
+    "src/component/groupmanagementboard.js~groupmanagementboard#handlenamechange",
+    "class/src/component/groupmanagementboard.js~GroupManagementBoard.html#instance-method-handleNameChange",
+    "src/component/groupmanagementboard.js~GroupManagementBoard#handleNameChange",
     "method"
   ],
   [
@@ -3021,6 +3027,42 @@ window.esdocSearchIndex = [
     "src/component/loginform.js~loginform#state",
     "class/src/component/loginform.js~LoginForm.html#instance-member-state",
     "src/component/loginform.js~LoginForm#state",
+    "member"
+  ],
+  [
+    "src/component/memberaddform.js",
+    "file/src/component/memberaddform.js.html",
+    "src/component/memberaddform.js",
+    "file"
+  ],
+  [
+    "src/component/memberaddform.js~memberaddform#constructor",
+    "class/src/component/memberaddform.js~MemberAddForm.html#instance-constructor-constructor",
+    "src/component/memberaddform.js~MemberAddForm#constructor",
+    "method"
+  ],
+  [
+    "src/component/memberaddform.js~memberaddform#handleaddmemberbutton",
+    "class/src/component/memberaddform.js~MemberAddForm.html#instance-method-handleAddMemberButton",
+    "src/component/memberaddform.js~MemberAddForm#handleAddMemberButton",
+    "method"
+  ],
+  [
+    "src/component/memberaddform.js~memberaddform#handlechange",
+    "class/src/component/memberaddform.js~MemberAddForm.html#instance-method-handleChange",
+    "src/component/memberaddform.js~MemberAddForm#handleChange",
+    "method"
+  ],
+  [
+    "src/component/memberaddform.js~memberaddform#render",
+    "class/src/component/memberaddform.js~MemberAddForm.html#instance-method-render",
+    "src/component/memberaddform.js~MemberAddForm#render",
+    "method"
+  ],
+  [
+    "src/component/memberaddform.js~memberaddform#state",
+    "class/src/component/memberaddform.js~MemberAddForm.html#instance-member-state",
+    "src/component/memberaddform.js~MemberAddForm#state",
     "member"
   ],
   [

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">MyDestination | API Document</title>
+  <title data-ice="title">src/component/memberaddform.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -199,666 +199,94 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import MyDestination from &apos;<span><a href="file/src/component/mydestination.js.html#lineNumber13">kyo-do.co-ui/src/component/mydestination.js</a></span>&apos;</code></pre></div>
-  <span data-ice="access">public</span>
-  <span data-ice="kind">class</span>
-  
-  
-  
-  <span data-ice="source">| <span><a href="file/src/component/mydestination.js.html#lineNumber13">source</a></span></span>
-</div>
+<div class="content" data-ice="content"><h1 data-ice="title">src/component/memberaddform.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+import SelectField from &apos;material-ui/SelectField&apos;;
+import MenuItem from &apos;material-ui/MenuItem&apos;;
+import FlatButton from &apos;material-ui/FlatButton&apos;;
+import {addMemberToGroupRequired} from &apos;../action/group&apos;;
+
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;form &#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
+* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
+*/
+export default class MemberAddForm extends React.Component{
+  /**
+  * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
+  * @param {Object} props &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;
+  * @return {undefined}
+  */
+  constructor(props){
+    super(props);
+
+    this.state = {
+      currentUserId:&quot;&quot;
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleAddMemberButton = this.handleAddMemberButton.bind(this);
+  }
+
+  /**
+  * &#x8FFD;&#x52A0;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x30BB;&#x30EC;&#x30AF;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x5909;&#x66F4;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
+  * @param {Object} event &#x30A4;&#x30D9;&#x30F3;&#x30C8;
+  * @param {number} key MenuItem&#x306E;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;
+  * @param {String} payload &#x5909;&#x66F4;&#x5F8C;&#x306E;&#x5024;
+  * @return {undefined}
+  */
+  handleChange(event,key,payload){
+    this.setState({currentUserId:payload});
+  }
+
+  /**
+  * &#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x8FFD;&#x52A0;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
+  * @return {undefined}
+  */
+  handleAddMemberButton(){
+    if(this.state.currentUserId !== &quot;&quot;){
+      this.props.dispatch(addMemberToGroupRequired(this.props.group.id, this.state.currentUserId));
+      this.setState({currentUserId:&quot;&quot;});
+    }
+  }
+
+  /**
+  * &#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
+  * @return {Object} JSX
+  */
+  render(){
+    const allMemberId = this.props.memberStatus.map(status =&gt; status.userid);
+    const groupMemberId = this.props.group.member ?
+      this.props.group.member.map(status =&gt; status.userid) :
+      [];
+
+    const memberIdNotInGroup = allMemberId.filter(id =&gt; groupMemberId.indexOf(id) &lt; 0);
+
+    const items = memberIdNotInGroup.map((id,idx) =&gt; &lt;MenuItem key={idx+1} value={id} primaryText={id} /&gt;);
+
+    return(
+      &lt;div&gt;
+        &lt;SelectField
+          floatingLabelText=&quot;&#x8FFD;&#x52A0;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&quot;
+          value={this.state.currentUserId}
+          onChange={this.handleChange}
+        &gt;
+          &lt;MenuItem value={&quot;&quot;} primaryText=&quot;&quot; /&gt;
+          {items}
+        &lt;/SelectField&gt;
+        &lt;br /&gt;
+        &lt;FlatButton
+          label=&quot;&#x8FFD;&#x52A0;&quot;
+          primary={true}
+          onTouchTap={this.handleAddMemberButton}
+          ref=&quot;addMemberButton&quot;
+        /&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
 
-<div class="self-detail detail">
-  <h1 data-ice="name">MyDestination</h1>
-
-  
-
-  
-  
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>react~React.Component</span> &#x2192; MyDestination</div></div>
-  
-  
-  
-  
-  
-  
-
-  
-  
-  <div class="description" data-ice="description"><p>&quot;&#x81EA;&#x5206;&#x306E;&#x884C;&#x304D;&#x5148;&quot;&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;</p>
-</div>
-  
-
-  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="http://qiita.com/nownabe/items/2d8b92d95186c3941de0">http://qiita.com/nownabe/items/2d8b92d95186c3941de0</a></span></li></ul></div>
-
-  
-
-  <div data-ice="tests">
-    <h4>Test:</h4>
-    <ul>
-      
-    <li data-ice="test"><span><a href="test-file/test/component/mydestination.test.js.html#lineNumber13"><mydestination></mydestination></a></span></li>
-</ul>
-  </div>
-
-  
-</div>
-
-
-
-<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          <span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(props: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-
-<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          <span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html#instance-method-hundleClear">hundleClear</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30AF;&#x30EA;&#x30A2;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          <span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html#instance-method-hundleCommentChange">hundleCommentChange</a></span></span><span data-ice="signature">(newValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x5909;&#x5316;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          <span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html#instance-method-hundleContactChange">hundleContactChange</a></span></span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, newValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x9023;&#x7D61;&#x5148;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x5909;&#x5316;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          <span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html#instance-method-hundleToggle">hundleToggle</a></span></span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, isInputChecked: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x51FA;&#x52E4;/&#x9000;&#x52E4;&#x306E;&#x5207;&#x308A;&#x66FF;&#x3048;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          <span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html#instance-method-render">render</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-
-
-
-
-
-<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-constructor-constructor">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span data-ice="name">constructor</span><span data-ice="signature">(props: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/component/mydestination.js.html#lineNumber19">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">props</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
-
-<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-hundleClear">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span data-ice="name">hundleClear</span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/component/mydestination.js.html#lineNumber32">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>&#x30AF;&#x30EA;&#x30A2;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-hundleCommentChange">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span data-ice="name">hundleCommentChange</span><span data-ice="signature">(newValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/component/mydestination.js.html#lineNumber53">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x5909;&#x5316;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">newValue</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>&#x65B0;&#x3057;&#x3044;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x5024;</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-hundleContactChange">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span data-ice="name">hundleContactChange</span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, newValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/component/mydestination.js.html#lineNumber65">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>&#x9023;&#x7D61;&#x5148;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x5909;&#x5316;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">event</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>&#x30A4;&#x30D9;&#x30F3;&#x30C8;</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">newValue</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>&#x65B0;&#x3057;&#x3044;&#x5024;</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-hundleToggle">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span data-ice="name">hundleToggle</span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, isInputChecked: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/component/mydestination.js.html#lineNumber42">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>&#x51FA;&#x52E4;/&#x9000;&#x52E4;&#x306E;&#x5207;&#x308A;&#x66FF;&#x3048;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">event</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>&#x30A4;&#x30D9;&#x30F3;&#x30C8;</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">isInputChecked</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>&quot;&#x51FA;&#x52E4;&quot;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-render">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span data-ice="name">render</span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/component/mydestination.js.html#lineNumber75">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>&#x63CF;&#x753B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
 </div>
 
 <footer class="footer">

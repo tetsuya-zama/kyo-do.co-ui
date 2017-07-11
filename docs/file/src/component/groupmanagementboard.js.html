@@ -127,6 +127,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/groupmanagementboard.js~GroupManagementBoard.html">GroupManagementBoard</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/header.js~Header.html">Header</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/loginform.js~LoginForm.html">LoginForm</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberaddform.js~MemberAddForm.html">MemberAddForm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/memberrow.js~MemberRow.html">MemberRow</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/mydestination.js~MyDestination.html">MyDestination</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/signupform.js~SignUpForm.html">SignUpForm</a></span></span></li>
@@ -207,7 +208,12 @@ import Dialog from &apos;material-ui/Dialog&apos;;
 import {getGroupById} from &apos;../module/group&apos;;
 import {deleteGroupRequired,changeGroupNameRequired} from &apos;../action/group&apos;;
 import {closeGroupManagementBoard} from &apos;../action/groupboards&apos;;
+import MemberAddForm from &apos;./memberaddform&apos;;
 
+/**
+* &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x7BA1;&#x7406;&#x30DC;&#x30FC;&#x30C9; &#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;
+* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
+*/
 export default class GroupManagementBoard extends React.Component{
   /**
   * &#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;
@@ -221,25 +227,25 @@ export default class GroupManagementBoard extends React.Component{
       newGroupName:&quot;&quot;
     }
 
-    this.hundleClose = this.hundleClose.bind(this);
-    this.hundleDeleteGroupButton = this.hundleDeleteGroupButton.bind(this);
-    this.hundleNameChange = this.hundleNameChange.bind(this);
-    this.hundleChangeNameButton = this.hundleChangeNameButton.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleDeleteGroupButton = this.handleDeleteGroupButton.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleChangeNameButton = this.handleChangeNameButton.bind(this);
   }
 
   /**
-  * &#x30AD;&#x30E3;&#x30F3;&#x30BB;&#x30EB;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;hundler
+  * &#x30AD;&#x30E3;&#x30F3;&#x30BB;&#x30EB;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
   * @return {undefined}
   */
-  hundleClose(){
+  handleClose(){
     this.setState({newGroupName:&quot;&quot;});
     this.props.dispatch(closeGroupManagementBoard());
   }
 
   /**
-  * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x524A;&#x9664;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;hundler
+  * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x524A;&#x9664;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
   */
-  hundleDeleteGroupButton(){
+  handleDeleteGroupButton(){
     if(confirm(&quot;&#x524A;&#x9664;&#x3057;&#x307E;&#x3059;&#x3002;&#x3088;&#x308D;&#x3057;&#x3044;&#x3067;&#x3059;&#x304B;&#xFF1F;&quot;)){
       this.props.dispatch(deleteGroupRequired(this.props.managementBoard.groupId));
       this.setState({newGroupName:&quot;&quot;});
@@ -248,20 +254,20 @@ export default class GroupManagementBoard extends React.Component{
   }
 
   /**
-  * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x306E;&#x5909;&#x66F4;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;hundler
+  * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x306E;&#x5909;&#x66F4;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
   * @param {Object} event &#x30A4;&#x30D9;&#x30F3;&#x30C8;
   * @param {string} newValue &#x5909;&#x66F4;&#x5F8C;&#x306E;&#x5024;
   * @return {undefined}
   */
-  hundleNameChange(event,newValue){
+  handleNameChange(event,newValue){
     this.setState({newGroupName:newValue});
   }
 
   /**
-  * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x306E;&#x5909;&#x66F4;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;hundler
+  * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x306E;&#x5909;&#x66F4;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
   * @return {undefined}
   */
-  hundleChangeNameButton(){
+  handleChangeNameButton(){
     if(this.state.newGroupName.trim().length &gt; 0){
       this.props.dispatch(changeGroupNameRequired(
         this.props.managementBoard.groupId,
@@ -284,7 +290,7 @@ export default class GroupManagementBoard extends React.Component{
       &lt;FlatButton
         label=&quot;Close&quot;
         primary={true}
-        onTouchTap={this.hundleClose}
+        onTouchTap={this.handleClose}
         ref=&quot;Close&quot;
       /&gt;
     ];
@@ -305,7 +311,7 @@ export default class GroupManagementBoard extends React.Component{
           &lt;FlatButton
             label=&quot;&#x524A;&#x9664;&quot;
             primary={true}
-            onTouchTap={this.hundleDeleteGroupButton}
+            onTouchTap={this.handleDeleteGroupButton}
             ref=&quot;deleteGroupButton&quot;
           /&gt;
         &lt;/div&gt;
@@ -313,16 +319,21 @@ export default class GroupManagementBoard extends React.Component{
           &lt;TextField
             hintText=&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&quot;
             value={groupNameText}
-            onChange={this.hundleNameChange}
+            onChange={this.handleNameChange}
             ref=&quot;groupName&quot;
           /&gt;
           &lt;FlatButton
             label=&quot;&#x5909;&#x66F4;&quot;
             primary={true}
-            onTouchTap={this.hundleChangeNameButton}
+            onTouchTap={this.handleChangeNameButton}
             ref=&quot;changeNameButton&quot;
           /&gt;
         &lt;/div&gt;
+        &lt;MemberAddForm
+          dispatch={this.props.dispatch}
+          group={targetGroup}
+          memberStatus={this.props.board.memberStatus}
+        /&gt;
       &lt;/Dialog&gt;
     )
   }
