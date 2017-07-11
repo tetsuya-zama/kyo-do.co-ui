@@ -222,16 +222,16 @@ export default class LoginForm extends React.Component{
     super(props);
     this.state = {current_id_text:&quot;&quot;,current_pass_text:&quot;&quot;};
     //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
-    this.hundleSubmit = this.hundleSubmit.bind(this);
-    this.hundleIDChange = this.hundleIDChange.bind(this);
-    this.hundlePassChange = this.hundlePassChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleIDChange = this.handleIDChange.bind(this);
+    this.handlePassChange = this.handlePassChange.bind(this);
   }
 
   /**
   * &#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
   */
-  hundleSubmit(){
+  handleSubmit(){
     /*
     *&#x5165;&#x529B;&#x3055;&#x308C;&#x305F;ID/Pass&#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x3001;
     *&#x305D;&#x308C;&#x3092;&#x5143;&#x306B;LOGIN_REQUESTED(&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x8981;&#x6C42;)&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;dispatch&#x3059;&#x308B;
@@ -243,11 +243,11 @@ export default class LoginForm extends React.Component{
     }
   }
 
-  hundleIDChange(event,newValue){
+  handleIDChange(event,newValue){
     this.setState({current_id_text:newValue});
   }
 
-  hundlePassChange(event,newValue){
+  handlePassChange(event,newValue){
     this.setState({current_pass_text:newValue});
   }
 
@@ -269,7 +269,7 @@ export default class LoginForm extends React.Component{
         floatingLabelText=&quot;User ID&quot;
         value={this.state.current_id_text}
         ref=&quot;userid&quot;
-        onChange={this.hundleIDChange}
+        onChange={this.handleIDChange}
         /&gt;
         &lt;br /&gt;
         &lt;TextField
@@ -278,11 +278,11 @@ export default class LoginForm extends React.Component{
           type=&quot;password&quot;
           value={this.state.current_pass_text}
           ref=&quot;password&quot;
-          onChange={this.hundlePassChange}
+          onChange={this.handlePassChange}
           /&gt;
         &lt;br /&gt;
         &lt;br /&gt;
-        &lt;RaisedButton onClick={this.hundleSubmit} label=&quot;Login&quot; ref=&quot;loginbutton&quot;/&gt;
+        &lt;RaisedButton onClick={this.handleSubmit} label=&quot;Login&quot; ref=&quot;loginbutton&quot;/&gt;
         &lt;br /&gt;
         &lt;span style={{color:&quot;red&quot;}}&gt;{message}&lt;/span&gt;
       &lt;/div&gt;

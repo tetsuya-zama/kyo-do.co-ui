@@ -1033,9 +1033,9 @@
                                 "line": 26,
                                 "column": 25
                               },
-                              "identifierName": "hundleNameChange"
+                              "identifierName": "handleNameChange"
                             },
-                            "name": "hundleNameChange"
+                            "name": "handleNameChange"
                           },
                           "computed": false
                         },
@@ -1109,9 +1109,9 @@
                                     "line": 26,
                                     "column": 49
                                   },
-                                  "identifierName": "hundleNameChange"
+                                  "identifierName": "handleNameChange"
                                 },
-                                "name": "hundleNameChange"
+                                "name": "handleNameChange"
                               },
                               "computed": false
                             },
@@ -1225,9 +1225,9 @@
                                 "line": 27,
                                 "column": 20
                               },
-                              "identifierName": "hundleClose"
+                              "identifierName": "handleClose"
                             },
-                            "name": "hundleClose"
+                            "name": "handleClose"
                           },
                           "computed": false
                         },
@@ -1301,9 +1301,9 @@
                                     "line": 27,
                                     "column": 39
                                   },
-                                  "identifierName": "hundleClose"
+                                  "identifierName": "handleClose"
                                 },
-                                "name": "hundleClose"
+                                "name": "handleClose"
                               },
                               "computed": false
                             },
@@ -1417,9 +1417,9 @@
                                 "line": 28,
                                 "column": 17
                               },
-                              "identifierName": "hundleOK"
+                              "identifierName": "handleOK"
                             },
-                            "name": "hundleOK"
+                            "name": "handleOK"
                           },
                           "computed": false
                         },
@@ -1493,9 +1493,9 @@
                                     "line": 28,
                                     "column": 33
                                   },
-                                  "identifierName": "hundleOK"
+                                  "identifierName": "handleOK"
                                 },
-                                "name": "hundleOK"
+                                "name": "handleOK"
                               },
                               "computed": false
                             },
@@ -1563,7 +1563,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n  * グループ名の変更をハンドリングするhundler\n  * @param {Object} event イベント\n  * @param {string} newValue 変更後の値\n  * @return {undefined}\n  ",
+                    "value": "*\n  * グループ名の変更をハンドリングするhandler\n  * @param {Object} event イベント\n  * @param {string} newValue 変更後の値\n  * @return {undefined}\n  ",
                     "start": 808,
                     "end": 935,
                     "loc": {
@@ -1607,9 +1607,9 @@
                       "line": 36,
                       "column": 18
                     },
-                    "identifierName": "hundleNameChange"
+                    "identifierName": "handleNameChange"
                   },
-                  "name": "hundleNameChange",
+                  "name": "handleNameChange",
                   "leadingComments": null
                 },
                 "static": false,
@@ -1825,7 +1825,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n  * グループ名の変更をハンドリングするhundler\n  * @param {Object} event イベント\n  * @param {string} newValue 変更後の値\n  * @return {undefined}\n  ",
+                    "value": "*\n  * グループ名の変更をハンドリングするhandler\n  * @param {Object} event イベント\n  * @param {string} newValue 変更後の値\n  * @return {undefined}\n  ",
                     "start": 808,
                     "end": 935,
                     "loc": {
@@ -1843,7 +1843,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n  * キャンセルボタンのクリックをハンドリングするhundler\n  * @return {undefined}\n  ",
+                    "value": "*\n  * キャンセルボタンのクリックをハンドリングするhandler\n  * @return {undefined}\n  ",
                     "start": 1023,
                     "end": 1089,
                     "loc": {
@@ -1887,9 +1887,9 @@
                       "line": 44,
                       "column": 13
                     },
-                    "identifierName": "hundleClose"
+                    "identifierName": "handleClose"
                   },
-                  "name": "hundleClose",
+                  "name": "handleClose",
                   "leadingComments": null
                 },
                 "static": false,
@@ -2219,7 +2219,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n  * キャンセルボタンのクリックをハンドリングするhundler\n  * @return {undefined}\n  ",
+                    "value": "*\n  * キャンセルボタンのクリックをハンドリングするhandler\n  * @return {undefined}\n  ",
                     "start": 1023,
                     "end": 1089,
                     "loc": {
@@ -2237,7 +2237,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n  * OKボタンのクリックをハンドリングするhundler\n  * @return {undefined}\n  ",
+                    "value": "*\n  * OKボタンのクリックをハンドリングするhandler\n  * @return {undefined}\n  ",
                     "start": 1203,
                     "end": 1266,
                     "loc": {
@@ -2281,9 +2281,9 @@
                       "line": 52,
                       "column": 10
                     },
-                    "identifierName": "hundleOK"
+                    "identifierName": "handleOK"
                   },
-                  "name": "hundleOK",
+                  "name": "handleOK",
                   "leadingComments": null
                 },
                 "static": false,
@@ -2931,7 +2931,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n  * OKボタンのクリックをハンドリングするhundler\n  * @return {undefined}\n  ",
+                    "value": "*\n  * OKボタンのクリックをハンドリングするhandler\n  * @return {undefined}\n  ",
                     "start": 1203,
                     "end": 1266,
                     "loc": {
@@ -3306,9 +3306,9 @@
                                                 "line": 69,
                                                 "column": 36
                                               },
-                                              "identifierName": "hundleClose"
+                                              "identifierName": "handleClose"
                                             },
-                                            "name": "hundleClose"
+                                            "name": "handleClose"
                                           },
                                           "computed": false
                                         }
@@ -3609,9 +3609,9 @@
                                                 "line": 75,
                                                 "column": 33
                                               },
-                                              "identifierName": "hundleOK"
+                                              "identifierName": "handleOK"
                                             },
-                                            "name": "hundleOK"
+                                            "name": "handleOK"
                                           },
                                           "computed": false
                                         }
@@ -4460,9 +4460,9 @@
                                             "line": 90,
                                             "column": 39
                                           },
-                                          "identifierName": "hundleNameChange"
+                                          "identifierName": "handleNameChange"
                                         },
-                                        "name": "hundleNameChange"
+                                        "name": "handleNameChange"
                                       },
                                       "computed": false
                                     }
@@ -4663,7 +4663,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n  * グループ名の変更をハンドリングするhundler\n  * @param {Object} event イベント\n  * @param {string} newValue 変更後の値\n  * @return {undefined}\n  ",
+      "value": "*\n  * グループ名の変更をハンドリングするhandler\n  * @param {Object} event イベント\n  * @param {string} newValue 変更後の値\n  * @return {undefined}\n  ",
       "start": 808,
       "end": 935,
       "loc": {
@@ -4679,7 +4679,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n  * キャンセルボタンのクリックをハンドリングするhundler\n  * @return {undefined}\n  ",
+      "value": "*\n  * キャンセルボタンのクリックをハンドリングするhandler\n  * @return {undefined}\n  ",
       "start": 1023,
       "end": 1089,
       "loc": {
@@ -4695,7 +4695,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n  * OKボタンのクリックをハンドリングするhundler\n  * @return {undefined}\n  ",
+      "value": "*\n  * OKボタンのクリックをハンドリングするhandler\n  * @return {undefined}\n  ",
       "start": 1203,
       "end": 1266,
       "loc": {
@@ -6590,7 +6590,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleNameChange",
+      "value": "handleNameChange",
       "start": 651,
       "end": 667,
       "loc": {
@@ -6697,7 +6697,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleNameChange",
+      "value": "handleNameChange",
       "start": 675,
       "end": 691,
       "loc": {
@@ -6933,7 +6933,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleClose",
+      "value": "handleClose",
       "start": 713,
       "end": 724,
       "loc": {
@@ -7040,7 +7040,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleClose",
+      "value": "handleClose",
       "start": 732,
       "end": 743,
       "loc": {
@@ -7276,7 +7276,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleOK",
+      "value": "handleOK",
       "start": 765,
       "end": 773,
       "loc": {
@@ -7383,7 +7383,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleOK",
+      "value": "handleOK",
       "start": 781,
       "end": 789,
       "loc": {
@@ -7580,7 +7580,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n  * グループ名の変更をハンドリングするhundler\n  * @param {Object} event イベント\n  * @param {string} newValue 変更後の値\n  * @return {undefined}\n  ",
+      "value": "*\n  * グループ名の変更をハンドリングするhandler\n  * @param {Object} event イベント\n  * @param {string} newValue 変更後の値\n  * @return {undefined}\n  ",
       "start": 808,
       "end": 935,
       "loc": {
@@ -7606,7 +7606,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleNameChange",
+      "value": "handleNameChange",
       "start": 938,
       "end": 954,
       "loc": {
@@ -8084,7 +8084,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n  * キャンセルボタンのクリックをハンドリングするhundler\n  * @return {undefined}\n  ",
+      "value": "*\n  * キャンセルボタンのクリックをハンドリングするhandler\n  * @return {undefined}\n  ",
       "start": 1023,
       "end": 1089,
       "loc": {
@@ -8110,7 +8110,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleClose",
+      "value": "handleClose",
       "start": 1092,
       "end": 1103,
       "loc": {
@@ -8795,7 +8795,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n  * OKボタンのクリックをハンドリングするhundler\n  * @return {undefined}\n  ",
+      "value": "*\n  * OKボタンのクリックをハンドリングするhandler\n  * @return {undefined}\n  ",
       "start": 1203,
       "end": 1266,
       "loc": {
@@ -8821,7 +8821,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleOK",
+      "value": "handleOK",
       "start": 1269,
       "end": 1277,
       "loc": {
@@ -10765,7 +10765,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleClose",
+      "value": "handleClose",
       "start": 1653,
       "end": 1664,
       "loc": {
@@ -11373,7 +11373,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleOK",
+      "value": "handleOK",
       "start": 1781,
       "end": 1789,
       "loc": {
@@ -12977,7 +12977,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "hundleNameChange",
+      "value": "handleNameChange",
       "start": 2100,
       "end": 2116,
       "loc": {

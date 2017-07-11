@@ -2808,21 +2808,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/accountboard.js~accountboard#hundlenamechange",
-    "class/src/component/accountboard.js~AccountBoard.html#instance-method-hundleNameChange",
-    "src/component/accountboard.js~AccountBoard#hundleNameChange",
+    "src/component/accountboard.js~accountboard#handlenamechange",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-method-handleNameChange",
+    "src/component/accountboard.js~AccountBoard#handleNameChange",
     "method"
   ],
   [
-    "src/component/accountboard.js~accountboard#hundlepasschange",
-    "class/src/component/accountboard.js~AccountBoard.html#instance-method-hundlePassChange",
-    "src/component/accountboard.js~AccountBoard#hundlePassChange",
+    "src/component/accountboard.js~accountboard#handlepasschange",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-method-handlePassChange",
+    "src/component/accountboard.js~AccountBoard#handlePassChange",
     "method"
   ],
   [
-    "src/component/accountboard.js~accountboard#hundlesubmit",
-    "class/src/component/accountboard.js~AccountBoard.html#instance-method-hundleSubmit",
-    "src/component/accountboard.js~AccountBoard#hundleSubmit",
+    "src/component/accountboard.js~accountboard#handlesubmit",
+    "class/src/component/accountboard.js~AccountBoard.html#instance-method-handleSubmit",
+    "src/component/accountboard.js~AccountBoard#handleSubmit",
     "method"
   ],
   [
@@ -2844,9 +2844,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/board.js~board#hundlefilterchange",
-    "class/src/component/board.js~Board.html#instance-method-hundleFilterChange",
-    "src/component/board.js~Board#hundleFilterChange",
+    "src/component/board.js~board#handlefilterchange",
+    "class/src/component/board.js~Board.html#instance-method-handleFilterChange",
+    "src/component/board.js~Board#handleFilterChange",
     "method"
   ],
   [
@@ -2874,21 +2874,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/groupcreationboard.js~groupcreationboard#hundleclose",
-    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-method-hundleClose",
-    "src/component/groupcreationboard.js~GroupCreationBoard#hundleClose",
+    "src/component/groupcreationboard.js~groupcreationboard#handleclose",
+    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-method-handleClose",
+    "src/component/groupcreationboard.js~GroupCreationBoard#handleClose",
     "method"
   ],
   [
-    "src/component/groupcreationboard.js~groupcreationboard#hundlenamechange",
-    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-method-hundleNameChange",
-    "src/component/groupcreationboard.js~GroupCreationBoard#hundleNameChange",
+    "src/component/groupcreationboard.js~groupcreationboard#handlenamechange",
+    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-method-handleNameChange",
+    "src/component/groupcreationboard.js~GroupCreationBoard#handleNameChange",
     "method"
   ],
   [
-    "src/component/groupcreationboard.js~groupcreationboard#hundleok",
-    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-method-hundleOK",
-    "src/component/groupcreationboard.js~GroupCreationBoard#hundleOK",
+    "src/component/groupcreationboard.js~groupcreationboard#handleok",
+    "class/src/component/groupcreationboard.js~GroupCreationBoard.html#instance-method-handleOK",
+    "src/component/groupcreationboard.js~GroupCreationBoard#handleOK",
     "method"
   ],
   [
@@ -3000,15 +3000,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/header.js~header#handleopen",
-    "class/src/component/header.js~Header.html#instance-method-handleOpen",
-    "src/component/header.js~Header#handleOpen",
+    "src/component/header.js~header#handlelogout",
+    "class/src/component/header.js~Header.html#instance-method-handleLogout",
+    "src/component/header.js~Header#handleLogout",
     "method"
   ],
   [
-    "src/component/header.js~header#hundlelogout",
-    "class/src/component/header.js~Header.html#instance-method-hundleLogout",
-    "src/component/header.js~Header#hundleLogout",
+    "src/component/header.js~header#handleopen",
+    "class/src/component/header.js~Header.html#instance-method-handleOpen",
+    "src/component/header.js~Header#handleOpen",
     "method"
   ],
   [
@@ -3036,21 +3036,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/loginform.js~loginform#hundleidchange",
-    "class/src/component/loginform.js~LoginForm.html#instance-method-hundleIDChange",
-    "src/component/loginform.js~LoginForm#hundleIDChange",
+    "src/component/loginform.js~loginform#handleidchange",
+    "class/src/component/loginform.js~LoginForm.html#instance-method-handleIDChange",
+    "src/component/loginform.js~LoginForm#handleIDChange",
     "method"
   ],
   [
-    "src/component/loginform.js~loginform#hundlepasschange",
-    "class/src/component/loginform.js~LoginForm.html#instance-method-hundlePassChange",
-    "src/component/loginform.js~LoginForm#hundlePassChange",
+    "src/component/loginform.js~loginform#handlepasschange",
+    "class/src/component/loginform.js~LoginForm.html#instance-method-handlePassChange",
+    "src/component/loginform.js~LoginForm#handlePassChange",
     "method"
   ],
   [
-    "src/component/loginform.js~loginform#hundlesubmit",
-    "class/src/component/loginform.js~LoginForm.html#instance-method-hundleSubmit",
-    "src/component/loginform.js~LoginForm#hundleSubmit",
+    "src/component/loginform.js~loginform#handlesubmit",
+    "class/src/component/loginform.js~LoginForm.html#instance-method-handleSubmit",
+    "src/component/loginform.js~LoginForm#handleSubmit",
     "method"
   ],
   [
@@ -3132,27 +3132,27 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/mydestination.js~mydestination#hundleclear",
-    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleClear",
-    "src/component/mydestination.js~MyDestination#hundleClear",
+    "src/component/mydestination.js~mydestination#handleclear",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-handleClear",
+    "src/component/mydestination.js~MyDestination#handleClear",
     "method"
   ],
   [
-    "src/component/mydestination.js~mydestination#hundlecommentchange",
-    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleCommentChange",
-    "src/component/mydestination.js~MyDestination#hundleCommentChange",
+    "src/component/mydestination.js~mydestination#handlecommentchange",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-handleCommentChange",
+    "src/component/mydestination.js~MyDestination#handleCommentChange",
     "method"
   ],
   [
-    "src/component/mydestination.js~mydestination#hundlecontactchange",
-    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleContactChange",
-    "src/component/mydestination.js~MyDestination#hundleContactChange",
+    "src/component/mydestination.js~mydestination#handlecontactchange",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-handleContactChange",
+    "src/component/mydestination.js~MyDestination#handleContactChange",
     "method"
   ],
   [
-    "src/component/mydestination.js~mydestination#hundletoggle",
-    "class/src/component/mydestination.js~MyDestination.html#instance-method-hundleToggle",
-    "src/component/mydestination.js~MyDestination#hundleToggle",
+    "src/component/mydestination.js~mydestination#handletoggle",
+    "class/src/component/mydestination.js~MyDestination.html#instance-method-handleToggle",
+    "src/component/mydestination.js~MyDestination#handleToggle",
     "method"
   ],
   [
@@ -3174,33 +3174,33 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/signupform.js~signupform#hundleconfirmpasswordchange",
-    "class/src/component/signupform.js~SignUpForm.html#instance-method-hundleConfirmPasswordChange",
-    "src/component/signupform.js~SignUpForm#hundleConfirmPasswordChange",
+    "src/component/signupform.js~signupform#handleconfirmpasswordchange",
+    "class/src/component/signupform.js~SignUpForm.html#instance-method-handleConfirmPasswordChange",
+    "src/component/signupform.js~SignUpForm#handleConfirmPasswordChange",
     "method"
   ],
   [
-    "src/component/signupform.js~signupform#hundleidchange",
-    "class/src/component/signupform.js~SignUpForm.html#instance-method-hundleIDChange",
-    "src/component/signupform.js~SignUpForm#hundleIDChange",
+    "src/component/signupform.js~signupform#handleidchange",
+    "class/src/component/signupform.js~SignUpForm.html#instance-method-handleIDChange",
+    "src/component/signupform.js~SignUpForm#handleIDChange",
     "method"
   ],
   [
-    "src/component/signupform.js~signupform#hundlenamechange",
-    "class/src/component/signupform.js~SignUpForm.html#instance-method-hundleNameChange",
-    "src/component/signupform.js~SignUpForm#hundleNameChange",
+    "src/component/signupform.js~signupform#handlenamechange",
+    "class/src/component/signupform.js~SignUpForm.html#instance-method-handleNameChange",
+    "src/component/signupform.js~SignUpForm#handleNameChange",
     "method"
   ],
   [
-    "src/component/signupform.js~signupform#hundlepasschange",
-    "class/src/component/signupform.js~SignUpForm.html#instance-method-hundlePassChange",
-    "src/component/signupform.js~SignUpForm#hundlePassChange",
+    "src/component/signupform.js~signupform#handlepasschange",
+    "class/src/component/signupform.js~SignUpForm.html#instance-method-handlePassChange",
+    "src/component/signupform.js~SignUpForm#handlePassChange",
     "method"
   ],
   [
-    "src/component/signupform.js~signupform#hundlesubmit",
-    "class/src/component/signupform.js~SignUpForm.html#instance-method-hundleSubmit",
-    "src/component/signupform.js~SignUpForm#hundleSubmit",
+    "src/component/signupform.js~signupform#handlesubmit",
+    "class/src/component/signupform.js~SignUpForm.html#instance-method-handleSubmit",
+    "src/component/signupform.js~SignUpForm#handleSubmit",
     "method"
   ],
   [

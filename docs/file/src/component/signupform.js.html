@@ -221,19 +221,19 @@ export default class SignUpForm extends React.Component{
     super(props);
     this.state = {id_text:&quot;&quot;,pass_text:&quot;&quot;,confirm_pass_text:&quot;&quot;,name_text:&quot;&quot;};
     //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
-    this.hundleSubmit = this.hundleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.validate = this.validate.bind(this);
-    this.hundleIDChange = this.hundleIDChange.bind(this);
-    this.hundlePassChange = this.hundlePassChange.bind(this);
-    this.hundleConfirmPasswordChange = this.hundleConfirmPasswordChange.bind(this);
-    this.hundleNameChange = this.hundleNameChange.bind(this);
+    this.handleIDChange = this.handleIDChange.bind(this);
+    this.handlePassChange = this.handlePassChange.bind(this);
+    this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
     this.renderValidationError = this.renderValidationError.bind(this);
   }
   /**
   * Sign Up&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
   */
-  hundleSubmit(){
+  handleSubmit(){
     const id = this.state.id_text.trim();
     const pass = this.state.pass_text.trim();
     const pass_confirm = this.state.confirm_pass_text.trim();
@@ -260,7 +260,7 @@ export default class SignUpForm extends React.Component{
   * @param {string} newValue &#x66F4;&#x65B0;&#x5F8C;&#x306E;&#x5024;
   * @return {undefined}
   */
-  hundleIDChange(event,newValue){
+  handleIDChange(event,newValue){
     this.setState({id_text:newValue});
   }
 
@@ -270,7 +270,7 @@ export default class SignUpForm extends React.Component{
   * @param {string} newValue &#x66F4;&#x65B0;&#x5F8C;&#x306E;&#x5024;
   * @return {undefined}
   */
-  hundlePassChange(event,newValue){
+  handlePassChange(event,newValue){
     this.setState({pass_text:newValue});
   }
 
@@ -280,7 +280,7 @@ export default class SignUpForm extends React.Component{
   * @param {string} newValue &#x66F4;&#x65B0;&#x5F8C;&#x306E;&#x5024;
   * @return {undefined}
   */
-  hundleConfirmPasswordChange(event,newValue){
+  handleConfirmPasswordChange(event,newValue){
     this.setState({confirm_pass_text:newValue});
   }
 
@@ -290,7 +290,7 @@ export default class SignUpForm extends React.Component{
   * @param {string} newValue &#x66F4;&#x65B0;&#x5F8C;&#x306E;&#x5024;
   * @return {undefined}
   */
-  hundleNameChange(event,newValue){
+  handleNameChange(event,newValue){
     this.setState({name_text:newValue});
   }
 
@@ -356,7 +356,7 @@ export default class SignUpForm extends React.Component{
         floatingLabelText=&quot;User ID&quot;
         value={this.state.id_text}
         ref=&quot;id&quot;
-        onChange={this.hundleIDChange}
+        onChange={this.handleIDChange}
         /&gt;
         &lt;br /&gt;
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_ID)}
@@ -368,7 +368,7 @@ export default class SignUpForm extends React.Component{
         value={this.state.pass_text}
         ref=&quot;pass&quot;
         type=&quot;password&quot;
-        onChange={this.hundlePassChange}
+        onChange={this.handlePassChange}
         /&gt;
         &lt;br /&gt;
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD)}
@@ -380,7 +380,7 @@ export default class SignUpForm extends React.Component{
         value={this.state.confirm_pass_text}
         ref=&quot;pass_confirm&quot;
         type=&quot;password&quot;
-        onChange={this.hundleConfirmPasswordChange}
+        onChange={this.handleConfirmPasswordChange}
         /&gt;
         &lt;br /&gt;
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.INVALID_CONFIRM)}
@@ -390,13 +390,13 @@ export default class SignUpForm extends React.Component{
         floatingLabelText=&quot;&#x8868;&#x793A;&#x540D;&quot;
         value={this.state.name_text}
         ref=&quot;name&quot;
-        onChange={this.hundleNameChange}
+        onChange={this.handleNameChange}
         /&gt;
         &lt;br /&gt;
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_NAME)}
         &lt;br /&gt;
         &lt;br /&gt;
-        &lt;RaisedButton ref=&quot;signup&quot; onClick={this.hundleSubmit} label=&quot;Sign Up&quot;/&gt;
+        &lt;RaisedButton ref=&quot;signup&quot; onClick={this.handleSubmit} label=&quot;Sign Up&quot;/&gt;
         &lt;br /&gt;
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.SERVER_ERROR)}
       &lt;/div&gt;

@@ -222,17 +222,17 @@ export default class AccountBoard extends React.Component{
   constructor(props){
     super(props);
     //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
-    this.hundleSubmit = this.hundleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.hundlePassChange = this.hundlePassChange.bind(this);
-    this.hundleNameChange = this.hundleNameChange.bind(this);
+    this.handlePassChange = this.handlePassChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
   }
 
   /**
   * &#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x60C5;&#x5831;&#x5909;&#x66F4;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
   */
-  hundleSubmit(){
+  handleSubmit(){
       this.props.dispatch(changeAccountInfo(this.props.accountboard.nextuser.nextname, this.props.accountboard.nextuser.nextpass));
   }
 
@@ -250,7 +250,7 @@ export default class AccountBoard extends React.Component{
   * @param {string} newValue &#x5909;&#x66F4;&#x5F8C;&#x306E;&#x5024;
   * @return {undefined}
   */
-  hundlePassChange(event,newValue){
+  handlePassChange(event,newValue){
     this.props.dispatch(changeAccountInfoField(this.props.accountboard.nextuser.nextname, newValue));
   }
 
@@ -260,7 +260,7 @@ export default class AccountBoard extends React.Component{
   * @param {string} newValue &#x5909;&#x66F4;&#x5F8C;&#x306E;&#x5024;
   * @return {undefined}
   */
-  hundleNameChange(event,newValue){
+  handleNameChange(event,newValue){
     this.props.dispatch(changeAccountInfoField(newValue, this.props.accountboard.nextuser.nextpass));
   }
 
@@ -279,7 +279,7 @@ export default class AccountBoard extends React.Component{
       &lt;FlatButton
         label=&quot;Submit&quot;
         primary={true}
-        onTouchTap={this.hundleSubmit}
+        onTouchTap={this.handleSubmit}
         ref=&quot;submit&quot;
       /&gt;,
     ];
@@ -295,7 +295,7 @@ export default class AccountBoard extends React.Component{
           &lt;TextField
           hintText=&quot;&#x8868;&#x793A;&#x540D;&quot;
           value={this.props.accountboard.nextuser.nextname}
-          onChange={this.hundleNameChange}
+          onChange={this.handleNameChange}
           ref=&quot;name&quot;
           /&gt;
           &lt;br /&gt;
@@ -303,7 +303,7 @@ export default class AccountBoard extends React.Component{
           hintText=&quot;Password&quot;
           value={this.props.accountboard.nextuser.nextpass}
           type=&quot;password&quot;
-          onChange={this.hundlePassChange}
+          onChange={this.handlePassChange}
           ref=&quot;pass&quot;
           /&gt;
         &lt;/Dialog&gt;

@@ -226,33 +226,33 @@ export default class GroupCreationBoard extends React.Component{
       newGroupName:&quot;&quot;
     }
 
-    this.hundleNameChange = this.hundleNameChange.bind(this);
-    this.hundleClose = this.hundleClose.bind(this);
-    this.hundleOK = this.hundleOK.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOK = this.handleOK.bind(this);
   }
   /**
-  * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x306E;&#x5909;&#x66F4;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;hundler
+  * &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&#x306E;&#x5909;&#x66F4;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
   * @param {Object} event &#x30A4;&#x30D9;&#x30F3;&#x30C8;
   * @param {string} newValue &#x5909;&#x66F4;&#x5F8C;&#x306E;&#x5024;
   * @return {undefined}
   */
-  hundleNameChange(event,newValue){
+  handleNameChange(event,newValue){
     this.setState({newGroupName:newValue});
   }
 
   /**
-  * &#x30AD;&#x30E3;&#x30F3;&#x30BB;&#x30EB;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;hundler
+  * &#x30AD;&#x30E3;&#x30F3;&#x30BB;&#x30EB;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
   * @return {undefined}
   */
-  hundleClose(){
+  handleClose(){
     this.setState({newGroupName:&quot;&quot;});
     this.props.dispatch(closeGroupCreationBoard());
   }
   /**
-  * OK&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;hundler
+  * OK&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;handler
   * @return {undefined}
   */
-  hundleOK(){
+  handleOK(){
     const newGroupName = this.state.newGroupName;
     if(newGroupName.trim().length &gt; 0){
       this.setState({newGroupName:&quot;&quot;});
@@ -269,13 +269,13 @@ export default class GroupCreationBoard extends React.Component{
       &lt;FlatButton
         label=&quot;Close&quot;
         primary={true}
-        onTouchTap={this.hundleClose}
+        onTouchTap={this.handleClose}
         ref=&quot;Close&quot;
       /&gt;,
       &lt;FlatButton
         label=&quot;OK&quot;
         primary={true}
-        onTouchTap={this.hundleOK}
+        onTouchTap={this.handleOK}
         ref=&quot;ok&quot;
       /&gt;,
     ];
@@ -290,7 +290,7 @@ export default class GroupCreationBoard extends React.Component{
         &lt;TextField
         hintText=&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x540D;&quot;
         value={this.state.newGroupName}
-        onChange={this.hundleNameChange}
+        onChange={this.handleNameChange}
         ref=&quot;newGroupName&quot;
         /&gt;
       &lt;/Dialog&gt;

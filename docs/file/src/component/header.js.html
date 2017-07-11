@@ -235,7 +235,7 @@ export default class Header extends React.Component{
   constructor(props){
     super(props);
     //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
-    this.hundleLogout = this.hundleLogout.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleCreateGroup = this.handleCreateGroup.bind(this);
   }
@@ -244,7 +244,7 @@ export default class Header extends React.Component{
   * &#x30ED;&#x30B0;&#x30A2;&#x30A6;&#x30C8;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
   */
-  hundleLogout(){
+  handleLogout(){
       this.props.dispatch(logoutRequested());
   }
 
@@ -286,7 +286,7 @@ export default class Header extends React.Component{
           &gt;
             &lt;MenuItem ref=&quot;change_account_button&quot; primaryText=&quot;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x60C5;&#x5831;&#x5909;&#x66F4;&quot; onTouchTap={this.handleOpen} /&gt;
             &lt;MenuItem ref=&quot;create_group_button&quot; primaryText=&quot;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x4F5C;&#x6210;&quot; onTouchTap={this.handleCreateGroup} /&gt;
-            &lt;MenuItem ref=&quot;logout_button&quot; primaryText=&quot;LOGOUT&quot; onTouchTap={this.hundleLogout} /&gt;
+            &lt;MenuItem ref=&quot;logout_button&quot; primaryText=&quot;LOGOUT&quot; onTouchTap={this.handleLogout} /&gt;
           &lt;/IconMenu&gt;
         &lt;/ToolbarGroup&gt;
         &lt;AccountBoard dispatch={this.props.dispatch} accountboard={this.props.accountboard} /&gt;

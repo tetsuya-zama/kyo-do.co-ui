@@ -222,7 +222,7 @@ export default class Board extends React.Component{
     this.state = {
       current_filter_text:&quot;&quot;
     }
-    this.hundleFilterChange = this.hundleFilterChange.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
   /**
@@ -231,7 +231,7 @@ export default class Board extends React.Component{
   * @param {string} newValue &#x5909;&#x66F4;&#x5F8C;&#x306E;&#x5024;
   * @return {undefined}
   */
-  hundleFilterChange(event,newValue){
+  handleFilterChange(event,newValue){
     this.setState({current_filter_text : newValue});
   }
   /**
@@ -254,7 +254,7 @@ export default class Board extends React.Component{
       &lt;TextField
         hintText=&quot;Filter&quot;
         value={this.state.current_filter_text}
-        onChange={this.hundleFilterChange}
+        onChange={this.handleFilterChange}
         ref=&quot;memberfilter&quot;
         /&gt;
       {memberRows}

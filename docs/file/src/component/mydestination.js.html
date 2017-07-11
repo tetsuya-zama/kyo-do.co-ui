@@ -223,16 +223,16 @@ export default class MyDestination extends React.Component{
     super(props);
 
     //ES2015&#x7248;&#x306E;React&#x3060;&#x3068;&#x3053;&#x306E;&#x304A;&#x307E;&#x3058;&#x306A;&#x3044;&#x3092;&#x3057;&#x306A;&#x3044;&#x3068;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x5185;&#x3067;this&#x304C;&#x89E3;&#x6C7A;&#x3057;&#x306A;&#x3044;...
-    this.hundleClear = this.hundleClear.bind(this);
-    this.hundleToggle = this.hundleToggle.bind(this);
-    this.hundleCommentChange = this.hundleCommentChange.bind(this);
-    this.hundleContactChange = this.hundleContactChange.bind(this);
+    this.handleClear = this.handleClear.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleCommentChange = this.handleCommentChange.bind(this);
+    this.handleContactChange = this.handleContactChange.bind(this);
   }
   /**
   * &#x30AF;&#x30EA;&#x30A2;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3092;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x30E1;&#x30BD;&#x30C3;&#x30C9;
   * @return {undefined}
   */
-  hundleClear(){
+  handleClear(){
     const action = myDestinationClear();
     this.props.dispatch(action);
   }
@@ -242,7 +242,7 @@ export default class MyDestination extends React.Component{
   * @param {boolean} isInputChecked &quot;&#x51FA;&#x52E4;&quot;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;
   * @return {undefined}
   */
-  hundleToggle(event,isInputChecked){
+  handleToggle(event,isInputChecked){
     this.props.dispatch(myDestinationChange({
         inBusiness:isInputChecked, comment:this.props.mydestination.comment, contact:this.props.mydestination.contact
     }));
@@ -253,7 +253,7 @@ export default class MyDestination extends React.Component{
   * @param {string} newValue &#x65B0;&#x3057;&#x3044;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x5024;
   * @return {undefined}
   */
-  hundleCommentChange(newValue) {
+  handleCommentChange(newValue) {
     this.props.dispatch(myDestinationChange({
         inBusiness:this.props.mydestination.inBusiness, comment:newValue, contact:this.props.mydestination.contact
     }));
@@ -265,7 +265,7 @@ export default class MyDestination extends React.Component{
   * @param {string} newValue &#x65B0;&#x3057;&#x3044;&#x5024;
   * @return {undefined}
   */
-  hundleContactChange(event,newValue){
+  handleContactChange(event,newValue){
     this.props.dispatch(myDestinationChange({
         inBusiness:this.props.mydestination.inBusiness, comment:this.props.mydestination.comment, contact:newValue
     }));
@@ -284,7 +284,7 @@ export default class MyDestination extends React.Component{
         &lt;tr&gt;
           &lt;td&gt;{this.props.login.user.name}&lt;/td&gt;
           &lt;td&gt;
-            &lt;Toggle label=&quot;&#x51FA;&#x52E4;&quot; toggled={this.props.mydestination.inBusiness} onToggle={this.hundleToggle} ref=&quot;in_business&quot;/&gt;
+            &lt;Toggle label=&quot;&#x51FA;&#x52E4;&quot; toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref=&quot;in_business&quot;/&gt;
           &lt;/td&gt;
           &lt;td&gt;
             &lt;AutoComplete
@@ -293,20 +293,20 @@ export default class MyDestination extends React.Component{
               dataSource={this.props.mydestination.suggestion}
               maxSearchResults={10}
               openOnFocus={true}
-              onUpdateInput={this.hundleCommentChange}
+              onUpdateInput={this.handleCommentChange}
               searchText={this.props.mydestination.comment}
               ref=&quot;comment&quot;
             /&gt;
           &lt;/td&gt;
           &lt;td&gt;
-            &lt;RaisedButton label=&quot;Clear&quot; secondary={true} onClick={this.hundleClear} ref=&quot;clear_button&quot;/&gt;
+            &lt;RaisedButton label=&quot;Clear&quot; secondary={true} onClick={this.handleClear} ref=&quot;clear_button&quot;/&gt;
           &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;&lt;/td&gt;
           &lt;td&gt;&lt;/td&gt;
           &lt;td&gt;
-            &lt;TextField hintText=&quot;&#x9023;&#x7D61;&#x5148;&quot; value={this.props.mydestination.contact} onChange={this.hundleContactChange} ref=&quot;contact&quot;/&gt;
+            &lt;TextField hintText=&quot;&#x9023;&#x7D61;&#x5148;&quot; value={this.props.mydestination.contact} onChange={this.handleContactChange} ref=&quot;contact&quot;/&gt;
           &lt;/td&gt;
           &lt;td&gt;&lt;/td&gt;
         &lt;/tr&gt;
