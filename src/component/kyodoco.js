@@ -74,6 +74,7 @@ class Kyodoco extends React.Component{
           accountboard={this.props.accountboard}
           groupboards={this.props.groupboards}
           group={this.props.group}
+          board={this.props.board}
         />
       </header>
       <hr />

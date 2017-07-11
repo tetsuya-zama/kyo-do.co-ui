@@ -6,7 +6,12 @@ import Dialog from 'material-ui/Dialog';
 import {getGroupById} from '../module/group';
 import {deleteGroupRequired,changeGroupNameRequired} from '../action/group';
 import {closeGroupManagementBoard} from '../action/groupboards';
+import MemberAddForm from './memberaddform';
 
+/**
+* グループ管理ボード コンポーネント
+* @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
+*/
 export default class GroupManagementBoard extends React.Component{
   /**
   * コンストラクタ
@@ -20,25 +25,25 @@ export default class GroupManagementBoard extends React.Component{
       newGroupName:""
     }
 
-    this.hundleClose = this.hundleClose.bind(this);
-    this.hundleDeleteGroupButton = this.hundleDeleteGroupButton.bind(this);
-    this.hundleNameChange = this.hundleNameChange.bind(this);
-    this.hundleChangeNameButton = this.hundleChangeNameButton.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleDeleteGroupButton = this.handleDeleteGroupButton.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleChangeNameButton = this.handleChangeNameButton.bind(this);
   }
 
   /**
-  * キャンセルボタンのクリックをハンドリングするhundler
+  * キャンセルボタンのクリックをハンドリングするhandler
   * @return {undefined}
   */
-  hundleClose(){
+  handleClose(){
     this.setState({newGroupName:""});
     this.props.dispatch(closeGroupManagementBoard());
   }
 
   /**
-  * グループの削除ボタンのクリックをハンドリングするhundler
+  * グループの削除ボタンのクリックをハンドリングするhandler
   */
-  hundleDeleteGroupButton(){
+  handleDeleteGroupButton(){
     if(confirm("削除します。よろしいですか？")){
       this.props.dispatch(deleteGroupRequired(this.props.managementBoard.groupId));
       this.setState({newGroupName:""});
@@ -47,20 +52,20 @@ export default class GroupManagementBoard extends React.Component{
   }
 
   /**
-  * グループ名の変更をハンドリングするhundler
+  * グループ名の変更をハンドリングするhandler
   * @param {Object} event イベント
   * @param {string} newValue 変更後の値
   * @return {undefined}
   */
-  hundleNameChange(event,newValue){
+  handleNameChange(event,newValue){
     this.setState({newGroupName:newValue});
   }
 
   /**
-  * グループ名の変更ボタンのクリックをハンドリングするhundler
+  * グループ名の変更ボタンのクリックをハンドリングするhandler
   * @return {undefined}
   */
-  hundleChangeNameButton(){
+  handleChangeNameButton(){
     if(this.state.newGroupName.trim().length > 0){
       this.props.dispatch(changeGroupNameRequired(
         this.props.managementBoard.groupId,
@@ -83,7 +88,7 @@ export default class GroupManagementBoard extends React.Component{
       <FlatButton
         label="Close"
         primary={true}
-        onTouchTap={this.hundleClose}
+        onTouchTap={this.handleClose}
         ref="Close"
       />
     ];
@@ -104,7 +109,7 @@ export default class GroupManagementBoard extends React.Component{
           <FlatButton
             label="削除"
             primary={true}
-            onTouchTap={this.hundleDeleteGroupButton}
+            onTouchTap={this.handleDeleteGroupButton}
             ref="deleteGroupButton"
           />
         </div>
@@ -112,16 +117,21 @@ export default class GroupManagementBoard extends React.Component{
           <TextField
             hintText="グループ名"
             value={groupNameText}
-            onChange={this.hundleNameChange}
+            onChange={this.handleNameChange}
             ref="groupName"
           />
           <FlatButton
             label="変更"
             primary={true}
-            onTouchTap={this.hundleChangeNameButton}
+            onTouchTap={this.handleChangeNameButton}
             ref="changeNameButton"
           />
         </div>
+        <MemberAddForm
+          dispatch={this.props.dispatch}
+          group={targetGroup}
+          memberStatus={this.props.board.memberStatus}
+        />
       </Dialog>
     )
   }

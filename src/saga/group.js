@@ -115,7 +115,9 @@ export function* fetchMemberTask(group,token,logonUserId){
 
     const memberStatus = yield select(state => state.board.memberStatus);
 
-    const groupMemberStatus = result.data.members.map(memberId =>getMemberStatusById(memberStatus,memberId));
+    const groupMemberStatus = result.data.members.map(
+      memberId =>getMemberStatusById(memberStatus,memberId))
+    .filter(val => val != undefined);
 
     yield put(groupMemberLoaded(Object.assign({},group,{member:groupMemberStatus}),logonUserId));
   }catch(e){

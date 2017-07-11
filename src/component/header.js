@@ -92,6 +92,7 @@ export default class Header extends React.Component{
           dispatch={this.props.dispatch}
           managementBoard={this.props.groupboards.managementBoard}
           group={this.props.group}
+          board={this.props.board}
         />
       </Toolbar>:
       null
