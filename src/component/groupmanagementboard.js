@@ -125,6 +125,7 @@ export default class GroupManagementBoard extends React.Component{
         actions={actions}
         modal={true}
         open={this.props.managementBoard.isOpen}
+        autoScrollBodyContent={true}
       >
         <div>
           <FlatButton
