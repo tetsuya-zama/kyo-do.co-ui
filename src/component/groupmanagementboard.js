@@ -85,6 +85,12 @@ export default class GroupManagementBoard extends React.Component{
     }
 
     const targetGroup = getGroupById(this.props.group.allGroups,this.props.managementBoard.groupId);
+    //XXX 実装としてかっこ悪い
+    //グループを作成した瞬間はまだグループが読み込まれていないのでエラーになる
+    //そのバグを暫定的に防衛的プログラミングで回避
+    if(!targetGroup){
+      return null;
+    }
     const actions = [
       <FlatButton
         label="Close"
