@@ -11,7 +11,7 @@ describe("group reducer",()=>{
       allGroups:[
         {
           "id": "g0001",
-          "name": "groupname1",
+          "groupname": "groupname1",
           "admin": [
             "userid1",
             "userid2"
@@ -19,7 +19,7 @@ describe("group reducer",()=>{
         },
         {
           "id": "g0002",
-          "name": "groupname2",
+          "groupname": "groupname2",
           "admin": [
             "userid3"
           ]
@@ -31,7 +31,7 @@ describe("group reducer",()=>{
     const dummyGroupInfo = [
       {
         "id": "g0001",
-        "name": "groupname1",
+        "groupname": "groupname1",
         "admin": [
           "userid1",
           "userid2"
@@ -39,7 +39,7 @@ describe("group reducer",()=>{
       },
       {
         "id": "g0002",
-        "name": "groupname2 updated",
+        "groupname": "groupname2 updated",
         "admin": [
           "userid3",
           "userid4"
@@ -47,7 +47,7 @@ describe("group reducer",()=>{
       },
       {
         "id": "g0003",
-        "name": "groupname3",
+        "groupname": "groupname3",
         "admin": [
           "userid1",
           "userid3"
@@ -62,9 +62,9 @@ describe("group reducer",()=>{
     const result = group(dummyCurrentState,dummyAction);
 
     assert(result.allGroups.length === 3);
-    assert(getGroupById(result.allGroups, "g0002").name === "groupname2 updated");
+    assert(getGroupById(result.allGroups, "g0002").groupname === "groupname2 updated");
     assert(getGroupById(result.allGroups, "g0002").admin.indexOf("userid4") >= 0);
-    assert(getGroupById(result.allGroups, "g0003").name === "groupname3");
+    assert(getGroupById(result.allGroups, "g0003").groupname === "groupname3");
     assert(getGroupById(result.allGroups, "g0003").admin.indexOf("userid1") >= 0);
     assert(getGroupById(result.allGroups, "g0003").admin.indexOf("userid3") >= 0);
   });
@@ -74,7 +74,7 @@ describe("group reducer",()=>{
       allGroups:[
         {
           "id": "g0001",
-          "name": "groupname1",
+          "groupname": "groupname1",
           "admin": [
             "userid1",
             "userid2"
@@ -87,7 +87,7 @@ describe("group reducer",()=>{
         },
         {
           "id": "g0002",
-          "name": "groupname2",
+          "groupname": "groupname2",
           "admin": [
             "userid3"
           ]
@@ -99,7 +99,7 @@ describe("group reducer",()=>{
     const dummyGroupInfo = [
       {
         "id": "g0001",
-        "name": "groupname1",
+        "groupname": "groupname1",
         "admin": [
           "userid1",
           "userid2"
@@ -107,7 +107,7 @@ describe("group reducer",()=>{
       },
       {
         "id": "g0002",
-        "name": "groupname2 updated",
+        "groupname": "groupname2 updated",
         "admin": [
           "userid3",
           "userid4"
@@ -115,7 +115,7 @@ describe("group reducer",()=>{
       },
       {
         "id": "g0003",
-        "name": "groupname3",
+        "groupname": "groupname3",
         "admin": [
           "userid1",
           "userid3"
@@ -142,7 +142,7 @@ describe("group reducer",()=>{
       allGroups:[
         {
           "id": "g0001",
-          "name": "groupname1",
+          "groupname": "groupname1",
           "admin": [
             "userid1",
             "userid2"
@@ -150,7 +150,7 @@ describe("group reducer",()=>{
         },
         {
           "id": "g0002",
-          "name": "groupname2",
+          "groupname": "groupname2",
           "admin": [
             "userid3"
           ]
@@ -162,7 +162,7 @@ describe("group reducer",()=>{
     const dummyGroupInfo = [
       {
         "id": "g0002",
-        "name": "groupname2 updated",
+        "groupname": "groupname2 updated",
         "admin": [
           "userid3",
           "userid4"
@@ -170,7 +170,7 @@ describe("group reducer",()=>{
       },
       {
         "id": "g0003",
-        "name": "groupname3",
+        "groupname": "groupname3",
         "admin": [
           "userid1",
           "userid3"
@@ -193,7 +193,7 @@ describe("group reducer",()=>{
       allGroups:[
         {
           "id": "g0001",
-          "name": "groupname1",
+          "groupname": "groupname1",
           "admin": [
             "userid1",
             "userid2"
@@ -201,7 +201,7 @@ describe("group reducer",()=>{
         },
         {
           "id": "g0002",
-          "name": "groupname2",
+          "groupname": "groupname2",
           "admin": [
             "userid3"
           ]
@@ -213,7 +213,7 @@ describe("group reducer",()=>{
     const dummyGroupInfo = [
       {
         "id": "g0001",
-        "name": "groupname1",
+        "groupname": "groupname1",
         "admin": [
           "userid1",
           "userid2"
@@ -221,7 +221,7 @@ describe("group reducer",()=>{
       },
       {
         "id": "g0002",
-        "name": "groupname2 updated",
+        "groupname": "groupname2 updated",
         "admin": [
           "userid3",
           "userid4"
@@ -229,7 +229,7 @@ describe("group reducer",()=>{
       },
       {
         "id": "g0003",
-        "name": "groupname3",
+        "groupname": "groupname3",
         "admin": [
           "userid1",
           "userid3"
@@ -249,7 +249,7 @@ describe("group reducer",()=>{
       [
         {
           "id": "g0002",
-          "name": "groupname2 updated",
+          "groupname": "groupname2 updated",
           "admin": [
             "userid3",
             "userid4"
@@ -258,7 +258,7 @@ describe("group reducer",()=>{
         },
         {
           "id": "g0003",
-          "name": "groupname3",
+          "groupname": "groupname3",
           "admin": [
             "userid1",
             "userid3"
@@ -274,7 +274,7 @@ describe("group reducer",()=>{
       allGroups:[
         {
           "id": "g0001",
-          "name": "groupname1",
+          "groupname": "groupname1",
           "admin": [
             "userid1",
             "userid2"
@@ -282,7 +282,7 @@ describe("group reducer",()=>{
         },
         {
           "id": "g0002",
-          "name": "groupname2",
+          "groupname": "groupname2",
           "admin": [
             "userid3"
           ]
@@ -293,7 +293,7 @@ describe("group reducer",()=>{
 
     const dummyGroupWithMember = {
       "id": "g0001",
-      "name": "groupname1",
+      "groupname": "groupname1",
       "admin": [
         "userid1",
         "userid2"
@@ -324,7 +324,7 @@ describe("group reducer",()=>{
       allGroups:[
         {
           "id": "g0001",
-          "name": "groupname1",
+          "groupname": "groupname1",
           "admin": [
             "userid1",
             "userid2"
@@ -332,7 +332,7 @@ describe("group reducer",()=>{
         },
         {
           "id": "g0002",
-          "name": "groupname2",
+          "groupname": "groupname2",
           "admin": [
             "userid3"
           ]
@@ -343,7 +343,7 @@ describe("group reducer",()=>{
 
     const dummyGroupWithMember = {
       "id": "g0001",
-      "name": "groupname1",
+      "groupname": "groupname1",
       "admin": [
         "userid1",
         "userid2"
@@ -371,7 +371,7 @@ describe("group reducer",()=>{
       allGroups:[
         {
           "id": "g0001",
-          "name": "groupname1",
+          "groupname": "groupname1",
           "admin": [
             "userid1",
             "userid2"
@@ -379,7 +379,7 @@ describe("group reducer",()=>{
         },
         {
           "id": "g0002",
-          "name": "groupname2",
+          "groupname": "groupname2",
           "admin": [
             "userid3"
           ]

@@ -34,7 +34,7 @@ export default class GroupBoards extends React.Component{
         return (
           <Tab
             key={idx}
-            label={group.name}
+            label={group.groupname}
           >
             {editButton}
             <Board

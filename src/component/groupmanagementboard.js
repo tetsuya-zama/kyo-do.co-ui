@@ -102,7 +102,7 @@ export default class GroupManagementBoard extends React.Component{
 
     const groupNameText =
       this.state.newGroupName === "" ?
-      targetGroup.name :
+      targetGroup.groupname :
       this.state.newGroupName;
 
     const members = targetGroup.member ? targetGroup.member.map(status => status.userid)
@@ -121,7 +121,7 @@ export default class GroupManagementBoard extends React.Component{
 
     return(
       <Dialog
-        title={targetGroup.name + "を編集"}
+        title={targetGroup.groupname + "を編集"}
         actions={actions}
         modal={true}
         open={this.props.managementBoard.isOpen}
