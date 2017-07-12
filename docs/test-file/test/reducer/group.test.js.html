@@ -215,7 +215,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       allGroups:[
         {
           &quot;id&quot;: &quot;g0001&quot;,
-          &quot;name&quot;: &quot;groupname1&quot;,
+          &quot;groupname&quot;: &quot;groupname1&quot;,
           &quot;admin&quot;: [
             &quot;userid1&quot;,
             &quot;userid2&quot;
@@ -223,7 +223,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
         },
         {
           &quot;id&quot;: &quot;g0002&quot;,
-          &quot;name&quot;: &quot;groupname2&quot;,
+          &quot;groupname&quot;: &quot;groupname2&quot;,
           &quot;admin&quot;: [
             &quot;userid3&quot;
           ]
@@ -235,7 +235,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
     const dummyGroupInfo = [
       {
         &quot;id&quot;: &quot;g0001&quot;,
-        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;groupname&quot;: &quot;groupname1&quot;,
         &quot;admin&quot;: [
           &quot;userid1&quot;,
           &quot;userid2&quot;
@@ -243,7 +243,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       },
       {
         &quot;id&quot;: &quot;g0002&quot;,
-        &quot;name&quot;: &quot;groupname2 updated&quot;,
+        &quot;groupname&quot;: &quot;groupname2 updated&quot;,
         &quot;admin&quot;: [
           &quot;userid3&quot;,
           &quot;userid4&quot;
@@ -251,7 +251,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       },
       {
         &quot;id&quot;: &quot;g0003&quot;,
-        &quot;name&quot;: &quot;groupname3&quot;,
+        &quot;groupname&quot;: &quot;groupname3&quot;,
         &quot;admin&quot;: [
           &quot;userid1&quot;,
           &quot;userid3&quot;
@@ -266,9 +266,9 @@ describe(&quot;group reducer&quot;,()=&gt;{
     const result = group(dummyCurrentState,dummyAction);
 
     assert(result.allGroups.length === 3);
-    assert(getGroupById(result.allGroups, &quot;g0002&quot;).name === &quot;groupname2 updated&quot;);
+    assert(getGroupById(result.allGroups, &quot;g0002&quot;).groupname === &quot;groupname2 updated&quot;);
     assert(getGroupById(result.allGroups, &quot;g0002&quot;).admin.indexOf(&quot;userid4&quot;) &gt;= 0);
-    assert(getGroupById(result.allGroups, &quot;g0003&quot;).name === &quot;groupname3&quot;);
+    assert(getGroupById(result.allGroups, &quot;g0003&quot;).groupname === &quot;groupname3&quot;);
     assert(getGroupById(result.allGroups, &quot;g0003&quot;).admin.indexOf(&quot;userid1&quot;) &gt;= 0);
     assert(getGroupById(result.allGroups, &quot;g0003&quot;).admin.indexOf(&quot;userid3&quot;) &gt;= 0);
   });
@@ -278,7 +278,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       allGroups:[
         {
           &quot;id&quot;: &quot;g0001&quot;,
-          &quot;name&quot;: &quot;groupname1&quot;,
+          &quot;groupname&quot;: &quot;groupname1&quot;,
           &quot;admin&quot;: [
             &quot;userid1&quot;,
             &quot;userid2&quot;
@@ -291,7 +291,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
         },
         {
           &quot;id&quot;: &quot;g0002&quot;,
-          &quot;name&quot;: &quot;groupname2&quot;,
+          &quot;groupname&quot;: &quot;groupname2&quot;,
           &quot;admin&quot;: [
             &quot;userid3&quot;
           ]
@@ -303,7 +303,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
     const dummyGroupInfo = [
       {
         &quot;id&quot;: &quot;g0001&quot;,
-        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;groupname&quot;: &quot;groupname1&quot;,
         &quot;admin&quot;: [
           &quot;userid1&quot;,
           &quot;userid2&quot;
@@ -311,7 +311,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       },
       {
         &quot;id&quot;: &quot;g0002&quot;,
-        &quot;name&quot;: &quot;groupname2 updated&quot;,
+        &quot;groupname&quot;: &quot;groupname2 updated&quot;,
         &quot;admin&quot;: [
           &quot;userid3&quot;,
           &quot;userid4&quot;
@@ -319,7 +319,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       },
       {
         &quot;id&quot;: &quot;g0003&quot;,
-        &quot;name&quot;: &quot;groupname3&quot;,
+        &quot;groupname&quot;: &quot;groupname3&quot;,
         &quot;admin&quot;: [
           &quot;userid1&quot;,
           &quot;userid3&quot;
@@ -346,7 +346,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       allGroups:[
         {
           &quot;id&quot;: &quot;g0001&quot;,
-          &quot;name&quot;: &quot;groupname1&quot;,
+          &quot;groupname&quot;: &quot;groupname1&quot;,
           &quot;admin&quot;: [
             &quot;userid1&quot;,
             &quot;userid2&quot;
@@ -354,7 +354,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
         },
         {
           &quot;id&quot;: &quot;g0002&quot;,
-          &quot;name&quot;: &quot;groupname2&quot;,
+          &quot;groupname&quot;: &quot;groupname2&quot;,
           &quot;admin&quot;: [
             &quot;userid3&quot;
           ]
@@ -366,7 +366,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
     const dummyGroupInfo = [
       {
         &quot;id&quot;: &quot;g0002&quot;,
-        &quot;name&quot;: &quot;groupname2 updated&quot;,
+        &quot;groupname&quot;: &quot;groupname2 updated&quot;,
         &quot;admin&quot;: [
           &quot;userid3&quot;,
           &quot;userid4&quot;
@@ -374,7 +374,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       },
       {
         &quot;id&quot;: &quot;g0003&quot;,
-        &quot;name&quot;: &quot;groupname3&quot;,
+        &quot;groupname&quot;: &quot;groupname3&quot;,
         &quot;admin&quot;: [
           &quot;userid1&quot;,
           &quot;userid3&quot;
@@ -397,7 +397,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       allGroups:[
         {
           &quot;id&quot;: &quot;g0001&quot;,
-          &quot;name&quot;: &quot;groupname1&quot;,
+          &quot;groupname&quot;: &quot;groupname1&quot;,
           &quot;admin&quot;: [
             &quot;userid1&quot;,
             &quot;userid2&quot;
@@ -405,7 +405,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
         },
         {
           &quot;id&quot;: &quot;g0002&quot;,
-          &quot;name&quot;: &quot;groupname2&quot;,
+          &quot;groupname&quot;: &quot;groupname2&quot;,
           &quot;admin&quot;: [
             &quot;userid3&quot;
           ]
@@ -417,7 +417,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
     const dummyGroupInfo = [
       {
         &quot;id&quot;: &quot;g0001&quot;,
-        &quot;name&quot;: &quot;groupname1&quot;,
+        &quot;groupname&quot;: &quot;groupname1&quot;,
         &quot;admin&quot;: [
           &quot;userid1&quot;,
           &quot;userid2&quot;
@@ -425,7 +425,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       },
       {
         &quot;id&quot;: &quot;g0002&quot;,
-        &quot;name&quot;: &quot;groupname2 updated&quot;,
+        &quot;groupname&quot;: &quot;groupname2 updated&quot;,
         &quot;admin&quot;: [
           &quot;userid3&quot;,
           &quot;userid4&quot;
@@ -433,7 +433,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       },
       {
         &quot;id&quot;: &quot;g0003&quot;,
-        &quot;name&quot;: &quot;groupname3&quot;,
+        &quot;groupname&quot;: &quot;groupname3&quot;,
         &quot;admin&quot;: [
           &quot;userid1&quot;,
           &quot;userid3&quot;
@@ -453,7 +453,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       [
         {
           &quot;id&quot;: &quot;g0002&quot;,
-          &quot;name&quot;: &quot;groupname2 updated&quot;,
+          &quot;groupname&quot;: &quot;groupname2 updated&quot;,
           &quot;admin&quot;: [
             &quot;userid3&quot;,
             &quot;userid4&quot;
@@ -462,7 +462,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
         },
         {
           &quot;id&quot;: &quot;g0003&quot;,
-          &quot;name&quot;: &quot;groupname3&quot;,
+          &quot;groupname&quot;: &quot;groupname3&quot;,
           &quot;admin&quot;: [
             &quot;userid1&quot;,
             &quot;userid3&quot;
@@ -478,7 +478,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       allGroups:[
         {
           &quot;id&quot;: &quot;g0001&quot;,
-          &quot;name&quot;: &quot;groupname1&quot;,
+          &quot;groupname&quot;: &quot;groupname1&quot;,
           &quot;admin&quot;: [
             &quot;userid1&quot;,
             &quot;userid2&quot;
@@ -486,7 +486,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
         },
         {
           &quot;id&quot;: &quot;g0002&quot;,
-          &quot;name&quot;: &quot;groupname2&quot;,
+          &quot;groupname&quot;: &quot;groupname2&quot;,
           &quot;admin&quot;: [
             &quot;userid3&quot;
           ]
@@ -497,7 +497,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
 
     const dummyGroupWithMember = {
       &quot;id&quot;: &quot;g0001&quot;,
-      &quot;name&quot;: &quot;groupname1&quot;,
+      &quot;groupname&quot;: &quot;groupname1&quot;,
       &quot;admin&quot;: [
         &quot;userid1&quot;,
         &quot;userid2&quot;
@@ -528,7 +528,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       allGroups:[
         {
           &quot;id&quot;: &quot;g0001&quot;,
-          &quot;name&quot;: &quot;groupname1&quot;,
+          &quot;groupname&quot;: &quot;groupname1&quot;,
           &quot;admin&quot;: [
             &quot;userid1&quot;,
             &quot;userid2&quot;
@@ -536,7 +536,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
         },
         {
           &quot;id&quot;: &quot;g0002&quot;,
-          &quot;name&quot;: &quot;groupname2&quot;,
+          &quot;groupname&quot;: &quot;groupname2&quot;,
           &quot;admin&quot;: [
             &quot;userid3&quot;
           ]
@@ -547,7 +547,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
 
     const dummyGroupWithMember = {
       &quot;id&quot;: &quot;g0001&quot;,
-      &quot;name&quot;: &quot;groupname1&quot;,
+      &quot;groupname&quot;: &quot;groupname1&quot;,
       &quot;admin&quot;: [
         &quot;userid1&quot;,
         &quot;userid2&quot;
@@ -575,7 +575,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
       allGroups:[
         {
           &quot;id&quot;: &quot;g0001&quot;,
-          &quot;name&quot;: &quot;groupname1&quot;,
+          &quot;groupname&quot;: &quot;groupname1&quot;,
           &quot;admin&quot;: [
             &quot;userid1&quot;,
             &quot;userid2&quot;
@@ -583,7 +583,7 @@ describe(&quot;group reducer&quot;,()=&gt;{
         },
         {
           &quot;id&quot;: &quot;g0002&quot;,
-          &quot;name&quot;: &quot;groupname2&quot;,
+          &quot;groupname&quot;: &quot;groupname2&quot;,
           &quot;admin&quot;: [
             &quot;userid3&quot;
           ]

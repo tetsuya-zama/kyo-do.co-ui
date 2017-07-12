@@ -306,7 +306,7 @@ export default class GroupManagementBoard extends React.Component{
 
     const groupNameText =
       this.state.newGroupName === &quot;&quot; ?
-      targetGroup.name :
+      targetGroup.groupname :
       this.state.newGroupName;
 
     const members = targetGroup.member ? targetGroup.member.map(status =&gt; status.userid)
@@ -325,7 +325,7 @@ export default class GroupManagementBoard extends React.Component{
 
     return(
       &lt;Dialog
-        title={targetGroup.name + &quot;&#x3092;&#x7DE8;&#x96C6;&quot;}
+        title={targetGroup.groupname + &quot;&#x3092;&#x7DE8;&#x96C6;&quot;}
         actions={actions}
         modal={true}
         open={this.props.managementBoard.isOpen}
