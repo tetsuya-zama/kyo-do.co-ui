@@ -86,7 +86,7 @@ export default class GroupCreationBoard extends React.Component{
       >
         <TextField
         hintText="グループ名"
-        value={this.state.newGroupName}
+        defaultValue={this.state.newGroupName || null}
         onChange={this.handleNameChange}
         ref="newGroupName"
         />
