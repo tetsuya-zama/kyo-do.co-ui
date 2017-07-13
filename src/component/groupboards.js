@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import {Tabs, Tab} from 'material-ui-scrollable-tabs/Tabs';
 import Board from './board';
 import FlatButton from 'material-ui/FlatButton';
 import {openGroupManagementBoard} from '../action/groupboards';
@@ -45,8 +45,31 @@ export default class GroupBoards extends React.Component{
         )
       });
 
+    const othergroupTabs = this.props.group.allGroups
+      .filter((group) => {
+        return !this.props.group.usersGroups.indexOf(group) == 0;
+      })
+      .sort(function(a, b) {
+        return ( a.groupname > b.groupname ? 1 : -1);
+      })
+      .map((group,idx) => {
+        return (
+          <Tab
+            key={idx}
+            label={group.groupname}
+            isMultiLine={true}
+          >
+            <Board
+              memberStatus={group.member}
+              updatedate={this.props.updatedate}
+            />
+          </Tab>
+        )
+      });
+    if (groupTabs.length + othergroupTabs.length === 0) { return null; } //スクロールボタンを表示するためのおまじない的な
+
     return(
-        <Tabs>
+        <Tabs tabType={'scrollable-buttons'}>
           {groupTabs}
           <Tab label="すべてのメンバー">
             <Board
@@ -54,6 +77,7 @@ export default class GroupBoards extends React.Component{
               updatedate={this.props.updatedate}
             />
           </Tab>
+          {othergroupTabs}
         </Tabs>
     )
   }
