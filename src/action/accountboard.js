@@ -7,9 +7,12 @@ export const ACCOUNT_INFO_MODAL_OPEN = "ACCOUNT_INFO_MODAL_OPEN";
 * アカウント情報変更モーダルOpenのcreator
 * @return {Object} アカウント情報変更モーダルOpenアクション
 */
-export function openAccountInfoModal(){
+export function openAccountInfoModal(name){
   return {
-    type:ACCOUNT_INFO_MODAL_OPEN
+    type:ACCOUNT_INFO_MODAL_OPEN,
+    payload:{
+      name:name
+    }
   };
 }
 

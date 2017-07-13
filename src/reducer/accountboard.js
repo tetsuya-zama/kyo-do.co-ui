@@ -10,7 +10,7 @@ import {ACCOUNT_INFO_MODAL_OPEN,ACCOUNT_INFO_MODAL_CLOSE,CHANGE_ACCOUNT_INFO,CHA
 export default function accountboard(state={open:false, nextuser:{}}, action){
   switch(action.type){
     case ACCOUNT_INFO_MODAL_OPEN:
-      return {open:true, nextuser:{}};
+      return {open:true, nextuser:{nextname:action.payload.name, nextpass:null}};
     case ACCOUNT_INFO_MODAL_CLOSE:
       return {open:false, nextuser:{}};
     case CHANGE_ACCOUNT_INFO:
