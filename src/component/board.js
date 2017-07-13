@@ -41,7 +41,13 @@ export default class Board extends React.Component{
       member.name.toLowerCase().indexOf(this.state.current_filter_text.toLowerCase()) >= 0
     ));
 
-    const memberRows = filterMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
+    const sortedMemberRows = filterMemberRows.sort(function(a,b){
+      if(a.lastUpdate > b.lastUpdate) return -1;
+      if(a.lastUpdate < b.lastUpdate) return 1;
+      return 0;
+    });
+
+    const memberRows = sortedMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
     const date = this.props.updatedate.date?
       this.props.updatedate.date.toLocaleString('ja-JP'):
       "";
