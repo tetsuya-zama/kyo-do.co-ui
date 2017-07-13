@@ -4,6 +4,7 @@ import {loginRequested} from '../action/login'
 import {LOGIN_STATUS} from '../const/login'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import PasswordField from 'material-ui-password-field'
 
 /**
 * LoginFormコンポーネント
@@ -69,10 +70,9 @@ export default class LoginForm extends React.Component{
         onChange={this.handleIDChange}
         />
         <br />
-        <TextField
+        <PasswordField
           hintText="Password"
           floatingLabelText="Password"
-          type="password"
           value={this.state.current_pass_text}
           ref="password"
           onChange={this.handlePassChange}
