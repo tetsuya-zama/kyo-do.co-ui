@@ -76,7 +76,7 @@ export default class MyDestination extends React.Component{
           </td>
           <td>
             <AutoComplete
-              floatingLabelText="コメント"
+              floatingLabelText="今日どこ？"
               filter={AutoComplete.fuzzyFilter}
               dataSource={this.props.mydestination.suggestion}
               maxSearchResults={10}
@@ -91,7 +91,7 @@ export default class MyDestination extends React.Component{
           <td></td>
           <td></td>
           <td>
-            <TextField floatingLabelText="連絡先" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
+            <TextField floatingLabelText="電話番号を入れてね" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
           </td>
         </tr>
         </tbody>
