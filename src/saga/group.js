@@ -252,7 +252,7 @@ export function* setMemberAsGroupAdminTask(action){
   const currentGroups = yield select(state => state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
-  const currentGroupName = targetGroup.name;
+  const currentGroupName = targetGroup.groupname;
 
   const currentAdmins = targetGroup.admin;
   const nextAdmins = currentAdmins.concat([memberId]);
@@ -294,7 +294,7 @@ export function* unsetMemberAsGroupAdminTask(action){
   const currentGroups = yield select(state => state.group.allGroups);
   const targetGroup = getGroupById(currentGroups,groupId);
 
-  const currentGroupName = targetGroup.name;
+  const currentGroupName = targetGroup.groupname;
 
   const currentAdmins = targetGroup.admin;
   const nextAdmins = currentAdmins.filter(mid => mid !== memberId);
