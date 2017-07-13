@@ -28,7 +28,9 @@ describe("signup Task",()=>{
       payload:{
         id:"test",
         password:"test",
-        name:"テスト"
+        name:"テスト",
+        secret_question:"質問",
+        secret_answer:"回答"
       }
     };
 
@@ -36,9 +38,12 @@ describe("signup Task",()=>{
     let ret = gen.next();
 
     assert.deepEqual(ret.value, call(axios.post,BASE_API_URL + "user",{
-      userid:testAction.payload.id,
-      password:testAction.payload.password,
-      name:testAction.payload.name}));
+        userid:testAction.payload.id,
+        password:testAction.payload.password,
+        name:testAction.payload.name,
+        secretQuestion:testAction.payload.secret_question,
+        secretAnswer:testAction.payload.secret_answer
+      }));
 
     ret = gen.next({result:"success"});//SignUPに成功したものとする
 
@@ -57,7 +62,9 @@ describe("signup Task",()=>{
       payload:{
         id:"test",
         password:"test",
-        name:"テスト"
+        name:"テスト",
+        secret_question:"質問",
+        secret_answer:"回答"
       }
     };
 
@@ -67,7 +74,11 @@ describe("signup Task",()=>{
     assert.deepEqual(ret.value, call(axios.post,BASE_API_URL + "user",{
       userid:testAction.payload.id,
       password:testAction.payload.password,
-      name:testAction.payload.name}));
+      name:testAction.payload.name,
+      secretQuestion:
+      testAction.payload.secret_question,
+      secretAnswer:testAction.payload.secret_answer
+    }));
 
     ret = gen.throw(new Error("Server doesn't return 200 OK STATUS CODE"));//SignUPに失敗したものとする
     //XXX　エラーが起きればID重複と判断しているが、サーバエラーと区別したい

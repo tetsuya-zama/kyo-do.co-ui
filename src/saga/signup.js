@@ -27,7 +27,10 @@ export function* signupTask(action){
     const result = yield call(axios.post,BASE_API_URL + "user",{
       userid:action.payload.id,
       password:action.payload.password,
-      name:action.payload.name});
+      name:action.payload.name,
+      secretQuestion:action.payload.secret_question,
+      secretAnswer:action.payload.secret_answer
+    });
 
     yield put(signupSucceess());
     yield put(loginRequested(action.payload.id,action.payload.password));

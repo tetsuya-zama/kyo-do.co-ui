@@ -8,7 +8,9 @@ export const SIGNUP_FAILURE_REASONS = {
   EMPTY_ID : "EMPTY_ID", //IDが空,
   EMPTY_PASSWORD:"EMPTY_PASSWORD", //パスワードが空
   EMPTY_NAME : "EMPTY_NAME", //表示名が空
-  POLICY_PASSWORD : "POLICY_PASSWORD" //パスワードポリシーの要件を満たしていない
+  POLICY_PASSWORD : "POLICY_PASSWORD", //パスワードポリシーの要件を満たしていない
+  EMPTY_SECRET_QUESTION : "EMPTY_SECRET_QUESTION",  // 秘密の質問が空 
+  EMPTY_SECRET_ANSWER : "EMPTY_SECRET_ANSWER"       // 秘密の質問に対する答えが空
 };
 
 /**
@@ -22,4 +24,6 @@ export const SIGNUP_VALIDATION_ERROR_MESSAGES = [
   {reason : SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD, msg : "パスワードを入力してください"},
   {reason : SIGNUP_FAILURE_REASONS.EMPTY_NAME, msg : "名前を入力してください"},
   {reason : SIGNUP_FAILURE_REASONS.POLICY_PASSWORD, msg : "パスワードポリシーの要件を満たしていません(数字と英語または記号の組み合わせで、8文字以上)"}
+  {reason : SIGNUP_FAILURE_REASONS.EMPTY_SECRET_QUESTION, msg : "秘密の質問を入力してください"},
+  {reason : SIGNUP_FAILURE_REASONS.EMPTY_SECRET_ANSWER, msg : "秘密の質問の答えを入力してください)"}
 ];
