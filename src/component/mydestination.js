@@ -5,6 +5,7 @@ import Toggle from 'material-ui/Toggle'
 import TextField from 'material-ui/TextField'
 import AutoComplete from 'material-ui/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
+import Paper from 'material-ui/Paper';
 
 /**
 * "自分の行き先"コンポーネント
@@ -66,36 +67,38 @@ export default class MyDestination extends React.Component{
   render(){
     return (
       <div>
-      <h3>自分の行き先</h3>
-      <table>
-        <tbody>
-        <tr>
-          <td>{this.props.login.user.name}</td>
-          <td>
-            <Toggle label={(this.props.mydestination.inBusiness===true)?"[出勤]" : "[退勤]"} toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"/>
-          </td>
-          <td>
-            <AutoComplete
-              floatingLabelText="今日どこ？"
-              filter={AutoComplete.fuzzyFilter}
-              dataSource={this.props.mydestination.suggestion}
-              maxSearchResults={10}
-              openOnFocus={true}
-              onUpdateInput={this.handleCommentChange}
-              searchText={this.props.mydestination.comment}
-              ref="comment"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td>
-            <TextField floatingLabelText="電話番号を入れてね" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <Paper style={{margin:20, padding:10}} zDepth={2}>
+        <h3>自分の行き先</h3>
+        <table>
+          <tbody>
+          <tr>
+            <td>{this.props.login.user.name}</td>
+            <td>
+              <Toggle label={(this.props.mydestination.inBusiness===true)?"[出勤]" : "[退勤]"} toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"/>
+            </td>
+            <td>
+              <AutoComplete
+                floatingLabelText="今日どこ？"
+                filter={AutoComplete.fuzzyFilter}
+                dataSource={this.props.mydestination.suggestion}
+                maxSearchResults={10}
+                openOnFocus={true}
+                onUpdateInput={this.handleCommentChange}
+                searchText={this.props.mydestination.comment}
+                ref="comment"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>
+              <TextField floatingLabelText="電話番号を入れてね" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </Paper>
       </div>);
   }
 }
