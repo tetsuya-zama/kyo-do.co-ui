@@ -36,9 +36,6 @@ export function* loadDestinationTask(){
         headers:{"Authorization":"Bearer " + token}
       });
 
-      console.log(savedDestination.data);
-      console.log(Object.assign({},savedDestination.data,{"comment": "", "contact":""}));
-
       //XXX:material UIがバージョンアップして回避できるようになった場合
       //             この処理は削除して良い
       // もし、coomment か contact が　"" （空文字）出会った場合、
