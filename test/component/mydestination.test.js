@@ -1,6 +1,6 @@
 import assert from 'power-assert';
 import MyDestination from '../../src/component/mydestination';
-import {myDestinationChange,myDestinationClear} from '../../src/action/mydestination';
+import {myDestinationChange} from '../../src/action/mydestination';
 import {shallow} from 'enzyme';
 import sinon from 'sinon';
 import {mountWithMUI} from "./testutil";
@@ -11,7 +11,7 @@ import {LOGIN_STATUS} from '../../src/const/login';
 
 /**@test {MyDestination}*/
 describe("<MyDestination />",()=>{
-  it("renders in_business toggle, comment and contact textboxes and clear button",()=>{
+  it("renders in_business toggle, comment and contact textboxes",()=>{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
@@ -29,7 +29,6 @@ describe("<MyDestination />",()=>{
 
     assert(wrapper.ref("in_business").find("input").length === 1);
     assert(wrapper.ref("comment").find("input").length === 1);
-    assert(wrapper.ref("clear_button").find("button").length === 1);
     assert(wrapper.ref("contact").find("input").length === 1);
   });
 
