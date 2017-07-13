@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Checkbox from 'material-ui/Checkbox';
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+
 import {
   setMemberAsGroupAdminRequired,
   unsetMemberAsGroupAdminRequired,
@@ -62,7 +64,7 @@ export default class GroupMember extends React.Component{
           onCheck={this.handleAdminCheck}
           ref="adminCheckBox"
         />
-        <FlatButton
+        <RaisedButton
           label="削除"
           primary={true}
           onTouchTap={this.handleDeleteMemberButton}
