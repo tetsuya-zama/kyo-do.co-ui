@@ -9,7 +9,9 @@ describe("signupRequired action creator",()=>{
     const dummyFormData = {
       id:"test",
       password:"pass",
-      name:"テスト"
+      name:"テスト",
+      secret_question:"質問",
+      secret_answer:"回答"
     };
 
     const result = signupRequired(dummyFormData);
