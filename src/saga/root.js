@@ -6,6 +6,7 @@ import {loadMemberStatusSaga,watchMemberStatusSaga} from './board'
 import {changeAccountInfoSaga} from './accountboard'
 import {loadSuggestionSaga,changeSuggestionSaga} from './suggestion'
 import {groupSaga} from './group'
+import {updateDateSaga} from './updatedate';
 
 /**
 * Sagaの起点ポイント。ここから各Sagaをforkする
@@ -25,4 +26,5 @@ export default function* rootSaga(){
   yield fork(changeSuggestionSaga);
   yield fork(watchMemberStatusSaga);
   yield fork(groupSaga);
+  yield fork(updateDateSaga);
 }
