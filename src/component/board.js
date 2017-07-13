@@ -24,6 +24,7 @@ export default class Board extends React.Component{
     this.handleFilterChange = this.handleFilterChange.bind(this);
     this.handleSortByDefault = this.handleSortByDefault.bind(this);
     this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
+    this.handleSortByName = this.handleSortByName.bind(this);
   }
 
   /**
@@ -42,6 +43,10 @@ export default class Board extends React.Component{
 
   handleSortByLastUpdate(event){
     this.setState({current_sort_key : "1"});
+  }
+
+  handleSortByName(event){
+    this.setState({current_sort_key : "２"});
   }
 
   /**
@@ -65,6 +70,11 @@ export default class Board extends React.Component{
           if(a.lastUpdate < b.lastUpdate) return 1;
           return 0;
       }
+      if(this.state.current_sort_key === "２"){
+          if(a.name > b.name) return -1;
+          if(a.name < b.name) return 1;
+          return 0;
+      }
     });
 
     const memberRows = sortedMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
@@ -80,15 +90,20 @@ export default class Board extends React.Component{
       <div>
       <h3>行き先掲示板（データ取得日時: {date}）</h3>
         <div>
-          <RaisedButton 
-            label="ユーザーID(昇順)" 
-            style={style} 
+          <RaisedButton
+            label="ユーザーID(昇順)"
+            style={style}
             onTouchTap={this.handleSortByDefault}
           />
           <RaisedButton label="更新日時(降順)"
             primary={true}
             style={style}
             onTouchTap={this.handleSortByLastUpdate}
+          />
+          <RaisedButton label="名前(降順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByName}
           />
         </div>
        <TextField
