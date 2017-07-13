@@ -12,43 +12,11 @@ import {getGroupById} from '../module/group';
 export default function group(state=DEFAULT_GROUP,action){
   switch(action.type){
     case(GROUPS_LOADED):
-      {
-        let newAllGroups = margeGroupInfo(state.allGroups, action.payload.groupinfo);
-        let newUserGroups = filterUserGroup(newAllGroups,action.payload.logonUserId);
-        return {allGroups:newAllGroups,usersGroups:newUserGroups};
-      }
-    case(GROUP_MEMBER_LOADED):
-      {
-        let newAllGroups = fetchGroupMember(state.allGroups, action.payload.groupWithMember);
-        let newUserGroups = filterUserGroup(newAllGroups,action.payload.logonUserId);
-        return {allGroups:newAllGroups,usersGroups:newUserGroups};
-      }
+      let newUserGroups = filterUserGroup(action.payload.groupinfo,action.payload.logonUserId);
+      return {allGroups:action.payload.groupinfo,usersGroups:newUserGroups};
     default:
       return state;
   }
-}
-
-/**
-* グループ情報をマージする
-* ただし、この時点ではメンバー情報はロードされていないため、
-* メンバー情報は前のものを用いる
-* @param {array} currentGroups 現在のグループ情報
-* @param {array} ロードされたグループ情報
-* @return {array} マージされたグループ情報
-*/
-function margeGroupInfo(currentGroups, newGroups){
-  return newGroups.map((newGroup) => {
-    const currentGroup = getGroupById(currentGroups, newGroup.id);
-    if(currentGroup){
-      if(currentGroup.member){
-        return Object.assign({},newGroup,{member : currentGroup.member});
-      }else{
-        return Object.assign({},newGroup,{member : []});
-      }
-    }else{
-      return Object.assign({},newGroup,{member : []});
-    }
-  });
 }
 
 /**
@@ -69,20 +37,4 @@ function filterUserGroup(allGroups,logonUserId){
       }
     }
   });
-}
-
-/**
-* グループ情報にメンバー情報を紐づける
-* @param {array} currentGroups メンバーを紐づけるグループの配列
-* @param newGroupWithMembers {Object} 更新するメンバー情報付きのグループ
-* @return {array}　メンバーが紐付けられたグループの配列
-*/
-function fetchGroupMember(currentGroups, newGroupWithMembers){
-  return currentGroups.map(group => {
-    if(group.id === newGroupWithMembers.id){
-      return newGroupWithMembers;
-    }else{
-      return group;
-    }
-  })
 }

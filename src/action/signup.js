@@ -5,7 +5,7 @@ export const SIGNUP_REQUIRED = "SIGNUP_REQUIRED";
 
 /**
 * サインアップ要求アクションのcreator
-* @param {{id:string,password:string,name:string}} userinfo 登録を要求するユーザー情報
+* @param {{id:string,password:string,name:string,secret_question:string,secret_answer:string}} userinfo 登録を要求するユーザー情報
 * @return {Object} SIGNUP_REQUIREDアクション
 */
 export function signupRequired(userinfo){
