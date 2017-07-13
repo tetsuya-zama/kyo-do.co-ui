@@ -28,10 +28,10 @@ export default class MemberRow extends React.Component{
     return (
       <List>
         <ListItem
-          primaryText={this.props.member.name + "：" + this.props.member.contact}
+          primaryText={this.props.member.name + "：" + (this.props.member.comment == null ? "" : this.props.member.comment)}
             secondaryText={
               <p>
-                {this.props.member.comment == null ? "" : this.props.member.comment}  <br />
+                {this.props.member.contact}  <br />
                 {"最終更新日:" + this.props.member.lastUpdate.substr(0,16)}
               </p>
             }
