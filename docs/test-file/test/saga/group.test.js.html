@@ -334,7 +334,7 @@ describe(&quot;loadUserGroupsTask&quot;,()=&gt;{
       data:[
         {
           &quot;id&quot;: &quot;g0001&quot;,
-          &quot;name&quot;: &quot;groupname1&quot;,
+          &quot;groupname&quot;: &quot;groupname1&quot;,
           &quot;admin&quot;: [
             &quot;userid1&quot;,
             &quot;userid2&quot;
@@ -342,7 +342,7 @@ describe(&quot;loadUserGroupsTask&quot;,()=&gt;{
         },
         {
           &quot;id&quot;: &quot;g0002&quot;,
-          &quot;name&quot;: &quot;groupname2&quot;,
+          &quot;groupname&quot;: &quot;groupname2&quot;,
           &quot;admin&quot;: [
             &quot;userid3&quot;
           ]
@@ -381,7 +381,7 @@ describe(&quot;fetchMemberTask&quot;,()=&gt;{
     const dummyLogonUserId = &quot;userid1&quot;;
     const dummyGroup = {
       &quot;id&quot;: &quot;g0001&quot;,
-      &quot;name&quot;: &quot;groupname1&quot;,
+      &quot;groupname&quot;: &quot;groupname1&quot;,
       &quot;admin&quot;: [
         &quot;userid1&quot;,
         &quot;userid2&quot;
@@ -513,7 +513,7 @@ describe(&quot;addMemberToGroupSaga&quot;,()=&gt;{
 const DUMMY_CURRENT_GROUPS = [
   {
     &quot;id&quot;: &quot;g0001&quot;,
-    &quot;name&quot;: &quot;groupname1&quot;,
+    &quot;groupname&quot;: &quot;groupname1&quot;,
     &quot;admin&quot;: [
       &quot;testA&quot;,
       &quot;testB&quot;
@@ -525,7 +525,7 @@ const DUMMY_CURRENT_GROUPS = [
   },
   {
     &quot;id&quot;: &quot;g0002&quot;,
-    &quot;name&quot;: &quot;groupname2&quot;,
+    &quot;groupname&quot;: &quot;groupname2&quot;,
     &quot;admin&quot;: [
       &quot;testC&quot;
     ],
