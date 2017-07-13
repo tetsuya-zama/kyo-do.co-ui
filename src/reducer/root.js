@@ -6,6 +6,7 @@ import signup from './signup'
 import accountboard from './accountboard'
 import group from './group'
 import groupboards from './groupboards'
+import updatedate from './updatedate' //追加
 
 /**
 * 各reducerを結合してひとまとめにしてexportする
@@ -18,5 +19,6 @@ export default combineReducers({
   signup,
   accountboard,
   group,
-  groupboards
+  groupboards,
+  updatedate //追加
 })

@@ -42,7 +42,10 @@ export default class Board extends React.Component{
     ));
 
     const memberRows = filterMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
-    const date = new Date().toLocaleDateString('ja-JP');
+    const date = this.props.updatedate.date ?
+      this.props.updatedate.date.toLocaleDateString('ja-JP'):
+    "";
+    //const date = ner Date().toLocaleDateString('ja-JP');
 
     return (
       <div>
