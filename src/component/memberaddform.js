@@ -4,6 +4,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import {addMemberToGroupRequired} from '../action/group';
+import RaisedButton from 'material-ui/RaisedButton';
 
 /**
 * グループメンバー追加form コンポーネント
@@ -72,8 +73,7 @@ export default class MemberAddForm extends React.Component{
           <MenuItem value={""} primaryText="" />
           {items}
         </SelectField>
-        <br />
-        <FlatButton
+        <RaisedButton
           label="追加"
           primary={true}
           onTouchTap={this.handleAddMemberButton}
