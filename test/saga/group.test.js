@@ -130,7 +130,7 @@ describe("loadUserGroupsTask",()=>{
       data:[
         {
           "id": "g0001",
-          "name": "groupname1",
+          "groupname": "groupname1",
           "admin": [
             "userid1",
             "userid2"
@@ -138,7 +138,7 @@ describe("loadUserGroupsTask",()=>{
         },
         {
           "id": "g0002",
-          "name": "groupname2",
+          "groupname": "groupname2",
           "admin": [
             "userid3"
           ]
@@ -177,7 +177,7 @@ describe("fetchMemberTask",()=>{
     const dummyLogonUserId = "userid1";
     const dummyGroup = {
       "id": "g0001",
-      "name": "groupname1",
+      "groupname": "groupname1",
       "admin": [
         "userid1",
         "userid2"
@@ -309,7 +309,7 @@ describe("addMemberToGroupSaga",()=>{
 const DUMMY_CURRENT_GROUPS = [
   {
     "id": "g0001",
-    "name": "groupname1",
+    "groupname": "groupname1",
     "admin": [
       "testA",
       "testB"
@@ -321,7 +321,7 @@ const DUMMY_CURRENT_GROUPS = [
   },
   {
     "id": "g0002",
-    "name": "groupname2",
+    "groupname": "groupname2",
     "admin": [
       "testC"
     ],
