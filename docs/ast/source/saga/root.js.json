@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 1017,
+  "end": 1092,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 29,
+      "line": 31,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 1017,
+    "end": 1092,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 29,
+        "line": 31,
         "column": 0
       }
     },
@@ -1007,23 +1007,107 @@
             "rawValue": "./group",
             "raw": "'./group'"
           },
-          "value": "./group",
-          "leadingComments": null,
-          "trailingComments": null
+          "value": "./group"
+        }
+      },
+      {
+        "type": "ImportDeclaration",
+        "start": 459,
+        "end": 503,
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 0
+          },
+          "end": {
+            "line": 9,
+            "column": 44
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportSpecifier",
+            "start": 467,
+            "end": 481,
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 8
+              },
+              "end": {
+                "line": 9,
+                "column": 22
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 467,
+              "end": 481,
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 8
+                },
+                "end": {
+                  "line": 9,
+                  "column": 22
+                },
+                "identifierName": "updateDateSaga"
+              },
+              "name": "updateDateSaga"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 467,
+              "end": 481,
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 8
+                },
+                "end": {
+                  "line": 9,
+                  "column": 22
+                },
+                "identifierName": "updateDateSaga"
+              },
+              "name": "updateDateSaga"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 488,
+          "end": 502,
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 29
+            },
+            "end": {
+              "line": 9,
+              "column": 43
+            }
+          },
+          "extra": {
+            "rawValue": "./updatedate",
+            "raw": "'./updatedate'"
+          },
+          "value": "./updatedate"
         },
         "trailingComments": [
           {
             "type": "CommentBlock",
             "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
-            "start": 460,
-            "end": 552,
+            "start": 505,
+            "end": 597,
             "loc": {
               "start": {
-                "line": 10,
+                "line": 11,
                 "column": 0
               },
               "end": {
-                "line": 13,
+                "line": 14,
                 "column": 2
               }
             }
@@ -1032,43 +1116,43 @@
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 553,
-        "end": 1016,
+        "start": 598,
+        "end": 1091,
         "loc": {
           "start": {
-            "line": 14,
+            "line": 15,
             "column": 0
           },
           "end": {
-            "line": 28,
+            "line": 30,
             "column": 1
           }
         },
         "declaration": {
           "type": "FunctionDeclaration",
-          "start": 568,
-          "end": 1016,
+          "start": 613,
+          "end": 1091,
           "loc": {
             "start": {
-              "line": 14,
+              "line": 15,
               "column": 15
             },
             "end": {
-              "line": 28,
+              "line": 30,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 578,
-            "end": 586,
+            "start": 623,
+            "end": 631,
             "loc": {
               "start": {
-                "line": 14,
+                "line": 15,
                 "column": 25
               },
               "end": {
-                "line": 14,
+                "line": 15,
                 "column": 33
               },
               "identifierName": "rootSaga"
@@ -1082,73 +1166,73 @@
           "params": [],
           "body": {
             "type": "BlockStatement",
-            "start": 588,
-            "end": 1016,
+            "start": 633,
+            "end": 1091,
             "loc": {
               "start": {
-                "line": 14,
+                "line": 15,
                 "column": 35
               },
               "end": {
-                "line": 28,
+                "line": 30,
                 "column": 1
               }
             },
             "body": [
               {
                 "type": "ExpressionStatement",
-                "start": 592,
-                "end": 614,
+                "start": 637,
+                "end": 659,
                 "loc": {
                   "start": {
-                    "line": 15,
+                    "line": 16,
                     "column": 2
                   },
                   "end": {
-                    "line": 15,
+                    "line": 16,
                     "column": 24
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 592,
-                  "end": 613,
+                  "start": 637,
+                  "end": 658,
                   "loc": {
                     "start": {
-                      "line": 15,
+                      "line": 16,
                       "column": 2
                     },
                     "end": {
-                      "line": 15,
+                      "line": 16,
                       "column": 23
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 598,
-                    "end": 613,
+                    "start": 643,
+                    "end": 658,
                     "loc": {
                       "start": {
-                        "line": 15,
+                        "line": 16,
                         "column": 8
                       },
                       "end": {
-                        "line": 15,
+                        "line": 16,
                         "column": 23
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 598,
-                      "end": 602,
+                      "start": 643,
+                      "end": 647,
                       "loc": {
                         "start": {
-                          "line": 15,
+                          "line": 16,
                           "column": 8
                         },
                         "end": {
-                          "line": 15,
+                          "line": 16,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1158,15 +1242,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 603,
-                        "end": 612,
+                        "start": 648,
+                        "end": 657,
                         "loc": {
                           "start": {
-                            "line": 15,
+                            "line": 16,
                             "column": 13
                           },
                           "end": {
-                            "line": 15,
+                            "line": 16,
                             "column": 22
                           },
                           "identifierName": "loginSaga"
@@ -1179,58 +1263,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 617,
-                "end": 640,
+                "start": 662,
+                "end": 685,
                 "loc": {
                   "start": {
-                    "line": 16,
+                    "line": 17,
                     "column": 2
                   },
                   "end": {
-                    "line": 16,
+                    "line": 17,
                     "column": 25
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 617,
-                  "end": 639,
+                  "start": 662,
+                  "end": 684,
                   "loc": {
                     "start": {
-                      "line": 16,
+                      "line": 17,
                       "column": 2
                     },
                     "end": {
-                      "line": 16,
+                      "line": 17,
                       "column": 24
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 623,
-                    "end": 639,
+                    "start": 668,
+                    "end": 684,
                     "loc": {
                       "start": {
-                        "line": 16,
+                        "line": 17,
                         "column": 8
                       },
                       "end": {
-                        "line": 16,
+                        "line": 17,
                         "column": 24
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 623,
-                      "end": 627,
+                      "start": 668,
+                      "end": 672,
                       "loc": {
                         "start": {
-                          "line": 16,
+                          "line": 17,
                           "column": 8
                         },
                         "end": {
-                          "line": 16,
+                          "line": 17,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1240,15 +1324,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 628,
-                        "end": 638,
+                        "start": 673,
+                        "end": 683,
                         "loc": {
                           "start": {
-                            "line": 16,
+                            "line": 17,
                             "column": 13
                           },
                           "end": {
-                            "line": 16,
+                            "line": 17,
                             "column": 23
                           },
                           "identifierName": "signupSaga"
@@ -1261,58 +1345,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 643,
-                "end": 666,
+                "start": 688,
+                "end": 711,
                 "loc": {
                   "start": {
-                    "line": 17,
+                    "line": 18,
                     "column": 2
                   },
                   "end": {
-                    "line": 17,
+                    "line": 18,
                     "column": 25
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 643,
-                  "end": 665,
+                  "start": 688,
+                  "end": 710,
                   "loc": {
                     "start": {
-                      "line": 17,
+                      "line": 18,
                       "column": 2
                     },
                     "end": {
-                      "line": 17,
+                      "line": 18,
                       "column": 24
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 649,
-                    "end": 665,
+                    "start": 694,
+                    "end": 710,
                     "loc": {
                       "start": {
-                        "line": 17,
+                        "line": 18,
                         "column": 8
                       },
                       "end": {
-                        "line": 17,
+                        "line": 18,
                         "column": 24
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 649,
-                      "end": 653,
+                      "start": 694,
+                      "end": 698,
                       "loc": {
                         "start": {
-                          "line": 17,
+                          "line": 18,
                           "column": 8
                         },
                         "end": {
-                          "line": 17,
+                          "line": 18,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1322,15 +1406,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 654,
-                        "end": 664,
+                        "start": 699,
+                        "end": 709,
                         "loc": {
                           "start": {
-                            "line": 17,
+                            "line": 18,
                             "column": 13
                           },
                           "end": {
-                            "line": 17,
+                            "line": 18,
                             "column": 23
                           },
                           "identifierName": "logoutSaga"
@@ -1343,58 +1427,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 669,
-                "end": 698,
+                "start": 714,
+                "end": 743,
                 "loc": {
                   "start": {
-                    "line": 18,
+                    "line": 19,
                     "column": 2
                   },
                   "end": {
-                    "line": 18,
+                    "line": 19,
                     "column": 31
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 669,
-                  "end": 697,
+                  "start": 714,
+                  "end": 742,
                   "loc": {
                     "start": {
-                      "line": 18,
+                      "line": 19,
                       "column": 2
                     },
                     "end": {
-                      "line": 18,
+                      "line": 19,
                       "column": 30
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 675,
-                    "end": 697,
+                    "start": 720,
+                    "end": 742,
                     "loc": {
                       "start": {
-                        "line": 18,
+                        "line": 19,
                         "column": 8
                       },
                       "end": {
-                        "line": 18,
+                        "line": 19,
                         "column": 30
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 675,
-                      "end": 679,
+                      "start": 720,
+                      "end": 724,
                       "loc": {
                         "start": {
-                          "line": 18,
+                          "line": 19,
                           "column": 8
                         },
                         "end": {
-                          "line": 18,
+                          "line": 19,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1404,15 +1488,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 680,
-                        "end": 696,
+                        "start": 725,
+                        "end": 741,
                         "loc": {
                           "start": {
-                            "line": 18,
+                            "line": 19,
                             "column": 13
                           },
                           "end": {
-                            "line": 18,
+                            "line": 19,
                             "column": 29
                           },
                           "identifierName": "loginFailureSaga"
@@ -1425,58 +1509,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 701,
-                "end": 737,
+                "start": 746,
+                "end": 782,
                 "loc": {
                   "start": {
-                    "line": 19,
+                    "line": 20,
                     "column": 2
                   },
                   "end": {
-                    "line": 19,
+                    "line": 20,
                     "column": 38
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 701,
-                  "end": 736,
+                  "start": 746,
+                  "end": 781,
                   "loc": {
                     "start": {
-                      "line": 19,
+                      "line": 20,
                       "column": 2
                     },
                     "end": {
-                      "line": 19,
+                      "line": 20,
                       "column": 37
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 707,
-                    "end": 736,
+                    "start": 752,
+                    "end": 781,
                     "loc": {
                       "start": {
-                        "line": 19,
+                        "line": 20,
                         "column": 8
                       },
                       "end": {
-                        "line": 19,
+                        "line": 20,
                         "column": 37
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 707,
-                      "end": 711,
+                      "start": 752,
+                      "end": 756,
                       "loc": {
                         "start": {
-                          "line": 19,
+                          "line": 20,
                           "column": 8
                         },
                         "end": {
-                          "line": 19,
+                          "line": 20,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1486,15 +1570,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 712,
-                        "end": 735,
+                        "start": 757,
+                        "end": 780,
                         "loc": {
                           "start": {
-                            "line": 19,
+                            "line": 20,
                             "column": 13
                           },
                           "end": {
-                            "line": 19,
+                            "line": 20,
                             "column": 36
                           },
                           "identifierName": "loginFromRememberMeSaga"
@@ -1507,58 +1591,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 740,
-                "end": 772,
+                "start": 785,
+                "end": 817,
                 "loc": {
                   "start": {
-                    "line": 20,
+                    "line": 21,
                     "column": 2
                   },
                   "end": {
-                    "line": 20,
+                    "line": 21,
                     "column": 34
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 740,
-                  "end": 771,
+                  "start": 785,
+                  "end": 816,
                   "loc": {
                     "start": {
-                      "line": 20,
+                      "line": 21,
                       "column": 2
                     },
                     "end": {
-                      "line": 20,
+                      "line": 21,
                       "column": 33
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 746,
-                    "end": 771,
+                    "start": 791,
+                    "end": 816,
                     "loc": {
                       "start": {
-                        "line": 20,
+                        "line": 21,
                         "column": 8
                       },
                       "end": {
-                        "line": 20,
+                        "line": 21,
                         "column": 33
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 746,
-                      "end": 750,
+                      "start": 791,
+                      "end": 795,
                       "loc": {
                         "start": {
-                          "line": 20,
+                          "line": 21,
                           "column": 8
                         },
                         "end": {
-                          "line": 20,
+                          "line": 21,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1568,15 +1652,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 751,
-                        "end": 770,
+                        "start": 796,
+                        "end": 815,
                         "loc": {
                           "start": {
-                            "line": 20,
+                            "line": 21,
                             "column": 13
                           },
                           "end": {
-                            "line": 20,
+                            "line": 21,
                             "column": 32
                           },
                           "identifierName": "loadDestinationSaga"
@@ -1589,58 +1673,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 775,
-                "end": 809,
+                "start": 820,
+                "end": 854,
                 "loc": {
                   "start": {
-                    "line": 21,
+                    "line": 22,
                     "column": 2
                   },
                   "end": {
-                    "line": 21,
+                    "line": 22,
                     "column": 36
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 775,
-                  "end": 808,
+                  "start": 820,
+                  "end": 853,
                   "loc": {
                     "start": {
-                      "line": 21,
+                      "line": 22,
                       "column": 2
                     },
                     "end": {
-                      "line": 21,
+                      "line": 22,
                       "column": 35
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 781,
-                    "end": 808,
+                    "start": 826,
+                    "end": 853,
                     "loc": {
                       "start": {
-                        "line": 21,
+                        "line": 22,
                         "column": 8
                       },
                       "end": {
-                        "line": 21,
+                        "line": 22,
                         "column": 35
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 781,
-                      "end": 785,
+                      "start": 826,
+                      "end": 830,
                       "loc": {
                         "start": {
-                          "line": 21,
+                          "line": 22,
                           "column": 8
                         },
                         "end": {
-                          "line": 21,
+                          "line": 22,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1650,15 +1734,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 786,
-                        "end": 807,
+                        "start": 831,
+                        "end": 852,
                         "loc": {
                           "start": {
-                            "line": 21,
+                            "line": 22,
                             "column": 13
                           },
                           "end": {
-                            "line": 21,
+                            "line": 22,
                             "column": 34
                           },
                           "identifierName": "changeDestinationSaga"
@@ -1671,58 +1755,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 812,
-                "end": 845,
+                "start": 857,
+                "end": 890,
                 "loc": {
                   "start": {
-                    "line": 22,
+                    "line": 23,
                     "column": 2
                   },
                   "end": {
-                    "line": 22,
+                    "line": 23,
                     "column": 35
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 812,
-                  "end": 844,
+                  "start": 857,
+                  "end": 889,
                   "loc": {
                     "start": {
-                      "line": 22,
+                      "line": 23,
                       "column": 2
                     },
                     "end": {
-                      "line": 22,
+                      "line": 23,
                       "column": 34
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 818,
-                    "end": 844,
+                    "start": 863,
+                    "end": 889,
                     "loc": {
                       "start": {
-                        "line": 22,
+                        "line": 23,
                         "column": 8
                       },
                       "end": {
-                        "line": 22,
+                        "line": 23,
                         "column": 34
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 818,
-                      "end": 822,
+                      "start": 863,
+                      "end": 867,
                       "loc": {
                         "start": {
-                          "line": 22,
+                          "line": 23,
                           "column": 8
                         },
                         "end": {
-                          "line": 22,
+                          "line": 23,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1732,15 +1816,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 823,
-                        "end": 843,
+                        "start": 868,
+                        "end": 888,
                         "loc": {
                           "start": {
-                            "line": 22,
+                            "line": 23,
                             "column": 13
                           },
                           "end": {
-                            "line": 22,
+                            "line": 23,
                             "column": 33
                           },
                           "identifierName": "loadMemberStatusSaga"
@@ -1753,58 +1837,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 848,
-                "end": 882,
+                "start": 893,
+                "end": 927,
                 "loc": {
                   "start": {
-                    "line": 23,
+                    "line": 24,
                     "column": 2
                   },
                   "end": {
-                    "line": 23,
+                    "line": 24,
                     "column": 36
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 848,
-                  "end": 881,
+                  "start": 893,
+                  "end": 926,
                   "loc": {
                     "start": {
-                      "line": 23,
+                      "line": 24,
                       "column": 2
                     },
                     "end": {
-                      "line": 23,
+                      "line": 24,
                       "column": 35
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 854,
-                    "end": 881,
+                    "start": 899,
+                    "end": 926,
                     "loc": {
                       "start": {
-                        "line": 23,
+                        "line": 24,
                         "column": 8
                       },
                       "end": {
-                        "line": 23,
+                        "line": 24,
                         "column": 35
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 854,
-                      "end": 858,
+                      "start": 899,
+                      "end": 903,
                       "loc": {
                         "start": {
-                          "line": 23,
+                          "line": 24,
                           "column": 8
                         },
                         "end": {
-                          "line": 23,
+                          "line": 24,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1814,15 +1898,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 859,
-                        "end": 880,
+                        "start": 904,
+                        "end": 925,
                         "loc": {
                           "start": {
-                            "line": 23,
+                            "line": 24,
                             "column": 13
                           },
                           "end": {
-                            "line": 23,
+                            "line": 24,
                             "column": 34
                           },
                           "identifierName": "changeAccountInfoSaga"
@@ -1835,58 +1919,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 885,
-                "end": 916,
+                "start": 930,
+                "end": 961,
                 "loc": {
                   "start": {
-                    "line": 24,
+                    "line": 25,
                     "column": 2
                   },
                   "end": {
-                    "line": 24,
+                    "line": 25,
                     "column": 33
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 885,
-                  "end": 915,
+                  "start": 930,
+                  "end": 960,
                   "loc": {
                     "start": {
-                      "line": 24,
+                      "line": 25,
                       "column": 2
                     },
                     "end": {
-                      "line": 24,
+                      "line": 25,
                       "column": 32
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 891,
-                    "end": 915,
+                    "start": 936,
+                    "end": 960,
                     "loc": {
                       "start": {
-                        "line": 24,
+                        "line": 25,
                         "column": 8
                       },
                       "end": {
-                        "line": 24,
+                        "line": 25,
                         "column": 32
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 891,
-                      "end": 895,
+                      "start": 936,
+                      "end": 940,
                       "loc": {
                         "start": {
-                          "line": 24,
+                          "line": 25,
                           "column": 8
                         },
                         "end": {
-                          "line": 24,
+                          "line": 25,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1896,15 +1980,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 896,
-                        "end": 914,
+                        "start": 941,
+                        "end": 959,
                         "loc": {
                           "start": {
-                            "line": 24,
+                            "line": 25,
                             "column": 13
                           },
                           "end": {
-                            "line": 24,
+                            "line": 25,
                             "column": 31
                           },
                           "identifierName": "loadSuggestionSaga"
@@ -1917,58 +2001,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 919,
-                "end": 952,
+                "start": 964,
+                "end": 997,
                 "loc": {
                   "start": {
-                    "line": 25,
+                    "line": 26,
                     "column": 2
                   },
                   "end": {
-                    "line": 25,
+                    "line": 26,
                     "column": 35
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 919,
-                  "end": 951,
+                  "start": 964,
+                  "end": 996,
                   "loc": {
                     "start": {
-                      "line": 25,
+                      "line": 26,
                       "column": 2
                     },
                     "end": {
-                      "line": 25,
+                      "line": 26,
                       "column": 34
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 925,
-                    "end": 951,
+                    "start": 970,
+                    "end": 996,
                     "loc": {
                       "start": {
-                        "line": 25,
+                        "line": 26,
                         "column": 8
                       },
                       "end": {
-                        "line": 25,
+                        "line": 26,
                         "column": 34
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 925,
-                      "end": 929,
+                      "start": 970,
+                      "end": 974,
                       "loc": {
                         "start": {
-                          "line": 25,
+                          "line": 26,
                           "column": 8
                         },
                         "end": {
-                          "line": 25,
+                          "line": 26,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -1978,15 +2062,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 930,
-                        "end": 950,
+                        "start": 975,
+                        "end": 995,
                         "loc": {
                           "start": {
-                            "line": 25,
+                            "line": 26,
                             "column": 13
                           },
                           "end": {
-                            "line": 25,
+                            "line": 26,
                             "column": 33
                           },
                           "identifierName": "changeSuggestionSaga"
@@ -1999,58 +2083,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 955,
-                "end": 989,
+                "start": 1000,
+                "end": 1034,
                 "loc": {
                   "start": {
-                    "line": 26,
+                    "line": 27,
                     "column": 2
                   },
                   "end": {
-                    "line": 26,
+                    "line": 27,
                     "column": 36
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 955,
-                  "end": 988,
+                  "start": 1000,
+                  "end": 1033,
                   "loc": {
                     "start": {
-                      "line": 26,
+                      "line": 27,
                       "column": 2
                     },
                     "end": {
-                      "line": 26,
+                      "line": 27,
                       "column": 35
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 961,
-                    "end": 988,
+                    "start": 1006,
+                    "end": 1033,
                     "loc": {
                       "start": {
-                        "line": 26,
+                        "line": 27,
                         "column": 8
                       },
                       "end": {
-                        "line": 26,
+                        "line": 27,
                         "column": 35
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 961,
-                      "end": 965,
+                      "start": 1006,
+                      "end": 1010,
                       "loc": {
                         "start": {
-                          "line": 26,
+                          "line": 27,
                           "column": 8
                         },
                         "end": {
-                          "line": 26,
+                          "line": 27,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -2060,15 +2144,15 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 966,
-                        "end": 987,
+                        "start": 1011,
+                        "end": 1032,
                         "loc": {
                           "start": {
-                            "line": 26,
+                            "line": 27,
                             "column": 13
                           },
                           "end": {
-                            "line": 26,
+                            "line": 27,
                             "column": 34
                           },
                           "identifierName": "watchMemberStatusSaga"
@@ -2081,58 +2165,58 @@
               },
               {
                 "type": "ExpressionStatement",
-                "start": 992,
-                "end": 1014,
+                "start": 1037,
+                "end": 1059,
                 "loc": {
                   "start": {
-                    "line": 27,
+                    "line": 28,
                     "column": 2
                   },
                   "end": {
-                    "line": 27,
+                    "line": 28,
                     "column": 24
                   }
                 },
                 "expression": {
                   "type": "YieldExpression",
-                  "start": 992,
-                  "end": 1013,
+                  "start": 1037,
+                  "end": 1058,
                   "loc": {
                     "start": {
-                      "line": 27,
+                      "line": 28,
                       "column": 2
                     },
                     "end": {
-                      "line": 27,
+                      "line": 28,
                       "column": 23
                     }
                   },
                   "delegate": false,
                   "argument": {
                     "type": "CallExpression",
-                    "start": 998,
-                    "end": 1013,
+                    "start": 1043,
+                    "end": 1058,
                     "loc": {
                       "start": {
-                        "line": 27,
+                        "line": 28,
                         "column": 8
                       },
                       "end": {
-                        "line": 27,
+                        "line": 28,
                         "column": 23
                       }
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 998,
-                      "end": 1002,
+                      "start": 1043,
+                      "end": 1047,
                       "loc": {
                         "start": {
-                          "line": 27,
+                          "line": 28,
                           "column": 8
                         },
                         "end": {
-                          "line": 27,
+                          "line": 28,
                           "column": 12
                         },
                         "identifierName": "fork"
@@ -2142,20 +2226,102 @@
                     "arguments": [
                       {
                         "type": "Identifier",
-                        "start": 1003,
-                        "end": 1012,
+                        "start": 1048,
+                        "end": 1057,
                         "loc": {
                           "start": {
-                            "line": 27,
+                            "line": 28,
                             "column": 13
                           },
                           "end": {
-                            "line": 27,
+                            "line": 28,
                             "column": 22
                           },
                           "identifierName": "groupSaga"
                         },
                         "name": "groupSaga"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start": 1062,
+                "end": 1089,
+                "loc": {
+                  "start": {
+                    "line": 29,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 29,
+                    "column": 29
+                  }
+                },
+                "expression": {
+                  "type": "YieldExpression",
+                  "start": 1062,
+                  "end": 1088,
+                  "loc": {
+                    "start": {
+                      "line": 29,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 29,
+                      "column": 28
+                    }
+                  },
+                  "delegate": false,
+                  "argument": {
+                    "type": "CallExpression",
+                    "start": 1068,
+                    "end": 1088,
+                    "loc": {
+                      "start": {
+                        "line": 29,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 29,
+                        "column": 28
+                      }
+                    },
+                    "callee": {
+                      "type": "Identifier",
+                      "start": 1068,
+                      "end": 1072,
+                      "loc": {
+                        "start": {
+                          "line": 29,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 29,
+                          "column": 12
+                        },
+                        "identifierName": "fork"
+                      },
+                      "name": "fork"
+                    },
+                    "arguments": [
+                      {
+                        "type": "Identifier",
+                        "start": 1073,
+                        "end": 1087,
+                        "loc": {
+                          "start": {
+                            "line": 29,
+                            "column": 13
+                          },
+                          "end": {
+                            "line": 29,
+                            "column": 27
+                          },
+                          "identifierName": "updateDateSaga"
+                        },
+                        "name": "updateDateSaga"
                       }
                     ]
                   }
@@ -2168,15 +2334,15 @@
             {
               "type": "CommentBlock",
               "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
-              "start": 460,
-              "end": 552,
+              "start": 505,
+              "end": 597,
               "loc": {
                 "start": {
-                  "line": 10,
+                  "line": 11,
                   "column": 0
                 },
                 "end": {
-                  "line": 13,
+                  "line": 14,
                   "column": 2
                 }
               }
@@ -2188,15 +2354,15 @@
           {
             "type": "CommentBlock",
             "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
-            "start": 460,
-            "end": 552,
+            "start": 505,
+            "end": 597,
             "loc": {
               "start": {
-                "line": 10,
+                "line": 11,
                 "column": 0
               },
               "end": {
-                "line": 13,
+                "line": 14,
                 "column": 2
               }
             }
@@ -2210,15 +2376,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
-      "start": 460,
-      "end": 552,
+      "start": 505,
+      "end": 597,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 11,
           "column": 0
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 2
         }
       }
@@ -3794,17 +3960,200 @@
       }
     },
     {
-      "type": "CommentBlock",
-      "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
-      "start": 460,
-      "end": 552,
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 459,
+      "end": 465,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 13,
+          "line": 9,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 466,
+      "end": 467,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 7
+        },
+        "end": {
+          "line": 9,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "updateDateSaga",
+      "start": 467,
+      "end": 481,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 8
+        },
+        "end": {
+          "line": 9,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 481,
+      "end": 482,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 22
+        },
+        "end": {
+          "line": 9,
+          "column": 23
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 483,
+      "end": 487,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 24
+        },
+        "end": {
+          "line": 9,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./updatedate",
+      "start": 488,
+      "end": 502,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 29
+        },
+        "end": {
+          "line": 9,
+          "column": 43
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 502,
+      "end": 503,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 43
+        },
+        "end": {
+          "line": 9,
+          "column": 44
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n* Sagaの起点ポイント。ここから各Sagaをforkする\n* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac\n",
+      "start": 505,
+      "end": 597,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 0
+        },
+        "end": {
+          "line": 14,
           "column": 2
         }
       }
@@ -3824,15 +4173,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 553,
-      "end": 559,
+      "start": 598,
+      "end": 604,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 6
         }
       }
@@ -3852,15 +4201,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 560,
-      "end": 567,
+      "start": 605,
+      "end": 612,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 7
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 14
         }
       }
@@ -3879,15 +4228,15 @@
         "binop": null
       },
       "value": "function",
-      "start": 568,
-      "end": 576,
+      "start": 613,
+      "end": 621,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 15
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 23
         }
       }
@@ -3906,15 +4255,15 @@
         "updateContext": null
       },
       "value": "*",
-      "start": 576,
-      "end": 577,
+      "start": 621,
+      "end": 622,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 23
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 24
         }
       }
@@ -3932,15 +4281,15 @@
         "binop": null
       },
       "value": "rootSaga",
-      "start": 578,
-      "end": 586,
+      "start": 623,
+      "end": 631,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 25
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 33
         }
       }
@@ -3957,15 +4306,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 586,
-      "end": 587,
+      "start": 631,
+      "end": 632,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 33
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 34
         }
       }
@@ -3982,15 +4331,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 587,
-      "end": 588,
+      "start": 632,
+      "end": 633,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 34
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 35
         }
       }
@@ -4007,15 +4356,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 588,
-      "end": 589,
+      "start": 633,
+      "end": 634,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 35
         },
         "end": {
-          "line": 14,
+          "line": 15,
           "column": 36
         }
       }
@@ -4035,15 +4384,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 592,
-      "end": 597,
+      "start": 637,
+      "end": 642,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 2
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 7
         }
       }
@@ -4061,15 +4410,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 598,
-      "end": 602,
+      "start": 643,
+      "end": 647,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 8
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 12
         }
       }
@@ -4086,15 +4435,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 602,
-      "end": 603,
+      "start": 647,
+      "end": 648,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 12
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 13
         }
       }
@@ -4112,15 +4461,15 @@
         "binop": null
       },
       "value": "loginSaga",
-      "start": 603,
-      "end": 612,
+      "start": 648,
+      "end": 657,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 13
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 22
         }
       }
@@ -4137,15 +4486,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 612,
-      "end": 613,
+      "start": 657,
+      "end": 658,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 22
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 23
         }
       }
@@ -4163,15 +4512,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 613,
-      "end": 614,
+      "start": 658,
+      "end": 659,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 23
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 24
         }
       }
@@ -4191,15 +4540,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 617,
-      "end": 622,
+      "start": 662,
+      "end": 667,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 17,
           "column": 2
         },
         "end": {
-          "line": 16,
+          "line": 17,
           "column": 7
         }
       }
@@ -4217,15 +4566,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 623,
-      "end": 627,
+      "start": 668,
+      "end": 672,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 17,
           "column": 8
         },
         "end": {
-          "line": 16,
+          "line": 17,
           "column": 12
         }
       }
@@ -4242,15 +4591,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 627,
-      "end": 628,
+      "start": 672,
+      "end": 673,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 17,
           "column": 12
         },
         "end": {
-          "line": 16,
+          "line": 17,
           "column": 13
         }
       }
@@ -4268,15 +4617,15 @@
         "binop": null
       },
       "value": "signupSaga",
-      "start": 628,
-      "end": 638,
+      "start": 673,
+      "end": 683,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 17,
           "column": 13
         },
         "end": {
-          "line": 16,
+          "line": 17,
           "column": 23
         }
       }
@@ -4293,15 +4642,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 638,
-      "end": 639,
+      "start": 683,
+      "end": 684,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 17,
           "column": 23
         },
         "end": {
-          "line": 16,
+          "line": 17,
           "column": 24
         }
       }
@@ -4319,15 +4668,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 639,
-      "end": 640,
+      "start": 684,
+      "end": 685,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 17,
           "column": 24
         },
         "end": {
-          "line": 16,
+          "line": 17,
           "column": 25
         }
       }
@@ -4347,15 +4696,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 643,
-      "end": 648,
+      "start": 688,
+      "end": 693,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 18,
           "column": 2
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 7
         }
       }
@@ -4373,15 +4722,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 649,
-      "end": 653,
+      "start": 694,
+      "end": 698,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 18,
           "column": 8
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 12
         }
       }
@@ -4398,15 +4747,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 653,
-      "end": 654,
+      "start": 698,
+      "end": 699,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 18,
           "column": 12
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 13
         }
       }
@@ -4424,15 +4773,15 @@
         "binop": null
       },
       "value": "logoutSaga",
-      "start": 654,
-      "end": 664,
+      "start": 699,
+      "end": 709,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 18,
           "column": 13
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 23
         }
       }
@@ -4449,15 +4798,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 664,
-      "end": 665,
+      "start": 709,
+      "end": 710,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 18,
           "column": 23
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 24
         }
       }
@@ -4475,15 +4824,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 665,
-      "end": 666,
+      "start": 710,
+      "end": 711,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 18,
           "column": 24
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 25
         }
       }
@@ -4503,15 +4852,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 669,
-      "end": 674,
+      "start": 714,
+      "end": 719,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 2
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 7
         }
       }
@@ -4529,15 +4878,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 675,
-      "end": 679,
+      "start": 720,
+      "end": 724,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 8
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 12
         }
       }
@@ -4554,15 +4903,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 679,
-      "end": 680,
+      "start": 724,
+      "end": 725,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 12
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 13
         }
       }
@@ -4580,15 +4929,15 @@
         "binop": null
       },
       "value": "loginFailureSaga",
-      "start": 680,
-      "end": 696,
+      "start": 725,
+      "end": 741,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 13
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 29
         }
       }
@@ -4605,15 +4954,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 696,
-      "end": 697,
+      "start": 741,
+      "end": 742,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 29
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 30
         }
       }
@@ -4631,15 +4980,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 697,
-      "end": 698,
+      "start": 742,
+      "end": 743,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 30
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 31
         }
       }
@@ -4659,15 +5008,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 701,
-      "end": 706,
+      "start": 746,
+      "end": 751,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 2
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 7
         }
       }
@@ -4685,15 +5034,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 707,
-      "end": 711,
+      "start": 752,
+      "end": 756,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 8
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 12
         }
       }
@@ -4710,15 +5059,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 711,
-      "end": 712,
+      "start": 756,
+      "end": 757,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 12
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 13
         }
       }
@@ -4736,15 +5085,15 @@
         "binop": null
       },
       "value": "loginFromRememberMeSaga",
-      "start": 712,
-      "end": 735,
+      "start": 757,
+      "end": 780,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 13
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 36
         }
       }
@@ -4761,15 +5110,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 735,
-      "end": 736,
+      "start": 780,
+      "end": 781,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 36
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 37
         }
       }
@@ -4787,15 +5136,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 736,
-      "end": 737,
+      "start": 781,
+      "end": 782,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 37
         },
         "end": {
-          "line": 19,
+          "line": 20,
           "column": 38
         }
       }
@@ -4815,15 +5164,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 740,
-      "end": 745,
+      "start": 785,
+      "end": 790,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 2
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 7
         }
       }
@@ -4841,15 +5190,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 746,
-      "end": 750,
+      "start": 791,
+      "end": 795,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 8
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 12
         }
       }
@@ -4866,15 +5215,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 750,
-      "end": 751,
+      "start": 795,
+      "end": 796,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 12
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 13
         }
       }
@@ -4892,15 +5241,15 @@
         "binop": null
       },
       "value": "loadDestinationSaga",
-      "start": 751,
-      "end": 770,
+      "start": 796,
+      "end": 815,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 13
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 32
         }
       }
@@ -4917,15 +5266,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 770,
-      "end": 771,
+      "start": 815,
+      "end": 816,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 32
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 33
         }
       }
@@ -4943,15 +5292,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 771,
-      "end": 772,
+      "start": 816,
+      "end": 817,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 21,
           "column": 33
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 34
         }
       }
@@ -4971,15 +5320,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 775,
-      "end": 780,
+      "start": 820,
+      "end": 825,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 2
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 7
         }
       }
@@ -4997,15 +5346,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 781,
-      "end": 785,
+      "start": 826,
+      "end": 830,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 8
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 12
         }
       }
@@ -5022,15 +5371,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 785,
-      "end": 786,
+      "start": 830,
+      "end": 831,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 12
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 13
         }
       }
@@ -5048,15 +5397,15 @@
         "binop": null
       },
       "value": "changeDestinationSaga",
-      "start": 786,
-      "end": 807,
+      "start": 831,
+      "end": 852,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 13
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 34
         }
       }
@@ -5073,15 +5422,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 807,
-      "end": 808,
+      "start": 852,
+      "end": 853,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 34
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 35
         }
       }
@@ -5099,15 +5448,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 808,
-      "end": 809,
+      "start": 853,
+      "end": 854,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 22,
           "column": 35
         },
         "end": {
-          "line": 21,
+          "line": 22,
           "column": 36
         }
       }
@@ -5127,15 +5476,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 812,
-      "end": 817,
+      "start": 857,
+      "end": 862,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 23,
           "column": 2
         },
         "end": {
-          "line": 22,
+          "line": 23,
           "column": 7
         }
       }
@@ -5153,15 +5502,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 818,
-      "end": 822,
+      "start": 863,
+      "end": 867,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 23,
           "column": 8
         },
         "end": {
-          "line": 22,
+          "line": 23,
           "column": 12
         }
       }
@@ -5178,15 +5527,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 822,
-      "end": 823,
+      "start": 867,
+      "end": 868,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 23,
           "column": 12
         },
         "end": {
-          "line": 22,
+          "line": 23,
           "column": 13
         }
       }
@@ -5204,15 +5553,15 @@
         "binop": null
       },
       "value": "loadMemberStatusSaga",
-      "start": 823,
-      "end": 843,
+      "start": 868,
+      "end": 888,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 23,
           "column": 13
         },
         "end": {
-          "line": 22,
+          "line": 23,
           "column": 33
         }
       }
@@ -5229,15 +5578,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 843,
-      "end": 844,
+      "start": 888,
+      "end": 889,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 23,
           "column": 33
         },
         "end": {
-          "line": 22,
+          "line": 23,
           "column": 34
         }
       }
@@ -5255,15 +5604,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 844,
-      "end": 845,
+      "start": 889,
+      "end": 890,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 23,
           "column": 34
         },
         "end": {
-          "line": 22,
+          "line": 23,
           "column": 35
         }
       }
@@ -5283,15 +5632,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 848,
-      "end": 853,
+      "start": 893,
+      "end": 898,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 24,
           "column": 2
         },
         "end": {
-          "line": 23,
+          "line": 24,
           "column": 7
         }
       }
@@ -5309,15 +5658,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 854,
-      "end": 858,
+      "start": 899,
+      "end": 903,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 24,
           "column": 8
         },
         "end": {
-          "line": 23,
+          "line": 24,
           "column": 12
         }
       }
@@ -5334,15 +5683,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 858,
-      "end": 859,
+      "start": 903,
+      "end": 904,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 24,
           "column": 12
         },
         "end": {
-          "line": 23,
+          "line": 24,
           "column": 13
         }
       }
@@ -5360,15 +5709,15 @@
         "binop": null
       },
       "value": "changeAccountInfoSaga",
-      "start": 859,
-      "end": 880,
+      "start": 904,
+      "end": 925,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 24,
           "column": 13
         },
         "end": {
-          "line": 23,
+          "line": 24,
           "column": 34
         }
       }
@@ -5385,15 +5734,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 880,
-      "end": 881,
+      "start": 925,
+      "end": 926,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 24,
           "column": 34
         },
         "end": {
-          "line": 23,
+          "line": 24,
           "column": 35
         }
       }
@@ -5411,15 +5760,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 881,
-      "end": 882,
+      "start": 926,
+      "end": 927,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 24,
           "column": 35
         },
         "end": {
-          "line": 23,
+          "line": 24,
           "column": 36
         }
       }
@@ -5439,15 +5788,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 885,
-      "end": 890,
+      "start": 930,
+      "end": 935,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 2
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 7
         }
       }
@@ -5465,15 +5814,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 891,
-      "end": 895,
+      "start": 936,
+      "end": 940,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 8
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 12
         }
       }
@@ -5490,15 +5839,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 895,
-      "end": 896,
+      "start": 940,
+      "end": 941,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 12
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 13
         }
       }
@@ -5516,15 +5865,15 @@
         "binop": null
       },
       "value": "loadSuggestionSaga",
-      "start": 896,
-      "end": 914,
+      "start": 941,
+      "end": 959,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 13
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 31
         }
       }
@@ -5541,15 +5890,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 914,
-      "end": 915,
+      "start": 959,
+      "end": 960,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 31
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 32
         }
       }
@@ -5567,15 +5916,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 915,
-      "end": 916,
+      "start": 960,
+      "end": 961,
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 32
         },
         "end": {
-          "line": 24,
+          "line": 25,
           "column": 33
         }
       }
@@ -5595,15 +5944,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 919,
-      "end": 924,
+      "start": 964,
+      "end": 969,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 26,
           "column": 2
         },
         "end": {
-          "line": 25,
+          "line": 26,
           "column": 7
         }
       }
@@ -5621,15 +5970,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 925,
-      "end": 929,
+      "start": 970,
+      "end": 974,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 26,
           "column": 8
         },
         "end": {
-          "line": 25,
+          "line": 26,
           "column": 12
         }
       }
@@ -5646,15 +5995,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 929,
-      "end": 930,
+      "start": 974,
+      "end": 975,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 26,
           "column": 12
         },
         "end": {
-          "line": 25,
+          "line": 26,
           "column": 13
         }
       }
@@ -5672,15 +6021,15 @@
         "binop": null
       },
       "value": "changeSuggestionSaga",
-      "start": 930,
-      "end": 950,
+      "start": 975,
+      "end": 995,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 26,
           "column": 13
         },
         "end": {
-          "line": 25,
+          "line": 26,
           "column": 33
         }
       }
@@ -5697,15 +6046,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 950,
-      "end": 951,
+      "start": 995,
+      "end": 996,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 26,
           "column": 33
         },
         "end": {
-          "line": 25,
+          "line": 26,
           "column": 34
         }
       }
@@ -5723,15 +6072,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 951,
-      "end": 952,
+      "start": 996,
+      "end": 997,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 26,
           "column": 34
         },
         "end": {
-          "line": 25,
+          "line": 26,
           "column": 35
         }
       }
@@ -5751,15 +6100,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 955,
-      "end": 960,
+      "start": 1000,
+      "end": 1005,
       "loc": {
         "start": {
-          "line": 26,
+          "line": 27,
           "column": 2
         },
         "end": {
-          "line": 26,
+          "line": 27,
           "column": 7
         }
       }
@@ -5777,15 +6126,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 961,
-      "end": 965,
+      "start": 1006,
+      "end": 1010,
       "loc": {
         "start": {
-          "line": 26,
+          "line": 27,
           "column": 8
         },
         "end": {
-          "line": 26,
+          "line": 27,
           "column": 12
         }
       }
@@ -5802,15 +6151,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 965,
-      "end": 966,
+      "start": 1010,
+      "end": 1011,
       "loc": {
         "start": {
-          "line": 26,
+          "line": 27,
           "column": 12
         },
         "end": {
-          "line": 26,
+          "line": 27,
           "column": 13
         }
       }
@@ -5828,15 +6177,15 @@
         "binop": null
       },
       "value": "watchMemberStatusSaga",
-      "start": 966,
-      "end": 987,
+      "start": 1011,
+      "end": 1032,
       "loc": {
         "start": {
-          "line": 26,
+          "line": 27,
           "column": 13
         },
         "end": {
-          "line": 26,
+          "line": 27,
           "column": 34
         }
       }
@@ -5853,15 +6202,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 987,
-      "end": 988,
+      "start": 1032,
+      "end": 1033,
       "loc": {
         "start": {
-          "line": 26,
+          "line": 27,
           "column": 34
         },
         "end": {
-          "line": 26,
+          "line": 27,
           "column": 35
         }
       }
@@ -5879,15 +6228,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 988,
-      "end": 989,
+      "start": 1033,
+      "end": 1034,
       "loc": {
         "start": {
-          "line": 26,
+          "line": 27,
           "column": 35
         },
         "end": {
-          "line": 26,
+          "line": 27,
           "column": 36
         }
       }
@@ -5907,15 +6256,15 @@
         "updateContext": null
       },
       "value": "yield",
-      "start": 992,
-      "end": 997,
+      "start": 1037,
+      "end": 1042,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 28,
           "column": 2
         },
         "end": {
-          "line": 27,
+          "line": 28,
           "column": 7
         }
       }
@@ -5933,15 +6282,15 @@
         "binop": null
       },
       "value": "fork",
-      "start": 998,
-      "end": 1002,
+      "start": 1043,
+      "end": 1047,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 28,
           "column": 8
         },
         "end": {
-          "line": 27,
+          "line": 28,
           "column": 12
         }
       }
@@ -5958,15 +6307,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1002,
-      "end": 1003,
+      "start": 1047,
+      "end": 1048,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 28,
           "column": 12
         },
         "end": {
-          "line": 27,
+          "line": 28,
           "column": 13
         }
       }
@@ -5984,15 +6333,15 @@
         "binop": null
       },
       "value": "groupSaga",
-      "start": 1003,
-      "end": 1012,
+      "start": 1048,
+      "end": 1057,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 28,
           "column": 13
         },
         "end": {
-          "line": 27,
+          "line": 28,
           "column": 22
         }
       }
@@ -6009,15 +6358,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1012,
-      "end": 1013,
+      "start": 1057,
+      "end": 1058,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 28,
           "column": 22
         },
         "end": {
-          "line": 27,
+          "line": 28,
           "column": 23
         }
       }
@@ -6035,16 +6384,172 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1013,
-      "end": 1014,
+      "start": 1058,
+      "end": 1059,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 28,
           "column": 23
         },
         "end": {
-          "line": 27,
+          "line": 28,
           "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "yield",
+        "keyword": "yield",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "yield",
+      "start": 1062,
+      "end": 1067,
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 2
+        },
+        "end": {
+          "line": 29,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "fork",
+      "start": 1068,
+      "end": 1072,
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 8
+        },
+        "end": {
+          "line": 29,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 1072,
+      "end": 1073,
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 12
+        },
+        "end": {
+          "line": 29,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "updateDateSaga",
+      "start": 1073,
+      "end": 1087,
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 13
+        },
+        "end": {
+          "line": 29,
+          "column": 27
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 1087,
+      "end": 1088,
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 27
+        },
+        "end": {
+          "line": 29,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 1088,
+      "end": 1089,
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 28
+        },
+        "end": {
+          "line": 29,
+          "column": 29
         }
       }
     },
@@ -6060,15 +6565,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1015,
-      "end": 1016,
+      "start": 1090,
+      "end": 1091,
       "loc": {
         "start": {
-          "line": 28,
+          "line": 30,
           "column": 0
         },
         "end": {
-          "line": 28,
+          "line": 30,
           "column": 1
         }
       }
@@ -6086,15 +6591,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1017,
-      "end": 1017,
+      "start": 1092,
+      "end": 1092,
       "loc": {
         "start": {
-          "line": 29,
+          "line": 31,
           "column": 0
         },
         "end": {
-          "line": 29,
+          "line": 31,
           "column": 0
         }
       }
