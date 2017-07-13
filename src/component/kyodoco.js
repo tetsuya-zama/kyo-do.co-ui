@@ -49,6 +49,7 @@ class Kyodoco extends React.Component{
           board={this.props.board}
           group={this.props.group}
           login={this.props.login}
+          updatedate={this.props.updatedate}
         />
        </div>
       ) :

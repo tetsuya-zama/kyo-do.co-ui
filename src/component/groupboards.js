@@ -39,6 +39,7 @@ export default class GroupBoards extends React.Component{
             {editButton}
             <Board
               memberStatus={group.member}
+              updatedate={this.props.updatedate}
             />
           </Tab>
         )
@@ -50,6 +51,7 @@ export default class GroupBoards extends React.Component{
           <Tab label="すべてのメンバー">
             <Board
               memberStatus={this.props.board.memberStatus}
+              updatedate={this.props.updatedate}
             />
           </Tab>
         </Tabs>
