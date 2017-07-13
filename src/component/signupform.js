@@ -209,11 +209,9 @@ export default class SignUpForm extends React.Component{
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.ID_DUPLICATED)}
         <br />
         <PasswordField
-          hintText="Password"
           floatingLabelText="Password"
           value={this.state.pass_text}
           ref="pass"
-          //type="password"
           onChange={this.handlePassChange}
         />
         <br />
@@ -221,11 +219,9 @@ export default class SignUpForm extends React.Component{
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD)}
         <br />
         <PasswordField
-          hintText="Password(Confirm)"
           floatingLabelText="Password(Confirm)"
           value={this.state.confirm_pass_text}
           ref="pass_confirm"
-          //type="password"
           onChange={this.handleConfirmPasswordChange}
         />
         <br />
