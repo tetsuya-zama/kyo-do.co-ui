@@ -36,7 +36,19 @@ export function* loadDestinationTask(){
         headers:{"Authorization":"Bearer " + token}
       });
 
-      yield put(myDestinationChange(savedDestination.data));
+      //XXX:material UIがバージョンアップして回避できるようになった場合
+      //             この処理は削除して良い
+      // もし、coomment か contact が　"" （空文字）出会った場合、
+      // ” ”が帰ってきてしまう。それを回避する処理である
+      const fixedDestination = Object.assign(
+        {},
+        savedDestination.data,
+        {
+          "comment": savedDestination.data.comment == " " ? "" : savedDestination.data.comment,
+          "contact":savedDestination.data.contact == " " ? "" : savedDestination.data.contact}
+      );
+
+      yield put(myDestinationChange(fixedDestination));
     }catch(e){
       console.log(e);
       //TODO 更新に失敗したエラーアクションを投げる

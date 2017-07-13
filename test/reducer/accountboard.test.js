@@ -3,7 +3,7 @@ import accountboard from '../../src/reducer/accountboard';
 import {ACCOUNT_INFO_MODAL_OPEN,ACCOUNT_INFO_MODAL_CLOSE,CHANGE_ACCOUNT_INFO,CHANGE_ACCOUNT_INFO_FIELD} from '../../src/action/accountboard';
 
 describe("accountboard reducer",()=>{
-  it("turns open of accountboard state into true and clears nextuser if ACCOUNT_INFO_MODAL_OPEN action is passed",()=>{
+  it("turns open of accountboard state into true and change nextname into action's payload and clears nextpass if ACCOUNT_INFO_MODAL_OPEN action is passed",()=>{
     const initialState = {
       open : false,
       nextuser : {
@@ -14,12 +14,16 @@ describe("accountboard reducer",()=>{
 
     const dummyAction = {
       type:ACCOUNT_INFO_MODAL_OPEN,
+      payload:{
+        name:"init"
+      }
     };
 
     const result = accountboard(initialState,dummyAction);
 
     assert(result.open === true);
-    assert.deepEqual(result.nextuser, {});
+    assert(result.nextuser.nextname === "init");
+    assert(result.nextuser.nextpass === null);
   });
 
   it("turns open of accountboard state into false and clears nextuser if ACCOUNT_INFO_MODAL_CLOSE action is passed",()=>{

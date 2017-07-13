@@ -8,6 +8,7 @@ import {loadSuggestionSaga,changeSuggestionSaga} from './suggestion'
 import {groupSaga} from './group'
 import {updateDateSaga} from './updatedate';
 import {secretquestion} from './secretquestion';
+import {noticeSaveCompleteSaga} from './notice';
 
 /**
 * Sagaの起点ポイント。ここから各Sagaをforkする
@@ -29,4 +30,5 @@ export default function* rootSaga(){
   yield fork(groupSaga);
   yield fork(updateDateSaga);
   yield fork(secretquestion);
+  yield fork(noticeSaveCompleteSaga);
 }
