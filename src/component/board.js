@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MemberRow from './memberrow';
 import TextField from 'material-ui/TextField';
-
+import RaisedButton from 'material-ui/RaisedButton';
 
 /**
 * 行き先掲示板コンポーネント
@@ -46,6 +46,18 @@ export default class Board extends React.Component{
       if(a.lastUpdate < b.lastUpdate) return 1;
       return 0;
     });
+  
+    const RaisedButtonExampleSimple = () => (
+      <div>
+        <RaisedButton label="Default" style={style} />
+        <RaisedButton label="Primary" primary={true} style={style} />
+        <RaisedButton label="Secondary" secondary={true} style={style} />
+        <RaisedButton label="Disabled" disabled={true} style={style} />
+        <br />
+        <br />
+        <RaisedButton label="Full width" fullWidth={true} />
+      </div>
+    );
 
     const memberRows = sortedMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
     const date = this.props.updatedate.date?
@@ -55,6 +67,7 @@ export default class Board extends React.Component{
     return (
       <div>
       <h3>行き先掲示板（データ取得日時: {date}）</h3>
+      <p>{RaisedButtonExampleSimple}</p>
       <TextField
         hintText="Filter"
         value={this.state.current_filter_text}
