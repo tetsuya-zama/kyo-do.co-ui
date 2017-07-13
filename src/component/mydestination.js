@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {myDestinationChange,myDestinationClear} from '../action/mydestination'
+import {myDestinationChange} from '../action/mydestination'
 import Toggle from 'material-ui/Toggle'
 import TextField from 'material-ui/TextField'
 import AutoComplete from 'material-ui/AutoComplete';
@@ -20,18 +20,9 @@ export default class MyDestination extends React.Component{
     super(props);
 
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
-    this.handleClear = this.handleClear.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleContactChange = this.handleContactChange.bind(this);
-  }
-  /**
-  * クリアボタンをクリックをハンドリングするメソッド
-  * @return {undefined}
-  */
-  handleClear(){
-    const action = myDestinationClear();
-    this.props.dispatch(action);
   }
   /**
   * 出勤/退勤の切り替えをハンドリングするメソッド
@@ -95,9 +86,6 @@ export default class MyDestination extends React.Component{
               ref="comment"
             />
           </td>
-          <td>
-            <RaisedButton label="Clear" secondary={true} onClick={this.handleClear} ref="clear_button"/>
-          </td>
         </tr>
         <tr>
           <td></td>
@@ -105,7 +93,6 @@ export default class MyDestination extends React.Component{
           <td>
             <TextField hintText="連絡先" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
           </td>
-          <td></td>
         </tr>
         </tbody>
       </table>
