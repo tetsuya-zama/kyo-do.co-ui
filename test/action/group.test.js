@@ -1,7 +1,6 @@
 import assert from 'power-assert';
 import {
   GROUPS_LOADED,
-  GROUP_MEMBER_LOADED,
   CREATE_GROUP_REQUIRED,
   CREATE_GROUP_SUCCESS,
   CREATE_GROUP_FAILURE,
@@ -27,7 +26,6 @@ import {
 
 import {
   groupsLoaded,
-  groupMemberLoaded,
   createGroupRequired,
   createGroupSuccess,
   createGroupFailure,
@@ -78,34 +76,6 @@ describe("groupsLoaded action creator",()=>{
 
     assert(result.type === GROUPS_LOADED);
     assert.deepEqual(result.payload.groupinfo,dummyAPIResult);
-    assert(result.payload.logonUserId === dummyLogonUserId);
-  });
-});
-
-/**@test {groupMemberLoaded} */
-describe("groupMemberLoaded action creator",()=>{
-  it("creates GROUP_MEMBER_LOADED action with groupWithMember data and logonUserId",()=>{
-    const dummyGroupWithMember = {
-      "id": "g0001",
-      "name": "groupname1",
-      "admin": [
-        "userid1",
-        "userid2"
-      ],
-      "members":[
-        "userid1",
-        "userid2",
-        "userid3",
-        "userid4"
-      ]
-    };
-
-    const dummyLogonUserId = "userid4";
-
-    const result = groupMemberLoaded(dummyGroupWithMember,dummyLogonUserId);
-
-    assert(result.type === GROUP_MEMBER_LOADED);
-    assert.deepEqual(result.payload.groupWithMember, dummyGroupWithMember);
     assert(result.payload.logonUserId === dummyLogonUserId);
   });
 });

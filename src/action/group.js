@@ -19,27 +19,6 @@ export function groupsLoaded(groupinfo,logonUserId){
   };
 }
 
-/**
-* グループメンバーのロード完了アクション名
-*/
-export const GROUP_MEMBER_LOADED = "GROUP_MEMBER_LOADED";
-
-/**
-* グループメンバーのロード完了アクションのcreator
-* @param {Object} groupWithMember メンバー情報付きのグループ情報
-* @param {String} logonUserId ログインしているユーザーのID
-* @return {Object} GROUP_MEMBER_LOADEDアクション
-*/
-export function groupMemberLoaded(groupWithMember,logonUserId){
-  return {
-    type: GROUP_MEMBER_LOADED,
-    payload:{
-      groupWithMember:groupWithMember,
-      logonUserId:logonUserId
-    }
-  };
-}
-
 
 /**
 * グループ作成要求アクション名
