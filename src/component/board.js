@@ -48,7 +48,7 @@ export default class Board extends React.Component{
 
     return (
       <div>
-      <h3>行き先掲示板</h3>
+      <h3>行き先掲示板xxxx</h3>
       <p>{date}</p>
       <TextField
         hintText="Filter"
