@@ -35,7 +35,7 @@ $ npm run esdoc
 $ npm test
 # 単体テストの結果が表示される
 ```
-### 単体テスト(kerma)
+### 単体テスト(karma)
 ```bash
 $ npm run karma
 # karmaが起動する
