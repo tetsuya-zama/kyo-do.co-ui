@@ -1,6 +1,6 @@
 import assert from 'power-assert';
 import {MY_DESTINATION_CHANGE,MY_DESTINATION_SAVE_COMPLETE} from '../../src/action/mydestination';
-import {myDestinationChange,myDestinationClear,myDestinationSaveComplete} from '../../src/action/mydestination';
+import {myDestinationChange,myDestinationSaveComplete} from '../../src/action/mydestination';
 import {DEFAULT_MY_DESTINATION} from '../../src/const/mydestination';
 
 /**@test {myDestinationChange}*/
@@ -16,16 +16,6 @@ describe("myDestinationChange action creator",()=>{
 
     assert(result.type === MY_DESTINATION_CHANGE);
     assert.deepEqual(result.payload,inputData);
-  });
-});
-
-/**@test {myDestinationClear}*/
-describe("myDestinationClear action creator",()=>{
-  it("creates MY_DESTINATION_CHANGE action with DEFAULT_MY_DESTINATION",()=>{
-    const result = myDestinationClear();
-
-    assert(result.type === MY_DESTINATION_CHANGE);
-    assert.deepEqual(result.payload,DEFAULT_MY_DESTINATION);
   });
 });
 
