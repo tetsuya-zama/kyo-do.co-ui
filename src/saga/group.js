@@ -89,41 +89,22 @@ export function* loadUserGroupsTask(){
       headers: { "Authorization": "Bearer " + token}
     });
 
-    yield put(groupsLoaded(result.data,logonUserId));
-    yield result.data.map(group => call(fetchMemberTask,group,token,logonUserId));
-  }catch(e){
-    //noop
-  }
-}
-
-/**
-* グループのメンバーをロードするTask
-* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
-* @param {Object} group メンバーをロードしたいgroup
-* @param {String} token API token
-* @param {String} logonUserId ログイン中のユーザーのID
-*/
-export function* fetchMemberTask(group,token,logonUserId){
-  const groupId = group.id;
-
-  try{
-    const result = yield call(axios,{
-      method:"GET",
-      url:BASE_API_URL + "group/" + groupId + "/member",
-      headers: { "Authorization": "Bearer " + token}
-    });
-
     const memberStatus = yield select(state => state.board.memberStatus);
 
-    const groupMemberStatus = result.data.members.map(
-      memberId =>getMemberStatusById(memberStatus,memberId))
-    .filter(val => val != undefined);
+    const groupsWithMemberStatus = result.data.map(group => {
+      const groupMemberStatus = group.member.map(
+        memberId =>getMemberStatusById(memberStatus,memberId))
+        .filter(val => val != undefined);
 
-    yield put(groupMemberLoaded(Object.assign({},group,{member:groupMemberStatus}),logonUserId));
+      return Object.assign({},group,{member:groupMemberStatus});
+    });
+
+    yield put(groupsLoaded(groupsWithMemberStatus,logonUserId));
   }catch(e){
     //noop
   }
 }
+
 
 /**
 * グループの作成要求を受け付けるSaga

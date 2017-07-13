@@ -29,7 +29,14 @@ export default class MemberRow extends React.Component{
       <List>
         <ListItem
           primaryText={this.props.member.name + "：" + this.props.member.contact}
-            secondaryText={"最終更新日:" + this.props.member.lastUpdate.substr(0,16)+" "+(this.props.member.comment == null ? "" : this.props.member.comment)}
+            secondaryText={
+              <p>
+                {this.props.member.comment == null ? "" : this.props.member.comment}  <br />
+                {"最終更新日:" + this.props.member.lastUpdate.substr(0,16)}
+              </p>
+            }
+            secondaryTextLines={2}
+//              tertiaryText={"最終更新日:" + this.props.member.lastUpdate.substr(0,16)}
           leftAvatar={<Avatar backgroundColor={this.props.member.inBusiness ? red600 : grey400} > {this.props.member.inBusiness ? "出" : "退"}</Avatar>} />
       </List>
     );
