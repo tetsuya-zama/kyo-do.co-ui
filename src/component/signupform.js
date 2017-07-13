@@ -98,7 +98,7 @@ export default class SignUpForm extends React.Component{
   */
   validate(forminfo){
     const errors = [];
-    const match_pattern = /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,}$/i;
+    const match_pattern = /^(?=.*?\d)(?=.*?[A-Za-z!-\/:-@[-`{-~])[!-~]{8,}$/i;
 
     if(!forminfo.id || forminfo.id.trim().length == 0){
       errors.push(SIGNUP_FAILURE_REASONS.EMPTY_ID);
