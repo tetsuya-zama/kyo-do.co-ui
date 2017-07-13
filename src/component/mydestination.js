@@ -81,7 +81,7 @@ export default class MyDestination extends React.Component{
         <tr>
           <td>{this.props.login.user.name}</td>
           <td>
-            <Toggle label="出勤" toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"/>
+            <Toggle label={(this.props.mydestination.inBusiness===true)?"[出勤]" : "[退勤]"} toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"/>
           </td>
           <td>
             <AutoComplete
