@@ -8,6 +8,7 @@ import {deleteGroupRequired,changeGroupNameRequired} from '../action/group';
 import {closeGroupManagementBoard} from '../action/groupboards';
 import MemberAddForm from './memberaddform';
 import GroupMember from './groupmember';
+import RaisedButton from 'material-ui/RaisedButton';
 
 /**
 * グループ管理ボード コンポーネント
@@ -92,12 +93,18 @@ export default class GroupManagementBoard extends React.Component{
       return null;
     }
     const actions = [
+      <RaisedButton
+            label="グループを削除"
+            primary={true}
+            onTouchTap={this.handleDeleteGroupButton}
+            ref="deleteGroupButton"
+      />,
       <FlatButton
         label="Close"
         primary={true}
         onTouchTap={this.handleClose}
         ref="Close"
-      />
+/>    
     ];
 
     const groupNameText =
@@ -121,20 +128,12 @@ export default class GroupManagementBoard extends React.Component{
 
     return(
       <Dialog
-        title={targetGroup.groupname + "を編集"}
+        title={targetGroup.groupname + "を編集" }
         actions={actions}
         modal={true}
         open={this.props.managementBoard.isOpen}
         autoScrollBodyContent={true}
       >
-        <div>
-          <FlatButton
-            label="削除"
-            primary={true}
-            onTouchTap={this.handleDeleteGroupButton}
-            ref="deleteGroupButton"
-          />
-        </div>
         <div>
           <TextField
             hintText="グループ名"
@@ -142,19 +141,21 @@ export default class GroupManagementBoard extends React.Component{
             onChange={this.handleNameChange}
             ref="groupName"
           />
-          <FlatButton
+          <RaisedButton
             label="変更"
             primary={true}
             onTouchTap={this.handleChangeNameButton}
             ref="changeNameButton"
           />
         </div>
+        <div>
         <MemberAddForm
           dispatch={this.props.dispatch}
           group={targetGroup}
           memberStatus={this.props.board.memberStatus}
         />
         {members}
+        </div>
       </Dialog>
     )
   }

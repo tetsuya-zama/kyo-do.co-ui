@@ -4,6 +4,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import {addMemberToGroupRequired} from '../action/group';
+import RaisedButton from 'material-ui/RaisedButton';
 import AutoComplete from 'material-ui/AutoComplete';
 
 /**
@@ -128,7 +129,7 @@ export default class MemberAddForm extends React.Component{
           ref="comment"
         />
         <br />
-        <FlatButton
+        <RaisedButton
           label="追加"
           primary={true}
           onTouchTap={this.handleAddMemberButton}
