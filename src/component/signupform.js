@@ -187,6 +187,7 @@ export default class SignUpForm extends React.Component{
       return null;
     }
   }
+  
   /**
   * 描画メソッド
   * @return {undefined}
