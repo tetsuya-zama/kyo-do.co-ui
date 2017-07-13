@@ -48,8 +48,7 @@ export default class Board extends React.Component{
 
     return (
       <div>
-      <h3>行き先掲示板</h3>
-      <p>{date}</p>
+      <h3>行き先掲示板（データ取得日時: {date}）</h3>
       <TextField
         hintText="Filter"
         value={this.state.current_filter_text}
