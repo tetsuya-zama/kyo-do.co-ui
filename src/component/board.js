@@ -17,9 +17,13 @@ export default class Board extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      current_filter_text:""
-    }
+      current_filter_text:"",
+      current_sort_key:"0"
+    };
+    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleFilterChange = this.handleFilterChange.bind(this);
+    this.handleSortByDefault = this.handleSortByDefault.bind(this);
+    this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
   }
 
   /**
@@ -31,6 +35,15 @@ export default class Board extends React.Component{
   handleFilterChange(event,newValue){
     this.setState({current_filter_text : newValue});
   }
+
+  handleSortByDefault(event){
+    this.setState({current_sort_key : "0"});
+  }
+
+  handleSortByLastUpdate(event){
+    this.setState({current_sort_key : "1"});
+  }
+
   /**
   * 描画メソッド
   * @return {undefined}
@@ -41,34 +54,44 @@ export default class Board extends React.Component{
       member.name.toLowerCase().indexOf(this.state.current_filter_text.toLowerCase()) >= 0
     ));
 
-    const sortedMemberRows = filterMemberRows.sort(function(a,b){
-      if(a.lastUpdate > b.lastUpdate) return -1;
-      if(a.lastUpdate < b.lastUpdate) return 1;
-      return 0;
+    const sortedMemberRows = filterMemberRows.sort((a,b)=>{
+      if(this.state.current_sort_key === "0"){
+          if(a.userid < b.userid) return -1;
+          if(a.userid > b.userid) return 1;
+          return 0;
+      }
+      if(this.state.current_sort_key === "1"){
+          if(a.lastUpdate > b.lastUpdate) return -1;
+          if(a.lastUpdate < b.lastUpdate) return 1;
+          return 0;
+      }
     });
-  
-    const RaisedButtonExampleSimple = () => (
-      <div>
-        <RaisedButton label="Default" style={style} />
-        <RaisedButton label="Primary" primary={true} style={style} />
-        <RaisedButton label="Secondary" secondary={true} style={style} />
-        <RaisedButton label="Disabled" disabled={true} style={style} />
-        <br />
-        <br />
-        <RaisedButton label="Full width" fullWidth={true} />
-      </div>
-    );
 
     const memberRows = sortedMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
     const date = this.props.updatedate.date?
       this.props.updatedate.date.toLocaleString('ja-JP'):
       "";
 
+    const style = {
+      margin: 12,
+    };
+
     return (
       <div>
       <h3>行き先掲示板（データ取得日時: {date}）</h3>
-      <p>{RaisedButtonExampleSimple}</p>
-      <TextField
+        <div>
+          <RaisedButton 
+            label="ユーザーID(昇順)" 
+            style={style} 
+            onTouchTap={this.handleSortByDefault}
+          />
+          <RaisedButton label="更新日時(降順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByLastUpdate}
+          />
+        </div>
+       <TextField
         hintText="Filter"
         value={this.state.current_filter_text}
         onChange={this.handleFilterChange}
