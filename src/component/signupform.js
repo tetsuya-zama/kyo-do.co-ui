@@ -4,6 +4,7 @@ import {signupFailure,signupRequired} from '../action/signup'
 import {SIGNUP_FAILURE_REASONS,SIGNUP_VALIDATION_ERROR_MESSAGES} from '../const/signup'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import PasswordField from 'material-ui-password-field'
 /**
 * サインアップフォームのComponent
 * @see http://qiita.com/nownabe/items/2d8b92d95186c3941de0
@@ -115,7 +116,7 @@ export default class SignUpForm extends React.Component{
   }
 
   /**
-   * 秘密の質問 TextBoxの更新イベントハンドラ 
+   * 秘密の質問 TextBoxの更新イベントハンドラ
    * @param {Object} event イベント
    * @param {string} newValue 更新後の値
    * @return {undefined}
@@ -123,9 +124,9 @@ export default class SignUpForm extends React.Component{
   handleSecretQuestionChange(event,newValue){
     this.setState({secret_quetsion_text:newValue});
   }
-  
+
   /**
-   * 秘密の質問の答え TextBoxの更新イベントハンドラ 
+   * 秘密の質問の答え TextBoxの更新イベントハンドラ
    * @param {Object} event イベント
    * @param {string} newValue 更新後の値
    * @return {undefined}
@@ -186,6 +187,7 @@ export default class SignUpForm extends React.Component{
       return null;
     }
   }
+  
   /**
   * 描画メソッド
   * @return {undefined}
@@ -207,24 +209,20 @@ export default class SignUpForm extends React.Component{
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_ID)}
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.ID_DUPLICATED)}
         <br />
-        <TextField
-          hintText="Password"
+        <PasswordField
           floatingLabelText="Password"
           value={this.state.pass_text}
           ref="pass"
-          type="password"
           onChange={this.handlePassChange}
         />
         <br />
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD)}
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.POLICY_PASSWORD)}
         <br />
-        <TextField
-          hintText="Password(Confirm)"
+        <PasswordField
           floatingLabelText="Password(Confirm)"
           value={this.state.confirm_pass_text}
           ref="pass_confirm"
-          type="password"
           onChange={this.handleConfirmPasswordChange}
         />
         <br />
