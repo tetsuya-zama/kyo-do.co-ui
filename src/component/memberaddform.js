@@ -65,6 +65,8 @@ export default class MemberAddForm extends React.Component{
       ) :
       [];
 
+      console.log(allMembers,groupMembers);
+
     //TODO: filter機能の実装
     //    Group　memberでないメンバーを表示する
     const membersNotInGroup = allMembers.filter(member => groupMembers.indexOf(member) < 0);
@@ -74,7 +76,7 @@ export default class MemberAddForm extends React.Component{
         key={idx+1}
         value={member.name + "(" + member.userid + ")"}
         primaryText={member.name + "(" + member.userid + ")"}
-      />
+      />s
     );
 
     return(
