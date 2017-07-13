@@ -7,6 +7,8 @@ import GroupBoards from './groupboards'
 import MyDestination from './mydestination'
 import {LOGIN_STATUS} from '../const/login'
 import Paper from 'material-ui/Paper';
+import Snackbar from 'material-ui/Snackbar';
+import {closeNotice} from '../action/notice'
 
 
 /**
@@ -21,8 +23,12 @@ class Kyodoco extends React.Component{
   */
   constructor(props){
     super(props);
+    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
+    this.handleRequestNoticeClose = this.handleRequestNoticeClose.bind(this);
   }
-
+  handleRequestNoticeClose(){
+    this.props.dispatch(closeNotice());
+  }
   /**
   * 描画メソッド
   * @return {undefined}
@@ -85,6 +91,12 @@ class Kyodoco extends React.Component{
       {content}
       <hr />
       copyright NST i-lab All Rights Reserved.
+      <Snackbar
+          open={this.props.notice.open}
+          message={this.props.notice.message}
+          autoHideDuration={4000}
+          onRequestClose={this.handleRequestNoticeClose}
+        />
       </div>
     );
   }

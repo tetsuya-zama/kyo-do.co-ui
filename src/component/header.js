@@ -50,7 +50,7 @@ export default class Header extends React.Component{
   * @return {undefined}
   */
   handleOpen(){
-      this.props.dispatch(openAccountInfoModal());
+      this.props.dispatch(openAccountInfoModal(this.props.login.user.name));
   }
   /**
   * グループ作成ボタンのクリックをハンドリングするメソッド
