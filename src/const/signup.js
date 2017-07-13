@@ -23,7 +23,7 @@ export const SIGNUP_VALIDATION_ERROR_MESSAGES = [
   {reason : SIGNUP_FAILURE_REASONS.EMPTY_ID, msg : "IDを入力してください"},
   {reason : SIGNUP_FAILURE_REASONS.EMPTY_PASSWORD, msg : "パスワードを入力してください"},
   {reason : SIGNUP_FAILURE_REASONS.EMPTY_NAME, msg : "名前を入力してください"},
-  {reason : SIGNUP_FAILURE_REASONS.POLICY_PASSWORD, msg : "パスワードポリシーの要件を満たしていません(8文字以上，半角英数字を1文字以上含む)"},
+  {reason : SIGNUP_FAILURE_REASONS.POLICY_PASSWORD, msg : "パスワードポリシーの要件を満たしていません(数字と英語または記号の組み合わせで、8文字以上)"},
   {reason : SIGNUP_FAILURE_REASONS.EMPTY_SECRET_QUESTION, msg : "秘密の質問を入力してください"},
   {reason : SIGNUP_FAILURE_REASONS.EMPTY_SECRET_ANSWER, msg : "秘密の質問の答えを入力してください)"}
 ];
