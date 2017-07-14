@@ -4,6 +4,7 @@ import {MY_DESTINATION_CHANGE,myDestinationChange,myDestinationSaveComplete} fro
 import {LOGIN_SUCCESS} from '../action/login'
 import {getApiBaseURL} from '../module/environment';
 import axios from 'axios';
+import {MY_DESTINATION_CLEAR} from '../action/mydestination'
 
 /**
 * APIのベースURL

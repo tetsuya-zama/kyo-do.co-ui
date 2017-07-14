@@ -94,6 +94,7 @@ export default class Header extends React.Component{
               </IconButton>
             }
             targetOrigin={{ vertical: 'bottom', horizontal: 'left',}}
+            touchTapCloseDelay={0}
           >
               <MyDestination
                 dispatch={this.props.dispatch}

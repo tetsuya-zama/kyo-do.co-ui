@@ -187,7 +187,7 @@ export default class Board extends React.Component{
             style={style}
             onTouchTap={this.handleSortByIDDes}
           />
-          <RaisedButton label="出勤"
+          <RaisedButton label="出勤者(降順)"
             primary={true}
             style={style}
             onTouchTap={this.handleSortByAttendance}
@@ -210,4 +210,3 @@ export default class Board extends React.Component{
       </div>);
   }
 }
-
