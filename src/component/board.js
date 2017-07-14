@@ -18,7 +18,7 @@ export default class Board extends React.Component{
     super(props);
     this.state = {
       current_filter_text:"",
-      current_sort_key:"0"
+      current_sort_key:"1"
     };
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleFilterChange = this.handleFilterChange.bind(this);
@@ -92,6 +92,7 @@ export default class Board extends React.Component{
         <div>
           <RaisedButton
             label="ユーザーID(昇順)"
+            primary={true}
             style={style}
             onTouchTap={this.handleSortByDefault}
           />

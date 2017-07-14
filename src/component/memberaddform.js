@@ -121,7 +121,7 @@ export default class MemberAddForm extends React.Component{
       <div>
         <AutoComplete
           hintText="追加ユーザ"
-          filter={AutoComplete.fuzzyFilter}
+          filter={AutoComplete.caseInsensitiveFilter}
           dataSource={arrMemberValue}
           maxSearchResults={10}
           openOnFocus={true}
