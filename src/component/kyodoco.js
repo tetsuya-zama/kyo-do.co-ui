@@ -25,6 +25,9 @@ class Kyodoco extends React.Component{
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleRequestNoticeClose = this.handleRequestNoticeClose.bind(this);
   }
+  /**
+   * 通知SnackbarのCloseイベントハンドラ
+   */
   handleRequestNoticeClose(){
     this.props.dispatch(closeNotice());
   }
