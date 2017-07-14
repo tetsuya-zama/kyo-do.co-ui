@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import MemberRow from './memberrow';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import DropDownMenu from 'material-ui/DropDownMenu'; //追記
+import MenuItem from 'material-ui/MenuItem'; //追記
 
 /**
 * 行き先掲示板コンポーネント
@@ -28,6 +30,10 @@ export default class Board extends React.Component{
     this.handleSortByIDDes = this.handleSortByIDDes.bind(this);
     this.handleSortByLastUpdateDes = this.handleSortByLastUpdateDes.bind(this);
     this.handleSortByNameDes = this.handleSortByNameDes.bind(this);
+    //this.handleSortByDefault = this.handleSortByDefault.bind(this);
+    //this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
+    //this.handleSortByName = this.handleSortByName.bind(this);
+    this.handleSortByAttendance = this.handleSortByAttendance.bind(this);
   }
 
   /**
@@ -59,6 +65,9 @@ export default class Board extends React.Component{
   }
   handleSortByNameDes(event){
     this.setState({current_sort_key : "5"});
+  }
+  handleSortByAttendance(event){
+    this.setState({current_sort_key : "6"});
   }
 
   /**
@@ -102,7 +111,13 @@ export default class Board extends React.Component{
           if(a.name < b.name) return 1;
           return 0;
       }
+      if(this.state.current_sort_key === "6"){
+          if(a.inBusiness===true) return -1;
+          if(a.inBusiness===false) return 1;
+          return 0;
+      }
     });
+
 
     const memberRows = sortedMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
     const date = this.props.updatedate.date?
@@ -117,12 +132,6 @@ export default class Board extends React.Component{
       <div>
       <h3>行き先掲示板（データ取得日時: {date}）</h3>
         <div>
-          <RaisedButton
-            label="ユーザーID(昇順)"
-            primary={true}
-            style={style}
-            onTouchTap={this.handleSortByIDAsc}
-          />
           <RaisedButton label="更新日時(昇順)"
             primary={true}
             style={style}
@@ -133,13 +142,13 @@ export default class Board extends React.Component{
             style={style}
             onTouchTap={this.handleSortByNameAsc}
           />
-          <br />
           <RaisedButton
-            label="ユーザーID(降順)"
+            label="ユーザーID(昇順)"
             primary={true}
             style={style}
-            onTouchTap={this.handleSortByIDDes}
+            onTouchTap={this.handleSortByIDAsc}
           />
+          <br />
           <RaisedButton label="更新日時(降順)"
             primary={true}
             style={style}
@@ -149,6 +158,17 @@ export default class Board extends React.Component{
             primary={true}
             style={style}
             onTouchTap={this.handleSortByNameDes}
+          />
+          <RaisedButton
+            label="ユーザーID(降順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByIDDes}
+          />
+          <RaisedButton label="出勤"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByAttendance}
           />
         </div>
        <TextField
@@ -161,3 +181,4 @@ export default class Board extends React.Component{
       </div>);
   }
 }
+
