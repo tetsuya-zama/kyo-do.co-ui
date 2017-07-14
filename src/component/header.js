@@ -73,7 +73,7 @@ export default class Header extends React.Component{
     const toolbar = this.props.login.status == LOGIN_STATUS.SUCCESS ?
       <Toolbar>
         <ToolbarGroup>
-          <Chip backgroundColor={cyan300}><Avatar backgroundColor={cyan600}>{this.props.login.user.name.charAt(0).toUpperCase()}</Avatar>{this.props.login.user.name}</Chip>
+          <Chip><Avatar backgroundColor={this.props.mydestination.inBusiness ? "red" : "gray"}>{this.props.mydestination.inBusiness ? "出" : "退"}</Avatar>{this.props.login.user.name}</Chip>
           <IconMenu
             iconButtonElement={
               <IconButton touch={true} tooltip="出退勤" tooltipPosition="top-right">
