@@ -58,7 +58,7 @@ export default class Board extends React.Component{
   }
 
   handleSortByNameAsc(event){
-    this.setState({current_sort_key : "２"});
+    this.setState({current_sort_key : "2"});
   }
   handleSortByIDDes(event){
     this.setState({current_sort_key : "3"});
@@ -95,7 +95,7 @@ export default class Board extends React.Component{
           if(a.lastUpdate > b.lastUpdate) return 1;
           return 0;
       }
-      if(this.state.current_sort_key === "２"){
+      if(this.state.current_sort_key === "2"){
           if(a.name < b.name) return -1;
           if(a.name > b.name) return 1;
           return 0;
