@@ -24,6 +24,7 @@ export default class MyDestination extends React.Component{
     this.handleToggle = this.handleToggle.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleContactChange = this.handleContactChange.bind(this);
+    this.handleClear = this.handleClear.bind(this);
   }
   /**
   * 出勤/退勤の切り替えをハンドリングするメソッド
@@ -58,6 +59,16 @@ export default class MyDestination extends React.Component{
     this.props.dispatch(myDestinationChange({
         inBusiness:this.props.mydestination.inBusiness, comment:this.props.mydestination.comment, contact:newValue
     }));
+  }
+
+  /**
+  * クリアボタンの押下をハンドリングするメソッド
+  * @param {Object} event イベント
+  * @param {string} newValue 新しい値
+  * @return {undefined}
+  */
+  handleClear(event,newValue){
+    this.props.dispatch(myDestinationClear());
   }
 
   /**
