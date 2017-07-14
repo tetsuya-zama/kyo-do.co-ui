@@ -65,6 +65,10 @@ export default class MyDestination extends React.Component{
   * @return {undefined}
   */
   render(){
+    const style = {
+      margin:10,
+    };
+
     return (
       <div>
       <Paper style={{margin:20, padding:10}} zDepth={2}>
@@ -84,6 +88,11 @@ export default class MyDestination extends React.Component{
                 onUpdateInput={this.handleCommentChange}
                 searchText={this.props.mydestination.comment}
                 ref="comment"
+              />
+              <RaisedButton label="クリア"
+                primary={true}
+                style={style}
+                onTouchTap={this.handleClear}
               />
             </td>
           </tr>
