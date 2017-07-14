@@ -24,6 +24,7 @@ export default class MyDestination extends React.Component{
     this.handleToggle = this.handleToggle.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleContactChange = this.handleContactChange.bind(this);
+    this.handleClear = this.handleClear.bind(this);
   }
   /**
   * 出勤/退勤の切り替えをハンドリングするメソッド
@@ -61,10 +62,26 @@ export default class MyDestination extends React.Component{
   }
 
   /**
+  * クリアボタンの押下をハンドリングするメソッド
+  * @param {Object} event イベント
+  * @param {string} newValue 新しい値
+  * @return {undefined}
+  */
+  handleClear(event,newValue){
+    this.props.dispatch(myDestinationChange({
+        inBusiness:this.props.mydestination.inBusiness, comment:"", contact:this.props.mydestination.contact
+    }));
+  }
+
+  /**
   * 描画メソッド
   * @return {undefined}
   */
   render(){
+    const style = {
+      margin:10,
+    };
+
     return (
       <div>
       <Paper style={{margin:5, padding:5}} zDepth={2}>
@@ -83,7 +100,14 @@ export default class MyDestination extends React.Component{
             onUpdateInput={this.handleCommentChange}
             searchText={this.props.mydestination.comment}
             ref="comment"
-          /><br />
+          />
+          <br/>
+          <RaisedButton label="クリア"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleClear}
+          />
+          <br />
           <TextField floatingLabelText="電話番号を入れてね" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
       </Paper>
       </div>);
