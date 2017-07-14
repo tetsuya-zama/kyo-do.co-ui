@@ -187,7 +187,7 @@ export default class SignUpForm extends React.Component{
       return null;
     }
   }
-  
+
   /**
   * 描画メソッド
   * @return {undefined}
@@ -258,7 +258,7 @@ export default class SignUpForm extends React.Component{
         <br />
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.EMPTY_SECRET_ANSWER)}
         <br />
-        <RaisedButton ref="signup" onClick={this.handleSubmit} label="Sign Up" />
+        <RaisedButton ref="signup" onClick={this.handleSubmit} primary={true} label="Sign Up" />
         <br />
         {this.renderValidationError(SIGNUP_FAILURE_REASONS.SERVER_ERROR)}
         <br />
