@@ -114,7 +114,6 @@ export default class MyDestination extends React.Component{
             searchText={this.props.mydestination.comment}
             ref="comment"
           />
-          <br/>
           <RaisedButton label="クリア"
             primary={true}
             style={style}
