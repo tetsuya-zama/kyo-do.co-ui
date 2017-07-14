@@ -20,6 +20,7 @@ import GroupManagementBoard from './groupmanagementboard';
 import {openAccountInfoModal} from '../action/accountboard';
 import {openGroupCreationBoard} from '../action/groupboards';
 import MyDestination from './mydestination'
+import {cyan300,cyan600} from 'material-ui/styles/colors';
 
 /**
 * Headerコンポーネント
@@ -72,7 +73,7 @@ export default class Header extends React.Component{
     const toolbar = this.props.login.status == LOGIN_STATUS.SUCCESS ?
       <Toolbar>
         <ToolbarGroup>
-          <Chip><Avatar>{this.props.login.user.name.charAt(0).toUpperCase()}</Avatar>{this.props.login.user.name}</Chip>
+          <Chip backgroundColor={cyan300}><Avatar backgroundColor={cyan600}>{this.props.login.user.name.charAt(0).toUpperCase()}</Avatar>{this.props.login.user.name}</Chip>
           <IconMenu
             iconButtonElement={
               <IconButton touch={true} tooltip="出退勤" tooltipPosition="top-right">
