@@ -20,6 +20,7 @@ import GroupManagementBoard from './groupmanagementboard';
 import {openAccountInfoModal} from '../action/accountboard';
 import {openGroupCreationBoard} from '../action/groupboards';
 import MyDestination from './mydestination'
+import HistoryBoard from './historyboard'
 
 /**
 * Headerコンポーネント
@@ -110,6 +111,7 @@ export default class Header extends React.Component{
           group={this.props.group}
           board={this.props.board}
         />
+        <HistoryBoard dispatch={this.props.dispatch} historyboard={this.props.historyboard} />
       </Toolbar>:
       null
 
