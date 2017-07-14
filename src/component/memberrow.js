@@ -6,6 +6,7 @@ import {
   red600,
   grey400
 } from 'material-ui/styles/colors';
+import {getDestHistory} from '../action/historyboard';
 
 /**
 * メンバーごとの行き先コンポーネント
@@ -19,7 +20,18 @@ export default class MemberRow extends React.Component{
   */
   constructor(props){
     super(props);
+    //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
+    this.handleMemberRow = this.handleMemberRow.bind(this);
   }
+    
+  /**
+   * メンバーのクリックをハンドルするメソッド
+   */
+
+  handleMemberRow(){
+    this.props.dispatch(getDestHistory({userid:this.props.member.userid}));
+  }
+
   /**
   * 描画メソッド
   * @return {undefined}
@@ -37,7 +49,9 @@ export default class MemberRow extends React.Component{
             }
             secondaryTextLines={2}
 //              tertiaryText={"最終更新日:" + this.props.member.lastUpdate.substr(0,16)}
-          leftAvatar={<Avatar backgroundColor={this.props.member.inBusiness ? red600 : grey400} > {this.props.member.inBusiness ? "出" : "退"}</Avatar>} />
+          leftAvatar={<Avatar backgroundColor={this.props.member.inBusiness ? red600 : grey400} > {this.props.member.inBusiness ? "出" : "退"}</Avatar>} 
+          onTouchTap={this.handleMemberRow}
+          />
       </List>
     );
   }
