@@ -73,9 +73,7 @@ export default class MyDestination extends React.Component{
           <tbody>
           <tr>
             <td>{this.props.login.user.name}</td>
-            <td>
-              <Toggle label={(this.props.mydestination.inBusiness===true)?"[出勤]" : "[退勤]"} toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"/>
-            </td>
+            <td></td>
             <td>
               <AutoComplete
                 floatingLabelText="今日どこ？"
@@ -90,7 +88,9 @@ export default class MyDestination extends React.Component{
             </td>
           </tr>
           <tr>
-            <td></td>
+            <td>
+              <Toggle label={(this.props.mydestination.inBusiness===true)?"[出勤]" : "[退勤]"} toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"/>
+            </td>
             <td></td>
             <td>
               <TextField floatingLabelText="電話番号を入れてね" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
