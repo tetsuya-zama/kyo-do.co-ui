@@ -1,6 +1,7 @@
 import {MY_DESTINATION_CHANGE} from '../action/mydestination'
 import {DEFAULT_MY_DESTINATION} from '../const/mydestination'
 import {SUGGESTION_CHANGE,SUGGESTION_CLEAR} from '../action/suggestion'
+import {MY_DESTIATION_CLEAR} from '../action/mydestination'
 
 /**
 * 自分の行き先 reducer
@@ -17,6 +18,8 @@ export default function mydestination(state=DEFAULT_MY_DESTINATION,action){
       return Object.assign({},state,{suggestion:action.payload});
     case(SUGGESTION_CLEAR):
       return Object.assign({},state,{suggestion:DEFAULT_MY_DESTINATION.suggestion});
+    case(MY_DESTINATION_CLEAR):
+      return Object.assign({},state,{comment:null});
     default:
       return state;
   }

@@ -4,6 +4,7 @@ import {MY_DESTINATION_CHANGE,myDestinationChange,myDestinationSaveComplete} fro
 import {LOGIN_SUCCESS} from '../action/login'
 import {getApiBaseURL} from '../module/environment';
 import axios from 'axios';
+import {MY_DESTINATION_CLEAR} from '../action/mydestination'
 
 /**
 * APIのベースURL
@@ -60,6 +61,14 @@ export function* loadDestinationTask(){
 */
 export function* changeDestinationSaga(){
   yield takeLatest(MY_DESTINATION_CHANGE,changeDestinationTask);
+}
+
+/**
+* 行き先クリアアクションを受け付けるSaga
+* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
+*/
+export function* clearDestinationSaga(){
+  yield takeLatest(MY_DESTINATION_CLEAR,chanegeDestinationTask);
 }
 
 /**
