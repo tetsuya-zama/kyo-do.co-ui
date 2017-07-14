@@ -4,7 +4,6 @@ import Header from './header'
 import LoginForm from './loginform'
 import SignUpForm from './signupform'
 import GroupBoards from './groupboards'
-import MyDestination from './mydestination'
 import {LOGIN_STATUS} from '../const/login'
 import Paper from 'material-ui/Paper';
 import Snackbar from 'material-ui/Snackbar';
@@ -45,11 +44,6 @@ class Kyodoco extends React.Component{
     const content =
       this.props.login.status == LOGIN_STATUS.SUCCESS ?
       (<div>
-        <MyDestination
-          dispatch={this.props.dispatch}
-          login={this.props.login}
-          mydestination={this.props.mydestination}
-        />
         <GroupBoards
           dispatch={this.props.dispatch}
           board={this.props.board}
@@ -87,6 +81,7 @@ class Kyodoco extends React.Component{
           groupboards={this.props.groupboards}
           group={this.props.group}
           board={this.props.board}
+          mydestination={this.props.mydestination}
         />
       </header>
       <hr />
