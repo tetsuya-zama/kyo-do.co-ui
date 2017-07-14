@@ -68,7 +68,9 @@ export default class MyDestination extends React.Component{
   * @return {undefined}
   */
   handleClear(event,newValue){
-    this.props.dispatch(myDestinationClear());
+    this.props.dispatch(myDestinationChange({
+        inBusiness:this.props.mydestination.inBusiness, comment:"", contact:this.props.mydestination.contact
+    }));
   }
 
   /**

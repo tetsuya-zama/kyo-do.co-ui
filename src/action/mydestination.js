@@ -44,8 +44,9 @@ export const MY_DESTINATION_CLEAR = "MY_DESTINATION_CLEAR";
 * @param {{inBusiness:boolean,comment:string,contact:string}}
 * @return {Object} 自分の行き先クリアアクション
 */
-export function myDestinationClear(){
+export function myDestinationClear(destination){
   return {
-    type : MY_DESTINATION_CLEAR
+    type : MY_DESTINATION_CLEAR,
+    payload:destination
   };
 }

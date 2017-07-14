@@ -64,14 +64,6 @@ export function* changeDestinationSaga(){
 }
 
 /**
-* 行き先クリアアクションを受け付けるSaga
-* @see http://qiita.com/kuy/items/716affc808ebb3e1e8ac
-*/
-export function* clearDestinationSaga(){
-  yield takeLatest(MY_DESTINATION_CLEAR,chanegeDestinationTask);
-}
-
-/**
 * 行き先変更アクションを受け付けた際のTask
 * @param {Object} action MY_DESTINATION_CHANGEアクション
 */
