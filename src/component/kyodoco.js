@@ -85,6 +85,7 @@ class Kyodoco extends React.Component{
           group={this.props.group}
           board={this.props.board}
           mydestination={this.props.mydestination}
+          historyboard={this.props.historyboard}
         />
       </header>
       <hr />

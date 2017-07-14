@@ -39,6 +39,7 @@ export default class GroupBoards extends React.Component{
           >
             {editButton}
             <Board
+              dispatch={this.props.dispatch}
               memberStatus={group.member}
               updatedate={this.props.updatedate}
             />
