@@ -31,4 +31,5 @@ export default function* rootSaga(){
   yield fork(updateDateSaga);
   yield fork(secretQuestionSaga);
   yield fork(noticeSaveCompleteSaga);
+
 }
