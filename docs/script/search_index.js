@@ -133,79 +133,79 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/component/mydestination.test.js.html#lineNumber62",
+    "test-file/test/component/mydestination.test.js.html#lineNumber61",
     "<MyDestination /> dispatches MY_DESTINATION_CHANGE action if comment is changed",
     "test"
   ],
   [
     "",
-    "test-file/test/component/mydestination.test.js.html#lineNumber91",
+    "test-file/test/component/mydestination.test.js.html#lineNumber90",
     "<MyDestination /> dispatches MY_DESTINATION_CHANGE action if contact is changed",
     "test"
   ],
   [
     "",
-    "test-file/test/component/mydestination.test.js.html#lineNumber36",
+    "test-file/test/component/mydestination.test.js.html#lineNumber35",
     "<MyDestination /> dispatches MY_DESTINATION_CHANGE action if in_business is toggled",
     "test"
   ],
   [
     "",
     "test-file/test/component/mydestination.test.js.html#lineNumber14",
-    "<MyDestination /> renders in_business toggle, comment and contact textboxes and clear button",
+    "<MyDestination /> renders in_business toggle, comment and contact textboxes",
     "test"
   ],
   [
     "",
-    "test-file/test/component/mydestination.test.js.html#lineNumber119",
+    "test-file/test/component/mydestination.test.js.html#lineNumber118",
     "<MyDestination /> renders values which is passed as mydestination state",
     "test"
   ],
   [
     "signupform src/component/signupform.js~signupform,signupform",
-    "test-file/test/component/signupform.test.js.html#lineNumber87",
+    "test-file/test/component/signupform.test.js.html#lineNumber123",
     "<SignUpForm />",
     "test"
   ],
   [
     "",
-    "test-file/test/component/signupform.test.js.html#lineNumber180",
+    "test-file/test/component/signupform.test.js.html#lineNumber218",
     "<SignUpForm /> dispatches SIGNUP_FAILURE action if some display validations is not passed",
     "test"
   ],
   [
     "",
-    "test-file/test/component/signupform.test.js.html#lineNumber208",
+    "test-file/test/component/signupform.test.js.html#lineNumber248",
     "<SignUpForm /> dispatches SIGNUP_FAILURE action with each SIGNUP_FAILURE_REASONS of reasons why display side validation is not passed",
     "test"
   ],
   [
     "",
-    "test-file/test/component/signupform.test.js.html#lineNumber152",
+    "test-file/test/component/signupform.test.js.html#lineNumber188",
     "<SignUpForm /> dispatches SIGNUP_REQUIRED action if all display side validations are passed",
     "test"
   ],
   [
     "",
-    "test-file/test/component/signupform.test.js.html#lineNumber106",
+    "test-file/test/component/signupform.test.js.html#lineNumber142",
     "<SignUpForm /> doesn't render any validation error messages if failure_reason is empty array.",
     "test"
   ],
   [
     "",
-    "test-file/test/component/signupform.test.js.html#lineNumber121",
+    "test-file/test/component/signupform.test.js.html#lineNumber157",
     "<SignUpForm /> renders each validation error messages of failure_reason",
     "test"
   ],
   [
     "",
-    "test-file/test/component/signupform.test.js.html#lineNumber89",
+    "test-file/test/component/signupform.test.js.html#lineNumber125",
     "<SignUpForm /> renders id,pass,pass_confirm,name textboxes and sign up button",
     "test"
   ],
   [
     "",
-    "test-file/test/component/signupform.test.js.html#lineNumber136",
+    "test-file/test/component/signupform.test.js.html#lineNumber172",
     "<SignUpForm /> renders multipul validation error messages if failure_reason has multipul reasons",
     "test"
   ],
@@ -291,6 +291,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/groupboards.js~close_group_management_board",
     "variable/index.html#static-variable-CLOSE_GROUP_MANAGEMENT_BOARD",
     "<span>CLOSE_GROUP_MANAGEMENT_BOARD</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/notice.js~close_notice",
+    "variable/index.html#static-variable-CLOSE_NOTICE",
+    "<span>CLOSE_NOTICE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/notice.js</span>",
     "variable"
   ],
   [
@@ -489,6 +495,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/groupboards.js~open_group_management_board",
     "variable/index.html#static-variable-OPEN_GROUP_MANAGEMENT_BOARD",
     "<span>OPEN_GROUP_MANAGEMENT_BOARD</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "variable"
+  ],
+  [
+    "kyo-do.co-ui/src/action/notice.js~open_notice",
+    "variable/index.html#static-variable-OPEN_NOTICE",
+    "<span>OPEN_NOTICE</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/notice.js</span>",
     "variable"
   ],
   [
@@ -741,6 +753,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/groupboards.js~closegroupmanagementboard",
     "function/index.html#static-function-closeGroupManagementBoard",
     "<span>closeGroupManagementBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/notice.js~closenotice",
+    "function/index.html#static-function-closeNotice",
+    "<span>closeNotice</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/notice.js</span>",
     "function"
   ],
   [
@@ -1014,12 +1032,6 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "kyo-do.co-ui/src/action/mydestination.js~mydestinationclear",
-    "function/index.html#static-function-myDestinationClear",
-    "<span>myDestinationClear</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
-    "function"
-  ],
-  [
     "kyo-do.co-ui/src/action/mydestination.js~mydestinationsavecomplete",
     "function/index.html#static-function-myDestinationSaveComplete",
     "<span>myDestinationSaveComplete</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/mydestination.js</span>",
@@ -1029,6 +1041,24 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/reducer/mydestination.js~mydestination",
     "function/index.html#static-function-mydestination",
     "<span>mydestination</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/mydestination.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/reducer/notice.js~notice",
+    "function/index.html#static-function-notice",
+    "<span>notice</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/reducer/notice.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/notice.js~noticesavecompletesaga",
+    "function/index.html#static-function-noticeSaveCompleteSaga",
+    "<span>noticeSaveCompleteSaga</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/notice.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/saga/notice.js~noticesavecompletetask",
+    "function/index.html#static-function-noticeSaveCompleteTask",
+    "<span>noticeSaveCompleteTask</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/saga/notice.js</span>",
     "function"
   ],
   [
@@ -1047,6 +1077,12 @@ window.esdocSearchIndex = [
     "kyo-do.co-ui/src/action/groupboards.js~opengroupmanagementboard",
     "function/index.html#static-function-openGroupManagementBoard",
     "<span>openGroupManagementBoard</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/groupboards.js</span>",
+    "function"
+  ],
+  [
+    "kyo-do.co-ui/src/action/notice.js~opennotice",
+    "function/index.html#static-function-openNotice",
+    "<span>openNotice</span> <span class=\"search-result-import-path\">kyo-do.co-ui/src/action/notice.js</span>",
     "function"
   ],
   [
@@ -1549,32 +1585,32 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/reducer/accountboard.test.js.html#lineNumber67",
+    "test-file/test/reducer/accountboard.test.js.html#lineNumber71",
     "accountboard reducer changes nextuser of accountboard state and turns open to true",
     "test"
   ],
   [
     "",
-    "test-file/test/reducer/accountboard.test.js.html#lineNumber91",
+    "test-file/test/reducer/accountboard.test.js.html#lineNumber95",
     "accountboard reducer does nothing if any other action is passed",
     "test"
   ],
   [
     "",
-    "test-file/test/reducer/accountboard.test.js.html#lineNumber25",
+    "test-file/test/reducer/accountboard.test.js.html#lineNumber29",
     "accountboard reducer turns open of accountboard state into false and clears nextuser if ACCOUNT_INFO_MODAL_CLOSE action is passed",
     "test"
   ],
   [
     "",
-    "test-file/test/reducer/accountboard.test.js.html#lineNumber44",
+    "test-file/test/reducer/accountboard.test.js.html#lineNumber48",
     "accountboard reducer turns open of accountboard state into false and clears nextuser if CHANGE_ACCOUNT_INFO action is passed",
     "test"
   ],
   [
     "",
     "test-file/test/reducer/accountboard.test.js.html#lineNumber6",
-    "accountboard reducer turns open of accountboard state into true and clears nextuser if ACCOUNT_INFO_MODAL_OPEN action is passed",
+    "accountboard reducer turns open of accountboard state into true and change nextname into action's payload and clears nextpass if ACCOUNT_INFO_MODAL_OPEN action is passed",
     "test"
   ],
   [
@@ -1873,13 +1909,13 @@ window.esdocSearchIndex = [
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber46",
+    "test-file/test/action/groupboards.test.js.html#lineNumber25",
     "closeGroupCreationBoard action creator",
     "test"
   ],
   [
     "closegroupcreationboard src/action/groupboards.js~closegroupcreationboard,closegroupcreationboard",
-    "test-file/test/action/groupboards.test.js.html#lineNumber25",
+    "test-file/test/action/groupboards.test.js.html#lineNumber46",
     "closeGroupCreationBoard action creator",
     "test"
   ],
@@ -2478,26 +2514,14 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "mydestinationclear src/action/mydestination.js~mydestinationclear,mydestinationclear",
-    "test-file/test/action/mydestination.test.js.html#lineNumber23",
-    "myDestinationClear action creator",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/action/mydestination.test.js.html#lineNumber24",
-    "myDestinationClear action creator creates MY_DESTINATION_CHANGE action with DEFAULT_MY_DESTINATION",
-    "test"
-  ],
-  [
     "mydestinationsavecomplete src/action/mydestination.js~mydestinationsavecomplete,mydestinationsavecomplete",
-    "test-file/test/action/mydestination.test.js.html#lineNumber33",
+    "test-file/test/action/mydestination.test.js.html#lineNumber23",
     "myDestinationSaveComplete action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/mydestination.test.js.html#lineNumber34",
+    "test-file/test/action/mydestination.test.js.html#lineNumber24",
     "myDestinationSaveComplete action creator creates MY_DESTINATION_SAVE_COMPLETE action with inBusiness, comment and contact data",
     "test"
   ],
@@ -2634,6 +2658,18 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "",
+    "test-file/test/action/updatedate.test.js.html#lineNumber5",
+    "setUpdateDate action creator",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/action/updatedate.test.js.html#lineNumber6",
+    "setUpdateDate action creator creates SET_UPDATE_DATE action with current date time",
+    "test"
+  ],
+  [
     "signupsaga src/saga/signup.js~signupsaga,signupsaga",
     "test-file/test/saga/signup.test.js.html#lineNumber12",
     "signup Saga",
@@ -2653,7 +2689,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/saga/signup.test.js.html#lineNumber54",
+    "test-file/test/saga/signup.test.js.html#lineNumber59",
     "signup Task puts SIGNUP_FAILURE action if server returns signup failure",
     "test"
   ],
@@ -2683,13 +2719,13 @@ window.esdocSearchIndex = [
   ],
   [
     "signupfailure src/action/signup.js~signupfailure,signupfailure",
-    "test-file/test/action/signup.test.js.html#lineNumber29",
+    "test-file/test/action/signup.test.js.html#lineNumber31",
     "signupFailure action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/signup.test.js.html#lineNumber30",
+    "test-file/test/action/signup.test.js.html#lineNumber32",
     "signupFailure action creator creates SIGNUP_FAILURE action with array of SIGNUP_FAILURE_REASONS",
     "test"
   ],
@@ -2707,13 +2743,13 @@ window.esdocSearchIndex = [
   ],
   [
     "signupsucceess src/action/signup.js~signupsucceess,signupsucceess",
-    "test-file/test/action/signup.test.js.html#lineNumber21",
+    "test-file/test/action/signup.test.js.html#lineNumber23",
     "signupSucceess action creator",
     "test"
   ],
   [
     "",
-    "test-file/test/action/signup.test.js.html#lineNumber22",
+    "test-file/test/action/signup.test.js.html#lineNumber24",
     "signupSucceess action creator creates SIGNUP_SUCCESS action with no arguments",
     "test"
   ],
@@ -2751,6 +2787,12 @@ window.esdocSearchIndex = [
     "src/action/mydestination.js",
     "file/src/action/mydestination.js.html",
     "src/action/mydestination.js",
+    "file"
+  ],
+  [
+    "src/action/notice.js",
+    "file/src/action/notice.js.html",
+    "src/action/notice.js",
     "file"
   ],
   [
@@ -2829,6 +2871,24 @@ window.esdocSearchIndex = [
     "src/component/board.js~board#handlefilterchange",
     "class/src/component/board.js~Board.html#instance-method-handleFilterChange",
     "src/component/board.js~Board#handleFilterChange",
+    "method"
+  ],
+  [
+    "src/component/board.js~board#handlesortbydefault",
+    "class/src/component/board.js~Board.html#instance-method-handleSortByDefault",
+    "src/component/board.js~Board#handleSortByDefault",
+    "method"
+  ],
+  [
+    "src/component/board.js~board#handlesortbylastupdate",
+    "class/src/component/board.js~Board.html#instance-method-handleSortByLastUpdate",
+    "src/component/board.js~Board#handleSortByLastUpdate",
+    "method"
+  ],
+  [
+    "src/component/board.js~board#handlesortbyname",
+    "class/src/component/board.js~Board.html#instance-method-handleSortByName",
+    "src/component/board.js~Board#handleSortByName",
     "method"
   ],
   [
@@ -3090,16 +3150,34 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/memberaddform.js~memberaddform#handlememberchange",
+    "class/src/component/memberaddform.js~MemberAddForm.html#instance-method-handleMemberChange",
+    "src/component/memberaddform.js~MemberAddForm#handleMemberChange",
+    "method"
+  ],
+  [
     "src/component/memberaddform.js~memberaddform#render",
     "class/src/component/memberaddform.js~MemberAddForm.html#instance-method-render",
     "src/component/memberaddform.js~MemberAddForm#render",
     "method"
   ],
   [
+    "src/component/memberaddform.js~memberaddform#searchword",
+    "class/src/component/memberaddform.js~MemberAddForm.html#instance-member-searchWord",
+    "src/component/memberaddform.js~MemberAddForm#searchWord",
+    "member"
+  ],
+  [
     "src/component/memberaddform.js~memberaddform#state",
     "class/src/component/memberaddform.js~MemberAddForm.html#instance-member-state",
     "src/component/memberaddform.js~MemberAddForm#state",
     "member"
+  ],
+  [
+    "src/component/memberaddform.js~memberaddform#test",
+    "class/src/component/memberaddform.js~MemberAddForm.html#instance-method-test",
+    "src/component/memberaddform.js~MemberAddForm#test",
+    "method"
   ],
   [
     "src/component/memberrow.js",
@@ -3129,12 +3207,6 @@ window.esdocSearchIndex = [
     "src/component/mydestination.js~mydestination#constructor",
     "class/src/component/mydestination.js~MyDestination.html#instance-constructor-constructor",
     "src/component/mydestination.js~MyDestination#constructor",
-    "method"
-  ],
-  [
-    "src/component/mydestination.js~mydestination#handleclear",
-    "class/src/component/mydestination.js~MyDestination.html#instance-method-handleClear",
-    "src/component/mydestination.js~MyDestination#handleClear",
     "method"
   ],
   [
@@ -3195,6 +3267,18 @@ window.esdocSearchIndex = [
     "src/component/signupform.js~signupform#handlepasschange",
     "class/src/component/signupform.js~SignUpForm.html#instance-method-handlePassChange",
     "src/component/signupform.js~SignUpForm#handlePassChange",
+    "method"
+  ],
+  [
+    "src/component/signupform.js~signupform#handlesecretanswerchange",
+    "class/src/component/signupform.js~SignUpForm.html#instance-method-handleSecretAnswerChange",
+    "src/component/signupform.js~SignUpForm#handleSecretAnswerChange",
+    "method"
+  ],
+  [
+    "src/component/signupform.js~signupform#handlesecretquestionchange",
+    "class/src/component/signupform.js~SignUpForm.html#instance-method-handleSecretQuestionChange",
+    "src/component/signupform.js~SignUpForm#handleSecretQuestionChange",
     "method"
   ],
   [
@@ -3336,6 +3420,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/reducer/notice.js",
+    "file/src/reducer/notice.js.html",
+    "src/reducer/notice.js",
+    "file"
+  ],
+  [
     "src/reducer/root.js",
     "file/src/reducer/root.js.html",
     "src/reducer/root.js",
@@ -3381,6 +3471,12 @@ window.esdocSearchIndex = [
     "src/saga/mydestination.js",
     "file/src/saga/mydestination.js.html",
     "src/saga/mydestination.js",
+    "file"
+  ],
+  [
+    "src/saga/notice.js",
+    "file/src/saga/notice.js.html",
+    "src/saga/notice.js",
     "file"
   ],
   [
@@ -3486,6 +3582,12 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/action/updatedate.test.js",
+    "test-file/test/action/updatedate.test.js.html",
+    "test/action/updatedate.test.js",
+    "testFile"
+  ],
+  [
     "test/component/accountboard.test.js",
     "test-file/test/component/accountboard.test.js.html",
     "test/component/accountboard.test.js",
@@ -3564,6 +3666,12 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/reducer/updatedate.test.js",
+    "test-file/test/reducer/updatedate.test.js.html",
+    "test/reducer/updatedate.test.js",
+    "testFile"
+  ],
+  [
     "test/saga/accountboard.test.js",
     "test-file/test/saga/accountboard.test.js.html",
     "test/saga/accountboard.test.js",
@@ -3603,6 +3711,12 @@ window.esdocSearchIndex = [
     "test/saga/suggestion.test.js",
     "test-file/test/saga/suggestion.test.js.html",
     "test/saga/suggestion.test.js",
+    "testFile"
+  ],
+  [
+    "test/saga/updatedate.test.js",
+    "test-file/test/saga/updatedate.test.js.html",
+    "test/saga/updatedate.test.js",
     "testFile"
   ],
   [
@@ -3672,6 +3786,30 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
+    "",
+    "test-file/test/saga/updatedate.test.js.html#lineNumber7",
+    "updateDateSaga",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/updatedate.test.js.html#lineNumber8",
+    "updateDateSaga takes every UPDATE_MEMBER_STATUS action and pass it to updateDateTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/updatedate.test.js.html#lineNumber19",
+    "updateDateTask",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/saga/updatedate.test.js.html#lineNumber20",
+    "updateDateTask puts SET_UPDATE_DATE action with current time",
+    "test"
+  ],
+  [
     "updatememberstatus src/action/board.js~updatememberstatus,updatememberstatus",
     "test-file/test/action/board.test.js.html#lineNumber6",
     "updateMemberStatus action creator",
@@ -3681,6 +3819,24 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/action/board.test.js.html#lineNumber7",
     "updateMemberStatus action creator creates UPDATE_MEMBER_STATUS action with all member status from API",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/updatedate.test.js.html#lineNumber6",
+    "updatedate reducer",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/updatedate.test.js.html#lineNumber7",
+    "updatedate reducer updates date state to action's payload if SET_UPDATE_DATE is passed",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/reducer/updatedate.test.js.html#lineNumber19",
+    "updatedate reducer updates date state to action's payload if SET_UPDATE_DATE is passed even if date has been already set",
     "test"
   ],
   [
