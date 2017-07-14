@@ -24,6 +24,7 @@ export default class Board extends React.Component{
     this.handleFilterChange = this.handleFilterChange.bind(this);
     this.handleSortByDefault = this.handleSortByDefault.bind(this);
     this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
+    this.handleSort2ByLastUpdate = this.handleSort2ByLastUpdate.bind(this);
     this.handleSortByName = this.handleSortByName.bind(this);
   }
 
@@ -48,6 +49,11 @@ export default class Board extends React.Component{
   handleSortByName(event){
     this.setState({current_sort_key : "２"});
   }
+
+  handleSort2ByLastUpdate(event){
+    this.setState({current_sort_key : "3"});
+  }
+
 
   /**
   * 描画メソッド
@@ -75,6 +81,13 @@ export default class Board extends React.Component{
           if(a.name < b.name) return 1;
           return 0;
       }
+
+      if(this.state.current_sort_key === "3"){
+          if(a.lastUpdate < b.lastUpdate) return -1;
+          if(a.lastUpdate > b.lastUpdate) return 1;
+          return 0;
+      }
+
     });
 
     const memberRows = sortedMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
@@ -106,6 +119,13 @@ export default class Board extends React.Component{
             style={style}
             onTouchTap={this.handleSortByName}
           />
+
+          <RaisedButton label="更新日時(昇順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSort2ByLastUpdate}
+          />
+          
         </div>
        <TextField
         hintText="Filter"
