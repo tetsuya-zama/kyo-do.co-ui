@@ -116,6 +116,7 @@ export default class MemberAddForm extends React.Component{
     });
     const arrMemberValue = Object.keys(sortedItems).map(function(key) {return sortedItems[key].props.value});
 
+
     return(
       <div>
         <AutoComplete
