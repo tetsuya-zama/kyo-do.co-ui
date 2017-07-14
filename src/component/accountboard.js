@@ -90,18 +90,20 @@ export default class AccountBoard extends React.Component{
           open={this.props.accountboard.open}
         >
           <TextField
-          hintText="表示名"
-          value={this.props.accountboard.nextuser.nextname}
-          onChange={this.handleNameChange}
-          ref="name"
+            hintText="表示名"
+            floatingLabelText="表示名"
+            value={this.props.accountboard.nextuser.nextname}
+            onChange={this.handleNameChange}
+            ref="name"
           />
           <br />
           <TextField
-          hintText="Password"
-          value={this.props.accountboard.nextuser.nextpass}
-          type="password"
-          onChange={this.handlePassChange}
-          ref="pass"
+            hintText="Password"
+            floatingLabelText="Password"
+            value={this.props.accountboard.nextuser.nextpass}
+            type="password"
+            onChange={this.handlePassChange}
+            ref="pass"
           />
         </Dialog>
 
