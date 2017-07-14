@@ -23,7 +23,7 @@ export default class Board extends React.Component{
     this.state = {
       current_filter_text:"",
       current_sort_key:"4",
-      value : 2
+      value : 3
     };
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleFilterChange = this.handleFilterChange.bind(this);
@@ -150,7 +150,7 @@ export default class Board extends React.Component{
           <MenuItem value={3}
           primaryText="更新日時(降順)"
           style={style}
-          onTouchTap={this.handleSortByLastUpdate}
+          onTouchTap={this.handleSortByLastUpdateDes}
           />
           <MenuItem value={4}
           primaryText="名前(昇順)"
@@ -160,7 +160,7 @@ export default class Board extends React.Component{
           <MenuItem value={5}
           primaryText="名前(降順)"
           style={style}
-          onTouchTap={this.handleSortByName}
+          onTouchTap={this.handleSortByNameDes}
           />
           <MenuItem value={6}
           primaryText="ユーザーID(昇順)"
@@ -170,7 +170,7 @@ export default class Board extends React.Component{
           <MenuItem value={7}
           primaryText="ユーザーID(降順)"
           style={style}
-          onTouchTap={this.handleSortByName}
+          onTouchTap={this.handleSortByNameDes}
           />
         </DropDownMenu>
         </div>
