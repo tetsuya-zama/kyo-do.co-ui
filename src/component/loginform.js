@@ -75,15 +75,14 @@ export default class LoginForm extends React.Component{
       <div>
         <h4>ログイン</h4>
         <TextField
-        hintText="User ID"
-        floatingLabelText="User ID"
-        value={this.state.current_id_text}
-        ref="userid"
-        onChange={this.handleIDChange}
+          hintText="User ID"
+          floatingLabelText="User ID"
+          value={this.state.current_id_text}
+          ref="userid"
+          onChange={this.handleIDChange}
         />
         <br />
         <PasswordField
-          hintText="Password"
           floatingLabelText="Password"
           value={this.state.current_pass_text}
           ref="password"
