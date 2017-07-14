@@ -7,6 +7,7 @@ import accountboard from './accountboard'
 import group from './group'
 import groupboards from './groupboards'
 import updatedate from './updatedate'
+import secretquestion from './secretquestion'
 import notice from './notice'
 
 /**
@@ -22,5 +23,6 @@ export default combineReducers({
   group,
   groupboards,
   updatedate,
+  secretquestion,
   notice
 })

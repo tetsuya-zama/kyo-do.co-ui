@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import MemberRow from './memberrow';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import DropDownMenu from 'material-ui/DropDownMenu'; //追記
+import MenuItem from 'material-ui/MenuItem'; //追記
 
 /**
 * 行き先掲示板コンポーネント
@@ -18,14 +20,27 @@ export default class Board extends React.Component{
     super(props);
     this.state = {
       current_filter_text:"",
-      current_sort_key:"1"
+      current_sort_key:"4"
     };
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleFilterChange = this.handleFilterChange.bind(this);
+<<<<<<< HEAD
     this.handleSortByDefault = this.handleSortByDefault.bind(this);
     this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
     this.handleSort2ByLastUpdate = this.handleSort2ByLastUpdate.bind(this);
     this.handleSortByName = this.handleSortByName.bind(this);
+=======
+    this.handleSortByIDAsc = this.handleSortByIDAsc.bind(this);
+    this.handleSortByLastUpdateAsc = this.handleSortByLastUpdateAsc.bind(this);
+    this.handleSortByNameAsc = this.handleSortByNameAsc.bind(this);
+    this.handleSortByIDDes = this.handleSortByIDDes.bind(this);
+    this.handleSortByLastUpdateDes = this.handleSortByLastUpdateDes.bind(this);
+    this.handleSortByNameDes = this.handleSortByNameDes.bind(this);
+    //this.handleSortByDefault = this.handleSortByDefault.bind(this);
+    //this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
+    //this.handleSortByName = this.handleSortByName.bind(this);
+    this.handleSortByAttendance = this.handleSortByAttendance.bind(this);
+>>>>>>> adc6cd723ed3bcee052f48d56f8d734eca611fda
   }
 
   /**
@@ -38,16 +53,28 @@ export default class Board extends React.Component{
     this.setState({current_filter_text : newValue});
   }
 
-  handleSortByDefault(event){
+  handleSortByIDAsc(event){
     this.setState({current_sort_key : "0"});
   }
 
-  handleSortByLastUpdate(event){
+  handleSortByLastUpdateAsc(event){
     this.setState({current_sort_key : "1"});
   }
 
-  handleSortByName(event){
+  handleSortByNameAsc(event){
     this.setState({current_sort_key : "２"});
+  }
+  handleSortByIDDes(event){
+    this.setState({current_sort_key : "3"});
+  }
+  handleSortByLastUpdateDes(event){
+    this.setState({current_sort_key : "4"});
+  }
+  handleSortByNameDes(event){
+    this.setState({current_sort_key : "5"});
+  }
+  handleSortByAttendance(event){
+    this.setState({current_sort_key : "6"});
   }
 
   handleSort2ByLastUpdate(event){
@@ -72,15 +99,31 @@ export default class Board extends React.Component{
           return 0;
       }
       if(this.state.current_sort_key === "1"){
+          if(a.lastUpdate < b.lastUpdate) return -1;
+          if(a.lastUpdate > b.lastUpdate) return 1;
+          return 0;
+      }
+      if(this.state.current_sort_key === "２"){
+          if(a.name < b.name) return -1;
+          if(a.name > b.name) return 1;
+          return 0;
+      }
+      if(this.state.current_sort_key === "3"){
+          if(a.userid > b.userid) return -1;
+          if(a.userid < b.userid) return 1;
+          return 0;
+      }
+      if(this.state.current_sort_key === "4"){
           if(a.lastUpdate > b.lastUpdate) return -1;
           if(a.lastUpdate < b.lastUpdate) return 1;
           return 0;
       }
-      if(this.state.current_sort_key === "２"){
+      if(this.state.current_sort_key === "5"){
           if(a.name > b.name) return -1;
           if(a.name < b.name) return 1;
           return 0;
       }
+<<<<<<< HEAD
 
       if(this.state.current_sort_key === "3"){
           if(a.lastUpdate < b.lastUpdate) return -1;
@@ -88,7 +131,15 @@ export default class Board extends React.Component{
           return 0;
       }
 
+=======
+      if(this.state.current_sort_key === "6"){
+          if(a.inBusiness===true) return -1;
+          if(a.inBusiness===false) return 1;
+          return 0;
+      }
+>>>>>>> adc6cd723ed3bcee052f48d56f8d734eca611fda
     });
+
 
     const memberRows = sortedMemberRows.map((member,idx) => <MemberRow key={idx} member={member}/>);
     const date = this.props.updatedate.date?
@@ -103,21 +154,43 @@ export default class Board extends React.Component{
       <div>
       <h3>行き先掲示板（データ取得日時: {date}）</h3>
         <div>
+          <RaisedButton label="更新日時(昇順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByLastUpdateAsc}
+          />
+          <RaisedButton label="名前(昇順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByNameAsc}
+          />
           <RaisedButton
             label="ユーザーID(昇順)"
             primary={true}
             style={style}
-            onTouchTap={this.handleSortByDefault}
+            onTouchTap={this.handleSortByIDAsc}
           />
+          <br />
           <RaisedButton label="更新日時(降順)"
             primary={true}
             style={style}
-            onTouchTap={this.handleSortByLastUpdate}
+            onTouchTap={this.handleSortByLastUpdateDes}
           />
           <RaisedButton label="名前(降順)"
             primary={true}
             style={style}
-            onTouchTap={this.handleSortByName}
+            onTouchTap={this.handleSortByNameDes}
+          />
+          <RaisedButton
+            label="ユーザーID(降順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByIDDes}
+          />
+          <RaisedButton label="出勤"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByAttendance}
           />
 
           <RaisedButton label="更新日時(昇順)"
@@ -137,3 +210,4 @@ export default class Board extends React.Component{
       </div>);
   }
 }
+

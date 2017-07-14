@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {loginRequested} from '../action/login'
+import {openSecretQuestionBoard} from '../action/secretquestion'
 import {LOGIN_STATUS} from '../const/login'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import PasswordField from 'material-ui-password-field'
+import SecretQuestion from './secretquestion';
 
 /**
 * LoginFormコンポーネント
@@ -23,6 +25,7 @@ export default class LoginForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleIDChange = this.handleIDChange.bind(this);
     this.handlePassChange = this.handlePassChange.bind(this);
+    this.handleSecretQuestion = this.handleSecretQuestion.bind(this);
   }
 
   /**
@@ -39,6 +42,15 @@ export default class LoginForm extends React.Component{
     if(userid && password){
       this.props.dispatch(loginRequested(userid,password));
     }
+  }
+
+  /**
+   * パスワードを忘れた方をハンドリングするメソッド
+   * 秘密の質問に回答するように促す
+   * @return {undefined}
+   */
+  handleSecretQuestion(){
+    this.props.dispatch(openSecretQuestionBoard());
   }
 
   handleIDChange(event,newValue){
@@ -63,15 +75,14 @@ export default class LoginForm extends React.Component{
       <div>
         <h4>ログイン</h4>
         <TextField
-        hintText="User ID"
-        floatingLabelText="User ID"
-        value={this.state.current_id_text}
-        ref="userid"
-        onChange={this.handleIDChange}
+          hintText="User ID"
+          floatingLabelText="User ID"
+          value={this.state.current_id_text}
+          ref="userid"
+          onChange={this.handleIDChange}
         />
         <br />
         <PasswordField
-          hintText="Password"
           floatingLabelText="Password"
           value={this.state.current_pass_text}
           ref="password"
@@ -80,8 +91,10 @@ export default class LoginForm extends React.Component{
         <br />
         <br />
         <RaisedButton onClick={this.handleSubmit} label="Login" ref="loginbutton"/>
+        <RaisedButton onClick={this.handleSecretQuestion} secondary={true} label="パスワードを忘れた方" ref="secretQustionButton"/>
         <br />
         <span style={{color:"red"}}>{message}</span>
+        <SecretQuestion dispatch={this.props.dispatch} secretquestion={this.props.secretquestion} />
       </div>
     );
   }
