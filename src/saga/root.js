@@ -33,4 +33,5 @@ export default function* rootSaga(){
   yield fork(secretQuestionSaga);
   yield fork(noticeSaveCompleteSaga);
   yield fork(destinationHistorySaga);
+
 }

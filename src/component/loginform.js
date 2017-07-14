@@ -90,7 +90,7 @@ export default class LoginForm extends React.Component{
           />
         <br />
         <br />
-        <RaisedButton onClick={this.handleSubmit} label="Login" ref="loginbutton"/>
+        <RaisedButton onClick={this.handleSubmit} primary={true} label="Login" ref="loginbutton"/>&nbsp;&nbsp;
         <RaisedButton onClick={this.handleSecretQuestion} secondary={true} label="パスワードを忘れた方" ref="secretQustionButton"/>
         <br />
         <span style={{color:"red"}}>{message}</span>
