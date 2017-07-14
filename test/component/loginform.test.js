@@ -14,7 +14,8 @@ describe("<LoginForm />",()=>{
   it("renders 'userid' textbox, 'password' textbox and one login button",()=>{
     const props = {
       dispatch : sinon.spy(),
-      login : {status: LOGIN_STATUS.NOTYET}
+      login : {status: LOGIN_STATUS.NOTYET},
+      secretquestion : {secretQuestion:"", isOpen:false}
     };
 
     const wrapper = mountWithMUI(<LoginForm {...props} />);
@@ -56,7 +57,8 @@ describe("<LoginForm />",()=>{
   it("doesn't dispatch any actions when button is clicked if two textboxes are empty",()=>{
     const props = {
       dispatch : sinon.spy(),
-      login : {status: LOGIN_STATUS.NOTYET}
+      login : {status: LOGIN_STATUS.NOTYET},
+      secretquestion : {secretQuestion:"", isOpen:false}
     };
 
     const wrapper = mountWithMUI(<LoginForm {...props} />);
@@ -68,7 +70,8 @@ describe("<LoginForm />",()=>{
   it("dispatches LOGIN_REQUESTED ation when button is clicked if two textboxes are not empty",()=>{
     const props = {
       dispatch : sinon.spy(),
-      login : {status: LOGIN_STATUS.NOTYET}
+      login : {status: LOGIN_STATUS.NOTYET},
+      secretquestion : {secretQuestion:"", isOpen:false}
     };
 
     const dummyInputs = {

@@ -155,7 +155,7 @@ export default class SecretQuestion extends React.Component{
             floatingLabelText="新しいパスワード"
             defaultValue={null}
             onChange={this.handlePasswordChange}
-            ref="pass"
+            ref="password"
         />
         <br />
         <RaisedButton
