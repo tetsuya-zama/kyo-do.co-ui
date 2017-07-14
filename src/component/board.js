@@ -18,13 +18,16 @@ export default class Board extends React.Component{
     super(props);
     this.state = {
       current_filter_text:"",
-      current_sort_key:"1"
+      current_sort_key:"4"
     };
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.handleSortByDefault = this.handleSortByDefault.bind(this);
-    this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
-    this.handleSortByName = this.handleSortByName.bind(this);
+    this.handleSortByIDAsc = this.handleSortByIDAsc.bind(this);
+    this.handleSortByLastUpdateAsc = this.handleSortByLastUpdateAsc.bind(this);
+    this.handleSortByNameAsc = this.handleSortByNameAsc.bind(this);
+    this.handleSortByIDDes = this.handleSortByIDDes.bind(this);
+    this.handleSortByLastUpdateDes = this.handleSortByLastUpdateDes.bind(this);
+    this.handleSortByNameDes = this.handleSortByNameDes.bind(this);
   }
 
   /**
@@ -37,16 +40,25 @@ export default class Board extends React.Component{
     this.setState({current_filter_text : newValue});
   }
 
-  handleSortByDefault(event){
+  handleSortByIDAsc(event){
     this.setState({current_sort_key : "0"});
   }
 
-  handleSortByLastUpdate(event){
+  handleSortByLastUpdateAsc(event){
     this.setState({current_sort_key : "1"});
   }
 
-  handleSortByName(event){
+  handleSortByNameAsc(event){
     this.setState({current_sort_key : "２"});
+  }
+  handleSortByIDDes(event){
+    this.setState({current_sort_key : "3"});
+  }
+  handleSortByLastUpdateDes(event){
+    this.setState({current_sort_key : "4"});
+  }
+  handleSortByNameDes(event){
+    this.setState({current_sort_key : "5"});
   }
 
   /**
@@ -66,11 +78,26 @@ export default class Board extends React.Component{
           return 0;
       }
       if(this.state.current_sort_key === "1"){
+          if(a.lastUpdate < b.lastUpdate) return -1;
+          if(a.lastUpdate > b.lastUpdate) return 1;
+          return 0;
+      }
+      if(this.state.current_sort_key === "２"){
+          if(a.name < b.name) return -1;
+          if(a.name > b.name) return 1;
+          return 0;
+      }
+      if(this.state.current_sort_key === "3"){
+          if(a.userid > b.userid) return -1;
+          if(a.userid < b.userid) return 1;
+          return 0;
+      }
+      if(this.state.current_sort_key === "4"){
           if(a.lastUpdate > b.lastUpdate) return -1;
           if(a.lastUpdate < b.lastUpdate) return 1;
           return 0;
       }
-      if(this.state.current_sort_key === "２"){
+      if(this.state.current_sort_key === "5"){
           if(a.name > b.name) return -1;
           if(a.name < b.name) return 1;
           return 0;
@@ -94,17 +121,34 @@ export default class Board extends React.Component{
             label="ユーザーID(昇順)"
             primary={true}
             style={style}
-            onTouchTap={this.handleSortByDefault}
+            onTouchTap={this.handleSortByIDAsc}
+          />
+          <RaisedButton label="更新日時(昇順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByLastUpdateAsc}
+          />
+          <RaisedButton label="名前(昇順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByNameAsc}
+          />
+          <br />
+          <RaisedButton
+            label="ユーザーID(降順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByIDDes}
           />
           <RaisedButton label="更新日時(降順)"
             primary={true}
             style={style}
-            onTouchTap={this.handleSortByLastUpdate}
+            onTouchTap={this.handleSortByLastUpdateDes}
           />
           <RaisedButton label="名前(降順)"
             primary={true}
             style={style}
-            onTouchTap={this.handleSortByName}
+            onTouchTap={this.handleSortByNameDes}
           />
         </div>
        <TextField
