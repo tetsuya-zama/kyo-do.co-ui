@@ -4,6 +4,7 @@ import {Tabs, Tab} from 'material-ui-scrollable-tabs/Tabs';
 import Board from './board';
 import FlatButton from 'material-ui/FlatButton';
 import {openGroupManagementBoard} from '../action/groupboards';
+import RaisedButton from 'material-ui/RaisedButton';
 
 /**
 * グループ別の行き先掲示板コンポーネント
@@ -28,7 +29,7 @@ export default class GroupBoards extends React.Component{
       .map((group,idx) => {
         const isAdmin = group.admin.indexOf(this.props.login.user.userid) >= 0;
         const editButton = isAdmin ?
-          <FlatButton label="グループ設定" primary={true} onTouchTap={()=> this.props.dispatch(openGroupManagementBoard(group.id))} ref="groupEdit" /> :
+          <RaisedButton label="グループ設定編集" secondary={true} onTouchTap={()=> this.props.dispatch(openGroupManagementBoard(group.id))} ref="groupEdit" /> :
           null;
 
         return (
