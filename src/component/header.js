@@ -75,21 +75,7 @@ export default class Header extends React.Component{
           <Chip><Avatar>{this.props.login.user.name.charAt(0).toUpperCase()}</Avatar>{this.props.login.user.name}</Chip>
           <IconMenu
             iconButtonElement={
-              <IconButton touch={true}>
-                <NavigationExpandMoreIcon />
-              </IconButton>
-            }
-
-            ref="menu_button"
-          >
-            <MenuItem ref="change_account_button" primaryText="アカウント情報変更" onTouchTap={this.handleOpen} />
-            <MenuItem ref="create_group_button" primaryText="グループ作成" onTouchTap={this.handleCreateGroup} />
-            <MenuItem ref="logout_button" primaryText="LOGOUT" onTouchTap={this.handleLogout} />
-          </IconMenu>
-          <ToolbarSeparator />
-          <IconMenu
-            iconButtonElement={
-              <IconButton touch={true}>
+              <IconButton touch={true} tooltip="出退勤" tooltipPosition="top-right">
                 <ContentCreateIcon />
               </IconButton>
             }
@@ -100,6 +86,19 @@ export default class Header extends React.Component{
                 login={this.props.login}
                 mydestination={this.props.mydestination}
               />
+          </IconMenu>
+          <ToolbarSeparator />
+          <IconMenu
+            iconButtonElement={
+              <IconButton touch={true} tooltip="アカウント情報" tooltipPosition="top-right">
+                <NavigationExpandMoreIcon iconClassName="muidocs-icon-custom-github"/>
+              </IconButton>
+            }
+            ref="menu_button"
+          >
+            <MenuItem ref="change_account_button" primaryText="アカウント情報変更" onTouchTap={this.handleOpen} />
+            <MenuItem ref="create_group_button" primaryText="グループ作成" onTouchTap={this.handleCreateGroup} />
+            <MenuItem ref="logout_button" primaryText="LOGOUT" onTouchTap={this.handleLogout} />
           </IconMenu>
         </ToolbarGroup>
         <AccountBoard dispatch={this.props.dispatch} accountboard={this.props.accountboard} />
