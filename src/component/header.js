@@ -6,6 +6,7 @@ import Chip from 'material-ui/Chip';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
+import ContentCreateIcon from 'material-ui/svg-icons/content/create';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import FlatButton from 'material-ui/FlatButton';
@@ -18,6 +19,7 @@ import GroupCreationBoard from './groupcreationboard';
 import GroupManagementBoard from './groupmanagementboard';
 import {openAccountInfoModal} from '../action/accountboard';
 import {openGroupCreationBoard} from '../action/groupboards';
+import MyDestination from './mydestination'
 
 /**
 * Headerコンポーネント
@@ -71,7 +73,6 @@ export default class Header extends React.Component{
       <Toolbar>
         <ToolbarGroup>
           <Chip><Avatar>{this.props.login.user.name.charAt(0).toUpperCase()}</Avatar>{this.props.login.user.name}</Chip>
-          <ToolbarSeparator />
           <IconMenu
             iconButtonElement={
               <IconButton touch={true}>
@@ -84,6 +85,21 @@ export default class Header extends React.Component{
             <MenuItem ref="change_account_button" primaryText="アカウント情報変更" onTouchTap={this.handleOpen} />
             <MenuItem ref="create_group_button" primaryText="グループ作成" onTouchTap={this.handleCreateGroup} />
             <MenuItem ref="logout_button" primaryText="LOGOUT" onTouchTap={this.handleLogout} />
+          </IconMenu>
+          <ToolbarSeparator />
+          <IconMenu
+            iconButtonElement={
+              <IconButton touch={true}>
+                <ContentCreateIcon />
+              </IconButton>
+            }
+            targetOrigin={{ vertical: 'bottom', horizontal: 'left',}}
+          >
+              <MyDestination
+                dispatch={this.props.dispatch}
+                login={this.props.login}
+                mydestination={this.props.mydestination}
+              />
           </IconMenu>
         </ToolbarGroup>
         <AccountBoard dispatch={this.props.dispatch} accountboard={this.props.accountboard} />
