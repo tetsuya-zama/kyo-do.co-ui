@@ -24,12 +24,7 @@ export default class Board extends React.Component{
     };
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleFilterChange = this.handleFilterChange.bind(this);
-<<<<<<< HEAD
-    this.handleSortByDefault = this.handleSortByDefault.bind(this);
-    this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
-    this.handleSort2ByLastUpdate = this.handleSort2ByLastUpdate.bind(this);
-    this.handleSortByName = this.handleSortByName.bind(this);
-=======
+
     this.handleSortByIDAsc = this.handleSortByIDAsc.bind(this);
     this.handleSortByLastUpdateAsc = this.handleSortByLastUpdateAsc.bind(this);
     this.handleSortByNameAsc = this.handleSortByNameAsc.bind(this);
@@ -40,7 +35,7 @@ export default class Board extends React.Component{
     //this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
     //this.handleSortByName = this.handleSortByName.bind(this);
     this.handleSortByAttendance = this.handleSortByAttendance.bind(this);
->>>>>>> adc6cd723ed3bcee052f48d56f8d734eca611fda
+
   }
 
   /**
@@ -75,10 +70,6 @@ export default class Board extends React.Component{
   }
   handleSortByAttendance(event){
     this.setState({current_sort_key : "6"});
-  }
-
-  handleSort2ByLastUpdate(event){
-    this.setState({current_sort_key : "3"});
   }
 
 
@@ -123,21 +114,13 @@ export default class Board extends React.Component{
           if(a.name < b.name) return 1;
           return 0;
       }
-<<<<<<< HEAD
 
-      if(this.state.current_sort_key === "3"){
-          if(a.lastUpdate < b.lastUpdate) return -1;
-          if(a.lastUpdate > b.lastUpdate) return 1;
-          return 0;
-      }
-
-=======
       if(this.state.current_sort_key === "6"){
           if(a.inBusiness===true) return -1;
           if(a.inBusiness===false) return 1;
           return 0;
       }
->>>>>>> adc6cd723ed3bcee052f48d56f8d734eca611fda
+
     });
 
 
@@ -193,11 +176,7 @@ export default class Board extends React.Component{
             onTouchTap={this.handleSortByAttendance}
           />
 
-          <RaisedButton label="更新日時(昇順)"
-            primary={true}
-            style={style}
-            onTouchTap={this.handleSort2ByLastUpdate}
-          />
+      
           
         </div>
        <TextField
