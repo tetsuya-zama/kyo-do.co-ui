@@ -20,13 +20,19 @@ export default class Board extends React.Component{
     super(props);
     this.state = {
       current_filter_text:"",
-      current_sort_key:"1"
+      current_sort_key:"4"
     };
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.handleSortByDefault = this.handleSortByDefault.bind(this);
-    this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
-    this.handleSortByName = this.handleSortByName.bind(this);
+    this.handleSortByIDAsc = this.handleSortByIDAsc.bind(this);
+    this.handleSortByLastUpdateAsc = this.handleSortByLastUpdateAsc.bind(this);
+    this.handleSortByNameAsc = this.handleSortByNameAsc.bind(this);
+    this.handleSortByIDDes = this.handleSortByIDDes.bind(this);
+    this.handleSortByLastUpdateDes = this.handleSortByLastUpdateDes.bind(this);
+    this.handleSortByNameDes = this.handleSortByNameDes.bind(this);
+    //this.handleSortByDefault = this.handleSortByDefault.bind(this);
+    //this.handleSortByLastUpdate = this.handleSortByLastUpdate.bind(this);
+    //this.handleSortByName = this.handleSortByName.bind(this);
     this.handleSortByAttendance = this.handleSortByAttendance.bind(this);
   }
 
@@ -40,20 +46,28 @@ export default class Board extends React.Component{
     this.setState({current_filter_text : newValue});
   }
 
-  handleSortByDefault(event){
+  handleSortByIDAsc(event){
     this.setState({current_sort_key : "0"});
   }
 
-  handleSortByLastUpdate(event){
+  handleSortByLastUpdateAsc(event){
     this.setState({current_sort_key : "1"});
   }
 
-  handleSortByName(event){
+  handleSortByNameAsc(event){
     this.setState({current_sort_key : "２"});
   }
-
-  handleSortByAttendance(event){
+  handleSortByIDDes(event){
     this.setState({current_sort_key : "3"});
+  }
+  handleSortByLastUpdateDes(event){
+    this.setState({current_sort_key : "4"});
+  }
+  handleSortByNameDes(event){
+    this.setState({current_sort_key : "5"});
+  }
+  handleSortByAttendance(event){
+    this.setState({current_sort_key : "6"});
   }
 
   /**
@@ -73,16 +87,31 @@ export default class Board extends React.Component{
           return 0;
       }
       if(this.state.current_sort_key === "1"){
+          if(a.lastUpdate < b.lastUpdate) return -1;
+          if(a.lastUpdate > b.lastUpdate) return 1;
+          return 0;
+      }
+      if(this.state.current_sort_key === "２"){
+          if(a.name < b.name) return -1;
+          if(a.name > b.name) return 1;
+          return 0;
+      }
+      if(this.state.current_sort_key === "3"){
+          if(a.userid > b.userid) return -1;
+          if(a.userid < b.userid) return 1;
+          return 0;
+      }
+      if(this.state.current_sort_key === "4"){
           if(a.lastUpdate > b.lastUpdate) return -1;
           if(a.lastUpdate < b.lastUpdate) return 1;
           return 0;
       }
-      if(this.state.current_sort_key === "２"){
+      if(this.state.current_sort_key === "5"){
           if(a.name > b.name) return -1;
           if(a.name < b.name) return 1;
           return 0;
       }
-      if(this.state.current_sort_key === "3"){
+      if(this.state.current_sort_key === "6"){
           if(a.inBusiness===true) return -1;
           if(a.inBusiness===false) return 1;
           return 0;
@@ -103,21 +132,38 @@ export default class Board extends React.Component{
       <div>
       <h3>行き先掲示板（データ取得日時: {date}）</h3>
         <div>
+          <RaisedButton label="更新日時(昇順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByLastUpdateAsc}
+          />
+          <RaisedButton label="名前(昇順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByNameAsc}
+          />
           <RaisedButton
             label="ユーザーID(昇順)"
             primary={true}
             style={style}
-            onTouchTap={this.handleSortByDefault}
+            onTouchTap={this.handleSortByIDAsc}
           />
+          <br />
           <RaisedButton label="更新日時(降順)"
             primary={true}
             style={style}
-            onTouchTap={this.handleSortByLastUpdate}
+            onTouchTap={this.handleSortByLastUpdateDes}
           />
           <RaisedButton label="名前(降順)"
             primary={true}
             style={style}
-            onTouchTap={this.handleSortByName}
+            onTouchTap={this.handleSortByNameDes}
+          />
+          <RaisedButton
+            label="ユーザーID(降順)"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleSortByIDDes}
           />
           <RaisedButton label="出勤者(降順)"
             primary={true}
