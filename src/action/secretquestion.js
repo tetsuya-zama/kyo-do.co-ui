@@ -35,6 +35,7 @@ export const GET_SECRET_QUESTION = "GET_SECRET_QUESTION";
 
 /**
 * 秘密の質問取得アクションのcreator
+* @param  {string} targetUserId 秘密の質問を取得するユーザID
 * @return {Object} GET_SECRET_QUESTION
 */
 export function getSecretQuestion(targetUserId){
@@ -50,12 +51,14 @@ export function getSecretQuestion(targetUserId){
 export const GET_SECRET_QUESTION_SUCCESS = "GET_SECRET_QUESTION_SUCCESS";
 
 /**
-* 秘密の質問取得失敗アクションのcreator
+* 秘密の質問取得成功アクションのcreator
+* @param  {string} secretQuestion 秘密の質問
 * @return {Object} GET_SECRET_QUESTION_SUCCESS
 */
-export function getSecretQuestionSuccess(){
+export function getSecretQuestionSuccess(secretQuestion){
   return {
-    type : GET_SECRET_QUESTION_SUCCESS
+    type : GET_SECRET_QUESTION_SUCCESS,
+    payload : secretQuestion
   };
 }
 
@@ -74,32 +77,48 @@ export function getSecretQuestionFiled(){
   };
 }
 /**
-* 秘密の質問の回答オープンアクション名
+* 秘密の質問の回答チェックアクション名
 */
-export const OPEN_SECRET_ANSWER_BOARD = "OPEN_SECRET_ANSWER_BOARD";
+export const CHECK_SECRET_ANSWER = "CHECK_SECRET_ANSWER";
 
 /**
-* 秘密の質問回答オープンアクションのcreator
-* @return {Object} OPEN_SECRET_ANSWER_BOARD
+* 秘密の質問回答チェックアクションのcreator
+* @param {{userid:string,password:string,name:string,secretAnswer:string}} secretAnswerInfo 秘密の質問の回答に関する情報
+* @return {Object} CHECK_SECRET_ANSWER
 */
-export function openSecretAnswerBoard(){
+export function checkSecretAnswer(secretAnswerInfo){
   return {
-    type : OPEN_SECRET_ANSWER_BOARD
+    type : CHECK_SECRET_ANSWER,
+    payload : secretAnswerInfo
   };
 }
 
 /**
-* 秘密の質問の回答クローズアクション名
+* 秘密の質問の回答チェック成功アクション名
 */
-export const CLOSE_SECRET_ANSWER_BOARD = "CLOSE_SECRET_ANSWER_BOARD";
+export const CHECK_SECRET_ANSWER_SUCCESS = "CHECK_SECRET_ANSWER_SUCCESS";
 
 /**
-* 秘密の質問回答クローズアクションのcreator
-* @return {Object} OPEN_SECRET_ANSWER_BOARD
+* 秘密の質問回答チェック成功アクションのcreator
+* @return {Object} CHECK_SECRET_ANSWER_SUCCESS
 */
-export function closeSecretAnswerBoard(){
+export function checkSecretAnswerSucces(){
   return {
-    type : OPEN_SECRET_ANSWER_BOARD
+    type : CHECK_SECRET_ANSWER_SUCCESS
   };
 }
 
+/**
+* 秘密の質問の回答チェック失敗アクション名
+*/
+export const CHECK_SECRET_ANSWER_FAILED = "CHECK_SECRET_ANSWER_FAILED";
+
+/**
+* 秘密の質問チェック失敗アクションのcreator
+* @return {Object} CHECK_SECRET_ANSWER_FAILED
+*/
+export function checkSecretAnswerFailed(){
+  return {
+    type : CHECK_SECRET_ANSWER_FAILED
+  };
+}

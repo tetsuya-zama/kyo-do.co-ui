@@ -7,7 +7,7 @@ import {changeAccountInfoSaga} from './accountboard'
 import {loadSuggestionSaga,changeSuggestionSaga} from './suggestion'
 import {groupSaga} from './group'
 import {updateDateSaga} from './updatedate';
-import {secretquestion} from './secretquestion';
+import {secretQuestionSaga} from './secretquestion';
 import {noticeSaveCompleteSaga} from './notice';
 
 /**
@@ -29,6 +29,6 @@ export default function* rootSaga(){
   yield fork(watchMemberStatusSaga);
   yield fork(groupSaga);
   yield fork(updateDateSaga);
-  yield fork(secretquestion);
+  yield fork(secretQuestionSaga);
   yield fork(noticeSaveCompleteSaga);
 }

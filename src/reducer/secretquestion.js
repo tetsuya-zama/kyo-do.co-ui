@@ -1,8 +1,8 @@
 import {
   OPEN_SECRET_QUESTION_BOARD,
   CLOSE_SECRET_QUESTION_BOARD,
-  OPEN_SECRET_ANSWER_BOARD,
-  CLOSE_SECRET_ANSWER_BOARD
+  GET_SECRET_QUESTION_SUCCESS,
+  GET_SECRET_QUESTION_FAILED
 } from '../action/secretquestion';
 import {DEFAULT_SECRET_QUESTION} from '../const/secretquestion';
 
@@ -18,11 +18,11 @@ export default function secretquestion(state=DEFAULT_SECRET_QUESTION,action){
     case(OPEN_SECRET_QUESTION_BOARD):
       return Object.assign({},state,{isOpen:true});
     case(CLOSE_SECRET_QUESTION_BOARD):
-      return Object.assign({},state,{isOpen:false});
-    case(OPEN_SECRET_ANSWER_BOARD):
-      return Object.assign({},state);
-    case(CLOSE_SECRET_ANSWER_BOARD):
-      return Object.assign({},state);
+      return Object.assign({},state,{secretQuestion:"",isOpen:false});
+    case(GET_SECRET_QUESTION_SUCCESS):
+      return Object.assign({},state,action.payload);
+    case(GET_SECRET_QUESTION_FAILED):
+      return Object.assign({},state,{secretQuestion:""});
     default:
       return state;
   }
