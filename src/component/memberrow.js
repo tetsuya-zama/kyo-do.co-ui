@@ -29,7 +29,7 @@ export default class MemberRow extends React.Component{
    */
 
   handleMemberRow(){
-    this.props.dispatch(getDestHistory({userid:this.props.member.userid}));
+    this.props.dispatch(getDestHistory(this.props.member.userid));
   }
 
   /**

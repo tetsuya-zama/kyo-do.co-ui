@@ -1,4 +1,4 @@
-import {take,put,call,takeEvery} from 'redux-saga/effects'
+import {take,put,call,takeEvery,select} from 'redux-saga/effects'
 import {
   GET_DEST_HISTORY,
   GET_DEST_HISTORY_SUCCESS,

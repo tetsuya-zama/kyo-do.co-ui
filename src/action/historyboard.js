@@ -10,9 +10,7 @@ export const GET_DEST_HISTORY = "GET_DEST_HISTORY";
 export function getDestHistory(userid){
   return {
     type:GET_DEST_HISTORY,
-    payload:{
-      userid:userid
-    }
+    payload:userid
   };
 }
 
