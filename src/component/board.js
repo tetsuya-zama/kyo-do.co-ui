@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MemberRow from './memberrow';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import DropDownMenu from 'material-ui/DropDownMenu'; //追記
-import MenuItem from 'material-ui/MenuItem'; //追記
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import DropDownMenu from 'material-ui/DropDownMenu';
 
 /**
 * 行き先掲示板コンポーネント
@@ -20,7 +22,8 @@ export default class Board extends React.Component{
     super(props);
     this.state = {
       current_filter_text:"",
-      current_sort_key:"4"
+      current_sort_key:"4",
+      value : 2
     };
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleFilterChange = this.handleFilterChange.bind(this);
@@ -69,6 +72,7 @@ export default class Board extends React.Component{
   handleSortByAttendance(event){
     this.setState({current_sort_key : "6"});
   }
+  handleChange = (event, index, value) => this.setState({value});
 
   /**
   * 描画メソッド
@@ -132,44 +136,43 @@ export default class Board extends React.Component{
       <div>
       <h3>行き先掲示板（データ取得日時: {date}）</h3>
         <div>
-          <RaisedButton label="更新日時(昇順)"
-            primary={true}
-            style={style}
-            onTouchTap={this.handleSortByLastUpdateAsc}
-          />
-          <RaisedButton label="名前(昇順)"
-            primary={true}
-            style={style}
-            onTouchTap={this.handleSortByNameAsc}
-          />
-          <RaisedButton
-            label="ユーザーID(昇順)"
-            primary={true}
-            style={style}
-            onTouchTap={this.handleSortByIDAsc}
-          />
-          <br />
-          <RaisedButton label="更新日時(降順)"
-            primary={true}
-            style={style}
-            onTouchTap={this.handleSortByLastUpdateDes}
-          />
-          <RaisedButton label="名前(降順)"
-            primary={true}
-            style={style}
-            onTouchTap={this.handleSortByNameDes}
-          />
-          <RaisedButton
-            label="ユーザーID(降順)"
-            primary={true}
-            style={style}
-            onTouchTap={this.handleSortByIDDes}
-          />
-          <RaisedButton label="出勤者(降順)"
-            primary={true}
+        <DropDownMenu value={this.state.value} onChange={this.handleChange} openImmediately={false}>
+          <MenuItem value={1}
+            primaryText="出勤者(降順)"
             style={style}
             onTouchTap={this.handleSortByAttendance}
           />
+          <MenuItem value={2}
+          primaryText="更新日時(昇順)"
+          style={style}
+          onTouchTap={this.handleSortByLastUpdateAsc}
+          />
+          <MenuItem value={3}
+          primaryText="更新日時(降順)"
+          style={style}
+          onTouchTap={this.handleSortByLastUpdate}
+          />
+          <MenuItem value={4}
+          primaryText="名前(昇順)"
+          style={style}
+          onTouchTap={this.handleSortByNameAsc}
+          />
+          <MenuItem value={5}
+          primaryText="名前(降順)"
+          style={style}
+          onTouchTap={this.handleSortByName}
+          />
+          <MenuItem value={6}
+          primaryText="ユーザーID(昇順)"
+          style={style}
+          onTouchTap={this.handleSortByIDAsc}
+          />
+          <MenuItem value={7}
+          primaryText="ユーザーID(降順)"
+          style={style}
+          onTouchTap={this.handleSortByName}
+          />
+        </DropDownMenu>
         </div>
        <TextField
         hintText="Filter"
