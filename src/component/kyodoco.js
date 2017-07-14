@@ -64,7 +64,9 @@ class Kyodoco extends React.Component{
           <Paper style={style} zDepth={2}>
             <LoginForm
             dispatch={this.props.dispatch}
-            login={this.props.login}/>
+            login={this.props.login}
+            secretquestion={this.props.secretquestion}
+            />
           </Paper>
           <br />
           <Paper style={style} zDepth={2}>

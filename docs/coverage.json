@@ -1,7 +1,7 @@
 {
-  "coverage": "93.91%",
-  "expectCount": 230,
-  "actualCount": 216,
+  "coverage": "89.71%",
+  "expectCount": 243,
+  "actualCount": 218,
   "files": {
     "src/action/accountboard.js": {
       "expectCount": 8,
@@ -19,9 +19,12 @@
       "undocumentLines": []
     },
     "src/component/board.js": {
-      "expectCount": 5,
+      "expectCount": 8,
       "actualCount": 4,
       "undocumentLines": [
+        40,
+        44,
+        48,
         19
       ]
     },
@@ -29,6 +32,16 @@
       "expectCount": 8,
       "actualCount": 8,
       "undocumentLines": []
+    },
+    "src/action/notice.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        1,
+        13,
+        4
+      ]
     },
     "src/const/group.js": {
       "expectCount": 1,
@@ -68,7 +81,7 @@
       "expectCount": 8,
       "actualCount": 7,
       "undocumentLines": [
-        25
+        26
       ]
     },
     "src/component/groupmember.js": {
@@ -95,9 +108,9 @@
       "expectCount": 7,
       "actualCount": 4,
       "undocumentLines": [
-        43,
-        47,
-        20
+        44,
+        48,
+        21
       ]
     },
     "src/action/board.js": {
@@ -106,15 +119,17 @@
       "undocumentLines": []
     },
     "src/action/mydestination.js": {
-      "expectCount": 5,
-      "actualCount": 5,
+      "expectCount": 4,
+      "actualCount": 4,
       "undocumentLines": []
     },
     "src/component/memberaddform.js": {
-      "expectCount": 6,
-      "actualCount": 5,
+      "expectCount": 9,
+      "actualCount": 6,
       "undocumentLines": [
-        21
+        27,
+        23,
+        85
       ]
     },
     "src/component/memberrow.js": {
@@ -123,8 +138,8 @@
       "undocumentLines": []
     },
     "src/component/mydestination.js": {
-      "expectCount": 7,
-      "actualCount": 7,
+      "expectCount": 6,
+      "actualCount": 6,
       "undocumentLines": []
     },
     "src/action/updatedate.js": {
@@ -151,10 +166,10 @@
       "undocumentLines": []
     },
     "src/component/signupform.js": {
-      "expectCount": 11,
-      "actualCount": 10,
+      "expectCount": 13,
+      "actualCount": 12,
       "undocumentLines": [
-        19
+        20
       ]
     },
     "src/reducer/accountboard.js": {
@@ -247,6 +262,21 @@
       "actualCount": 1,
       "undocumentLines": []
     },
+    "src/reducer/notice.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "src/saga/notice.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        10
+      ]
+    },
     "src/saga/root.js": {
       "expectCount": 1,
       "actualCount": 1,
@@ -272,10 +302,8 @@
     },
     "src/reducer/updatedate.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        3
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     }
   }
 }
