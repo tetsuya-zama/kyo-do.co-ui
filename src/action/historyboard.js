@@ -25,7 +25,7 @@ export const GET_DEST_HISTORY_SUCCESS = "GET_DEST_HISTORY_SUCCESS";
 * 行先履歴取得成功のcreator
 * @return {Object} 行先履歴取得成功アクション
 */
-export function getDestHistorySuceess(history){
+export function getDestHistorySuccess(history){
   return {
     type:GET_DEST_HISTORY_SUCCESS,
     payload:{

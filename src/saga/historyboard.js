@@ -4,7 +4,7 @@ import {
   GET_DEST_HISTORY_SUCCESS,
   GET_DEST_HISTORY_FAILED,
   getDestHistory,
-  getDestHistorySuceess,
+  getDestHistorySuccess,
   getDestHistoryFailed
 } from '../action/historyboard'
 import {getApiBaseURL} from '../module/environment';
