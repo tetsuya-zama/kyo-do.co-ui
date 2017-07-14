@@ -84,42 +84,31 @@ export default class MyDestination extends React.Component{
 
     return (
       <div>
-      <Paper style={{margin:20, padding:10}} zDepth={2}>
-        <h3>自分の行き先</h3>
-        <table>
-          <tbody>
-          <tr>
-            <td>{this.props.login.user.name}</td>
-            <td></td>
-            <td>
-              <AutoComplete
-                floatingLabelText="今日どこ？"
-                filter={AutoComplete.fuzzyFilter}
-                dataSource={this.props.mydestination.suggestion}
-                maxSearchResults={10}
-                openOnFocus={true}
-                onUpdateInput={this.handleCommentChange}
-                searchText={this.props.mydestination.comment}
-                ref="comment"
-              />
-              <RaisedButton label="クリア"
-                primary={true}
-                style={style}
-                onTouchTap={this.handleClear}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Toggle label={(this.props.mydestination.inBusiness===true)?"[出勤]" : "[退勤]"} toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"/>
-            </td>
-            <td></td>
-            <td>
-              <TextField floatingLabelText="電話番号を入れてね" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+      <Paper style={{margin:5, padding:5}} zDepth={2}>
+        <h3>自分の行き先編集</h3>
+          <Toggle label={(this.props.mydestination.inBusiness===true)?
+            "[出勤]" :
+            "[退勤]"}
+            toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"
+          />
+          <AutoComplete
+            floatingLabelText="今日どこ？"
+            filter={AutoComplete.fuzzyFilter}
+            dataSource={this.props.mydestination.suggestion}
+            maxSearchResults={10}
+            openOnFocus={true}
+            onUpdateInput={this.handleCommentChange}
+            searchText={this.props.mydestination.comment}
+            ref="comment"
+          />
+          <br/>
+          <RaisedButton label="クリア"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleClear}
+          />
+          <br />
+          <TextField floatingLabelText="電話番号を入れてね" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
       </Paper>
       </div>);
   }
