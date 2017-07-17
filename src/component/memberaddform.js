@@ -129,7 +129,7 @@ export default class MemberAddForm extends React.Component{
           searchText={this.searchWord.searchText}
           ref="comment"
         />
-        <br />
+
         <RaisedButton
           label="追加"
           primary={true}
