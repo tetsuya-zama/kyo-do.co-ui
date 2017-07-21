@@ -29,7 +29,7 @@ export default class MemberRow extends React.Component{
     // this.props.updatedate.date //データ取得日時
     // this.props.member.lastUpdate //最終更新日 そのままでは、getTime()が使えない
     const updatedate = this.props.updatedate.date.getTime();
-    
+
     const lastUpdate = new Date(
       this.props.member.lastUpdate.substr(0,4),
       this.props.member.lastUpdate.substr(5,2) - 1, //月は0～11
@@ -41,13 +41,13 @@ export default class MemberRow extends React.Component{
 
     const Elapsedtime = updatedate - lastUpdate;
     
-    const ElapsedtimeText = 
-       ((Elapsedtime / 1000 / 60) < 1) ? Math.ceil((Elapsedtime / 1000)) + "秒"
-      :((Elapsedtime / 1000 / 60 / 60) < 1) ? Math.ceil((Elapsedtime / 1000 / 60)) + "分"
-      :((Elapsedtime / 1000 / 60 / 60 / 24) < 1) ? Math.ceil((Elapsedtime / 1000 / 60 / 60)) + "時間"
-      :((Elapsedtime / 1000 / 60 / 60 / 24 / 31) < 1) ? Math.ceil((Elapsedtime / 1000 / 60 / 60 / 24)) + "日"
-      :((Elapsedtime / 1000 / 60 / 60 / 24 / 31 / 365) < 1) ? Math.ceil((Elapsedtime / 1000 / 60 / 60 / 24 / 31)) + "ヶ月"
-      :Math.ceil((Elapsedtime / 1000 / 60 / 60 / 24 / 31 / 365)) + "年";
+    const ElapsedtimeText =
+      (Math.round(Elapsedtime / 1000) <= 59) ? (Math.round(Elapsedtime / 1000) + "秒"):
+      (Math.round(Elapsedtime / 1000 / 60) <= 59) ? (Math.round(Elapsedtime / 1000 / 60) + "分"):
+      (Math.round(Elapsedtime / 1000 / 60 / 60) <= 23) ? (Math.round(Elapsedtime / 1000 / 60 / 60) + "時間"):
+      (Math.round(Elapsedtime / 1000 / 60 / 60 / 24) <= 30) ? (Math.round(Elapsedtime / 1000 / 60 / 60 / 24) + "日"):
+      (Math.round(Elapsedtime / 1000 / 60 / 60 / 24 / 31) <= 11) ? (Math.round(Elapsedtime / 1000 / 60 / 60 / 24 / 31) + "ヶ月"):
+      (Math.round(Elapsedtime / 1000 / 60 / 60 / 24 / 31 / 12) + "年");
 
     return (
       <List>

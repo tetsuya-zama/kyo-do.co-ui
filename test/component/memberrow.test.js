@@ -10,7 +10,8 @@ describe("<MemberRow />",()=>{
     const dummyMember = {userid:"testA",name:"山田",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"};
 
     const props = {
-      member : dummyMember
+      member : dummyMember,
+      updatedate:{date:new Date()}
     };
 
     const wrapper = mountWithMUI(<MemberRow {...props} />);
@@ -24,7 +25,8 @@ describe("<MemberRow />",()=>{
     const dummyMember = {userid:"testA",name:"山田",inBusiness:false,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"};
 
     const props = {
-      member : dummyMember
+      member : dummyMember,
+      updatedate:{date:new Date()}
     };
 
     const wrapper = mountWithMUI(<MemberRow {...props} />);
@@ -36,7 +38,8 @@ describe("<MemberRow />",()=>{
     const dummyMember = {userid:"testA",name:"山田",inBusiness:true,comment:"",contact:"090-XXX-XXXX",lastUpdate:"2017/05/01 10:00:00"};
 
     const props = {
-      member : dummyMember
+      member : dummyMember,
+      updatedate:{date:new Date()}
     };
 
     const wrapper = mountWithMUI(<MemberRow {...props} />);
