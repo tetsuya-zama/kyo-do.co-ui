@@ -134,9 +134,15 @@ export default class Board extends React.Component{
       margin: 12,
     };
 
+    const today = new Date();
+    const todaytext = (today.getMonth() + 1) + "月" + today.getDate() + "日"  //月は、0～11
+    const weekday = [ "日", "月", "火", "水", "木", "金", "土" ];
+    const weekdaytext = weekday [ today.getDay() ];
+
     return (
       <div>
-      <h3>行き先掲示板（データ取得日時: {date}）</h3>
+      <h3>行き先掲示板 【 {todaytext}（{weekdaytext}）】<br/>
+      （{date} 現在）</h3>
         <div>
         <DropDownMenu value={this.state.value} onChange={this.handleChange} openImmediately={false}>
           <MenuItem value={1}
