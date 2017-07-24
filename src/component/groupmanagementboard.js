@@ -9,6 +9,14 @@ import {closeGroupManagementBoard} from '../action/groupboards';
 import MemberAddForm from './memberaddform';
 import GroupMember from './groupmember';
 import RaisedButton from 'material-ui/RaisedButton';
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 
 /**
 * グループ管理ボード コンポーネント
@@ -104,7 +112,7 @@ export default class GroupManagementBoard extends React.Component{
         primary={true}
         onTouchTap={this.handleClose}
         ref="Close"
-/>    
+/>
     ];
 
     const groupNameText =
@@ -126,6 +134,7 @@ export default class GroupManagementBoard extends React.Component{
       }) : [];
 
 
+
     return(
       <Dialog
         title={targetGroup.groupname + "を編集" }
@@ -137,6 +146,7 @@ export default class GroupManagementBoard extends React.Component{
         <div>
           <TextField
             hintText="グループ名"
+            floatingLabelText="グループ名"
             value={groupNameText}
             onChange={this.handleNameChange}
             ref="groupName"
@@ -148,14 +158,32 @@ export default class GroupManagementBoard extends React.Component{
             ref="changeNameButton"
           />
         </div>
+        <br />
         <div>
-        <MemberAddForm
-          dispatch={this.props.dispatch}
-          group={targetGroup}
-          memberStatus={this.props.board.memberStatus}
-        />
-        {members}
+          <MemberAddForm
+            dispatch={this.props.dispatch}
+            group={targetGroup}
+            memberStatus={this.props.board.memberStatus}
+          />
         </div>
+        <br />
+        <div>
+          <Table>
+            <TableHeader
+              displaySelectAll={false}
+            >
+              <TableRow>
+                <TableHeaderColumn>ユーザーID</TableHeaderColumn>
+                <TableHeaderColumn>管理者</TableHeaderColumn>
+                <TableHeaderColumn></TableHeaderColumn>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {members}
+            </TableBody>
+          </Table>
+        </div>
+
       </Dialog>
     )
   }

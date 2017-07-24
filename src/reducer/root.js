@@ -9,6 +9,7 @@ import groupboards from './groupboards'
 import updatedate from './updatedate'
 import secretquestion from './secretquestion'
 import notice from './notice'
+import historyboard from './historyboard'
 
 /**
 * 各reducerを結合してひとまとめにしてexportする
@@ -24,5 +25,6 @@ export default combineReducers({
   groupboards,
   updatedate,
   secretquestion,
-  notice
+  notice,
+  historyboard
 })

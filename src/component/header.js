@@ -7,6 +7,7 @@ import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 import ContentCreateIcon from 'material-ui/svg-icons/content/create';
+import AccountCircleIcon from 'material-ui/svg-icons/action/account-circle';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import FlatButton from 'material-ui/FlatButton';
@@ -20,6 +21,7 @@ import GroupManagementBoard from './groupmanagementboard';
 import {openAccountInfoModal} from '../action/accountboard';
 import {openGroupCreationBoard} from '../action/groupboards';
 import MyDestination from './mydestination'
+import HistoryBoard from './historyboard'
 import {cyan300,cyan600} from 'material-ui/styles/colors';
 
 /**
@@ -93,7 +95,7 @@ export default class Header extends React.Component{
           <IconMenu
             iconButtonElement={
               <IconButton touch={true} tooltip="アカウント情報" tooltipPosition="top-right">
-                <NavigationExpandMoreIcon iconClassName="muidocs-icon-custom-github"/>
+                <AccountCircleIcon/>
               </IconButton>
             }
             ref="menu_button"
@@ -111,6 +113,7 @@ export default class Header extends React.Component{
           group={this.props.group}
           board={this.props.board}
         />
+        <HistoryBoard dispatch={this.props.dispatch} historyboard={this.props.historyboard} />
       </Toolbar>:
       null
 

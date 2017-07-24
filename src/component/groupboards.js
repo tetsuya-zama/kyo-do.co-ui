@@ -39,6 +39,7 @@ export default class GroupBoards extends React.Component{
           >
             {editButton}
             <Board
+              dispatch={this.props.dispatch}
               memberStatus={group.member}
               updatedate={this.props.updatedate}
             />
@@ -61,6 +62,7 @@ export default class GroupBoards extends React.Component{
             isMultiLine={true}
           >
             <Board
+              dispatch={this.props.dispatch}
               memberStatus={group.member}
               updatedate={this.props.updatedate}
             />
@@ -74,6 +76,7 @@ export default class GroupBoards extends React.Component{
           {groupTabs}
           <Tab label="すべてのメンバー">
             <Board
+              dispatch={this.props.dispatch}
               memberStatus={this.props.board.memberStatus}
               updatedate={this.props.updatedate}
             />

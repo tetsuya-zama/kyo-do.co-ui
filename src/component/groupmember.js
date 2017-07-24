@@ -3,6 +3,14 @@ import ReactDOM from 'react-dom';
 import Checkbox from 'material-ui/Checkbox';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 
 import {
   setMemberAsGroupAdminRequired,
@@ -56,21 +64,29 @@ export default class GroupMember extends React.Component{
   */
   render(){
     return(
-      <div>
-        <span>{this.props.memberId}</span>
-        <Checkbox
-          label="管理者"
-          defaultChecked={this.props.isAdmin}
-          onCheck={this.handleAdminCheck}
-          ref="adminCheckBox"
-        />
-        <RaisedButton
-          label="削除"
-          primary={true}
-          onTouchTap={this.handleDeleteMemberButton}
-          ref="deleteMemberButton"
-        />
-      </div>
+      <TableRow>
+        <TableRowColumn>
+          <span>{this.props.memberId}</span>
+        </TableRowColumn>
+
+        <TableRowColumn>
+          <Checkbox
+            label=""
+            defaultChecked={this.props.isAdmin}
+            onCheck={this.handleAdminCheck}
+            ref="adminCheckBox"
+          />
+        </TableRowColumn>
+
+        <TableRowColumn>
+          <RaisedButton
+            label="削除"
+            primary={true}
+            onTouchTap={this.handleDeleteMemberButton}
+            ref="deleteMemberButton"
+          />
+        </TableRowColumn>
+      </TableRow>
     )
   }
 }
