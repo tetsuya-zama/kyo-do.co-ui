@@ -16,7 +16,7 @@ describe("<Board />",()=>{
 
     const props = {
       memberStatus:dummyMemberStatus,
-      updatedate:new Date()
+      updatedate:{date:new Date()}
     };
 
     const wrapper = mountWithMUI(<Board {...props} />);
@@ -35,7 +35,7 @@ describe("<Board />",()=>{
 
     const props = {
       memberStatus:dummyMemberStatus,
-      updatedate:new Date()
+      updatedate:{date:new Date()}
     };
 
     const wrapper = mountWithMUI(<Board {...props} />);

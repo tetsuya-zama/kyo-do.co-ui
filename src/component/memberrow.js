@@ -37,6 +37,30 @@ export default class MemberRow extends React.Component{
   * @return {undefined}
   */
   render(){
+
+    // this.props.updatedate.date //データ取得日時
+    // this.props.member.lastUpdate //最終更新日 そのままでは、getTime()が使えない
+    const updatedate = this.props.updatedate.date.getTime();
+
+    const lastUpdate = new Date(
+      this.props.member.lastUpdate.substr(0,4),
+      this.props.member.lastUpdate.substr(5,2) - 1, //月は0～11
+      this.props.member.lastUpdate.substr(8,2),
+      this.props.member.lastUpdate.substr(11,2),
+      this.props.member.lastUpdate.substr(14,2),
+      this.props.member.lastUpdate.substr(17,2)
+    ).getTime();
+
+    const Elapsedtime = updatedate - lastUpdate;
+    
+    const ElapsedtimeText =
+      (Math.round(Elapsedtime / 1000) <= 59) ? (Math.round(Elapsedtime / 1000) + "秒"):
+      (Math.round(Elapsedtime / 1000 / 60) <= 59) ? (Math.round(Elapsedtime / 1000 / 60) + "分"):
+      (Math.round(Elapsedtime / 1000 / 60 / 60) <= 23) ? (Math.round(Elapsedtime / 1000 / 60 / 60) + "時間"):
+      (Math.round(Elapsedtime / 1000 / 60 / 60 / 24) <= 30) ? (Math.round(Elapsedtime / 1000 / 60 / 60 / 24) + "日"):
+      (Math.round(Elapsedtime / 1000 / 60 / 60 / 24 / 31) <= 11) ? (Math.round(Elapsedtime / 1000 / 60 / 60 / 24 / 31) + "ヶ月"):
+      (Math.round(Elapsedtime / 1000 / 60 / 60 / 24 / 31 / 12) + "年");
+
     return (
       <List>
         <ListItem
@@ -44,7 +68,7 @@ export default class MemberRow extends React.Component{
             secondaryText={
               <p>
                 {this.props.member.contact}  <br />
-                {"最終更新日:" + this.props.member.lastUpdate.substr(0,16)}
+                {"最終更新日:" + this.props.member.lastUpdate.substr(0,16) + " (" + ElapsedtimeText + "前)"}
               </p>
             }
             secondaryTextLines={2}

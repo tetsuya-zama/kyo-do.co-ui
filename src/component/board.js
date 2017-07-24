@@ -122,7 +122,10 @@ export default class Board extends React.Component{
       }
     });
 
-    const memberRows = sortedMemberRows.map((member,idx) => <MemberRow dispatch={this.props.dispatch} key={idx} member={member}/>);
+
+
+    const memberRows = sortedMemberRows.map((member,idx) => <MemberRow dispatch={this.props.dispatch} updatedate={this.props.updatedate} key={idx} member={member}/>);
+
     const date = this.props.updatedate.date?
       this.props.updatedate.date.toLocaleString('ja-JP'):
       "";
