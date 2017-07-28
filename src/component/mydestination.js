@@ -106,6 +106,7 @@ export default class MyDestination extends React.Component{
           />
           <AutoComplete
             floatingLabelText="今日どこ？"
+            fullWidth={true}
             filter={AutoComplete.fuzzyFilter}
             dataSource={this.props.mydestination.suggestion}
             maxSearchResults={10}
@@ -120,7 +121,13 @@ export default class MyDestination extends React.Component{
             onTouchTap={this.handleClear}
           />
           <br />
-          <TextField floatingLabelText="電話番号を入れてね" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
+          <TextField
+            floatingLabelText="電話番号を入れてね"
+            multiLine={true}
+            value={this.props.mydestination.contact}
+            onChange={this.handleContactChange}
+            ref="contact"
+          />
           <RaisedButton label="クリア"
             primary={true}
             style={style}
