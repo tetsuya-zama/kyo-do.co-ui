@@ -28,8 +28,8 @@ describe("<MyDestination />",()=>{
     const wrapper = mountWithMUI(<MyDestination {...props} />);
 
     assert(wrapper.ref("in_business").find("input").length === 1);
-    assert(wrapper.ref("comment").find("input").length === 1);
-    assert(wrapper.ref("contact").find("input").length === 1);
+    assert(wrapper.ref("comment").find("textarea").length === 2);
+    assert(wrapper.ref("contact").find("textarea").length === 2);
   });
 
   it("dispatches MY_DESTINATION_CHANGE action if in_business is toggled",()=>{
@@ -76,8 +76,8 @@ describe("<MyDestination />",()=>{
 
     const wrapper = mountWithMUI(<MyDestination {...props} />);
 
-    wrapper.ref("comment").find("input").simulate("change",{target:{value:nextComment}});
-    wrapper.ref("comment").find("input").simulate("blur");
+    wrapper.ref("comment").find("textarea").at(1).simulate("change",{target:{value:nextComment}});
+    wrapper.ref("comment").find("textarea").at(1).simulate("blur");
 
     assert(props.dispatch.called);
     assert(props.dispatch.getCall(0).args[0],myDestinationChange({
@@ -105,7 +105,7 @@ describe("<MyDestination />",()=>{
 
     const wrapper = mountWithMUI(<MyDestination {...props} />);
 
-    wrapper.ref("contact").find("input").simulate("change",{target:{value:nextContact}});
+    wrapper.ref("contact").find("textarea").at(1).simulate("change",{target:{value:nextContact}});
 
     assert(props.dispatch.called);
     assert(props.dispatch.getCall(0).args[0],myDestinationChange({
@@ -139,7 +139,7 @@ describe("<MyDestination />",()=>{
     const wrapper = mountWithMUI(<MyDestination {...props} />);
 
     assert(wrapper.ref("in_business").find("input").get(0).checked);
-    assert(wrapper.ref("comment").find("input").get(0).value === myDestinationState.comment);
-    assert(wrapper.ref("contact").find("input").get(0).value === myDestinationState.contact);
+    assert(wrapper.ref("comment").find("textarea").get(0).value === myDestinationState.comment);
+    assert(wrapper.ref("contact").find("textarea").get(0).value === myDestinationState.contact);
   });
 });
