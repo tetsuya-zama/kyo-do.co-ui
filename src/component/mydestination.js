@@ -95,17 +95,30 @@ export default class MyDestination extends React.Component{
       margin:10,
     };
 
+    const styles = {
+      block: {
+        maxWidth: 320,
+      },
+      toggle: {
+        margin: 10
+      }
+    };
+
     return (
       <div>
       <Paper style={{margin:5, padding:5}} zDepth={2}>
         <h3>自分の行き先編集</h3>
+          <div style={styles.block}>
           <Toggle label={(this.props.mydestination.inBusiness===true)?
             "[出勤]" :
             "[退勤]"}
             toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"
+            style={styles.toggle}
           />
+          </div>
           <AutoComplete
             floatingLabelText="今日どこ？"
+            multiLine={true}
             filter={AutoComplete.fuzzyFilter}
             dataSource={this.props.mydestination.suggestion}
             maxSearchResults={10}
@@ -120,7 +133,13 @@ export default class MyDestination extends React.Component{
             onTouchTap={this.handleClear}
           />
           <br />
-          <TextField floatingLabelText="電話番号を入れてね" value={this.props.mydestination.contact} onChange={this.handleContactChange} ref="contact"/>
+          <TextField
+            floatingLabelText="電話番号を入れてね"
+            multiLine={true}
+            value={this.props.mydestination.contact}
+            onChange={this.handleContactChange}
+            ref="contact"
+          />
           <RaisedButton label="クリア"
             primary={true}
             style={style}
