@@ -5,6 +5,7 @@ import Toggle from 'material-ui/Toggle'
 import TextField from 'material-ui/TextField'
 import AutoComplete from 'material-ui/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 
 /**
@@ -20,12 +21,19 @@ export default class MyDestination extends React.Component{
   constructor(props){
     super(props);
 
+    //入力したinBusiness,comment,contactを一旦保持するstate
+    this.state = {
+      current_state_inBusiness:this.props.mydestination.inBusiness,
+      current_text_comment:this.props.mydestination.comment, 
+      current_text_contact:this.props.mydestination.contact
+    };
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleToggle = this.handleToggle.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleContactChange = this.handleContactChange.bind(this);
     this.handleClear = this.handleClear.bind(this);
     this.handleContactClear = this.handleContactClear.bind(this);
+    this.handleMyDestinationSubmit = this.handleMyDestinationSubmit.bind(this);
   }
   /**
   * 出勤/退勤の切り替えをハンドリングするメソッド
@@ -34,9 +42,7 @@ export default class MyDestination extends React.Component{
   * @return {undefined}
   */
   handleToggle(event,isInputChecked){
-    this.props.dispatch(myDestinationChange({
-        inBusiness:isInputChecked, comment:this.props.mydestination.comment, contact:this.props.mydestination.contact
-    }));
+    this.setState({current_state_inBusiness:isInputChecked});
   }
 
   /**
@@ -45,9 +51,7 @@ export default class MyDestination extends React.Component{
   * @return {undefined}
   */
   handleCommentChange(newValue) {
-    this.props.dispatch(myDestinationChange({
-        inBusiness:this.props.mydestination.inBusiness, comment:newValue, contact:this.props.mydestination.contact
-    }));
+    this.setState({current_text_comment:newValue});
   }
 
   /**
@@ -57,9 +61,7 @@ export default class MyDestination extends React.Component{
   * @return {undefined}
   */
   handleContactChange(event,newValue){
-    this.props.dispatch(myDestinationChange({
-        inBusiness:this.props.mydestination.inBusiness, comment:this.props.mydestination.comment, contact:newValue
-    }));
+    this.setState({current_text_contact:newValue});
   }
 
   /**
@@ -69,9 +71,7 @@ export default class MyDestination extends React.Component{
   * @return {undefined}
   */
   handleClear(event,newValue){
-    this.props.dispatch(myDestinationChange({
-        inBusiness:this.props.mydestination.inBusiness, comment:"", contact:this.props.mydestination.contact
-    }));
+    this.setState({current_text_comment:""});
   }
 
   /**
@@ -81,9 +81,20 @@ export default class MyDestination extends React.Component{
   * @return {undefined}
   */
   handleContactClear(event,newValue){
-    this.props.dispatch(myDestinationChange({
-        inBusiness:this.props.mydestination.inBusiness, comment:this.props.mydestination.comment, contact:""
-    }));
+    this.setState({current_text_contact:""});
+  }
+
+  /**
+   * 更新ボタンの押下をハンドリングするメソッド
+   * @param {Object} event イベント
+   * @param {string} newValue 新しい値
+   * @return {undefined}
+   */
+  handleMyDestinationSubmit(event){
+    const inBusiness = this.state.current_state_inBusiness;
+    const comment = this.state.current_text_comment;
+    const contact = this.state.current_text_contact;
+    this.props.dispatch(myDestinationChange({inBusiness, comment, contact}));
   }
 
   /**
@@ -107,27 +118,28 @@ export default class MyDestination extends React.Component{
     return (
       <div>
       <Paper style={{margin:5, padding:5}} zDepth={2}>
-        <h3>自分の行き先編集</h3>
           <div style={styles.block}>
-          <Toggle label={(this.props.mydestination.inBusiness===true)?
+          <Toggle label={(this.state.current_state_inBusiness===true)?
             "[出勤]" :
             "[退勤]"}
-            toggled={this.props.mydestination.inBusiness} onToggle={this.handleToggle} ref="in_business"
+            toggled={this.state.current_state_inBusiness} onToggle={this.handleToggle} ref="in_business"
             style={styles.toggle}
           />
           </div>
           <AutoComplete
             floatingLabelText="今日どこ？"
-            multiLine={true}
+//            multiLine={true}
             filter={AutoComplete.fuzzyFilter}
             dataSource={this.props.mydestination.suggestion}
             maxSearchResults={10}
-            openOnFocus={true}
+            openOnFocus={false}
+            onNewRequest={this.handleCommentChange}
             onUpdateInput={this.handleCommentChange}
-            searchText={this.props.mydestination.comment}
+            searchText={this.state.current_text_comment}
+//            value={this.state.current_text_comment}
             ref="comment"
           />
-          <RaisedButton label="クリア"
+          <FlatButton label="クリア"
             primary={true}
             style={style}
             onTouchTap={this.handleClear}
@@ -135,15 +147,20 @@ export default class MyDestination extends React.Component{
           <br />
           <TextField
             floatingLabelText="電話番号を入れてね"
-            multiLine={true}
-            value={this.props.mydestination.contact}
+            value={this.state.current_text_contact}
             onChange={this.handleContactChange}
             ref="contact"
           />
-          <RaisedButton label="クリア"
+          <FlatButton label="クリア"
             primary={true}
             style={style}
             onTouchTap={this.handleContactClear}
+          />
+          <br />
+          <RaisedButton label="送信"
+            primary={true}
+            style={style}
+            onTouchTap={this.handleMyDestinationSubmit}
           />
       </Paper>
       </div>);

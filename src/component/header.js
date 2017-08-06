@@ -36,10 +36,15 @@ export default class Header extends React.Component{
   */
   constructor(props){
     super(props);
+    this.state = {
+      open_my_destination:false,
+    };
     //ES2015版のReactだとこのおまじないをしないとメソッド内でthisが解決しない...
     this.handleLogout = this.handleLogout.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleCreateGroup = this.handleCreateGroup.bind(this);
+    this.handleOpenMyDestination = this.handleOpenMyDestination.bind(this);
+    this.handleCloseMyDestination = this.handleCloseMyDestination.bind(this);
   }
 
   /**
@@ -57,6 +62,22 @@ export default class Header extends React.Component{
   handleOpen(){
       this.props.dispatch(openAccountInfoModal(this.props.login.user.name));
   }
+
+  /**
+  * 行き先情報入力ダイアログのopenをハンドリングするメソッド
+  * @return {undefined}
+  */
+  handleOpenMyDestination(){
+      this.setState({open_my_destination:true});
+  }
+  /**
+  * 行き先情報入力ダイアログのcloseをハンドリングするメソッド
+  * @return {undefined}
+  */
+  handleCloseMyDestination(){
+      this.setState({open_my_destination:false});
+  }
+
   /**
   * グループ作成ボタンのクリックをハンドリングするメソッド
   * @return {undefined}
@@ -71,26 +92,39 @@ export default class Header extends React.Component{
   * @return {undefined}
   */
   render(){
+    const style = {
+      margin:10,
+    };
+    
     // ツールバーの表示
     const toolbar = this.props.login.status == LOGIN_STATUS.SUCCESS ?
       <Toolbar>
         <ToolbarGroup>
           <Chip><Avatar backgroundColor={this.props.mydestination.inBusiness ? "red" : "gray"}>{this.props.mydestination.inBusiness ? "出" : "退"}</Avatar>{this.props.login.user.name}</Chip>
-          <IconMenu
-            iconButtonElement={
-              <IconButton touch={true} tooltip="出退勤" tooltipPosition="top-right">
-                <ContentCreateIcon />
-              </IconButton>
-            }
-            targetOrigin={{ vertical: 'bottom', horizontal: 'left',}}
-            touchTapCloseDelay={0}
-          >
-              <MyDestination
-                dispatch={this.props.dispatch}
-                login={this.props.login}
-                mydestination={this.props.mydestination}
+          <RaisedButton label="行先入力"
+            primary={true}
+            style={style} 
+            onTouchTap={this.handleOpenMyDestination} 
+          />
+          <Dialog
+            title="行先情報入力"
+            actions={
+              <FlatButton
+                label="閉じる"
+                primary={true}
+                onTouchTap={this.handleCloseMyDestination}
               />
-          </IconMenu>
+            }
+            modal={false}
+            open={this.state.open_my_destination}
+            onRequestClose={this.handleCloseMyDestination}
+          >
+            <MyDestination
+              dispatch={this.props.dispatch}
+              login={this.props.login}
+              mydestination={this.props.mydestination}
+            />
+        </Dialog>
           <ToolbarSeparator />
           <IconMenu
             iconButtonElement={
@@ -116,6 +150,15 @@ export default class Header extends React.Component{
         <HistoryBoard dispatch={this.props.dispatch} historyboard={this.props.historyboard} />
       </Toolbar>:
       null
+
+    // 行先情報変更画面のアクション表示
+    const actionsMyDestination = [
+      <FlatButton
+        label="閉じる"
+        primary={true}
+        onTouchTap={this.handleCloseMyDestination}
+      />
+    ];
 
     return (
       <div><img src={"./img/logo.png"} />&nbsp;<br />{toolbar}</div>
