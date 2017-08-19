@@ -128,7 +128,6 @@ export default class MyDestination extends React.Component{
           </div>
           <AutoComplete
             floatingLabelText="今日どこ？"
-//            multiLine={true}
             filter={AutoComplete.fuzzyFilter}
             dataSource={this.props.mydestination.suggestion}
             maxSearchResults={10}
@@ -136,13 +135,13 @@ export default class MyDestination extends React.Component{
             onNewRequest={this.handleCommentChange}
             onUpdateInput={this.handleCommentChange}
             searchText={this.state.current_text_comment}
-//            value={this.state.current_text_comment}
             ref="comment"
           />
           <FlatButton label="クリア"
             primary={true}
             style={style}
             onTouchTap={this.handleClear}
+            ref="clear_comment"
           />
           <br />
           <TextField
@@ -155,12 +154,14 @@ export default class MyDestination extends React.Component{
             primary={true}
             style={style}
             onTouchTap={this.handleContactClear}
+            ref="clear_contact"
           />
           <br />
           <RaisedButton label="送信"
             primary={true}
             style={style}
-            onTouchTap={this.handleMyDestinationSubmit}
+            onClick={this.handleMyDestinationSubmit}
+            ref="submit"
           />
       </Paper>
       </div>);

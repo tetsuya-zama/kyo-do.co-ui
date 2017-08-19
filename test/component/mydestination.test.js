@@ -28,11 +28,11 @@ describe("<MyDestination />",()=>{
     const wrapper = mountWithMUI(<MyDestination {...props} />);
 
     assert(wrapper.ref("in_business").find("input").length === 1);
-    assert(wrapper.ref("comment").find("textarea").length === 2);
-    assert(wrapper.ref("contact").find("textarea").length === 2);
+    assert(wrapper.ref("comment").find("textarea").length === 0);
+    assert(wrapper.ref("contact").find("textarea").length === 0);
   });
 
-  it("dispatches MY_DESTINATION_CHANGE action if in_business is toggled",()=>{
+  it("dispatches MY_DESTINATION_CHANGE action if in_business is toggled and click submit button",()=>{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
@@ -47,8 +47,10 @@ describe("<MyDestination />",()=>{
     };
 
     const wrapper = mountWithMUI(<MyDestination {...props} />);
+//    const wrapper = shallow(<mydestination {...props} />);
 
     wrapper.ref("in_business").find("input").simulate("change",{target:{checked:true}});
+    wrapper.ref("submit").find("button").simulate("click");
 
     assert(props.dispatch.called);
     assert(props.dispatch.getCall(0).args[0],myDestinationChange({
@@ -58,7 +60,7 @@ describe("<MyDestination />",()=>{
     }));
   });
 
-  it("dispatches MY_DESTINATION_CHANGE action if comment is changed",()=>{
+  it("dispatches MY_DESTINATION_CHANGE action if comment is changed and click submit button",()=>{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
@@ -76,8 +78,8 @@ describe("<MyDestination />",()=>{
 
     const wrapper = mountWithMUI(<MyDestination {...props} />);
 
-    wrapper.ref("comment").find("textarea").at(1).simulate("change",{target:{value:nextComment}});
-    wrapper.ref("comment").find("textarea").at(1).simulate("blur");
+    wrapper.ref("comment").find("input").simulate("change",{target:{value:nextComment}});
+    wrapper.ref("submit").find("button").simulate("click");
 
     assert(props.dispatch.called);
     assert(props.dispatch.getCall(0).args[0],myDestinationChange({
@@ -87,7 +89,7 @@ describe("<MyDestination />",()=>{
     }));
   });
 
-  it("dispatches MY_DESTINATION_CHANGE action if contact is changed",()=>{
+  it("dispatches MY_DESTINATION_CHANGE action if contact is changed and click submit button",()=>{
     const props = {
       dispatch:sinon.spy(),
       mydestination:DEFAULT_MY_DESTINATION,
@@ -105,7 +107,8 @@ describe("<MyDestination />",()=>{
 
     const wrapper = mountWithMUI(<MyDestination {...props} />);
 
-    wrapper.ref("contact").find("textarea").at(1).simulate("change",{target:{value:nextContact}});
+    wrapper.ref("contact").find("input").simulate("change",{target:{value:nextContact}});
+    wrapper.ref("submit").find("button").simulate("click");
 
     assert(props.dispatch.called);
     assert(props.dispatch.getCall(0).args[0],myDestinationChange({
@@ -139,7 +142,7 @@ describe("<MyDestination />",()=>{
     const wrapper = mountWithMUI(<MyDestination {...props} />);
 
     assert(wrapper.ref("in_business").find("input").get(0).checked);
-    assert(wrapper.ref("comment").find("textarea").get(0).value === myDestinationState.comment);
-    assert(wrapper.ref("contact").find("textarea").get(0).value === myDestinationState.contact);
+    assert(wrapper.ref("comment").find("input").get(0).value === myDestinationState.comment);
+    assert(wrapper.ref("contact").find("input").get(0).value === myDestinationState.contact);
   });
 });
