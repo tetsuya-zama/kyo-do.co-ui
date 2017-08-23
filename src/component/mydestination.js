@@ -112,15 +112,15 @@ export default class MyDestination extends React.Component{
       },
       toggle: {
         margin: 10,
-        width: 650
+        width: '200%'
       },
       AutoComplete: {
         margin: 10,
-        width: 570
+        width: '80%'
       },
       TextField: {
         margin: 10,
-        width: 570
+        width: '80%'
       }
     };
 
