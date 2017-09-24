@@ -111,7 +111,16 @@ export default class MyDestination extends React.Component{
         maxWidth: 320,
       },
       toggle: {
-        margin: 10
+        margin: 10,
+        width: '200%'
+      },
+      AutoComplete: {
+        margin: 10,
+        width: '80%'
+      },
+      TextField: {
+        margin: 10,
+        width: '80%'
       }
     };
 
@@ -136,6 +145,8 @@ export default class MyDestination extends React.Component{
             onUpdateInput={this.handleCommentChange}
             searchText={this.state.current_text_comment}
             ref="comment"
+            style={styles.AutoComplete}
+            fullWidth={true}
           />
           <FlatButton label="クリア"
             primary={true}
@@ -149,6 +160,7 @@ export default class MyDestination extends React.Component{
             value={this.state.current_text_contact}
             onChange={this.handleContactChange}
             ref="contact"
+            style={styles.TextField}
           />
           <FlatButton label="クリア"
             primary={true}
